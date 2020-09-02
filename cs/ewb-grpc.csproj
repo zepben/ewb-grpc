@@ -2,9 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <RootNamespace>evolve.grpc</RootNamespace>
-    <AssemblyName>evolve.grpc</AssemblyName>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Evolve.Grpc</RootNamespace>
+    <AssemblyName>Evolve.Grpc</AssemblyName>
     <PackageId>Zepben.Evolve.Grpc</PackageId>
     <Version>0.1.0-pre1</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -34,14 +34,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
-  <Target Name="CopyFiles" BeforeTargets="CollectPackageReferences">
-    <ItemGroup>
-      <evolve-grpcFiles Include="..\evolve-grpc\proto\zepben\protobuf\**\*.*"/>
-    </ItemGroup>
-    <RemoveDir Directories="..\proto\zepben\protobuf\evolve\cim;..\proto\zepben\protobuf\evolve\network"/>
-    <Copy SourceFiles="@(evolve-grpcFiles)" DestinationFiles="@(evolve-grpcFiles-&gt;'..\proto\zepben\protobuf\evolve\%(RecursiveDir)%(Filename)%(Extension)')"/>
-  </Target>
 
   <ItemGroup>
     <Protobuf Include="../proto/**/*.proto" ProtoRoot="../proto" GrpcServices="Client"/>
