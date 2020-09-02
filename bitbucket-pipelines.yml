@@ -85,9 +85,9 @@ definitions:
         script:
           - git pull origin $BITBUCKET_BRANCH
           - source /scripts/common.sh
-          - cd python/cfg
-          - for cfg in *.cfg; do py-update-version --snapshot --no-commit $cfg; done
-          - cd ../../cs
+          - cd python
+          - py-update-version --snapshot --no-commit setup.cfg
+          - cd ../cs
           - cs-update-version --snapshot --no-commit evolve-grpc.csproj
           - commit_update_version $BITBUCKET_BRANCH
     - step: &update-protolock
@@ -163,12 +163,12 @@ pipelines:
           name: Release checks and update version
           script:
             - source /scripts/common.sh
-            - cd python/cfg
-            - for cfg in *.cfg; do py-release-checks $cfg; done
+            - cd python
+            - py-release-checks setup.cfg
             - git checkout -b release
             # finalize version
-            - for cfg in *.cfg; do py-finalize-version --no-commit $cfg; done
-            - cd ../../java
+            - py-finalize-version --no-commit setup.cfg
+            - cd ../java
             - java-mvn-release-checks pom.xml
             - java-mvn-finalize-version --no-commit pom.xml
             - cs-finalize-version --no-commit evolve-grpc.csproj
@@ -237,8 +237,8 @@ pipelines:
             - git remote set-url origin "https://${BB_AUTH_STRING}@bitbucket.org/$BITBUCKET_REPO_FULL_NAME"
             - git merge origin/release
             - git push origin $BITBUCKET_BRANCH
-            - cd python/cfg
-            - version="$(cat *.cfg | grep "version[[:space:]]*=[[:space:]]*\"\?[0-9]\+\.[0-9]\+\.[0-9]\+\(b[0-9]\+\)\?\"\?" | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+\(b[0-9]\+\)\?" | sort -u )"
+            - cd python
+            - version=$(grep "version[[:space:]]*=[[:space:]]*\"\?[0-9]\+\.[0-9]\+\.[0-9]\+\(b[0-9]\+\)\?\"\?" setup.cfg | grep -o "[0-9]\+\.[0-9]\+\.[0-9]\+\(b[0-9]\+\)\?")
             - git tag "v$version"
             - git push --tags
             - pipe: atlassian/slack-notify:0.3.6
@@ -257,9 +257,9 @@ pipelines:
             - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             - git fetch --all
             - git checkout release
-            - cd python/cfg
-            - for cfg in *.cfg; do py-update-version --no-commit $cfg; done
-            - cd ../../java
+            - cd python
+            - py-update-version --no-commit setup.cfg
+            - cd ../java
             - java-mvn-update-version --no-commit pom.xml
             - cd ../cs
             - cs-update-version --no-commit evolve-grpc.csproj
@@ -276,9 +276,9 @@ pipelines:
           script:
             - create-branch --lts
             - export BITBUCKET_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-            - cd python/cfg
-            - for cfg in *.cfg; do py-update-version --no-commit $cfg; done
-            - cd ../../java
+            - cd python
+            - py-update-version --no-commit setup.cfg
+            - cd ../java
             - java-mvn-update-version --no-commit pom.xml
             - cd ../cs
             - cs-update-version --no-commit evolve-grpc.csproj
@@ -291,9 +291,9 @@ pipelines:
           script:
             - create-branch --hotfix
             - export BITBUCKET_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-            - cd python/cfg
-            - for cfg in *.cfg; do py-update-version --no-commit $cfg; done
-            - cd ../../java
+            - cd python
+            - py-update-version --no-commit setup.cfg
+            - cd ../java
             - java-mvn-update-version --no-commit pom.xml
             - cd ../cs
             - cs-update-version --no-commit evolve-grpc.csproj
