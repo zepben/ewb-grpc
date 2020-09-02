@@ -1,0 +1,50 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+//
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.infiec61970.feeder";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.InfIEC61970.Feeder";
+package zepben.protobuf.cim.iec61970.infiec61970.feeder;
+
+import "zepben/protobuf/cim/iec61970/base/wires/Line.proto";
+
+/**
+ * Sub-transmission circuit connecting one or more substations.
+ */
+message Circuit {
+
+    /**
+     * Line fields for this Circuit.
+     */
+    base.wires.Line l = 1;
+
+    /**
+     * Terminals at the end of the circuit.
+     */
+    repeated string endTerminalMRIDs = 2;
+
+    /**
+     * The loop containing this circuit.
+     */
+    string loopMRID = 3;
+
+    /**
+     * Simplification of the CIM association via Bay to Substation.
+     */
+    repeated string endSubstationMRIDs = 4;
+
+}

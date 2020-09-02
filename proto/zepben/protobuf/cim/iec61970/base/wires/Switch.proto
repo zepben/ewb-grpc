@@ -1,0 +1,46 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+
+/**
+ * A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal devices including grounding switches.
+ */
+message Switch {
+
+    /**
+     * The ConductingEquipment fields for this Switch.
+     */
+    core.ConductingEquipment ce = 1;
+
+    /**
+     * The attribute is used in cases when no Measurement for the status value is present. If the Switch has a status measurement
+     * the Discrete.normalValue is expected to match with the Switch.normalOpen.
+     */
+    bool normalOpen = 2;
+
+    /**
+     * The attribute tells if the switch is considered open when used as input to topology processing.
+     */
+    bool open = 3;
+
+}

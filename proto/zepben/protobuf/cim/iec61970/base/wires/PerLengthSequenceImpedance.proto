@@ -1,0 +1,76 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/wires/PerLengthImpedance.proto";
+
+/**
+ * Sequence impedance and admittance parameters per unit length, for transposed lines of 1, 2, or 3 phases. For
+ * 1-phase lines, define x=x0=xself. For 2-phase lines, define x=xs-xm and x0=xs+xm.
+ */
+message PerLengthSequenceImpedance {
+
+    /**
+     * PerLengthImpedance fields for this PerLengthSequenceImpedance.
+     */
+    PerLengthImpedance pli = 1;
+
+    /**
+     * Positive sequence series resistance, per unit of length.
+     */
+    double r = 2;
+
+    /**
+     * Positive sequence series reactance, per unit of length.
+     */
+    double x = 3;
+
+    /**
+     * Zero sequence series resistance, per unit of length.
+     */
+    double r0 = 4;
+
+    /**
+     * Zero sequence series reactance, per unit of length.
+     */
+    double x0 = 5;
+
+    /**
+     * Positive sequence shunt (charging) susceptance, per unit of length.
+     */
+    double bch = 6;
+
+    /**
+     * Zero sequence shunt (charging) susceptance, per unit of length.
+     */
+    double b0ch = 7;
+
+    /**
+     * Positive sequence shunt (charging) conductance, per unit of length.
+     */
+    double gch = 8;
+
+    /**
+     * Zero sequence shunt (charging) conductance, per unit of length.
+     */
+    double g0ch = 9;
+
+}

@@ -112,7 +112,7 @@ def main():
     parser.add_argument('--fullclean', help='Removes the output directory in its entirety.', action='store_true', default=False)
     parser.add_argument('--protos', help="Path to proto files.", default=os.path.join("..", "proto", "zepben", "**", "*.proto"))
     parser.add_argument('--output-dir', help="Output directory for generated code", default="src")
-    parser.add_argument('--namespace', help="Namespace to use for generated code", default=os.path.join("zepben", "protobuf"))
+    parser.add_argument('--namespace', help="Namespace to use for generated code", default=os.path.join("zepben"))
     parser.add_argument('--package', help="Package the projects", action='store_true')
     parser.add_argument('include', help="Proto files to build. Defaults to everything found in --protos.",
                         nargs=argparse.REMAINDER)

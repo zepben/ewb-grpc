@@ -1,0 +1,53 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+
+/**
+ * A power system resource can be an item of equipment such as a switch, an equipment container containing many individual
+ * items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources
+ * can have measurements associated.
+ */
+message PowerSystemResource {
+
+    /**
+     * The IdentifiedObject fields for this PowerSystemResource
+     */
+    IdentifiedObject io = 1;
+
+    /**
+     * Datasheet information for this power system resource.
+     */
+    string assetInfoMRID = 2;
+
+    /**
+     * Location of this power system resource.
+     */
+    string locationMRID = 3;
+
+    /**
+     * The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous machine or
+     * capacitor bank breaker actuator.
+     */
+    int32 numControls = 4;
+
+}

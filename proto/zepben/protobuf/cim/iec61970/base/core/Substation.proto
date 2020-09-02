@@ -1,0 +1,63 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+
+/**
+ * A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk
+ * is passed for the purposes of switching or modifying its characteristics.
+ * <p>
+ * A Substation must be sent as part of a SubGeographicalRegion
+ */
+message Substation {
+
+    /**
+     * EquipmentContainer fields for this Substation.
+     */
+    EquipmentContainer ec = 1;
+
+    /**
+     * The SubGeographicalRegion containing the substation.
+     */
+    string subGeographicalRegionMRID = 2;
+
+    /**
+     * The normal energized feeders of the substation. Also used for naming purposes.
+     */
+    repeated string normalEnergizedFeederMRIDs = 3;
+
+    /**
+     * The loops that are energizing this substation.
+     */
+    repeated string loopMRIDs = 4;
+
+    /**
+     * Simplification of the CIM association via Bay to Circuit.
+     */
+    repeated string circuitMRIDs = 5;
+
+    /**
+     * The loops that are energized by this substation.
+     */
+    repeated string normalEnergizedLoopMRIDs = 6;
+
+}

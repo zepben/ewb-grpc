@@ -1,0 +1,33 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc.is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc.is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.mp";
+option csharp_namespace = "Zepben.Protobuf.MP";
+package zepben.protobuf.mp;
+
+import "zepben/protobuf/mp/mp-requests.proto";
+import "zepben/protobuf/mp/mp-responses.proto";
+
+service MeasurementProducer {
+
+    // Package: IEC-61970 Base/Meas
+    rpc CreateAccumulatorValue(CreateAccumulatorValueRequest) returns (CreateAccumulatorValueResponse);
+    rpc CreateAnalogValue(CreateAnalogValueRequest) returns (CreateAnalogValueResponse);
+    rpc CreateDiscreteValue(CreateDiscreteValueRequest) returns (CreateDiscreteValueResponse);
+
+}

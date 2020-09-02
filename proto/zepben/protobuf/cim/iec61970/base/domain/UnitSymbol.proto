@@ -1,0 +1,628 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.domain";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Domain";
+package zepben.protobuf.cim.iec61970.base.domain;
+
+/**
+ * Types of measurements. 
+ * Note this is typically a string in the CIM, 
+ * however for ease-of-use we’ve converted our supported measurement types to an enum.
+ */
+enum UnitSymbol {
+    /**
+     * Dimension less quantity, e.g. count, per unit, etc.
+     */
+    NONE = 0;
+    /**
+     * Length in metres.
+     */
+    METRES = 1;
+    /**
+     * Mass in kilograms. Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
+     */
+    KG = 2;
+    /**
+     * Time in seconds.
+     */
+    SECONDS = 3;
+    /**
+     * Current in amperes.
+     */
+    A = 4;
+    /**
+     * Temperature in kelvins.
+     */
+    K = 5;
+    /**
+     * Amount of substance in moles.
+     */
+    MOL = 6;
+    /**
+     * Luminous intensity in candelas.
+     */
+    CD = 7;
+    /**
+     * Plane angle in degrees.
+     */
+    DEG = 8;
+    /**
+     * Plane angle in radians (m/m).
+     */
+    RAD = 9;
+    /**
+     * Solid angle in steradians (m2/m2).
+     */
+    SR = 10;
+    /**
+     * Absorbed dose in grays (J/kg).
+     */
+    GY = 11;
+    /**
+     * Radioactivity in becquerels (1/s).
+     */
+    BQ = 12;
+    /**
+     * Relative temperature in degrees Celsius.
+     * In the SI unit system the symbol is °C. Electric charge is measured in coulomb that has the unit symbol C.
+     * To distinguish degree Celsius from coulomb the symbol used in the UML is degC. The reason for not using °C is
+     * that the special character ° is difficult to manage in software.
+     */
+    DEGC = 13;
+    /**
+     * Dose equivalent in sieverts (J/kg).
+     */
+    SV = 14;
+    /**
+     * Electric capacitance in farads (C/V).
+     */
+    F = 15;
+    /**
+     * Electric charge in coulombs (A·s).
+     */
+    C = 16;
+    /**
+     * Conductance in siemens.
+     */
+    SIEMENS = 17;
+    /**
+     * Electric inductance in henrys (Wb/A).
+     */
+    HENRYS = 18;
+    /**
+     * Electric potential in volts (W/A).
+     */
+    V = 19;
+    /**
+     * Electric resistance in ohms (V/A).
+     */
+    OHM = 20;
+    /**
+     * Energy in joules (N·m = C·V = W·s).
+     */
+    J = 21;
+    /**
+     * Force in newtons (kg·m/s²).
+     */
+    N = 22;
+    /**
+     * Frequency in hertz (1/s).
+     */
+    HZ = 23;
+    /**
+     * Illuminance in lux (lm/m²).
+     */
+    LX = 24;
+    /**
+     * Luminous flux in lumens (cd·sr).
+     */
+    LM = 25;
+    /**
+     * Magnetic flux in webers (V·s).
+     */
+    WB = 26;
+    /**
+     * Magnetic flux density in teslas (Wb/m2).
+     */
+    T = 27;
+    /**
+     * Real power in watts (J/s). Electrical power may have real and reactive components.
+     * The real portion of electrical power (I²R or VIcos(phi)), is expressed in Watts.
+     * See also apparent power and reactive power.
+     */
+    W = 28;
+    /**
+     * Pressure in pascals (N/m²).
+     * Note: the absolute or relative measurement of pressure is implied with this entry.
+     * See below for more explicit forms.
+     */
+    PA = 29;
+    /**
+     * Area in square metres (m²).
+     */
+    M2 = 30;
+    /**
+     * Volume in cubic metres (m³).
+     */
+    M3 = 31;
+    /**
+     * Velocity in metres per second (m/s).
+     */
+    MPERS = 32;
+    /**
+     * Acceleration in metres per second squared (m/s²).
+     */
+    MPERS2 = 33;
+    /**
+     * Volumetric flow rate in cubic metres per second (m³/s).
+     */
+    M3PERS = 34;
+    /**
+     * Fuel efficiency in metres per cubic metres (m/m³).
+     */
+    MPERM3 = 35;
+    /**
+     * Moment of mass in kilogram metres (kg·m) (first moment of mass).
+     * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
+     */
+    KGM = 36;
+    /**
+     * Density in kilogram/cubic metres (kg/m³).
+     * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
+     */
+    KGPERM3 = 37;
+    /**
+     * Viscosity in square metres / second (m²/s).
+     */
+    M2PERS = 38;
+    /**
+     * Thermal conductivity in watt/metres kelvin.
+     */
+    WPERMK = 39;
+    /**
+     * Heat capacity in joules/kelvin.
+     */
+    JPERK = 40;
+    /**
+     * Concentration in parts per million.
+     */
+    PPM = 41;
+    /**
+     * Rotations per second (1/s). See also Hz (1/s).
+     */
+    ROTPERS = 42;
+    /**
+     * Angular velocity in radians per second (rad/s).
+     */
+    RADPERS = 43;
+    /**
+     * Heat flux density, irradiance, watts per square metre.
+     */
+    WPERM2 = 44;
+    /**
+     * Insulation energy density, joules per square metre or watt second per square metre.
+     */
+    JPERM2 = 45;
+    /**
+     * Conductance per length (F/m).
+     */
+    SPERM = 46;
+    /**
+     * Temperature change rate in kelvins per second.
+     */
+    KPERS = 47;
+    /**
+     * Pressure change rate in pascals per second.
+     */
+    PAPERS = 48;
+    /**
+     * Specific heat capacity, specific entropy, joules per kilogram Kelvin.
+     */
+    JPERKGK = 49;
+    /**
+     * Apparent power in volt amperes. See also real power and reactive power.
+     */
+    VA = 50;
+    /**
+     * Reactive power in volt amperes reactive. The “reactive” or “imaginary” component of electrical power
+     * (VIsin(phi)). (See also real power and apparent power).
+     * Note: Different meter designs use different methods to arrive at their results.
+     *       Some meters may compute reactive power as an arithmetic value, while others compute the value vectorially.
+     *       The data consumer should determine the method in use and the suitability of the measurement for the
+     *       intended purpose.
+     */
+    VAR = 51;
+    /**
+     * Power factor, dimensionless.
+     * Note 1: This definition of power factor only holds for balanced systems.
+     *         See the alternative definition under code 153.
+     * Note 2 : Beware of differing sign conventions in use between the IEC and EEI.
+     *          It is assumed that the data consumer understands the type of meter in use and the sign
+     *          convention in use by the utility.
+     */
+    COSPHI = 52;
+    /**
+     * Volt seconds (Ws/A).
+     */
+    VS = 53;
+    /**
+     * Volt squared (W²/A²).
+     */
+    V2 = 54;
+    /**
+     * Ampere seconds (A·s).
+     */
+    AS = 55;
+    /**
+     * Amperes squared (A²).
+     */
+    A2 = 56;
+    /**
+     * Ampere squared time in square amperes (A²s).
+     */
+    A2S = 57;
+    /**
+     * Apparent energy in volt ampere hours.
+     */
+    VAH = 58;
+    /**
+     * Real energy in watt hours.
+     */
+    WH = 59;
+    /**
+     * Reactive energy in volt ampere reactive hours.
+     */
+    VARH = 60;
+    /**
+     * Magnetic flux in volt per hertz.
+     */
+    VPERHZ = 61;
+    /**
+     * Rate of change of frequency in hertz per second.
+     */
+    HZPERS = 62;
+    /**
+     * Number of characters.
+     */
+    CHARACTER = 63;
+    /**
+     * Data rate (baud) in characters per second.
+     */
+    CHARPERS = 64;
+    /**
+     * Moment of mass in kilogram square metres (kg·m²) (Second moment of mass, commonly called the moment of inertia).
+     * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
+     */
+    KGM2 = 65;
+    /**
+     * Sound pressure level in decibels. Note: multiplier “d” is included in this unit symbol for
+     * compatibility with IEC 61850-7-3.
+     */
+    DB = 66;
+    /**
+     * Ramp rate in watts per second.
+     */
+    WPERS = 67;
+    /**
+     * Volumetric flow rate in litres per second.
+     */
+    LPERS = 68;
+    /**
+     * Power level (logarithmic ratio of signal strength , Bel-mW), normalized to 1mW.
+     * Note: multiplier “d” is included in this unit symbol for compatibility with IEC 61850-7-3.
+     */
+    DBM = 69;
+    /**
+     * Time in hours, hour = 60 min = 3600 s.
+     */
+    HOURS = 70;
+    /**
+     * Time in minutes, minute = 60 s.
+     */
+    MIN = 71;
+    /**
+     * Quantity power, Q.
+     */
+    Q = 72;
+    /**
+     * Quantity energy, Qh.
+     */
+    QH = 73;
+    /**
+     * Resistivity, ohm metres, (rho).
+     */
+    OHMM = 74;
+    /**
+     * A/m, magnetic field strength, amperes per metre.
+     */
+    APERM = 75;
+    /**
+     * Volt-squared hour, volt-squared-hours.
+     */
+    V2H = 76;
+    /**
+     * Ampere-squared hour, ampere-squared hour.
+     */
+    A2H = 77;
+    /**
+     * Ampere-hours, ampere-hours.
+     */
+    AH = 78;
+    /**
+     * Amount of substance, Counter value.
+     */
+    COUNT = 79;
+    /**
+     * Volume, cubic feet.
+     */
+    FT3 = 80;
+    /**
+     * Volumetric flow rate, cubic metres per hour.
+     */
+    M3PERH = 81;
+    /**
+     * Volume in gallons, US gallon (1 gal = 231 in3 = 128 fl ounce).
+     */
+    GAL = 82;
+    /**
+     * Energy, British Thermal Units.
+     */
+    BTU = 83;
+    /**
+     * Volume in litres, litre = dm3 = m3/1000.
+     */
+    L = 84;
+    /**
+     * Volumetric flow rate, litres per hour.
+     */
+    LPERH = 85;
+    /**
+     * Concentration, The ratio of the volume of a solute divided by the volume of the solution.
+     * Note: Users may need use a prefix such a ‘µ’ to express a quantity such as ‘µL/L’.
+     */
+    LPERL = 86;
+    /**
+     * Concentration, The ratio of the mass of a solute divided by the mass of the solution.
+     * Note: Users may need use a prefix such a ‘µ’ to express a quantity such as ‘µg/g’.
+     */
+    GPERG = 87;
+    /**
+     * Concentration, The amount of substance concentration, (c),
+     * the amount of solvent in moles divided by the volume of solution in m³.
+     */
+    MOLPERM3 = 88;
+    /**
+     * Concentration, Molar fraction,
+     * the ratio of the molar amount of a solute divided by the molar amount of the solution.
+     */
+    MOLPERMOL = 89;
+    /**
+     * Concentration, Molality, the amount of solute in moles and the amount of solvent in kilograms.
+     */
+    MOLPERKG = 90;
+    /**
+     * Time, Ratio of time. Note: Users may need to supply a prefix such as ‘µ’ to show rates such as ‘µs/s’.
+     */
+    SPERS = 91;
+    /**
+     * Frequency, rate of frequency change.
+     * Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mHz/Hz’.
+     */
+    HZPERHZ = 92;
+    /**
+     * Voltage, ratio of voltages. Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mV/V’.
+     */
+    VPERV = 93;
+    /**
+     * Current, ratio of amperages. Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mA/A’.
+     */
+    APERA = 94;
+    /**
+     * Power factor, PF, the ratio of the active power to the apparent power.
+     * Note: The sign convention used for power factor will differ between IEC meters and EEI (ANSI) meters.
+     *       It is assumed that the data consumers understand the type of meter being used and agree on the
+     *       sign convention in use at any given utility.
+     */
+    VPERVA = 95;
+    /**
+     * Amount of rotation, revolutions.
+     */
+    REV = 96;
+    /**
+     * Catalytic activity, katal = mol / s.
+     */
+    KAT = 97;
+    /**
+     * Specific energy, Joules / kg.
+     */
+    JPERKG = 98;
+    /**
+     * Volume, cubic metres, with the value uncompensated for weather effects.
+     */
+    M3UNCOMPENSATED = 99;
+    /**
+     * Volume, cubic metres, with the value compensated for weather effects.
+     */
+    M3COMPENSATED = 100;
+    /**
+     * Signal Strength, ratio of power.
+     * Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mW/W’.
+     */
+    WPERW = 101;
+    /**
+     * Energy, therms.
+     */
+    THERM = 102;
+    /**
+     * Wavenumber, reciprocal metres, (1/m).
+     */
+    ONEPERM = 103;
+    /**
+     * Specific volume, cubic metres per kilogram, v.
+     */
+    M3PERKG = 104;
+    /**
+     * Dynamic viscosity, pascal seconds.
+     */
+    PAS = 105;
+    /**
+     * Moment of force, newton metres.
+     */
+    NM = 106;
+    /**
+     * Surface tension, newton per metre.
+     */
+    NPERM = 107;
+    /**
+     * Angular acceleration, radians per second squared.
+     */
+    RADPERS2 = 108;
+    /**
+     * Energy density, joules per cubic metre.
+     */
+    JPERM3 = 109;
+    /**
+     * Electric field strength, volts per metre.
+     */
+    VPERM = 110;
+    /**
+     * Electric charge density, coulombs per cubic metre.
+     */
+    CPERM3 = 111;
+    /**
+     * Surface charge density, coulombs per square metre.
+     */
+    CPERM2 = 112;
+    /**
+     * Permittivity, farads per metre.
+     */
+    FPERM = 113;
+    /**
+     * Permeability, henrys per metre.
+     */
+    HPERM = 114;
+    /**
+     * Molar energy, joules per mole.
+     */
+    JPERMOL = 115;
+    /**
+     * Molar entropy, molar heat capacity, joules per mole kelvin.
+     */
+    JPERMOLK = 116;
+    /**
+     * Exposure (x rays), coulombs per kilogram.
+     */
+    CPERKG = 117;
+    /**
+     * Absorbed dose rate, grays per second.
+     */
+    GYPERS = 118;
+    /**
+     * Radiant intensity, watts per steradian.
+     */
+    WPERSR = 119;
+    /**
+     * Radiance, watts per square metre steradian.
+     */
+    WPERM2SR = 120;
+    /**
+     * Catalytic activity concentration, katals per cubic metre.
+     */
+    KATPERM3 = 121;
+    /**
+     * Time in days, day = 24 h = 86400 s.
+     */
+    D = 122;
+    /**
+     * Plane angle, minutes.
+     */
+    ANGLEMIN = 123;
+    /**
+     * Plane angle, seconds.
+     */
+    ANGLESEC = 124;
+    /**
+     * Area, hectares.
+     */
+    HA = 125;
+    /**
+     * Mass in tons, “tonne” or “metric ton” (1000 kg = 1 Mg).
+     */
+    TONNE = 126;
+    /**
+     * Pressure in bars, (1 bar = 100 kPa).
+     */
+    BAR = 127;
+    /**
+     * Pressure, millimetres of mercury (1 mmHg is approximately 133.3 Pa).
+     */
+    MMHG = 128;
+    /**
+     * Length, nautical miles (1 M = 1852 m).
+     */
+    MILES_NAUTICAL = 129;
+    /**
+     * Speed, knots (1 kn = 1852/3600) m/s.
+     */
+    KN = 130;
+    /**
+     * Magnetic flux, maxwells (1 Mx = 10-8 Wb).
+     */
+    MX = 131;
+    /**
+     * Magnetic flux density, gausses (1 G = 10-4 T).
+     */
+    G = 132;
+    /**
+     * Magnetic field in oersteds, (1 Oe = (103/4p) A/m).
+     */
+    OE = 133;
+    /**
+     * Volt-hour, Volt hours.
+     */
+    VH = 134;
+    /**
+     * Active power per current flow, watts per Ampere.
+     */
+    WPERA = 135;
+    /**
+     * Reciprocal of frequency (1/Hz).
+     */
+    ONEPERHZ = 136;
+    /**
+     * Power factor, PF, the ratio of the active power to the apparent power.
+     * Note: The sign convention used for power factor will differ between IEC meters and EEI (ANSI) meters.
+     *       It is assumed that the data consumers understand the type of meter being used and agree on the sign
+     *       convention in use at any given utility.
+     */
+    VPERVAR = 137;
+    /**
+     * Electric resistance per length in ohms per metre ((V/A)/m).
+     */
+    OHMPERM = 138;
+    /**
+     * Weight per energy in kilograms per joule (kg/J).
+     * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
+     */
+    KGPERJ = 139;
+    /**
+     * Energy rate in joules per second (J/s).
+     */
+    JPERS = 140;
+}

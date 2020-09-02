@@ -1,0 +1,54 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+//
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.network.model";
+option csharp_namespace = "Zepben.Protobuf.Network.Model";
+package zepben.protobuf.network.model;
+
+/**
+ * Class that holds the traced phase statuses for the current and normal state of the network.
+ * Each byte in an int is used to store all possible phases and directions for a core.
+ * Each byte has 2 bits that represent the direction for a phase. If none of those bits are set the direction is equal to NONE.
+ * Use the figures below as a reference.
+ *
+ * PhaseStatus:     |          integer          |
+ *                  | byte | byte | byte | byte |
+ *                  |Core 3|Core 2|Core 1|Core 0|
+ *
+ * Core:            |                 byte                  |
+ *                  |  2bits  |  2bits  |  2bits  |  2bits  |
+ * Phase:           |    N    |    C    |    B    |    A    |
+ * Direction:       |OUT | IN |OUT | IN |OUT | IN |OUT | IN |
+ *
+ * ###########################################################################
+ * # Note: Direction is relative to the primary EnergySource in the network. #
+ * ###########################################################################
+ */
+message TracedPhases {
+
+    /**
+     * The traced phases and directions for the normal state of the network.
+     */
+    int32 normalStatus = 1;
+
+    /**
+     * The traced phases and directions for the current state of the network.
+     */
+    int32 currentStatus = 2;
+
+}
