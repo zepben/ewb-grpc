@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>evolve.grpc</RootNamespace>
+    <AssemblyName>evolve.grpc</AssemblyName>
+    <PackageId>Zepben.Evolve.Grpc</PackageId>
+    <Version>0.1.0-pre1</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>COPYING</PackageLicenseFile>
+    <Copyright>Zeppelin Bend Pty Ltd</Copyright>
+    <Company>Zeppelin Bend Pty Ltd</Company>
+    <Authors>Zeppelin Bend Pty Ltd</Authors>
+    <PackageProjectUrl>https://bitbucket.org/zepben/evolve-grpc</PackageProjectUrl>
+    <RepositoryUrl>https://bitbucket.org/zepben/evolve-grpc</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>CIM, Zepben, Zeppelin Bend, Energy Workbench Server, Electricity</PackageTags>
+    <NeutralLanguage>English</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\COPYING">
+      <Pack>True</Pack>
+      <PackagePath/>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.13.0"/>
+    <PackageReference Include="Grpc.Core" Version="2.31.0"/>
+    <PackageReference Include="Grpc.Tools" Version="2.31.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <Target Name="CopyFiles" BeforeTargets="CollectPackageReferences">
+    <ItemGroup>
+      <evolve-grpcFiles Include="..\evolve-grpc\proto\zepben\protobuf\**\*.*"/>
+    </ItemGroup>
+    <RemoveDir Directories="..\proto\zepben\protobuf\evolve\cim;..\proto\zepben\protobuf\evolve\network"/>
+    <Copy SourceFiles="@(evolve-grpcFiles)" DestinationFiles="@(evolve-grpcFiles-&gt;'..\proto\zepben\protobuf\evolve\%(RecursiveDir)%(Filename)%(Extension)')"/>
+  </Target>
+
+  <ItemGroup>
+    <Protobuf Include="../proto/**/*.proto" ProtoRoot="../proto" GrpcServices="Client"/>
+  </ItemGroup>
+</Project>
