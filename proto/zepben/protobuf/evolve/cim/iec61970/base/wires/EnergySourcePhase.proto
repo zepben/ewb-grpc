@@ -1,0 +1,48 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.evolve.cim.iec61970.base.wires;
+
+import "zepben/protobuf/evolve/cim/iec61970/base/core/PowerSystemResource.proto";
+import "zepben/protobuf/evolve/cim/iec61970/base/wires/SinglePhaseKind.proto";
+
+/**
+ * Represents the single phase information of an unbalanced energy source.
+ */
+message EnergySourcePhase {
+
+    /**
+     * PowerSystemResource fields for this EnergySourcePhase.
+     */
+    core.PowerSystemResource psr = 1;
+
+    /**
+     * The energy source to which the phase belongs.
+     */
+    string energySourceMRID = 2;
+
+    /**
+     * Phase of this energy source component. If the energy source wye connected, the connection is from the indicated phase
+     * to the central ground or neutral point.  If the energy source is delta connected, the phase indicates an energy source connected
+     * from the indicated phase to the next logical non-neutral phase.
+     */
+    SinglePhaseKind phase = 3;
+
+}

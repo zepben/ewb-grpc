@@ -1,0 +1,51 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.common";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
+package zepben.protobuf.evolve.cim.iec61968.common;
+
+import "zepben/protobuf/evolve/cim/iec61968/common/PositionPoint.proto";
+import "zepben/protobuf/evolve/cim/iec61968/common/StreetAddress.proto";
+import "zepben/protobuf/evolve/cim/iec61970/base/core/IdentifiedObject.proto";
+
+/**
+ * The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time.
+ * It can be defined with one or more position points (coordinates) in a given coordinate system.
+ */
+message Location {
+
+    /**
+     * The IdentifiedObject fields for this Location.
+     */
+    iec61970.base.core.IdentifiedObject io = 1;
+
+    /**
+     * Main address of the location.
+     */
+    StreetAddress mainAddress = 2;
+
+    /**
+     * Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+     * Note that the ordering is important, as the order reflects relationships to other messages. For example,
+     * the first positionPoint will be the "first" terminal on a ConductingEquipment, and the second will be the
+     * "second" terminal.
+     */
+    repeated PositionPoint positionPoints = 3;
+
+}

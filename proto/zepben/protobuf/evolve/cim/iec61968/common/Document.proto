@@ -1,0 +1,68 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+//
+// evolve-grpc is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// evolve-grpc is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.common";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
+package zepben.protobuf.evolve.cim.iec61968.common;
+
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/evolve/cim/iec61970/base/core/IdentifiedObject.proto";
+
+/**
+ * Parent class for different groupings of information collected and managed as a part of a business process.
+ * It will frequently contain references to other objects, such as assets, people and power system resources.
+ */
+message Document {
+
+    /**
+     * The IdentifiedObject fields for this Document
+     */
+    iec61970.base.core.IdentifiedObject io = 1;
+
+    /**
+     * Title of the Document
+     */
+    string title = 2;
+
+    /**
+     * Timestamp of when this document was created.
+     */
+    google.protobuf.Timestamp createdDateTime = 3;
+
+    /**
+     * Name of the author of this document.
+     */
+    string authorName = 4;
+
+    /**
+     * Utility-specific classification of this document, according to its corporate standards, practices,
+     * and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
+     */
+    string type = 5;
+
+    /**
+     * Status of subject matter (e.g., Agreement, Work) this document represents.
+     */
+    string status = 6;
+
+    /**
+     * Free text comment
+     */
+    string comment = 7;
+
+}

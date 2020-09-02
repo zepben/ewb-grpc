@@ -1,0 +1,50 @@
+// Copyright 2020 Zeppelin Bend Pty Ltd
+// This file is part of evolve-grpc.
+// 
+// evolve-grpc.is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// evolve-grpc.is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// 
+// You should have received a copy of the GNU Affero General Public License
+// along with evolve-grpc.  If not, see <https://www.gnu.org/licenses/>.
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cp";
+option csharp_namespace = "Zepben.Protobuf.CP";
+package zepben.protobuf.evolve.cp;
+
+import "zepben/protobuf/evolve/cp/cp-requests.proto";
+import "zepben/protobuf/evolve/cp/cp-responses.proto";
+
+service CustomerProducer {
+
+    rpc CreateCustomerService(CreateCustomerServiceRequest) returns (CreateCustomerServiceRequest);
+    rpc CompleteCustomerService(CompleteCustomerServiceRequest) returns (CompleteCustomerServiceRequest);
+
+    /* ----- Creation ----- */
+    // The following functions should be wrapped in calls to CreateNetwork and CompleteNetwork. The only requirement is
+    // that any dependencies or associations that are referenced are created first.
+    //
+    // For example:
+    //   1. if you have a PerLengthSequenceImpedance defined for your AcLineSegments, the sequence impedance must be
+    //      created first.
+    //   2. if you have an operational restriction that references a piece of equipment, you must create one of them
+    //      first excluding the association, then create the other with the association.
+
+    // Package: IEC-61968 common
+    rpc CreateOrganisation(CreateOrganisationRequest) returns (CreateOrganisationResponse);
+
+    // Package: IEC-61968 Customers
+    rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse);
+    rpc CreateCustomerAgreement(CreateCustomerAgreementRequest) returns (CreateCustomerAgreementResponse);
+    rpc CreatePricingStructure(CreatePricingStructureRequest) returns (CreatePricingStructureResponse);
+    rpc CreateTariff(CreateTariffRequest) returns (CreateTariffResponse);
+
+}
