@@ -7,32 +7,9 @@ Prerequisites:
 1. Gradle (>5.2 for building java project)
 1. Clone of [evolve-grpc](https://bitbucket.org/zepben/evolve-grpc) if not using the git submodule.
 
-Clone the repo and optionally the submodules:
-
-```
-git clone git@bitbucket.org:zepben/evolve-grpc-nc.git
-# or to include evolve-grpc:
-git clone --recurse-submodules -j2 git@bitbucket.org:zepben/evolve-grpc-nc.git
-```
-    
-If you included the submodule, open the project in IntelliJ and add the `evolve-grpc/proto` directory to the Protobuf plugin include paths. This will make imports be resolved within the IDE.
+If your protobuf plugin is not configured as below, you will see errors in the IDE. Make sure the proto dir is included.    
  
 ![](images/plugin-config.png)
-
-Otherwise, you will require a symlink to the cim package in the [evolve-grpc](https://bitbucket.org/zepben/evolve-grpc) repository: 
-
-On Linux:
-
-```
-ln -s path/to/evolve-grpc/proto/zepben/cim/ proto/zepben/cim
-``` 
-
-On Windows:
-    
-```
-mklink /J proto\zepben\protobuf\cim path\to\evolve-grpc\proto\zepben\protobuf\cim\
-mklink /J proto\zepben\protobuf\network path\to\evolve-grpc\proto\zepben\protobuf\network\
-```
 
 To build java:
 
