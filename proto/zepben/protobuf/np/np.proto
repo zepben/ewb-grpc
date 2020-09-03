@@ -80,6 +80,9 @@ service NetworkProducer {
     rpc CreateAccumulator(CreateAccumulatorRequest) returns (CreateAccumulatorResponse);
     rpc CreateAnalog(CreateAnalogRequest) returns (CreateAnalogResponse);
     rpc CreateDiscrete(CreateDiscreteRequest) returns (CreateDiscreteResponse);
+    rpc CreateControl(CreateControlRequest) returns (CreateControlResponse);
+    rpc CreateRemoteControl(CreateRemoteControlRequest) returns (CreateRemoteControlResponse);
+    rpc CreateRemoteSource(CreateControlRequest) returns (CreateControlResponse);
 
     // Package: IEC-61970 Base/Wires
     rpc CreateAcLineSegment(CreateAcLineSegmentRequest) returns (CreateAcLineSegmentResponse);

@@ -58,6 +58,12 @@ import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto";
 import "zepben/protobuf/cim/iec61968/assets/Pole.proto";
 import "zepben/protobuf/cim/iec61968/assets/Streetlight.proto";
+import "zepben/protobuf/cim/iec61970/base/meas/Control.proto";
+import "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto";
+import "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto";
+import "zepben/protobuf/cim/iec61970/base/meas/Analog.proto";
+import "zepben/protobuf/cim/iec61970/base/meas/Accumulator.proto";
+import "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto";
 
 // A simplified representation of a geographical region for requesting the network hierarchy.
 message NetworkHierarchyGeographicalRegion {
@@ -134,6 +140,12 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.infiec61970.feeder.Loop loop = 35;
         zepben.protobuf.cim.iec61968.assets.Pole pole = 36;
         zepben.protobuf.cim.iec61968.assets.Streetlight streetlight = 37;
+        zepben.protobuf.cim.iec61970.base.meas.Accumulator accumulator = 38;
+        zepben.protobuf.cim.iec61970.base.meas.Analog analog = 39;
+        zepben.protobuf.cim.iec61970.base.meas.Discrete discrete = 40;
+        zepben.protobuf.cim.iec61970.base.meas.Control control = 41;
+        zepben.protobuf.cim.iec61970.base.scada.RemoteControl remoteControl = 42;
+        zepben.protobuf.cim.iec61970.base.scada.RemoteSource remouteSource = 43;
 
         google.protobuf.Any other = 999;
     }

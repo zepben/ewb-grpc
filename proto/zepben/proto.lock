@@ -4033,7 +4033,7 @@
             "name": "MeasurementValue",
             "fields": [
               {
-                "id": 2,
+                "id": 1,
                 "name": "timeStamp",
                 "type": "google.protobuf.Timestamp"
               }
@@ -4041,9 +4041,6 @@
           }
         ],
         "imports": [
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/meas/IoPoint.proto"
-          },
           {
             "path": "google/protobuf/timestamp.proto"
           }
@@ -7729,6 +7726,36 @@
                 "type": "zepben.protobuf.cim.iec61968.assets.Streetlight"
               },
               {
+                "id": 38,
+                "name": "accumulator",
+                "type": "zepben.protobuf.cim.iec61970.base.meas.Accumulator"
+              },
+              {
+                "id": 39,
+                "name": "analog",
+                "type": "zepben.protobuf.cim.iec61970.base.meas.Analog"
+              },
+              {
+                "id": 40,
+                "name": "discrete",
+                "type": "zepben.protobuf.cim.iec61970.base.meas.Discrete"
+              },
+              {
+                "id": 41,
+                "name": "control",
+                "type": "zepben.protobuf.cim.iec61970.base.meas.Control"
+              },
+              {
+                "id": 42,
+                "name": "remoteControl",
+                "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteControl"
+              },
+              {
+                "id": 43,
+                "name": "remouteSource",
+                "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteSource"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any"
@@ -7850,6 +7877,24 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assets/Streetlight.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Control.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Analog.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Accumulator.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto"
           }
         ],
         "package": {
@@ -8739,6 +8784,51 @@
                 "type": "zepben.protobuf.cim.iec61970.infiec61970.feeder.Loop"
               }
             ]
+          },
+          {
+            "name": "CreateControlRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "control",
+                "type": "zepben.protobuf.cim.iec61970.base.meas.Control"
+              }
+            ]
+          },
+          {
+            "name": "CreateRemoteControlRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "remoteControl",
+                "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteControl"
+              }
+            ]
+          },
+          {
+            "name": "CreateRemoteSourceRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "remouteSource",
+                "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteSource"
+              }
+            ]
           }
         ],
         "imports": [
@@ -8867,6 +8957,15 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Control.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto"
           }
         ],
         "package": {
@@ -9341,6 +9440,36 @@
                 "type": "int64"
               }
             ]
+          },
+          {
+            "name": "CreateControlResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreateRemoteControlResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreateRemoteSourceResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
           }
         ],
         "package": {
@@ -9488,6 +9617,21 @@
                 "name": "CreateDiscrete",
                 "in_type": "CreateDiscreteRequest",
                 "out_type": "CreateDiscreteResponse"
+              },
+              {
+                "name": "CreateControl",
+                "in_type": "CreateControlRequest",
+                "out_type": "CreateControlResponse"
+              },
+              {
+                "name": "CreateRemoteControl",
+                "in_type": "CreateRemoteControlRequest",
+                "out_type": "CreateRemoteControlResponse"
+              },
+              {
+                "name": "CreateRemoteSource",
+                "in_type": "CreateControlRequest",
+                "out_type": "CreateControlResponse"
               },
               {
                 "name": "CreateAcLineSegment",
