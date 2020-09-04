@@ -171,6 +171,7 @@ pipelines:
             - cd ../java
             - java-mvn-release-checks pom.xml
             - java-mvn-finalize-version --no-commit pom.xml
+            - cd ../cs
             - cs-finalize-version --no-commit evolve-grpc.csproj
             - commit_finalize_version
       - step:
