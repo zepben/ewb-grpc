@@ -66,7 +66,12 @@ definitions:
           - maven
         script:
           - cd java
-          - mvn clean deploy -f pom.xml -Dserver.username=$NEXUS_USERNAME -Dserver.password=$NEXUS_PASSWORD -Dserver.repo.url=$NEXUS_MAVEN_REPO -Dserver.release.url=$NEXUS_MAVEN_RELEASE -Dserver.snapshot.url=$NEXUS_MAVEN_SNAPSHOT
+          - sed -i "s/{{access_key}}/$AWS_ACCESS_KEY/" ~/.aws/credentials
+          - sed -i "s/{{secret_key}}/$AWS_SECRET_KEY/" ~/.aws/credentials
+          - curl --user $BB_AUTH_STRING $MAVEN_SETTINGS -o maven-settings.xml
+          - aws secretsmanager get-secret-value --secret-id zepben/gpgkey | jq '.SecretString' | cut -d\" -f2 | sed 's.\\n.\n.g' > zepben-gpg.key
+          - gpg2 --batch --import zepben-gpg.key
+          - mvn clean deploy -f pom.xml -s maven-settings.xml -P release -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
     - step: &deploy-cs
         name: Deploy CSharp Lib to Nexus repo
         <<: *cs-image
@@ -127,36 +132,41 @@ definitions:
           - wget -nc -O ~/pb/protolock.tgz $PROTOLOCK_URL || true
           - tar xzf ~/pb/protolock.tgz
           - ./protolock status
+
 pipelines:
   branches:
     master:
       - step: *check-licence-step
       - step: *update-protolock
-      - step: *deploy-python
-      - step: *deploy-java
-      - step: *deploy-cs
+      - parallel:
+          - step: *deploy-python
+          - step: *deploy-java
+          - step: *deploy-cs
       - step: *update-snapshot-version
     LTS/*:
       - step: *check-licence-step
       - step: *update-protolock
-      - step: *deploy-python
-      - step: *deploy-java
-      - step: *deploy-cs
+      - parallel:
+          - step: *deploy-python
+          - step: *deploy-java
+          - step: *deploy-cs
       - step: *update-snapshot-version
     hotfix/*:
       - step: *check-licence-step
       - step: *update-protolock
-      - step: *deploy-python
-      - step: *deploy-java
-      - step: *deploy-cs
+      - parallel:
+          - step: *deploy-python
+          - step: *deploy-java
+          - step: *deploy-cs
       - step: *update-snapshot-version
   pull-requests:
     '**':
-      - step: *check-licence-step
-      - step: *check-protolock
-      - step: *java-run-build-step
-      - step: *cs-run-build-step
-      - step: *python-run-build-step
+      - parallel:
+          - step: *check-licence-step
+          - step: *check-protolock
+          - step: *java-run-build-step
+          - step: *cs-run-build-step
+          - step: *python-run-build-step
   custom:
     create-release:
       - step:
@@ -196,7 +206,7 @@ pipelines:
             - git push origin -d release
             - fi
       - step:
-          name: Deploy Java Lib to Nexus repo
+          name: Deploy Java Lib to Maven Central
           <<: *java-image
           caches:
             - maven
@@ -205,7 +215,12 @@ pipelines:
             - git fetch --all
             - git checkout release
             - cd java
-            - mvn clean deploy -f pom.xml -Dserver.username=$NEXUS_USERNAME -Dserver.password=$NEXUS_PASSWORD -Dserver.repo.url=$NEXUS_MAVEN_REPO -Dserver.release.url=$NEXUS_MAVEN_RELEASE -Dserver.snapshot.url=$NEXUS_MAVEN_SNAPSHOT
+            - sed -i "s/{{access_key}}/$AWS_ACCESS_KEY/" ~/.aws/credentials
+            - sed -i "s/{{secret_key}}/$AWS_SECRET_KEY/" ~/.aws/credentials
+            - curl --user $BB_AUTH_STRING $MAVEN_SETTINGS -o maven-settings.xml
+            - aws secretsmanager get-secret-value --secret-id zepben/gpgkey | jq '.SecretString' | cut -d\" -f2 | sed 's.\\n.\n.g' > zepben-gpg.key
+            - gpg2 --batch --import zepben-gpg.key
+            - mvn clean deploy -f pom.xml -s maven-settings.xml -P release -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
           after-script:
             - if [ $BITBUCKET_EXIT_CODE -ne 0 ]; then
             - git push origin -d release
