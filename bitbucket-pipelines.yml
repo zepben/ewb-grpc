@@ -68,10 +68,9 @@ definitions:
           - cd java
           - sed -i "s/{{access_key}}/$AWS_ACCESS_KEY/" ~/.aws/credentials
           - sed -i "s/{{secret_key}}/$AWS_SECRET_KEY/" ~/.aws/credentials
-          - curl --user $BB_AUTH_STRING $MAVEN_SETTINGS -o maven-settings.xml
           - aws secretsmanager get-secret-value --secret-id zepben/gpgkey | jq '.SecretString' | cut -d\" -f2 | sed 's.\\n.\n.g' > zepben-gpg.key
           - gpg2 --batch --import zepben-gpg.key
-          - mvn clean deploy -f pom.xml -s maven-settings.xml -P release -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
+          - mvn clean deploy -f pom.xml -P release,ossrh,!zepben-maven -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
     - step: &deploy-cs
         name: Deploy CSharp Lib to Nexus repo
         <<: *cs-image
@@ -217,10 +216,9 @@ pipelines:
             - cd java
             - sed -i "s/{{access_key}}/$AWS_ACCESS_KEY/" ~/.aws/credentials
             - sed -i "s/{{secret_key}}/$AWS_SECRET_KEY/" ~/.aws/credentials
-            - curl --user $BB_AUTH_STRING $MAVEN_SETTINGS -o maven-settings.xml
             - aws secretsmanager get-secret-value --secret-id zepben/gpgkey | jq '.SecretString' | cut -d\" -f2 | sed 's.\\n.\n.g' > zepben-gpg.key
             - gpg2 --batch --import zepben-gpg.key
-            - mvn clean deploy -f pom.xml -s maven-settings.xml -P release -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
+            - mvn clean deploy -f pom.xml -P release,ossrh,!zepben-maven -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
           after-script:
             - if [ $BITBUCKET_EXIT_CODE -ne 0 ]; then
             - git push origin -d release
