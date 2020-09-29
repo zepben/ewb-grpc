@@ -4,8 +4,7 @@ Prerequisites:
 
 1. IntelliJ (other IDE's will work, but not pre-configured)
 1. Protobuf support in your IDE
-1. Gradle (>5.2 for building java project)
-1. Clone of [evolve-grpc](https://bitbucket.org/zepben/evolve-grpc) if not using the git submodule.
+1. Maven
 
 If your protobuf plugin is not configured as below, you will see errors in the IDE. Make sure the proto dir is included.    
  
