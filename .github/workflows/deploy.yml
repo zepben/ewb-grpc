@@ -1,0 +1,124 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - LTS/*
+      - hotfix/*
+
+jobs:
+  licence-check-and-protolock-update:
+    runs-on: ubuntu-latest
+    container: zepben/pipeline-basic
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          apk add --no-cache tar
+
+      - name: Cache licence-check
+        uses: actions/cache@v2
+        with:
+          path: /lc
+          key: lcc
+
+      - name: Cache protolock
+        uses: actions/cache@v2
+        with:
+          path: /protolock
+          key: pbc
+
+      - name: Check licence
+        uses: zepben/licence-check-action@main
+        with:
+          LC_URL: ${{ secrets.LC_URL }}
+          PATH: proto
+
+      - name: Update protolock
+        uses: zepben/protolock-action@main
+        with:
+          PATH: proto/zepben
+          COMMIT: true
+
+  java-deploy:
+    needs: licence-check-and-protolock-update
+    container: zepben/pipeline-java
+    runs-on: ubuntu-latest
+    env:
+      ZEPBEN_GPG_KEY: ${{ secrets.ZEPBEN_GPG_KEY_B64 }}
+      OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+      GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+      GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache maven deps
+        uses: actions/cache@v2
+        with:
+          path: /maven
+          key: maven
+
+      - name: Deploy Java
+        run: |
+          echo "$ZEPBEN_GPG_KEY" | base64 -d > zepben-gpg.key
+          gpg2 --batch --import zepben-gpg.key
+          mvn clean deploy -f pom.xml -P release,ossrh -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
+        shell: bash
+
+  cs-deploy:
+    needs: licence-check-and-protolock-update
+    container: mcr.microsoft.com/dotnet/core/sdk:3.1
+    runs-on: ubuntu-latest
+    env:
+      NUGET_SETTINGS: ${{ secrets.NUGET_SETTINGS }}
+      ZEPBEN_NUGET_FEED_USERNAME: ${{ secrets.ZEPBEN_NUGET_FEED_USERNAME }}
+      ZEPBEN_NUGET_FEED_PASSWORD: ${{ secrets.ZEPBEN_NUGET_FEED_PASSWORD }}
+      ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
+      ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache C# deps
+        uses: actions/cache@v2
+        with:
+          path: /root/.nuget/packages
+          key: cs
+
+      - name: Deploy CSharp
+        run: |
+          apt install -y curl
+          cd cs
+          curl $NUGET_SETTINGS -o Nuget.Config
+          sed -i "s|ZEPBEN_NUGET_FEED_USERNAME|${ZEPBEN_NUGET_FEED_USERNAME}|g; s|ZEPBEN_NUGET_FEED_PASSWORD|${ZEPBEN_NUGET_FEED_PASSWORD}|g;" Nuget.Config
+          dotnet restore evolve-grpc.csproj --configfile Nuget.Config
+          dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
+          dotnet nuget push *.nupkg -k $ZEPBEN_NUGET_UPLOAD_KEY -s $ZEPBEN_NUGET_UPLOAD_FEED
+
+  python-deploy:
+    needs: licence-check-and-protolock-update
+    container: python:3.8-slim
+    runs-on: ubuntu-latest
+    env:
+      ZEPBEN_PYPI_REPO: {{ secrets.ZEPBEN_PYPI_REPO }}
+      ZEPBEN_PYPI_USERNAME: {{ secrets.ZEPBEN_PYPI_USERNAME }}
+      ZEPBEN_PYPI_PASSWORD: {{ secrets.ZEPBEN_PYPI_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache python deps
+        uses: actions/cache@v2
+        with:
+          path: /pipcache
+          key: pip
+
+      - name: Deploy Python
+        run: |
+          cd python
+          mkdir /pipcache
+          pip install --cache-dir /pipcache twine
+          pip install --cache-dir /pipcache -r requirements.txt
+          python build.py --fullclean
+          python build.py --package
+          twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
