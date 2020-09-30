@@ -101,9 +101,9 @@ jobs:
     container: python:3.8-slim
     runs-on: ubuntu-latest
     env:
-      ZEPBEN_PYPI_REPO: {{ secrets.ZEPBEN_PYPI_REPO }}
-      ZEPBEN_PYPI_USERNAME: {{ secrets.ZEPBEN_PYPI_USERNAME }}
-      ZEPBEN_PYPI_PASSWORD: {{ secrets.ZEPBEN_PYPI_PASSWORD }}
+      ZEPBEN_PYPI_REPO: ${{ secrets.ZEPBEN_PYPI_REPO }}
+      ZEPBEN_PYPI_USERNAME: ${{ secrets.ZEPBEN_PYPI_USERNAME }}
+      ZEPBEN_PYPI_PASSWORD: ${{ secrets.ZEPBEN_PYPI_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
 
