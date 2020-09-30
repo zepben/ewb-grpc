@@ -128,7 +128,10 @@ jobs:
   update-snapshot-version:
     needs: [python-deploy, cs-deploy, java-deploy]
     container: zepben/pipeline-basic:5.0.0
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Update snapshot version
         run: |
           git pull origin $GITHUB_REF
