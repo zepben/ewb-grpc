@@ -1,0 +1,204 @@
+# Note: default release notes file is docs/release.md.
+name: Maven Library Release
+
+on: workflow_dispatch
+
+jobs:
+  release-checks:
+    runs-on: ubuntu-latest
+    container: zepben/pipeline-basic:5.0.0
+    env:
+      NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
+      NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+      NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+      NEXUS_MAVEN_SNAPSHOT: ${{ secrets.NEXUS_MAVEN_SNAPSHOT }}
+      NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
+      SLACK_NOTIFICATION: YES
+      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Release checks and update version for release
+        run: |
+          cd java
+          /scripts/release-checks.sh --java --maven pom.xml
+          FILE=docs/release.md
+          if [ -f "$FILE" ]; then
+            export release_date=$(date +'%d %B %Y')
+            /scripts/finalize-version.sh --java --maven pom.xml $FILE 'sed -i -e "s/TBD/$release_date/g"'
+          else
+            /scripts/finalize-version.sh --java --maven pom.xml
+          fi
+        shell: bash
+
+  java-deploy:
+    needs: release-checks
+    runs-on: ubuntu-latest
+    container: zepben/pipeline-java
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: release
+
+      - name: Cache maven deps
+        uses: actions/cache@v2
+        with:
+          path: /maven
+          key: maven
+
+      - name: Maven deploy to Central
+        id: build
+        uses: zepben/maven-deploy-central-action@main
+        with:
+          ZEPBEN_GPG_KEY: ${{ secrets.ZEPBEN_GPG_KEY_B64 }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
+        continue-on-error: true
+
+  python-deploy:
+    needs: release-checks
+    runs-on: ubuntu-latest
+    container: python:3.8-slim
+    env:
+      ZEPBEN_PYPI_REPO: ${{ secrets.ZEPBEN_PYPI_REPO }}
+      ZEPBEN_PYPI_USERNAME: ${{ secrets.ZEPBEN_PYPI_USERNAME }}
+      ZEPBEN_PYPI_PASSWORD: ${{ secrets.ZEPBEN_PYPI_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: release
+
+      - name: Cache python deps
+        uses: actions/cache@v2
+        with:
+          path: /pipcache
+          key: pip
+
+      - name: Deploy Python
+        run: |
+          apt-get update && apt-get install -y git
+          cd python
+          mkdir -p /pipcache
+          pip install --cache-dir /pipcache twine
+          pip install --cache-dir /pipcache -r requirements.txt
+          python build.py --fullclean
+          python build.py --package
+          twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
+        shell: bash
+        continue-on-error: true
+
+  cs-deploy:
+    needs: release-checks
+    container: mcr.microsoft.com/dotnet/core/sdk:3.1
+    runs-on: ubuntu-latest
+    env:
+      NUGET_SETTINGS: ${{ secrets.NUGET_SETTINGS }}
+      ZEPBEN_NUGET_FEED_USERNAME: ${{ secrets.ZEPBEN_NUGET_FEED_USERNAME }}
+      ZEPBEN_NUGET_FEED_PASSWORD: ${{ secrets.ZEPBEN_NUGET_FEED_PASSWORD }}
+      ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
+      ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache C# deps
+        uses: actions/cache@v2
+        with:
+          path: /root/.nuget/packages
+          key: cs
+
+      - name: Deploy CSharp
+        run: |
+          apt install -y curl
+          cd cs
+          curl $NUGET_SETTINGS -o Nuget.Config
+          sed -i "s|ZEPBEN_NUGET_FEED_USERNAME|${ZEPBEN_NUGET_FEED_USERNAME}|g; s|ZEPBEN_NUGET_FEED_PASSWORD|${ZEPBEN_NUGET_FEED_PASSWORD}|g;" Nuget.Config
+          dotnet restore evolve-grpc.csproj --configfile Nuget.Config
+          dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
+          dotnet nuget push *.nupkg -k $ZEPBEN_NUGET_UPLOAD_KEY -s $ZEPBEN_NUGET_UPLOAD_FEED
+        shell: bash
+        continue-on-error: true
+
+  finalise:
+    needs: [deploy-central, deploy-python, deploy-cs]
+    runs-on: ubuntu-latest
+    container: zepben/pipeline-basic:5.0.0
+    steps:
+      - name: Merge and Tag
+        if: steps.build.outcome == 'success'
+        id: merge
+        run: |
+          git checkout ${GITHUB_REF/refs\/heads\//}
+          git merge release
+          git push origin ${GITHUB_REF/refs\/heads\//}
+          cd java
+          version=$(xmlstarlet pyx pom.xml | grep -v ^A | xmlstarlet p2x | xmlstarlet sel -t -v "/project/version")
+          git tag "v$version"
+          git push --tags
+          echo "::set-output name=tag::$(echo v$version)"
+        shell: bash
+
+      - name: Create Release
+        if: steps.build.outcome == 'success'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.merge.outputs.tag }}
+          release_name: ${{ steps.merge.outputs.tag }}
+          body_path: docs/release.md
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        if: steps.build.outcome == 'success'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.merge.outputs.artifact-path }}
+          asset_name: ${{ steps.merge.outputs.artifact }}
+          asset_content_type: application/zip
+
+      - name: Fail build
+        if: steps.build.outcome == 'failure'
+        run: |
+          git push origin -d release
+          echo "There was an error in the mvn deploy command above."
+          exit 1
+        shell: bash
+
+  update-version:
+    needs: finalise
+    runs-on: ubuntu-latest
+    container: zepben/pipeline-basic:5.0.0
+    env:
+      NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
+      NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+      NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+      NEXUS_MAVEN_SNAPSHOT: ${{ secrets.NEXUS_MAVEN_SNAPSHOT }}
+      NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
+      SLACK_NOTIFICATION: YES
+      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: release
+      - name: Update to next minor version
+        run: |
+          cd python
+          /scripts/update-version.sh --python --no-commit --release setup.cfg
+          cd ../java
+          /scripts/update-version.sh --java --maven --release --no-commit pom.xml
+          cd ../cs
+          /scripts/update-version.sh --cs --release --no-commit evolve-grpc.csproj
+          commit_update_version
+
+          git checkout $GITHUB_REF
+          git pull
+          git merge release
+          git push origin $GITHUB_REF
+          git push origin -d release
+        shell: bash
