@@ -75,7 +75,7 @@ jobs:
 
   python-build:
     needs: licence-and-protolock-check
-    container: python:3.8-alpine
+    container: python:3.8-slim
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -83,12 +83,13 @@ jobs:
       - name: Cache python deps
         uses: actions/cache@v2
         with:
-          path: /root/.cache/pip
+          path: /pipcache
           key: pip
 
       - name: Build Python
         run: |
           cd python
-          python -m pip install -r requirements.txt
+          mkdir /pipcache
+          pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
           python build.py
