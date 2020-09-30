@@ -126,7 +126,7 @@ jobs:
           twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
 
     update-snapshot-version:
-      needs: [python-deploy, cs-deploy, java-deploy
+      needs: [python-deploy, cs-deploy, java-deploy]
       container: zepben/pipeline-basic:5.0.0
       steps:
         - name: Update snapshot version
