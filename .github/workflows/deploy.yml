@@ -62,6 +62,7 @@ jobs:
 
       - name: Deploy Java
         run: |
+          cd java
           echo "$ZEPBEN_GPG_KEY" | base64 -d > zepben-gpg.key
           gpg2 --batch --import zepben-gpg.key
           mvn clean deploy -f pom.xml -P release,ossrh -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
