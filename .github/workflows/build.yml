@@ -4,44 +4,92 @@ on:
   pull_request:
 
 jobs:
-  build-and-test:
+  licence-and-protolock-check:
     runs-on: ubuntu-latest
-    container: zepben/pipeline-java
-    env:
-      NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
-      NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-      NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+    container: zepben/pipeline-basic
     steps:
       - uses: actions/checkout@v2
 
-      - name: create lc directory
-        run: mkdir ~/lc
-        shell: bash
+      - run: |
+          apk add --no-cache tar
 
       - name: Cache licence-check
         uses: actions/cache@v2
         with:
-          path: ~/lc
+          path: /lc
           key: lc
+
+      - name: Cache protolock
+        uses: actions/cache@v2
+        with:
+          path: /protolock
+          key: pb
 
       - name: Check licence
         uses: zepben/licence-check-action@main
         with:
           LC_URL: ${{ secrets.LC_URL }}
+          PATH: proto
 
       - name: Check protolock
         uses: zepben/protolock-action@main
         with:
           PATH: proto/zepben
-      
+
+  java-build:
+    needs: licence-and-protolock-check
+    container: zepben/pipeline-java
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
       - name: Cache maven deps
         uses: actions/cache@v2
         with:
           path: /maven
           key: maven
 
-      - name: Maven build and test
+      - name: Build Java
         run: |
           cd java
-          mvn clean test -f pom.xml -Dserver.username=$NEXUS_USERNAME -Dserver.password=$NEXUS_PASSWORD -Dserver.repo.url=$NEXUS_MAVEN_REPO
+          mvn clean package -f pom.xml
         shell: bash
+
+  cs-build:
+    needs: licence-and-protolock-check
+    container: mcr.microsoft.com/dotnet/core/sdk:3.1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache C# deps
+        uses: actions/cache@v2
+        with:
+          path: /root/.nuget/packages
+          key: cs
+
+      - name: Build CSharp
+        run: |
+          cd cs
+          dotnet build evolve-grpc.sln -c Release
+
+  python-build:
+    needs: licence-and-protolock-check
+    container: python:3.8-slim
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache python deps
+        uses: actions/cache@v2
+        with:
+          path: /pipcache
+          key: pip
+
+      - name: Build Python
+        run: |
+          cd python
+          mkdir /pipcache
+          pip install --cache-dir /pipcache -r requirements.txt
+          python build.py --fullclean
+          python build.py
