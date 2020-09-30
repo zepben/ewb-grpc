@@ -10,10 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: create lc directory
-        run: mkdir ~/lc
-        shell: bash
-
       - name: Cache licence-check
         uses: actions/cache@v2
         with:
@@ -30,6 +26,7 @@ jobs:
         uses: zepben/licence-check-action@main
         with:
           LC_URL: ${{ secrets.LC_URL }}
+          PATH: proto
 
       - name: Check protolock
         uses: zepben/protolock-action@main
