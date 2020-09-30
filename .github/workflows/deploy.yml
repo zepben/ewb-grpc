@@ -60,13 +60,14 @@ jobs:
           path: /maven
           key: maven
 
-      - name: Deploy Java
-        run: |
-          cd java
-          echo "$ZEPBEN_GPG_KEY" | base64 -d > zepben-gpg.key
-          gpg2 --batch --import zepben-gpg.key
-          mvn clean deploy -f pom.xml -P release,ossrh -Dossrh.server.username=$OSSRH_USERNAME -Dossrh.server.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
-        shell: bash
+      - name: Java deploy to Central
+        uses: zepben/maven-deploy-central-action@main
+        with:
+          ZEPBEN_GPG_KEY: ${{ secrets.ZEPBEN_GPG_KEY_B64 }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
 
   cs-deploy:
     needs: licence-check-and-protolock-update
@@ -123,3 +124,18 @@ jobs:
           python build.py --fullclean
           python build.py --package
           twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
+
+    update-snapshot-version:
+      needs: [python-deploy, cs-deploy, java-deploy
+      container: zepben/pipeline-basic:5.0.0
+      steps:
+        - name: Update snapshot version
+          run: |
+            git pull origin $GITHUB_REF
+            source /scripts/common.sh
+            cd python
+            py-update-version --snapshot --no-commit setup.cfg
+            py-update-version --snapshot --no-commit setup.py
+            cd ../cs
+            cs-update-version --snapshot --no-commit evolve-grpc.csproj
+            commit_update_version $GITHUB_REF
