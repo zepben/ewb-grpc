@@ -65,7 +65,7 @@ jobs:
           cd java
           echo "$ZEPBEN_GPG_KEY" | base64 -d > zepben-gpg.key
           gpg2 --batch --import zepben-gpg.key
-          mvn clean deploy -f pom.xml -P release,ossrh -Dserver.username=$OSSRH_USERNAME -Dserver.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
+          mvn clean deploy -f pom.xml -P release,ossrh -Dossrh.server.username=$OSSRH_USERNAME -Dossrh.server.password=$OSSRH_PASSWORD -Dgpg.key.id=$GPG_KEY_ID -Dgpg.key.password=$GPG_KEY_PASSWORD
         shell: bash
 
   cs-deploy:
@@ -117,7 +117,7 @@ jobs:
       - name: Deploy Python
         run: |
           cd python
-          mkdir /pipcache
+          mkdir -p /pipcache
           pip install --cache-dir /pipcache twine
           pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
