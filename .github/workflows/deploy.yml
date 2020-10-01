@@ -98,6 +98,7 @@ jobs:
           dotnet restore evolve-grpc.csproj --configfile Nuget.Config
           dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
           dotnet nuget push *.nupkg -k $ZEPBEN_NUGET_UPLOAD_KEY -s $ZEPBEN_NUGET_UPLOAD_FEED
+        shell: bash
 
   python-deploy:
     needs: licence-check-and-protolock-update
@@ -125,6 +126,7 @@ jobs:
           python build.py --fullclean
           python build.py --package
           twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
+        shell: bash
 
   update-snapshot-version:
     needs: [python-deploy, cs-deploy, java-deploy]
@@ -145,3 +147,4 @@ jobs:
           cd ../cs
           /scripts/update-version --csharp --snapshot --no-commit evolve-grpc.csproj
           commit_update_version ${GITHUB_REF/refs\/heads\//}
+        shell: bash
