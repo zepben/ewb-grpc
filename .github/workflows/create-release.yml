@@ -198,8 +198,13 @@ jobs:
           cd ../cs
           /scripts/update-version.sh --csharp --release --no-commit evolve-grpc.csproj
           commit_update_version
+        shell: bash
 
-          git checkout ${GITHUB_REF/refs\/heads\//}
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Merge release
+        run: |
           git pull
           git merge release
           git push origin ${GITHUB_REF/refs\/heads\//}
