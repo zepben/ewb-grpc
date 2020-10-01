@@ -189,6 +189,8 @@ jobs:
           ref: release
       - name: Update to next minor version
         run: |
+          source /scripts/common.sh
+
           cd python
           /scripts/update-version.sh --python --no-commit --release setup.cfg
           cd ../java
