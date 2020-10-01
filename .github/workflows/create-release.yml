@@ -199,7 +199,7 @@ jobs:
           /scripts/update-version.sh --csharp --release --no-commit evolve-grpc.csproj
           commit_update_version
 
-          git checkout $GITHUB_REF
+          git checkout ${GITHUB_REF/refs\/heads\//}
           git pull
           git merge release
           git push origin ${GITHUB_REF/refs\/heads\//}
