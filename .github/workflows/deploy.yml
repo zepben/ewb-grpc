@@ -130,6 +130,8 @@ jobs:
     needs: [python-deploy, cs-deploy, java-deploy]
     container: zepben/pipeline-basic:5.0.0
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
 
@@ -138,8 +140,8 @@ jobs:
           git pull origin $GITHUB_REF
           source /scripts/common.sh
           cd python
-          py-update-version --snapshot --no-commit setup.cfg
-          py-update-version --snapshot --no-commit setup.py
+          /scripts/update-version --python --snapshot --no-commit setup.cfg
+          /scripts/update-version --python --snapshot --no-commit setup.py
           cd ../cs
-          cs-update-version --snapshot --no-commit evolve-grpc.csproj
-          commit_update_version $GITHUB_REF
+          /scripts/update-version --csharp --snapshot --no-commit evolve-grpc.csproj
+          commit_update_version ${GITHUB_REF/refs\/heads\//}
