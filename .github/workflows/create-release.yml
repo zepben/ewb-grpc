@@ -1,5 +1,5 @@
 # Note: default release notes file is docs/release.md.
-name: Maven Library Release
+name: Release
 
 on: workflow_dispatch
 
@@ -206,7 +206,7 @@ jobs:
       - name: Merge release
         run: |
           git pull
-          git merge release
+          git merge origin/release
           git push origin ${GITHUB_REF/refs\/heads\//}
           git push origin -d release
         shell: bash
