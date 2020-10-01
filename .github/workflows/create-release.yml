@@ -202,6 +202,6 @@ jobs:
           git checkout $GITHUB_REF
           git pull
           git merge release
-          git push origin $GITHUB_REF
+          git push origin ${GITHUB_REF/refs\/heads\//}
           git push origin -d release
         shell: bash
