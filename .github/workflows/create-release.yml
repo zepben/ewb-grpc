@@ -6,7 +6,7 @@ on: workflow_dispatch
 jobs:
   release-checks:
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.0.0
+    container: zepben/pipeline-basic:5.1.0
     env:
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
       NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
@@ -123,7 +123,7 @@ jobs:
   finalise:
     needs: [deploy-central, deploy-python, deploy-cs]
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.0.0
+    container: zepben/pipeline-basic:5.1.0
     steps:
       - name: Merge and Tag
         if: steps.build.outcome == 'success'
@@ -174,7 +174,7 @@ jobs:
   update-version:
     needs: finalise
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.0.0
+    container: zepben/pipeline-basic:5.1.0
     env:
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
       NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
