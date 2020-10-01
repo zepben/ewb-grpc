@@ -121,7 +121,7 @@ jobs:
         continue-on-error: true
 
   finalise:
-    needs: [deploy-central, deploy-python, deploy-cs]
+    needs: [java-deploy, python-deploy, cs-deploy]
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic:5.1.0
     steps:
