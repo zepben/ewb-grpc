@@ -55,7 +55,6 @@ jobs:
           GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
           GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
           POM_PATH: java/pom.xml
-        continue-on-error: true
 
   python-deploy:
     needs: release-checks
@@ -77,6 +76,7 @@ jobs:
           key: pip
 
       - name: Deploy Python
+        id: buildpython
         run: |
           apt-get update && apt-get install -y git
           cd python
@@ -87,7 +87,6 @@ jobs:
           python build.py --package
           twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
         shell: bash
-        continue-on-error: true
 
   cs-deploy:
     needs: release-checks
@@ -109,6 +108,7 @@ jobs:
           key: cs
 
       - name: Deploy CSharp
+        id: buildcs
         run: |
           apt install -y curl
           cd cs
@@ -118,7 +118,6 @@ jobs:
           dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
           dotnet nuget push *.nupkg -k $ZEPBEN_NUGET_UPLOAD_KEY -s $ZEPBEN_NUGET_UPLOAD_FEED
         shell: bash
-        continue-on-error: true
 
   finalise:
     needs: [java-deploy, python-deploy, cs-deploy]
@@ -126,7 +125,7 @@ jobs:
     container: zepben/pipeline-basic:5.1.0
     steps:
       - name: Merge and Tag
-        if: steps.build.outcome == 'success'
+        if: needs.java-deploy.result == 'success' && needs.cs-deploy.result == 'success' && needs.python-deploy.result == 'success'
         id: merge
         run: |
           git checkout ${GITHUB_REF/refs\/heads\//}
@@ -140,7 +139,7 @@ jobs:
         shell: bash
 
       - name: Create Release
-        if: steps.build.outcome == 'success'
+        if: needs.java-deploy.result == 'success' && needs.cs-deploy.result == 'success' && needs.python-deploy.result == 'success'
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -153,7 +152,7 @@ jobs:
           prerelease: false
 
       - name: Upload Release Asset
-        if: steps.build.outcome == 'success'
+        if: needs.java-deploy.result == 'success' && needs.cs-deploy.result == 'success' && needs.python-deploy.result == 'success'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -164,7 +163,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Fail build
-        if: steps.build.outcome == 'failure'
+        if: needs.java-deploy.result == 'failure' || needs.cs-deploy.result == 'failure' || needs.python-deploy.result == 'failure'
         run: |
           git push origin -d release
           echo "There was an error in the mvn deploy command above."
@@ -185,7 +184,7 @@ jobs:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
       - uses: actions/checkout@v2
-        if: steps.merge.outcome == 'success'
+        if: needs.finalise.result == 'success'
         with:
           ref: release
       - name: Update to next minor version
