@@ -185,9 +185,11 @@ jobs:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
       - uses: actions/checkout@v2
+        if: steps.merge.outcome == 'success'
         with:
           ref: release
       - name: Update to next minor version
+        if: steps.merge.outcome == 'success'
         run: |
           source /scripts/common.sh
 
@@ -201,9 +203,12 @@ jobs:
         shell: bash
 
       - uses: actions/checkout@v2
+        if: steps.merge.outcome == 'success'
         with:
           ref: main
+
       - name: Merge release
+        if: steps.merge.outcome == 'success'
         run: |
           git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
           git fetch --all
