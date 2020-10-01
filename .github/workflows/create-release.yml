@@ -207,7 +207,7 @@ jobs:
         run: |
           git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
           git fetch --all
-          git merge origin/release
+          git merge release
           git push origin ${GITHUB_REF/refs\/heads\//}
           git push origin -d release
         shell: bash
