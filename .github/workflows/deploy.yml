@@ -142,9 +142,9 @@ jobs:
           git pull origin $GITHUB_REF
           source /scripts/common.sh
           cd python
-          /scripts/update-version --python --snapshot --no-commit setup.cfg
-          /scripts/update-version --python --snapshot --no-commit setup.py
+          /scripts/update-version.sh --python --snapshot --no-commit setup.cfg
+          /scripts/update-version.sh --python --snapshot --no-commit setup.py
           cd ../cs
-          /scripts/update-version --csharp --snapshot --no-commit evolve-grpc.csproj
+          /scripts/update-version.sh --csharp --snapshot --no-commit evolve-grpc.csproj
           commit_update_version ${GITHUB_REF/refs\/heads\//}
         shell: bash
