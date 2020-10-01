@@ -124,6 +124,7 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic:5.1.0
     steps:
+      - uses: actions/checkout@v2
       - name: Merge and Tag
         if: needs.java-deploy.result == 'success' && needs.cs-deploy.result == 'success' && needs.python-deploy.result == 'success'
         id: merge
