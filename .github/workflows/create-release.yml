@@ -64,7 +64,7 @@ jobs:
           GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
           GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
           POM_PATH: java/pom.xml
-        continue-on-error:
+        continue-on-error: true
 
   python-deploy:
     needs: release-checks
@@ -102,7 +102,7 @@ jobs:
         shell: bash
         with:
           version: ${{ needs.release-checks.outputs.release-version }}
-        continue-on-error:
+        continue-on-error: true
 
   cs-deploy:
     needs: release-checks
@@ -141,7 +141,7 @@ jobs:
         shell: bash
         with:
           version: ${{ needs.release-checks.outputs.release-version }}
-        continue-on-error:
+        continue-on-error: true
 
   finalise:
     needs: [java-deploy, python-deploy, cs-deploy]
