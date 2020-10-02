@@ -218,7 +218,6 @@ jobs:
         with:
           name: java
 
-
       - name: Download csharp artifact
         uses: actions/download-artifact@v2
         with:
@@ -295,9 +294,9 @@ jobs:
 
           git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
           git fetch --all
-          git checkout main
+          git checkout ${GITHUB_REF/refs\/heads\//}
           git pull
           git merge release
-          git push origin main
+          git push origin ${GITHUB_REF/refs\/heads\//}
           git push origin -d release
         shell: bash

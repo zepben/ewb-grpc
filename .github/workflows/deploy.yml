@@ -1,11 +1,11 @@
-name: Deploy
+name: Release snapshot
 
 on:
   push:
     branches:
       - main
       - LTS/*
-      - hotfix/*
+  workflow_dispatch:
 
 jobs:
   licence-check-and-protolock-update:

@@ -1,0 +1,22 @@
+name: Create LTS branch
+
+on: workflow_dispatch
+
+jobs:
+  create-lts-branch:
+    runs-on: ubuntu-latest
+    container: zepben/pipeline-basic:5.1.0
+    steps:
+      - name: Create LTS branch
+        run: |
+          create-branch --lts
+          export BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          cd python
+          /scripts/update-version.sh --python --no-commit setup.cfg
+          /scripts/update-version.sh --python --no-commit setup.py
+          cd ../java
+          /scripts/update-version.sh --java --maven --no-commit pom.xml
+          cd ../cs
+          /scripts/update-version.sh --csharp --no-commit evolve-grpc.csproj
+          source /scripts/common.sh
+          commit_update_version $BRANCH
