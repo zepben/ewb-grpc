@@ -37,7 +37,7 @@ jobs:
           /scripts/finalize-version.sh --csharp --no-commit cs/evolve-grpc.csproj
           commit_finalize_version
           version=$(xmlstarlet pyx java/pom.xml | grep -v ^A | xmlstarlet p2x | xmlstarlet sel -t -v "/project/version")
-          echo "::set-output name=release-version::$(echo v$version)"
+          echo "::set-output name=release-version::$(echo $version)"
         shell: bash
 
   java-deploy:
