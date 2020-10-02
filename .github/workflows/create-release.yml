@@ -87,6 +87,8 @@ jobs:
 
       - name: Deploy Python
         id: buildpython
+        env:
+          VERSION: ${{ needs.release-checks.outputs.release-version }}
         run: |
           apt-get update && apt-get install -y git
           cd python
@@ -96,12 +98,10 @@ jobs:
           python build.py --fullclean
           python build.py --package
           twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
-          artifact="zepben.protobuf-${version}-py3-none-any.whl"
+          artifact="zepben.protobuf-${VERSION}-py3-none-any.whl"
           echo "::set-output name=artifact::$(echo $artifact)"
           echo "::set-output name=artifact-path::$(echo python/dist/$artifact)"
         shell: bash
-        with:
-          version: ${{ needs.release-checks.outputs.release-version }}
         continue-on-error: true
 
   cs-deploy:
@@ -127,6 +127,8 @@ jobs:
 
       - name: Deploy CSharp
         id: buildcs
+        env:
+          VERSION: ${{ needs.release-checks.outputs.release-version }}
         run: |
           apt install -y curl
           cd cs
@@ -135,12 +137,10 @@ jobs:
           dotnet restore evolve-grpc.csproj --configfile Nuget.Config
           dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
           dotnet nuget push *.nupkg -k $ZEPBEN_NUGET_UPLOAD_KEY -s $ZEPBEN_NUGET_UPLOAD_FEED
-          artifact="Zepben.Evolve.Grpc.${version}.nupkg"
+          artifact="Zepben.Evolve.Grpc.${VERSION}.nupkg"
           echo "::set-output name=artifact::$(echo $artifact)"
           echo "::set-output name=artifact-path::$(echo cs/$artifact)"
         shell: bash
-        with:
-          version: ${{ needs.release-checks.outputs.release-version }}
         continue-on-error: true
 
   finalise:
