@@ -4,7 +4,7 @@ test_deps = ["pytest", "pytest-asyncio"]
 setup(
     name="zepben.protobuf",
     description="Evolve Python SDK",
-    version="0.8.0b2",
+    version="0.8.0b3",
     package_dir={"": "src"},
     packages=find_namespace_packages(where="src"),
     setup_requires=[
