@@ -44,6 +44,9 @@ jobs:
     needs: release-checks
     runs-on: ubuntu-latest
     container: zepben/pipeline-java
+    outputs:
+      artifact: ${{ steps.deploy.outputs.artifact }}
+      artifact-path: ${{ steps.deploy.outputs.artifact-path }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -56,7 +59,7 @@ jobs:
           key: maven
 
       - name: Maven deploy to Central
-        id: build
+        id: deploy
         uses: zepben/maven-deploy-central-action@main
         with:
           ZEPBEN_GPG_KEY: ${{ secrets.ZEPBEN_GPG_KEY_B64 }}
@@ -71,6 +74,9 @@ jobs:
     needs: release-checks
     runs-on: ubuntu-latest
     container: python:3.8-slim
+    outputs:
+      artifact: ${{ steps.deploy.outputs.artifact }}
+      artifact-path: ${{ steps.deploy.outputs.artifact-path }}
     env:
       ZEPBEN_PYPI_REPO: ${{ secrets.ZEPBEN_PYPI_REPO }}
       ZEPBEN_PYPI_USERNAME: ${{ secrets.ZEPBEN_PYPI_USERNAME }}
@@ -87,7 +93,7 @@ jobs:
           key: pip
 
       - name: Deploy Python
-        id: buildpython
+        id: deploy
         env:
           VERSION: ${{ needs.release-checks.outputs.release-version }}
         run: |
@@ -107,8 +113,11 @@ jobs:
 
   cs-deploy:
     needs: release-checks
-    container: mcr.microsoft.com/dotnet/core/sdk:3.1
     runs-on: ubuntu-latest
+    container: mcr.microsoft.com/dotnet/core/sdk:3.1
+    outputs:
+      artifact: ${{ steps.deploy.outputs.artifact }}
+      artifact-path: ${{ steps.deploy.outputs.artifact-path }}
     env:
       NUGET_SETTINGS: ${{ secrets.NUGET_SETTINGS }}
       ZEPBEN_NUGET_FEED_USERNAME: ${{ secrets.ZEPBEN_NUGET_FEED_USERNAME }}
@@ -127,7 +136,7 @@ jobs:
           key: cs
 
       - name: Deploy CSharp
-        id: buildcs
+        id: deploy
         env:
           VERSION: ${{ needs.release-checks.outputs.release-version }}
         run: |
