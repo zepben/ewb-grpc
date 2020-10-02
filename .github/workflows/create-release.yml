@@ -27,9 +27,9 @@ jobs:
           FILE=docs/release.md
           if [ -f "$FILE" ]; then
             export release_date=$(date +'%d %B %Y')
-            /scripts/finalize-version.sh --java --maven --no-commit pom.xml $FILE 'sed -i -e "s/TBD/$release_date/g"'
+            /scripts/finalize-version.sh --java --maven --no-commit java/pom.xml $FILE 'sed -i -e "s/TBD/$release_date/g"'
           else
-            /scripts/finalize-version.sh --java --maven --no-commit pom.xml
+            /scripts/finalize-version.sh --java --maven --no-commit java/pom.xml
           fi
           /scripts/finalize-version.sh --python --no-commit python/setup.cfg
           /scripts/finalize-version.sh --python --no-commit python/setup.py
