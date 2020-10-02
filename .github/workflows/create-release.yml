@@ -185,35 +185,35 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ needs.java-deploy.outputs.artifact-path }}
-          asset_name: ${{ needs.java-deploy.outputs.artifact }}
-          asset_content_type: application/zip
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ needs.cs-deploy.outputs.artifact-path }}
-          asset_name: ${{ needs.cs-deploy.outputs.artifact }}
-          asset_content_type: application/octet-stream
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ needs.python-deploy.outputs.artifact-path }}
-          asset_name: ${{ needs.python-deploy.outputs.artifact }}
-          asset_content_type: application/octet-stream
+#      - name: Upload Release Asset
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: ${{ needs.java-deploy.outputs.artifact-path }}
+#          asset_name: ${{ needs.java-deploy.outputs.artifact }}
+#          asset_content_type: application/zip
+#
+#      - name: Upload Release Asset
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: ${{ needs.cs-deploy.outputs.artifact-path }}
+#          asset_name: ${{ needs.cs-deploy.outputs.artifact }}
+#          asset_content_type: application/octet-stream
+#
+#      - name: Upload Release Asset
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: ${{ needs.python-deploy.outputs.artifact-path }}
+#          asset_name: ${{ needs.python-deploy.outputs.artifact }}
+#          asset_content_type: application/octet-stream
 
 
   update-version:
