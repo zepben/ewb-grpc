@@ -217,20 +217,17 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: java
-          path: ${{ needs.java-deploy.outputs.artifact }}
 
 
       - name: Download csharp artifact
         uses: actions/download-artifact@v2
         with:
           name: csharp
-          path: ${{ needs.cs-deploy.outputs.artifact }}
 
       - name: Download python artifact
         uses: actions/download-artifact@v2
         with:
           name: python
-          path: ${{ needs.python-deploy.outputs.artifact }}
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
