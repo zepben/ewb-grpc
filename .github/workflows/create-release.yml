@@ -19,6 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Release checks and update version for release
         run: |
+          source /scripts/common.sh
           git checkout -b release
           /scripts/release-checks.sh --java --maven java/pom.xml
           /scripts/release-checks.sh --python python/setup.cfg
