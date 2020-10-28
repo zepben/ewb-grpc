@@ -85,9 +85,8 @@ jobs:
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     env:
-      ZEPBEN_PYPI_REPO: ${{ secrets.ZEPBEN_PYPI_REPO }}
-      ZEPBEN_PYPI_USERNAME: ${{ secrets.ZEPBEN_PYPI_USERNAME }}
-      ZEPBEN_PYPI_PASSWORD: ${{ secrets.ZEPBEN_PYPI_PASSWORD }}
+      PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -111,7 +110,7 @@ jobs:
           pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
           python build.py --package
-          twine upload --repository-url "$ZEPBEN_PYPI_REPO" -u "$ZEPBEN_PYPI_USERNAME" -p "$ZEPBEN_PYPI_PASSWORD" dist/*
+          twine upload -u "$PYPI_USERNAME" -p "$PYPI_PASSWORD" dist/*
           artifact="zepben.protobuf-${VERSION}-py3-none-any.whl"
           echo "::set-output name=artifact::$(echo $artifact)"
           echo "::set-output name=artifact-path::$(echo python/dist/$artifact)"
