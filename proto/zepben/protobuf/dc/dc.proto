@@ -6,8 +6,6 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.dc";
@@ -18,7 +16,10 @@ import "zepben/protobuf/dc/dc-requests.proto";
 import "zepben/protobuf/dc/dc-responses.proto";
 
 service DiagramConsumer {
-    rpc GetDiagram(GetDiagramRequest) returns (GetDiagramResponse);
+
+    // Get identified objects
+    rpc getIdentifiedObjects (GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
+
 }
 
 

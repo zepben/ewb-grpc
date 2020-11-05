@@ -1,0 +1,33 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.nc";
+option csharp_namespace = "Zepben.Protobuf.NC";
+package zepben.protobuf.cc;
+
+import "google/protobuf/any.proto";
+import "zepben/protobuf/cim/iec61968/common/Organisation.proto";
+import "zepben/protobuf/cim/iec61968/customers/Customer.proto";
+import "zepben/protobuf/cim/iec61968/customers/CustomerAgreement.proto";
+import "zepben/protobuf/cim/iec61968/customers/PricingStructure.proto";
+import "zepben/protobuf/cim/iec61968/customers/Tariff.proto";
+
+// The set of leaf identified objects that the customer service manages.
+message CustomerIdentifiedObject {
+    oneof identifiedObject {
+        zepben.protobuf.cim.iec61968.common.Organisation organisation = 1;
+        zepben.protobuf.cim.iec61968.customers.Customer customer = 2;
+        zepben.protobuf.cim.iec61968.customers.CustomerAgreement customerAgreement = 3;
+        zepben.protobuf.cim.iec61968.customers.PricingStructure pricingStructure = 4;
+        zepben.protobuf.cim.iec61968.customers.Tariff tariff = 5;
+
+        google.protobuf.Any other = 999;
+    }
+}

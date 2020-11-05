@@ -1,11 +1,103 @@
 {
   "definitions": [
     {
+      "protopath": "protobuf:/:cc:/:cc-data.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "CustomerIdentifiedObject",
+            "fields": [
+              {
+                "id": 1,
+                "name": "organisation",
+                "type": "zepben.protobuf.cim.iec61968.common.Organisation"
+              },
+              {
+                "id": 2,
+                "name": "customer",
+                "type": "zepben.protobuf.cim.iec61968.customers.Customer"
+              },
+              {
+                "id": 3,
+                "name": "customerAgreement",
+                "type": "zepben.protobuf.cim.iec61968.customers.CustomerAgreement"
+              },
+              {
+                "id": 4,
+                "name": "pricingStructure",
+                "type": "zepben.protobuf.cim.iec61968.customers.PricingStructure"
+              },
+              {
+                "id": 5,
+                "name": "tariff",
+                "type": "zepben.protobuf.cim.iec61968.customers.Tariff"
+              },
+              {
+                "id": 999,
+                "name": "other",
+                "type": "google.protobuf.Any"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/common/Organisation.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/customers/Customer.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/customers/CustomerAgreement.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/customers/PricingStructure.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/customers/Tariff.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nc"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NC"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cc:/:cc-requests.proto",
       "def": {
         "messages": [
           {
-            "name": "GetCustomerRequest"
+            "name": "GetIdentifiedObjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrids",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
           }
         ],
         "package": {
@@ -32,7 +124,25 @@
       "def": {
         "messages": [
           {
-            "name": "GetCustomerResponse"
+            "name": "GetIdentifiedObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiedObjects",
+                "type": "CustomerIdentifiedObject",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cc/cc-data.proto"
           }
         ],
         "package": {
@@ -62,9 +172,10 @@
             "name": "CustomerConsumer",
             "rpcs": [
               {
-                "name": "GetCustomer",
-                "in_type": "GetCustomerRequest",
-                "out_type": "GetCustomerResponse"
+                "name": "getIdentifiedObjects",
+                "in_type": "GetIdentifiedObjectsRequest",
+                "out_type": "GetIdentifiedObjectsResponse",
+                "out_streamed": true
               }
             ]
           }
@@ -6662,11 +6773,79 @@
       }
     },
     {
+      "protopath": "protobuf:/:dc:/:dc-data.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "DiagramIdentifiedObject",
+            "fields": [
+              {
+                "id": 1,
+                "name": "diagram",
+                "type": "zepben.protobuf.cim.iec61970.base.diagramlayout.Diagram"
+              },
+              {
+                "id": 2,
+                "name": "diagramObject",
+                "type": "zepben.protobuf.cim.iec61970.base.diagramlayout.DiagramObject"
+              },
+              {
+                "id": 999,
+                "name": "other",
+                "type": "google.protobuf.Any"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/diagramlayout/Diagram.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/diagramlayout/DiagramObject.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.dc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nc"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NC"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:dc:/:dc-requests.proto",
       "def": {
         "messages": [
           {
-            "name": "GetDiagramRequest"
+            "name": "GetIdentifiedObjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrids",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
           }
         ],
         "package": {
@@ -6693,7 +6872,25 @@
       "def": {
         "messages": [
           {
-            "name": "GetDiagramResponse"
+            "name": "GetIdentifiedObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiedObjects",
+                "type": "DiagramIdentifiedObject",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/dc/dc-data.proto"
           }
         ],
         "package": {
@@ -6723,9 +6920,10 @@
             "name": "DiagramConsumer",
             "rpcs": [
               {
-                "name": "GetDiagram",
-                "in_type": "GetDiagramRequest",
-                "out_type": "GetDiagramResponse"
+                "name": "getIdentifiedObjects",
+                "in_type": "GetIdentifiedObjectsRequest",
+                "out_type": "GetIdentifiedObjectsResponse",
+                "out_streamed": true
               }
             ]
           }
