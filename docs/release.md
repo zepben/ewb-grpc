@@ -15,7 +15,7 @@ a 1.0.0 release.
 ### v0.8.0
 
 ##### Breaking Changes
-* None.
+* Updated the customer and diagram consumer services to use getIdentifiedObjects.
 
 ##### New Features
 * None.

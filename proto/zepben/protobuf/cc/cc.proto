@@ -6,8 +6,6 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cc";
@@ -18,7 +16,10 @@ import "zepben/protobuf/cc/cc-requests.proto";
 import "zepben/protobuf/cc/cc-responses.proto";
 
 service CustomerConsumer {
-    rpc GetCustomer(GetCustomerRequest) returns (GetCustomerResponse);
+
+    // Get identified objects
+    rpc getIdentifiedObjects (GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
+
 }
 
 
