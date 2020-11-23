@@ -11,6 +11,21 @@ NOTE: This library is not yet stable, and breaking changes should be expected un
 a 1.0.0 release.
 
 ---
+### v0.9.0
+##### Breaking Changes
+* None.
+
+##### New Features
+* None.
+
+##### Enhancements
+* Updated PowerTransformer proto to include transformerUtilisation property.
+
+##### Fixes
+* None.
+
+##### Notes
+* None.
 
 ### v0.8.0
 
@@ -21,7 +36,7 @@ a 1.0.0 release.
 * None.
 
 ##### Enhancements
-* None.
+* Updated PowerTransformer proto to include transformerUtilisation property.
 
 ##### Fixes
 * None.
