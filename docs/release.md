@@ -2,6 +2,7 @@
 
 | Version | Released |
 | --- | --- |
+| [0.9.0](#v090)| `TBD` |
 | [0.8.0](#v080) | `10 November 2020` |
 | [0.7.0](#v070) | `02 October 2020` |
 
@@ -36,7 +37,7 @@ a 1.0.0 release.
 * None.
 
 ##### Enhancements
-* Updated PowerTransformer proto to include transformerUtilisation property.
+* None.
 
 ##### Fixes
 * None.
