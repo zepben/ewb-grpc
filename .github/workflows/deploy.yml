@@ -105,11 +105,8 @@ jobs:
     container: python:3.8-slim
     runs-on: ubuntu-latest
     env:
-      ZEPBEN_PYPI_REPO: ${{ secrets.ZEPBEN_PYPI_REPO }}
-      ZEPBEN_PYPI_USERNAME: ${{ secrets.ZEPBEN_PYPI_USERNAME }}
-      ZEPBEN_PYPI_PASSWORD: ${{ secrets.ZEPBEN_PYPI_PASSWORD }}
-      PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+      TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
 
@@ -127,7 +124,7 @@ jobs:
           pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
           python build.py --package
-          twine upload -u "$PYPI_USERNAME" -p "$PYPI_PASSWORD" dist/*
+          twine upload dist/*
         shell: bash
 
   update-snapshot-version:

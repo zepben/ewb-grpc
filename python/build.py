@@ -42,9 +42,18 @@ def create_init_files(root):
 def clean(output_dir, full=False):
     if full:
         try:
+            try:
+                shutil.rmtree("dist")
+            except:
+                pass
+
+            try:
+                shutil.rmtree("build")
+            except:
+                pass
+
             shutil.rmtree(output_dir)
             # Cleanup setuptools dist dir
-            shutil.rmtree("dist")
             return 0
         except FileNotFoundError as fnfe:  # Directory didn't exist
             logger.info(f"Output directory '{fnfe.filename}' didn't exist. Clean successful")
