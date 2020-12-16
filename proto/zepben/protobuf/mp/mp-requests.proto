@@ -35,3 +35,18 @@ message CreateDiscreteValueRequest {
     int64 messageId = 1;
     cim.iec61970.base.meas.DiscreteValue discreteValue = 2;
 }
+
+message CreateAccumulatorValuesRequest {
+    int64 messageId = 1;
+    repeated cim.iec61970.base.meas.AccumulatorValue accumulatorValues = 2;
+}
+
+message CreateAnalogValuesRequest {
+    int64 messageId = 1;
+    repeated cim.iec61970.base.meas.AnalogValue analogValues = 2;
+}
+
+message CreateDiscreteValuesRequest {
+    int64 messageId = 1;
+    repeated cim.iec61970.base.meas.DiscreteValue discreteValues = 2;
+}
