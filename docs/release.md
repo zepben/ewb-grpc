@@ -42,7 +42,8 @@ a 1.0.0 release.
 * None.
 
 ##### Enhancements
-* None.
+* Updated PowerTransformer proto to include powerTransformerInfo property.
+* Created PowerTransformerInfo proto.
 
 ##### Fixes
 * None.

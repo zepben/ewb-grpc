@@ -15,6 +15,7 @@ package zepben.protobuf.np;
 
 import "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/OverheadWireInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
 import "zepben/protobuf/cim/iec61968/assets/Pole.proto";
@@ -80,6 +81,11 @@ message CreateCableInfoRequest {
 message CreateOverheadWireInfoRequest {
     int64 messageId = 1;
     cim.iec61968.assetinfo.OverheadWireInfo overheadWireInfo = 2;
+}
+
+message CreatePowerTransformerInfoRequest {
+    int64 messageId = 1;
+    cim.iec61968.assetinfo.PowerTransformerInfo powerTransformerInfo = 2;
 }
 
 message CreateAssetInfoRequest {
