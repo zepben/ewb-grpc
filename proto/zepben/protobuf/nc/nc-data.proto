@@ -15,6 +15,7 @@ package zepben.protobuf.nc;
 import "google/protobuf/any.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/OverheadWireInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
 import "zepben/protobuf/cim/iec61968/common/Organisation.proto";
 import "zepben/protobuf/cim/iec61968/common/Location.proto";
@@ -138,6 +139,7 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.meas.Control control = 41;
         zepben.protobuf.cim.iec61970.base.scada.RemoteControl remoteControl = 42;
         zepben.protobuf.cim.iec61970.base.scada.RemoteSource remoteSource = 43;
+        zepben.protobuf.cim.iec61968.assetinfo.PowerTransformerInfo powerTransformerInfo = 44;
 
         google.protobuf.Any other = 999;
     }

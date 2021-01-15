@@ -42,7 +42,7 @@ a 1.0.0 release.
 * None.
 
 ##### Enhancements
-* None.
+* Created PowerTransformerInfo proto.
 
 ##### Fixes
 * None.
