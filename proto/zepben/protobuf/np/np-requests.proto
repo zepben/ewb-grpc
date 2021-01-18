@@ -59,6 +59,11 @@ import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto";
 import "zepben/protobuf/cim/iec61970/base/meas/Control.proto";
 import "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto";
 import "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnection.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnectionPhase.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUnit.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto";
 
 
 //
@@ -310,3 +315,29 @@ message CreateRemoteSourceRequest {
     int64 messageId = 1;
     zepben.protobuf.cim.iec61970.base.scada.RemoteSource remoteSource = 2;
 }
+
+message CreatePowerElectronicsConnectionRequest {
+    int64 messageId = 1;
+    zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnection powerElectronicsConnection = 2;
+}
+
+message CreatePowerElectronicsConnectionPhaseRequest {
+    int64 messageId = 1;
+    zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnectionPhase powerElectronicsConnectionPhase = 2;
+}
+
+message CreateBatteryUnitRequest {
+    int64 messageId = 1;
+    zepben.protobuf.cim.iec61970.base.wires.generation.production.BatteryUnit batteryUnit = 2;
+}
+
+message CreatePhotoVoltaicRequest {
+    int64 messageId = 1;
+    zepben.protobuf.cim.iec61970.base.wires.generation.production.PhotoVoltaicUnit photoVoltaicUnit = 2;
+}
+
+message CreatePowerElectronicsWindUnitRequest {
+    int64 messageId = 1;
+    zepben.protobuf.cim.iec61970.base.wires.generation.production.PowerElectronicsWindUnit powerElectronicsWindUnits = 2;
+}
+

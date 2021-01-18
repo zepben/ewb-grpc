@@ -21,7 +21,8 @@ a 1.0.0 release.
 * None.
 
 ##### New Features
-* None.
+* Added PowerElectronicsConnection, PowerElectronicsConnectionPhase, PowerElectronicsUnit, BatteryUnit, 
+  PhotoVoltaicUnit, PowerElectronicsWindUnit and BatteryStateKind proto. 
 
 ##### Enhancements
 * None.

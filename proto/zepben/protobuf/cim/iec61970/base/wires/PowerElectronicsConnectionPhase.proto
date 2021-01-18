@@ -1,0 +1,53 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto";
+
+/**
+ * A single phase of a power electronics connection.
+ */
+message PowerElectronicsConnectionPhase {
+
+  /**
+   * The PowerSystemResource fields for this PowerElectronicsConnectionPhase.
+   */
+  core.PowerSystemResource psr = 1;
+
+  /**
+   * Active power injection. Load sign convention is used, i.e. positive sign means flow into the equipment from the
+   * network.
+   */
+  double p = 2;
+
+  /**
+   * Phase of this energy producer component. If the energy producer is wye connected, the connection is from the
+   * indicated phase to the central ground or neutral point. If the energy producer is delta connected, the phase
+   * indicates an energy producer connected from the indicated phase to the next logical non-neutral phase.
+   */
+  SinglePhaseKind phase = 3;
+
+  /**
+   * Reactive power injection. Load sign convention is used, i.e. positive sign means flow into the equipment from the
+   * network.
+   */
+  double q = 4;
+
+  /**
+  * Power electronics connection of this power electronics connection phase.
+  */
+  string powerElectronicsConnectionMRID = 5;
+
+}

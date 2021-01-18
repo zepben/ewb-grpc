@@ -1,0 +1,28 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires.generation.production";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires.Generation.Production";
+package zepben.protobuf.cim.iec61970.base.wires.generation.production;
+
+import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsUnit.proto";
+
+/**
+ * A photovoltaic device or an aggregation of such devices.
+ */
+message PhotoVoltaicUnit {
+
+  /**
+   * The PowerElectronicsUnit fields for this PhotoVoltaicUnit.
+   */
+  PowerElectronicsUnit peu = 1;
+
+}

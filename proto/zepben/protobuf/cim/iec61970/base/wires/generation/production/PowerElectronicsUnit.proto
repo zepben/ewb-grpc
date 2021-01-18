@@ -1,0 +1,44 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires.generation.production";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires.Generation.Production";
+package zepben.protobuf.cim.iec61970.base.wires.generation.production;
+
+import "zepben/protobuf/cim/iec61970/base/core/Equipment.proto";
+
+/**
+ * A generating unit or battery or aggregation that connects to the AC network using power electronics rather than
+ * rotating machines.
+ */
+message PowerElectronicsUnit {
+
+  /**
+   * The Equipment fields for this PowerElectronicsUnit.
+   */
+  core.Equipment eq = 1;
+
+  /**
+   * Maximum active power limit. This is the maximum (nameplate) limit for the unit.
+   */
+  int32 maxP = 2;
+
+  /**
+   * Minimum active power limit. This is the minimum (nameplate) limit for the unit.
+   */
+  int32 minP = 3;
+
+  /**
+   * A power electronics unit has a connection to the AC network.
+   */
+  string powerElectronicsConnectionMRID = 4;
+
+}
