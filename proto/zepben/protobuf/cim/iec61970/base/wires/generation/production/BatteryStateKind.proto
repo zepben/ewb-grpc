@@ -19,28 +19,33 @@ package zepben.protobuf.cim.iec61970.base.wires.generation.production;
 enum BatteryStateKind {
 
   /**
+   * Battery state is unknown.
+   */
+  UNKNOWN = 0;
+
+  /**
    * Stored energy is decreasing.
    */
-  discharging = 0;
+  discharging = 1;
 
   /**
    * Unable to charge, and not discharging.
    */
-  full = 1;
+  full = 2;
 
   /**
    * Neither charging nor discharging, but able to do so.
    */
-  waiting = 2;
+  waiting = 3;
 
   /**
    * Stored energy is increasing.
    */
-  charging = 3;
+  charging = 4;
 
   /**
    * Unable to discharge, and not charging.
    */
-  empty = 4;
+  empty = 5;
 
 }
