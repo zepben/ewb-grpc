@@ -1,0 +1,31 @@
+/*
+ * Copyright 2021 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/wires/Connector.proto";
+
+/**
+ * A conductor, or group of conductors, with negligible impedance, that serve to connect other conducting equipment within a single substation.
+ *
+ * Voltage measurements are typically obtained from voltage transformers that are connected to busbar sections. A bus bar section may have many
+ * physical terminals but for analysis is modelled with exactly one logical terminal.
+ */
+message BusbarSection {
+
+    /**
+     * Connector fields for this BusbarSection.
+     */
+    Connector cn = 1;
+
+}
