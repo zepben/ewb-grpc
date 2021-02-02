@@ -19,10 +19,13 @@ a 1.0.0 release.
 ### v0.12.0
 
 ##### Breaking Changes
-* None.
+* `Equipment` mRIDs are no longer serialised along with `EquipmentContainer`, `Feeder`, and `OperationalRestriction`.
+* `Terminal` mRIDs are no longer serialised along with `ConnectivityNode`
+* `GetIdentifiedObjectsResponse` now only contains a `NetworkIdentifiedObject`. `IdentifiedObjectGroup` has been removed and `IdentifiedObject`s will always be sent by themselves.
 
 ##### New Features
-* None.
+* New network RPCs `getEquipmentForContainer`, `getCurrentEquipmentForFeeder`, `getEquipmentForRestriction` which allow requesting for all the equipment or current equipment for a given `EquipmentContainer`, `Feeder`, or `OperationalRestriction` respectively.
+* New network RPC `getTerminalsForNode` for fetching all `Terminal`s for a given `ConnectivityNode`.
 
 ##### Enhancements
 * None.
