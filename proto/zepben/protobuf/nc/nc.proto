@@ -25,4 +25,10 @@ service NetworkConsumer {
     // Get a simplified view of the network hierarchy from the geographical region down to the feeder level
     rpc getNetworkHierarchy (GetNetworkHierarchyRequest) returns (GetNetworkHierarchyResponse);
 
+    // Get an EquipmentContainer's equipment
+    rpc getEquipmentForContainer (GetEquipmentForContainerRequest) returns (stream GetEquipmentForContainerResponse);
+
+    // Get an EquipmentContainer's current equipment
+    rpc getCurrentEquipmentForFeeder (GetEquipmentForContainerRequest) returns (stream GetEquipmentForContainerResponse);
+
 }
