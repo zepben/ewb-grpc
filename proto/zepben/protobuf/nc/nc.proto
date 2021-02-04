@@ -29,6 +29,12 @@ service NetworkConsumer {
     rpc getEquipmentForContainer (GetEquipmentForContainerRequest) returns (stream GetEquipmentForContainerResponse);
 
     // Get an EquipmentContainer's current equipment
-    rpc getCurrentEquipmentForFeeder (GetEquipmentForContainerRequest) returns (stream GetEquipmentForContainerResponse);
+    rpc getCurrentEquipmentForFeeder (GetCurrentEquipmentForFeederRequest) returns (stream GetCurrentEquipmentForFeederResponse);
+
+    // Get an OperationalRestriction's equipment
+    rpc getEquipmentForRestriction (GetEquipmentForRestrictionRequest) returns (stream GetEquipmentForRestrictionResponse);
+
+    // Get a ConnectivityNodes Terminals
+    rpc getTerminalsForNode (GetTerminalsForNodeRequest) returns (stream GetTerminalsForNodeResponse);
 
 }

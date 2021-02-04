@@ -24,7 +24,27 @@ message GetNetworkHierarchyRequest {
 message GetEquipmentForContainerRequest {
     int64 messageId = 1;
 
-    // mRID of the container to retrieve Equipment for.
+    // mRID of the EquipmentContainer to retrieve Equipment for.
     string mrid = 2;
+}
 
+message GetCurrentEquipmentForFeederRequest {
+    int64 messageId = 1;
+
+    // mRID of the Feeder to retrieve Equipment for.
+    string mrid = 2;
+}
+
+message GetEquipmentForRestrictionRequest {
+    int64 messageId = 1;
+
+    // mRID of the OperationalRestriction to retrieve Equipment for.
+    string mrid = 2;
+}
+
+message GetTerminalsForNodeRequest {
+    int64 messageId = 1;
+
+    // mRID of the ConnectivityNode to retrieve Terminals for.
+    string mrid = 2;
 }

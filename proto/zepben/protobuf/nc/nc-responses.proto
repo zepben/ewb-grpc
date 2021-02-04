@@ -13,6 +13,7 @@ option csharp_namespace = "Zepben.Protobuf.NC";
 package zepben.protobuf.nc;
 
 import "zepben/protobuf/nc/nc-data.proto";
+import "zepben/protobuf/cim/iec61970/base/core/Terminal.proto";
 
 message GetNetworkHierarchyResponse {
     int64 messageId = 1;
@@ -24,10 +25,25 @@ message GetNetworkHierarchyResponse {
 
 message GetIdentifiedObjectsResponse {
     int64 messageId = 1;
-    IdentifiedObjectGroup objectGroup = 2;
+    NetworkIdentifiedObject identifiedObject = 2;
 }
 
 message GetEquipmentForContainerResponse {
     int64 messageId = 1;
     NetworkIdentifiedObject identifiedObject = 2;
+}
+
+message GetCurrentEquipmentForFeederResponse {
+    int64 messageId = 1;
+    NetworkIdentifiedObject identifiedObject = 2;
+}
+
+message GetEquipmentForRestrictionResponse {
+    int64 messageId = 1;
+    NetworkIdentifiedObject identifiedObject = 2;
+}
+
+message GetTerminalsForNodeResponse {
+    int64 messageId = 1;
+    cim.iec61970.base.core.Terminal terminal = 2;
 }
