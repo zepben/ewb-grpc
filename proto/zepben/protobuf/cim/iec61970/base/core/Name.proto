@@ -14,6 +14,7 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "zepben/protobuf/cim/iec61970/base/core/NameType.proto";
 
 /**
  * The Name class provides the means to define any number of human readable names for an object. A name is **not** to
@@ -30,11 +31,5 @@ message Name {
   /**
    * Type of this name.
    */
-  string type = 2;
-
-  /**
-   * Identified objects that this name designates.
-   */
-  repeated string identifiedObjectMRIDs = 3;
-
+  NameType type = 2;
 }
