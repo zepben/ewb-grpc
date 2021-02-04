@@ -1,3 +1,14 @@
+# Checklist for model change #
+
+1. Update change log - `docs/release.md`
+1. Existing messages updated for new attributes or associations - `proto/zepben/protobuf/cim`
+1. New messages added for new classes/enums:
+   1. added to model - `proto/zepben/protobuf/cim`
+   1. added to producer (all three files) - `proto/zepben/protobuf/*p`
+   1. added to consumer `oneof identifiedObject` maps - `proto/zepben/protobuf/*c` e.g. `NetworkIdentifiedObject`
+1. Descriptions copied from CIM and added as doc comments to new changes (on messages, property etc)
+1. `proto.lock` updated if there were [breaking changes](#breaking-changes)
+
 # Development Setup #
 
 Prerequisites:
