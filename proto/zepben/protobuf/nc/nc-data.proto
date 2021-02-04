@@ -91,14 +91,6 @@ message NetworkHierarchyFeeder {
     string name = 2;
 }
 
-// Represents a group of very closely related Identified objects that need to be grouped together so a consistent and valid
-// model can be constructed. For example a piece of ConductingEquipment would be the 'identifiedObject' and it's associated
-// terminals would be in 'ownedIdentifiedObject'
-message IdentifiedObjectGroup {
-    NetworkIdentifiedObject identifiedObject = 1;
-    repeated NetworkIdentifiedObject ownedIdentifiedObject = 2;
-}
-
 // The set of leaf identified objects that the network service manages.
 message NetworkIdentifiedObject {
     oneof identifiedObject {
