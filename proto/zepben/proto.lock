@@ -70,11 +70,11 @@
           },
           {
             "name": "java_package",
-            "value": "com.zepben.protobuf.nc"
+            "value": "com.zepben.protobuf.cc"
           },
           {
             "name": "csharp_namespace",
-            "value": "Zepben.Protobuf.NC"
+            "value": "Zepben.Protobuf.CC"
           }
         ]
       }
@@ -264,6 +264,45 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/WireInfo.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.assetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.assetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.AssetInfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:assetinfo:/:PowerTransformerInfo.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PowerTransformerInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ai",
+                "type": "assets.AssetInfo"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
           }
         ],
         "package": {
@@ -1727,12 +1766,6 @@
                 "id": 1,
                 "name": "doc",
                 "type": "common.Document"
-              },
-              {
-                "id": 2,
-                "name": "equipmentMRIDs",
-                "type": "string",
-                "is_repeated": true
               }
             ]
           }
@@ -1993,12 +2026,6 @@
                 "id": 1,
                 "name": "io",
                 "type": "IdentifiedObject"
-              },
-              {
-                "id": 2,
-                "name": "terminalMRIDs",
-                "type": "string",
-                "is_repeated": true
               }
             ]
           }
@@ -2150,12 +2177,6 @@
                 "id": 1,
                 "name": "cnc",
                 "type": "ConnectivityNodeContainer"
-              },
-              {
-                "id": 2,
-                "name": "equipmentMRIDs",
-                "type": "string",
-                "is_repeated": true
               }
             ]
           }
@@ -2205,12 +2226,6 @@
                 "id": 3,
                 "name": "normalEnergizingSubstationMRID",
                 "type": "string"
-              },
-              {
-                "id": 4,
-                "name": "currentEquipmentMRIDs",
-                "type": "string",
-                "is_repeated": true
               }
             ]
           }
@@ -4386,6 +4401,45 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:BusbarSection.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "BusbarSection",
+            "fields": [
+              {
+                "id": 1,
+                "name": "cn",
+                "type": "Connector"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/Connector.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:Conductor.proto",
       "def": {
         "messages": [
@@ -5288,6 +5342,154 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:PowerElectronicsConnection.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PowerElectronicsConnection",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rce",
+                "type": "RegulatingCondEq"
+              },
+              {
+                "id": 2,
+                "name": "maxIFault",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "maxQ",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "minQ",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "p",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "q",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "ratedS",
+                "type": "int32"
+              },
+              {
+                "id": 8,
+                "name": "ratedU",
+                "type": "int32"
+              },
+              {
+                "id": 9,
+                "name": "powerElectronicsUnitMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 10,
+                "name": "powerElectronicsConnectionPhaseMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:PowerElectronicsConnectionPhase.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PowerElectronicsConnectionPhase",
+            "fields": [
+              {
+                "id": 1,
+                "name": "psr",
+                "type": "core.PowerSystemResource"
+              },
+              {
+                "id": 2,
+                "name": "p",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "phase",
+                "type": "SinglePhaseKind"
+              },
+              {
+                "id": 4,
+                "name": "q",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "powerElectronicsConnectionMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:PowerTransformer.proto",
       "def": {
         "messages": [
@@ -5309,6 +5511,11 @@
                 "id": 3,
                 "name": "vectorGroup",
                 "type": "VectorGroup"
+              },
+              {
+                "id": 4,
+                "name": "transformerUtilisation",
+                "type": "double"
               }
             ]
           }
@@ -6358,6 +6565,247 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:generation:/:production:/:BatteryStateKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "BatteryStateKind",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "discharging",
+                "integer": 1
+              },
+              {
+                "name": "full",
+                "integer": 2
+              },
+              {
+                "name": "waiting",
+                "integer": 3
+              },
+              {
+                "name": "charging",
+                "integer": 4
+              },
+              {
+                "name": "empty",
+                "integer": 5
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires.generation.production"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires.generation.production"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires.Generation.Production"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:generation:/:production:/:BatteryUnit.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "BatteryUnit",
+            "fields": [
+              {
+                "id": 1,
+                "name": "peu",
+                "type": "PowerElectronicsUnit"
+              },
+              {
+                "id": 2,
+                "name": "batteryState",
+                "type": "BatteryStateKind"
+              },
+              {
+                "id": 3,
+                "name": "ratedE",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "storedE",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryStateKind.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires.generation.production"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires.generation.production"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires.Generation.Production"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:generation:/:production:/:PhotoVoltaicUnit.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PhotoVoltaicUnit",
+            "fields": [
+              {
+                "id": 1,
+                "name": "peu",
+                "type": "PowerElectronicsUnit"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsUnit.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires.generation.production"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires.generation.production"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires.Generation.Production"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:generation:/:production:/:PowerElectronicsUnit.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PowerElectronicsUnit",
+            "fields": [
+              {
+                "id": 1,
+                "name": "eq",
+                "type": "core.Equipment"
+              },
+              {
+                "id": 2,
+                "name": "maxP",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "minP",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "powerElectronicsConnectionMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/Equipment.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires.generation.production"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires.generation.production"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires.Generation.Production"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:generation:/:production:/:PowerElectronicsWindUnit.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PowerElectronicsWindUnit",
+            "fields": [
+              {
+                "id": 1,
+                "name": "peu",
+                "type": "PowerElectronicsUnit"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsUnit.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires.generation.production"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires.generation.production"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires.Generation.Production"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:feeder:/:Circuit.proto",
       "def": {
         "messages": [
@@ -6818,11 +7266,11 @@
           },
           {
             "name": "java_package",
-            "value": "com.zepben.protobuf.nc"
+            "value": "com.zepben.protobuf.dc"
           },
           {
             "name": "csharp_namespace",
-            "value": "Zepben.Protobuf.NC"
+            "value": "Zepben.Protobuf.DC"
           }
         ]
       }
@@ -7499,6 +7947,54 @@
                 "type": "cim.iec61970.base.meas.DiscreteValue"
               }
             ]
+          },
+          {
+            "name": "CreateAccumulatorValuesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "accumulatorValues",
+                "type": "cim.iec61970.base.meas.AccumulatorValue",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "CreateAnalogValuesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "analogValues",
+                "type": "cim.iec61970.base.meas.AnalogValue",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "CreateDiscreteValuesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "discreteValues",
+                "type": "cim.iec61970.base.meas.DiscreteValue",
+                "is_repeated": true
+              }
+            ]
           }
         ],
         "imports": [
@@ -7564,6 +8060,36 @@
                 "type": "int64"
               }
             ]
+          },
+          {
+            "name": "CreateAnalogValuesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreateAccumulatorValuesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreateDiscreteValuesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
           }
         ],
         "package": {
@@ -7606,6 +8132,21 @@
                 "name": "CreateDiscreteValue",
                 "in_type": "CreateDiscreteValueRequest",
                 "out_type": "CreateDiscreteValueResponse"
+              },
+              {
+                "name": "CreateAccumulatorValues",
+                "in_type": "CreateAccumulatorValuesRequest",
+                "out_type": "CreateAccumulatorValuesResponse"
+              },
+              {
+                "name": "CreateAnalogValues",
+                "in_type": "CreateAnalogValuesRequest",
+                "out_type": "CreateAnalogValuesResponse"
+              },
+              {
+                "name": "CreateDiscreteValues",
+                "in_type": "CreateDiscreteValuesRequest",
+                "out_type": "CreateDiscreteValuesResponse"
               }
             ]
           }
@@ -7716,22 +8257,6 @@
                 "id": 2,
                 "name": "name",
                 "type": "string"
-              }
-            ]
-          },
-          {
-            "name": "IdentifiedObjectGroup",
-            "fields": [
-              {
-                "id": 1,
-                "name": "identifiedObject",
-                "type": "NetworkIdentifiedObject"
-              },
-              {
-                "id": 2,
-                "name": "ownedIdentifiedObject",
-                "type": "NetworkIdentifiedObject",
-                "is_repeated": true
               }
             ]
           },
@@ -7954,6 +8479,41 @@
                 "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteSource"
               },
               {
+                "id": 44,
+                "name": "powerTransformerInfo",
+                "type": "zepben.protobuf.cim.iec61968.assetinfo.PowerTransformerInfo"
+              },
+              {
+                "id": 45,
+                "name": "powerElectronicsConnection",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnection"
+              },
+              {
+                "id": 46,
+                "name": "powerElectronicsConnectionPhase",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnectionPhase"
+              },
+              {
+                "id": 47,
+                "name": "batteryUnit",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.generation.production.BatteryUnit"
+              },
+              {
+                "id": 48,
+                "name": "photoVoltaicUnit",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.generation.production.PhotoVoltaicUnit"
+              },
+              {
+                "id": 49,
+                "name": "powerElectronicsWindUnit",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.generation.production.PowerElectronicsWindUnit"
+              },
+              {
+                "id": 50,
+                "name": "busbarSection",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.BusbarSection"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any"
@@ -7970,6 +8530,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/OverheadWireInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto"
@@ -8093,6 +8656,24 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnection.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnectionPhase.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto"
           }
         ],
         "package": {
@@ -8141,6 +8722,66 @@
                 "id": 1,
                 "name": "messageId",
                 "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "GetEquipmentForContainerRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrid",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "GetCurrentEquipmentForFeederRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrid",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "GetEquipmentForRestrictionRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrid",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "GetTerminalsForNodeRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrid",
+                "type": "string"
               }
             ]
           }
@@ -8212,8 +8853,68 @@
               },
               {
                 "id": 2,
-                "name": "objectGroup",
-                "type": "IdentifiedObjectGroup"
+                "name": "identifiedObject",
+                "type": "NetworkIdentifiedObject"
+              }
+            ]
+          },
+          {
+            "name": "GetEquipmentForContainerResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiedObject",
+                "type": "NetworkIdentifiedObject"
+              }
+            ]
+          },
+          {
+            "name": "GetCurrentEquipmentForFeederResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiedObject",
+                "type": "NetworkIdentifiedObject"
+              }
+            ]
+          },
+          {
+            "name": "GetEquipmentForRestrictionResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiedObject",
+                "type": "NetworkIdentifiedObject"
+              }
+            ]
+          },
+          {
+            "name": "GetTerminalsForNodeResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "terminal",
+                "type": "cim.iec61970.base.core.Terminal"
               }
             ]
           }
@@ -8221,6 +8922,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/nc/nc-data.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/Terminal.proto"
           }
         ],
         "package": {
@@ -8259,6 +8963,30 @@
                 "name": "getNetworkHierarchy",
                 "in_type": "GetNetworkHierarchyRequest",
                 "out_type": "GetNetworkHierarchyResponse"
+              },
+              {
+                "name": "getEquipmentForContainer",
+                "in_type": "GetEquipmentForContainerRequest",
+                "out_type": "GetEquipmentForContainerResponse",
+                "out_streamed": true
+              },
+              {
+                "name": "getCurrentEquipmentForFeeder",
+                "in_type": "GetCurrentEquipmentForFeederRequest",
+                "out_type": "GetCurrentEquipmentForFeederResponse",
+                "out_streamed": true
+              },
+              {
+                "name": "getEquipmentForRestriction",
+                "in_type": "GetEquipmentForRestrictionRequest",
+                "out_type": "GetEquipmentForRestrictionResponse",
+                "out_streamed": true
+              },
+              {
+                "name": "getTerminalsForNode",
+                "in_type": "GetTerminalsForNodeRequest",
+                "out_type": "GetTerminalsForNodeResponse",
+                "out_streamed": true
               }
             ]
           }
@@ -8380,6 +9108,21 @@
                 "id": 2,
                 "name": "overheadWireInfo",
                 "type": "cim.iec61968.assetinfo.OverheadWireInfo"
+              }
+            ]
+          },
+          {
+            "name": "CreatePowerTransformerInfoRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "powerTransformerInfo",
+                "type": "cim.iec61968.assetinfo.PowerTransformerInfo"
               }
             ]
           },
@@ -8744,6 +9487,21 @@
             ]
           },
           {
+            "name": "CreateBusbarSectionRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "busbarSection",
+                "type": "cim.iec61970.base.wires.BusbarSection"
+              }
+            ]
+          },
+          {
             "name": "CreateDisconnectorRequest",
             "fields": [
               {
@@ -9027,6 +9785,81 @@
                 "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteSource"
               }
             ]
+          },
+          {
+            "name": "CreatePowerElectronicsConnectionRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "powerElectronicsConnection",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnection"
+              }
+            ]
+          },
+          {
+            "name": "CreatePowerElectronicsConnectionPhaseRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "powerElectronicsConnectionPhase",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnectionPhase"
+              }
+            ]
+          },
+          {
+            "name": "CreateBatteryUnitRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "batteryUnit",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.generation.production.BatteryUnit"
+              }
+            ]
+          },
+          {
+            "name": "CreatePhotoVoltaicRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "photoVoltaicUnit",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.generation.production.PhotoVoltaicUnit"
+              }
+            ]
+          },
+          {
+            "name": "CreatePowerElectronicsWindUnitRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "powerElectronicsWindUnits",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.generation.production.PowerElectronicsWindUnit"
+              }
+            ]
           }
         ],
         "imports": [
@@ -9035,6 +9868,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/OverheadWireInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
@@ -9109,6 +9945,9 @@
             "path": "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Disconnector.proto"
           },
           {
@@ -9164,6 +10003,21 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnection.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnectionPhase.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto"
           }
         ],
         "package": {
@@ -9221,6 +10075,16 @@
           },
           {
             "name": "CreateOverheadWireInfoResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreatePowerTransformerInfoResponse",
             "fields": [
               {
                 "id": 1,
@@ -9480,6 +10344,16 @@
             ]
           },
           {
+            "name": "CreateBusbarSectionResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
             "name": "CreateDisconnectorResponse",
             "fields": [
               {
@@ -9668,6 +10542,56 @@
                 "type": "int64"
               }
             ]
+          },
+          {
+            "name": "CreatePowerElectronicsConnectionResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreatePowerElectronicsConnectionPhaseResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreateBatteryUnitResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreatePhotoVoltaicResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreatePowerElectronicsWindUnitResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
           }
         ],
         "package": {
@@ -9715,6 +10639,11 @@
                 "name": "CreateOverheadWireInfo",
                 "in_type": "CreateOverheadWireInfoRequest",
                 "out_type": "CreateOverheadWireInfoResponse"
+              },
+              {
+                "name": "CreatePowerTransformerInfo",
+                "in_type": "CreatePowerTransformerInfoRequest",
+                "out_type": "CreatePowerTransformerInfoResponse"
               },
               {
                 "name": "CreateAssetOwner",
@@ -9842,6 +10771,11 @@
                 "out_type": "CreateBreakerResponse"
               },
               {
+                "name": "CreateBusbarSection",
+                "in_type": "CreateBusbarSectionRequest",
+                "out_type": "CreateBusbarSectionResponse"
+              },
+              {
                 "name": "CreateDisconnector",
                 "in_type": "CreateDisconnectorRequest",
                 "out_type": "CreateDisconnectorResponse"
@@ -9910,6 +10844,31 @@
                 "name": "CreateRecloser",
                 "in_type": "CreateRecloserRequest",
                 "out_type": "CreateRecloserResponse"
+              },
+              {
+                "name": "CreatePowerElectronicsConnection",
+                "in_type": "CreatePowerElectronicsConnectionRequest",
+                "out_type": "CreatePowerElectronicsConnectionResponse"
+              },
+              {
+                "name": "CreatePowerElectronicsConnectionPhase",
+                "in_type": "CreatePowerElectronicsConnectionPhaseRequest",
+                "out_type": "CreatePowerElectronicsConnectionPhaseResponse"
+              },
+              {
+                "name": "CreateBatteryUnit",
+                "in_type": "CreateBatteryUnitRequest",
+                "out_type": "CreateBatteryUnitResponse"
+              },
+              {
+                "name": "CreatePhotoVoltaicUnit",
+                "in_type": "CreatePhotoVoltaicRequest",
+                "out_type": "CreatePhotoVoltaicResponse"
+              },
+              {
+                "name": "CreatePowerElectronicsWindUnit",
+                "in_type": "CreatePowerElectronicsWindUnitRequest",
+                "out_type": "CreatePowerElectronicsWindUnitResponse"
               },
               {
                 "name": "CreateCircuit",
