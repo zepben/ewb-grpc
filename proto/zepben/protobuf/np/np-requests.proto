@@ -40,6 +40,7 @@ import "zepben/protobuf/cim/iec61970/base/meas/Accumulator.proto";
 import "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/AcLineSegment.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/LoadBreakSwitch.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Disconnector.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/EnergyConsumer.proto";
@@ -216,6 +217,11 @@ message CreateAcLineSegmentRequest {
 message CreateBreakerRequest {
     int64 messageId = 1;
     cim.iec61970.base.wires.Breaker breaker = 2;
+}
+
+message CreateLoadBreakSwitchRequest {
+    int64 messageId = 1;
+    cim.iec61970.base.wires.LoadBreakSwitch loadBreakSwitch = 2;
 }
 
 message CreateBusbarSectionRequest {

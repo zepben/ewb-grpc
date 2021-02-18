@@ -26,6 +26,8 @@ a 1.0.0 release.
 ##### New Features
 * New network RPCs `getEquipmentForContainer`, `getCurrentEquipmentForFeeder`, `getEquipmentForRestriction` which allow requesting for all the equipment or current equipment for a given `EquipmentContainer`, `Feeder`, or `OperationalRestriction` respectively.
 * New network RPC `getTerminalsForNode` for fetching all `Terminal`s for a given `ConnectivityNode`.
+* Added the following protos:
+  * LoadBreakSwitch
 
 ##### Enhancements
 * None.
