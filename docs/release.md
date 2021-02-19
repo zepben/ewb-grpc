@@ -28,6 +28,8 @@ a 1.0.0 release.
 * New network RPC `getTerminalsForNode` for fetching all `Terminal`s for a given `ConnectivityNode`.
 * Added the following protos:
   * LoadBreakSwitch
+  * Name
+  * NameType
 
 ##### Enhancements
 * None.
