@@ -32,14 +32,14 @@ message BatteryUnit {
   BatteryStateKind batteryState = 2;
 
   /**
-   * Full energy storage capacity of the battery. The attribute shall be a positive value.
+   * Full energy storage capacity of the battery in Watt hours (Wh). The attribute shall be a positive value.
    */
-  double ratedE = 3;
+  int64 ratedE = 3;
 
   /**
-   * Amount of energy currently stored. The attribute shall be a positive value or zero and lower than
+   * Amount of energy currently stored in Watt hours (Wh). The attribute shall be a positive value or zero and lower than
    * BatteryUnit.ratedE.
    */
-  double storedE = 4;
+  int64 storedE = 4;
 
 }
