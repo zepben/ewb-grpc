@@ -2325,6 +2325,100 @@
                 "id": 4,
                 "name": "description",
                 "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "names",
+                "type": "Name",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/Name.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.core"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.core"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Core"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:core:/:Name.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Name",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "identifiedObjectMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.core"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.core"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Core"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:core:/:NameType.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "NameType",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "description",
+                "type": "string"
               }
             ]
           }
@@ -5128,6 +5222,45 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:LoadBreakSwitch.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "LoadBreakSwitch",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ps",
+                "type": "ProtectedSwitch"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/ProtectedSwitch.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:PerLengthImpedance.proto",
       "def": {
         "messages": [
@@ -6636,12 +6769,12 @@
               {
                 "id": 3,
                 "name": "ratedE",
-                "type": "double"
+                "type": "int64"
               },
               {
                 "id": 4,
                 "name": "storedE",
-                "type": "double"
+                "type": "int64"
               }
             ]
           }
@@ -8514,6 +8647,11 @@
                 "type": "zepben.protobuf.cim.iec61970.base.wires.BusbarSection"
               },
               {
+                "id": 51,
+                "name": "loadBreakSwitch",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.LoadBreakSwitch"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any"
@@ -8584,6 +8722,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/LoadBreakSwitch.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Disconnector.proto"
@@ -9487,6 +9628,21 @@
             ]
           },
           {
+            "name": "CreateLoadBreakSwitchRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "loadBreakSwitch",
+                "type": "cim.iec61970.base.wires.LoadBreakSwitch"
+              }
+            ]
+          },
+          {
             "name": "CreateBusbarSectionRequest",
             "fields": [
               {
@@ -9945,6 +10101,9 @@
             "path": "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/LoadBreakSwitch.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto"
           },
           {
@@ -10335,6 +10494,16 @@
           },
           {
             "name": "CreateBreakerResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreateLoadBreakSwitchResponse",
             "fields": [
               {
                 "id": 1,
@@ -10769,6 +10938,11 @@
                 "name": "CreateBreaker",
                 "in_type": "CreateBreakerRequest",
                 "out_type": "CreateBreakerResponse"
+              },
+              {
+                "name": "CreateLoadBreakSwitch",
+                "in_type": "CreateLoadBreakSwitchRequest",
+                "out_type": "CreateLoadBreakSwitchResponse"
               },
               {
                 "name": "CreateBusbarSection",
