@@ -25,5 +25,5 @@ service MeasurementProducer {
     rpc CreateAccumulatorValues(CreateAccumulatorValuesRequest) returns (CreateAccumulatorValuesResponse);
     rpc CreateAnalogValues(CreateAnalogValuesRequest) returns (CreateAnalogValuesResponse);
     rpc CreateDiscreteValues(CreateDiscreteValuesRequest) returns (CreateDiscreteValuesResponse);
-
+    rpc CreateMeasurementValues(stream CreateMeasurementValuesRequest) returns (stream CreateMeasurementValuesResponse);
 }
