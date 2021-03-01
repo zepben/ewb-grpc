@@ -18,12 +18,12 @@ setup(
     packages=find_namespace_packages(where="src"),
     python_requires='>=3.7',
     setup_requires=[
-        "grpcio-tools",
+        "grpcio-tools==1.36.0",
         "pep517"
     ],
     install_requires=[
         "protobuf",
-        "grpcio",
-        "grpcio-tools",
+        "grpcio==1.36.0",
+        "grpcio-tools==1.36.0",
     ],
 )
