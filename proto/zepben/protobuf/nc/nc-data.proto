@@ -16,6 +16,8 @@ import "google/protobuf/any.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/OverheadWireInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
 import "zepben/protobuf/cim/iec61968/common/Organisation.proto";
 import "zepben/protobuf/cim/iec61968/common/Location.proto";
@@ -64,6 +66,10 @@ import "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUni
 import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto";
+
+
+
 
 // A simplified representation of a geographical region for requesting the network hierarchy.
 message NetworkHierarchyGeographicalRegion {
@@ -146,6 +152,9 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.generation.production.PowerElectronicsWindUnit powerElectronicsWindUnit = 49;
         zepben.protobuf.cim.iec61970.base.wires.BusbarSection busbarSection = 50;
         zepben.protobuf.cim.iec61970.base.wires.LoadBreakSwitch loadBreakSwitch = 51;
+        zepben.protobuf.cim.iec61970.base.wires.TransformerStarImpedance transformerStarImpedance = 52;
+        zepben.protobuf.cim.iec61968.assetinfo.TransformerEndInfo transformerEndInfo = 53;
+        zepben.protobuf.cim.iec61968.assetinfo.TransformerTankInfo transformerTankInfo  = 54;
 
         google.protobuf.Any other = 999;
     }

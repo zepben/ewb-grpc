@@ -10,23 +10,22 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.AssetInfo";
-
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 
 /**
- * Set of power transformer data, from an equipment library.
+ * Wire data that can be specified per line segment phase, or for the line segment as a whole in case its phases all
+ * have the same wire characteristics.
  */
-message PowerTransformerInfo {
+message TransformerTankInfo {
 
   /**
-   * AssetInfo fields for this PowerTransformerInfo
+   * AssetInfo fields for this WireInfo
    */
   assets.AssetInfo ai = 1;
-
   /**
- * Data for all the tanks described by this power transformer data.
- */
-  repeated string transformerTankInfoMRIDs = 2;
+  Data for all the ends described by this transformer tank data.
+  */
+  repeated string transformerEndInfosMRIDs = 2;
 }

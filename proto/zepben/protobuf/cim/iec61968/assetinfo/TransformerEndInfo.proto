@@ -1,0 +1,76 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.AssetInfo";
+
+package zepben.protobuf.cim.iec61968.assetinfo;
+
+import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto";
+
+/**
+ * Set of power transformer data, from an equipment library.
+ */
+message TransformerEndInfo {
+
+  /**
+   * AssetInfo fields for this PowerTransformerInfo
+   */
+  assets.AssetInfo ai = 1;
+
+  /**
+   * Kind of connection.
+   */
+  iec61970.base.wires.winding.WindingConnection connectionKind = 2;
+
+  /**
+  *Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
+   */
+  int32  emergencyS = 3;
+
+  /**
+  * Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
+  * Highest voltage winding should be 1.
+  */
+  int32 endNumber = 4;
+
+  /**
+  Basic insulation level voltage rating.
+  */
+  int32  insulationU = 5;
+  /**
+  * Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}.
+  * For example, to express the second winding in code 'Dyn11',
+  * set attributes as follows: 'endNumber'=2, 'connectionKind' = Yn and 'phaseAngleClock' = 11.
+  */
+  int32 phaseAngleClock = 6;
+
+  /**
+  * DC resistance.
+  */
+  double r = 7;
+
+  /**
+  * Normal apparent power rating.
+  */
+  int32 ratedS = 8;
+
+  /**
+   * Rated voltage: phase-phase for three-phase windings, and either phase-phase
+   * or phase-neutral for single-phase windings.
+   */
+  int32 ratedU = 9;
+
+  /**
+  Apparent power that this winding can carry for a short period of time (in emergency).
+  */
+  int32 shortTermS = 10;
+}
