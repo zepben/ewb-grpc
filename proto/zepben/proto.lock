@@ -8128,6 +8128,34 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "CreateMeasurementValuesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "accumulatorValues",
+                "type": "cim.iec61970.base.meas.AccumulatorValue",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "analogValues",
+                "type": "cim.iec61970.base.meas.AnalogValue",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "discreteValues",
+                "type": "cim.iec61970.base.meas.DiscreteValue",
+                "is_repeated": true
+              }
+            ]
           }
         ],
         "imports": [
@@ -8223,6 +8251,16 @@
                 "type": "int64"
               }
             ]
+          },
+          {
+            "name": "CreateMeasurementValuesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
           }
         ],
         "package": {
@@ -8280,6 +8318,13 @@
                 "name": "CreateDiscreteValues",
                 "in_type": "CreateDiscreteValuesRequest",
                 "out_type": "CreateDiscreteValuesResponse"
+              },
+              {
+                "name": "CreateMeasurementValues",
+                "in_type": "CreateMeasurementValuesRequest",
+                "out_type": "CreateMeasurementValuesResponse",
+                "in_streamed": true,
+                "out_streamed": true
               }
             ]
           }
