@@ -296,6 +296,149 @@
                 "id": 1,
                 "name": "ai",
                 "type": "assets.AssetInfo"
+              },
+              {
+                "id": 2,
+                "name": "transformerTankInfoMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.assetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.assetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.AssetInfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:assetinfo:/:TransformerEndInfo.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "TransformerEndInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ai",
+                "type": "assets.AssetInfo"
+              },
+              {
+                "id": 2,
+                "name": "connectionKind",
+                "type": "iec61970.base.wires.winding.WindingConnection"
+              },
+              {
+                "id": 3,
+                "name": "emergencyS",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "endNumber",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "insulationU",
+                "type": "int32"
+              },
+              {
+                "id": 6,
+                "name": "phaseAngleClock",
+                "type": "int32"
+              },
+              {
+                "id": 7,
+                "name": "r",
+                "type": "double"
+              },
+              {
+                "id": 8,
+                "name": "ratedS",
+                "type": "int32"
+              },
+              {
+                "id": 9,
+                "name": "ratedU",
+                "type": "int32"
+              },
+              {
+                "id": 10,
+                "name": "shortTermS",
+                "type": "int32"
+              },
+              {
+                "id": 11,
+                "name": "transformerStarImpedanceMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.assetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.assetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.AssetInfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:assetinfo:/:TransformerTankInfo.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "TransformerTankInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ai",
+                "type": "assets.AssetInfo"
+              },
+              {
+                "id": 2,
+                "name": "transformerEndInfoMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -6249,6 +6392,75 @@
                 "id": 12,
                 "name": "xGround",
                 "type": "double"
+              },
+              {
+                "id": 13,
+                "name": "transformerStarImpedanceMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:TransformerStarImpedance.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "TransformerStarImpedance",
+            "fields": [
+              {
+                "id": 1,
+                "name": "io",
+                "type": "core.IdentifiedObject"
+              },
+              {
+                "id": 2,
+                "name": "r",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "r0",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "x",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "x0",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "TransformerEndInfoMRID",
+                "type": "string"
               }
             ]
           }
@@ -8744,6 +8956,21 @@
                 "type": "zepben.protobuf.cim.iec61970.base.wires.LoadBreakSwitch"
               },
               {
+                "id": 52,
+                "name": "transformerStarImpedance",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.TransformerStarImpedance"
+              },
+              {
+                "id": 53,
+                "name": "transformerEndInfo",
+                "type": "zepben.protobuf.cim.iec61968.assetinfo.TransformerEndInfo"
+              },
+              {
+                "id": 54,
+                "name": "transformerTankInfo",
+                "type": "zepben.protobuf.cim.iec61968.assetinfo.TransformerTankInfo"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any"
@@ -8763,6 +8990,12 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto"
@@ -8907,6 +9140,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto"
           }
         ],
         "package": {
@@ -9356,6 +9592,36 @@
                 "id": 2,
                 "name": "powerTransformerInfo",
                 "type": "cim.iec61968.assetinfo.PowerTransformerInfo"
+              }
+            ]
+          },
+          {
+            "name": "CreateTransformerEndInfoRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "transformerEndInfo",
+                "type": "cim.iec61968.assetinfo.TransformerEndInfo"
+              }
+            ]
+          },
+          {
+            "name": "CreateTransformerTankInfoRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "transformerTankInfo",
+                "type": "cim.iec61968.assetinfo.TransformerTankInfo"
               }
             ]
           },
@@ -9900,6 +10166,21 @@
             ]
           },
           {
+            "name": "CreateTransformerStarImpedanceRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "transformerStarImpedance",
+                "type": "cim.iec61970.base.wires.TransformerStarImpedance"
+              }
+            ]
+          },
+          {
             "name": "CreatePowerTransformerRequest",
             "fields": [
               {
@@ -10121,6 +10402,12 @@
             "path": "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
           },
           {
@@ -10269,6 +10556,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto"
           }
         ],
         "package": {
@@ -10346,6 +10636,16 @@
           },
           {
             "name": "CreateTransformerEndInfoResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
+            "name": "CreateTransformerTankInfoResponse",
             "fields": [
               {
                 "id": 1,
@@ -10715,6 +11015,16 @@
             ]
           },
           {
+            "name": "CreateTransformerStarImpedanceResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          },
+          {
             "name": "CreatePowerTransformerResponse",
             "fields": [
               {
@@ -10907,6 +11217,16 @@
                 "out_type": "CreatePowerTransformerInfoResponse"
               },
               {
+                "name": "CreateTransformerEndInfo",
+                "in_type": "CreateTransformerEndInfoRequest",
+                "out_type": "CreateTransformerEndInfoRequest"
+              },
+              {
+                "name": "CreateTransformerTankInfo",
+                "in_type": "CreateTransformerTankInfoRequest",
+                "out_type": "CreateTransformerTankInfoRequest"
+              },
+              {
                 "name": "CreateAssetOwner",
                 "in_type": "CreateAssetOwnerRequest",
                 "out_type": "CreateAssetOwnerResponse"
@@ -11090,6 +11410,11 @@
                 "name": "CreatePerLengthSequenceImpedance",
                 "in_type": "CreatePerLengthSequenceImpedanceRequest",
                 "out_type": "CreatePerLengthSequenceImpedanceResponse"
+              },
+              {
+                "name": "CreateTransformerStarImpedance",
+                "in_type": "CreateTransformerStarImpedanceRequest",
+                "out_type": "CreateTransformerStarImpedanceResponse"
               },
               {
                 "name": "CreatePowerTransformer",
