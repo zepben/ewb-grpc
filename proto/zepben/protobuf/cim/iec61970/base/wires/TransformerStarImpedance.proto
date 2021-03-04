@@ -1,11 +1,10 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2021 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-
 
 syntax = "proto3";
 option java_multiple_files = true;
@@ -21,32 +20,35 @@ import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
  * For transmission networks use PowerTransformerEnd impedances (r, r0, x, x0, b, b0, g and g0).
  */
 message TransformerStarImpedance {
+
   /**
-  * IdentifiedObject fields for this TransformerStarImpedance.
-  */
+   * IdentifiedObject fields for this TransformerStarImpedance.
+   */
   core.IdentifiedObject io = 1;
 
   /**
-    * Resistance of the transformer end. Value in ohms (ohm)
-    */
-  double r = 2;
-
-  /**
-   * Positive sequence series reactance of the transformer end. alue in ohms (ohm)
+   * Resistance of the transformer end. Value in ohms (ohm)
    */
-  double x = 3;
+  double r = 2;
 
   /**
    * Zero sequence series resistance of the transformer end.  Value in ohms (ohm)
    */
-  double r0 = 4;
+  double r0 = 3;
 
   /**
-   * Zero sequence series reactance of the transformer end. alue in ohms (ohm)
+   * Positive sequence series reactance of the transformer end. Value in ohms (ohm)
+   */
+  double x = 4;
+
+  /**
+   * Zero sequence series reactance of the transformer end. Value in ohms (ohm)
    */
   double x0 = 5;
+
   /**
-  Transformer end datasheet used to calculate this transformer star impedance.
+   * Transformer end datasheet used to calculate this transformer star impedance.
    */
   string TransformerEndInfoMRID = 6;
+
 }
