@@ -13,6 +13,10 @@ option java_package = "com.zepben.protobuf.mp";
 option csharp_namespace = "Zepben.Protobuf.MP";
 package zepben.protobuf.mp;
 
+import "zepben/protobuf/cim/iec61970/base/meas/AccumulatorValue.proto";
+import "zepben/protobuf/cim/iec61970/base/meas/AnalogValue.proto";
+import "zepben/protobuf/cim/iec61970/base/meas/DiscreteValue.proto";
+
 //
 // NOTE: messageId is used for tracking messages through the system. Errors will always be returned
 //       via message context, and thus should throw an exception.
@@ -41,6 +45,17 @@ message CreateDiscreteValuesResponse {
     int64 messageId = 1;
 }
 
+message ErrorDetail {
+    oneof value {
+        cim.iec61970.base.meas.AccumulatorValue accumulatorValue = 1;
+        cim.iec61970.base.meas.AnalogValue analogValue = 2;
+        cim.iec61970.base.meas.DiscreteValue discreteValue = 3;
+    }
+    string error = 4;
+}
+
 message CreateMeasurementValuesResponse {
     int64 messageId = 1;
+    bool failed = 2;
+    repeated ErrorDetail errors = 3;
 }
