@@ -8253,14 +8253,61 @@
             ]
           },
           {
+            "name": "ErrorDetail",
+            "fields": [
+              {
+                "id": 1,
+                "name": "accumulatorValue",
+                "type": "cim.iec61970.base.meas.AccumulatorValue"
+              },
+              {
+                "id": 2,
+                "name": "analogValue",
+                "type": "cim.iec61970.base.meas.AnalogValue"
+              },
+              {
+                "id": 3,
+                "name": "discreteValue",
+                "type": "cim.iec61970.base.meas.DiscreteValue"
+              },
+              {
+                "id": 4,
+                "name": "error",
+                "type": "string"
+              }
+            ]
+          },
+          {
             "name": "CreateMeasurementValuesResponse",
             "fields": [
               {
                 "id": 1,
                 "name": "messageId",
                 "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "failed",
+                "type": "bool"
+              },
+              {
+                "id": 3,
+                "name": "errors",
+                "type": "ErrorDetail",
+                "is_repeated": true
               }
             ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/AccumulatorValue.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/AnalogValue.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/DiscreteValue.proto"
           }
         ],
         "package": {
