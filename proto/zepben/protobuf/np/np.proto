@@ -40,6 +40,8 @@ service NetworkProducer {
     rpc CreateCableInfo(CreateCableInfoRequest) returns (CreateCableInfoResponse);
     rpc CreateOverheadWireInfo(CreateOverheadWireInfoRequest) returns (CreateOverheadWireInfoResponse);
     rpc CreatePowerTransformerInfo(CreatePowerTransformerInfoRequest) returns (CreatePowerTransformerInfoResponse);
+    rpc CreateTransformerEndInfo(CreateTransformerEndInfoRequest) returns (CreateTransformerEndInfoRequest);
+    rpc CreateTransformerTankInfo(CreateTransformerTankInfoRequest) returns (CreateTransformerTankInfoRequest);
 
     // Package: IEC-61968 Assets
     rpc CreateAssetOwner(CreateAssetOwnerRequest) returns (CreateAssetOwnerResponse);
@@ -93,6 +95,7 @@ service NetworkProducer {
     rpc CreateJunction(CreateJunctionRequest) returns (CreateJunctionResponse);
     rpc CreateLinearShuntCompensator(CreateLinearShuntCompensatorRequest) returns (CreateLinearShuntCompensatorResponse);
     rpc CreatePerLengthSequenceImpedance(CreatePerLengthSequenceImpedanceRequest) returns (CreatePerLengthSequenceImpedanceResponse);
+    rpc CreateTransformerStarImpedance(CreateTransformerStarImpedanceRequest) returns (CreateTransformerStarImpedanceResponse);
     rpc CreatePowerTransformer(CreatePowerTransformerRequest) returns (CreatePowerTransformerResponse);
     rpc CreatePowerTransformerEnd(CreatePowerTransformerEndRequest) returns (CreatePowerTransformerEndResponse);
     rpc CreateRatioTapChanger(CreateRatioTapChangerRequest) returns (CreateRatioTapChangerResponse);

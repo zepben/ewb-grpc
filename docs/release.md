@@ -30,6 +30,9 @@ a 1.0.0 release.
   * LoadBreakSwitch
   * Name
   * NameType
+  * TransformerEndInfo
+  * TransformerTankInfo
+  * TransformerStarImpedance
 
 ##### Enhancements
 * None.

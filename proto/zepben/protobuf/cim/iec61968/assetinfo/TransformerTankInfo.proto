@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2021 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,24 +10,23 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.AssetInfo";
-
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 
 /**
- * Set of power transformer data, from an equipment library.
+ * Set of transformer tank data, from an equipment library.
  */
-message PowerTransformerInfo {
+message TransformerTankInfo {
 
   /**
-   * AssetInfo fields for this PowerTransformerInfo
+   * AssetInfo fields for this TransformerTankInfo
    */
   assets.AssetInfo ai = 1;
 
   /**
-   * Data for all the tanks described by this power transformer data.
+   * Data for all the ends described by this transformer tank data.
    */
-  repeated string transformerTankInfoMRIDs = 2;
+  repeated string transformerEndInfoMRIDs = 2;
 
 }
