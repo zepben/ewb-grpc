@@ -12,7 +12,10 @@ option java_package = "com.zepben.protobuf.nm";
 option csharp_namespace = "Zepben.Protobuf.NM";
 package zepben.protobuf.nm;
 
+import "google/protobuf/timestamp.proto";
+
 message SwitchStateUpdate {
     string mRID = 1;
     bool setOpen = 2;
+    google.protobuf.Timestamp timestamp = 3;
 }
