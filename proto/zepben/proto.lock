@@ -9527,6 +9527,166 @@
       }
     },
     {
+      "protopath": "protobuf:/:nm:/:set-switch-state-data.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SwitchStateUpdate",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "setOpen",
+                "type": "bool"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:nm:/:set-switch-state-requests.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SetCurrentSwitchStatesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "switchesToUpdate",
+                "type": "SwitchStateUpdate",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/nm/set-switch-state-data.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:nm:/:set-switch-state-responses.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SetCurrentSwitchStatesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:nm:/:set-switch-state.proto",
+      "def": {
+        "services": [
+          {
+            "name": "SwitchStateService",
+            "rpcs": [
+              {
+                "name": "setCurrentSwitchStates",
+                "in_type": "SetCurrentSwitchStatesRequest",
+                "out_type": "SetCurrentSwitchStatesResponse"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/nm/set-switch-state-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/nm/set-switch-state-responses.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:np:/:np-requests.proto",
       "def": {
         "messages": [
