@@ -120,7 +120,7 @@ jobs:
         run: |
           cd python
           mkdir -p /pipcache
-          pip install --cache-dir /pipcache twine
+          pip install --cache-dir /pipcache 'twine==3.3.0'
           pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
           python build.py --package
