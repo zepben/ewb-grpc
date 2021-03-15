@@ -25,8 +25,13 @@ message TransformerTankInfo {
   assets.AssetInfo ai = 1;
 
   /**
+   * Power transformer data that this tank description is part of.
+   */
+  string powerTransformerInfoMRID = 2;
+
+  /**
    * Data for all the ends described by this transformer tank data.
    */
-  repeated string transformerEndInfoMRIDs = 2;
+  repeated string transformerEndInfoMRIDs = 3;
 
 }
