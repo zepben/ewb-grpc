@@ -13,14 +13,22 @@ option csharp_namespace = "Zepben.Protobuf.NC";
 package zepben.protobuf.nc;
 
 import "zepben/protobuf/nc/nc-data.proto";
+import "zepben/protobuf/cim/iec61970/base/core/Feeder.proto";
+import "zepben/protobuf/cim/iec61970/base/core/GeographicalRegion.proto";
+import "zepben/protobuf/cim/iec61970/base/core/SubGeographicalRegion.proto";
+import "zepben/protobuf/cim/iec61970/base/core/Substation.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Terminal.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto";
 
 message GetNetworkHierarchyResponse {
     int64 messageId = 1;
-    repeated NetworkHierarchyGeographicalRegion geographicalRegions = 2;
-    repeated NetworkHierarchySubGeographicalRegion subGeographicalRegions = 3;
-    repeated NetworkHierarchySubstation substations = 4;
-    repeated NetworkHierarchyFeeder feeders = 5;
+    repeated cim.iec61970.base.core.GeographicalRegion geographicalRegions = 2;
+    repeated cim.iec61970.base.core.SubGeographicalRegion subGeographicalRegions = 3;
+    repeated cim.iec61970.base.core.Substation substations = 4;
+    repeated cim.iec61970.base.core.Feeder feeders = 5;
+    repeated cim.iec61970.infiec61970.feeder.Circuit circuits = 6;
+    repeated cim.iec61970.infiec61970.feeder.Loop loops = 7;
 }
 
 message GetIdentifiedObjectsResponse {
