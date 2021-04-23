@@ -21,13 +21,13 @@ a 1.0.0 release.
 ### v0.14.0
 
 ##### Breaking Changes
-* None.
+* `getNetworkHierarchy` now returns the actual containers rather than a simplified version.
 
 ##### New Features
 * None.
 
 ##### Enhancements
-* None.
+* Circuits and loops have been added to the `getNetworkHierarchy` response.
 
 ##### Fixes
 * None.

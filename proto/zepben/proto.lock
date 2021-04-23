@@ -8630,84 +8630,6 @@
       "def": {
         "messages": [
           {
-            "name": "NetworkHierarchyGeographicalRegion",
-            "fields": [
-              {
-                "id": 1,
-                "name": "mRID",
-                "type": "string"
-              },
-              {
-                "id": 2,
-                "name": "name",
-                "type": "string"
-              },
-              {
-                "id": 3,
-                "name": "subGeographicalRegionMrids",
-                "type": "string",
-                "is_repeated": true
-              }
-            ]
-          },
-          {
-            "name": "NetworkHierarchySubGeographicalRegion",
-            "fields": [
-              {
-                "id": 1,
-                "name": "mRID",
-                "type": "string"
-              },
-              {
-                "id": 2,
-                "name": "name",
-                "type": "string"
-              },
-              {
-                "id": 3,
-                "name": "substationMrids",
-                "type": "string",
-                "is_repeated": true
-              }
-            ]
-          },
-          {
-            "name": "NetworkHierarchySubstation",
-            "fields": [
-              {
-                "id": 1,
-                "name": "mRID",
-                "type": "string"
-              },
-              {
-                "id": 2,
-                "name": "name",
-                "type": "string"
-              },
-              {
-                "id": 3,
-                "name": "feederMrids",
-                "type": "string",
-                "is_repeated": true
-              }
-            ]
-          },
-          {
-            "name": "NetworkHierarchyFeeder",
-            "fields": [
-              {
-                "id": 1,
-                "name": "mRID",
-                "type": "string"
-              },
-              {
-                "id": 2,
-                "name": "name",
-                "type": "string"
-              }
-            ]
-          },
-          {
             "name": "NetworkIdentifiedObject",
             "fields": [
               {
@@ -9299,25 +9221,37 @@
               {
                 "id": 2,
                 "name": "geographicalRegions",
-                "type": "NetworkHierarchyGeographicalRegion",
+                "type": "cim.iec61970.base.core.GeographicalRegion",
                 "is_repeated": true
               },
               {
                 "id": 3,
                 "name": "subGeographicalRegions",
-                "type": "NetworkHierarchySubGeographicalRegion",
+                "type": "cim.iec61970.base.core.SubGeographicalRegion",
                 "is_repeated": true
               },
               {
                 "id": 4,
                 "name": "substations",
-                "type": "NetworkHierarchySubstation",
+                "type": "cim.iec61970.base.core.Substation",
                 "is_repeated": true
               },
               {
                 "id": 5,
                 "name": "feeders",
-                "type": "NetworkHierarchyFeeder",
+                "type": "cim.iec61970.base.core.Feeder",
+                "is_repeated": true
+              },
+              {
+                "id": 6,
+                "name": "circuits",
+                "type": "cim.iec61970.infiec61970.feeder.Circuit",
+                "is_repeated": true
+              },
+              {
+                "id": 7,
+                "name": "loops",
+                "type": "cim.iec61970.infiec61970.feeder.Loop",
                 "is_repeated": true
               }
             ]
@@ -9403,7 +9337,25 @@
             "path": "zepben/protobuf/nc/nc-data.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/core/Feeder.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/GeographicalRegion.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/SubGeographicalRegion.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/Substation.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/core/Terminal.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto"
           }
         ],
         "package": {
