@@ -14,8 +14,11 @@ package zepben.protobuf.nc;
 
 import "google/protobuf/any.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/NoLoadTest.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/OpenCircuitTest.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/OverheadWireInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/ShortCircuitTest.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
@@ -125,6 +128,9 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.TransformerStarImpedance transformerStarImpedance = 52;
         zepben.protobuf.cim.iec61968.assetinfo.TransformerEndInfo transformerEndInfo = 53;
         zepben.protobuf.cim.iec61968.assetinfo.TransformerTankInfo transformerTankInfo  = 54;
+        zepben.protobuf.cim.iec61968.assetinfo.NoLoadTest noLoadTest  = 55;
+        zepben.protobuf.cim.iec61968.assetinfo.OpenCircuitTest openCircuitTest  = 56;
+        zepben.protobuf.cim.iec61968.assetinfo.ShortCircuitTest shortCircuitTest  = 57;
 
         google.protobuf.Any other = 999;
     }
