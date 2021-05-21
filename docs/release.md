@@ -22,7 +22,15 @@ a 1.0.0 release.
 ### v0.15.0
 
 ##### Breaking Changes
-* None.
+* All `NetworkConsumer` calls that return `NetworkIdentifiedObject` instances
+  have been updated to allow repeated values.
+* Renamed the following:
+    * `getEquipmentForContainer` to `getEquipmentForContainers`
+    * `GetEquipmentForContainerRequest` to `GetEquipmentForContainersRequest`
+    * `GetEquipmentForContainerResponse` to `GetEquipmentForContainersResponse`
+* All services `getIdentifiedObjects` and `NetworkConsumer.getEquipmentForContainers`
+  have been updated to take a stream of requests.
+* `GetEquipmentForContainersRequest` has been changed to have a repeated mRID field.
 
 ##### New Features
 * None.

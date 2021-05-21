@@ -175,6 +175,7 @@
                 "name": "getIdentifiedObjects",
                 "in_type": "GetIdentifiedObjectsRequest",
                 "out_type": "GetIdentifiedObjectsResponse",
+                "in_streamed": true,
                 "out_streamed": true
               }
             ]
@@ -7726,6 +7727,7 @@
                 "name": "getIdentifiedObjects",
                 "in_type": "GetIdentifiedObjectsRequest",
                 "out_type": "GetIdentifiedObjectsResponse",
+                "in_streamed": true,
                 "out_streamed": true
               }
             ]
@@ -9127,7 +9129,7 @@
             ]
           },
           {
-            "name": "GetEquipmentForContainerRequest",
+            "name": "GetEquipmentForContainersRequest",
             "fields": [
               {
                 "id": 1,
@@ -9136,8 +9138,9 @@
               },
               {
                 "id": 2,
-                "name": "mrid",
-                "type": "string"
+                "name": "mrids",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           },
@@ -9266,13 +9269,14 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObject",
-                "type": "NetworkIdentifiedObject"
+                "name": "identifiedObjects",
+                "type": "NetworkIdentifiedObject",
+                "is_repeated": true
               }
             ]
           },
           {
-            "name": "GetEquipmentForContainerResponse",
+            "name": "GetEquipmentForContainersResponse",
             "fields": [
               {
                 "id": 1,
@@ -9281,8 +9285,9 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObject",
-                "type": "NetworkIdentifiedObject"
+                "name": "identifiedObjects",
+                "type": "NetworkIdentifiedObject",
+                "is_repeated": true
               }
             ]
           },
@@ -9296,8 +9301,9 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObject",
-                "type": "NetworkIdentifiedObject"
+                "name": "identifiedObjects",
+                "type": "NetworkIdentifiedObject",
+                "is_repeated": true
               }
             ]
           },
@@ -9311,8 +9317,9 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObject",
-                "type": "NetworkIdentifiedObject"
+                "name": "identifiedObjects",
+                "type": "NetworkIdentifiedObject",
+                "is_repeated": true
               }
             ]
           },
@@ -9388,6 +9395,7 @@
                 "name": "getIdentifiedObjects",
                 "in_type": "GetIdentifiedObjectsRequest",
                 "out_type": "GetIdentifiedObjectsResponse",
+                "in_streamed": true,
                 "out_streamed": true
               },
               {
@@ -9396,9 +9404,10 @@
                 "out_type": "GetNetworkHierarchyResponse"
               },
               {
-                "name": "getEquipmentForContainer",
-                "in_type": "GetEquipmentForContainerRequest",
-                "out_type": "GetEquipmentForContainerResponse",
+                "name": "getEquipmentForContainers",
+                "in_type": "GetEquipmentForContainersRequest",
+                "out_type": "GetEquipmentForContainersResponse",
+                "in_streamed": true,
                 "out_streamed": true
               },
               {
