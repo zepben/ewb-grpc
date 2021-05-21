@@ -20,13 +20,13 @@ import "zepben/protobuf/nc/nc-responses.proto";
 service NetworkConsumer {
 
     // Get identified objects
-    rpc getIdentifiedObjects (GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
+    rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
     // Get a simplified view of the network hierarchy from the geographical region down to the feeder level
     rpc getNetworkHierarchy (GetNetworkHierarchyRequest) returns (GetNetworkHierarchyResponse);
 
     // Get an EquipmentContainer's equipment
-    rpc getEquipmentForContainer (GetEquipmentForContainerRequest) returns (stream GetEquipmentForContainerResponse);
+    rpc getEquipmentForContainers (stream GetEquipmentForContainersRequest) returns (stream GetEquipmentForContainersResponse);
 
     // Get an EquipmentContainer's current equipment
     rpc getCurrentEquipmentForFeeder (GetCurrentEquipmentForFeederRequest) returns (stream GetCurrentEquipmentForFeederResponse);

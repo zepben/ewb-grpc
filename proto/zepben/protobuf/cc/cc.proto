@@ -18,7 +18,7 @@ import "zepben/protobuf/cc/cc-responses.proto";
 service CustomerConsumer {
 
     // Get identified objects
-    rpc getIdentifiedObjects (GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
+    rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
 }
 

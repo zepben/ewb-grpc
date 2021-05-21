@@ -21,11 +21,11 @@ message GetNetworkHierarchyRequest {
     int64 messageId = 1;
 }
 
-message GetEquipmentForContainerRequest {
+message GetEquipmentForContainersRequest {
     int64 messageId = 1;
 
     // mRID of the EquipmentContainer to retrieve Equipment for.
-    string mrid = 2;
+    repeated string mrids = 2;
 }
 
 message GetCurrentEquipmentForFeederRequest {
