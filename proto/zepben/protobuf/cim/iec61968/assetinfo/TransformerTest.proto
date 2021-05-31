@@ -1,0 +1,37 @@
+/*
+ * Copyright 2021 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.AssetInfo";
+package zepben.protobuf.cim.iec61968.assetinfo;
+
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+
+/**
+ * Test result for transformer ends, such as short-circuit, open-circuit (excitation) or no-load test.
+ */
+message TransformerTest {
+
+  /**
+   * IdentifiedObject fields for this TransformerTest.
+   */
+  iec61970.base.core.IdentifiedObject io = 1;
+
+  /**
+   * Base power at which the tests are conducted, usually equal to the ratedS of one of the involved transformer ends.
+   */
+  int32 basePower = 2;
+
+  /**
+   * Temperature at which the test is conducted.
+   */
+  double temperature = 3;
+
+}

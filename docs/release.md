@@ -33,8 +33,12 @@ a 1.0.0 release.
 * `GetEquipmentForContainersRequest` has been changed to have a repeated mRID field.
 
 ##### New Features
-* None.
-
+* Added the following protos:
+  * TransformerTest
+  * NoLoadTest
+  * OpenCircuitTest
+  * ShortCircuitTest
+    
 ##### Enhancements
 * None.
 
@@ -68,10 +72,12 @@ a 1.0.0 release.
 ### v0.13.0
 
 ##### Breaking Changes
-* None.
+* `TransformerStarImpedance.TransformerEndInfoMRID` has been renamed to `TransformerStarImpedance.transformerEndInfoMRID`.
+* `TransformerEnd.transformerStarImpedanceMRID` has been renamed to `TransformerEnd.starImpedanceMRID`.
 
 ##### New Features
-* None.
+* Added SwitchStateService and rpc to set current switch state.
+* Added dual links for transformer tank and end info.
 
 ##### Enhancements
 * None.
