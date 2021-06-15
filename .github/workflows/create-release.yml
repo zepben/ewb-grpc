@@ -276,6 +276,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: release
+          fetch-depth: 0
 
       - name: Update to next minor version
         run: |
@@ -293,8 +294,7 @@ jobs:
           git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
           git fetch --all
           git checkout ${GITHUB_REF/refs\/heads\//}
-          git pull
-          git merge release
+          git pull origin release
           git push origin ${GITHUB_REF/refs\/heads\//}
           git push origin -d release
         shell: bash
