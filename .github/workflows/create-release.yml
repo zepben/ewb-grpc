@@ -6,7 +6,7 @@ on: workflow_dispatch
 jobs:
   release-checks:
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.1.0
+    container: zepben/pipeline-basic:5.5.0
     outputs:
       version: ${{ steps.check.outputs.release-version }}
     env:
@@ -173,7 +173,7 @@ jobs:
   finalise:
     needs: [java-deploy, python-deploy, cs-deploy]
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.1.0
+    container: zepben/pipeline-basic:5.5.0
     steps:
       - uses: actions/checkout@v2
 
@@ -263,7 +263,7 @@ jobs:
   update-version:
     needs: finalise
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.1.0
+    container: zepben/pipeline-basic:5.5.0
     env:
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
       NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
@@ -276,6 +276,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: release
+          fetch-depth: 0
 
       - name: Update to next minor version
         run: |
@@ -293,8 +294,7 @@ jobs:
           git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
           git fetch --all
           git checkout ${GITHUB_REF/refs\/heads\//}
-          git pull
-          git merge release
+          git pull origin release
           git push origin ${GITHUB_REF/refs\/heads\//}
           git push origin -d release
         shell: bash

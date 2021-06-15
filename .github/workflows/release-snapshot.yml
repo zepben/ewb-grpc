@@ -129,10 +129,15 @@ jobs:
 
   update-snapshot-version:
     needs: [python-deploy, cs-deploy, java-deploy]
-    container: zepben/pipeline-basic:5.1.0
+    container: zepben/pipeline-basic:5.5.0
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
+      NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
+      NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+      NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+      NEXUS_MAVEN_SNAPSHOT: ${{ secrets.NEXUS_MAVEN_SNAPSHOT }}
+      NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
     steps:
       - uses: actions/checkout@v2
 
@@ -143,6 +148,8 @@ jobs:
           cd python
           /scripts/update-version.sh --python --snapshot --no-commit setup.cfg
           /scripts/update-version.sh --python --snapshot --no-commit setup.py
+          cd ../java
+          /scripts/update-version.sh --java --snapshot --maven --no-commit pom.xml
           cd ../cs
           /scripts/update-version.sh --csharp --snapshot --no-commit evolve-grpc.csproj
           commit_update_version ${GITHUB_REF/refs\/heads\//}
