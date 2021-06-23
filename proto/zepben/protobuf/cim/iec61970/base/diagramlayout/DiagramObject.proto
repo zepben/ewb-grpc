@@ -14,7 +14,6 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.DiagramLayout";
 package zepben.protobuf.cim.iec61970.base.diagramlayout;
 
 import "zepben/protobuf/cim/iec61970/base/diagramlayout/DiagramObjectPoint.proto";
-import "zepben/protobuf/cim/iec61970/base/diagramlayout/DiagramObjectStyle.proto";
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
 
 /**
@@ -42,7 +41,7 @@ message DiagramObject {
     /**
      * A diagram object has a style associated that provides a reference for the style used in the originating system.
      */
-    DiagramObjectStyle diagramObjectStyle = 4;
+    string diagramObjectStyle = 4;
 
     /**
      * Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation is clockwise.
