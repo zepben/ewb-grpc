@@ -31,6 +31,7 @@ a 1.0.0 release.
 * All services `getIdentifiedObjects` and `NetworkConsumer.getEquipmentForContainers`
   have been updated to take a stream of requests.
 * `GetEquipmentForContainersRequest` has been changed to have a repeated mRID field.
+* Changed `IdentifiedObject.diagramObjectStyle` to be a string and removed `DiagramObjectStyle` enum.
 
 ##### New Features
 * Added the following protos:
