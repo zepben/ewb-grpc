@@ -32,6 +32,7 @@ a 1.0.0 release.
   have been updated to take a stream of requests.
 * `GetEquipmentForContainersRequest` has been changed to have a repeated mRID field.
 * Changed `IdentifiedObject.diagramObjectStyle` to be a string and removed `DiagramObjectStyle` enum.
+* Removed unused field `Name.identifiedObjectMRID`.
 
 ##### New Features
 * Added the following protos:
