@@ -36,10 +36,12 @@ a 1.0.0 release.
 
 ##### New Features
 * Added the following protos:
-  * TransformerTest
+  * EquivalentBranch
+  * EquivalentEquipment
   * NoLoadTest
   * OpenCircuitTest
   * ShortCircuitTest
+  * TransformerTest
     
 ##### Enhancements
 * None.
