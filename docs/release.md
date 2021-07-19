@@ -36,12 +36,13 @@ a 1.0.0 release.
 
 ##### New Features
 * Added the following protos:
-  * EquivalentBranch
-  * EquivalentEquipment
-  * NoLoadTest
-  * OpenCircuitTest
-  * ShortCircuitTest
-  * TransformerTest
+  * `EquivalentBranch`
+  * `EquivalentEquipment`
+  * `NoLoadTest`
+  * `OpenCircuitTest`
+  * `ShortCircuitTest`
+  * `TransformerTest`
+* Added `isVirtual` and `connectionCategory` to `UsagePoint`
     
 ##### Enhancements
 * None.
@@ -105,12 +106,12 @@ a 1.0.0 release.
 * New network RPCs `getEquipmentForContainer`, `getCurrentEquipmentForFeeder`, `getEquipmentForRestriction` which allow requesting for all the equipment or current equipment for a given `EquipmentContainer`, `Feeder`, or `OperationalRestriction` respectively.
 * New network RPC `getTerminalsForNode` for fetching all `Terminal`s for a given `ConnectivityNode`.
 * Added the following protos:
-  * LoadBreakSwitch
-  * Name
-  * NameType
-  * TransformerEndInfo
-  * TransformerTankInfo
-  * TransformerStarImpedance
+  * `LoadBreakSwitch`
+  * `Name`
+  * `NameType`
+  * `TransformerEndInfo`
+  * `TransformerTankInfo`
+  * `TransformerStarImpedance`
 
 ##### Enhancements
 * None.
@@ -130,14 +131,14 @@ a 1.0.0 release.
 
 ##### New Features
 * Added the following protos:
-  * BatteryStateKind
-  * BatteryUnit
-  * BusbarSection
-  * PhotoVoltaicUnit
-  * PowerElectronicsConnection
-  * PowerElectronicsConnectionPhase
-  * PowerElectronicsUnit
-  * PowerElectronicsWindUnit
+  * `BatteryStateKind`
+  * `BatteryUnit`
+  * `BusbarSection`
+  * `PhotoVoltaicUnit`
+  * `PowerElectronicsConnection`
+  * `PowerElectronicsConnectionPhase`
+  * `PowerElectronicsUnit`
+  * `PowerElectronicsWindUnit`
 
 ##### Enhancements
 * None.
