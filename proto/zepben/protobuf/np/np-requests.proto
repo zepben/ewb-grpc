@@ -18,6 +18,7 @@ import "zepben/protobuf/cim/iec61968/assetinfo/OverheadWireInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/PowerTransformerInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/ShuntCompensatorInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
 import "zepben/protobuf/cim/iec61968/assets/Pole.proto";
@@ -111,6 +112,11 @@ message CreateTransformerTankInfoRequest {
 message CreateAssetInfoRequest {
     int64 messageId = 1;
     cim.iec61968.assets.AssetInfo assetInfo = 2;
+}
+
+message CreateShuntCompensatorInfoRequest {
+    int64 messageId = 1;
+    cim.iec61968.assetinfo.ShuntCompensatorInfo shuntCompensatorInfo = 2;
 }
 
 message CreateAssetOwnerRequest {
