@@ -549,6 +549,65 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61968:/:assetinfo:/:ShuntCompensatorInfo.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ShuntCompensatorInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ai",
+                "type": "assets.AssetInfo"
+              },
+              {
+                "id": 2,
+                "name": "maxPowerLoss",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "ratedCurrent",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "ratedReactivePower",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "ratedVoltage",
+                "type": "int32"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.assetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.assetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.AssetInfo"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61968:/:assetinfo:/:TransformerEndInfo.proto",
       "def": {
         "messages": [
@@ -9232,6 +9291,11 @@
                 "type": "zepben.protobuf.cim.iec61970.base.equivalents.EquivalentBranch"
               },
               {
+                "id": 59,
+                "name": "shuntCompensatorInfo",
+                "type": "zepben.protobuf.cim.iec61968.assetinfo.ShuntCompensatorInfo"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any"
@@ -9266,6 +9330,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/ShuntCompensatorInfo.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto"
