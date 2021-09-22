@@ -1,4 +1,3 @@
-# Note: default release notes file is docs/release.md.
 name: Release
 
 on: workflow_dispatch
@@ -28,13 +27,8 @@ jobs:
           /scripts/release-checks.sh --python python/setup.cfg
           /scripts/release-checks.sh --python python/setup.py
           # /scripts/release-checks.sh --csharp cs/evolve-grpc.csproj
-          FILE=docs/release.md
-          if [ -f "$FILE" ]; then
-            export release_date=$(date +'%d %B %Y')
-            /scripts/finalize-version.sh --java --maven --no-commit java/pom.xml $FILE 'sed -i -e "s/TBD/$release_date/g"'
-          else
-            /scripts/finalize-version.sh --java --maven --no-commit java/pom.xml
-          fi
+          export release_date=$(date +'%d %B %Y')
+          /scripts/finalize-version.sh --java --maven --no-commit java/pom.xml
           /scripts/finalize-version.sh --python --no-commit python/setup.cfg
           /scripts/finalize-version.sh --python --no-commit python/setup.py
           /scripts/finalize-version.sh --csharp --no-commit cs/evolve-grpc.csproj
@@ -207,7 +201,7 @@ jobs:
         with:
           tag_name: ${{ steps.merge.outputs.tag }}
           release_name: ${{ steps.merge.outputs.tag }}
-          body_path: docs/release.md
+          body_path: changelog.md
           draft: false
           prerelease: false
 
@@ -281,12 +275,11 @@ jobs:
       - name: Update to next minor version
         run: |
           source /scripts/common.sh
-          export ln=$(cat docs/release.md | grep -n "### v[0-9]\+.[0-9]\+.[0-9]\+" | head -1 | cut -d':' -f1)
           cd python
           /scripts/update-version.sh --python --no-commit setup.cfg
           /scripts/update-version.sh --python --no-commit setup.py
           cd ../java
-          /scripts/update-version.sh --java --maven --no-commit pom.xml ../docs/release.md 'next_release_version=${version//-SNAPSHOT/} && sed -i "${ln}i \#\#\# v${version//-SNAPSHOT/}\n\n\#\#\#\#\# Breaking Changes\n\* None.\n\n\#\#\#\#\# New Features\n\* None.\n\n\#\#\#\#\# Enhancements\n\* None.\n\n\#\#\#\#\# Fixes\n\* None.\n\n\#\#\#\#\# Notes\n\* None.\n\n\-\-\-\n" $changelog && sed -i "5i \| \[${next_release_version}\]\(\#v${next_release_version//\./}\) \| \`TBD\` \|"'
+          /scripts/update-version.sh --java --maven --no-commit pom.xml changelog.md
           cd ../cs
           /scripts/update-version.sh --csharp --no-commit evolve-grpc.csproj
           commit_update_version
