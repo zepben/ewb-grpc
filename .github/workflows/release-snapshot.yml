@@ -124,7 +124,7 @@ jobs:
           pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
           python build.py --package
-          twine upload dist/*
+          twine upload dist/* --skip-existing
         shell: bash
 
   update-snapshot-version:
