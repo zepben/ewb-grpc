@@ -2013,6 +2013,154 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:TransformerConstructionKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "TransformerConstructionKind",
+            "enum_fields": [
+              {
+                "name": "unknown"
+              },
+              {
+                "name": "onePhase",
+                "integer": 1
+              },
+              {
+                "name": "threePhase",
+                "integer": 2
+              },
+              {
+                "name": "aerial",
+                "integer": 3
+              },
+              {
+                "name": "overhead",
+                "integer": 4
+              },
+              {
+                "name": "dryType",
+                "integer": 5
+              },
+              {
+                "name": "network",
+                "integer": 6
+              },
+              {
+                "name": "padmountDeadFront",
+                "integer": 7
+              },
+              {
+                "name": "padmountFeedThrough",
+                "integer": 8
+              },
+              {
+                "name": "padmountLiveFront",
+                "integer": 9
+              },
+              {
+                "name": "padmountLoopThrough",
+                "integer": 10
+              },
+              {
+                "name": "padmounted",
+                "integer": 11
+              },
+              {
+                "name": "subway",
+                "integer": 12
+              },
+              {
+                "name": "underground",
+                "integer": 13
+              },
+              {
+                "name": "vault",
+                "integer": 14
+              },
+              {
+                "name": "vaultThreePhase",
+                "integer": 15
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:TransformerFunctionKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "TransformerFunctionKind",
+            "enum_fields": [
+              {
+                "name": "other"
+              },
+              {
+                "name": "voltageRegulator",
+                "integer": 1
+              },
+              {
+                "name": "distributionTransformer",
+                "integer": 2
+              },
+              {
+                "name": "isolationTransformer",
+                "integer": 3
+              },
+              {
+                "name": "autotransformer",
+                "integer": 4
+              },
+              {
+                "name": "powerTransformer",
+                "integer": 5
+              },
+              {
+                "name": "secondaryTransformer",
+                "integer": 6
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61968:/:metering:/:EndDevice.proto",
       "def": {
         "messages": [
@@ -6193,11 +6341,27 @@
                 "id": 4,
                 "name": "transformerUtilisation",
                 "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "constructionKind",
+                "type": "iec61968.infiec61968.infassetinfo.TransformerConstructionKind"
+              },
+              {
+                "id": 6,
+                "name": "function",
+                "type": "iec61968.infiec61968.infassetinfo.TransformerFunctionKind"
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerConstructionKind.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerFunctionKind.proto"
+          },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
           },
