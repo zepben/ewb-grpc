@@ -13,6 +13,8 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
+import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerConstructionKind.proto";
+import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerFunctionKind.proto";
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/VectorGroup.proto";
 
@@ -52,5 +54,15 @@ message PowerTransformer {
      * result of the calculation S/Sn, where S = Load on Transformer (in VA), Sn = Transformer Nameplate Rating (in VA).
      */
     double transformerUtilisation = 4;
+
+    /**
+     * The construction kind of this transformer
+     */
+    iec61968.infiec61968.infassetinfo.TransformerConstructionKind constructionKind = 5;
+
+    /**
+     * The function of this transformer
+     */
+    iec61968.infiec61968.infassetinfo.TransformerFunctionKind function = 6;
 
 }
