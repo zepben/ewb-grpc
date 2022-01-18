@@ -1,0 +1,89 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.common";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
+package zepben.protobuf.cim.iec61968.common;
+
+/**
+ * Street details, in the context of address.
+ */
+message StreetDetail {
+
+    /**
+     * First line of a free form address or some additional address information (for example a mail stop).
+     */
+    string addressGeneral = 1;
+
+    /**
+     * (if applicable) Second line of a free form address.
+     */
+    string addressGeneral2 = 2;
+
+    /**
+     * (if applicable) Third line of a free form address.
+     */
+    string addressGeneral3 = 3;
+
+    /**
+     * (if applicable) In certain cases the physical location of the place of interest does not have a direct point of
+     * entry from the street, but may be located inside a larger structure such as a building, complex, office block,
+     * apartment, etc.
+     */
+    string buildingName = 4;
+
+    /**
+     * (if applicable) Utilities often make use of external reference systems, such as those of the town-planner's
+     * department or surveyor general's mapping system, that allocate global reference codes to streets.
+     */
+    string code = 5;
+
+    /**
+     * The identification by name or number, expressed as text, of the floor in the building as part of this address.
+     */
+    string floorIdentification = 6;
+
+    /**
+     * Name of the street.
+     */
+    string name = 7;
+
+    /**
+     * Designator of the specific location on the street.
+     */
+    string number = 8;
+
+    /**
+     * Prefix to the street name. For example: North, South, East, West.
+     */
+    string prefix = 9;
+
+    /**
+     * Suffix to the street name. For example: North, South, East, West.
+     */
+    string suffix = 10;
+
+    /**
+     * Number of the apartment or suite.
+     */
+    string suiteNumber = 11;
+
+    /**
+     * Type of street. Examples include: street, circle, boulevard, avenue, road, drive, etc.
+     */
+    string type = 12;
+
+    /**
+     * True if this street is within the legal geographical boundaries of the specified town (default).
+     */
+    bool withinTownLimits = 13;
+
+}
