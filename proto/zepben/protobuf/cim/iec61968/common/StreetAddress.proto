@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2022 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -13,6 +13,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.common";
 option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
 package zepben.protobuf.cim.iec61968.common;
 
+import "zepben/protobuf/cim/iec61968/common/StreetDetail.proto";
 import "zepben/protobuf/cim/iec61968/common/TownDetail.proto";
 
 /**
@@ -21,13 +22,33 @@ import "zepben/protobuf/cim/iec61968/common/TownDetail.proto";
 message StreetAddress {
 
     /**
+     * The language in which the address is specified, using ISO 639-1 two digit language code.
+     */
+    string language = 1;
+
+    /**
+     * Post office box.
+     */
+    string poBox = 2;
+
+    /**
      * Postal code for the address.
      */
-    string postalCode = 1;
+    string postalCode = 3;
+
+    /**
+     * Status of this address.
+     */
+    string status = 4;
+
+    /**
+     * Street detail.
+     */
+    StreetDetail streetDetail = 5;
 
     /**
      * Town detail.
      */
-    TownDetail townDetail = 2;
+    TownDetail townDetail = 6;
 
 }

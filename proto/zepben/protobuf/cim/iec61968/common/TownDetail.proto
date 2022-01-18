@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2022 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,13 +19,28 @@ package zepben.protobuf.cim.iec61968.common;
 message TownDetail {
 
     /**
+     * Town code.
+     */
+    string code = 1;
+
+    /**
+     * Name of the country.
+     */
+    string country = 2;
+
+    /**
      * Town name.
      */
-    string name = 1;
+    string name = 3;
+
+    /**
+     * Town section. For example, it is common for there to be 36 sections per township.
+     */
+    string section = 4;
 
     /**
      * Name of the state or province.
      */
-    string stateOrProvince = 2;
+    string stateOrProvince = 5;
 
 }
