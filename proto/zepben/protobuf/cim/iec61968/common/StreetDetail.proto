@@ -1,0 +1,58 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.common";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
+package zepben.protobuf.cim.iec61968.common;
+
+/**
+ * Street details, in the context of address.
+ */
+message StreetDetail {
+
+    /**
+     * (if applicable) In certain cases the physical location of the place of interest does not have a direct point of
+     * entry from the street, but may be located inside a larger structure such as a building, complex, office block,
+     * apartment, etc.
+     */
+    string buildingName = 1;
+
+    /**
+     * The identification by name or number, expressed as text, of the floor in the building as part of this address.
+     */
+    string floorIdentification = 2;
+
+    /**
+     * Name of the street.
+     */
+    string name = 3;
+
+    /**
+     * Designator of the specific location on the street.
+     */
+    string number = 4;
+
+    /**
+     * Number of the apartment or suite.
+     */
+    string suiteNumber = 5;
+
+    /**
+     * Type of street. Examples include: street, circle, boulevard, avenue, road, drive, etc.
+     */
+    string type = 6;
+
+    /**
+     * The address as it should be displayed to a user.
+     */
+    string displayAddress = 7;
+
+}
