@@ -98,4 +98,70 @@ message EnergySource {
     */
     double xn = 14;
 
+    /**
+     * True if this energy source represents the higher-level power grid connection to an external grid
+     * that normally is modelled as the slack bus for power flow calculations.
+     */
+    bool isExternalGrid = 15;
+
+    /**
+     * Minimum positive sequence Thevenin resistance.
+     */
+    double r_min = 16;
+
+    /**
+     * Minimum negative sequence Thevenin resistance
+     */
+    double rn_min = 17;
+
+    /**
+     * Minimum zero sequence Thevenin resistance.
+     */
+    double r0_min = 18;
+
+    /**
+     * Minimum positive sequence Thevenin reactance.
+     */
+    double x_min = 19;
+
+    /**
+     * Minimum negative sequence Thevenin reactance.
+     */
+    double xn_min = 20;
+
+    /**
+     * Minimum zero sequence Thevenin reactance.
+     */
+    double x0_min = 21;
+
+    /**
+     * Maximum positive sequence Thevenin resistance.
+     */
+    double r_max = 22;
+
+    /**
+     * Maximum negative sequence Thevenin resistance.
+     */
+    double rn_max = 23;
+
+    /**
+     * Maximum zero sequence Thevenin resistance.
+     */
+    double r0_max = 24;
+
+    /**
+     * Maximum positive sequence Thevenin reactance.
+     */
+    double x_max = 25;
+
+    /**
+     * Maximum negative sequence Thevenin resistance.
+     */
+    double xn_max = 26;
+
+    /**
+     * Maximum zero sequence Thevenin reactance.
+     */
+    double x0_max = 27;
+
 }
