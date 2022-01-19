@@ -1661,13 +1661,90 @@
                 "id": 2,
                 "name": "townDetail",
                 "type": "TownDetail"
+              },
+              {
+                "id": 3,
+                "name": "poBox",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "streetDetail",
+                "type": "StreetDetail"
               }
             ]
           }
         ],
         "imports": [
           {
+            "path": "zepben/protobuf/cim/iec61968/common/StreetDetail.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61968/common/TownDetail.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.common"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.common"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.Common"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:common:/:StreetDetail.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "StreetDetail",
+            "fields": [
+              {
+                "id": 1,
+                "name": "buildingName",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "floorIdentification",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "number",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "suiteNumber",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "displayAddress",
+                "type": "string"
+              }
+            ]
           }
         ],
         "package": {
