@@ -29,6 +29,8 @@
     * `x_max`
     * `xn_max`
     * `x0_max`
+* Update grpcio to 1.43.0 in setup.py
+* Add grpcio-tool 1.43.0 to setup.py
 
 ##### Fixes
 
