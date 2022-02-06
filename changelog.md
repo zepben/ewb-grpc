@@ -2,7 +2,9 @@
 
 ##### Breaking Changes
 
-* None.
+* Feeder direction and phase information has been split in `Terminal.tracedPhases`:
+  * Direction is now stored directly on the `Terminal` in two new fields `normalFeederDirection` and `currentFeederDirection`.
+  * Normal and current phasing is still stored in `Terminal.tracedPhases`, which is now an encoded integer rather than an object.
 
 ##### New Features
 

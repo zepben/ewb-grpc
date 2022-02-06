@@ -15,7 +15,7 @@ package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/AcDcTerminal.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
-import "zepben/protobuf/network/model/TracedPhases.proto";
+import "zepben/protobuf/network/model/FeederDirection.proto";
 
 /**
  * An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.
@@ -44,12 +44,36 @@ message Terminal {
     PhaseCode phases = 4;
 
     /**
-     * The traced phase statuses.
+     * The traced phase status:
+     *                 |      uint32      |
+     *                 | 16 bits |16 bits |
+     * Network status: | current | normal |
+     * <p>
+     * Network state phase status:
+     *                |              16 bits              |
+     *                | 4 bits | 4 bits | 4 bits | 4 bits |
+     * Nominal phase: |   N    |    C   | B/Y/s2 | A/X/s1 |
+     * <p>
+     * Each nominal phase (actual phase):
+     *               |                 4 bits                |
+     *               |  1 bit  |  1 bit  |  1 bit  |  1 bit  |
+     * Actual Phase: |    N    |    C    |    B    |    A    |
      */
-    network.model.TracedPhases tracedPhases = 5;
+    uint32 tracedPhases = 5;
 
     /**
      * This Terminal's sequence number.
      */
     uint32 sequenceNumber = 6;
+
+    /**
+     * Stores the direction of the feeder head relative to this terminal in the normal state of the network.
+     */
+    network.model.FeederDirection normalFeederDirection = 7;
+
+    /**
+     * Stores the direction of the feeder head relative to this terminal in the current state of the network.
+     */
+    network.model.FeederDirection currentFeederDirection = 8;
+
 }
