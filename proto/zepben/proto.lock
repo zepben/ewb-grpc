@@ -3557,12 +3557,22 @@
               {
                 "id": 5,
                 "name": "tracedPhases",
-                "type": "network.model.TracedPhases"
+                "type": "uint32"
               },
               {
                 "id": 6,
                 "name": "sequenceNumber",
                 "type": "uint32"
+              },
+              {
+                "id": 7,
+                "name": "normalFeederDirection",
+                "type": "network.model.FeederDirection"
+              },
+              {
+                "id": 8,
+                "name": "currentFeederDirection",
+                "type": "network.model.FeederDirection"
               }
             ]
           }
@@ -3575,7 +3585,7 @@
             "path": "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto"
           },
           {
-            "path": "zepben/protobuf/network/model/TracedPhases.proto"
+            "path": "zepben/protobuf/network/model/FeederDirection.proto"
           }
         ],
         "package": {
@@ -9671,21 +9681,26 @@
       }
     },
     {
-      "protopath": "protobuf:/:network:/:model:/:TracedPhases.proto",
+      "protopath": "protobuf:/:network:/:model:/:FeederDirection.proto",
       "def": {
-        "messages": [
+        "enums": [
           {
-            "name": "TracedPhases",
-            "fields": [
+            "name": "FeederDirection",
+            "enum_fields": [
               {
-                "id": 1,
-                "name": "normalStatus",
-                "type": "int32"
+                "name": "NONE"
               },
               {
-                "id": 2,
-                "name": "currentStatus",
-                "type": "int32"
+                "name": "UPSTREAM",
+                "integer": 1
+              },
+              {
+                "name": "DOWNSTREAM",
+                "integer": 2
+              },
+              {
+                "name": "BOTH",
+                "integer": 3
               }
             ]
           }

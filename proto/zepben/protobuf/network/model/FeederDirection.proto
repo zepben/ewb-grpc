@@ -1,0 +1,41 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.network.model";
+option csharp_namespace = "Zepben.Protobuf.Network.Model";
+package zepben.protobuf.network.model;
+
+/**
+ * Enumeration of directions along a feeder at a terminal.
+ */
+enum FeederDirection {
+
+    /**
+     * The terminal is not on a feeder.
+     */
+    NONE = 0;
+
+    /**
+     * The terminal can be used to trace upstream towards the feeder head.
+     */
+    UPSTREAM = 1;
+
+    /**
+     * The terminal can be used to trace downstream away from the feeder head.
+     */
+    DOWNSTREAM = 2;
+
+    /**
+     * The terminal is part of a loop on the feeder and tracing in either direction will allow you
+     * to trace upstream towards the feeder head, or downstream away from the feeder head.
+     */
+    BOTH = 3;
+
+}
