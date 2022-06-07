@@ -23,7 +23,7 @@ setup(
     ],
     install_requires=[
         "protobuf==4.21.1",
-        "grpcio==1.43.0",
-        "grpcio-tools==1.43.0",
+        "grpcio==1.46.3",
+        "grpcio-tools==1.46.3",
     ],
 )
