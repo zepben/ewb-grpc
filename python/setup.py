@@ -22,7 +22,7 @@ setup(
         "pep517"
     ],
     install_requires=[
-        "protobuf==3.20.1",
+        "protobuf==4.21.1",
         "grpcio==1.43.0",
         "grpcio-tools==1.43.0",
     ],
