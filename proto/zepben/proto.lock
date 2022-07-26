@@ -2874,7 +2874,7 @@
               },
               {
                 "id": 7,
-                "name": "currentFeederMRIDs",
+                "name": "currentContainerMRIDs",
                 "type": "string",
                 "is_repeated": true
               }
@@ -2965,6 +2965,12 @@
                 "id": 3,
                 "name": "normalEnergizingSubstationMRID",
                 "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "lvFeederMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -3077,6 +3083,61 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/Name.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.core"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.core"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Core"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:core:/:LvFeeder.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "LvFeeder",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ec",
+                "type": "EquipmentContainer"
+              },
+              {
+                "id": 2,
+                "name": "normalHeadTerminalMRID",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "normalEnergizingFeederMRID",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "currentEquipmentMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto"
           }
         ],
         "package": {
