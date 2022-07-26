@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2022 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,32 +16,31 @@ package zepben.protobuf.cim.iec61970.base.core;
 import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
 
 /**
- * A collection of HV equipment for organizational purposes, used for grouping distribution resources.
+ * A collection of LV equipment for organizational purposes.
  * <p>
  * The organization a feeder does not necessarily reflect connectivity or current operation state.
- *
- * A Feeder must be sent as part of a Substation.
  */
-message Feeder {
+message LvFeeder {
 
     /**
-     * EquipmentContainer fields for this Feeder.
+     * EquipmentContainer fields for this LvFeeder.
      */
     EquipmentContainer ec = 1;
 
     /**
-     * mRID reference to the normal head terminal or terminals of the feeder.
+     * mRID reference to the normal head terminal or terminals of the LV feeder.
+     * This is typically the LV terminal of a distribution transformer.
      */
     string normalHeadTerminalMRID = 2;
 
     /**
-     * mRID reference to the normal energizing substation of the feeder.
+     * mRID reference to the normal energizing HV/MV feeder of the LV feeder.
      */
-    string normalEnergizingSubstationMRID = 3;
+    string normalEnergizingFeederMRID = 3;
 
     /**
-     * mRID references to the LV feeders that are normally energized by the feeder.
+     * mRID references to contained equipment using the current state of the network.
      */
-    repeated string lvFeederMRIDs = 4;
+    repeated string currentEquipmentMRIDs = 4;
 
 }
