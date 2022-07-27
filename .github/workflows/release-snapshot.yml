@@ -93,7 +93,7 @@ jobs:
       ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
       ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
     steps:
-      - uses: actions/check
+      - uses: actions/checkout@v2
 
       - name: Work around git permission issue
         run: |
