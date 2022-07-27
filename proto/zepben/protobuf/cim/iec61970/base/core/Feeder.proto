@@ -16,7 +16,7 @@ package zepben.protobuf.cim.iec61970.base.core;
 import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
 
 /**
- * A collection of equipment for organizational purposes, used for grouping distribution resources.
+ * A collection of HV equipment for organizational purposes, used for grouping distribution resources.
  * <p>
  * The organization a feeder does not necessarily reflect connectivity or current operation state.
  *
@@ -38,5 +38,10 @@ message Feeder {
      * mRID reference to the normal energizing substation of the feeder.
      */
     string normalEnergizingSubstationMRID = 3;
+
+    /**
+     * mRID references to the LV feeders that are normally energized by the feeder.
+     */
+    repeated string normalEnergizedLvFeedersMRIDs = 4;
 
 }
