@@ -14,6 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
+
       - run: |
           apk add --no-cache tar
 
@@ -54,6 +60,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
+
       - name: Cache maven deps
         uses: actions/cache@v2
         with:
@@ -81,7 +93,13 @@ jobs:
       ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
       ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/check
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
 
       - name: Cache C# deps
         uses: actions/cache@v2
@@ -109,6 +127,12 @@ jobs:
       TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
 
       - name: Cache python deps
         uses: actions/cache@v2
@@ -140,6 +164,12 @@ jobs:
       NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
     steps:
       - uses: actions/checkout@v2
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
 
       - name: Update snapshot version
         run: |

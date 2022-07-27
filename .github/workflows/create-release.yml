@@ -18,6 +18,13 @@ jobs:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
       - uses: actions/checkout@v2
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
+
       - name: Release checks and update version for release
         id: check
         run: |
@@ -85,6 +92,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: release
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
 
       - name: Cache python deps
         uses: actions/cache@v2
@@ -170,6 +183,12 @@ jobs:
     container: zepben/pipeline-basic:5.5.0
     steps:
       - uses: actions/checkout@v2
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: shout@v2
 
       - name: Delete release branch if deploy failed and fail
         if: needs.java-deploy.result == 'failure' || needs.cs-deploy.result == 'failure' || needs.python-deploy.result == 'failure'
