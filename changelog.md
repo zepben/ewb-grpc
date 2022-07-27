@@ -2,7 +2,7 @@
 * Renamed `Equipment.currentFeederMRIDs` to `Equipment.currentContainerMRIDs`.
 
 ##### New Features
-* Added `LvFeeder`, an equipment container containing only LV equipment.
+* Added `LvFeeder`, an `EquipmentContainer` containing only LV `Equipment`.
 
 ##### Enhancements
 * None.
