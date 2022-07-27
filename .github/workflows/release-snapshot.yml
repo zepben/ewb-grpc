@@ -18,7 +18,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - run: |
           apk add --no-cache tar
@@ -64,7 +64,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - name: Cache maven deps
         uses: actions/cache@v2
@@ -99,7 +99,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - name: Cache C# deps
         uses: actions/cache@v2
@@ -132,7 +132,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - name: Cache python deps
         uses: actions/cache@v2
@@ -169,7 +169,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - name: Update snapshot version
         run: |

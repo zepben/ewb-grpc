@@ -23,7 +23,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - name: Release checks and update version for release
         id: check
@@ -97,7 +97,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - name: Cache python deps
         uses: actions/cache@v2
@@ -188,7 +188,7 @@ jobs:
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
           git config --global --add safe.directory /__w/$dname/$dname
-        shell: shout@v2
+        shell: sh
 
       - name: Delete release branch if deploy failed and fail
         if: needs.java-deploy.result == 'failure' || needs.cs-deploy.result == 'failure' || needs.python-deploy.result == 'failure'
