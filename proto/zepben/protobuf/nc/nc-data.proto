@@ -56,6 +56,7 @@ import "zepben/protobuf/cim/iec61970/base/wires/RatioTapChanger.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Recloser.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/feeder/LvFeeder.proto";
 import "zepben/protobuf/cim/iec61968/assets/Pole.proto";
 import "zepben/protobuf/cim/iec61968/assets/Streetlight.proto";
 import "zepben/protobuf/cim/iec61970/base/meas/Control.proto";
@@ -135,6 +136,7 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61968.assetinfo.ShortCircuitTest shortCircuitTest = 57;
         zepben.protobuf.cim.iec61970.base.equivalents.EquivalentBranch equivalentBranch = 58;
         zepben.protobuf.cim.iec61968.assetinfo.ShuntCompensatorInfo shuntCompensatorInfo = 59;
+        zepben.protobuf.cim.iec61970.infiec61970.feeder.LvFeeder lvFeeder = 60;
 
         google.protobuf.Any other = 999;
     }
