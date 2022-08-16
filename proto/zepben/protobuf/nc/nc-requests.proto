@@ -37,13 +37,13 @@ message GetEquipmentForContainersRequest {
     // mRID of the EquipmentContainer to retrieve Equipment for.
     repeated string mrids = 2;
 
-    // Rule for which upstream containers to include
+    // Rule for which energizing containers to include
     // e.g. if a container mrid is for an LV feeder and this is set to INCLUDE_SUBSTATIONS,
     // all equipment belonging to that LV feeder, its powering feeders, and those feeders' substations are included
     // in the response.
     IncludedEnergizingContainers includedEnergizingContainers = 3;
 
-    // Rule for which downstream containers to include
+    // Rule for which energized containers to include
     // e.g. if a container mrid is for a substation and this is set to INCLUDE_LV_FEEDERS,
     // all equipment belonging to that substation, its powered feeders, and those feeders' LV feeders are included
     // in the response.
