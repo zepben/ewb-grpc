@@ -21,11 +21,33 @@ message GetNetworkHierarchyRequest {
     int64 messageId = 1;
 }
 
+enum IncludedEnergizingContainers {
+    EXCLUDE_ENERGIZING_CONTAINERS = 0;
+    INCLUDE_ENERGIZING_FEEDERS = 1;
+    INCLUDE_ENERGIZING_SUBSTATIONS = 2;
+}
+enum IncludedEnergizedContainers {
+    EXCLUDE_ENERGIZED_CONTAINERS = 0;
+    INCLUDE_ENERGIZED_FEEDERS = 1;
+    INCLUDE_ENERGIZED_LV_FEEDERS = 2;
+}
 message GetEquipmentForContainersRequest {
     int64 messageId = 1;
 
     // mRID of the EquipmentContainer to retrieve Equipment for.
     repeated string mrids = 2;
+
+    // Rule for which upstream containers to include
+    // e.g. if a container mrid is for an LV feeder and this is set to INCLUDE_SUBSTATIONS,
+    // all equipment belonging to that LV feeder, its powering feeders, and those feeders' substations are included
+    // in the response.
+    IncludedEnergizingContainers includedEnergizingContainers = 3;
+
+    // Rule for which downstream containers to include
+    // e.g. if a container mrid is for a substation and this is set to INCLUDE_LV_FEEDERS,
+    // all equipment belonging to that substation, its powered feeders, and those feeders' LV feeders are included
+    // in the response.
+    IncludedEnergizedContainers includedEnergizedContainers = 4;
 }
 
 message GetCurrentEquipmentForFeederRequest {
