@@ -9387,6 +9387,40 @@
     {
       "protopath": "protobuf:/:nc:/:nc-requests.proto",
       "def": {
+        "enums": [
+          {
+            "name": "IncludedEnergizingContainers",
+            "enum_fields": [
+              {
+                "name": "EXCLUDE_ENERGIZING_CONTAINERS"
+              },
+              {
+                "name": "INCLUDE_ENERGIZING_FEEDERS",
+                "integer": 1
+              },
+              {
+                "name": "INCLUDE_ENERGIZING_SUBSTATIONS",
+                "integer": 2
+              }
+            ]
+          },
+          {
+            "name": "IncludedEnergizedContainers",
+            "enum_fields": [
+              {
+                "name": "EXCLUDE_ENERGIZED_CONTAINERS"
+              },
+              {
+                "name": "INCLUDE_ENERGIZED_FEEDERS",
+                "integer": 1
+              },
+              {
+                "name": "INCLUDE_ENERGIZED_LV_FEEDERS",
+                "integer": 2
+              }
+            ]
+          }
+        ],
         "messages": [
           {
             "name": "GetIdentifiedObjectsRequest",
@@ -9427,6 +9461,16 @@
                 "name": "mrids",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "includeEnergizingContainers",
+                "type": "IncludedEnergizingContainers"
+              },
+              {
+                "id": 4,
+                "name": "includeEnergizedContainers",
+                "type": "IncludedEnergizedContainers"
               }
             ]
           },
