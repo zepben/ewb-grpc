@@ -1,5 +1,12 @@
 # Zepben Protobuf and GRPC definitions
-## [0.22.0] - UNRELEASED
+## [0.23.0] - UNRELEASED
+### Breaking Changes
+* None
+
+### New Features
+* None
+
+## [0.22.0] - 2022-10-21
 ### Breaking Changes
 * Renamed `Equipment.currentFeederMRIDs` to `Equipment.currentContainerMRIDs`.
 

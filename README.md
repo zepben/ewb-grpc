@@ -1,6 +1,6 @@
 # Checklist for model change #
 
-1. Update change log - `docs/release.md`
+1. Update change log - `changelog.md`
 1. Existing messages updated for new attributes or associations - `proto/zepben/protobuf/cim`
 1. New messages added for new classes/enums:
    1. added to model - `proto/zepben/protobuf/cim`
