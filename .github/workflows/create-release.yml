@@ -209,37 +209,37 @@ jobs:
           echo "::set-output name=tag::$(echo v$version)"
         shell: bash
 
-    - name: Download java artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: java
+      - name: Download java artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: java
 
-    - name: Download csharp artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: csharp
+      - name: Download csharp artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: csharp
 
-    - name: Download python artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: python
-                
-    - name: Create Release and upload assets
-      if: success()
-      id: create_release
-      uses: softprops/action-gh-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.merge.outputs.tag }}
-        body_path: changelog.md
-        draft: false
-        prerelease: false
-        files: |
-          ${{ needs.cs-deploy.outputs.artifact }} 
-          ${{ needs.java-deploy.outputs.artifact }} 
-          ${{ needs.python-deploy.outputs.artifact }} 
-      continue-on-error: true
+      - name: Download python artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: python
+                  
+      - name: Create Release and upload assets
+        if: success()
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.merge.outputs.tag }}
+          body_path: changelog.md
+          draft: false
+          prerelease: false
+          files: |
+            ${{ needs.cs-deploy.outputs.artifact }} 
+            ${{ needs.java-deploy.outputs.artifact }} 
+            ${{ needs.python-deploy.outputs.artifact }} 
+        continue-on-error: true
 
   update-version:
     needs: finalise
