@@ -1,7 +1,9 @@
-##### Breaking Changes
+# Zepben Protobuf and GRPC definitions
+## [0.22.0] - UNRELEASED
+### Breaking Changes
 * Renamed `Equipment.currentFeederMRIDs` to `Equipment.currentContainerMRIDs`.
 
-##### New Features
+### New Features
 * Added `LvFeeder`, an `EquipmentContainer` containing only LV `Equipment`.
 * Added the following fields to `GetEquipmentForContainersRequest`:
   * `includeEnergizingContainers`: Specifies whether to include equipment from containers energizing the ones listed in
@@ -16,12 +18,3 @@
       * `INCLUDE_ENERGIZED_FEEDERS`: Include HV/MV feeders powered by substations listed in `mridList`.
       * `INCLUDE_ENERGIZED_LV_FEEDERS`: In addition to `INCLUDE_ENERGIZED_FEEDERS`, include LV feeders that
         are energizes by a HV/MV feeder listed in `mridList` or included via `INCLUDE_ENERGIZED_FEEDERS`.
-
-##### Enhancements
-* None.
-
-##### Fixes
-* None.
-
-##### Notes
-* None.

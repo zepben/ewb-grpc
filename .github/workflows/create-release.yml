@@ -78,6 +78,7 @@ jobs:
         with:
           name: java
           path: ${{ steps.deploy.outputs.artifact-path }}
+        continue-on-error: true
 
   python-deploy:
     needs: release-checks
@@ -92,12 +93,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: release
-
-      - name: Work around git permission issue
-        run: |
-          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
-          git config --global --add safe.directory /__w/$dname/$dname
-        shell: sh
 
       - name: Cache python deps
         uses: actions/cache@v2
@@ -128,6 +123,7 @@ jobs:
         with:
           name: python
           path: ${{ steps.deploy.outputs.artifact-path }}
+        continue-on-error: true
 
 
   cs-deploy:
@@ -176,6 +172,7 @@ jobs:
         with:
           name: csharp
           path: ${{ steps.deploy.outputs.artifact-path }}
+        continue-on-error: true
 
   finalise:
     needs: [java-deploy, python-deploy, cs-deploy]
@@ -212,72 +209,44 @@ jobs:
           echo "::set-output name=tag::$(echo v$version)"
         shell: bash
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.merge.outputs.tag }}
-          release_name: ${{ steps.merge.outputs.tag }}
-          body_path: changelog.md
-          draft: false
-          prerelease: false
+    - name: Download java artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: java
 
-      - name: Download java artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: java
+    - name: Download csharp artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: csharp
 
-      - name: Download csharp artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: csharp
-
-      - name: Download python artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: python
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ needs.cs-deploy.outputs.artifact }}
-          asset_name: ${{ needs.cs-deploy.outputs.artifact }}
-          asset_content_type: application/octet-stream
-        continue-on-error: true
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ needs.java-deploy.outputs.artifact }}
-          asset_name: ${{ needs.java-deploy.outputs.artifact }}
-          asset_content_type: application/zip
-        continue-on-error: true
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ needs.python-deploy.outputs.artifact }}
-          asset_name: ${{ needs.python-deploy.outputs.artifact }}
-          asset_content_type: application/octet-stream
-        continue-on-error: true
-
+    - name: Download python artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: python
+                
+    - name: Create Release and upload assets
+      if: success()
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.merge.outputs.tag }}
+        body_path: changelog.md
+        draft: false
+        prerelease: false
+        files: |
+          ${{ needs.cs-deploy.outputs.artifact }} 
+          ${{ needs.java-deploy.outputs.artifact }} 
+          ${{ needs.python-deploy.outputs.artifact }} 
+      continue-on-error: true
 
   update-version:
     needs: finalise
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.5.0
+    container: zepben/pipeline-basic
     env:
+      GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
       NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
       NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
@@ -286,10 +255,17 @@ jobs:
       SLACK_NOTIFICATION: YES
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
+          token: ${{ env.GITHUB_TOKEN }}
           ref: release
           fetch-depth: 0
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: sh
 
       - name: Update to next minor version
         run: |
@@ -298,7 +274,7 @@ jobs:
           /scripts/update-version.sh --python --no-commit setup.cfg
           /scripts/update-version.sh --python --no-commit setup.py
           cd ../java
-          /scripts/update-version.sh --java --maven --no-commit pom.xml ../changelog.md
+          /scripts/update-version.sh --java --grow-changelog --maven --no-commit pom.xml ../changelog.md
           cd ../cs
           /scripts/update-version.sh --csharp --no-commit evolve-grpc.csproj
           commit_update_version
