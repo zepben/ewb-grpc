@@ -25,10 +25,14 @@ import "zepben/protobuf/cim/iec61968/assetinfo/ShuntCompensatorInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
 import "zepben/protobuf/cim/iec61968/common/Organisation.proto";
 import "zepben/protobuf/cim/iec61968/common/Location.proto";
+import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/CurrentTransformerInfo.proto";
+import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/PotentialTransformerInfo.proto";
 import "zepben/protobuf/cim/iec61968/metering/Meter.proto";
 import "zepben/protobuf/cim/iec61968/metering/UsagePoint.proto";
 import "zepben/protobuf/cim/iec61968/operations/OperationalRestriction.proto";
+import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/CurrentTransformer.proto";
 import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/FaultIndicator.proto";
+import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/PotentialTransformer.proto";
 import "zepben/protobuf/cim/iec61970/base/core/BaseVoltage.proto";
 import "zepben/protobuf/cim/iec61970/base/core/ConnectivityNode.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Feeder.proto";
@@ -137,6 +141,10 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.equivalents.EquivalentBranch equivalentBranch = 58;
         zepben.protobuf.cim.iec61968.assetinfo.ShuntCompensatorInfo shuntCompensatorInfo = 59;
         zepben.protobuf.cim.iec61970.infiec61970.feeder.LvFeeder lvFeeder = 60;
+        zepben.protobuf.cim.iec61970.base.auxiliaryequipment.CurrentTransformer currentTransformer = 61;
+        zepben.protobuf.cim.iec61970.base.auxiliaryequipment.PotentialTransformer potentialTransformer = 62;
+        zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentTransformerInfo currentTransformerInfo = 63;
+        zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.PotentialTransformerInfo potentialTransformerInfo = 64;
 
         google.protobuf.Any other = 999;
     }

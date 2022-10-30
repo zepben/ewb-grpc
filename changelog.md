@@ -4,7 +4,14 @@
 * None
 
 ### New Features
-* None
+* Added new messages:
+  * `Sensor`: AuxiliaryEquipment that transform a measured quantity into signals.
+  * `CurrentTransformer`: Instrument transformer used to measure electrical qualities of the circuit that is being protected and/or monitored.
+  * `PotentialTransformer`: Instrument transformer (also known as Voltage Transformer) used to measure electrical qualities of the circuit that is being protected and/or monitored.
+  * `CurrentTransformerInfo`: Properties of current transformer assets. Extends AssetInfo.
+  * `PotentialTransformerInfo`: Properties of potential transformer assets. Extends AssetInfo.
+  * `Ratio`: A fraction specified explicitly with a numerator and denominator, which can be used to calculate the quotient.
+* Added new enum `PotentialTransformerKind`: The construction kind of the potential transformer.
 
 ## [0.22.0] - 2022-10-21
 ### Breaking Changes
