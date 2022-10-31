@@ -1,0 +1,36 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.AuxiliaryEquipment";
+package zepben.protobuf.cim.iec61970.base.auxiliaryequipment;
+
+import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/Sensor.proto";
+import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/PotentialTransformerKind.proto";
+
+/**
+ * Instrument transformer (also known as Voltage Transformer) used to measure electrical qualities of the circuit that
+ * is being protected and/or monitored. Typically used as voltage transducer for the purpose of metering, protection, or
+ * sometimes auxiliary substation supply. A typical secondary voltage rating would be 120V.
+ */
+message PotentialTransformer {
+
+    /**
+     * The Sensor fields for this PotentialTransformer
+     */
+    auxiliaryequipment.Sensor sn = 1;
+
+    /**
+     * Potential transformer construction type.
+     */
+    auxiliaryequipment.PotentialTransformerKind type = 2;
+
+}
