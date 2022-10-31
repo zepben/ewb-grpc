@@ -2090,6 +2090,180 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:CurrentTransformerInfo.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "CurrentTransformerInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ai",
+                "type": "iec61968.assets.AssetInfo"
+              },
+              {
+                "id": 2,
+                "name": "accuracyClass",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "accuracyLimit",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "coreCount",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "ctClass",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "kneePointVoltage",
+                "type": "int32"
+              },
+              {
+                "id": 7,
+                "name": "maxRatio",
+                "type": "infcommon.Ratio"
+              },
+              {
+                "id": 8,
+                "name": "nominalRatio",
+                "type": "infcommon.Ratio"
+              },
+              {
+                "id": 9,
+                "name": "primaryRatio",
+                "type": "double"
+              },
+              {
+                "id": 10,
+                "name": "ratedCurrent",
+                "type": "int32"
+              },
+              {
+                "id": 11,
+                "name": "secondaryFlsRating",
+                "type": "int32"
+              },
+              {
+                "id": 12,
+                "name": "secondaryRatio",
+                "type": "double"
+              },
+              {
+                "id": 13,
+                "name": "usage",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infcommon/Ratio.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:PotentialTransformerInfo.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PotentialTransformerInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ai",
+                "type": "iec61968.assets.AssetInfo"
+              },
+              {
+                "id": 2,
+                "name": "accuracyClass",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "nominalRatio",
+                "type": "infcommon.Ratio"
+              },
+              {
+                "id": 4,
+                "name": "primaryRatio",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "ptClass",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "ratedVoltage",
+                "type": "int32"
+              },
+              {
+                "id": 7,
+                "name": "secondaryRatio",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infcommon/Ratio.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:TransformerConstructionKind.proto",
       "def": {
         "enums": [
@@ -2233,6 +2407,45 @@
           {
             "name": "csharp_namespace",
             "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infcommon:/:Ratio.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Ratio",
+            "fields": [
+              {
+                "id": 1,
+                "name": "denominator",
+                "type": "double"
+              },
+              {
+                "id": 2,
+                "name": "numerator",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.infiec61968.infcommon"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.infiec61968.infcommon"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfCommon"
           }
         ]
       }
@@ -2578,11 +2791,181 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:auxiliaryequipment:/:CurrentTransformer.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "CurrentTransformer",
+            "fields": [
+              {
+                "id": 1,
+                "name": "sn",
+                "type": "auxiliaryequipment.Sensor"
+              },
+              {
+                "id": 2,
+                "name": "coreBurden",
+                "type": "int32"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/Sensor.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.AuxiliaryEquipment"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:auxiliaryequipment:/:FaultIndicator.proto",
       "def": {
         "messages": [
           {
             "name": "FaultIndicator",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ae",
+                "type": "auxiliaryequipment.AuxiliaryEquipment"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/AuxiliaryEquipment.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.AuxiliaryEquipment"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:auxiliaryequipment:/:PotentialTransformer.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PotentialTransformer",
+            "fields": [
+              {
+                "id": 1,
+                "name": "sn",
+                "type": "auxiliaryequipment.Sensor"
+              },
+              {
+                "id": 2,
+                "name": "type",
+                "type": "auxiliaryequipment.PotentialTransformerKind"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/Sensor.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/PotentialTransformerKind.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.AuxiliaryEquipment"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:auxiliaryequipment:/:PotentialTransformerKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "PotentialTransformerKind",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "inductive",
+                "integer": 1
+              },
+              {
+                "name": "capacitiveCoupling",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.AuxiliaryEquipment"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:auxiliaryequipment:/:Sensor.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Sensor",
             "fields": [
               {
                 "id": 1,
@@ -9173,6 +9556,26 @@
                 "type": "zepben.protobuf.cim.iec61970.infiec61970.feeder.LvFeeder"
               },
               {
+                "id": 61,
+                "name": "currentTransformer",
+                "type": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment.CurrentTransformer"
+              },
+              {
+                "id": 62,
+                "name": "potentialTransformer",
+                "type": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment.PotentialTransformer"
+              },
+              {
+                "id": 63,
+                "name": "currentTransformerInfo",
+                "type": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentTransformerInfo"
+              },
+              {
+                "id": 64,
+                "name": "potentialTransformerInfo",
+                "type": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.PotentialTransformerInfo"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any"
@@ -9221,6 +9624,12 @@
             "path": "zepben/protobuf/cim/iec61968/common/Location.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/CurrentTransformerInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/PotentialTransformerInfo.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61968/metering/Meter.proto"
           },
           {
@@ -9230,7 +9639,13 @@
             "path": "zepben/protobuf/cim/iec61968/operations/OperationalRestriction.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/CurrentTransformer.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/FaultIndicator.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/PotentialTransformer.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/BaseVoltage.proto"
