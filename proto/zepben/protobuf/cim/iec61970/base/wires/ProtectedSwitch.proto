@@ -25,4 +25,19 @@ message ProtectedSwitch {
      */
     Switch sw = 1;
 
+    /**
+     * The maximum fault current in amps a breaking device can break safely under prescribed conditions of use.
+     */
+    int32 breakingCapacity = 2;
+
+    /**
+     * A breaker may have zero or more automatic reclosures after a trip occurs.
+     */
+    repeated string recloseSequenceMRIDs = 3;
+
+    /**
+     * Protection equipment that operate this ProtectedSwitch.
+     */
+    repeated string operatedByProtectionEquipmentMRIDs = 4;
+
 }

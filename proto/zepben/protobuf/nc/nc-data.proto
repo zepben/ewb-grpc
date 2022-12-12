@@ -22,10 +22,12 @@ import "zepben/protobuf/cim/iec61968/assetinfo/ShortCircuitTest.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/ShuntCompensatorInfo.proto";
+import "zepben/protobuf/cim/iec61968/assetinfo/SwitchInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
 import "zepben/protobuf/cim/iec61968/common/Organisation.proto";
 import "zepben/protobuf/cim/iec61968/common/Location.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/CurrentTransformerInfo.proto";
+import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/CurrentRelayInfo.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/PotentialTransformerInfo.proto";
 import "zepben/protobuf/cim/iec61968/metering/Meter.proto";
 import "zepben/protobuf/cim/iec61968/metering/UsagePoint.proto";
@@ -41,6 +43,8 @@ import "zepben/protobuf/cim/iec61970/base/core/Site.proto";
 import "zepben/protobuf/cim/iec61970/base/core/SubGeographicalRegion.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Substation.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Terminal.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/RecloseSequence.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/CurrentRelay.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/AcLineSegment.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/LoadBreakSwitch.proto";
@@ -145,6 +149,10 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.auxiliaryequipment.PotentialTransformer potentialTransformer = 62;
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentTransformerInfo currentTransformerInfo = 63;
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.PotentialTransformerInfo potentialTransformerInfo = 64;
+        zepben.protobuf.cim.iec61968.assetinfo.SwitchInfo switchInfo = 65;
+        zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentRelayInfo currentRelayInfo = 66;
+        zepben.protobuf.cim.iec61970.base.protection.RecloseSequence recloseSequence = 67;
+        zepben.protobuf.cim.iec61970.base.protection.CurrentRelay currentRelay = 68;
 
         google.protobuf.Any other = 999;
     }

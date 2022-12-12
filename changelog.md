@@ -11,7 +11,20 @@
   * `CurrentTransformerInfo`: Properties of current transformer assets. Extends AssetInfo.
   * `PotentialTransformerInfo`: Properties of potential transformer assets. Extends AssetInfo.
   * `Ratio`: A fraction specified explicitly with a numerator and denominator, which can be used to calculate the quotient.
-* Added new enum `PotentialTransformerKind`: The construction kind of the potential transformer.
+  * `RecloseSequence`: A reclose sequence (open and close) is defined for each possible reclosure of a breaker.
+  * `ProtectionEquipment`: An electrical device designed to respond to input conditions in a prescribed manner and after specified conditions are met to cause contact operation
+                           or similar abrupt change in associated electric control circuits, or simply to display the detected condition. Protection equipment is associated with
+                           conducting equipment and usually operate circuit breakers.
+  * `CurrentRelay`: A device that checks current flow values in any direction or designated direction.
+  * `SwitchInfo`: Switch datasheet information.
+  * `CurrentRelayInfo`: Current Relay Datasheet Information.
+* Added new enums:
+  * `PotentialTransformerKind`: The construction kind of the potential transformer.
+  * `ProtectionKind`: The kind of protection being provided by this protection equipment.
+* Added new fields:
+  * `ProtectedSwitch.breakingCapacity`: The maximum fault current in amps a breaking device can break safely under prescribed conditions of use.
+  * `Switch.ratedCurrent`: The maximum continuous current carrying capacity in amps governed by the device material and construction. The attribute shall be a positive value.
+  * `Breaker.inTransitTime`: The transition time from open to close in seconds.
 
 ## [0.22.0] - 2022-10-21
 ### Breaking Changes

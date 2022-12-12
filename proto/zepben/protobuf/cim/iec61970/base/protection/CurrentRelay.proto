@@ -1,0 +1,42 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.protection";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
+package zepben.protobuf.cim.iec61970.base.protection;
+
+import "zepben/protobuf/cim/iec61970/base/protection/ProtectionEquipment.proto";
+
+/**
+ * A device that checks current flow values in any direction or designated direction.
+ */
+message CurrentRelay {
+
+  /**
+   * The ProtectionEquipment fields for this CurrentRelay.
+   */
+  ProtectionEquipment pe = 1;
+
+  /**
+   * Current limit number one 1 for inverse time pickup in amperes.
+   */
+  double currentLimit1 = 2;
+
+  /**
+   * Set true if the current relay has inverse time characteristic.
+   */
+  bool inverseTimeFlag = 3;
+
+  /**
+   * Inverse time delay number 1 for current limit number 1 in seconds.
+   */
+  double timeDelay1 = 5;
+
+}
