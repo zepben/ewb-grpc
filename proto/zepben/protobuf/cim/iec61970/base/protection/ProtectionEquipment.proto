@@ -1,0 +1,46 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.protection";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
+package zepben.protobuf.cim.iec61970.base.protection;
+
+import "zepben/protobuf/cim/iec61970/base/core/Equipment.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/protection/ProtectionKind.proto";
+
+/**
+ * An electrical device designed to respond to input conditions in a prescribed manner and after specified conditions
+ * are met to cause contact operation or similar abrupt change in associated electric control circuits, or simply to
+ * display the detected condition. Protection equipment is associated with conducting equipment and usually operate
+ * circuit breakers.
+ */
+message ProtectionEquipment {
+
+  /**
+   * The Equipment fields for this ProtectionEquipment.
+   */
+  core.Equipment eq = 1;
+
+  /**
+   * The time delay from detection of abnormal conditions to relay operation in seconds.
+   */
+  double relayDelayTime = 2;
+
+  /**
+   * The kind of protection being provided by this protection equipment.
+   */
+  infiec61970.protection.ProtectionKind protectionKind = 3;
+
+  /**
+   * Protected switches operated by this ProtectionEquipment.
+   */
+  repeated string protectedSwitchMRIDs = 4;
+
+}
