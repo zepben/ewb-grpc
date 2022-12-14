@@ -13,6 +13,8 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
 package zepben.protobuf.cim.iec61970.base.protection;
 
 import "zepben/protobuf/cim/iec61970/base/protection/ProtectionEquipment.proto";
+import "google/protobuf/struct.proto";
+
 
 /**
  * A device that checks current flow values in any direction or designated direction.
@@ -32,7 +34,10 @@ message CurrentRelay {
   /**
    * Set true if the current relay has inverse time characteristic.
    */
-  bool inverseTimeFlag = 3;
+  oneof inverseTimeFlag {
+      google.protobuf.NullValue null = 3;
+      bool set = 4;
+  }
 
   /**
    * Inverse time delay number 1 for current limit number 1 in seconds.
