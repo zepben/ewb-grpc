@@ -3,7 +3,7 @@ from setuptools import setup, find_namespace_packages
 setup(
     name="zepben.protobuf",
     description="Evolve Python Protobuf and gRPC definitions",
-    version="0.23.0b3",
+    version="0.23.0b4",
     url="https://github.com/zepben/evolve-sdk-python",
     author="Kurt Greaves",
     author_email="kurt.greaves@zepben.com",
