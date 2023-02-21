@@ -1,0 +1,21 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+
+message Result {
+    string name = 1;
+    double value = 2;
+}
+
+message EnergyMeterResult {
+    string mrid = 1;
+    int32 year = 2;
+    repeated Result results = 3;
+}
