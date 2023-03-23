@@ -20,6 +20,8 @@ service CustomerConsumer {
     // Get identified objects
     rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
+    // Get customer container objects corresponding customers in specific LvFeeders
+    rpc getCustomersForContainer(stream GetCustomersForContainerRequest) returns (stream GetCustomersForContainerResponse);
 }
 
 
