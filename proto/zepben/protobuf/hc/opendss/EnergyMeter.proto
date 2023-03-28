@@ -1,0 +1,65 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+
+
+// When building for C, delete the following line 
+// otherwise the package name is added to all the fields
+package zepben.protobuf.hc.opendss;
+
+/**
+ *   An Energy Meter results definitions.
+ */
+
+enum ResultType {
+    DI = 0;
+    PHV_DI = 1;
+    DI_OVERLOAD = 2;
+    DI_VOLT_EXCEPTIONS = 3;
+}
+
+message Result {
+    /**
+     *   A result Name.
+     */
+    string name = 1;
+
+    /**
+     *   A result value.
+     */
+    string value = 2;
+}
+
+message EnergyMeterResult {
+    /**
+    *    A type
+    */
+    ResultType type = 1;
+    /**
+     *   An Energy Meter MRID.
+     */
+    string mrid = 2;
+
+    /**
+     *   An Energy Meter DI year.
+     */
+    int32 year = 3;
+
+    /**
+     *   An Energy Meter Results array.
+     */
+    repeated Result results = 4;
+
+}
+
