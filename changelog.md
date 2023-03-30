@@ -4,7 +4,9 @@
 * None.
 
 ### New Features
-* None.
+* Added new RPCs:
+  * `getDiagramObjects`: Get the DiagramObjects for a given mRID.
+  * `getCustomersForContainer`: Get the customers for a given EquipmentContainer. 
 
 ### Enhancements
 * None.
@@ -15,7 +17,7 @@
 ### Notes
 * None.
 
-## [0.23.0] - UNRELEASED
+## [0.23.0] - 2023-02-07
 ### Breaking Changes
 * None
 
