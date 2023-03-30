@@ -98,6 +98,22 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "GetCustomersForContainerRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrids",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
           }
         ],
         "package": {
@@ -125,6 +141,22 @@
         "messages": [
           {
             "name": "GetIdentifiedObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiedObjects",
+                "type": "CustomerIdentifiedObject",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetCustomersForContainerResponse",
             "fields": [
               {
                 "id": 1,
@@ -175,6 +207,13 @@
                 "name": "getIdentifiedObjects",
                 "in_type": "GetIdentifiedObjectsRequest",
                 "out_type": "GetIdentifiedObjectsResponse",
+                "in_streamed": true,
+                "out_streamed": true
+              },
+              {
+                "name": "getCustomersForContainer",
+                "in_type": "GetCustomersForContainerRequest",
+                "out_type": "GetCustomersForContainerResponse",
                 "in_streamed": true,
                 "out_streamed": true
               }
@@ -8841,6 +8880,22 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "GetDiagramObjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrids",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
           }
         ],
         "package": {
@@ -8868,6 +8923,22 @@
         "messages": [
           {
             "name": "GetIdentifiedObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiedObjects",
+                "type": "DiagramIdentifiedObject",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetDiagramObjectsResponse",
             "fields": [
               {
                 "id": 1,
@@ -8918,6 +8989,13 @@
                 "name": "getIdentifiedObjects",
                 "in_type": "GetIdentifiedObjectsRequest",
                 "out_type": "GetIdentifiedObjectsResponse",
+                "in_streamed": true,
+                "out_streamed": true
+              },
+              {
+                "name": "getDiagramObjects",
+                "in_type": "GetDiagramObjectsRequest",
+                "out_type": "GetDiagramObjectsResponse",
                 "in_streamed": true,
                 "out_streamed": true
               }
