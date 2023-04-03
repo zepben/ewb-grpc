@@ -82,3 +82,12 @@ cd cs
 dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
 nuget init path/to/Zepben.Evolve.Grpc.<VERSION>.nupkg path/to/local/nuget/debug/repo
 ```
+
+### C
+
+```
+cd c
+make
+```
+
+You can now copy the output files as needed to your C project.
