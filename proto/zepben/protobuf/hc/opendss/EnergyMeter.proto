@@ -99,10 +99,11 @@ message PhaseVoltageReportValues {
  * Message for streaming the records written to PHV_MHandle in WriteDemandIntervalData (bottom).
  */
 message PhaseVoltageReport {
-    double hour = 1;
-    repeated PhaseVoltageReportValues values = 2;
-    // declared as column, but not filled. string minBus = 3;
-    // declared as column, but not filled. string maxBus = 4;
+    string element = 1;
+    double hour = 2;
+    repeated PhaseVoltageReportValues values = 3;
+    // This column is declared in OpenDSS, but it is never populated, so we wont include it. string minBus = 4;
+    // This column is declared in OpenDSS, but it is never populated, so we wont include it. string maxBus = 5;
 }
 
 /**
@@ -143,7 +144,7 @@ message VoltageReport {
 }
 
 /**
- * The message type we actaully stream, which contains one of the above reports.
+ * The message type we actually stream, which contains one of the above reports.
  */
 message EnergyMeterReport {
     oneof report {
