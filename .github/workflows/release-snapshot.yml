@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
 
       - name: Work around git permission issue
         run: |
@@ -58,7 +60,7 @@ jobs:
       GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
       GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache maven deps
         uses: actions/cache@v2
@@ -87,7 +89,7 @@ jobs:
       ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
       ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache C# deps
         uses: actions/cache@v2
@@ -114,7 +116,7 @@ jobs:
       TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
       TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache python deps
         uses: actions/cache@v2
@@ -146,6 +148,8 @@ jobs:
       NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
 
       - name: Work around git permission issue
         run: |
