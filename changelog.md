@@ -11,7 +11,7 @@
 * Added new RPCs:
   * `getDiagramObjects`: Get the DiagramObjects for a given mRID.
   * `getCustomersForContainer`: Get the customers for a given EquipmentContainer. 
-* Added OpenDSS `Model` and `LoadShape` messages for hosting capacity.
+* Added OpenDSS `Model`, `LoadShape` and `EnergyMeter` report messages for hosting capacity.
 
 ### Enhancements
 
