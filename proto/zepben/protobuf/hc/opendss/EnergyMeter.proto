@@ -1,0 +1,156 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+
+//
+// NOTE: We have deliberately removed the package to prevent name mangling in c where these classes are used. The
+//       other languages we use do not reference the package, so will still be correctly scoped.
+//
+
+/**
+ * Repeated values for the DemandIntervalReport.
+ */
+message VoltBaseRegisters {
+    double vbase = 1;
+    double kvLosses = 2;
+    double kvLineLoss = 3;
+    double kvLoadLoss = 4;
+    double kvNoLoadLoss = 5;
+    double kvLoadEnergy = 6;
+}
+
+/**
+ * Message for streaming the records written to DI_MHandle in WriteDemandIntervalData (top).
+ */
+message DemandIntervalReport {
+    string element = 1;
+    double hour = 2;
+    
+    double kwh = 3;
+    double kvarh = 4;
+    double maxKw = 5;
+    double maxKva = 6;
+    double zoneKwh = 7;
+    double zoneKvarh = 8;
+    double zoneMaxKw = 9;
+    double zoneMaxKva = 10;
+    double overloadKwhNormal = 11;
+    double overloadKwhEmerg = 12;
+    double loadEEN = 13;
+    double loadUE = 14;
+    double zoneLossesKwh = 15;
+    double zoneLossesKvarh = 16;
+    double zoneMaxKwLosses = 17;
+    double zoneMaxKvarLosses = 18;
+    double loadLossesKwh = 19;
+    double loadLossesKvarh = 20;
+    double noLoadLossesKwh = 21;
+    double noLoadLossesKvarh = 22;
+    double maxKwLoadLosses = 23;
+    double maxKwNoLoadLosses = 24;
+    double lineLosses = 25;
+    double transformerLosses = 26;
+
+    double lineModeLineLosses = 27;
+    double zeroModeLineLosses = 28;
+
+    double phaseLineLosses3 = 29;
+    double phaseLineLosses12 = 30;
+
+    double genKwh = 31;
+    double genKvarh = 32;
+    double genMaxKw = 33;
+    double genMaxKva = 34;
+    
+    repeated VoltBaseRegisters voltBases = 35;
+}
+
+/**
+ * Repeated values for the TPhaseVoltageReportValues.
+ */
+message MaxMinAvg {
+    double max = 1;
+    double min = 2;
+    double avg = 3;
+}
+
+/**
+ * Repeated values for the PhaseVoltageReport.
+ */
+message PhaseVoltageReportValues {
+    double vbase = 1;
+    MaxMinAvg phs1 = 2;
+    MaxMinAvg phs2 = 3;
+    MaxMinAvg phs3 = 4;
+}
+
+/**
+ * Message for streaming the records written to PHV_MHandle in WriteDemandIntervalData (bottom).
+ */
+message PhaseVoltageReport {
+    string element = 1;
+    double hour = 2;
+    repeated PhaseVoltageReportValues values = 3;
+    // This column is declared in OpenDSS, but it is never populated, so we wont include it. string minBus = 4;
+    // This column is declared in OpenDSS, but it is never populated, so we wont include it. string maxBus = 5;
+}
+
+/**
+ * Message for streaming the records written to OV_MHandle in WriteOverloadReport.
+ */
+message OverloadReport {
+    double hour = 1;
+    string element = 2;
+    double normalAmps = 3;
+    double emergAmps = 4;
+    double percentNormal = 5;
+    double percentEmerg = 6;
+    double kvBase = 7;
+    double phase1Amps = 8;
+    double phase2Amps = 9;
+    double phase3Amps = 10;
+}
+
+/**
+ * Repeated values for the VoltageReport.
+ */
+message VoltageReportValues {
+    int32 underVoltages = 1;
+    double minVoltage = 2;
+    int32 overVoltage = 3;
+    double maxVoltage = 4;
+    string minBus = 5;
+    string maxBus = 6;
+}
+
+/**
+ * Message for streaming the records written to VR_MHandle in WriteVoltageReport.
+ */
+message VoltageReport {
+    double hour = 1;
+    VoltageReportValues hv = 2;
+    VoltageReportValues lv = 3;
+}
+
+/**
+ * The message type we actually stream, which contains one of the above reports.
+ */
+message EnergyMeterReport {
+    oneof report {
+        DemandIntervalReport di = 1;
+        PhaseVoltageReport phv = 2;
+        OverloadReport ov = 3;
+        VoltageReport vr = 4;
+    }
+}

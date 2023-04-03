@@ -1,0 +1,40 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+package zepben.protobuf.hc.opendss;
+
+/**
+ * A load shape definition.
+ */
+message LoadShape {
+
+    /**
+     * The id of the loadshape
+     */
+    string id = 1;
+
+    /**
+     * The interval for each reading in values, in hours. e.g. 0.5 = 30 min readings.
+     */
+    double hrInterval = 2;
+
+    /**
+     * An array of 4-byte float values.
+     */
+    bytes values = 3;
+
+    /**
+     * Indication if the load shape needs to be normalised.
+     */
+    bool normalise = 4;
+
+}

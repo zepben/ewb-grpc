@@ -1,0 +1,35 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc";
+option csharp_namespace = "Zepben.Protobuf.HC";
+package zepben.protobuf.hc;
+
+/**
+ * A Scenario/Year/Feeder tuple. This is the base unit of our hosting capacity orchestration.
+ */
+message Syf {
+
+    /**
+     * The name of the scenario.
+     */
+    string scenario = 1;
+
+    /**
+     * The year in the scenario.
+     */
+    int32 year = 2;
+
+    /**
+     * The name of the feeder.
+     */
+    string feeder = 3;
+
+}

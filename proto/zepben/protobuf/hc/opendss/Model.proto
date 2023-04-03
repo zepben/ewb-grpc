@@ -1,0 +1,43 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+package zepben.protobuf.hc.opendss;
+
+import "zepben/protobuf/hc/Syf.proto";
+import "zepben/protobuf/hc/opendss/LoadShape.proto";
+
+/**
+ * A load shape definition.
+ */
+message Model {
+
+    /**
+     * The SYF this model represents.
+     */
+    Syf syf = 1;
+
+    /**
+     * The OpenDSS model commands to run before creating the load shapes.
+     */
+    repeated string preLoadShapeCommand = 2;
+
+    /**
+     * Definition of the load shapes that needs to be mapped into OpenDSS
+     */
+    repeated LoadShape loadShapes = 3;
+
+    /**
+     * The OpenDSS model commands to run after mapping the load shapes.
+     */
+    repeated string postLoadShapeCommand = 4;
+
+}
