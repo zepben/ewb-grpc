@@ -1,0 +1,35 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc";
+option csharp_namespace = "Zepben.Protobuf.HC";
+package zepben.protobuf.hc;
+
+/**
+ * Describes a work package for the HC model processor.
+ */
+message Job {
+
+  /**
+   * mRID of the feeder to process.
+   */
+  string feeder = 1;
+
+  /**
+   * IDs of the scenarios to apply to the feeder.
+   */
+  repeated string scenarios = 2;
+
+  /**
+   * Years to fetch PV/EV/BESS data for each scenario.
+   */
+  repeated int32 years = 3;
+
+}
