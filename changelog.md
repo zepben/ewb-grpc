@@ -12,6 +12,7 @@
   * `getDiagramObjects`: Get the DiagramObjects for a given mRID.
   * `getCustomersForContainer`: Get the customers for a given EquipmentContainer. 
 * Added OpenDSS `Model`, `LoadShape` and `EnergyMeter` report messages for hosting capacity.
+* Added `Job` message for hosting capacity, which describes a hosting capacity run for a single feeder.
 
 ### Enhancements
 
