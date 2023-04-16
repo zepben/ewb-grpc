@@ -76,12 +76,12 @@ import "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnection.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnectionPhase.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUnit.proto";
-import "zepben/protobuf/cim/iec61970/base/wires/generation/production/EvChargingUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto";
 import "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentBranch.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/wires/generation/production/EvChargingUnit.proto";
 
 // The set of leaf identified objects that the network service manages.
 message NetworkIdentifiedObject {
@@ -154,7 +154,7 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentRelayInfo currentRelayInfo = 66;
         zepben.protobuf.cim.iec61970.base.protection.CurrentRelay currentRelay = 68;
         zepben.protobuf.cim.iec61970.base.wires.TapChangerControl tapChangerControl = 69;
-        zepben.protobuf.cim.iec61970.base.wires.generation.production.EvChargingUnit evChargingUnit = 70;
+        zepben.protobuf.cim.iec61970.infiec61970.wires.generation.production.EvChargingUnit evChargingUnit = 70;
 
 
         google.protobuf.Any other = 999;
