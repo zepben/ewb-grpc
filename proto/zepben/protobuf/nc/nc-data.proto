@@ -43,7 +43,6 @@ import "zepben/protobuf/cim/iec61970/base/core/Site.proto";
 import "zepben/protobuf/cim/iec61970/base/core/SubGeographicalRegion.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Substation.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Terminal.proto";
-import "zepben/protobuf/cim/iec61970/base/protection/RecloseSequence.proto";
 import "zepben/protobuf/cim/iec61970/base/protection/CurrentRelay.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/AcLineSegment.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto";
@@ -62,6 +61,7 @@ import "zepben/protobuf/cim/iec61970/base/wires/PowerTransformer.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PowerTransformerEnd.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/RatioTapChanger.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Recloser.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/TapChangerControl.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/LvFeeder.proto";
@@ -151,8 +151,9 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.PotentialTransformerInfo potentialTransformerInfo = 64;
         zepben.protobuf.cim.iec61968.assetinfo.SwitchInfo switchInfo = 65;
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentRelayInfo currentRelayInfo = 66;
-        zepben.protobuf.cim.iec61970.base.protection.RecloseSequence recloseSequence = 67;
         zepben.protobuf.cim.iec61970.base.protection.CurrentRelay currentRelay = 68;
+        zepben.protobuf.cim.iec61970.base.wires.TapChangerControl tapChangerControl = 69;
+
 
         google.protobuf.Any other = 999;
     }

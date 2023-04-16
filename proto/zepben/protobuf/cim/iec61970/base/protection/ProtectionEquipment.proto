@@ -13,7 +13,9 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
 package zepben.protobuf.cim.iec61970.base.protection;
 
 import "zepben/protobuf/cim/iec61970/base/core/Equipment.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/protection/PowerDirectionKind.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/protection/ProtectionKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * An electrical device designed to respond to input conditions in a prescribed manner and after specified conditions
@@ -42,5 +44,18 @@ message ProtectionEquipment {
    * Protected switches operated by this ProtectionEquipment.
    */
   repeated string protectedSwitchMRIDs = 4;
+
+  /**
+   * Whether this ProtectionEquipment responds to power flow in a given direction.
+   */
+  oneof directable {
+    google.protobuf.NullValue directableNull = 5;
+    bool directableSet = 6;
+  }
+
+  /**
+   * The flow of power direction used by this ProtectionEquipment.
+   */
+  infiec61970.protection.PowerDirectionKind powerDirection = 7;
 
 }

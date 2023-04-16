@@ -13,6 +13,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
 package zepben.protobuf.cim.iec61970.base.core;
 
+import "google/protobuf/timestamp.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
 
 /**
@@ -54,5 +55,10 @@ message Equipment {
      * mRID references to all current containers for this equipment.
      */
     repeated string currentContainerMRIDs = 7;
+
+    /**
+     * The date this equipment was commissioned into service.
+     */
+    google.protobuf.Timestamp commissionedDate = 8;
 
 }
