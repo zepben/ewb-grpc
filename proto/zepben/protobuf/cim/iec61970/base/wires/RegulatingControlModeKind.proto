@@ -1,0 +1,63 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+/**
+ * The kind of regulation model. For example regulating voltage, reactive power, active power, etc.
+ */
+enum RegulatingControlModeKind {
+
+    // Default
+    UNKNOWN_CONTROL_MODE = 0;
+
+    /*
+     * Voltage is specified.
+     */
+    voltage = 1;
+    /*
+     * Active power is specified.
+     */
+    activePower = 2;
+
+    /*
+     * Reactive power is specified.
+     */
+    reactivePower = 3;
+
+    /*
+     * Current flow is specified.
+     */
+    currentFlow = 4;
+
+    /*
+     * Admittance is specified.
+     */
+    admittance = 5;
+
+    /*
+     * Control switches on/off by time of day. The times may change on the weekend, or in different seasons.
+     */
+    timeScheduled = 6;
+
+    /*
+     * Control switches on/off based on the local temperature (i.e., a thermostat).
+     */
+    temperature = 7;
+
+    /*
+     * Power factor is specified.
+     */
+    powerFactor	= 8;
+
+}

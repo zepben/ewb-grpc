@@ -1,0 +1,85 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "google/protobuf/struct.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/RegulatingControl.proto";
+
+/**
+ * Describes behaviour specific to tap changers, e.g. how the voltage at the end of a line varies with the load level and compensation of the voltage drop by tap adjustment.
+ */
+message TapChangerControl {
+
+    /**
+     * The RegulatingControl fields for this TapChangerControl.
+     */
+    RegulatingControl rc = 1;
+
+    /**
+     * Maximum allowed regulated voltage on the PT secondary, regardless of line drop compensation. Sometimes referred to as first-house protection.
+     */
+    int32 limitVoltage = 2;
+
+    /**
+     * If true, then line drop compensation is to be applied.
+     */
+    oneof lineDropCompensation {
+        google.protobuf.NullValue lineDropCompensationNull = 3;
+        bool lineDropCompensationSet = 4;
+    }
+
+    /**
+     * Line drop compensator resistance setting for normal (forward) power flow in Ohms.
+     */
+    float lineDropR = 5;
+
+    /**
+     * Line drop compensator reactance setting for normal (forward) power flow in Ohms.
+     */
+    float lineDropX = 6;
+
+    /**
+     * Line drop compensator resistance setting for reverse power flow in Ohms.
+     */
+    float reverselineDropR = 7;
+
+    /**
+     * Line drop compensator reactance setting for reverse power flow in Ohms.
+     */
+    float reverselineDropX = 8;
+
+    /**
+     * True implies this tap changer turns off/ignores reverse current flows for line drop compensation when
+     * power flow is reversed and no reverse line drop is set.
+     */
+    oneof forwardLDCBlocking {
+        google.protobuf.NullValue forwardLDCBlockingNull = 9;
+        bool forwardLDCBlockingSet = 10;
+    }
+
+    /**
+     * The time delay for the tap changer in seconds.
+     */
+    float timeDelay = 11;
+
+    /**
+     * True implies cogeneration mode is enabled and that the control will regulate to the new source bushing (downline bushing),
+     * keeping locations downline from experiencing overvoltage situations.
+     */
+    oneof coGenerationEnabled {
+        google.protobuf.NullValue coGenerationEnabledNull = 12;
+        bool coGenerationEnabledSet = 13;
+    }
+
+}

@@ -2188,6 +2188,12 @@
                 "id": 2,
                 "name": "curveSetting",
                 "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "recloseDelays",
+                "type": "float",
+                "is_repeated": true
               }
             ]
           }
@@ -2806,6 +2812,16 @@
                 "id": 6,
                 "name": "connectionCategory",
                 "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "ratedPower",
+                "type": "int32"
+              },
+              {
+                "id": 8,
+                "name": "approvedInverterCapacity",
+                "type": "float"
               }
             ]
           }
@@ -3387,11 +3403,19 @@
                 "name": "currentContainerMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 8,
+                "name": "commissionedDate",
+                "type": "google.protobuf.Timestamp"
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
           }
@@ -5668,6 +5692,21 @@
                 "name": "protectedSwitchMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "directableNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 6,
+                "name": "directableSet",
+                "type": "bool"
+              },
+              {
+                "id": 7,
+                "name": "powerDirection",
+                "type": "infiec61970.protection.PowerDirectionKind"
               }
             ]
           }
@@ -5677,56 +5716,13 @@
             "path": "zepben/protobuf/cim/iec61970/base/core/Equipment.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/protection/PowerDirectionKind.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/infiec61970/protection/ProtectionKind.proto"
-          }
-        ],
-        "package": {
-          "name": "zepben.protobuf.cim.iec61970.base.protection"
-        },
-        "options": [
-          {
-            "name": "java_multiple_files",
-            "value": "true"
           },
           {
-            "name": "java_package",
-            "value": "com.zepben.protobuf.cim.iec61970.base.protection"
-          },
-          {
-            "name": "csharp_namespace",
-            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Protection"
-          }
-        ]
-      }
-    },
-    {
-      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:RecloseSequence.proto",
-      "def": {
-        "messages": [
-          {
-            "name": "RecloseSequence",
-            "fields": [
-              {
-                "id": 1,
-                "name": "io",
-                "type": "iec61970.base.core.IdentifiedObject"
-              },
-              {
-                "id": 2,
-                "name": "recloseDelay",
-                "type": "double"
-              },
-              {
-                "id": 3,
-                "name": "recloseStep",
-                "type": "int32"
-              }
-            ]
-          }
-        ],
-        "imports": [
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7066,11 +7062,149 @@
                 "name": "powerElectronicsConnectionPhaseMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 11,
+                "name": "inverterStandard",
+                "type": "string"
+              },
+              {
+                "id": 12,
+                "name": "sustainOpOvervoltLimit",
+                "type": "int32"
+              },
+              {
+                "id": 13,
+                "name": "stopAtOverFreq",
+                "type": "float"
+              },
+              {
+                "id": 14,
+                "name": "stopAtUnderFreq",
+                "type": "float"
+              },
+              {
+                "id": 15,
+                "name": "invVoltWattRespModeNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 16,
+                "name": "invVoltWattRespModeSet",
+                "type": "bool"
+              },
+              {
+                "id": 17,
+                "name": "invWattRespV1",
+                "type": "int32"
+              },
+              {
+                "id": 18,
+                "name": "invWattRespV2",
+                "type": "int32"
+              },
+              {
+                "id": 19,
+                "name": "invWattRespV3",
+                "type": "int32"
+              },
+              {
+                "id": 20,
+                "name": "invWattRespV4",
+                "type": "int32"
+              },
+              {
+                "id": 21,
+                "name": "invWattRespPAtV1",
+                "type": "float"
+              },
+              {
+                "id": 22,
+                "name": "invWattRespPAtV2",
+                "type": "float"
+              },
+              {
+                "id": 23,
+                "name": "invWattRespPAtV3",
+                "type": "float"
+              },
+              {
+                "id": 24,
+                "name": "invWattRespPAtV4",
+                "type": "float"
+              },
+              {
+                "id": 25,
+                "name": "invVoltVArRespModeNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 26,
+                "name": "invVoltVArRespModeSet",
+                "type": "bool"
+              },
+              {
+                "id": 27,
+                "name": "invVArRespV1",
+                "type": "int32"
+              },
+              {
+                "id": 28,
+                "name": "invVArRespV2",
+                "type": "int32"
+              },
+              {
+                "id": 29,
+                "name": "invVArRespV3",
+                "type": "int32"
+              },
+              {
+                "id": 30,
+                "name": "invVArRespV4",
+                "type": "int32"
+              },
+              {
+                "id": 31,
+                "name": "invVArRespQAtV1",
+                "type": "float"
+              },
+              {
+                "id": 32,
+                "name": "invVArRespQAtV2",
+                "type": "float"
+              },
+              {
+                "id": 33,
+                "name": "invVArRespQAtV3",
+                "type": "float"
+              },
+              {
+                "id": 34,
+                "name": "invVArRespQAtV4",
+                "type": "float"
+              },
+              {
+                "id": 35,
+                "name": "invReactivePowerModeNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 36,
+                "name": "invReactivePowerModeSet",
+                "type": "bool"
+              },
+              {
+                "id": 37,
+                "name": "invFixReactivePower",
+                "type": "float"
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto"
           }
@@ -7355,12 +7489,6 @@
                 "type": "int32"
               },
               {
-                "id": 3,
-                "name": "recloseSequenceMRIDs",
-                "type": "string",
-                "is_repeated": true
-              },
-              {
                 "id": 4,
                 "name": "operatedByProtectionEquipmentMRIDs",
                 "type": "string",
@@ -7504,6 +7632,166 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/EnergyConnection.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:RegulatingControl.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "RegulatingControl",
+            "fields": [
+              {
+                "id": 1,
+                "name": "psr",
+                "type": "core.PowerSystemResource"
+              },
+              {
+                "id": 2,
+                "name": "discrete",
+                "type": "bool"
+              },
+              {
+                "id": 3,
+                "name": "mode",
+                "type": "RegulatingControlModeKind"
+              },
+              {
+                "id": 4,
+                "name": "monitoredPhase",
+                "type": "core.PhaseCode"
+              },
+              {
+                "id": 5,
+                "name": "targetDeadband",
+                "type": "float"
+              },
+              {
+                "id": 6,
+                "name": "targetValue",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "enabled",
+                "type": "bool"
+              },
+              {
+                "id": 8,
+                "name": "maxAllowedTargetValue",
+                "type": "double"
+              },
+              {
+                "id": 9,
+                "name": "minAllowedTargetValue",
+                "type": "double"
+              },
+              {
+                "id": 10,
+                "name": "terminalMRID",
+                "type": "string"
+              },
+              {
+                "id": 11,
+                "name": "regulatingCondEqMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingControlModeKind.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:RegulatingControlModeKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "RegulatingControlModeKind",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN_CONTROL_MODE"
+              },
+              {
+                "name": "voltage",
+                "integer": 1
+              },
+              {
+                "name": "activePower",
+                "integer": 2
+              },
+              {
+                "name": "reactivePower",
+                "integer": 3
+              },
+              {
+                "name": "currentFlow",
+                "integer": 4
+              },
+              {
+                "name": "admittance",
+                "integer": 5
+              },
+              {
+                "name": "timeScheduled",
+                "integer": 6
+              },
+              {
+                "name": "temperature",
+                "integer": 7
+              },
+              {
+                "name": "powerFactor",
+                "integer": 8
+              }
+            ]
           }
         ],
         "package": {
@@ -7755,6 +8043,11 @@
                 "id": 8,
                 "name": "controlEnabled",
                 "type": "bool"
+              },
+              {
+                "id": 9,
+                "name": "tapChangerControlMRID",
+                "type": "string"
               }
             ]
           }
@@ -7762,6 +8055,108 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:TapChangerControl.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "TapChangerControl",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rc",
+                "type": "RegulatingControl"
+              },
+              {
+                "id": 2,
+                "name": "limitVoltage",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "lineDropCompensationNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 4,
+                "name": "lineDropCompensationSet",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "lineDropR",
+                "type": "float"
+              },
+              {
+                "id": 6,
+                "name": "lineDropX",
+                "type": "float"
+              },
+              {
+                "id": 7,
+                "name": "reverselineDropR",
+                "type": "float"
+              },
+              {
+                "id": 8,
+                "name": "reverselineDropX",
+                "type": "float"
+              },
+              {
+                "id": 9,
+                "name": "forwardLDCBlockingNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 10,
+                "name": "forwardLDCBlockingSet",
+                "type": "bool"
+              },
+              {
+                "id": 11,
+                "name": "timeDelay",
+                "type": "float"
+              },
+              {
+                "id": 12,
+                "name": "coGenerationEnabledNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 13,
+                "name": "coGenerationEnabledSet",
+                "type": "bool"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingControl.proto"
           }
         ],
         "package": {
@@ -8751,6 +9146,50 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:protection:/:PowerDirectionKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "PowerDirectionKind",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN_DIRECTION"
+              },
+              {
+                "name": "UNDIRECTED",
+                "integer": 1
+              },
+              {
+                "name": "FORWARD",
+                "integer": 2
+              },
+              {
+                "name": "REVERSE",
+                "integer": 3
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.infiec61970.infiec61970.protection"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.InfIEC61970.Protection"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:protection:/:ProtectionKind.proto",
       "def": {
         "enums": [
@@ -8802,6 +9241,45 @@
           {
             "name": "csharp_namespace",
             "value": "Zepben.Protobuf.CIM.IEC61970.InfIEC61970.Protection"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:wires:/:generation:/:production:/:EvChargingUnit.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "EvChargingUnit",
+            "fields": [
+              {
+                "id": 1,
+                "name": "peu",
+                "type": "base.wires.generation.production.PowerElectronicsUnit"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsUnit.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.wires.generation.production"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.wires.generation.production"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.InfIEC61970.Wires.Generation.Production"
           }
         ]
       }
@@ -10644,14 +11122,19 @@
                 "type": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentRelayInfo"
               },
               {
-                "id": 67,
-                "name": "recloseSequence",
-                "type": "zepben.protobuf.cim.iec61970.base.protection.RecloseSequence"
-              },
-              {
                 "id": 68,
                 "name": "currentRelay",
                 "type": "zepben.protobuf.cim.iec61970.base.protection.CurrentRelay"
+              },
+              {
+                "id": 69,
+                "name": "tapChangerControl",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.TapChangerControl"
+              },
+              {
+                "id": 70,
+                "name": "evChargingUnit",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.wires.generation.production.EvChargingUnit"
               },
               {
                 "id": 999,
@@ -10756,9 +11239,6 @@
             "path": "zepben/protobuf/cim/iec61970/base/core/Terminal.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61970/base/protection/RecloseSequence.proto"
-          },
-          {
             "path": "zepben/protobuf/cim/iec61970/base/protection/CurrentRelay.proto"
           },
           {
@@ -10811,6 +11291,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Recloser.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/TapChangerControl.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto"
@@ -10868,6 +11351,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentBranch.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/wires/generation/production/EvChargingUnit.proto"
           }
         ],
         "package": {

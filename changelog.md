@@ -4,7 +4,7 @@
 
 ### Breaking Changes
 
-* None.
+* Removed `RecloseSequences` message.
 
 ### New Features
 
@@ -13,6 +13,19 @@
   * `getCustomersForContainer`: Get the customers for a given EquipmentContainer. 
 * Added OpenDSS `Model`, `LoadShape` and `EnergyMeter` report messages for hosting capacity.
 * Added `Job` message for hosting capacity, which describes a hosting capacity run for a single feeder.
+* Added CIM enums:
+  * `PowerDirectionKind`
+  * `RegulatingControlModeKind`
+* Added CIM message:
+  * `RegulatingControl`
+  * `TapChangerControl`
+  * `EvChargingUnit`
+* Added new fields to:
+  * `Equipment` 
+  * `PowerElectronicsConnection`
+  * `ProtectionEquipment`
+  * `TapChanger`
+  * `UsagePoint`
 
 ### Enhancements
 

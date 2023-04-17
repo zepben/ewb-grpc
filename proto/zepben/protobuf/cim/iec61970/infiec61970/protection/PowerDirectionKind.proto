@@ -1,0 +1,38 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.infiec61970.infiec61970.protection";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.InfIEC61970.Protection";
+package zepben.protobuf.cim.iec61970.infiec61970.protection;
+
+/**
+ * The flow of power direction used by a ProtectionEquipment.
+ */
+enum PowerDirectionKind {
+
+  // Default. Unknown power direction flow.
+  UNKNOWN_DIRECTION = 0;
+
+  /**
+   * Power direction flow type is not specified.
+   */
+  UNDIRECTED = 1;
+
+  /**
+   * Power direction forward flow is used.
+   */
+  FORWARD = 2;
+
+  /**
+   * Power direction reverse flow is used.
+   */
+  REVERSE = 3;
+
+}
