@@ -1,0 +1,150 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+
+//
+// NOTE: We have deliberately removed the package to prevent name mangling in c where these classes are used. The
+//       other languages we use do not reference the package, so will still be correctly scoped.
+//
+
+/**
+ * Message for streaming the summary report
+ */
+
+message SummaryReport {
+    int64 timestamp = 1;
+    string circuitName = 2;
+    bool solved = 3;
+    string mode = 4;
+    int32 number = 5;
+    double loadMult = 6;
+    int32 numDevices = 7;
+    int32 numBuses = 8;
+    int32 numNodes = 9;
+    int32 iterations = 10;
+    string controlMode = 11;
+    int32 controlIterations = 12;
+    int32 mostIterationsDone = 13;
+    int32 year = 14;
+    int32 hour = 15;
+    double maxPuVoltage = 16;
+    double minPuVoltage = 17;
+    double totalMW = 18;
+    double totalMvar = 19;
+    double MWLosses = 20;
+    double pctLosses = 21;
+    double mvarLosses = 22;
+    double frequency = 23;
+}
+
+/**
+ * Message for streaming the opendss eventlog 
+ */
+
+message EventLogEntry {
+    int32 hour        = 1;
+    double sec        = 2;
+    int32 controlIter = 3;
+    int32 iteration   = 4;
+    string element    = 5;
+    string action     = 6;
+    string event      = 7;
+}
+
+message EventLog {
+    repeated EventLogEntry logEntry = 1;
+}
+
+/**
+ * Message for streaming the registry taps report
+ */
+
+message TapsReport {
+    string name    = 1;
+    double tap     = 2;
+    double mintap  = 3;
+    double maxtap  = 4;
+    double step    = 5;
+    int32 position = 6;
+}
+
+/**
+ * Message for streaming the loops report
+ */
+
+message LoopReport {
+    string meter    = 1;
+    string lineA    = 2;
+    string lineB    = 3;
+    string relation = 4;
+}
+
+/**
+ * Messages for streaming the isolated elements report
+ */
+
+message IsolatedArea {
+    int32 id = 1;
+    string line = 2;
+    repeated string loads = 3; 
+}
+
+message IsolatedElement {
+    string name = 1;
+    repeated string buses = 2; 
+}
+
+message IsolatedBusesReport {
+    repeated string disconnectedBuses         = 1;
+    repeated IsolatedArea isolatedSubAreas    = 2;
+    repeated IsolatedElement isolatedElements = 3;
+} 
+
+/**
+ * Messages for streaming the losses report
+ */
+message LossesEntry {
+    string element    = 1;
+    double kLoss      = 2;
+    double pctPower   = 3;
+    double kvarLosses = 4;
+}
+
+message LossesTotals {
+    double lineLosses           = 1;
+    double transformerLosses    = 2;
+    double totalLoadPower       = 3;
+    double totalPctLosses       = 4;
+}
+
+/**
+ * Message for streaming the Node Mismatch report
+ */
+message NodeMismatch {
+    string bus        = 1;
+    int32 node        = 2;
+    double currentSum = 3;
+    double pctError   = 4;
+    double maxCurrent = 5;
+}
+
+/**
+ * Message for streaming the kv Base Mismatch report
+ */
+message KVBaseMismatch {
+    string load   = 1;
+    double kv     = 2;
+    string bus    = 3;
+    double kvBase = 4;
+}

@@ -1,0 +1,39 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+
+import "hc/opendss/EnergyMeter.proto";
+import "hc/opendss/Diagnostics.proto";
+
+/**
+ * The message type we actually stream, which contains one of the EnergyMeter or Diagnostics reports.
+ */
+message OpenDssReport {
+    oneof report {
+        DemandIntervalReport di = 1;
+        PhaseVoltageReport phv = 2;
+        OverloadReport ov = 3;
+        VoltageReport vr = 4;
+
+        SummaryReport sr = 5;
+        EventLog el = 6;
+        TapsReport tr = 7;
+        LoopReport lr = 8;
+        IsolatedBusesReport ibr = 9;
+        LossesEntry le = 10;
+        LossesTotals losses = 11;
+        NodeMismatch nm = 12;
+        KVBaseMismatch kvm = 13;
+    }
+}

@@ -142,15 +142,3 @@ message VoltageReport {
     VoltageReportValues hv = 2;
     VoltageReportValues lv = 3;
 }
-
-/**
- * The message type we actually stream, which contains one of the above reports.
- */
-message EnergyMeterReport {
-    oneof report {
-        DemandIntervalReport di = 1;
-        PhaseVoltageReport phv = 2;
-        OverloadReport ov = 3;
-        VoltageReport vr = 4;
-    }
-}
