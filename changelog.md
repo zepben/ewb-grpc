@@ -11,7 +11,9 @@
 * Added new RPCs:
   * `getDiagramObjects`: Get the DiagramObjects for a given mRID.
   * `getCustomersForContainer`: Get the customers for a given EquipmentContainer. 
-* Added OpenDSS `Model`, `LoadShape` and `EnergyMeter` report messages for hosting capacity.
+* Added the following messages for hosting capacity:
+  * `Syf` and `Job` messages for hosting capacity control.
+  * `Model`, `LoadShape` and `EnergyMeter` report messages for streaming results from OpenDSS.
 * Added `Job` message for hosting capacity, which describes a hosting capacity run for a single feeder.
 * Added CIM enums:
   * `PowerDirectionKind`
