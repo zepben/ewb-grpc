@@ -182,6 +182,8 @@ jobs:
     container: zepben/pipeline-basic:5.5.0
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
 
       - name: Work around git permission issue
         run: |
@@ -231,7 +233,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.merge.outputs.tag }}
           body_path: changelog.md
@@ -259,7 +261,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ env.GITHUB_TOKEN }}
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
           ref: release
           fetch-depth: 0
 
