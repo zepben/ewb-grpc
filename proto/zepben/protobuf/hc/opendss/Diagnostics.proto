@@ -21,47 +21,47 @@ option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
 /**
  * Message for streaming the summary report
  */
-
 message SummaryReport {
-    int64 timestamp = 1;
-    string circuitName = 2;
-    bool solved = 3;
-    string mode = 4;
-    int32 number = 5;
-    double loadMult = 6;
-    int32 numDevices = 7;
-    int32 numBuses = 8;
-    int32 numNodes = 9;
-    int32 iterations = 10;
-    string controlMode = 11;
-    int32 controlIterations = 12;
-    int32 mostIterationsDone = 13;
-    int32 year = 14;
-    int32 hour = 15;
-    double maxPuVoltage = 16;
-    double minPuVoltage = 17;
-    double totalMW = 18;
-    double totalMvar = 19;
-    double MWLosses = 20;
-    double pctLosses = 21;
-    double mvarLosses = 22;
-    double frequency = 23;
+    string caseName = 1;
+    bool solved = 2;
+    string mode = 3;
+    int32 number = 4;
+    double loadMult = 5;
+    int32 numDevices = 6;
+    int32 numBuses = 7;
+    int32 numNodes = 8;
+    int32 iterations = 9;
+    string controlMode = 10;
+    int32 controlIterations = 11;
+    int32 mostIterationsDone = 12;
+    int32 year = 13;
+    int32 hour = 14;
+    double maxPuVoltage = 15;
+    double minPuVoltage = 16;
+    double totalMW = 17;
+    double totalMvar = 18;
+    double mwLosses = 19;
+    double pctLosses = 20;
+    double mvarLosses = 21;
+    double frequency = 22;
+}
+
+/**
+ * Message for a single Event Log Entry
+ */
+message EventLogEntry {
+    int32 hour = 1;
+    double sec = 2;
+    int32 controlIter = 3;
+    int32 iteration = 4;
+    string element = 5;
+    string action = 6;
+    string event = 7;
 }
 
 /**
  * Message for streaming the opendss eventlog 
  */
-
-message EventLogEntry {
-    int32 hour        = 1;
-    double sec        = 2;
-    int32 controlIter = 3;
-    int32 iteration   = 4;
-    string element    = 5;
-    string action     = 6;
-    string event      = 7;
-}
-
 message EventLog {
     repeated EventLogEntry logEntry = 1;
 }
@@ -69,73 +69,81 @@ message EventLog {
 /**
  * Message for streaming the registry taps report
  */
-
 message TapsReport {
-    string name    = 1;
-    double tap     = 2;
-    double mintap  = 3;
-    double maxtap  = 4;
-    double step    = 5;
+    string name = 1;
+    double tap = 2;
+    double min = 3;
+    double max = 4;
+    double step = 5;
     int32 position = 6;
 }
 
 /**
  * Message for streaming the loops report
  */
-
 message LoopReport {
-    string meter    = 1;
-    string lineA    = 2;
-    string lineB    = 3;
-    string relation = 4;
+    string meter = 1;
+    string lineA = 2;
+    string lineB = 3;
+    bool parallel = 4;
+    bool looped = 5;
 }
 
 /**
- * Messages for streaming the isolated elements report
+ * Message for one specific isolated area report (a level/id, line, and the related loads)
  */
-
 message IsolatedArea {
-    int32 id = 1;
-    string line = 2;
+    int32 level = 1;
+    string element = 2;
     repeated string loads = 3; 
 }
 
+/**
+ * Message for one specific isolated element report (a name of an element, and the related buses)
+ */
 message IsolatedElement {
     string name = 1;
     repeated string buses = 2; 
 }
 
+/**
+ * Messages for streaming the isolated elements report (disconnected buses, areas and elements)
+ */
 message IsolatedBusesReport {
-    repeated string disconnectedBuses         = 1;
-    repeated IsolatedArea isolatedSubAreas    = 2;
+    repeated string disconnectedBuses = 1;
+    repeated IsolatedArea isolatedSubAreas = 2;
     repeated IsolatedElement isolatedElements = 3;
 } 
 
 /**
- * Messages for streaming the losses report
+ * Message for streaming one specific Losses entry
  */
 message LossesEntry {
-    string element    = 1;
-    double kLoss      = 2;
-    double pctPower   = 3;
+    string element = 1;
+    double kwLosses = 2;
+    double pctPower = 3;
     double kvarLosses = 4;
 }
 
+/**
+ * Messages for streaming the losses report
+ */
 message LossesTotals {
-    double lineLosses           = 1;
-    double transformerLosses    = 2;
-    double totalLoadPower       = 3;
-    double totalPctLosses       = 4;
+    double lineLosses = 1;
+    double transformerLosses = 2;
+    double totalLosses = 3;
+    double totalLoadPower = 4;
+    double totalPctLosses = 5;
 }
 
 /**
  * Message for streaming the Node Mismatch report
  */
 message NodeMismatch {
-    string bus        = 1;
-    int32 node        = 2;
+    string bus = 1;
+    int32 node = 2;
     double currentSum = 3;
-    double pctError   = 4;
+    double pctError = 4;
     double maxCurrent = 5;
 }
 
@@ -143,8 +151,8 @@ message NodeMismatch {
  * Message for streaming the kv Base Mismatch report
  */
 message KVBaseMismatch {
-    string load   = 1;
-    double kv     = 2;
-    string bus    = 3;
+    string load = 1;
+    double kv = 2;
+    string bus = 3;
     double kvBase = 4;
 }

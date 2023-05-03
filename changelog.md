@@ -4,7 +4,7 @@
 
 ### Breaking Changes
 
-* None.
+* Renamed hosting capacity `EnergyMeterReport` to `OpenDssReport` with added support for diagnostic reports.
 
 ### New Features
 
