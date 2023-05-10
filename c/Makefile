@@ -1,9 +1,10 @@
-# We only buold the EnergyMeter.proto file as that is all that is used by the hosting capacity
-# C library, and we are not interested in supporting C at this stage.
-default: c
-proto_path = ../proto/zepben/protobuf
-file = hc/opendss/EnergyMeter.proto
+# We only build the files used by the hosting capacity C library, as we are not interested in supporting C at this stage.
+PROTO_PATH = ../proto/zepben/protobuf
+HC_PATH = hc/opendss
+FILES = Diagnostics \
+        EnergyMeter \
+        OpenDssReport
 
-c: $(proto_path)/$(file)
+all:
 	@mkdir -p out
-	protoc -I $(proto_path) --c_out=out $(file)
+	protoc -I $(PROTO_PATH) --c_out=out $(foreach FILE,$(FILES),$(PROTO_PATH)/$(HC_PATH)/$(FILE).proto)
