@@ -9635,6 +9635,431 @@
       }
     },
     {
+      "protopath": "protobuf:/:hc:/:opendss:/:Diagnostics.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SummaryReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "caseName",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "solved",
+                "type": "bool"
+              },
+              {
+                "id": 3,
+                "name": "mode",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "number",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "loadMult",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "numDevices",
+                "type": "int32"
+              },
+              {
+                "id": 7,
+                "name": "numBuses",
+                "type": "int32"
+              },
+              {
+                "id": 8,
+                "name": "numNodes",
+                "type": "int32"
+              },
+              {
+                "id": 9,
+                "name": "iterations",
+                "type": "int32"
+              },
+              {
+                "id": 10,
+                "name": "controlMode",
+                "type": "string"
+              },
+              {
+                "id": 11,
+                "name": "controlIterations",
+                "type": "int32"
+              },
+              {
+                "id": 12,
+                "name": "mostIterationsDone",
+                "type": "int32"
+              },
+              {
+                "id": 13,
+                "name": "year",
+                "type": "int32"
+              },
+              {
+                "id": 14,
+                "name": "hour",
+                "type": "int32"
+              },
+              {
+                "id": 15,
+                "name": "maxPuVoltage",
+                "type": "double"
+              },
+              {
+                "id": 16,
+                "name": "minPuVoltage",
+                "type": "double"
+              },
+              {
+                "id": 17,
+                "name": "totalMW",
+                "type": "double"
+              },
+              {
+                "id": 18,
+                "name": "totalMvar",
+                "type": "double"
+              },
+              {
+                "id": 19,
+                "name": "mwLosses",
+                "type": "double"
+              },
+              {
+                "id": 20,
+                "name": "pctLosses",
+                "type": "double"
+              },
+              {
+                "id": 21,
+                "name": "mvarLosses",
+                "type": "double"
+              },
+              {
+                "id": 22,
+                "name": "frequency",
+                "type": "double"
+              }
+            ]
+          },
+          {
+            "name": "EventLogEntry",
+            "fields": [
+              {
+                "id": 1,
+                "name": "hour",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "sec",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "controlIter",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "iteration",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "element",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "action",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "event",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "EventLog",
+            "fields": [
+              {
+                "id": 1,
+                "name": "logEntry",
+                "type": "EventLogEntry",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "TapsReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "tap",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "min",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "max",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "step",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "position",
+                "type": "int32"
+              }
+            ]
+          },
+          {
+            "name": "LoopReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "meter",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "lineA",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "lineB",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "parallel",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "looped",
+                "type": "bool"
+              }
+            ]
+          },
+          {
+            "name": "IsolatedArea",
+            "fields": [
+              {
+                "id": 1,
+                "name": "level",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "element",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "loads",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "IsolatedElement",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "buses",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "IsolatedBusesReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "disconnectedBuses",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "isolatedSubAreas",
+                "type": "IsolatedArea",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "isolatedElements",
+                "type": "IsolatedElement",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "LossesEntry",
+            "fields": [
+              {
+                "id": 1,
+                "name": "element",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "kwLosses",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "pctPower",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "kvarLosses",
+                "type": "double"
+              }
+            ]
+          },
+          {
+            "name": "LossesTotals",
+            "fields": [
+              {
+                "id": 1,
+                "name": "lineLosses",
+                "type": "double"
+              },
+              {
+                "id": 2,
+                "name": "transformerLosses",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "totalLosses",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "totalLoadPower",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "totalPctLosses",
+                "type": "double"
+              }
+            ]
+          },
+          {
+            "name": "NodeMismatch",
+            "fields": [
+              {
+                "id": 1,
+                "name": "bus",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "node",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "currentSum",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "pctError",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "maxCurrent",
+                "type": "double"
+              }
+            ]
+          },
+          {
+            "name": "KVBaseMismatch",
+            "fields": [
+              {
+                "id": 1,
+                "name": "load",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "kv",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "bus",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "kvBase",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc.opendss"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC.OpenDSS"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:hc:/:opendss:/:EnergyMeter.proto",
       "def": {
         "messages": [
@@ -10138,6 +10563,108 @@
           },
           {
             "path": "zepben/protobuf/hc/opendss/LoadShape.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc.opendss"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc.opendss"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC.OpenDSS"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:hc:/:opendss:/:OpenDssReport.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "OpenDssReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "di",
+                "type": "DemandIntervalReport"
+              },
+              {
+                "id": 2,
+                "name": "phv",
+                "type": "PhaseVoltageReport"
+              },
+              {
+                "id": 3,
+                "name": "ov",
+                "type": "OverloadReport"
+              },
+              {
+                "id": 4,
+                "name": "vr",
+                "type": "VoltageReport"
+              },
+              {
+                "id": 5,
+                "name": "sr",
+                "type": "SummaryReport"
+              },
+              {
+                "id": 6,
+                "name": "el",
+                "type": "EventLog"
+              },
+              {
+                "id": 7,
+                "name": "tr",
+                "type": "TapsReport"
+              },
+              {
+                "id": 8,
+                "name": "lr",
+                "type": "LoopReport"
+              },
+              {
+                "id": 9,
+                "name": "ibr",
+                "type": "IsolatedBusesReport"
+              },
+              {
+                "id": 10,
+                "name": "le",
+                "type": "LossesEntry"
+              },
+              {
+                "id": 11,
+                "name": "losses",
+                "type": "LossesTotals"
+              },
+              {
+                "id": 12,
+                "name": "nm",
+                "type": "NodeMismatch"
+              },
+              {
+                "id": 13,
+                "name": "kvm",
+                "type": "KVBaseMismatch"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/hc/opendss/EnergyMeter.proto"
+          },
+          {
+            "path": "zepben/protobuf/hc/opendss/Diagnostics.proto"
           }
         ],
         "package": {
