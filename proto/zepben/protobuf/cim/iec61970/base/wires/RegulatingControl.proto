@@ -16,6 +16,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/RegulatingControlModeKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Specifies a set of equipment that works together to control a power system quantity such as voltage or flow.
@@ -43,17 +44,20 @@ message RegulatingControl {
     /**
      * The regulation is performed in a discrete mode. This applies to equipment with discrete controls, e.g. tap changers and shunt compensators.
      */
-    bool discrete = 2;
+    oneof discrete {
+        google.protobuf.NullValue discreteNull = 2;
+        bool discreteSet = 3;
+    }
 
     /**
      * The regulating control mode presently available. This specification allows for determining the kind of regulation without need for obtaining the units from a schedule.
      */
-    RegulatingControlModeKind mode = 3;
+    RegulatingControlModeKind mode = 4;
 
     /**
      * Phase voltage controlling this regulator, measured at regulator location.
      */
-    core.PhaseCode monitoredPhase = 4;
+    core.PhaseCode monitoredPhase = 5;
 
     /**
      * This is a deadband used with discrete control to avoid excessive update of controls like tap changers and shunt compensator banks while regulating.
@@ -61,38 +65,41 @@ message RegulatingControl {
      * The attribute shall be a positive value or zero. If RegulatingControl.discrete is set to "false", the RegulatingControl.targetDeadband is to be ignored.
      * Note that for instance, if the targetValue is 100 kV and the targetDeadband is 2 kV the range is from 99 to 101 kV.
      */
-    float targetDeadband = 5;
+    float targetDeadband = 6;
 
     /**
      * The target value specified for case input. This value can be used for the target value without the use of schedules.
      * The value has the units appropriate to the mode attribute.
      */
-    double targetValue = 6;
+    double targetValue = 7;
 
     /**
      * The flag tells if regulation is enabled.
      */
-    bool enabled = 7;
+    oneof enabled {
+        google.protobuf.NullValue enabledNull = 8;
+        bool enabledSet = 9;
+    }
 
     /**
      * Maximum allowed target value (RegulatingControl.targetValue).
      */
-    double maxAllowedTargetValue = 8;
+    double maxAllowedTargetValue = 10;
 
     /**
      * Minimum allowed target value (RegulatingControl.targetValue).
      */
-    double minAllowedTargetValue = 9;
+    double minAllowedTargetValue = 11;
 
     /**
      * The terminal associated with this regulating control. The terminal is associated instead of a node, since the terminal could connect into either a
      * topological node or a connectivity node. Sometimes it is useful to model regulation at a terminal of a bus bar object.
      */
-    string terminalMRID = 10;
+    string terminalMRID = 12;
 
     /**
      * The equipment that participates in this regulating control scheme.
      */
-    repeated string regulatingCondEqMRIDs = 11;
+    repeated string regulatingCondEqMRIDs = 13;
 
 }
