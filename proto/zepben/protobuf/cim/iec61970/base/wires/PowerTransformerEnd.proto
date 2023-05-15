@@ -14,6 +14,7 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/TransformerEnd.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/TransformerEndRatedS.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto";
 
 /**
@@ -40,6 +41,7 @@ message PowerTransformerEnd {
     string powerTransformerMRID = 2;
 
     /**
+     * Deprecated - use ratings instead.
      * Normal apparent power rating. The attribute shall be a positive value. For a two-winding transformer the values
      * for the high and low voltage sides shall be identical.
      */
@@ -106,5 +108,10 @@ message PowerTransformerEnd {
     * Note the transformer end number is not assumed to be the same as the terminal sequence number.
     */
     int32 phaseAngleClock = 14;
+
+    /**
+     * The normal apparent power ratings for this PowerTransformerEnd.
+     */
+    repeated TransformerEndRatedS ratings = 15;
 
 }

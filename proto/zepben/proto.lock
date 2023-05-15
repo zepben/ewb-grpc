@@ -2192,7 +2192,7 @@
               {
                 "id": 3,
                 "name": "recloseDelays",
-                "type": "float",
+                "type": "double",
                 "is_repeated": true
               }
             ]
@@ -2821,7 +2821,7 @@
               {
                 "id": 8,
                 "name": "approvedInverterCapacity",
-                "type": "float"
+                "type": "int32"
               }
             ]
           }
@@ -7135,52 +7135,52 @@
               },
               {
                 "id": 25,
-                "name": "invVoltVArRespModeNull",
+                "name": "invVoltVarRespModeNull",
                 "type": "google.protobuf.NullValue"
               },
               {
                 "id": 26,
-                "name": "invVoltVArRespModeSet",
+                "name": "invVoltVarRespModeSet",
                 "type": "bool"
               },
               {
                 "id": 27,
-                "name": "invVArRespV1",
+                "name": "invVarRespV1",
                 "type": "int32"
               },
               {
                 "id": 28,
-                "name": "invVArRespV2",
+                "name": "invVarRespV2",
                 "type": "int32"
               },
               {
                 "id": 29,
-                "name": "invVArRespV3",
+                "name": "invVarRespV3",
                 "type": "int32"
               },
               {
                 "id": 30,
-                "name": "invVArRespV4",
+                "name": "invVarRespV4",
                 "type": "int32"
               },
               {
                 "id": 31,
-                "name": "invVArRespQAtV1",
+                "name": "invVarRespQAtV1",
                 "type": "float"
               },
               {
                 "id": 32,
-                "name": "invVArRespQAtV2",
+                "name": "invVarRespQAtV2",
                 "type": "float"
               },
               {
                 "id": 33,
-                "name": "invVArRespQAtV3",
+                "name": "invVarRespQAtV3",
                 "type": "float"
               },
               {
                 "id": 34,
-                "name": "invVArRespQAtV4",
+                "name": "invVarRespQAtV4",
                 "type": "float"
               },
               {
@@ -7440,6 +7440,12 @@
                 "id": 14,
                 "name": "phaseAngleClock",
                 "type": "int32"
+              },
+              {
+                "id": 15,
+                "name": "ratings",
+                "type": "TransformerEndRatedS",
+                "is_repeated": true
               }
             ]
           }
@@ -7447,6 +7453,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/TransformerEnd.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/TransformerEndRatedS.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto"
@@ -7625,6 +7634,11 @@
                 "id": 2,
                 "name": "controlEnabled",
                 "type": "bool"
+              },
+              {
+                "id": 3,
+                "name": "regulatingControlMRID",
+                "type": "string"
               }
             ]
           }
@@ -7667,51 +7681,61 @@
               },
               {
                 "id": 2,
-                "name": "discrete",
-                "type": "bool"
+                "name": "discreteNull",
+                "type": "google.protobuf.NullValue"
               },
               {
                 "id": 3,
+                "name": "discreteSet",
+                "type": "bool"
+              },
+              {
+                "id": 4,
                 "name": "mode",
                 "type": "RegulatingControlModeKind"
               },
               {
-                "id": 4,
+                "id": 5,
                 "name": "monitoredPhase",
                 "type": "core.PhaseCode"
               },
               {
-                "id": 5,
+                "id": 6,
                 "name": "targetDeadband",
                 "type": "float"
               },
               {
-                "id": 6,
+                "id": 7,
                 "name": "targetValue",
                 "type": "double"
               },
               {
-                "id": 7,
-                "name": "enabled",
+                "id": 8,
+                "name": "enabledNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 9,
+                "name": "enabledSet",
                 "type": "bool"
               },
               {
-                "id": 8,
+                "id": 10,
                 "name": "maxAllowedTargetValue",
                 "type": "double"
               },
               {
-                "id": 9,
+                "id": 11,
                 "name": "minAllowedTargetValue",
                 "type": "double"
               },
               {
-                "id": 10,
+                "id": 12,
                 "name": "terminalMRID",
                 "type": "string"
               },
               {
-                "id": 11,
+                "id": 13,
                 "name": "regulatingCondEqMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -7728,6 +7752,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingControlModeKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8106,22 +8133,22 @@
               {
                 "id": 5,
                 "name": "lineDropR",
-                "type": "float"
+                "type": "double"
               },
               {
                 "id": 6,
                 "name": "lineDropX",
-                "type": "float"
+                "type": "double"
               },
               {
                 "id": 7,
-                "name": "reverselineDropR",
-                "type": "float"
+                "name": "reverseLineDropR",
+                "type": "double"
               },
               {
                 "id": 8,
-                "name": "reverselineDropX",
-                "type": "float"
+                "name": "reverseLineDropX",
+                "type": "double"
               },
               {
                 "id": 9,
@@ -8136,7 +8163,7 @@
               {
                 "id": 11,
                 "name": "timeDelay",
-                "type": "float"
+                "type": "double"
               },
               {
                 "id": 12,
@@ -8157,6 +8184,78 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingControl.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:TransformerCoolingType.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "TransformerCoolingType",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN_COOLING_TYPE"
+              },
+              {
+                "name": "ONAN",
+                "integer": 1
+              },
+              {
+                "name": "ONAF",
+                "integer": 2
+              },
+              {
+                "name": "OFAF",
+                "integer": 3
+              },
+              {
+                "name": "OFWF",
+                "integer": 4
+              },
+              {
+                "name": "ODAF",
+                "integer": 5
+              },
+              {
+                "name": "KNAN",
+                "integer": 6
+              },
+              {
+                "name": "KNAF",
+                "integer": 7
+              },
+              {
+                "name": "KFAF",
+                "integer": 8
+              },
+              {
+                "name": "KFWF",
+                "integer": 9
+              },
+              {
+                "name": "KDAF",
+                "integer": 10
+              }
+            ]
           }
         ],
         "package": {
@@ -8236,6 +8335,50 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:TransformerEndRatedS.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "TransformerEndRatedS",
+            "fields": [
+              {
+                "id": 2,
+                "name": "coolingType",
+                "type": "TransformerCoolingType"
+              },
+              {
+                "id": 3,
+                "name": "ratedS",
+                "type": "int32"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/TransformerCoolingType.proto"
           }
         ],
         "package": {
@@ -9180,7 +9323,7 @@
           },
           {
             "name": "java_package",
-            "value": "com.zepben.protobuf.cim.infiec61970.infiec61970.protection"
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.protection"
           },
           {
             "name": "csharp_namespace",

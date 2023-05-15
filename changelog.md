@@ -5,10 +5,11 @@
 ### Breaking Changes
 
 * Renamed hosting capacity `EnergyMeterReport` to `OpenDssReport` with added support for diagnostic reports.
+* A bunch of breaking changes to 0.24.0 hosting capacity spec additions. These were not in use so nobody should be effected.
 
 ### New Features
 
-* None.
+* `ratedS` has been deprecated from PowerTransformerEnd. Use `ratings` instead.
 
 ### Enhancements
 

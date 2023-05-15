@@ -150,53 +150,53 @@ message PowerElectronicsConnection {
    * Volt-VAr response mode allows an inverter to consume (sink) or produce (source) reactive power depending on the measured voltage.
    * This mode is further described in AS4777.2:2015, section 6.3.2.3. True implies the mode is enabled.
    */
-  oneof invVoltVArRespMode {
-    google.protobuf.NullValue invVoltVArRespModeNull = 25;
-    bool invVoltVArRespModeSet = 26;
+  oneof invVoltVarRespMode {
+    google.protobuf.NullValue invVoltVarRespModeNull = 25;
+    bool invVoltVarRespModeSet = 26;
   }
 
   /**
    * Set point 1 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVArRespV1 = 27;
+  int32 invVarRespV1 = 27;
 
   /**
    * Set point 2 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVArRespV2 = 28;
+  int32 invVarRespV2 = 28;
 
   /**
    * Set point 3 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVArRespV3 = 29;
+  int32 invVarRespV3 = 29;
 
   /**
    * Set point 4 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVArRespV4 = 30;
+  int32 invVarRespV4 = 30;
 
   /**
    * Power output set point 1 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between 0 and 0.6 (inclusive).
    */
-  float invVArRespQAtV1 = 31;
+  float invVarRespQAtV1 = 31;
 
   /**
    * Power output set point 2 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
    * negative number referring to a sink.
    */
-  float invVArRespQAtV2 = 32;
+  float invVarRespQAtV2 = 32;
 
   /**
    * Power output set point 3 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
    * negative number referring to a sink.
    */
-  float invVArRespQAtV3 = 33;
+  float invVarRespQAtV3 = 33;
 
   /**
    * Power output set point 4 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
    * negative number referring to a sink.
    */
-  float invVArRespQAtV4 = 34;
+  float invVarRespQAtV4 = 34;
 
   /**
    * If true, enables Static Reactive Power mode on the inverter.

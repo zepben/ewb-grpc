@@ -42,22 +42,22 @@ message TapChangerControl {
     /**
      * Line drop compensator resistance setting for normal (forward) power flow in Ohms.
      */
-    float lineDropR = 5;
+    double lineDropR = 5;
 
     /**
      * Line drop compensator reactance setting for normal (forward) power flow in Ohms.
      */
-    float lineDropX = 6;
+    double lineDropX = 6;
 
     /**
      * Line drop compensator resistance setting for reverse power flow in Ohms.
      */
-    float reverselineDropR = 7;
+    double reverseLineDropR = 7;
 
     /**
      * Line drop compensator reactance setting for reverse power flow in Ohms.
      */
-    float reverselineDropX = 8;
+    double reverseLineDropX = 8;
 
     /**
      * True implies this tap changer turns off/ignores reverse current flows for line drop compensation when
@@ -71,7 +71,7 @@ message TapChangerControl {
     /**
      * The time delay for the tap changer in seconds.
      */
-    float timeDelay = 11;
+    double timeDelay = 11;
 
     /**
      * True implies cogeneration mode is enabled and that the control will regulate to the new source bushing (downline bushing),
