@@ -1,0 +1,46 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc";
+option csharp_namespace = "Zepben.Protobuf.HC";
+package zepben.protobuf.hc;
+
+/**
+ * Config to use when solving an OpenDSS model.
+ */
+message SolveConfig {
+  double normVMinPu = 1;
+  double normVMaxPu = 2;
+  double emergVMinPu = 3;
+  double emergVMaxPu = 4;
+  int32 baseFrequency = 5;
+  double voltageBases = 6;
+  int32 maxIter = 7;
+  int32 maxController = 8;
+  SolveMode mode = 9;
+  double stepSizeMinutes = 10;
+  bool overloadReport = 11;
+  bool voltExcept = 12;
+  bool demand = 13;
+  bool diVerbose = 14;
+  ResultsDetailLevel resultsLevelDetail = 15;
+}
+
+enum SolveMode {
+  YEARLY = 0;
+  DAILY = 1;
+}
+
+enum ResultsDetailLevel {
+  BASIC = 0;
+  STANDARD = 1;
+  EXTENDED = 2;
+  RAW = 3;
+}

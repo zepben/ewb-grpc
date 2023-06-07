@@ -1,0 +1,87 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc";
+option csharp_namespace = "Zepben.Protobuf.HC";
+package zepben.protobuf.hc;
+
+/**
+ * Config for the OpenDSS model. This is applied when translating from the CIM model.
+ */
+message ModelConfig {
+
+  /**
+   * Voltage per-unit of voltage source
+   */
+  double vmPu = 1;
+
+  /**
+   * Minimum per unit voltage for which the load model selected and generator model is assumed to apply.
+   * Below this value, the load/gen model reverts to a constant impedance model.
+   * For generator model used, this is used to determine the upper current limit.
+   * For example, if Vminpu is 0.90 then the current limit is (1/0.90) = 111%
+   */
+  double vMinPu = 2;
+
+  /**
+   * Maximum per unit voltage for which the load model selected and generator model is assumed to apply.
+   * Above this value, the load/gen model reverts to a constant impedance model.
+   */
+  double vMaxPu = 3;
+
+  /**
+   * Whether or not to place a meter at the voltage source
+   */
+  bool meterHVSource = 4;
+
+  /**
+   * Specifies how loads and generators in OpenDSS should be modelled. Options:
+   * 1: Standard constant P+jQ load. (Default)
+   * 2: Constant impedance load.
+   * 3: Const P, Quadratic Q (like a motor).
+   * 4: Nominal Linear P, Quadratic Q (feeder mix). Use this with CVRfactor.
+   * 5: Constant Current Magnitude
+   * 6: Const P, Fixed Q
+   * 7: Const P, Fixed Impedance Q
+   */
+  int32 loadModel = 5;
+
+  /**
+   * Whether to collapse SWER network.
+   */
+  bool collapseSWER = 6;
+
+  /**
+   * Specifies which switch classes to place meters at, and the regex pattern to match for in the switch names.
+   */
+  repeated SwitchMeterPlacementConfig switchMeterPlacementConfigs = 7;
+
+}
+
+message SwitchMeterPlacementConfig {
+  /**
+   * Specifies the switch class to add meters to.
+   */
+  SwitchClass meterSwitchClass = 1;
+
+  /**
+   * Java Regex (https://www.w3schools.com/java/java_regex.asp) to match this class of switch with.
+   */
+  string namePattern = 2;
+}
+
+enum SwitchClass {
+  BREAKER = 0;
+  DISCONNECTOR = 1;
+  FUSE = 2;
+  JUMPER = 3;
+  LOAD_BREAK_SWITCH = 4;
+  RECLOSER = 5;
+}

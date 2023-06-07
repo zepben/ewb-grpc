@@ -12,6 +12,9 @@ option java_package = "com.zepben.protobuf.hc";
 option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
+import "zepben/protobuf/hc/ModelConfig.proto";
+import "zepben/protobuf/hc/SolveConfig.proto";
+
 /**
  * Describes a work package for the HC model processor.
  */
@@ -31,5 +34,15 @@ message Job {
    * Years to model for each scenario.
    */
   repeated int32 years = 3;
+
+  /**
+   * Config for the OpenDSS network model
+   */
+  ModelConfig modelConfig = 4;
+
+  /**
+   * Config for solving the OpenDSS model
+   */
+  SolveConfig solveConfig = 5;
 
 }
