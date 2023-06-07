@@ -18,7 +18,7 @@ package zepben.protobuf.hc;
 message ModelConfig {
 
   /**
-   * Voltage per-unit of voltage source
+   * Voltage per-unit of voltage source.
    */
   double vmPu = 1;
 
@@ -37,11 +37,6 @@ message ModelConfig {
   double vMaxPu = 3;
 
   /**
-   * Whether or not to place a meter at the voltage source
-   */
-  bool meterHVSource = 4;
-
-  /**
    * Specifies how loads and generators in OpenDSS should be modelled. Options:
    * 1: Standard constant P+jQ load. (Default)
    * 2: Constant impedance load.
@@ -51,17 +46,27 @@ message ModelConfig {
    * 6: Const P, Fixed Q
    * 7: Const P, Fixed Impedance Q
    */
-  int32 loadModel = 5;
+  int32 loadModel = 4;
 
   /**
    * Whether to collapse SWER network.
    */
-  bool collapseSWER = 6;
+  bool collapseSWER = 5;
+
+  /**
+   * Whether to place a meter at the voltage source.
+   */
+  bool meterAtHVSource = 6;
+
+  /**
+   * Whether to place a meter at the secondary winding of each distribution transformer.
+   */
+  bool metersAtDistTransformers = 7;
 
   /**
    * Specifies which switch classes to place meters at, and the regex pattern to match for in the switch names.
    */
-  repeated SwitchMeterPlacementConfig switchMeterPlacementConfigs = 7;
+  repeated SwitchMeterPlacementConfig switchMeterPlacementConfigs = 8;
 
 }
 
