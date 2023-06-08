@@ -16,21 +16,61 @@ package zepben.protobuf.hc;
  * Config to use when solving an OpenDSS model.
  */
 message SolveConfig {
+
+  /**
+   * The minimum voltage per-unit for equipment under normal operating conditions.
+   */
   double normVMinPu = 1;
+
+  /**
+   * The maximum voltage per-unit for equipment under normal operating conditions.
+   */
   double normVMaxPu = 2;
+
+  /**
+   * The minimum voltage per-unit in emergencies.
+   */
   double emergVMinPu = 3;
+
+  /**
+   * The maximum voltage per-unit in emergencies.
+   */
   double emergVMaxPu = 4;
+
+  /**
+   * The frequency to run the network at (in Hz).
+   */
   int32 baseFrequency = 5;
-  double voltageBases = 6;
+
+  /**
+   * The nominal base voltages within the network (in kV).
+   */
+  repeated double voltageBases = 6;
+
+  /**
+   * The maximum allowable iteration for power flow solutions.
+   */
   int32 maxIter = 7;
-  int32 maxController = 8;
+
+  /**
+   * The maximum control iterations per solution.
+   */
+  int32 maxControlIter = 8;
+
+  /**
+   * The solution mode for the active circuit.
+   */
   SolveMode mode = 9;
+
+  /**
+   * The time step size for the solution in minutes.
+   */
   double stepSizeMinutes = 10;
-  bool overloadReport = 11;
-  bool voltExcept = 12;
-  bool demand = 13;
-  bool diVerbose = 14;
-  ResultsDetailLevel resultsLevelDetail = 15;
+
+  /**
+   * Specifies the level of detail in the results. TODO link to doc
+   */
+  ResultsDetailLevel resultsDetailLevel = 11;
 }
 
 enum SolveMode {
@@ -39,8 +79,8 @@ enum SolveMode {
 }
 
 enum ResultsDetailLevel {
-  BASIC = 0;
-  STANDARD = 1;
+  STANDARD = 0;
+  BASIC = 1;
   EXTENDED = 2;
   RAW = 3;
 }
