@@ -46,8 +46,20 @@ message Job {
   SolveConfig solveConfig = 5;
 
   /**
-   * Whether to enable QA checks for the OpenDSS model
+   * Specifies the level of detail in the results. TODO link to doc
    */
-  bool qualityAssuranceProcessing = 6;
+  ResultsDetailLevel resultsDetailLevel = 6;
 
+  /**
+   * Whether to enable QA checks for the OpenDSS model.
+   */
+  bool qualityAssuranceProcessing = 7;
+
+}
+
+enum ResultsDetailLevel {
+  STANDARD = 0;
+  BASIC = 1;
+  EXTENDED = 2;
+  RAW = 3;
 }
