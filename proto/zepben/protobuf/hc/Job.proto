@@ -46,7 +46,14 @@ message Job {
   SolveConfig solveConfig = 5;
 
   /**
-   * Specifies the level of detail in the results. TODO link to doc
+   * Specifies the level of detail in the results.
+   *  - STANDARD: The default level. Contains information on overloaded parts of the network, peak import and export,
+   *              and overall network utilisation.
+   *  - BASIC: A level below STANDARD. Contains only minimal information on overloaded network parts, net energy flow,
+   *           peak active/apparent power, and gross generated/delivered energy.
+   *  - EXTENDED: Contains all information from BASIC and STANDARD combined. Enables overload report processing.
+   *  - RAW: The most verbose detail level. Does the same as EXTENDED but also enables the results processor to
+   *         populate separate database tables that contain the raw results.
    */
   ResultsDetailLevel resultsDetailLevel = 6;
 
