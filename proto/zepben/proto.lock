@@ -9680,6 +9680,28 @@
     {
       "protopath": "protobuf:/:hc:/:Job.proto",
       "def": {
+        "enums": [
+          {
+            "name": "ResultsDetailLevel",
+            "enum_fields": [
+              {
+                "name": "STANDARD"
+              },
+              {
+                "name": "BASIC",
+                "integer": 1
+              },
+              {
+                "name": "EXTENDED",
+                "integer": 2
+              },
+              {
+                "name": "RAW",
+                "integer": 3
+              }
+            ]
+          }
+        ],
         "messages": [
           {
             "name": "Job",
@@ -9700,6 +9722,243 @@
                 "name": "years",
                 "type": "int32",
                 "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "modelConfig",
+                "type": "ModelConfig"
+              },
+              {
+                "id": 5,
+                "name": "solveConfig",
+                "type": "SolveConfig"
+              },
+              {
+                "id": 6,
+                "name": "resultsDetailLevel",
+                "type": "ResultsDetailLevel"
+              },
+              {
+                "id": 7,
+                "name": "qualityAssuranceProcessing",
+                "type": "bool"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/hc/ModelConfig.proto"
+          },
+          {
+            "path": "zepben/protobuf/hc/SolveConfig.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:hc:/:ModelConfig.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "SwitchClass",
+            "enum_fields": [
+              {
+                "name": "BREAKER"
+              },
+              {
+                "name": "DISCONNECTOR",
+                "integer": 1
+              },
+              {
+                "name": "FUSE",
+                "integer": 2
+              },
+              {
+                "name": "JUMPER",
+                "integer": 3
+              },
+              {
+                "name": "LOAD_BREAK_SWITCH",
+                "integer": 4
+              },
+              {
+                "name": "RECLOSER",
+                "integer": 5
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "ModelConfig",
+            "fields": [
+              {
+                "id": 1,
+                "name": "vmPu",
+                "type": "double"
+              },
+              {
+                "id": 2,
+                "name": "vMinPu",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "vMaxPu",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "loadModel",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "collapseSWER",
+                "type": "bool"
+              },
+              {
+                "id": 6,
+                "name": "meterAtHVSource",
+                "type": "bool"
+              },
+              {
+                "id": 7,
+                "name": "metersAtDistTransformers",
+                "type": "bool"
+              },
+              {
+                "id": 8,
+                "name": "switchMeterPlacementConfigs",
+                "type": "SwitchMeterPlacementConfig",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "SwitchMeterPlacementConfig",
+            "fields": [
+              {
+                "id": 1,
+                "name": "meterSwitchClass",
+                "type": "SwitchClass"
+              },
+              {
+                "id": 2,
+                "name": "namePattern",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:hc:/:SolveConfig.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "SolveMode",
+            "enum_fields": [
+              {
+                "name": "YEARLY"
+              },
+              {
+                "name": "DAILY",
+                "integer": 1
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "SolveConfig",
+            "fields": [
+              {
+                "id": 1,
+                "name": "normVMinPu",
+                "type": "double"
+              },
+              {
+                "id": 2,
+                "name": "normVMaxPu",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "emergVMinPu",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "emergVMaxPu",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "baseFrequency",
+                "type": "int32"
+              },
+              {
+                "id": 6,
+                "name": "voltageBases",
+                "type": "double",
+                "is_repeated": true
+              },
+              {
+                "id": 7,
+                "name": "maxIter",
+                "type": "int32"
+              },
+              {
+                "id": 8,
+                "name": "maxControlIter",
+                "type": "int32"
+              },
+              {
+                "id": 9,
+                "name": "mode",
+                "type": "SolveMode"
+              },
+              {
+                "id": 10,
+                "name": "stepSizeMinutes",
+                "type": "double"
               }
             ]
           }
@@ -9744,6 +10003,11 @@
                 "id": 3,
                 "name": "feeder",
                 "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "qualityAssuranceProcessing",
+                "type": "bool"
               }
             ],
             "maps": [
