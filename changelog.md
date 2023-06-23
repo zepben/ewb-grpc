@@ -10,6 +10,7 @@
 ### New Features
 
 * `ratedS` has been deprecated from PowerTransformerEnd. Use `ratings` instead.
+* Added configs to `Job` message for CIM to OpenDSS translation and OpenDSS solve parameters.
 
 ### Enhancements
 
