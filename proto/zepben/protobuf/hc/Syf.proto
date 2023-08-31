@@ -12,6 +12,8 @@ option java_package = "com.zepben.protobuf.hc";
 option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
+import "zepben/protobuf/hc/ResultsDetailLevel.proto";
+
 /**
  * A Scenario/Year/Feeder tuple. This is the base unit of our hosting capacity orchestration.
  * This also contains metadata about the model that the results processor needs.
@@ -39,8 +41,23 @@ message Syf {
     map<string, int64> installedTxCapacity = 4;
 
     /**
+     * Controls min voltage for use in network performance metrics.
+     */
+    double normVMinPu = 5;
+
+    /**
+     * Controls max voltage for use in network performance metrics.
+     */
+    double normVMaxPu = 6;
+
+    /**
+     * Specifies the level of detail in the results.
+     */
+    ResultsDetailLevel resultsDetailLevel = 7;
+
+    /**
      * Whether to run QA checks with the model.
      */
-    bool qualityAssuranceProcessing = 5;
+    bool qualityAssuranceProcessing = 8;
 
 }
