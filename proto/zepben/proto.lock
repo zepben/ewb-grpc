@@ -9680,28 +9680,6 @@
     {
       "protopath": "protobuf:/:hc:/:Job.proto",
       "def": {
-        "enums": [
-          {
-            "name": "ResultsDetailLevel",
-            "enum_fields": [
-              {
-                "name": "STANDARD"
-              },
-              {
-                "name": "BASIC",
-                "integer": 1
-              },
-              {
-                "name": "EXTENDED",
-                "integer": 2
-              },
-              {
-                "name": "RAW",
-                "integer": 3
-              }
-            ]
-          }
-        ],
         "messages": [
           {
             "name": "Job",
@@ -9752,6 +9730,9 @@
           },
           {
             "path": "zepben/protobuf/hc/SolveConfig.proto"
+          },
+          {
+            "path": "zepben/protobuf/hc/ResultsDetailLevel.proto"
           }
         ],
         "package": {
@@ -9865,6 +9846,50 @@
                 "id": 2,
                 "name": "namePattern",
                 "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:hc:/:ResultsDetailLevel.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "ResultsDetailLevel",
+            "enum_fields": [
+              {
+                "name": "STANDARD"
+              },
+              {
+                "name": "BASIC",
+                "integer": 1
+              },
+              {
+                "name": "EXTENDED",
+                "integer": 2
+              },
+              {
+                "name": "RAW",
+                "integer": 3
               }
             ]
           }
@@ -10006,6 +10031,21 @@
               },
               {
                 "id": 5,
+                "name": "normVMinPu",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "normVMaxPu",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "resultsDetailLevel",
+                "type": "ResultsDetailLevel"
+              },
+              {
+                "id": 8,
                 "name": "qualityAssuranceProcessing",
                 "type": "bool"
               }
@@ -10020,6 +10060,11 @@
                 }
               }
             ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/hc/ResultsDetailLevel.proto"
           }
         ],
         "package": {

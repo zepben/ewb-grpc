@@ -11,6 +11,10 @@
 
 * `ratedS` has been deprecated from PowerTransformerEnd. Use `ratings` instead.
 * Added configs to `Job` message for CIM to OpenDSS translation and OpenDSS solve parameters.
+* Added the following metadata fields to the hosting capacity `Job` message:
+  * `normVMinPu`
+  * `normVMaxPu`
+  * `resultsDetailLevel`
 
 ### Enhancements
 
