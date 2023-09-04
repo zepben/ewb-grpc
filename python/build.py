@@ -78,6 +78,7 @@ def build_protos(args):
         f'-I{os.path.join("..", "proto")}',
         f'-I{proto_include}',
         f'--python_out={args.output_dir}/',
+        f'--pyi_out={args.output_dir}',
         f'--grpc_python_out={args.output_dir}/',
         *files_filtered
     ])
