@@ -1,6 +1,12 @@
 name: Create LTS branch
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. 2.5) to create the branch in.'
+        required: true
+        type: string
 
 jobs:
   create-lts-branch:
@@ -30,7 +36,7 @@ jobs:
 
       - name: Create LTS branch
         run: |
-          /scripts/create-branch.sh --lts
+          /scripts/create-branch.sh --lts ${{ inputs.version }}
           export BRANCH=$(git rev-parse --abbrev-ref HEAD)
           cd python
           /scripts/update-version.sh --python --no-commit setup.cfg
