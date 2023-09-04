@@ -1,0 +1,49 @@
+name: Create Hotfix branch
+
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. 2.5) to create the branch in.'
+        required: true
+        type: string
+
+jobs:
+  create-hotfix-branch:
+    runs-on: ubuntu-latest
+    container: zepben/pipeline-basic
+    env:
+      DEBUG: ${{ secrets.DEBUG }}
+      GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
+      NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
+      NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+      NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+      NEXUS_MAVEN_SNAPSHOT: ${{ secrets.NEXUS_MAVEN_SNAPSHOT }}
+      NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
+      SLACK_NOTIFICATION: YES
+      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ env.GITHUB_TOKEN }}
+
+      - name: Work around git permission issue
+        run: |
+          dname=$(echo ${{github.repository}} | cut -d'/' -f2)
+          git config --global --add safe.directory /__w/$dname/$dname
+        shell: sh
+
+      - name: Create hotfix branch
+        run: |
+          /scripts/create-branch.sh --hotfix ${{ inputs.version }}
+          export BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          cd python
+          /scripts/update-version.sh --python --no-commit setup.cfg
+          /scripts/update-version.sh --python --no-commit setup.py
+          cd ../java
+          /scripts/update-version.sh --java --maven --no-commit pom.xml
+          cd ../cs
+          /scripts/update-version.sh --csharp --no-commit evolve-grpc.csproj
+          source /scripts/common.sh
+          commit_update_version $BRANCH
