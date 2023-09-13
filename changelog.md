@@ -15,6 +15,7 @@
   * `normVMinPu`
   * `normVMaxPu`
   * `resultsDetailLevel`
+* Added `LogMessage` to the hosting capacity module, which is used to carry logs between HC processes.
 
 ### Enhancements
 

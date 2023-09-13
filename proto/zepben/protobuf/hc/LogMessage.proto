@@ -1,0 +1,83 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc";
+option csharp_namespace = "Zepben.Protobuf.HC";
+package zepben.protobuf.hc;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
+
+message LogMessage {
+  /**
+   * The ID of the work package.
+   */
+  string workPackageId = 1;
+
+  /**
+   * The name of the scenario.
+   */
+  string scenario = 2;
+
+  /**
+   * The year in the scenario.
+   */
+  oneof year {
+    google.protobuf.NullValue yearNull = 3;
+    int32 yearSet = 4;
+  }
+
+  /**
+   * The name of the feeder.
+   */
+  string feeder = 5;
+
+  /**
+   * Time step if this model was a single time step model. Null must be set if not.
+   */
+  oneof timeStep {
+    google.protobuf.NullValue timeStepNull = 6;
+    google.protobuf.Timestamp timeStepSet = 7;
+  }
+
+  /**
+   * The time at which this error occurred.
+   */
+  google.protobuf.Timestamp timestamp = 8;
+
+  /**
+   * The log level of this failure message.
+   */
+  LogLevel severity = 9;
+
+  /**
+   * The message to report.
+   */
+  string message = 10;
+
+  /**
+   * The type of process the log originates from.
+   */
+  LogSource source = 11;
+
+}
+
+enum LogLevel {
+  INFO = 0;
+  WARN = 1;
+  ERROR = 2;
+  DEBUG = 3;
+}
+
+enum LogSource {
+  MODEL_GENERATOR = 0;
+  MODEL_EXECUTOR = 1;
+  RESULT_PROCESSOR = 2;
+}
