@@ -9755,6 +9755,136 @@
       }
     },
     {
+      "protopath": "protobuf:/:hc:/:LogMessage.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "LogLevel",
+            "enum_fields": [
+              {
+                "name": "INFO"
+              },
+              {
+                "name": "WARN",
+                "integer": 1
+              },
+              {
+                "name": "ERROR",
+                "integer": 2
+              },
+              {
+                "name": "DEBUG",
+                "integer": 3
+              }
+            ]
+          },
+          {
+            "name": "LogSource",
+            "enum_fields": [
+              {
+                "name": "MODEL_GENERATOR"
+              },
+              {
+                "name": "MODEL_EXECUTOR",
+                "integer": 1
+              },
+              {
+                "name": "RESULT_PROCESSOR",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "LogMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "workPackageId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "scenario",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "yearNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 4,
+                "name": "yearSet",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "feeder",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "timeStepNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 7,
+                "name": "timeStepSet",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 8,
+                "name": "timestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 9,
+                "name": "severity",
+                "type": "LogLevel"
+              },
+              {
+                "id": 10,
+                "name": "message",
+                "type": "string"
+              },
+              {
+                "id": 11,
+                "name": "source",
+                "type": "LogSource"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:hc:/:ModelConfig.proto",
       "def": {
         "enums": [
