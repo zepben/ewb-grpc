@@ -29,40 +29,43 @@ message LogMessage {
   /**
    * The year in the scenario.
    */
-  int32 year = 3;
+  oneof year {
+    google.protobuf.NullValue yearNull = 3;
+    int32 yearSet = 4;
+  }
 
   /**
    * The name of the feeder.
    */
-  string feeder = 4;
+  string feeder = 5;
 
   /**
    * Time step if this model was a single time step model. Null must be set if not.
    */
   oneof timeStep {
-    google.protobuf.NullValue timeStepNull = 5;
-    google.protobuf.Timestamp timeStepSet = 6;
+    google.protobuf.NullValue timeStepNull = 6;
+    google.protobuf.Timestamp timeStepSet = 7;
   }
 
   /**
    * The time at which this error occurred.
    */
-  google.protobuf.Timestamp timestamp = 7;
+  google.protobuf.Timestamp timestamp = 8;
 
   /**
    * The log level of this failure message.
    */
-  LogLevel severity = 8;
+  LogLevel severity = 9;
 
   /**
    * The message to report.
    */
-  string message = 9;
+  string message = 10;
 
   /**
    * The type of process the log originates from.
    */
-  LogSource source = 10;
+  LogSource source = 11;
 
 }
 
