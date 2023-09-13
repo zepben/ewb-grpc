@@ -59,6 +59,11 @@ message LogMessage {
    */
   string message = 9;
 
+  /**
+   * The type of process the log originates from.
+   */
+  LogSource source = 10;
+
 }
 
 enum LogLevel {
@@ -66,4 +71,10 @@ enum LogLevel {
   WARN = 1;
   ERROR = 2;
   DEBUG = 3;
+}
+
+enum LogSource {
+  MODEL_GENERATOR = 0;
+  MODEL_EXECUTOR = 1;
+  RESULT_PROCESSOR = 2;
 }
