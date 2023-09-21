@@ -1,0 +1,48 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc";
+option csharp_namespace = "Zepben.Protobuf.HC";
+package zepben.protobuf.hc;
+
+/**
+  * The type of results to be exported.
+  *
+  * MINIMAL_OVERLOADED_SEGMENTS: Minimal information on overloaded parts of the network.
+  * COMPLETE_OVERLOADED_SEGMENTS: Complete information on overloaded parts of the network.
+  * PEAK_IMPORT: Peak import value over study period
+  * PEAK_EXPORT: Peak export value over study period
+  * OVERALL_NETWORK_UTILISATION: TODO
+  * NET_ENERGY_FLOW: Total energy flow in measurement zone.
+  * PEAK_ACTIVE_POWER: Peak active power over study period.
+  * PEAK_APPARENT_POWER: Peak apparent power over study period.
+  * GROSS_GENERATION: Total generation over study period.
+  * GROSS_IMPORT: Total import over study period.
+  * OVERLOAD_REPORT_PROCESSING: TODO
+  * RAW: Raw results for each timestep in each measurement zone.
+  */
+enum ResultsType {
+  UNDEFINED = 0;
+  MINIMAL_OVERLOADED_SEGMENTS = 1;
+  COMPLETE_OVERLOADED_SEGMENTS = 2;
+  PEAK_IMPORT = 3;
+  PEAK_EXPORT = 4;
+  OVERALL_NETWORK_UTILISATION = 5;
+  NET_ENERGY_FLOW = 6;
+  PEAK_ACTIVE_POWER = 7;
+  PEAK_APPARENT_POWER = 8;
+  GROSS_GENERATION = 9;
+  GROSS_IMPORT = 10;
+  OVERLOAD_REPORT_PROCESSING = 11;
+  RAW = 12;
+}
+
+
+
