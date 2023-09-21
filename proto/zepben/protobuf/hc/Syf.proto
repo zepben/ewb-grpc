@@ -12,8 +12,8 @@ option java_package = "com.zepben.protobuf.hc";
 option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
-import "zepben/protobuf/hc/ResultsType.proto";
 import "zepben/protobuf/hc/ModelConfig.proto";
+import "zepben/protobuf/hc/ResultsConfig.proto";
 
 /**
  * A Scenario/Year/Feeder tuple. This is the base unit of our hosting capacity orchestration.
@@ -65,7 +65,7 @@ message Syf {
     /**
      * Specifies the level of detail in the results.
      */
-    repeated ResultsType resultsType = 9;
+    ResultsConfig resultsConfig = 9;
 
     /**
      * Whether to run QA checks with the model.

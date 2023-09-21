@@ -41,8 +41,27 @@ enum ResultsType {
   GROSS_GENERATION = 9;
   GROSS_IMPORT = 10;
   OVERLOAD_REPORT_PROCESSING = 11;
-  RAW = 12;
+  RAW_TABLE = 12;
 }
 
+enum ResultsConfigType {
+  CUSTOM = 0;
+  BASIC = 1;
+  STANDARD = 2;
+  EXTENDED = 3;
+  RAW = 4;
+}
 
+message ResultsConfig {
 
+  /**
+   * the type of the Results Config; the type is basically a predefined
+   * collection of result types.
+   */
+  ResultsConfigType configType = 1;
+
+  /**
+   * IDs of the scenarios to apply to the feeder.
+   */
+  repeated ResultsType resultsTypes = 2;
+}
