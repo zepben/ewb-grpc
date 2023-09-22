@@ -51,23 +51,33 @@ message Syf {
      */
     double normVMaxPu = 6;
 
+    /**
+    * Controls min voltage for use in network performance metrics.
+    */
+    double emergVMinPu = 7;
+
+    /**
+     * Controls max voltage for use in network performance metrics.
+     */
+    double emergVMaxPu = 8;
+
 
     /**
      * Specifies the level of detail in the results.
      */
-    repeated ResultsType resultsType = 7;
+    repeated ResultsType resultsType = 9;
 
     /**
      * Whether to run QA checks with the model.
      */
-    bool qualityAssuranceProcessing = 8;
+    bool qualityAssuranceProcessing = 10;
 
     /**
      * The time period of the model.
      */
     oneof modelTime {
-        FixedTime fixedTime = 10;
-        TimePeriod timePeriod = 11;
+        FixedTime fixedTime = 11;
+        TimePeriod timePeriod = 12;
     }
 
 }
