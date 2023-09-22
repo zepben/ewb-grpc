@@ -13,6 +13,7 @@ option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
 import "zepben/protobuf/hc/ResultsType.proto";
+import "zepben/protobuf/hc/ModelConfig.proto";
 
 /**
  * A Scenario/Year/Feeder tuple. This is the base unit of our hosting capacity orchestration.
@@ -60,5 +61,13 @@ message Syf {
      * Whether to run QA checks with the model.
      */
     bool qualityAssuranceProcessing = 8;
+
+    /**
+     * The time period of the model.
+     */
+    oneof modelTime {
+        FixedTime fixedTime = 10;
+        TimePeriod timePeriod = 11;
+    }
 
 }
