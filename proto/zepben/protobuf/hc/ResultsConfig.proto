@@ -17,33 +17,28 @@ package zepben.protobuf.hc;
  * the results DB.
  *
  */
-enum ResultsType {
-  UNDEFINED = 0;
-  ENERGY_METER_VOLTAGES_RAW = 1;
-  ENERGY_METERS_RAW = 2;
-  OVERLOADS_RAW = 3;
-  VOLTAGE_EXCEPTIONS_RAW = 4;
-  NETWORK_PERFORMANCE_METRICS = 5;
+message RawResultsConfig {
+  // DI phase voltages raw results  
+  bool energy_meter_voltages_raw = 1;
+  // DI meters raw results  
+  bool energy_meters_raw = 2;
+  // Separate files for each meter?
+  bool results_per_meter = 3;
+  // Overload raw results
+  bool overloads_raw = 4;
+  // Voltage exceptions, DI must be enabled for this to work
+  bool voltage_exceptions_raw = 5;
 }
 
-// enum ResultsConfigType {
-//   CUSTOM = 0;
-//   BASIC = 1;
-//   STANDARD = 2;
-//   EXTENDED = 3;
-//   RAW = 4;
-// }
+message MetricsResultsConfig {
+/**
+  * The type of the metrics results to be exported.
+  * at the moment it's all or nothing
+  */
+  bool calculate_performance_metrics = 1;
+}
 
 message ResultsConfig {
-
-  /**
-   * the type of the Results Config; the type is basically a predefined
-   * collection of result types.
-   */
-  // ResultsConfigType configType = 1;
-
-  /**
-   * IDs of the scenarios to apply to the feeder.
-   */
-  repeated ResultsType resultsTypes = 1;
+  RawResultsConfig rawConfig = 1;
+  MetricsResultsConfig metricsConfig = 2;
 }
