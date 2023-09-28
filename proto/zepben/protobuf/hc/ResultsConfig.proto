@@ -18,24 +18,24 @@ package zepben.protobuf.hc;
  *
  */
 message RawResultsConfig {
-  // DI phase voltages raw results  
-  bool energy_meter_voltages_raw = 1;
-  // DI meters raw results  
-  bool energy_meters_raw = 2;
+  // DI phase voltages raw results
+  bool energyMeterVoltagesRaw = 1;
+  // DI meters raw results
+  bool energyMetersRaw = 2;
   // Separate files for each meter?
-  bool results_per_meter = 3;
+  bool resultsPerMeter = 3;
   // Overload raw results
-  bool overloads_raw = 4;
+  bool overloadsRaw = 4;
   // Voltage exceptions, DI must be enabled for this to work
-  bool voltage_exceptions_raw = 5;
+  bool voltageExceptionsRaw = 5;
 }
 
 message MetricsResultsConfig {
-/**
-  * The type of the metrics results to be exported.
-  * at the moment it's all or nothing
-  */
-  bool calculate_performance_metrics = 1;
+  /**
+   * The type of the metrics results to be exported.
+   * at the moment it's all or nothing
+   */
+  bool calculatePerformanceMetrics = 1;
 }
 
 message ResultsConfig {
