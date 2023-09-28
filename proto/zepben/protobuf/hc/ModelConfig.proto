@@ -75,14 +75,6 @@ message ModelConfig {
    */
   bool qualityAssuranceProcessing = 9;
 
-  /**
-  * The time period of the model.
-  */
-  oneof modelTime {
-    FixedTime fixedTime = 10;
-    TimePeriod timePeriod = 11;
-  }
-
 }
 
 message SwitchMeterPlacementConfig {
@@ -107,17 +99,3 @@ enum SwitchClass {
   RECLOSER = 5;
 }
 
-/**
- * A fixed point in time - a single timestep.
- */
-message FixedTime {
-  google.protobuf.Timestamp time = 1;
-}
-
-/**
- * A period of time from startTime to endTime (both inclusive).
- */
-message TimePeriod {
-  google.protobuf.Timestamp startTime = 1;
-  google.protobuf.Timestamp endTime = 2;
-}
