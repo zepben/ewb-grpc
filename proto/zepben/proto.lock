@@ -9713,8 +9713,8 @@
               },
               {
                 "id": 6,
-                "name": "resultsDetailLevel",
-                "type": "ResultsDetailLevel"
+                "name": "resultsConfig",
+                "type": "ResultsConfig"
               },
               {
                 "id": 7,
@@ -9732,7 +9732,7 @@
             "path": "zepben/protobuf/hc/SolveConfig.proto"
           },
           {
-            "path": "zepben/protobuf/hc/ResultsDetailLevel.proto"
+            "path": "zepben/protobuf/hc/ResultsConfig.proto"
           }
         ],
         "package": {
@@ -9961,6 +9961,11 @@
                 "name": "switchMeterPlacementConfigs",
                 "type": "SwitchMeterPlacementConfig",
                 "is_repeated": true
+              },
+              {
+                "id": 9,
+                "name": "qualityAssuranceProcessing",
+                "type": "bool"
               }
             ]
           },
@@ -9978,6 +9983,11 @@
                 "type": "string"
               }
             ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
           }
         ],
         "package": {
@@ -10000,26 +10010,61 @@
       }
     },
     {
-      "protopath": "protobuf:/:hc:/:ResultsDetailLevel.proto",
+      "protopath": "protobuf:/:hc:/:ResultsConfig.proto",
       "def": {
-        "enums": [
+        "messages": [
           {
-            "name": "ResultsDetailLevel",
-            "enum_fields": [
+            "name": "RawResultsConfig",
+            "fields": [
               {
-                "name": "STANDARD"
+                "id": 1,
+                "name": "energyMeterVoltagesRaw",
+                "type": "bool"
               },
               {
-                "name": "BASIC",
-                "integer": 1
+                "id": 2,
+                "name": "energyMetersRaw",
+                "type": "bool"
               },
               {
-                "name": "EXTENDED",
-                "integer": 2
+                "id": 3,
+                "name": "resultsPerMeter",
+                "type": "bool"
               },
               {
-                "name": "RAW",
-                "integer": 3
+                "id": 4,
+                "name": "overloadsRaw",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "voltageExceptionsRaw",
+                "type": "bool"
+              }
+            ]
+          },
+          {
+            "name": "MetricsResultsConfig",
+            "fields": [
+              {
+                "id": 1,
+                "name": "calculatePerformanceMetrics",
+                "type": "bool"
+              }
+            ]
+          },
+          {
+            "name": "ResultsConfig",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rawConfig",
+                "type": "RawResultsConfig"
+              },
+              {
+                "id": 2,
+                "name": "metricsConfig",
+                "type": "MetricsResultsConfig"
               }
             ]
           }
@@ -10171,11 +10216,21 @@
               },
               {
                 "id": 7,
-                "name": "resultsDetailLevel",
-                "type": "ResultsDetailLevel"
+                "name": "emergVMinPu",
+                "type": "double"
               },
               {
                 "id": 8,
+                "name": "emergVMaxPu",
+                "type": "double"
+              },
+              {
+                "id": 9,
+                "name": "resultsConfig",
+                "type": "ResultsConfig"
+              },
+              {
+                "id": 10,
                 "name": "qualityAssuranceProcessing",
                 "type": "bool"
               }
@@ -10194,7 +10249,10 @@
         ],
         "imports": [
           {
-            "path": "zepben/protobuf/hc/ResultsDetailLevel.proto"
+            "path": "zepben/protobuf/hc/ModelConfig.proto"
+          },
+          {
+            "path": "zepben/protobuf/hc/ResultsConfig.proto"
           }
         ],
         "package": {
