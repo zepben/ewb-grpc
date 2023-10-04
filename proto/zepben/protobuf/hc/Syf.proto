@@ -12,7 +12,8 @@ option java_package = "com.zepben.protobuf.hc";
 option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
-import "zepben/protobuf/hc/ResultsDetailLevel.proto";
+import "zepben/protobuf/hc/ModelConfig.proto";
+import "zepben/protobuf/hc/ResultsConfig.proto";
 
 /**
  * A Scenario/Year/Feeder tuple. This is the base unit of our hosting capacity orchestration.
@@ -51,13 +52,24 @@ message Syf {
     double normVMaxPu = 6;
 
     /**
+    * Controls min voltage for use in network performance metrics.
+    */
+    double emergVMinPu = 7;
+
+    /**
+     * Controls max voltage for use in network performance metrics.
+     */
+    double emergVMaxPu = 8;
+
+
+    /**
      * Specifies the level of detail in the results.
      */
-    ResultsDetailLevel resultsDetailLevel = 7;
+    ResultsConfig resultsConfig = 9;
 
     /**
      * Whether to run QA checks with the model.
      */
-    bool qualityAssuranceProcessing = 8;
+    bool qualityAssuranceProcessing = 10;
 
 }

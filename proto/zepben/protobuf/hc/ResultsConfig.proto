@@ -1,0 +1,44 @@
+/*
+ * Copyright 2023 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc";
+option csharp_namespace = "Zepben.Protobuf.HC";
+package zepben.protobuf.hc;
+
+/**
+ * The type of results to be exported - this is mapped directly to the tables in
+ * the results DB.
+ *
+ */
+message RawResultsConfig {
+  // DI phase voltages raw results
+  bool energyMeterVoltagesRaw = 1;
+  // DI meters raw results
+  bool energyMetersRaw = 2;
+  // Separate files for each meter?
+  bool resultsPerMeter = 3;
+  // Overload raw results
+  bool overloadsRaw = 4;
+  // Voltage exceptions, DI must be enabled for this to work
+  bool voltageExceptionsRaw = 5;
+}
+
+message MetricsResultsConfig {
+  /**
+   * The type of the metrics results to be exported.
+   * at the moment it's all or nothing
+   */
+  bool calculatePerformanceMetrics = 1;
+}
+
+message ResultsConfig {
+  RawResultsConfig rawConfig = 1;
+  MetricsResultsConfig metricsConfig = 2;
+}

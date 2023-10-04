@@ -14,7 +14,7 @@ package zepben.protobuf.hc;
 
 import "zepben/protobuf/hc/ModelConfig.proto";
 import "zepben/protobuf/hc/SolveConfig.proto";
-import "zepben/protobuf/hc/ResultsDetailLevel.proto";
+import "zepben/protobuf/hc/ResultsConfig.proto";
 
 /**
  * Describes a work package for the HC model processor.
@@ -49,11 +49,10 @@ message Job {
   /**
    * Specifies the level of detail in the results.
    */
-  ResultsDetailLevel resultsDetailLevel = 6;
+  ResultsConfig resultsConfig = 6;
 
   /**
    * Whether to enable QA checks for the OpenDSS model.
    */
   bool qualityAssuranceProcessing = 7;
-
 }

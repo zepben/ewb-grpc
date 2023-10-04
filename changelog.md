@@ -4,7 +4,7 @@
 * None.
 
 ### New Features
-* None.
+* Support passing configuration for results in Syf and Job messages.
 
 ### Enhancements
 * None.
