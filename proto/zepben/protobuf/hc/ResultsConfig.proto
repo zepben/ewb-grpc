@@ -30,6 +30,17 @@ message RawResultsConfig {
   bool voltageExceptionsRaw = 5;
 }
 
+message StoredResultsConfig {
+  // DI phase voltages raw results
+  bool energyMeterVoltagesRaw = 1;
+  // DI meters raw results
+  bool energyMetersRaw = 2;
+  // Overload raw results
+  bool overloadsRaw = 3;
+  // Voltage exceptions
+  bool voltageExceptionsRaw = 4;
+}
+
 message MetricsResultsConfig {
   /**
    * The type of the metrics results to be exported.
@@ -41,4 +52,5 @@ message MetricsResultsConfig {
 message ResultsConfig {
   RawResultsConfig rawConfig = 1;
   MetricsResultsConfig metricsConfig = 2;
+  StoredResultsConfig storeResultsConfig = 3;
 }
