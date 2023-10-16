@@ -14,6 +14,8 @@ package zepben.protobuf.dc;
 
 import "zepben/protobuf/dc/dc-requests.proto";
 import "zepben/protobuf/dc/dc-responses.proto";
+import "zepben/protobuf/metadata/metadata-requests.proto";
+import "zepben/protobuf/metadata/metadata-responses.proto";
 
 service DiagramConsumer {
 
@@ -22,6 +24,9 @@ service DiagramConsumer {
 
     // Get diagram objects
     rpc getDiagramObjects(stream GetDiagramObjectsRequest) returns (stream GetDiagramObjectsResponse);
+
+    // Get Metadata related to the ewb server
+    rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
 }
 
 

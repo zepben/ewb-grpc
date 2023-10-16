@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.metadata";
+option csharp_namespace = "Zepben.Protobuf.Metadata";
+package zepben.protobuf.metadata;
+
+import "google/protobuf/timestamp.proto";
+
+message DataSource {
+  string source = 1;
+  string version = 2;
+  google.protobuf.Timestamp timestamp = 3;
+}
