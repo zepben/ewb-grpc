@@ -70,6 +70,24 @@ message ModelConfig {
    */
   repeated SwitchMeterPlacementConfig switchMeterPlacementConfigs = 8;
 
+  /**
+   * The time period of the load data to use as a base for the model.
+   */
+  oneof modelTime {
+    FixedTime fixedTime = 9;
+    TimePeriod timePeriod = 10;
+  }
+
+  /**
+   * Load data time zone.
+   */
+  string timezone = 11;
+
+  /**
+   * Whether to apply calibration modifications to model.
+   */
+  bool calibration = 12;
+
 }
 
 message SwitchMeterPlacementConfig {
@@ -94,3 +112,17 @@ enum SwitchClass {
   RECLOSER = 5;
 }
 
+/**
+ * A fixed point in time - a single timestep.
+ */
+message FixedTime {
+  google.protobuf.Timestamp time = 1;
+}
+
+/**
+ * A period of time from startTime to endTime (both inclusive).
+ */
+message TimePeriod {
+  google.protobuf.Timestamp startTime = 1;
+  google.protobuf.Timestamp endTime = 2;
+}
