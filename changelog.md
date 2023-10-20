@@ -5,6 +5,9 @@
 
 ### New Features
 * Support passing configuration for results in Syf and Job messages.
+* Added load data date time information to ModelConfig and Syf messages.
+* Added load data timezone information to ModelConfig and Syf messages.
+* Added calibration flag to ModelConfig message.
 
 ### Enhancements
 * None.

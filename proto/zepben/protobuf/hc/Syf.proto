@@ -61,7 +61,6 @@ message Syf {
      */
     double emergVMaxPu = 8;
 
-
     /**
      * Specifies the level of detail in the results.
      */
@@ -71,5 +70,18 @@ message Syf {
      * Whether to run QA checks with the model.
      */
     bool qualityAssuranceProcessing = 10;
+
+    /**
+     * The time period of the model.
+     */
+    oneof modelTime {
+        FixedTime fixedTime = 11;
+        TimePeriod timePeriod = 12;
+    }
+
+    /**
+     * Load data time zone.
+     */
+    string timezone = 13;
 
 }
