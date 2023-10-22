@@ -9,6 +9,13 @@
 * Added load data date time information to ModelConfig and Syf messages.
 * Added load data timezone information to ModelConfig and Syf messages.
 * Added calibration flag to ModelConfig message.
+* Added new RPCs:
+    * `getMetadata`: Get the metadata related to the service. Added to `CustomerConsumer`, `DiagramConsumer`,
+      and `NetworkConsumer`.
+* Added new message:
+  * `GetMetadataRequest`
+  * `GetMetadataResponse`
+  * `DataSource`
 
 ### Enhancements
 * None.
