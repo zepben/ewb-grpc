@@ -5,6 +5,7 @@
 
 ### New Features
 * Support passing configuration for results in Syf and Job messages.
+* Support passing arbitrary one-off configuration for hosting capacity processors in Job and Syf messages.
 * Added load data date time information to ModelConfig and Syf messages.
 * Added load data timezone information to ModelConfig and Syf messages.
 * Added calibration flag to ModelConfig message.
