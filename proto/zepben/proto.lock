@@ -216,6 +216,11 @@
                 "out_type": "GetCustomersForContainerResponse",
                 "in_streamed": true,
                 "out_streamed": true
+              },
+              {
+                "name": "getMetadata",
+                "in_type": "metadata.GetMetadataRequest",
+                "out_type": "metadata.GetMetadataResponse"
               }
             ]
           }
@@ -226,6 +231,12 @@
           },
           {
             "path": "zepben/protobuf/cc/cc-responses.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-responses.proto"
           }
         ],
         "package": {
@@ -9619,6 +9630,11 @@
                 "out_type": "GetDiagramObjectsResponse",
                 "in_streamed": true,
                 "out_streamed": true
+              },
+              {
+                "name": "getMetadata",
+                "in_type": "metadata.GetMetadataRequest",
+                "out_type": "metadata.GetMetadataResponse"
               }
             ]
           }
@@ -9629,6 +9645,12 @@
           },
           {
             "path": "zepben/protobuf/dc/dc-responses.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-responses.proto"
           }
         ],
         "package": {
@@ -11677,6 +11699,144 @@
       }
     },
     {
+      "protopath": "protobuf:/:metadata:/:metadata-data.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "DataSource",
+            "fields": [
+              {
+                "id": 1,
+                "name": "source",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "version",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "timestamp",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.metadata"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.metadata"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.Metadata"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:metadata:/:metadata-requests.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "GetMetadataRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.metadata"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.metadata"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.Metadata"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:metadata:/:metadata-responses.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "GetMetadataResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "version",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "dataSources",
+                "type": "DataSource",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/metadata/metadata-data.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.metadata"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.metadata"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.Metadata"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:mp:/:mp-requests.proto",
       "def": {
         "messages": [
@@ -13011,6 +13171,11 @@
                 "in_type": "GetTerminalsForNodeRequest",
                 "out_type": "GetTerminalsForNodeResponse",
                 "out_streamed": true
+              },
+              {
+                "name": "getMetadata",
+                "in_type": "metadata.GetMetadataRequest",
+                "out_type": "metadata.GetMetadataResponse"
               }
             ]
           }
@@ -13021,6 +13186,12 @@
           },
           {
             "path": "zepben/protobuf/nc/nc-responses.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-responses.proto"
           }
         ],
         "package": {
