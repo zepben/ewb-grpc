@@ -14,6 +14,8 @@ package zepben.protobuf.cc;
 
 import "zepben/protobuf/cc/cc-requests.proto";
 import "zepben/protobuf/cc/cc-responses.proto";
+import "zepben/protobuf/metadata/metadata-requests.proto";
+import "zepben/protobuf/metadata/metadata-responses.proto";
 
 service CustomerConsumer {
 
@@ -22,6 +24,8 @@ service CustomerConsumer {
 
     // Get customers for a given EquipmentContainer
     rpc getCustomersForContainer(stream GetCustomersForContainerRequest) returns (stream GetCustomersForContainerResponse);
+
+    // Get Metadata related to the service
+    rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
+
 }
-
-

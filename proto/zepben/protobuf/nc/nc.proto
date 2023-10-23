@@ -15,7 +15,8 @@ package zepben.protobuf.nc;
 
 import "zepben/protobuf/nc/nc-requests.proto";
 import "zepben/protobuf/nc/nc-responses.proto";
-
+import "zepben/protobuf/metadata/metadata-requests.proto";
+import "zepben/protobuf/metadata/metadata-responses.proto";
 
 service NetworkConsumer {
 
@@ -36,5 +37,8 @@ service NetworkConsumer {
 
     // Get a ConnectivityNodes Terminals
     rpc getTerminalsForNode (GetTerminalsForNodeRequest) returns (stream GetTerminalsForNodeResponse);
+
+    // Get Metadata related to the service
+    rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
 
 }
