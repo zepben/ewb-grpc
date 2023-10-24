@@ -17,10 +17,38 @@ import "google/protobuf/timestamp.proto";
 
 message DataSource {
 
+  /**
+   * The source of this data, e.g GIS, DMS
+   */
   string source = 1;
 
+  /**
+   * The version of this data.
+   */
   string version = 2;
 
+  /**
+   * The timestamp for when this data source was generated (UTC).
+   */
   google.protobuf.Timestamp timestamp = 3;
+
+}
+
+message ServiceInfo {
+
+  /**
+   * The name of the service.
+   */
+  string title = 1;
+
+  /**
+   * The version of the service.
+   */
+  string version = 2;
+
+  /**
+   * The DataSources that support this service.
+   */
+  repeated DataSource dataSources = 3;
 
 }
