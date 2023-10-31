@@ -12,11 +12,22 @@ option java_package = "com.zepben.protobuf.hc.opendss";
 option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
 package zepben.protobuf.hc.opendss;
 
+import "google/protobuf/struct.proto";
 import "zepben/protobuf/hc/Syf.proto";
 import "zepben/protobuf/hc/opendss/LoadShape.proto";
 
 /**
- * A load shape definition.
+ * Nullable model message. Useful for signalling the end of a sequence of models to process.
+ */
+message MaybeModel {
+    oneof model {
+        google.protobuf.NullValue modelNull = 1;
+        Model modelSet = 2;
+    }
+}
+
+/**
+ * A message containing an OpenDSS model and metadata (e.g. SYF).
  */
 message Model {
 

@@ -16,6 +16,7 @@
   * `GetMetadataRequest`
   * `GetMetadataResponse`
   * `DataSource`
+* Added `MaybeModel` to support signalling the end of a sequence of `Model` messages.
 
 ### Enhancements
 * None.
