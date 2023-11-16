@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.hc";
 option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
+import "zepben/protobuf/hc/measurement/MeasurementZoneInfo.proto";
 import "zepben/protobuf/hc/ModelConfig.proto";
 import "zepben/protobuf/hc/ResultsConfig.proto";
 
@@ -93,5 +94,10 @@ message Syf {
      * Compressed, base64'd JSON configuration to be passed to the results processor.
      */
     string resultsProcessorConfig = 15;
+
+    /*
+     * Map of EnergyMeter IDs to their measurement zone info
+     */
+    map<string, measurement.MeasurementZoneInfo> mzInfo = 16;
 
 }

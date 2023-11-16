@@ -7,7 +7,7 @@
 * None.
 
 ### Enhancements
-* None.
+* Added MeasurementZoneInfo to the Syf proto message.
 
 ### Fixes
 * None.
