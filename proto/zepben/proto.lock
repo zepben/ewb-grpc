@@ -10375,11 +10375,22 @@
                   "name": "installedTxCapacity",
                   "type": "int64"
                 }
+              },
+              {
+                "key_type": "string",
+                "field": {
+                  "id": 16,
+                  "name": "mzInfo",
+                  "type": "measurement.MeasurementZoneInfo"
+                }
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "zepben/protobuf/hc/measurement/MeasurementZoneInfo.proto"
+          },
           {
             "path": "zepben/protobuf/hc/ModelConfig.proto"
           },
@@ -10402,6 +10413,105 @@
           {
             "name": "csharp_namespace",
             "value": "Zepben.Protobuf.HC"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:hc:/:measurement:/:MeasurementZoneInfo.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "MeasurementZoneType",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "TRANSFORMER",
+                "integer": 1
+              },
+              {
+                "name": "BREAKER",
+                "integer": 2
+              },
+              {
+                "name": "DISCONNECTOR",
+                "integer": 3
+              },
+              {
+                "name": "FUSE",
+                "integer": 4
+              },
+              {
+                "name": "JUMPER",
+                "integer": 5
+              },
+              {
+                "name": "LOAD_BREAK_SWITCH",
+                "integer": 6
+              },
+              {
+                "name": "RECLOSER",
+                "integer": 7
+              },
+              {
+                "name": "ENERGY_CONSUMER",
+                "integer": 8
+              },
+              {
+                "name": "FEEDER_HEAD",
+                "integer": 9
+              },
+              {
+                "name": "CALIBRATION",
+                "integer": 10
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "MeasurementZoneInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "conductingEquipmentMRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "terminalSequenceNumber",
+                "type": "uint32"
+              },
+              {
+                "id": 3,
+                "name": "voltageBase",
+                "type": "uint32"
+              },
+              {
+                "id": 4,
+                "name": "type",
+                "type": "MeasurementZoneType"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc.measurement"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc.measurement"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC.Measurement"
           }
         ]
       }
@@ -10813,7 +10923,7 @@
           }
         ],
         "package": {
-          "name": "zepben.protobuf.hc"
+          "name": "zepben.protobuf.hc.measurement"
         },
         "options": [
           {
@@ -11229,7 +11339,7 @@
           }
         ],
         "package": {
-          "name": "zepben.protobuf.hc"
+          "name": "zepben.protobuf.hc.measurement"
         },
         "options": [
           {
