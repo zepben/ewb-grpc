@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [0.27.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Update to evolve-super-pom 0.34.1.
 
 ### New Features
 * None.
