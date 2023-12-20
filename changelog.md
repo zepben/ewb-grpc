@@ -8,6 +8,10 @@
 
 ### Enhancements
 * Added MeasurementZoneInfo to the Syf proto message.
+* Bumped protobuf and gRPC versions:
+  * JVM (Maven): `com.google.protobuf:*:3.24.2`, `io.grpc:*:1.59.1`
+  * Python (setup.py): `protobuf==4.24.2`, `grpcio==1.59.3`, `grpcio-tools==1.59.3`
+  * C# (NuGet): `Google.Protobuf` version `3.24.2`, `Grpc.*` version `2.46.6`
 
 ### Fixes
 * None.
