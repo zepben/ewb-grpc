@@ -1,0 +1,29 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+
+/**
+ * A point where the system is grounded used for connecting conducting equipment to ground.
+ * The power system model can have any number of grounds.
+ */
+message Ground {
+
+  /**
+   * The ConductingEquipment fields for this Ground.
+   */
+  core.ConductingEquipment ce = 1;
+
+}
