@@ -82,6 +82,14 @@ import "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto";
 import "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentBranch.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/wires/generation/production/EvChargingUnit.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/SeriesCompensator.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/Ground.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/GroundDisconnector.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayScheme.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelaySystem.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/RelaySetting.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/VoltageRelay.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/DistanceRelay.proto";
 
 // The set of leaf identified objects that the network service manages.
 message NetworkIdentifiedObject {
@@ -151,10 +159,17 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentTransformerInfo currentTransformerInfo = 63;
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.PotentialTransformerInfo potentialTransformerInfo = 64;
         zepben.protobuf.cim.iec61968.assetinfo.SwitchInfo switchInfo = 65;
-        zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentRelayInfo currentRelayInfo = 66;
         zepben.protobuf.cim.iec61970.base.protection.CurrentRelay currentRelay = 68;
         zepben.protobuf.cim.iec61970.base.wires.TapChangerControl tapChangerControl = 69;
         zepben.protobuf.cim.iec61970.infiec61970.wires.generation.production.EvChargingUnit evChargingUnit = 70;
+        zepben.protobuf.cim.iec61970.base.wires.SeriesCompensator seriesCompensator = 71;
+        zepben.protobuf.cim.iec61970.base.wires.Ground ground = 72;
+        zepben.protobuf.cim.iec61970.base.wires.GroundDisconnector groundDisconnector = 73;
+        zepben.protobuf.cim.iec61970.base.protection.ProtectionRelayScheme protectionRelayScheme = 74;
+        zepben.protobuf.cim.iec61970.base.protection.ProtectionRelaySystem protectionRelaySystem = 75;
+        zepben.protobuf.cim.iec61970.base.protection.RelaySetting relaySetting = 76;
+        zepben.protobuf.cim.iec61970.base.protection.VoltageRelay voltageRelay = 77;
+        zepben.protobuf.cim.iec61970.base.protection.DistanceRelay distanceRelay = 78;
 
 
         google.protobuf.Any other = 999;
