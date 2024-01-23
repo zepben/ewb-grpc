@@ -15,22 +15,23 @@ package zepben.protobuf.cim.iec61968.infiec61968.infassetinfo;
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 
 /**
- * Current Relay Datasheet Information.
+ * Relay Datasheet Information.
  */
-message CurrentRelayInfo {
+message RelayInfo {
 
   /**
-   * The AssetInfo fields for this CurrentRelayInfo.
+   * The AssetInfo fields for this RelayInfo.
    */
   assets.AssetInfo ai = 1;
 
   /**
-   * The type of curve used for the Current Relay.
+   * The type of curve used for the Relay.
    */
   string curveSetting = 2;
 
   /**
-   * The reclose delays for this curve and relay type (in seconds). The index of the list is the reclose step, and the value is the overall delay time.
+   * The reclose delays for this curve and relay type (in seconds). The index of the list is the reclose step, and the
+   * value is the overall delay time.
    */
   repeated double recloseDelays = 3;
 
