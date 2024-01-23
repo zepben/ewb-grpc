@@ -13,6 +13,7 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo
 package zepben.protobuf.cim.iec61968.infiec61968.infassetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Relay Datasheet Information.
@@ -34,5 +35,13 @@ message RelayInfo {
    * value is the overall delay time.
    */
   repeated double recloseDelays = 3;
+
+  /**
+   * True if recloseDelays are associated with a fast Curve, False otherwise.
+   */
+  oneof recloseFast {
+    google.protobuf.NullValue recloseFastNull = 4;
+    bool recloseFastSet = 5;
+  }
 
 }
