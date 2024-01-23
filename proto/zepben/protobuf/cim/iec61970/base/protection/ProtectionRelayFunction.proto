@@ -52,17 +52,17 @@ message ProtectionRelayFunction {
   double relayDelayTime = 6;
 
   /**
-   * The kind of protection being provided by this protection equipment.
+   * The kind of protection being provided by this ProtectionRelayFunction.
    */
   infiec61970.protection.ProtectionKind protectionKind = 7;
 
   /**
-   * Protected switches operated by this ProtectionEquipment.
+   * The ProtectedSwitches operated by this ProtectionRelayFunction.
    */
   repeated string protectedSwitchMRIDs = 8;
 
   /**
-   * Whether this ProtectionEquipment responds to power flow in a given direction.
+   * Whether this ProtectionRelayFunction responds to power flow in a given direction.
    */
   oneof directable {
     google.protobuf.NullValue directableNull = 9;
@@ -70,8 +70,23 @@ message ProtectionRelayFunction {
   }
 
   /**
-   * The flow of power direction used by this ProtectionEquipment.
+   * The flow of power direction used by this ProtectionRelayFunction.
    */
   infiec61970.protection.PowerDirectionKind powerDirection = 11;
+
+  /**
+   * The Sensors for this relay function.
+   */
+  repeated string sensorMRIDs = 12;
+
+  /**
+   * The thresholds for this relay function. Order of entries corresponds to the order of entries in thresholds.
+   */
+  repeated string thresholdMRIDs = 13;
+
+  /**
+   * The schemes this function operates under.
+   */
+  repeated string schemeMRIDs = 14;
 
 }

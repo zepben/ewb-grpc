@@ -26,8 +26,13 @@ message ProtectionRelayScheme {
   core.IdentifiedObject io = 1;
 
   /**
-   * mRID reference to the ProtectionRelaySystem of the scheme.
+   * The system this scheme belongs to.
    */
   string systemMRID = 2;
+
+  /**
+   * The functions operated as part of this protection scheme.
+   */
+  repeated string functionMRIDs = 3;
 
 }
