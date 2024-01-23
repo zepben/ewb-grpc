@@ -2184,56 +2184,6 @@
       }
     },
     {
-      "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:CurrentRelayInfo.proto",
-      "def": {
-        "messages": [
-          {
-            "name": "CurrentRelayInfo",
-            "fields": [
-              {
-                "id": 1,
-                "name": "ai",
-                "type": "assets.AssetInfo"
-              },
-              {
-                "id": 2,
-                "name": "curveSetting",
-                "type": "string"
-              },
-              {
-                "id": 3,
-                "name": "recloseDelays",
-                "type": "double",
-                "is_repeated": true
-              }
-            ]
-          }
-        ],
-        "imports": [
-          {
-            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
-          }
-        ],
-        "package": {
-          "name": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
-        },
-        "options": [
-          {
-            "name": "java_multiple_files",
-            "value": "true"
-          },
-          {
-            "name": "java_package",
-            "value": "com.zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
-          },
-          {
-            "name": "csharp_namespace",
-            "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo"
-          }
-        ]
-      }
-    },
-    {
       "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:CurrentTransformerInfo.proto",
       "def": {
         "messages": [
@@ -2386,6 +2336,69 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/infiec61968/infcommon/Ratio.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.infiec61968.infassetinfo"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61968.InfIEC61968.InfAssetInfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:infiec61968:/:infassetinfo:/:RelayInfo.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "RelayInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ai",
+                "type": "assets.AssetInfo"
+              },
+              {
+                "id": 2,
+                "name": "curveSetting",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "recloseDelays",
+                "type": "double",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "recloseFastNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 5,
+                "name": "recloseFastSet",
+                "type": "bool"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3125,6 +3138,12 @@
                 "id": 1,
                 "name": "ae",
                 "type": "auxiliaryequipment.AuxiliaryEquipment"
+              },
+              {
+                "id": 2,
+                "name": "relayFunctionMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -5623,8 +5642,8 @@
             "fields": [
               {
                 "id": 1,
-                "name": "pe",
-                "type": "ProtectionEquipment"
+                "name": "prf",
+                "type": "ProtectionRelayFunction"
               },
               {
                 "id": 2,
@@ -5651,7 +5670,7 @@
         ],
         "imports": [
           {
-            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionEquipment.proto"
+            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayFunction.proto"
           },
           {
             "path": "google/protobuf/struct.proto"
@@ -5677,11 +5696,263 @@
       }
     },
     {
-      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:ProtectionEquipment.proto",
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:DistanceRelay.proto",
       "def": {
         "messages": [
           {
-            "name": "ProtectionEquipment",
+            "name": "DistanceRelay",
+            "fields": [
+              {
+                "id": 1,
+                "name": "prf",
+                "type": "ProtectionRelayFunction"
+              },
+              {
+                "id": 2,
+                "name": "backwardBlind",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "backwardReach",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "backwardReactance",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "forwardBlind",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "forwardReach",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "forwardReactance",
+                "type": "double"
+              },
+              {
+                "id": 8,
+                "name": "operationPhaseAngle1",
+                "type": "double"
+              },
+              {
+                "id": 9,
+                "name": "operationPhaseAngle2",
+                "type": "double"
+              },
+              {
+                "id": 10,
+                "name": "operationPhaseAngle3",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayFunction.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.protection"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Protection"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:ProtectionRelayFunction.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ProtectionRelayFunction",
+            "fields": [
+              {
+                "id": 1,
+                "name": "psr",
+                "type": "core.PowerSystemResource"
+              },
+              {
+                "id": 2,
+                "name": "model",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "reclosingNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 4,
+                "name": "reclosingSet",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "timeLimits",
+                "type": "double",
+                "is_repeated": true
+              },
+              {
+                "id": 6,
+                "name": "relayDelayTime",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "protectionKind",
+                "type": "infiec61970.protection.ProtectionKind"
+              },
+              {
+                "id": 8,
+                "name": "protectedSwitchMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 9,
+                "name": "directableNull",
+                "type": "google.protobuf.NullValue"
+              },
+              {
+                "id": 10,
+                "name": "directableSet",
+                "type": "bool"
+              },
+              {
+                "id": 11,
+                "name": "powerDirection",
+                "type": "infiec61970.protection.PowerDirectionKind"
+              },
+              {
+                "id": 12,
+                "name": "sensorMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 13,
+                "name": "thresholdMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 14,
+                "name": "schemeMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/protection/PowerDirectionKind.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/protection/ProtectionKind.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.protection"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Protection"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:ProtectionRelayScheme.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ProtectionRelayScheme",
+            "fields": [
+              {
+                "id": 1,
+                "name": "io",
+                "type": "core.IdentifiedObject"
+              },
+              {
+                "id": 2,
+                "name": "systemMRID",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "functionMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.protection"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Protection"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:ProtectionRelaySystem.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ProtectionRelaySystem",
             "fields": [
               {
                 "id": 1,
@@ -5690,34 +5961,8 @@
               },
               {
                 "id": 2,
-                "name": "relayDelayTime",
-                "type": "double"
-              },
-              {
-                "id": 3,
                 "name": "protectionKind",
                 "type": "infiec61970.protection.ProtectionKind"
-              },
-              {
-                "id": 4,
-                "name": "protectedSwitchMRIDs",
-                "type": "string",
-                "is_repeated": true
-              },
-              {
-                "id": 5,
-                "name": "directableNull",
-                "type": "google.protobuf.NullValue"
-              },
-              {
-                "id": 6,
-                "name": "directableSet",
-                "type": "bool"
-              },
-              {
-                "id": 7,
-                "name": "powerDirection",
-                "type": "infiec61970.protection.PowerDirectionKind"
               }
             ]
           }
@@ -5727,13 +5972,98 @@
             "path": "zepben/protobuf/cim/iec61970/base/core/Equipment.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61970/infiec61970/protection/PowerDirectionKind.proto"
-          },
-          {
             "path": "zepben/protobuf/cim/iec61970/infiec61970/protection/ProtectionKind.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
           },
           {
-            "path": "google/protobuf/struct.proto"
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.protection"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Protection"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:RelaySetting.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "RelaySetting",
+            "fields": [
+              {
+                "id": 1,
+                "name": "io",
+                "type": "core.IdentifiedObject"
+              },
+              {
+                "id": 2,
+                "name": "unitSymbol",
+                "type": "domain.UnitSymbol"
+              },
+              {
+                "id": 3,
+                "name": "value",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/domain/UnitSymbol.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.protection"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Protection"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:protection:/:VoltageRelay.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "VoltageRelay",
+            "fields": [
+              {
+                "id": 1,
+                "name": "prf",
+                "type": "ProtectionRelayFunction"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayFunction.proto"
           }
         ],
         "package": {
@@ -6553,6 +6883,89 @@
         "messages": [
           {
             "name": "Fuse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "sw",
+                "type": "Switch"
+              },
+              {
+                "id": 2,
+                "name": "functionMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/Switch.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:Ground.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Ground",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ce",
+                "type": "core.ConductingEquipment"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:GroundDisconnector.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "GroundDisconnector",
             "fields": [
               {
                 "id": 1,
@@ -7509,8 +7922,8 @@
                 "type": "int32"
               },
               {
-                "id": 4,
-                "name": "operatedByProtectionEquipmentMRIDs",
+                "id": 3,
+                "name": "relayFunctionMRIDs",
                 "type": "string",
                 "is_repeated": true
               }
@@ -7830,6 +8243,80 @@
                 "integer": 8
               }
             ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:SeriesCompensator.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SeriesComensator",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ce",
+                "type": "core.ConductingEquipment"
+              },
+              {
+                "id": 2,
+                "name": "r",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "r0",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "x",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "x0",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "varistorPresent",
+                "type": "bool"
+              },
+              {
+                "id": 7,
+                "name": "varistorRatedCurrent",
+                "type": "int32"
+              },
+              {
+                "id": 8,
+                "name": "varistorVoltageThreshold",
+                "type": "int32"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
           }
         ],
         "package": {
@@ -9354,28 +9841,112 @@
                 "name": "UNKNOWN"
               },
               {
-                "name": "EF",
+                "name": "JG",
                 "integer": 1
               },
               {
-                "name": "SEF",
+                "name": "JGG",
                 "integer": 2
               },
               {
-                "name": "OC",
+                "name": "JGGG",
                 "integer": 3
               },
               {
-                "name": "IOC",
+                "name": "JT",
                 "integer": 4
               },
               {
-                "name": "IEF",
+                "name": "J0",
                 "integer": 5
               },
               {
-                "name": "REF",
+                "name": "J0GG",
                 "integer": 6
+              },
+              {
+                "name": "SEF",
+                "integer": 7
+              },
+              {
+                "name": "VG",
+                "integer": 8
+              },
+              {
+                "name": "VGG",
+                "integer": 9
+              },
+              {
+                "name": "VL",
+                "integer": 10
+              },
+              {
+                "name": "VLL",
+                "integer": 11
+              },
+              {
+                "name": "V0G",
+                "integer": 12
+              },
+              {
+                "name": "V0GG",
+                "integer": 13
+              },
+              {
+                "name": "JDIFF",
+                "integer": 14
+              },
+              {
+                "name": "FREQ",
+                "integer": 15
+              },
+              {
+                "name": "FREQG",
+                "integer": 16
+              },
+              {
+                "name": "ZL",
+                "integer": 17
+              },
+              {
+                "name": "Z0L",
+                "integer": 18
+              },
+              {
+                "name": "LE",
+                "integer": 19
+              },
+              {
+                "name": "J2G",
+                "integer": 20
+              },
+              {
+                "name": "MULTI_FUNCTION",
+                "integer": 21
+              },
+              {
+                "name": "GROUND_CURRENT",
+                "integer": 22
+              },
+              {
+                "name": "GROUND_VOLTAGE",
+                "integer": 23
+              },
+              {
+                "name": "NETWORK_PROTECTOR",
+                "integer": 24
+              },
+              {
+                "name": "POWER",
+                "integer": 25
+              },
+              {
+                "name": "SECTIONALIZER",
+                "integer": 26
+              },
+              {
+                "name": "AUTO_TRANSFORMER",
+                "integer": 27
               }
             ]
           }
