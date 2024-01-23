@@ -1,0 +1,38 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.protection";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
+package zepben.protobuf.cim.iec61970.base.protection;
+
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "zepben/protobuf/cim/iec61970/base/domain/UnitSymbol.proto";
+
+/**
+ * The threshold settings for a given relay.
+ */
+message RelaySetting {
+
+  /**
+   * The IdentifiedObject fields for this ProtectionRelayScheme.
+   */
+  core.IdentifiedObject io = 1;
+
+  /**
+   * The unit of the value.
+   */
+  domain.UnitSymbol unitSymbol = 2;
+
+  /**
+   * The value of the setting, e.g voltage, current, etc.
+   */
+  double value = 3;
+
+}
