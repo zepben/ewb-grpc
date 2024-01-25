@@ -4,7 +4,7 @@
 * None.
 
 ### New Features
-* None.
+* For `ModelConfig` in Hosting Capacity, added the option to collapse LV networks below distribution transformers.
 
 ### Enhancements
 * Added MeasurementZoneInfo to the Syf proto message.
