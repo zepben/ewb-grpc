@@ -13,9 +13,10 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
 package zepben.protobuf.cim.iec61970.base.protection;
 
 import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
-import "google/protobuf/struct.proto";
+import "zepben/protobuf/cim/iec61970/base/protection/RelaySetting.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/protection/PowerDirectionKind.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/protection/ProtectionKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A function that a relay implements to protect equipment.
@@ -47,42 +48,42 @@ message ProtectionRelayFunction {
   repeated double timeLimits = 5;
 
   /**
+   * The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
+   */
+  repeated RelaySetting thresholds = 6;
+
+  /**
    * The time delay from detection of abnormal conditions to relay operation in seconds.
    */
-  double relayDelayTime = 6;
+  double relayDelayTime = 7;
 
   /**
    * The kind of protection being provided by this ProtectionRelayFunction.
    */
-  infiec61970.protection.ProtectionKind protectionKind = 7;
+  infiec61970.protection.ProtectionKind protectionKind = 8;
 
   /**
    * The ProtectedSwitches operated by this ProtectionRelayFunction.
    */
-  repeated string protectedSwitchMRIDs = 8;
+  repeated string protectedSwitchMRIDs = 9;
 
   /**
    * Whether this ProtectionRelayFunction responds to power flow in a given direction.
    */
   oneof directable {
-    google.protobuf.NullValue directableNull = 9;
-    bool directableSet = 10;
+    google.protobuf.NullValue directableNull = 10;
+    bool directableSet = 11;
   }
 
   /**
    * The flow of power direction used by this ProtectionRelayFunction.
    */
-  infiec61970.protection.PowerDirectionKind powerDirection = 11;
+  infiec61970.protection.PowerDirectionKind powerDirection = 12;
 
   /**
    * The Sensors for this relay function.
    */
-  repeated string sensorMRIDs = 12;
-
-  /**
-   * The thresholds for this relay function. Order of entries corresponds to the order of entries in thresholds.
-   */
-  repeated string thresholdMRIDs = 13;
+  repeated string sensorMRIDs = 13;
 
   /**
    * The schemes this function operates under.
