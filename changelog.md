@@ -4,7 +4,7 @@
 * Removed `ProtectionEquipment`.
   * Change of inheritance: `CurrentRelay` &rarr; `ProtectionEquipment`.
     becomes `CurrentRelay` &rarr; `ProtectionRelayFunction`.
-  * Removed reflexive relation `ProtectionEquipment` &harr; `ProtectedSwitch`.
+  * Removed symmetric relation `ProtectionEquipment` &harr; `ProtectedSwitch`.
 * Renamed `CurrentRelayInfo` to `RelayInfo`.
 * Reworked values for enumerable type `ProtectionKind`.
 
