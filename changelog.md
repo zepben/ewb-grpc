@@ -164,7 +164,7 @@
     * `CurrentRelayInfo`: Current Relay Datasheet Information.
 * Added new enums:
     * `PotentialTransformerKind`: The construction kind of the potential transformer.
-    * `ProtectionKind`: The kind of protection being provided by a protection equipment.
+    * `ProtectionKind`: The kind of protection being provided by this protection equipment.
 * Added new fields:
     * `ProtectedSwitch.breakingCapacity`: The maximum fault current in amps a breaking device can break safely under prescribed conditions of use.
     * `Switch.ratedCurrent`: The maximum continuous current carrying capacity in amps governed by the device material and construction. The attribute shall be a
