@@ -46,22 +46,16 @@ message SeriesCompensator {
   double x0 = 5;
 
   /**
-   * Describe if a metal oxide varistor (mov) for over voltage protection is configured in parallel with the series
-   * compensator. It is used for short circuit calculations.
-   */
-  bool varistorPresent = 6;
-
-  /**
    * The maximum current the varistor is designed to handle at specified duration. It is used for short circuit
    * calculations and exchanged only if SeriesCompensator.varistorPresent is true. The attribute shall be a positive
    * value.
    */
-  int32 varistorRatedCurrent = 7;
+  int32 varistorRatedCurrent = 6;
 
   /**
    * The dc voltage at which the varistor starts conducting. It is used for short circuit calculations and exchanged
    * only if SeriesCompensator.varistorPresent is true.
    */
-  int32 varistorVoltageThreshold = 8;
+  int32 varistorVoltageThreshold = 7;
 
 }
