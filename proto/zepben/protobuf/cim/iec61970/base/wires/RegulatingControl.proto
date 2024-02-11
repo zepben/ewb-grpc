@@ -102,4 +102,10 @@ message RegulatingControl {
      */
     repeated string regulatingCondEqMRIDs = 13;
 
+    /**
+     * The rated current of associated CT in amps for this RegulatingControl. Forms the base used to convert Line Drop
+     * Compensation settings from ohms to voltage.
+     */
+    double ratedCurrent = 14;
+
 }

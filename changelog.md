@@ -1,10 +1,30 @@
 # Zepben Protobuf and GRPC definitions
 ## [0.27.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Removed `ProtectionEquipment`.
+  * Change of inheritance: `CurrentRelay` &rarr; `ProtectionEquipment`.
+    becomes `CurrentRelay` &rarr; `ProtectionRelayFunction`.
+  * Removed symmetric relation `ProtectionEquipment` &harr; `ProtectedSwitch`.
+* Renamed `CurrentRelayInfo` to `RelayInfo`.
+* Reworked values for enumerable type `ProtectionKind`.
 
 ### New Features
-* None.
+* Added new messages and fields to support advanced modelling of protection relays:
+  * `SeriesCompensator`: A series capacitor or reactor or an AC transmission line without charging susceptance.
+  * `Ground`: A point where the system is grounded used for connecting conducting equipment to ground.
+  * `GroundDisconnector`: A manually operated or motor operated mechanical switching device used for isolating a circuit
+                          or equipment from ground.
+  * `ProtectionRelayScheme`: A scheme that a group of relay functions implement. For example, typically schemes are
+                             primary and secondary, or main and failsafe.
+  * `ProtectionRelayFunction`: A function that a relay implements to protect equipment.
+  * `ProtectionRelaySystem`: A relay system for controlling `ProtectedSwitch`es.
+  * `RelaySetting`: The threshold settings for a given relay.
+  * `VoltageRelay`: A device that detects when the voltage in an AC circuit reaches a preset voltage.
+  * `DistanceRelay`: A protective device used in power systems that measures the impedance of a transmission line to 
+                     determine the distance to a fault, and initiates circuit breaker tripping to isolate the faulty
+                     section and safeguard the power system.
+  * `RelayInfo.recloseFast`: True if recloseDelays are associated with a fast Curve, False otherwise.
+  * `RegulatingControl.ratedCurrent`: The rated current of associated CT in amps for a RegulatingControl.
 
 ### Enhancements
 * Added MeasurementZoneInfo to the Syf proto message.

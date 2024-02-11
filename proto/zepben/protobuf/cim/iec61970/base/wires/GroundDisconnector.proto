@@ -1,11 +1,10 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2024 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-
 
 syntax = "proto3";
 option java_multiple_files = true;
@@ -16,19 +15,14 @@ package zepben.protobuf.cim.iec61970.base.wires;
 import "zepben/protobuf/cim/iec61970/base/wires/Switch.proto";
 
 /**
- * An overcurrent protective device with a circuit opening fusible part that is heated and severed by the passage of
- * overcurrent through it. A fuse is considered a switching device because it breaks current.
+ * A manually operated or motor operated mechanical switching device used for isolating a circuit or equipment from
+ * ground.
  */
-message Fuse {
+message GroundDisconnector {
 
-    /**
-     * Switch fields for this Fuse.
-     */
-    Switch sw = 1;
-
-    /**
-     * The function implemented by this Fuse.
-     */
-    string functionMRID = 2;
+  /**
+   * The Switch fields for this GroundDisconnector.
+   */
+  Switch sw = 1;
 
 }

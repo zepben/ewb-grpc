@@ -1,0 +1,61 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+
+/**
+ * A Series Compensator is a series capacitor or reactor or an AC transmission line without charging susceptance.
+ * It is a two terminal device.
+ */
+message SeriesCompensator {
+
+  /**
+   * The ConductingEquipment fields for this SeriesCompensator.
+   */
+  core.ConductingEquipment ce = 1;
+
+  /**
+   * Positive sequence resistance.
+   */
+  double r = 2;
+
+  /**
+   * Zero sequence resistance.
+   */
+  double r0 = 3;
+
+  /**
+   * Positive sequence reactance.
+   */
+  double x = 4;
+
+  /**
+   * Zero sequence reactance.
+   */
+  double x0 = 5;
+
+  /**
+   * The maximum current the varistor is designed to handle at specified duration. It is used for short circuit
+   * calculations and exchanged only if SeriesCompensator.varistorPresent is true. The attribute shall be a positive
+   * value.
+   */
+  int32 varistorRatedCurrent = 6;
+
+  /**
+   * The dc voltage at which the varistor starts conducting. It is used for short circuit calculations and exchanged
+   * only if SeriesCompensator.varistorPresent is true.
+   */
+  int32 varistorVoltageThreshold = 7;
+
+}

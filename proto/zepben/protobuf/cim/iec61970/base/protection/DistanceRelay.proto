@@ -1,0 +1,79 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.protection";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
+package zepben.protobuf.cim.iec61970.base.protection;
+
+import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayFunction.proto";
+
+/**
+ * A protective device used in power systems that measures the impedance of a transmission line to determine the
+ * distance to a fault, and initiates circuit breaker tripping to isolate the faulty section and safeguard the power
+ * system.
+ */
+message DistanceRelay {
+
+  /**
+   * The PowerSystemResource fields for this VoltageRelay.
+   */
+  ProtectionRelayFunction prf = 1;
+
+  /**
+   * The reverse blind impedance (in ohms) that defines the area to be blinded in the opposite direction of the power
+   * flow.
+   */
+  double backwardBlind = 2;
+
+  /**
+   * The reverse reach impedance (in ohms) that determines the maximum distance along the transmission line in the
+   * opposite direction of power flow for which the relay will provide protection.
+   */
+  double backwardReach = 3;
+
+  /**
+   * The reverse reactance (in ohms) that determines the maximum distance along the transmission line in the opposite
+   * direction of power flow for which the relay will provide protection.
+   */
+  double backwardReactance = 4;
+
+  /**
+   * The forward blind impedance (in ohms) that defines the area to be blinded in the direction of the power flow.
+   */
+  double forwardBlind = 5;
+
+  /**
+   * The forward reach impedance (in ohms) that determines the maximum distance along the transmission line in the
+   * direction of power flow for which the relay will provide protection.
+   */
+  double forwardReach = 6;
+
+  /**
+   * The forward reactance (in ohms) that determines the maximum distance along the transmission line in the direction
+   * of power flow for which the relay will provide protection.
+   */
+  double forwardReactance = 7;
+
+  /**
+   * The phase angle (in degrees) between voltage and current during normal operating conditions for zone 1 relay.
+   */
+  double operationPhaseAngle1 = 8;
+
+  /**
+   * The phase angle (in degrees) between voltage and current during normal operating conditions for zone 2 relay.
+   */
+  double operationPhaseAngle2 = 9;
+
+  /**
+   * The phase angle (in degrees) between voltage and current during normal operating conditions for zone 3 relay.
+   */
+  double operationPhaseAngle3 = 10;
+
+}
