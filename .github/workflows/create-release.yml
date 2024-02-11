@@ -102,6 +102,15 @@ jobs:
           path: /pipcache
           key: pip
 
+      - name: Create .pypirc
+        env:
+          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          echo "[pypi]" > ~/.pypirc
+          echo "username = __token__" >> ~/.pypirc
+          echo "password = $PYPI_API_TOKEN" >> ~/.pypirc
+          echo "\n" >> ~/.pypirc
+
       - name: Deploy Python
         id: deploy
         env:
@@ -109,11 +118,11 @@ jobs:
         run: |
           cd python
           mkdir -p /pipcache
-          pip install --cache-dir /pipcache 'twine==3.3.0'
+          pip install --cache-dir /pipcache 'twine==4.0.2'
           pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
           python build.py --package
-          twine upload dist/*
+          twine upload --non-interactive --config-file ~/.pypirc dist/*
           artifact="zepben.protobuf-${VERSION}-py3-none-any.whl"
           echo "::set-output name=artifact::$(echo $artifact)"
           echo "::set-output name=artifact-path::$(echo python/dist/$artifact)"
