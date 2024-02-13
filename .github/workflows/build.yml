@@ -53,7 +53,7 @@ jobs:
       - name: Build Java
         run: |
           cd java
-          mvn clean package -f pom.xml
+          mvn clean package -f pom.xml -Dgpg.keyname=
         shell: bash
 
   cs-build:
