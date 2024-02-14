@@ -96,6 +96,10 @@ jobs:
         with:
           ref: release
 
+      - name: Install git
+        run: |
+          apt update && apt install -y git
+
       - name: Work around git permission issue
         run: |
           dname=$(echo ${{github.repository}} | cut -d'/' -f2)
