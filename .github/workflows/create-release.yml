@@ -88,9 +88,6 @@ jobs:
     container: python:3.8-slim
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
-    env:
-      TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-      TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
     steps:
       - uses: actions/checkout@v3
         with:
