@@ -143,7 +143,7 @@ jobs:
           pip install -r requirements.txt
           python build.py --fullclean
           python build.py --package
-          twine upload --non-interactive --config-file ~/.pypirc dist/* --skip-existing
+          twine upload --verbose --non-interactive --config-file ~/.pypirc dist/* --skip-existing
         shell: bash
 
   update-snapshot-version:

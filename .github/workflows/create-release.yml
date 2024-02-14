@@ -120,7 +120,7 @@ jobs:
           pip install -r requirements.txt
           python build.py --fullclean
           python build.py --package
-          twine upload --non-interactive --config-file ~/.pypirc dist/*
+          twine upload --verbose --non-interactive --config-file ~/.pypirc dist/*
           artifact="zepben.protobuf-${VERSION}-py3-none-any.whl"
           echo "::set-output name=artifact::$(echo $artifact)"
           echo "::set-output name=artifact-path::$(echo python/dist/$artifact)"
