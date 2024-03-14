@@ -5,11 +5,11 @@ description: |-
 ancestors:
 - LimitDependency
 associations:
-- source: EquipmentLimitSeriesComponent
-  target: SeriesEquipmentDependentLimit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: EquipmentLimitSeriesComponent
-  sourceDescription: Equipment linkages that participates in the limit calculation.
-  targetName: SeriesEquipmentDependentLimit
-  targetDescription: Calculation in which the refernce to equipment applies.
+- source: SeriesEquipmentDependentLimit
+  target: EquipmentLimitSeriesComponent
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: SeriesEquipmentDependentLimit
+  sourceDescription: Calculation in which the refernce to equipment applies.
+  targetName: EquipmentLimitSeriesComponent
+  targetDescription: Equipment linkages that participates in the limit calculation.

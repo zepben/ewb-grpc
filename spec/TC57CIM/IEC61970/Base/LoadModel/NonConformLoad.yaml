@@ -4,11 +4,11 @@ description: NonConformLoad represents loads that do not follow a daily load cha
 ancestors:
 - EnergyConsumer
 associations:
-- source: NonConformLoadGroup
-  target: NonConformLoad
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: LoadGroup
-  sourceDescription: Group of this ConformLoad.
-  targetName: EnergyConsumers
-  targetDescription: Conform loads assigned to this ConformLoadGroup.
+- source: NonConformLoad
+  target: NonConformLoadGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnergyConsumers
+  sourceDescription: Conform loads assigned to this ConformLoadGroup.
+  targetName: LoadGroup
+  targetDescription: Group of this ConformLoad.

@@ -18,15 +18,15 @@ associations:
   sourceDescription: Projects that are included in this parent project.
   targetName: ContainingProject
   targetDescription: The parent project of this project.
-- source: NetworkModelProjectRelationship
-  target: NetworkModelProjectComponent
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ProjectARelationships
-  targetName: ProjectA
-- source: NetworkModelProjectRelationship
-  target: NetworkModelProjectComponent
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ProjectBRelationships
-  targetName: ProjectB
+- source: NetworkModelProjectComponent
+  target: NetworkModelProjectRelationship
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ProjectA
+  targetName: ProjectARelationships
+- source: NetworkModelProjectComponent
+  target: NetworkModelProjectRelationship
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ProjectB
+  targetName: ProjectBRelationships

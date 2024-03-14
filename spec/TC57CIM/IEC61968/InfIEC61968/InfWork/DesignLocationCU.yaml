@@ -49,15 +49,15 @@ associations:
   targetCardinality: 0..*
   sourceName: DesignLocationCUs
   targetName: CUGroups
-- source: DesignLocation
-  target: DesignLocationCU
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DesignLocation
-  targetName: DesignLocationCUs
-- source: CompatibleUnit
-  target: DesignLocationCU
+- source: DesignLocationCU
+  target: DesignLocation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DesignLocationCUs
+  targetName: DesignLocation
+- source: DesignLocationCU
+  target: CompatibleUnit
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CompatibleUnits
-  targetName: DesignLocationCUs
+  sourceName: DesignLocationCUs
+  targetName: CompatibleUnits

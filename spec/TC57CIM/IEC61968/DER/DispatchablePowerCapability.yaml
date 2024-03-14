@@ -28,17 +28,17 @@ attributes:
   type: ReactivePower
   description: The minimum level of reactive power to which a DER group can be set
 associations:
-- source: EndDeviceGroup
-  target: DispatchablePowerCapability
+- source: DispatchablePowerCapability
+  target: EndDeviceGroup
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: EndDeviceGroup
-  sourceDescription: EndDeviceGroup is used in metering to group end devices, this same class is used to group DER
-  targetName: DispatchablePowerCapability
-- source: EndDevice
-  target: DispatchablePowerCapability
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EndDevice
-  sourceDescription: The generic class to support all field end devices such as meters or smart inverters
-  targetName: DispatchablePowerCapability
+  sourceName: DispatchablePowerCapability
+  targetName: EndDeviceGroup
+  targetDescription: EndDeviceGroup is used in metering to group end devices, this same class is used to group DER
+- source: DispatchablePowerCapability
+  target: EndDevice
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DispatchablePowerCapability
+  targetName: EndDevice
+  targetDescription: The generic class to support all field end devices such as meters or smart inverters

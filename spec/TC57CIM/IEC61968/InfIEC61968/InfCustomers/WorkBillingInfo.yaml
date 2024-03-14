@@ -38,9 +38,9 @@ associations:
   targetCardinality: 0..*
   sourceName: WorkBillingInfo
   targetName: Works
-- source: CustomerAccount
-  target: WorkBillingInfo
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CustomerAccount
-  targetName: WorkBillingInfos
+- source: WorkBillingInfo
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkBillingInfos
+  targetName: CustomerAccount

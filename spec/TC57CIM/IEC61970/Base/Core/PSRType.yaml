@@ -6,11 +6,11 @@ ancestors:
 descendents:
 - MktPSRType
 associations:
-- source: PowerSystemResource
-  target: PSRType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: PowerSystemResources
-  sourceDescription: Power system resources classified with this power system resource type.
-  targetName: PSRType
-  targetDescription: Custom classification for this power system resource.
+- source: PSRType
+  target: PowerSystemResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PSRType
+  sourceDescription: Custom classification for this power system resource.
+  targetName: PowerSystemResources
+  targetDescription: Power system resources classified with this power system resource type.

@@ -81,27 +81,27 @@ associations:
   sourceDescription: All work tasks this crew participates in.
   targetName: Crews
   targetDescription: All crews participating in this work task.
-- source: Work
-  target: WorkTask
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Work
-  sourceDescription: Work this task belongs to.
-  targetName: WorkTasks
-  targetDescription: All tasks in this work.
-- source: ProcedureDataSet
-  target: WorkTask
+- source: WorkTask
+  target: Work
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProcedureDataSet
-  sourceDescription: Procedure data set associated with this work task.
-  targetName: WorkTask
-  targetDescription: Work task that created this procedure data set.
-- source: SwitchingPlan
-  target: WorkTask
+  targetCardinality: "1"
+  sourceName: WorkTasks
+  sourceDescription: All tasks in this work.
+  targetName: Work
+  targetDescription: Work this task belongs to.
+- source: WorkTask
+  target: ProcedureDataSet
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: SwitchingPlan
-  sourceDescription: Switching plan executed by this work task.
-  targetName: WorkTasks
-  targetDescription: All work tasks to execute this switching plan.
+  sourceName: WorkTask
+  sourceDescription: Work task that created this procedure data set.
+  targetName: ProcedureDataSet
+  targetDescription: Procedure data set associated with this work task.
+- source: WorkTask
+  target: SwitchingPlan
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkTasks
+  sourceDescription: All work tasks to execute this switching plan.
+  targetName: SwitchingPlan
+  targetDescription: Switching plan executed by this work task.

@@ -4,11 +4,11 @@ description: ConformLoad represent loads that follow a daily load change pattern
 ancestors:
 - EnergyConsumer
 associations:
-- source: ConformLoadGroup
-  target: ConformLoad
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: LoadGroup
-  sourceDescription: Group of this ConformLoad.
-  targetName: EnergyConsumers
-  targetDescription: Conform loads assigned to this ConformLoadGroup.
+- source: ConformLoad
+  target: ConformLoadGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnergyConsumers
+  sourceDescription: Conform loads assigned to this ConformLoadGroup.
+  targetName: LoadGroup
+  targetDescription: Group of this ConformLoad.

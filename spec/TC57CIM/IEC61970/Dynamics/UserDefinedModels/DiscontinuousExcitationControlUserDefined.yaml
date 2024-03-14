@@ -11,11 +11,11 @@ attributes:
 ancestors:
 - DiscontinuousExcitationControlDynamics
 associations:
-- source: ProprietaryParameterDynamics
-  target: DiscontinuousExcitationControlUserDefined
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetName: DiscontinuousExcitationControlUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+- source: DiscontinuousExcitationControlUserDefined
+  target: ProprietaryParameterDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DiscontinuousExcitationControlUserDefined
+  sourceDescription: Proprietary user-defined model with which this parameter is associated.
+  targetName: ProprietaryParameterDynamics
+  targetDescription: Parameter of this proprietary user-defined model.

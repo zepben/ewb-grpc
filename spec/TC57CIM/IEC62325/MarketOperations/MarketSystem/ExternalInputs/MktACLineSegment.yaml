@@ -3,15 +3,15 @@ description: Subclass of IEC 61970:Wires:ACLineSegment.
 ancestors:
 - ACLineSegment
 associations:
-- source: BranchEndFlow
-  target: MktACLineSegment
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EndAFlow
-  targetName: MktACLineSegmentEndAFlow
-- source: BranchEndFlow
-  target: MktACLineSegment
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EndBFlow
-  targetName: MktACLineSegmentEndBFlow
+- source: MktACLineSegment
+  target: BranchEndFlow
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MktACLineSegmentEndAFlow
+  targetName: EndAFlow
+- source: MktACLineSegment
+  target: BranchEndFlow
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MktACLineSegmentEndBFlow
+  targetName: EndBFlow

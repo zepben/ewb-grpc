@@ -13,15 +13,15 @@ associations:
   targetCardinality: 0..*
   sourceName: Reconditioning
   targetName: TransformerObservations
-- source: CoolingPowerRating
-  target: Reconditioning
+- source: Reconditioning
+  target: CoolingPowerRating
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: PowerRatings
-  targetName: Reconditionings
-- source: Asset
-  target: Reconditioning
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Asset
-  targetName: Reconditionings
+  sourceName: Reconditionings
+  targetName: PowerRatings
+- source: Reconditioning
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Reconditionings
+  targetName: Asset

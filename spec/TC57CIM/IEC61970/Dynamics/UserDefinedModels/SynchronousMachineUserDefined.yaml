@@ -10,11 +10,11 @@ attributes:
 ancestors:
 - SynchronousMachineDynamics
 associations:
-- source: ProprietaryParameterDynamics
-  target: SynchronousMachineUserDefined
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetName: SynchronousMachineUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+- source: SynchronousMachineUserDefined
+  target: ProprietaryParameterDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SynchronousMachineUserDefined
+  sourceDescription: Proprietary user-defined model with which this parameter is associated.
+  targetName: ProprietaryParameterDynamics
+  targetDescription: Parameter of this proprietary user-defined model.

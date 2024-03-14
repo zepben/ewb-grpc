@@ -58,11 +58,11 @@ associations:
   sourceDescription: The power transformer of this power transformer end.
   targetName: PowerTransformerEnd
   targetDescription: The ends of this power transformer.
-- source: TransformerTank
-  target: PowerTransformer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TransformerTanks
-  sourceDescription: All transformers that belong to this bank.
-  targetName: PowerTransformer
-  targetDescription: Bank this transformer belongs to.
+- source: PowerTransformer
+  target: TransformerTank
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PowerTransformer
+  sourceDescription: Bank this transformer belongs to.
+  targetName: TransformerTanks
+  targetDescription: All transformers that belong to this bank.

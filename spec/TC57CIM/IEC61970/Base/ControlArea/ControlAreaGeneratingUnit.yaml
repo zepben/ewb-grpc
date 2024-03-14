@@ -22,11 +22,11 @@ associations:
   targetName: GeneratingUnit
   targetDescription: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
     only once.
-- source: AltGeneratingUnitMeas
-  target: ControlAreaGeneratingUnit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AltGeneratingUnitMeas
-  sourceDescription: The link to prioritized measurements for this GeneratingUnit.
-  targetName: ControlAreaGeneratingUnit
-  targetDescription: The control area generating unit to which the prioritized measurement assignment is applied.
+- source: ControlAreaGeneratingUnit
+  target: AltGeneratingUnitMeas
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ControlAreaGeneratingUnit
+  sourceDescription: The control area generating unit to which the prioritized measurement assignment is applied.
+  targetName: AltGeneratingUnitMeas
+  targetDescription: The link to prioritized measurements for this GeneratingUnit.

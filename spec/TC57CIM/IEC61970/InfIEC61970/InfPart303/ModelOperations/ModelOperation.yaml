@@ -15,17 +15,17 @@ associations:
   sourceDescription: The instances of operations that conform to this operation type.
   targetName: ModelOperationDescription
   targetDescription: The type of the model operation.
-- source: ModelOperationArg
-  target: ModelOperation
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ModelOperationArg
-  sourceDescription: Arguments of the operation.
-  targetName: ModelOperation
-  targetDescription: The opeation for the operation argument.
-- source: ModelOperationSequence
-  target: ModelOperation
+- source: ModelOperation
+  target: ModelOperationArg
   sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: OperationSequence
-  targetName: ModelOperation
+  sourceName: ModelOperation
+  sourceDescription: The opeation for the operation argument.
+  targetName: ModelOperationArg
+  targetDescription: Arguments of the operation.
+- source: ModelOperation
+  target: ModelOperationSequence
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ModelOperation
+  targetName: OperationSequence

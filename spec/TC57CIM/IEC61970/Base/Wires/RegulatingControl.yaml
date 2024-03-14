@@ -54,36 +54,36 @@ descendents:
 - TapChangerControl
 - ShuntCompensatorControl
 associations:
-- source: RegulatingCondEq
-  target: RegulatingControl
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: RegulatingCondEq
-  sourceDescription: The equipment that participates in this regulating control scheme.
-  targetName: RegulatingControl
-  targetDescription: The regulating control scheme in which this equipment participates.
-- source: RegulationSchedule
-  target: RegulatingControl
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: RegulationSchedule
-  sourceDescription: Schedule for this regulating control.
-  targetName: RegulatingControl
-  targetDescription: Regulating controls that have this schedule.
-- source: Terminal
-  target: RegulatingControl
+- source: RegulatingControl
+  target: RegulatingCondEq
   sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: RegulatingControl
+  sourceDescription: The regulating control scheme in which this equipment participates.
+  targetName: RegulatingCondEq
+  targetDescription: The equipment that participates in this regulating control scheme.
+- source: RegulatingControl
+  target: RegulationSchedule
+  sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: Terminal
-  sourceDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node,
+  sourceName: RegulatingControl
+  sourceDescription: Regulating controls that have this schedule.
+  targetName: RegulationSchedule
+  targetDescription: Schedule for this regulating control.
+- source: RegulatingControl
+  target: Terminal
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RegulatingControl
+  sourceDescription: The controls regulating this terminal.
+  targetName: Terminal
+  targetDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node,
     since the terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model
     regulation at a terminal of a bus bar object.
-  targetName: RegulatingControl
-  targetDescription: The controls regulating this terminal.
-- source: ProtectiveActionRegulation
-  target: RegulatingControl
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ProtectiveActionRegulation
-  sourceDescription: Enable/disable a regulating control or set new target value.
-  targetName: RegulatingControl
+- source: RegulatingControl
+  target: ProtectiveActionRegulation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegulatingControl
+  targetName: ProtectiveActionRegulation
+  targetDescription: Enable/disable a regulating control or set new target value.

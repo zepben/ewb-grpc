@@ -101,35 +101,35 @@ associations:
   sourceDescription: Document whose change resulted in this configuration event.
   targetName: ConfigurationEvents
   targetDescription: All configuration events created for this document.
-- source: Author
-  target: Document
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Author
-  sourceDescription: Author of this document.
-  targetName: Documents
-  targetDescription: All documents of this this author.
-- source: Approver
-  target: Document
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Approver
-  sourceDescription: Approver of this document.
-  targetName: Documents
-  targetDescription: All documents for this approver.
-- source: Issuer
-  target: Document
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Issuer
-  sourceDescription: Issuer of this document.
-  targetName: Documents
-  targetDescription: All documents for this issuer.
-- source: Editor
-  target: Document
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Editor
-  sourceDescription: Editor of this document.
-  targetName: Documents
-  targetDescription: All documents for this editor.
+- source: Document
+  target: Author
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Documents
+  sourceDescription: All documents of this this author.
+  targetName: Author
+  targetDescription: Author of this document.
+- source: Document
+  target: Approver
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Documents
+  sourceDescription: All documents for this approver.
+  targetName: Approver
+  targetDescription: Approver of this document.
+- source: Document
+  target: Issuer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Documents
+  sourceDescription: All documents for this issuer.
+  targetName: Issuer
+  targetDescription: Issuer of this document.
+- source: Document
+  target: Editor
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Documents
+  sourceDescription: All documents for this editor.
+  targetName: Editor
+  targetDescription: Editor of this document.

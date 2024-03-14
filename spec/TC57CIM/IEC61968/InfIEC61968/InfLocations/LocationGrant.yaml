@@ -9,11 +9,11 @@ attributes:
 ancestors:
 - Agreement
 associations:
-- source: LandProperty
-  target: LocationGrant
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: LandProperty
-  sourceDescription: Land property this location grant applies to.
-  targetName: LocationGrants
-  targetDescription: All location grants this land property has.
+- source: LocationGrant
+  target: LandProperty
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LocationGrants
+  sourceDescription: All location grants this land property has.
+  targetName: LandProperty
+  targetDescription: Land property this location grant applies to.

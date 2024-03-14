@@ -2,11 +2,11 @@ name: AlternateModelGroup
 ancestors:
 - IdentifiedObject
 associations:
-- source: AlternateModel
-  target: AlternateModelGroup
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AlternateModel
-  sourceDescription: An alternate model that can be one possiblity among alternates.
-  targetName: AlternateModelGroup
-  targetDescription: The group of alternate models for which one alternate is used.
+- source: AlternateModelGroup
+  target: AlternateModel
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: AlternateModelGroup
+  sourceDescription: The group of alternate models for which one alternate is used.
+  targetName: AlternateModel
+  targetDescription: An alternate model that can be one possiblity among alternates.

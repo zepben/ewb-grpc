@@ -12,11 +12,11 @@ associations:
   sourceDescription: The SubLoadArea where the Loadgroup belongs.
   targetName: LoadGroups
   targetDescription: The Loadgroups in the SubLoadArea.
-- source: LoadArea
-  target: SubLoadArea
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: LoadArea
-  sourceDescription: The LoadArea where the SubLoadArea belongs.
-  targetName: SubLoadAreas
-  targetDescription: The SubLoadAreas in the LoadArea.
+- source: SubLoadArea
+  target: LoadArea
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: SubLoadAreas
+  sourceDescription: The SubLoadAreas in the LoadArea.
+  targetName: LoadArea
+  targetDescription: The LoadArea where the SubLoadArea belongs.

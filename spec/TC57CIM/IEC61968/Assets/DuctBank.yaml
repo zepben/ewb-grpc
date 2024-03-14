@@ -9,9 +9,9 @@ attributes:
 ancestors:
 - AssetContainer
 associations:
-- source: WireSpacingInfo
-  target: DuctBank
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WireSpacingInfos
-  targetName: DuctBank
+- source: DuctBank
+  target: WireSpacingInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DuctBank
+  targetName: WireSpacingInfos

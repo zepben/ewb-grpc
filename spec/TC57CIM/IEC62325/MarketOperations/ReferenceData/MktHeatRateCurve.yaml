@@ -3,15 +3,15 @@ description: 'Subclass of IEC 61970: Generation: Production:HeatRateCurve.'
 ancestors:
 - HeatRateCurve
 associations:
-- source: RegisteredGenerator
-  target: MktHeatRateCurve
+- source: MktHeatRateCurve
+  target: RegisteredGenerator
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: RegisteredGenerator
-  targetName: MktHeatRateCurve
-- source: ResourceVerifiableCosts
-  target: MktHeatRateCurve
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: ResourceVerifiableCosts
-  targetName: MktHeatRateCurve
+  sourceName: MktHeatRateCurve
+  targetName: RegisteredGenerator
+- source: MktHeatRateCurve
+  target: ResourceVerifiableCosts
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: MktHeatRateCurve
+  targetName: ResourceVerifiableCosts

@@ -70,11 +70,11 @@ associations:
   sourceDescription: Power electronics connection of this power electronics connection phase.
   targetName: PowerElectronicsConnectionPhase
   targetDescription: The individual phases models for the power electronics connection.
-- source: WindTurbineType3or4Dynamics
-  target: PowerElectronicsConnection
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: WindTurbineType3or4Dynamics
-  sourceDescription: The wind turbine type 3 or type 4 dynamics model associated with this power electronics connection.
-  targetName: PowerElectronicsConnection
-  targetDescription: The power electronics connection associated with this wind turbine type 3 or type 4 dynamics model.
+- source: PowerElectronicsConnection
+  target: WindTurbineType3or4Dynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: PowerElectronicsConnection
+  sourceDescription: The power electronics connection associated with this wind turbine type 3 or type 4 dynamics model.
+  targetName: WindTurbineType3or4Dynamics
+  targetDescription: The wind turbine type 3 or type 4 dynamics model associated with this power electronics connection.

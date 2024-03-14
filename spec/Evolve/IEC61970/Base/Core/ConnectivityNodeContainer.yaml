@@ -5,11 +5,11 @@ ancestors:
 descendents:
 - EquipmentContainer
 associations:
-- source: ConnectivityNode
-  target: ConnectivityNodeContainer
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ConnectivityNodes
-  sourceDescription: Connectivity nodes which belong to this connectivity node container.
-  targetName: ConnectivityNodeContainer
-  targetDescription: Container of this connectivity node.
+- source: ConnectivityNodeContainer
+  target: ConnectivityNode
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ConnectivityNodeContainer
+  sourceDescription: Container of this connectivity node.
+  targetName: ConnectivityNodes
+  targetDescription: Connectivity nodes which belong to this connectivity node container.

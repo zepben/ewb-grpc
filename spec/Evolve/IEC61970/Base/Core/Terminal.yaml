@@ -25,35 +25,35 @@ associations:
   targetName: ConductingEquipment
   targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
     to other conducting equipment terminals via connectivity nodes or topological nodes.
-- source: Feeder
-  target: Terminal
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: NormalHeadFeeder
-  sourceDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
-  targetName: NormalHeadTerminal
-  targetDescription: The normal head terminal or terminals of the feeder.
-- source: TransformerEnd
-  target: Terminal
-  sourceCardinality: 0..*
+- source: Terminal
+  target: Feeder
+  sourceCardinality: 1..*
   targetCardinality: 0..1
-  sourceName: TransformerEnd
-  sourceDescription: All transformer ends connected at this terminal.
-  targetName: Terminal
-  targetDescription: Terminal of the power transformer to which this transformer end belongs.
-- source: Circuit
-  target: Terminal
+  sourceName: NormalHeadTerminal
+  sourceDescription: The normal head terminal or terminals of the feeder.
+  targetName: NormalHeadFeeder
+  targetDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
+- source: Terminal
+  target: TransformerEnd
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Circuit
-  targetName: EndTerminal
-- source: LvFeeder
-  target: Terminal
+  sourceName: Terminal
+  sourceDescription: Terminal of the power transformer to which this transformer end belongs.
+  targetName: TransformerEnd
+  targetDescription: All transformer ends connected at this terminal.
+- source: Terminal
+  target: Circuit
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndTerminal
+  targetName: Circuit
+- source: Terminal
+  target: LvFeeder
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: normalHeadLvFeeder
-  sourceDescription: The LV feeder that this terminal normally feeds.
-  targetName: normalHeadTerminal
-  targetDescription: |2-
+  sourceName: normalHeadTerminal
+  sourceDescription: |2-
 
     The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
+  targetName: normalHeadLvFeeder
+  targetDescription: The LV feeder that this terminal normally feeds.

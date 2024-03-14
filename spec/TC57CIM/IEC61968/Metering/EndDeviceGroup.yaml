@@ -50,25 +50,25 @@ associations:
   sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
     EndDevices with a single command
   targetName: DERGroupDispatch
-- source: DemandResponseProgram
-  target: EndDeviceGroup
+- source: EndDeviceGroup
+  target: DemandResponseProgram
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DemandResponsePrograms
-  sourceDescription: All demand response programs this group of end devices is enrolled in.
-  targetName: EndDeviceGroups
-  targetDescription: All groups of end devices enrolled in this demand response program.
-- source: DERGroupForecast
-  target: EndDeviceGroup
+  sourceName: EndDeviceGroups
+  sourceDescription: All groups of end devices enrolled in this demand response program.
+  targetName: DemandResponsePrograms
+  targetDescription: All demand response programs this group of end devices is enrolled in.
+- source: EndDeviceGroup
+  target: DERGroupForecast
   sourceCardinality: 1..*
   targetCardinality: 1..*
-  sourceName: DERGroupForecast
-  targetName: EndDeviceGroup
-  targetDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+  sourceName: EndDeviceGroup
+  sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
     EndDevices with a single command
-- source: DERFunction
-  target: EndDeviceGroup
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DERFunction
-  targetName: EndDeviceGroup
+  targetName: DERGroupForecast
+- source: EndDeviceGroup
+  target: DERFunction
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDeviceGroup
+  targetName: DERFunction

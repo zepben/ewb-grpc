@@ -19,19 +19,19 @@ associations:
   sourceDescription: The SubGeographicalRegion containing the substation.
   targetName: Substations
   targetDescription: The substations in this sub-geographical region.
-- source: GeographicalRegion
-  target: SubGeographicalRegion
+- source: SubGeographicalRegion
+  target: GeographicalRegion
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Regions
+  sourceDescription: All sub-geographical regions within this geographical region.
+  targetName: Region
+  targetDescription: The geographical region which this sub-geographical region is within.
+- source: SubGeographicalRegion
+  target: DCLine
   sourceCardinality: 0..1
   targetCardinality: 0..*
   sourceName: Region
-  sourceDescription: The geographical region which this sub-geographical region is within.
-  targetName: Regions
-  targetDescription: All sub-geographical regions within this geographical region.
-- source: DCLine
-  target: SubGeographicalRegion
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: DCLines
-  sourceDescription: The DC lines in this sub-geographical region.
-  targetName: Region
-  targetDescription: The SubGeographicalRegion containing the DC line.
+  sourceDescription: The SubGeographicalRegion containing the DC line.
+  targetName: DCLines
+  targetDescription: The DC lines in this sub-geographical region.

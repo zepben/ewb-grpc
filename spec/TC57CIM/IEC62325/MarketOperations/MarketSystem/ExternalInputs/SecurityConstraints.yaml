@@ -20,15 +20,15 @@ associations:
   targetCardinality: 0..1
   sourceName: SecurityConstraints
   targetName: RTO
-- source: GeneratingBid
-  target: SecurityConstraints
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: GeneratingBid
-  targetName: SecurityConstraints
-- source: Flowgate
-  target: SecurityConstraints
+- source: SecurityConstraints
+  target: GeneratingBid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SecurityConstraints
+  targetName: GeneratingBid
+- source: SecurityConstraints
+  target: Flowgate
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: Flowgate
-  targetName: SecurityConstraints
+  sourceName: SecurityConstraints
+  targetName: Flowgate

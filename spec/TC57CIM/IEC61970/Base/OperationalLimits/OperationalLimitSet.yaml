@@ -22,11 +22,11 @@ associations:
   sourceDescription: The operational limit sets at the terminal.
   targetName: Terminal
   targetDescription: The terminal where the operational limit set apply.
-- source: OperationalLimit
-  target: OperationalLimitSet
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: OperationalLimitValue
-  sourceDescription: Values of equipment limits.
-  targetName: OperationalLimitSet
-  targetDescription: The limit set to which the limit values belong.
+- source: OperationalLimitSet
+  target: OperationalLimit
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: OperationalLimitSet
+  sourceDescription: The limit set to which the limit values belong.
+  targetName: OperationalLimitValue
+  targetDescription: Values of equipment limits.

@@ -108,32 +108,32 @@ associations:
   targetCardinality: 0..*
   sourceName: Outage
   targetName: Crew
-- source: OutageArea
-  target: Outage
+- source: Outage
+  target: OutageArea
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: OutageArea
-  targetName: Outage
-- source: SwitchingPlan
-  target: Outage
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SwitchingPlans
-  sourceDescription: All switching plans that lead to supply restoration due to this outage. Only one will be retained for
-    execution.
-  targetName: Outage
-  targetDescription: Outage that will be activated or eliminated when this switching plan gets executed.
-- source: Incident
-  target: Outage
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Incident
-  sourceDescription: Incident reported in trouble call that results in this outage.
-  targetName: Outage
-  targetDescription: Outage for this incident.
-- source: EstimatedRestorationTime
-  target: Outage
+  sourceName: Outage
+  targetName: OutageArea
+- source: Outage
+  target: SwitchingPlan
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: EstimatedRestorationTime
-  targetName: Outage
+  sourceName: Outage
+  sourceDescription: Outage that will be activated or eliminated when this switching plan gets executed.
+  targetName: SwitchingPlans
+  targetDescription: All switching plans that lead to supply restoration due to this outage. Only one will be retained for
+    execution.
+- source: Outage
+  target: Incident
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Outage
+  sourceDescription: Outage for this incident.
+  targetName: Incident
+  targetDescription: Incident reported in trouble call that results in this outage.
+- source: Outage
+  target: EstimatedRestorationTime
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Outage
+  targetName: EstimatedRestorationTime

@@ -14,10 +14,10 @@ associations:
   sourceName: MeasurementCalculator
   sourceDescription: Result of the calculation used as input to a gate.
   targetName: PinMeasurement
-- source: MeasurementCalculatorInput
-  target: MeasurementCalculator
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: MeasurementCalculatorInput
-  sourceDescription: Used in the calculation.
-  targetName: MeasurementCalculator
+- source: MeasurementCalculator
+  target: MeasurementCalculatorInput
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: MeasurementCalculator
+  targetName: MeasurementCalculatorInput
+  targetDescription: Used in the calculation.

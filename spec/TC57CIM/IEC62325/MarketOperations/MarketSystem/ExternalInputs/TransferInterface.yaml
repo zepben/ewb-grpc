@@ -3,15 +3,15 @@ description: A Transfer Interface is made up of branches such as transmission li
 ancestors:
 - IdentifiedObject
 associations:
-- source: HostControlArea
-  target: TransferInterface
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: HostControlArea
-  targetName: TransferInterface
-- source: TransferInterfaceSolution
-  target: TransferInterface
+- source: TransferInterface
+  target: HostControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransferInterface
+  targetName: HostControlArea
+- source: TransferInterface
+  target: TransferInterfaceSolution
   sourceCardinality: "1"
   targetCardinality: "1"
-  sourceName: TransferInterfaceSolution
-  targetName: TransferInterface
+  sourceName: TransferInterface
+  targetName: TransferInterfaceSolution

@@ -22,11 +22,11 @@ associations:
   targetCardinality: 0..1
   sourceName: Clamp
   targetName: ClampAction
-- source: ACLineSegment
-  target: Clamp
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ACLineSegment
-  sourceDescription: The line segment to which the clamp is connected.
-  targetName: Clamp
-  targetDescription: The clamps connected to the line segment.
+- source: Clamp
+  target: ACLineSegment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Clamp
+  sourceDescription: The clamps connected to the line segment.
+  targetName: ACLineSegment
+  targetDescription: The line segment to which the clamp is connected.

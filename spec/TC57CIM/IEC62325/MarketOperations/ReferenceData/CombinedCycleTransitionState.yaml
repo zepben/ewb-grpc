@@ -7,15 +7,15 @@ attributes:
     Flag indicating whether this is an UP transition.
     If not, it is a DOWN transition.
 associations:
-- source: CombinedCycleConfiguration
-  target: CombinedCycleTransitionState
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ToConfiguration
-  targetName: ToTransitionState
-- source: CombinedCycleConfiguration
-  target: CombinedCycleTransitionState
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: FromConfiguration
-  targetName: FromTransitionState
+- source: CombinedCycleTransitionState
+  target: CombinedCycleConfiguration
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ToTransitionState
+  targetName: ToConfiguration
+- source: CombinedCycleTransitionState
+  target: CombinedCycleConfiguration
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: FromTransitionState
+  targetName: FromConfiguration

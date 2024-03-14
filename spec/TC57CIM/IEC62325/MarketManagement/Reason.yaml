@@ -20,21 +20,21 @@ associations:
   targetCardinality: 0..*
   sourceName: Reason
   targetName: Point
-- source: Period
-  target: Reason
+- source: Reason
+  target: Period
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Period
-  targetName: Reason
-- source: TimeSeries
-  target: Reason
+  sourceName: Reason
+  targetName: Period
+- source: Reason
+  target: TimeSeries
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TimeSeries
-  targetName: Reason
-- source: RegisteredResource
-  target: Reason
+  sourceName: Reason
+  targetName: TimeSeries
+- source: Reason
+  target: RegisteredResource
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: Reason
+  sourceName: Reason
+  targetName: RegisteredResource

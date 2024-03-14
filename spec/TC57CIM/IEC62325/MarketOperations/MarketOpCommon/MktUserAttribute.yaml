@@ -3,39 +3,39 @@ description: Subclass of IEC61968:Domain2:UserAttribute.
 ancestors:
 - UserAttribute
 associations:
-- source: ChargeType
-  target: MktUserAttribute
+- source: MktUserAttribute
+  target: ChargeType
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ChargeType
-  targetName: MktUserAttribute
-- source: MarketStatementLineItem
-  target: MktUserAttribute
+  sourceName: MktUserAttribute
+  targetName: ChargeType
+- source: MktUserAttribute
+  target: MarketStatementLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketStatementLineItem
-  targetName: MktUserAttribute
-- source: PassThroughBill
-  target: MktUserAttribute
+  sourceName: MktUserAttribute
+  targetName: MarketStatementLineItem
+- source: MktUserAttribute
+  target: PassThroughBill
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: PassThroughBill
-  targetName: MktUserAttribute
-- source: ChargeGroup
-  target: MktUserAttribute
+  sourceName: MktUserAttribute
+  targetName: PassThroughBill
+- source: MktUserAttribute
+  target: ChargeGroup
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ChargeGroup
-  targetName: MktUserAttribute
-- source: AttributeProperty
-  target: MktUserAttribute
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AttributeProperty
-  targetName: MktUserAttribute
-- source: BillDeterminant
-  target: MktUserAttribute
+  sourceName: MktUserAttribute
+  targetName: ChargeGroup
+- source: MktUserAttribute
+  target: AttributeProperty
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktUserAttribute
+  targetName: AttributeProperty
+- source: MktUserAttribute
+  target: BillDeterminant
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: BillDeterminant
-  targetName: MktUserAttribute
+  sourceName: MktUserAttribute
+  targetName: BillDeterminant

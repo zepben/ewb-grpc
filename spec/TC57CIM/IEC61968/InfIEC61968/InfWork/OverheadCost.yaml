@@ -18,9 +18,9 @@ associations:
   targetCardinality: 0..*
   sourceName: OverheadCost
   targetName: WorkCostDetails
-- source: OldWorkTask
-  target: OverheadCost
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WorkTasks
-  targetName: OverheadCost
+- source: OverheadCost
+  target: OldWorkTask
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: OverheadCost
+  targetName: WorkTasks

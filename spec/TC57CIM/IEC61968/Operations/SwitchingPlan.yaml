@@ -65,27 +65,27 @@ associations:
     execution.
   targetName: Outage
   targetDescription: Outage that will be activated or eliminated when this switching plan gets executed.
-- source: SwitchingAction
-  target: SwitchingPlan
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SwitchingAction
-  targetName: SwitchingPlan
-- source: SwitchingPlanRequest
-  target: SwitchingPlan
+- source: SwitchingPlan
+  target: SwitchingAction
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: SwitchingPlanRequest
-  targetName: SwitchingPlan
-- source: SwitchingOrder
-  target: SwitchingPlan
+  sourceName: SwitchingPlan
+  targetName: SwitchingAction
+- source: SwitchingPlan
+  target: SwitchingPlanRequest
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SwitchingPlan
+  targetName: SwitchingPlanRequest
+- source: SwitchingPlan
+  target: SwitchingOrder
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: SwitchingOrder
-  targetName: SwitchingPlan
-- source: PlannedOutageNotification
-  target: SwitchingPlan
+  sourceName: SwitchingPlan
+  targetName: SwitchingOrder
+- source: SwitchingPlan
+  target: PlannedOutageNotification
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: PlannedOutageNotification
-  targetName: SwitchingPlan
+  sourceName: SwitchingPlan
+  targetName: PlannedOutageNotification

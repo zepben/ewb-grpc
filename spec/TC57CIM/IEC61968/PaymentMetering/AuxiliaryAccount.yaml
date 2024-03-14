@@ -37,11 +37,11 @@ associations:
   sourceDescription: All auxiliary accounts to which this charge has to be levied.
   targetName: Charges
   targetDescription: All charges levied on this account.
-- source: AuxiliaryAgreement
-  target: AuxiliaryAccount
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: AuxiliaryAgreement
-  sourceDescription: Auxiliary agreement regulating this account.
-  targetName: AuxiliaryAccounts
-  targetDescription: All auxiliary accounts regulated by this agreement.
+- source: AuxiliaryAccount
+  target: AuxiliaryAgreement
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: AuxiliaryAccounts
+  sourceDescription: All auxiliary accounts regulated by this agreement.
+  targetName: AuxiliaryAgreement
+  targetDescription: Auxiliary agreement regulating this account.

@@ -18,11 +18,11 @@ ancestors:
 descendents:
 - ISOUpperLayer
 associations:
-- source: PublicX509Certificate
-  target: TCPAccessPoint
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: PublicX509Certificate
-  sourceDescription: Is the Public Certificate used for mutual authentication between peers.
-  targetName: TCPAccessPoint
-  targetDescription: The association allows a certificate to be bound for use by TLS.
+- source: TCPAccessPoint
+  target: PublicX509Certificate
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TCPAccessPoint
+  sourceDescription: The association allows a certificate to be bound for use by TLS.
+  targetName: PublicX509Certificate
+  targetDescription: Is the Public Certificate used for mutual authentication between peers.

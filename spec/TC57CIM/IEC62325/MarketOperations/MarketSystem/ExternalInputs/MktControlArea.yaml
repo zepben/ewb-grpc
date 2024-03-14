@@ -3,9 +3,9 @@ description: Market subclass of IEC 61970:ControlArea.
 ancestors:
 - ControlArea
 associations:
-- source: ControlAreaSolutionData
-  target: MktControlArea
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ControlAreaSolutionData
-  targetName: MktControlArea
+- source: MktControlArea
+  target: ControlAreaSolutionData
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MktControlArea
+  targetName: ControlAreaSolutionData

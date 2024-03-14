@@ -20,11 +20,11 @@ associations:
   sourceDescription: All tariffs defined by this tariff profile.
   targetName: TariffProfiles
   targetDescription: All tariff profiles using this tariff.
-- source: PricingStructure
-  target: Tariff
+- source: Tariff
+  target: PricingStructure
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: PricingStructures
-  sourceDescription: All pricing structures using this tariff.
-  targetName: Tariffs
-  targetDescription: All tariffs used by this pricing structure.
+  sourceName: Tariffs
+  sourceDescription: All tariffs used by this pricing structure.
+  targetName: PricingStructures
+  targetDescription: All pricing structures using this tariff.

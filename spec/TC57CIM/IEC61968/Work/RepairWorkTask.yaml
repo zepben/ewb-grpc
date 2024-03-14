@@ -7,11 +7,11 @@ attributes:
 ancestors:
 - WorkTask
 associations:
-- source: RepairItem
-  target: RepairWorkTask
+- source: RepairWorkTask
+  target: RepairItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: BreakerRepairItem
-  sourceDescription: Type of breaker item to be repaird by this repair work task.
-  targetName: RepairWorkTask
-  targetDescription: Repair work task under which breaker item of this type is repaired.
+  sourceName: RepairWorkTask
+  sourceDescription: Repair work task under which breaker item of this type is repaired.
+  targetName: BreakerRepairItem
+  targetDescription: Type of breaker item to be repaird by this repair work task.

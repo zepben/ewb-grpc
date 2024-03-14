@@ -64,15 +64,15 @@ associations:
   targetCardinality: 0..*
   sourceName: LoadBid
   targetName: RampRateCurve
-- source: AreaLoadBid
-  target: LoadBid
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AreaLoadBid
-  targetName: LoadBid
-- source: RegisteredLoad
-  target: LoadBid
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredLoad
-  targetName: LoadBids
+- source: LoadBid
+  target: AreaLoadBid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LoadBid
+  targetName: AreaLoadBid
+- source: LoadBid
+  target: RegisteredLoad
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LoadBids
+  targetName: RegisteredLoad

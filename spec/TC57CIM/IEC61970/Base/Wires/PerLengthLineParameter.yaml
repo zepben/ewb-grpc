@@ -6,10 +6,10 @@ descendents:
 - PerLengthImpedance
 - PerLengthDCLineParameter
 associations:
-- source: WireAssemblyInfo
-  target: PerLengthLineParameter
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WireAssemblyInfo
-  targetName: PerLengthLineParameter
-  targetDescription: Per length line parameter associated with this wire assembly.
+- source: PerLengthLineParameter
+  target: WireAssemblyInfo
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PerLengthLineParameter
+  sourceDescription: Per length line parameter associated with this wire assembly.
+  targetName: WireAssemblyInfo

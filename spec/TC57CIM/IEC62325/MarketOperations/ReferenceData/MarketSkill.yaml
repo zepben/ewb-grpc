@@ -20,9 +20,9 @@ associations:
   targetCardinality: 0..*
   sourceName: MarketSkills
   targetName: MarketQualificationRequirements
-- source: MarketPerson
-  target: MarketSkill
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MarketPerson
-  targetName: MarketSkills
+- source: MarketSkill
+  target: MarketPerson
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MarketSkills
+  targetName: MarketPerson

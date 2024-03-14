@@ -7,11 +7,11 @@ attributes:
 ancestors:
 - AggregateScore
 associations:
-- source: HealthScore
-  target: RiskScore
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AssetHealthScore
-  sourceDescription: Individual health score associated with this risk score.
-  targetName: AssetRiskScore
-  targetDescription: Risk score with which this health score is associated.
+- source: RiskScore
+  target: HealthScore
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetRiskScore
+  sourceDescription: Risk score with which this health score is associated.
+  targetName: AssetHealthScore
+  targetDescription: Individual health score associated with this risk score.

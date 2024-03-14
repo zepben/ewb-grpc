@@ -3,20 +3,20 @@ description: The type of model operation.   This class is referenced by model op
 ancestors:
 - IdentifiedObject
 associations:
-- source: ModelOperationArgDescription
-  target: ModelOperationDescription
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: OperationDatasetArgDescription
-  sourceDescription: The type of dataset roles that can be used for a type of general model operation.
-  targetName: ModelOperationDefinition
-  targetDescription: The type of operation for this type of dataset role.   Operations referencing the dataset role type should
+- source: ModelOperationDescription
+  target: ModelOperationArgDescription
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ModelOperationDefinition
+  sourceDescription: The type of operation for this type of dataset role.   Operations referencing the dataset role type should
     only belong to operations that reference the operation type.
-- source: ModelOperation
-  target: ModelOperationDescription
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ModelOperation
-  sourceDescription: The instances of operations that conform to this operation type.
-  targetName: ModelOperationDescription
-  targetDescription: The type of the model operation.
+  targetName: OperationDatasetArgDescription
+  targetDescription: The type of dataset roles that can be used for a type of general model operation.
+- source: ModelOperationDescription
+  target: ModelOperation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ModelOperationDescription
+  sourceDescription: The type of the model operation.
+  targetName: ModelOperation
+  targetDescription: The instances of operations that conform to this operation type.

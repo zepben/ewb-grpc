@@ -39,9 +39,9 @@ associations:
   targetCardinality: 1..*
   sourceName: MarketInvoice
   targetName: MajorChargeGroup
-- source: MarketInvoiceLineItem
-  target: MarketInvoice
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: MarketInvoiceLineItems
-  targetName: MarketInvoice
+- source: MarketInvoice
+  target: MarketInvoiceLineItem
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MarketInvoice
+  targetName: MarketInvoiceLineItems

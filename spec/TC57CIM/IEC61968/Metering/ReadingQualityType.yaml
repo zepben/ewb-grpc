@@ -14,11 +14,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: ReadingQuality
-  target: ReadingQualityType
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ReadingQualities
-  sourceDescription: All reading qualities of this type.
-  targetName: ReadingQualityType
-  targetDescription: Type of this reading quality.
+- source: ReadingQualityType
+  target: ReadingQuality
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ReadingQualityType
+  sourceDescription: Type of this reading quality.
+  targetName: ReadingQualities
+  targetDescription: All reading qualities of this type.

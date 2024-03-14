@@ -3,11 +3,11 @@ description: A reporting super group, groups reporting groups for a higher level
 ancestors:
 - IdentifiedObject
 associations:
-- source: ReportingGroup
-  target: ReportingSuperGroup
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ReportingGroup
-  sourceDescription: Reporting groups that are grouped under this super group.
-  targetName: ReportingSuperGroup
-  targetDescription: Reporting super group to which this reporting group belongs.
+- source: ReportingSuperGroup
+  target: ReportingGroup
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReportingSuperGroup
+  sourceDescription: Reporting super group to which this reporting group belongs.
+  targetName: ReportingGroup
+  targetDescription: Reporting groups that are grouped under this super group.

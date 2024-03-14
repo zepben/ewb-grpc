@@ -37,11 +37,11 @@ attributes:
 ancestors:
 - PowerSystemResource
 associations:
-- source: EnergyConsumer
-  target: EnergyConsumerPhase
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: EnergyConsumer
-  sourceDescription: The energy consumer to which this phase belongs.
-  targetName: EnergyConsumerPhase
-  targetDescription: The individual phase models for this energy consumer.
+- source: EnergyConsumerPhase
+  target: EnergyConsumer
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EnergyConsumerPhase
+  sourceDescription: The individual phase models for this energy consumer.
+  targetName: EnergyConsumer
+  targetDescription: The energy consumer to which this phase belongs.

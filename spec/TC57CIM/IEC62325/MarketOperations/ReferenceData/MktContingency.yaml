@@ -18,27 +18,27 @@ attributes:
 ancestors:
 - Contingency
 associations:
-- source: ConstraintResults
-  target: MktContingency
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ConstraintResults
-  targetName: MktContingency
-- source: ContingencyConstraintLimit
-  target: MktContingency
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ContingencyConstraintLimit
-  targetName: MktContingency
-- source: TransferInterfaceSolution
-  target: MktContingency
+- source: MktContingency
+  target: ConstraintResults
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktContingency
+  targetName: ConstraintResults
+- source: MktContingency
+  target: ContingencyConstraintLimit
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktContingency
+  targetName: ContingencyConstraintLimit
+- source: MktContingency
+  target: TransferInterfaceSolution
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: TransferInterfaceSolutionA
-  targetName: ' MktContingencyA'
-- source: TransferInterfaceSolution
-  target: MktContingency
+  sourceName: ' MktContingencyA'
+  targetName: TransferInterfaceSolutionA
+- source: MktContingency
+  target: TransferInterfaceSolution
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: TransferInterfaceSolutionB
-  targetName: MktContingencyB
+  sourceName: MktContingencyB
+  targetName: TransferInterfaceSolutionB

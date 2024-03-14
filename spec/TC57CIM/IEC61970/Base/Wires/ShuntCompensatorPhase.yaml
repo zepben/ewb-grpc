@@ -24,11 +24,11 @@ descendents:
 - LinearShuntCompensatorPhase
 - NonlinearShuntCompensatorPhase
 associations:
-- source: ShuntCompensator
-  target: ShuntCompensatorPhase
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ShuntCompensator
-  sourceDescription: Shunt compensator of this shunt compensator phase.
-  targetName: ShuntCompensatorPhase
-  targetDescription: The individual phases models for the shunt compensator.
+- source: ShuntCompensatorPhase
+  target: ShuntCompensator
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ShuntCompensatorPhase
+  sourceDescription: The individual phases models for the shunt compensator.
+  targetName: ShuntCompensator
+  targetDescription: Shunt compensator of this shunt compensator phase.

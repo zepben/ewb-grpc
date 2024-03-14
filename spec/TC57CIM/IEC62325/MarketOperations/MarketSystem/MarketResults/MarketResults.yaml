@@ -24,9 +24,9 @@ attributes:
   type: Float
   description: The total RUC capacity cost for this interval
 associations:
-- source: EnergyMarket
-  target: MarketResults
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: EnergyMarket
-  targetName: MarketResults
+- source: MarketResults
+  target: EnergyMarket
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: MarketResults
+  targetName: EnergyMarket

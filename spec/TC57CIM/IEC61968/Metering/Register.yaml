@@ -38,9 +38,9 @@ associations:
   sourceDescription: Register whose values are collected/reported by this channel.
   targetName: Channels
   targetDescription: All channels that collect/report values from this register.
-- source: UsagePoint
-  target: Register
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Usage Point
-  targetName: Register
+- source: Register
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Register
+  targetName: Usage Point

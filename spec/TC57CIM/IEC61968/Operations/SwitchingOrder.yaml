@@ -16,9 +16,9 @@ associations:
   targetCardinality: 0..1
   sourceName: SwitchingOrder
   targetName: SwitchingPlan
-- source: Location
-  target: SwitchingOrder
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Location
-  targetName: SwitchingOrder
+- source: SwitchingOrder
+  target: Location
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SwitchingOrder
+  targetName: Location

@@ -29,11 +29,11 @@ associations:
   sourceDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).
   targetName: VendorShifts
   targetDescription: All vendor shifts that operate on this merchant account.
-- source: MerchantAgreement
-  target: MerchantAccount
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MerchantAgreement
-  sourceDescription: Merchant agreement that instantiated this merchant account.
-  targetName: MerchantAccounts
-  targetDescription: All merchant accounts instantiated as a result of this merchant agreement.
+- source: MerchantAccount
+  target: MerchantAgreement
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MerchantAccounts
+  sourceDescription: All merchant accounts instantiated as a result of this merchant agreement.
+  targetName: MerchantAgreement
+  targetDescription: Merchant agreement that instantiated this merchant account.

@@ -11,11 +11,11 @@ attributes:
 ancestors:
 - PFVArControllerType2Dynamics
 associations:
-- source: ProprietaryParameterDynamics
-  target: PFVArControllerType2UserDefined
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetName: PFVArControllerType2UserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+- source: PFVArControllerType2UserDefined
+  target: ProprietaryParameterDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PFVArControllerType2UserDefined
+  sourceDescription: Proprietary user-defined model with which this parameter is associated.
+  targetName: ProprietaryParameterDynamics
+  targetDescription: Parameter of this proprietary user-defined model.

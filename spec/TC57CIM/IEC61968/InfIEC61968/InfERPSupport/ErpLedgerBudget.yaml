@@ -4,9 +4,9 @@ description: Information for utility Ledger Budgets. They support the transfer b
 ancestors:
 - ErpDocument
 associations:
-- source: ErpLedBudLineItem
-  target: ErpLedgerBudget
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpLedBudLineItems
-  targetName: ErpLedgerBudget
+- source: ErpLedgerBudget
+  target: ErpLedBudLineItem
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpLedgerBudget
+  targetName: ErpLedBudLineItems

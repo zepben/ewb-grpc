@@ -40,31 +40,31 @@ associations:
   targetCardinality: 0..*
   sourceName: TypeAsset
   targetName: ErpBomItemDatas
-- source: ErpIssueInventory
-  target: CatalogAssetType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpInventoryIssues
-  targetName: TypeAsset
-- source: CompatibleUnit
-  target: CatalogAssetType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: CompatibleUnits
-  targetName: GenericAssetModel
-- source: ProductAssetModel
-  target: CatalogAssetType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProductAssetModel
-  sourceDescription: Product asset model conforming to this catalog asset type.
-  targetName: CatalogAssetType
-  targetDescription: Catalog asset type to which this product asset model conforms.
-- source: AssetInfo
-  target: CatalogAssetType
+- source: CatalogAssetType
+  target: ErpIssueInventory
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TypeAsset
+  targetName: ErpInventoryIssues
+- source: CatalogAssetType
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GenericAssetModel
+  targetName: CompatibleUnits
+- source: CatalogAssetType
+  target: ProductAssetModel
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CatalogAssetType
+  sourceDescription: Catalog asset type to which this product asset model conforms.
+  targetName: ProductAssetModel
+  targetDescription: Product asset model conforming to this catalog asset type.
+- source: CatalogAssetType
+  target: AssetInfo
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: AssetInfo
-  sourceDescription: Generic nameplate information associated with this catalog asset type.
-  targetName: CatalogAssetType
-  targetDescription: Asset information (nameplate) for this catalog asset type.
+  sourceName: CatalogAssetType
+  sourceDescription: Asset information (nameplate) for this catalog asset type.
+  targetName: AssetInfo
+  targetDescription: Generic nameplate information associated with this catalog asset type.

@@ -13,17 +13,17 @@ associations:
   targetCardinality: 0..1
   sourceName: WorkLocations
   targetName: OneCallRequest
-- source: DesignLocation
-  target: WorkLocation
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: DesignLocations
-  targetName: WorkLocations
-- source: BaseWork
-  target: WorkLocation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: BaseWorks
-  sourceDescription: All works/tasks at this location.
-  targetName: WorkLocation
-  targetDescription: Location for this work/task.
+- source: WorkLocation
+  target: DesignLocation
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: WorkLocations
+  targetName: DesignLocations
+- source: WorkLocation
+  target: BaseWork
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WorkLocation
+  sourceDescription: Location for this work/task.
+  targetName: BaseWorks
+  targetDescription: All works/tasks at this location.

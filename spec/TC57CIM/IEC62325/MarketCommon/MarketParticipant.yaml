@@ -19,33 +19,33 @@ associations:
   targetCardinality: 0..*
   sourceName: MarketParticipant
   targetName: MarketDocument
-- source: SchedulingCoordinator
-  target: MarketParticipant
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SchedulingCoordinator
-  targetName: MarketParticipant
-- source: Bid
-  target: MarketParticipant
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Bid
-  targetName: MarketParticipant
-- source: TimeSeries
-  target: MarketParticipant
+- source: MarketParticipant
+  target: SchedulingCoordinator
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MarketParticipant
+  targetName: SchedulingCoordinator
+- source: MarketParticipant
+  target: Bid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MarketParticipant
+  targetName: Bid
+- source: MarketParticipant
+  target: TimeSeries
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TimeSeries
-  targetName: MarketParticipant
-- source: MarketRole
-  target: MarketParticipant
+  sourceName: MarketParticipant
+  targetName: TimeSeries
+- source: MarketParticipant
+  target: MarketRole
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketRole
-  targetName: MarketParticipant
-- source: RegisteredResource
-  target: MarketParticipant
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: RegisteredResource
-  targetName: MarketParticipant
+  sourceName: MarketParticipant
+  targetName: MarketRole
+- source: MarketParticipant
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MarketParticipant
+  targetName: RegisteredResource

@@ -4,11 +4,11 @@ description: Custom description of the type of crew. This may be used to determi
 ancestors:
 - IdentifiedObject
 associations:
-- source: Crew
-  target: CrewType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Crews
-  sourceDescription: All crews of this type.
-  targetName: CrewType
-  targetDescription: Type of this crew.
+- source: CrewType
+  target: Crew
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CrewType
+  sourceDescription: Type of this crew.
+  targetName: Crews
+  targetDescription: All crews of this type.

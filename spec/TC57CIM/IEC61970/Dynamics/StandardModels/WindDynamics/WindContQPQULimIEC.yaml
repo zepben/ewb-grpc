@@ -22,11 +22,11 @@ associations:
   sourceDescription: QP and QU limitation model associated with this wind generator type 3 or type 4 model.
   targetName: WindTurbineType3or4IEC
   targetDescription: Wind generator type 3 or type 4 model with which this QP and QU limitation model is associated.
-- source: WindDynamicsLookupTable
-  target: WindContQPQULimIEC
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: WindDynamicsLookupTable
-  sourceDescription: The wind dynamics lookup table associated with this QP and QU limitation model.
-  targetName: WindContQPQULimIEC
-  targetDescription: The QP and QU limitation model with which this wind dynamics lookup table is associated.
+- source: WindContQPQULimIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: WindContQPQULimIEC
+  sourceDescription: The QP and QU limitation model with which this wind dynamics lookup table is associated.
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this QP and QU limitation model.

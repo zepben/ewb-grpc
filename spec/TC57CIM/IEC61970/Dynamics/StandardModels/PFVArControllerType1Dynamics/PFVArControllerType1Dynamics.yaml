@@ -24,11 +24,11 @@ associations:
   sourceDescription: Power factor or VAr controller type 1 model using this remote input signal.
   targetName: RemoteInputSignal
   targetDescription: Remote input signal used by this power factor or VAr controller type 1 model.
-- source: VoltageAdjusterDynamics
-  target: PFVArControllerType1Dynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: VoltageAdjusterDynamics
-  sourceDescription: Voltage adjuster model associated with this power factor or VAr controller type 1 model.
-  targetName: PFVArControllerType1Dynamics
-  targetDescription: Power factor or VAr controller type 1 model with which this voltage adjuster is associated.
+- source: PFVArControllerType1Dynamics
+  target: VoltageAdjusterDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: PFVArControllerType1Dynamics
+  sourceDescription: Power factor or VAr controller type 1 model with which this voltage adjuster is associated.
+  targetName: VoltageAdjusterDynamics
+  targetDescription: Voltage adjuster model associated with this power factor or VAr controller type 1 model.

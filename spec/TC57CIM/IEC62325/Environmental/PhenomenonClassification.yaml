@@ -11,18 +11,18 @@ associations:
   sourceDescription: Phenomenon classification defined by this environmental data authority.
   targetName: EnvironmentalDataAuthority
   targetDescription: Authority defining this environmental phenomenon.
-- source: EnvironmentalPhenomenon
-  target: PhenomenonClassification
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnvironmentalPhenomenon
-  targetName: PhenomenonClassification
-  targetDescription: The classification of this phenomenon.
-- source: ClassificationCondition
-  target: PhenomenonClassification
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ClassificationCondition
-  sourceDescription: Condition contributing to the classification of this phenomenon.
-  targetName: PhenomenonClassification
-  targetDescription: Phenomenon classification to which this condition relates.
+- source: PhenomenonClassification
+  target: EnvironmentalPhenomenon
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PhenomenonClassification
+  sourceDescription: The classification of this phenomenon.
+  targetName: EnvironmentalPhenomenon
+- source: PhenomenonClassification
+  target: ClassificationCondition
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PhenomenonClassification
+  sourceDescription: Phenomenon classification to which this condition relates.
+  targetName: ClassificationCondition
+  targetDescription: Condition contributing to the classification of this phenomenon.

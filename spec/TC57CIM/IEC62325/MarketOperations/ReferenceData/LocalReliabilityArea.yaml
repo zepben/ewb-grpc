@@ -9,9 +9,9 @@ associations:
   targetCardinality: 0..*
   sourceName: LocalReliabilityArea
   targetName: RegisteredGenerator
-- source: RTO
-  target: LocalReliabilityArea
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RTO
-  targetName: LocalReliabilityArea
+- source: LocalReliabilityArea
+  target: RTO
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LocalReliabilityArea
+  targetName: RTO

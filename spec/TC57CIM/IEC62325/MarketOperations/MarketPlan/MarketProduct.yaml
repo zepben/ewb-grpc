@@ -57,17 +57,17 @@ associations:
   targetCardinality: 0..1
   sourceName: MarketProducts
   targetName: Market
-- source: ReserveReq
-  target: MarketProduct
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ReserveReqs
+- source: MarketProduct
+  target: ReserveReq
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MarketProduct
   sourceDescription: Market product associated with reserve requirement must be a reserve or regulation product.
-  targetName: MarketProduct
+  targetName: ReserveReqs
   targetDescription: Market product associated with reserve requirement must be a reserve or regulation product.
-- source: CommodityDefinition
-  target: MarketProduct
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CommodityDefinition
-  targetName: MarketProduct
+- source: MarketProduct
+  target: CommodityDefinition
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MarketProduct
+  targetName: CommodityDefinition

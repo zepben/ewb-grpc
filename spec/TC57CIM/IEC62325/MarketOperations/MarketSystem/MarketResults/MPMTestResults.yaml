@@ -11,21 +11,21 @@ attributes:
   description: The results of the test. For the Price, Impact, and Conduct tests, typical values are NA, Pass, Fail, Disable,
     or Skip.
 associations:
-- source: AggregatedPnode
-  target: MPMTestResults
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: AggregatedPnode
-  targetName: MPMTestResults
-- source: MPMTestCategory
-  target: MPMTestResults
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MPMTestCategory
-  targetName: MPMTestResults
-- source: MPMClearing
-  target: MPMTestResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MPMClearing
-  targetName: MPMTestResults
+- source: MPMTestResults
+  target: AggregatedPnode
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: MPMTestResults
+  targetName: AggregatedPnode
+- source: MPMTestResults
+  target: MPMTestCategory
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MPMTestResults
+  targetName: MPMTestCategory
+- source: MPMTestResults
+  target: MPMClearing
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MPMTestResults
+  targetName: MPMClearing

@@ -12,9 +12,9 @@ attributes:
 - name: thresholdType
   type: String
 associations:
-- source: Bid
-  target: MitigatedBidSegment
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Bid
-  targetName: MitigatedBidSegment
+- source: MitigatedBidSegment
+  target: Bid
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MitigatedBidSegment
+  targetName: Bid

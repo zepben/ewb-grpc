@@ -4,9 +4,9 @@ description: Transaction representing an invoice, credit memo or debit memo to a
 ancestors:
 - ErpDocument
 associations:
-- source: ErpRecLineItem
-  target: ErpReceivable
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpRecLineItems
-  targetName: ErpReceivable
+- source: ErpReceivable
+  target: ErpRecLineItem
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpReceivable
+  targetName: ErpRecLineItems

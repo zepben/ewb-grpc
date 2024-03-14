@@ -68,11 +68,11 @@ attributes:
 ancestors:
 - ACDCConverter
 associations:
-- source: CSCDynamics
-  target: CsConverter
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: CSCDynamics
-  sourceDescription: Current source converter dynamics model used to describe dynamic behaviour of this converter.
-  targetName: CSConverter
-  targetDescription: Current source converter to which current source converter dynamics model applies.
+- source: CsConverter
+  target: CSCDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: CSConverter
+  sourceDescription: Current source converter to which current source converter dynamics model applies.
+  targetName: CSCDynamics
+  targetDescription: Current source converter dynamics model used to describe dynamic behaviour of this converter.

@@ -5,11 +5,11 @@ description: A non linear shunt compensator has bank or section admittance value
 ancestors:
 - ShuntCompensator
 associations:
-- source: NonlinearShuntCompensatorPoint
-  target: NonlinearShuntCompensator
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: NonlinearShuntCompensatorPoints
-  sourceDescription: All points of the non-linear shunt compensator.
-  targetName: NonlinearShuntCompensator
-  targetDescription: Non-linear shunt compensator owning this point.
+- source: NonlinearShuntCompensator
+  target: NonlinearShuntCompensatorPoint
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: NonlinearShuntCompensator
+  sourceDescription: Non-linear shunt compensator owning this point.
+  targetName: NonlinearShuntCompensatorPoints
+  targetDescription: All points of the non-linear shunt compensator.

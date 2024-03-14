@@ -13,11 +13,11 @@ associations:
   sourceDescription: ICCP information in a Bilateral table that will be exposed to a remote peer.
   targetName: BilateralExchangeActor
   targetDescription: Remote peer that will receive ICCP information in a Bilateral table.
-- source: IOPoint
-  target: ProvidedBilateralPoint
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: IOPoint
-  sourceDescription: Measurement or control for the bilateral ICCP point.
-  targetName: BilateralToIOPoint
-  targetDescription: Bilateral ICCP point for the measurement or control.
+- source: ProvidedBilateralPoint
+  target: IOPoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BilateralToIOPoint
+  sourceDescription: Bilateral ICCP point for the measurement or control.
+  targetName: IOPoint
+  targetDescription: Measurement or control for the bilateral ICCP point.

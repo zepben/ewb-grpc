@@ -11,19 +11,19 @@ descendents:
 - Recloser
 - Breaker
 associations:
-- source: ProtectionEquipment
-  target: ProtectedSwitch
+- source: ProtectedSwitch
+  target: ProtectionEquipment
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: OperatedByProtectionEquipment
-  sourceDescription: Protection equipments that operate this ProtectedSwitch.
-  targetName: ProtectedSwitches
-  targetDescription: Protected switches operated by this ProtectionEquipment.
-- source: RecloseSequence
-  target: ProtectedSwitch
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: RecloseSequences
+  sourceName: ProtectedSwitches
+  sourceDescription: Protected switches operated by this ProtectionEquipment.
+  targetName: OperatedByProtectionEquipment
+  targetDescription: Protection equipments that operate this ProtectedSwitch.
+- source: ProtectedSwitch
+  target: RecloseSequence
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ProtectedSwitch
   sourceDescription: A breaker may have zero or more automatic reclosures after a trip occurs.
-  targetName: ProtectedSwitch
+  targetName: RecloseSequences
   targetDescription: A breaker may have zero or more automatic reclosures after a trip occurs.

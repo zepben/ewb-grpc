@@ -12,19 +12,19 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: PlannedMarket
-  target: PlannedMarketEvent
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: PlannedMarket
-  sourceDescription: A planned market shall have a set of planned events
-  targetName: PlannedMarketEvent
-  targetDescription: A planned market shall have a set of planned events
-- source: MarketActualEvent
-  target: PlannedMarketEvent
+- source: PlannedMarketEvent
+  target: PlannedMarket
   sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: MarketActualEvent
-  sourceDescription: All actual events that execute this planned event.
-  targetName: PlannedMarketEvent
-  targetDescription: Planned event executed by this actual event.
+  targetCardinality: 0..*
+  sourceName: PlannedMarketEvent
+  sourceDescription: A planned market shall have a set of planned events
+  targetName: PlannedMarket
+  targetDescription: A planned market shall have a set of planned events
+- source: PlannedMarketEvent
+  target: MarketActualEvent
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: PlannedMarketEvent
+  sourceDescription: Planned event executed by this actual event.
+  targetName: MarketActualEvent
+  targetDescription: All actual events that execute this planned event.

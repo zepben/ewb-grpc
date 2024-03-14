@@ -17,11 +17,11 @@ associations:
   targetName: ConductingEquipment
   targetDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used
     and only one base voltage applies.  For example, not used for transformers.
-- source: TransformerEnd
-  target: BaseVoltage
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TransformerEnds
-  sourceDescription: Transformer ends at the base voltage.  This is essential for PU calculation.
-  targetName: BaseVoltage
-  targetDescription: Base voltage of the transformer end.  This is essential for PU calculation.
+- source: BaseVoltage
+  target: TransformerEnd
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: BaseVoltage
+  sourceDescription: Base voltage of the transformer end.  This is essential for PU calculation.
+  targetName: TransformerEnds
+  targetDescription: Transformer ends at the base voltage.  This is essential for PU calculation.

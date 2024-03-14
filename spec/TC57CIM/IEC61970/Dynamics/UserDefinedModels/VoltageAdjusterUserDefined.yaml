@@ -11,11 +11,11 @@ attributes:
 ancestors:
 - VoltageAdjusterDynamics
 associations:
-- source: ProprietaryParameterDynamics
-  target: VoltageAdjusterUserDefined
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetName: VoltageAdjusterUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+- source: VoltageAdjusterUserDefined
+  target: ProprietaryParameterDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: VoltageAdjusterUserDefined
+  sourceDescription: Proprietary user-defined model with which this parameter is associated.
+  targetName: ProprietaryParameterDynamics
+  targetDescription: Parameter of this proprietary user-defined model.

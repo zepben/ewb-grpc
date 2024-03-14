@@ -43,10 +43,10 @@ associations:
   sourceName: StageTrigger
   targetName: GateTrigger
   targetDescription: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
-- source: ProtectiveActionCollection
-  target: StageTrigger
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ProtectiveActionCollection
-  targetName: StageTrigger
-  targetDescription: When condition to the StageTrigger is met, the actions in the ProtectiveActionCollection are activated/triggered.
+- source: StageTrigger
+  target: ProtectiveActionCollection
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: StageTrigger
+  sourceDescription: When condition to the StageTrigger is met, the actions in the ProtectiveActionCollection are activated/triggered.
+  targetName: ProtectiveActionCollection

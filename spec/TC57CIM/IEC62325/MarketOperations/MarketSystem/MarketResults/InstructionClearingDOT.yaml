@@ -15,9 +15,9 @@ associations:
   targetCardinality: 1..*
   sourceName: InstructionClearingDOT
   targetName: DotInstruction
-- source: DistributedResourceActualEvent
-  target: InstructionClearingDOT
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DemandResponseActualEvent
-  targetName: InstructionClearingDOT
+- source: InstructionClearingDOT
+  target: DistributedResourceActualEvent
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: InstructionClearingDOT
+  targetName: DemandResponseActualEvent

@@ -7,9 +7,9 @@ attributes:
 ancestors:
 - MarketFactors
 associations:
-- source: RegisteredResource
-  target: IntermittentResourceEligibility
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: IntermittentResourceEligibility
+- source: IntermittentResourceEligibility
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: IntermittentResourceEligibility
+  targetName: RegisteredResource

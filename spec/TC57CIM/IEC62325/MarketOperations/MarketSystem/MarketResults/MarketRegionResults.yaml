@@ -51,21 +51,21 @@ attributes:
   type: Float
   description: Aof AS, selfScheduleMW = AS Self-Provided
 associations:
-- source: AncillaryServiceClearing
-  target: MarketRegionResults
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: AncillaryServiceClearing
-  targetName: MarketRegionResults
-- source: MarketRegion
-  target: MarketRegionResults
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: MarketRegion
-  targetName: MarketRegionResults
-- source: MarketProduct
-  target: MarketRegionResults
+- source: MarketRegionResults
+  target: AncillaryServiceClearing
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: MarketRegionResults
+  targetName: AncillaryServiceClearing
+- source: MarketRegionResults
+  target: MarketRegion
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: MarketRegionResults
+  targetName: MarketRegion
+- source: MarketRegionResults
+  target: MarketProduct
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: MarketProduct
-  targetName: MarketRegionResults
+  sourceName: MarketRegionResults
+  targetName: MarketProduct

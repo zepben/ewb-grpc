@@ -12,9 +12,9 @@ descendents:
 - NodeConstraintTerm
 - TerminalConstraintTerm
 associations:
-- source: SecurityConstraintSum
-  target: ConstraintTerm
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: SecurityConstraintSum
-  targetName: ConstraintTerms
+- source: ConstraintTerm
+  target: SecurityConstraintSum
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ConstraintTerms
+  targetName: SecurityConstraintSum

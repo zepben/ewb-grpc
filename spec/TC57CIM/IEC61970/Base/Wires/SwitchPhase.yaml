@@ -24,11 +24,11 @@ attributes:
 ancestors:
 - PowerSystemResource
 associations:
-- source: Switch
-  target: SwitchPhase
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Switch
-  sourceDescription: The switch of the switch phase.
-  targetName: SwitchPhase
-  targetDescription: The individual switch phases for the switch.
+- source: SwitchPhase
+  target: Switch
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: SwitchPhase
+  sourceDescription: The individual switch phases for the switch.
+  targetName: Switch
+  targetDescription: The switch of the switch phase.

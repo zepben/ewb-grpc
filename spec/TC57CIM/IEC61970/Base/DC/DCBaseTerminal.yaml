@@ -16,11 +16,11 @@ associations:
   sourceDescription: See association end TopologicalNode.Terminal.
   targetName: DCTopologicalNode
   targetDescription: See association end Terminal.TopologicalNode.
-- source: DCNode
-  target: DCBaseTerminal
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DCNode
-  sourceDescription: The DC connectivity node to which this DC base terminal connects with zero impedance.
-  targetName: DCTerminals
-  targetDescription: DC base terminals interconnected with zero impedance at a this DC connectivity node.
+- source: DCBaseTerminal
+  target: DCNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DCTerminals
+  sourceDescription: DC base terminals interconnected with zero impedance at a this DC connectivity node.
+  targetName: DCNode
+  targetDescription: The DC connectivity node to which this DC base terminal connects with zero impedance.

@@ -30,15 +30,15 @@ attributes:
   type: Float
   description: Total Transmission Capacity
 associations:
-- source: Flowgate
-  target: TransmissionCapacity
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Flowgate
-  targetName: TransmissionCapacity
-- source: GenericConstraints
-  target: TransmissionCapacity
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: GenericConstraints
-  targetName: TransmissionCapacity
+- source: TransmissionCapacity
+  target: Flowgate
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransmissionCapacity
+  targetName: Flowgate
+- source: TransmissionCapacity
+  target: GenericConstraints
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransmissionCapacity
+  targetName: GenericConstraints

@@ -3,9 +3,9 @@ description: Subclass of IEC61970:Production:GeneratingUnit.
 ancestors:
 - GeneratingUnit
 associations:
-- source: GeneratingUnitDynamicValues
-  target: MktGeneratingUnit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: GeneratingUnitDynamicValues
-  targetName: MktGeneratingUnit
+- source: MktGeneratingUnit
+  target: GeneratingUnitDynamicValues
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktGeneratingUnit
+  targetName: GeneratingUnitDynamicValues

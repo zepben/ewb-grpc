@@ -7,19 +7,19 @@ associations:
   target: AvailablityPlan
   sourceCardinality: 0..*
   targetCardinality: 0..1
-- source: EquipmentUnavailabilitySchedule
-  target: UnavailablitySchedule
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-- source: UnavailabilityScheduleDependency
-  target: UnavailablitySchedule
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: DependsOn
-  targetName: UnavailabilityScheduleImpacts
-- source: UnavailabilityScheduleDependency
-  target: UnavailablitySchedule
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Impacts
-  targetName: UnavailabilityScheduleDependsOn
+- source: UnavailablitySchedule
+  target: EquipmentUnavailabilitySchedule
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+- source: UnavailablitySchedule
+  target: UnavailabilityScheduleDependency
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: UnavailabilityScheduleImpacts
+  targetName: DependsOn
+- source: UnavailablitySchedule
+  target: UnavailabilityScheduleDependency
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: UnavailabilityScheduleDependsOn
+  targetName: Impacts

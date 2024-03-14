@@ -3,9 +3,9 @@ description: The energy seller in the energy marketplace.
 ancestors:
 - Organisation
 associations:
-- source: EnergyProduct
-  target: GenerationProvider
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: ProvidedBy
-  targetName: GenerationProvider
+- source: GenerationProvider
+  target: EnergyProduct
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: GenerationProvider
+  targetName: ProvidedBy

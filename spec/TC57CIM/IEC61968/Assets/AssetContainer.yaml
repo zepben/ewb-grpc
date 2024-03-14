@@ -18,17 +18,17 @@ associations:
   sourceDescription: Asset container to which this seal is applied.
   targetName: Seals
   targetDescription: All seals applied to this asset container.
-- source: LandProperty
-  target: AssetContainer
+- source: AssetContainer
+  target: LandProperty
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: LandProperties
-  targetName: AssetContainers
-- source: Asset
-  target: AssetContainer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Assets
-  sourceDescription: All assets within this container asset.
-  targetName: AssetContainer
-  targetDescription: Container of this asset.
+  sourceName: AssetContainers
+  targetName: LandProperties
+- source: AssetContainer
+  target: Asset
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetContainer
+  sourceDescription: Container of this asset.
+  targetName: Assets
+  targetDescription: All assets within this container asset.

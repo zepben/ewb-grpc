@@ -57,49 +57,49 @@ associations:
   targetName: EnergyProduct
   targetDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
     this is a ServicePoint.
-- source: SubControlArea
-  target: EnergyTransaction
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Export_SubControlArea
-  sourceDescription: Energy is transferred between interchange areas
-  targetName: Export_EnergyTransactions
-  targetDescription: Energy is transferred between interchange areas
-- source: EnergyProfile
-  target: EnergyTransaction
-  sourceCardinality: 1..*
+- source: EnergyTransaction
+  target: SubControlArea
+  sourceCardinality: 0..*
   targetCardinality: "1"
-  sourceName: EnergyProfiles
+  sourceName: Export_EnergyTransactions
+  sourceDescription: Energy is transferred between interchange areas
+  targetName: Export_SubControlArea
+  targetDescription: Energy is transferred between interchange areas
+- source: EnergyTransaction
+  target: EnergyProfile
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: EnergyTransaction
   sourceDescription: An EnergyTransaction shall have at least one EnergyProfile.
-  targetName: EnergyTransaction
+  targetName: EnergyProfiles
   targetDescription: An EnergyTransaction shall have at least one EnergyProfile.
-- source: CurtailmentProfile
-  target: EnergyTransaction
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CurtailmentProfiles
-  sourceDescription: An EnergyTransaction may be curtailed by any of the participating entities.
-  targetName: EnergyTransaction
-  targetDescription: An EnergyTransaction may be curtailed by any of the participating entities.
-- source: SubControlArea
-  target: EnergyTransaction
+- source: EnergyTransaction
+  target: CurtailmentProfile
   sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: Import_SubControlArea
-  sourceDescription: Energy is transferred between interchange areas
-  targetName: Import_EnergyTransactions
-  targetDescription: Energy is transferred between interchange areas
-- source: LossProfile
-  target: EnergyTransaction
+  sourceName: EnergyTransaction
+  sourceDescription: An EnergyTransaction may be curtailed by any of the participating entities.
+  targetName: CurtailmentProfiles
+  targetDescription: An EnergyTransaction may be curtailed by any of the participating entities.
+- source: EnergyTransaction
+  target: SubControlArea
   sourceCardinality: 0..*
   targetCardinality: "1"
-  sourceName: LossProfiles
+  sourceName: Import_EnergyTransactions
+  sourceDescription: Energy is transferred between interchange areas
+  targetName: Import_SubControlArea
+  targetDescription: Energy is transferred between interchange areas
+- source: EnergyTransaction
+  target: LossProfile
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EnergyTransaction
   sourceDescription: An EnergyTransaction may have a LossProfile.
-  targetName: EnergyTransaction
+  targetName: LossProfiles
   targetDescription: An EnergyTransaction may have a LossProfile.
-- source: TransmissionReservation
-  target: EnergyTransaction
+- source: EnergyTransaction
+  target: TransmissionReservation
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: TransmissionReservation
-  targetName: EnergyTransaction
+  sourceName: EnergyTransaction
+  targetName: TransmissionReservation

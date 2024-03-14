@@ -76,33 +76,33 @@ associations:
   sourceDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
   targetName: RegisteredResources
   targetDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
-- source: AggregateNode
-  target: Pnode
+- source: Pnode
+  target: AggregateNode
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: AggregateNode
-  targetName: Pnode
-- source: FTR
-  target: Pnode
+  sourceName: Pnode
+  targetName: AggregateNode
+- source: Pnode
+  target: FTR
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: FTRs
-  targetName: Pnodes
-- source: OrgPnodeAllocation
-  target: Pnode
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: OrgPnodeAllocation
-  targetName: Pnode
-- source: RTO
-  target: Pnode
-  sourceCardinality: 0..1
+  sourceName: Pnodes
+  targetName: FTRs
+- source: Pnode
+  target: OrgPnodeAllocation
+  sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: RTO
-  targetName: Pnodes
-- source: CommodityDefinition
-  target: Pnode
+  sourceName: Pnode
+  targetName: OrgPnodeAllocation
+- source: Pnode
+  target: RTO
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CommodityDefinition
-  targetName: Pnode
+  targetCardinality: 0..1
+  sourceName: Pnodes
+  targetName: RTO
+- source: Pnode
+  target: CommodityDefinition
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Pnode
+  targetName: CommodityDefinition

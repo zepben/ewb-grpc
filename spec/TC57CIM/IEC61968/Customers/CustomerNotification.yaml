@@ -34,11 +34,11 @@ associations:
   sourceDescription: All notifications required by this customer.
   targetName: Customer
   targetDescription: Customer requiring this notification.
-- source: Incident
-  target: CustomerNotification
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Incident
-  sourceDescription: Incident as a subject of this customer notification.
-  targetName: CustomerNotifications
-  targetDescription: All notifications for a customer related to the status change of this incident.
+- source: CustomerNotification
+  target: Incident
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CustomerNotifications
+  sourceDescription: All notifications for a customer related to the status change of this incident.
+  targetName: Incident
+  targetDescription: Incident as a subject of this customer notification.

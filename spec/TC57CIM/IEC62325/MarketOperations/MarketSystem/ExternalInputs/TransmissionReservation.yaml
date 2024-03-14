@@ -14,21 +14,21 @@ associations:
   targetCardinality: 0..1
   sourceName: TransmissionReservation
   targetName: EnergyTransaction
-- source: TransmissionPath
-  target: TransmissionReservation
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: TransmissionPath
-  targetName: TransmissionReservation
-- source: ServicePoint
-  target: TransmissionReservation
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Source
-  targetName: SourceReservation
-- source: ServicePoint
-  target: TransmissionReservation
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Sink
-  targetName: SinkReservation
+- source: TransmissionReservation
+  target: TransmissionPath
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TransmissionReservation
+  targetName: TransmissionPath
+- source: TransmissionReservation
+  target: ServicePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SourceReservation
+  targetName: Source
+- source: TransmissionReservation
+  target: ServicePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SinkReservation
+  targetName: Sink

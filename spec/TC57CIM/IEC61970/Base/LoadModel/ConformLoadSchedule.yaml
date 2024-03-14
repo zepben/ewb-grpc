@@ -5,11 +5,11 @@ description: A curve of load  versus time (X-axis) showing the active power valu
 ancestors:
 - SeasonDayTypeSchedule
 associations:
-- source: ConformLoadGroup
-  target: ConformLoadSchedule
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ConformLoadGroup
-  sourceDescription: The ConformLoadGroup where the ConformLoadSchedule belongs.
-  targetName: ConformLoadSchedules
-  targetDescription: The ConformLoadSchedules in the ConformLoadGroup.
+- source: ConformLoadSchedule
+  target: ConformLoadGroup
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ConformLoadSchedules
+  sourceDescription: The ConformLoadSchedules in the ConformLoadGroup.
+  targetName: ConformLoadGroup
+  targetDescription: The ConformLoadGroup where the ConformLoadSchedule belongs.

@@ -5,11 +5,11 @@ ancestors:
 descendents:
 - FieldSafetySupervisor
 associations:
-- source: Crew
-  target: CrewMember
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Crew
-  sourceDescription: Crew to which this crew member belongs.
-  targetName: CrewMembers
-  targetDescription: All members of this crew.
+- source: CrewMember
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CrewMembers
+  sourceDescription: All members of this crew.
+  targetName: Crew
+  targetDescription: Crew to which this crew member belongs.

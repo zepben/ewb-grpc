@@ -8,21 +8,21 @@ attributes:
 
     'N' - not applicable
 associations:
-- source: MPMTestCategory
-  target: MPMResourceStatus
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MPMTestCategory
-  targetName: MPMResourceStatus
-- source: MitigatedBidClearing
-  target: MPMResourceStatus
-  sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: MitigatedBidClearing
-  targetName: MPMResourceStatus
-- source: RegisteredResource
-  target: MPMResourceStatus
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: MPMResourceStatus
+- source: MPMResourceStatus
+  target: MPMTestCategory
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MPMResourceStatus
+  targetName: MPMTestCategory
+- source: MPMResourceStatus
+  target: MitigatedBidClearing
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: MPMResourceStatus
+  targetName: MitigatedBidClearing
+- source: MPMResourceStatus
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MPMResourceStatus
+  targetName: RegisteredResource

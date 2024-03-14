@@ -28,11 +28,11 @@ attributes:
 ancestors:
 - TCPAccessPoint
 associations:
-- source: PublicX509Certificate
-  target: ISOUpperLayer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: UpperLayerPublicX509Certificate
-  sourceDescription: Certificate to be bound for use for Application layer mutual authentication.
-  targetName: ISOUpperLayer
-  targetDescription: Application layer used with the certificate for mutual authentication.
+- source: ISOUpperLayer
+  target: PublicX509Certificate
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ISOUpperLayer
+  sourceDescription: Application layer used with the certificate for mutual authentication.
+  targetName: UpperLayerPublicX509Certificate
+  targetDescription: Certificate to be bound for use for Application layer mutual authentication.

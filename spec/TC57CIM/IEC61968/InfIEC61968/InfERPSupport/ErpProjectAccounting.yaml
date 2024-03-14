@@ -11,21 +11,21 @@ associations:
   targetCardinality: 0..*
   sourceName: ErpProjectAccounting
   targetName: Projects
-- source: ErpTimeEntry
-  target: ErpProjectAccounting
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpTimeEntries
-  targetName: ErpProjectAccounting
-- source: WorkCostDetail
-  target: ErpProjectAccounting
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: WorkCostDetails
-  targetName: ErpProjectAccounting
-- source: Work
-  target: ErpProjectAccounting
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Works
-  targetName: ErpProjectAccounting
+- source: ErpProjectAccounting
+  target: ErpTimeEntry
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ErpProjectAccounting
+  targetName: ErpTimeEntries
+- source: ErpProjectAccounting
+  target: WorkCostDetail
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpProjectAccounting
+  targetName: WorkCostDetails
+- source: ErpProjectAccounting
+  target: Work
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ErpProjectAccounting
+  targetName: Works

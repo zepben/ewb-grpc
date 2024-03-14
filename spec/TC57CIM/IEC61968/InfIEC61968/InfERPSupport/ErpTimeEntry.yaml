@@ -12,9 +12,9 @@ associations:
   targetCardinality: 0..1
   sourceName: ErpTimeEntries
   targetName: ErpProjectAccounting
-- source: ErpTimeSheet
-  target: ErpTimeEntry
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ErpTimeSheet
-  targetName: ErpTimeEntries
+- source: ErpTimeEntry
+  target: ErpTimeSheet
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpTimeEntries
+  targetName: ErpTimeSheet

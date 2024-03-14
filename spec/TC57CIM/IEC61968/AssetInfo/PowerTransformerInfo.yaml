@@ -3,11 +3,11 @@ description: Set of power transformer data, from an equipment library.
 ancestors:
 - AssetInfo
 associations:
-- source: TransformerTankInfo
-  target: PowerTransformerInfo
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: TransformerTankInfos
-  sourceDescription: Data for all the tanks described by this power transformer data.
-  targetName: PowerTransformerInfo
-  targetDescription: Power transformer data that this tank description is part of.
+- source: PowerTransformerInfo
+  target: TransformerTankInfo
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: PowerTransformerInfo
+  sourceDescription: Power transformer data that this tank description is part of.
+  targetName: TransformerTankInfos
+  targetDescription: Data for all the tanks described by this power transformer data.

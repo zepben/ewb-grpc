@@ -61,21 +61,21 @@ associations:
   targetCardinality: 0..*
   sourceName: TransformerObservation
   targetName: WindingInsulationPFs
-- source: BushingInsulationPF
-  target: TransformerObservation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: BushingInsultationPFs
-  targetName: TransformerObservation
-- source: Reconditioning
-  target: TransformerObservation
-  sourceCardinality: "1"
+- source: TransformerObservation
+  target: BushingInsulationPF
+  sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Reconditioning
-  targetName: TransformerObservations
-- source: ProcedureDataSet
-  target: TransformerObservation
+  sourceName: TransformerObservation
+  targetName: BushingInsultationPFs
+- source: TransformerObservation
+  target: Reconditioning
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TransformerObservations
+  targetName: Reconditioning
+- source: TransformerObservation
+  target: ProcedureDataSet
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ProcedureDataSets
-  targetName: TransformerObservations
+  sourceName: TransformerObservations
+  targetName: ProcedureDataSets

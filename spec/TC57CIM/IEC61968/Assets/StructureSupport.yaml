@@ -25,11 +25,11 @@ attributes:
 ancestors:
 - Asset
 associations:
-- source: Structure
-  target: StructureSupport
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: SecuredStructure
-  sourceDescription: The secured structure supported by this structure support.
-  targetName: StructureSupports
-  targetDescription: Structure support for this structure.
+- source: StructureSupport
+  target: Structure
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: StructureSupports
+  sourceDescription: Structure support for this structure.
+  targetName: SecuredStructure
+  targetDescription: The secured structure supported by this structure support.

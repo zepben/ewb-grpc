@@ -8,9 +8,9 @@ attributes:
   type: Float
   description: Existing transmission contract usage MW value
 associations:
-- source: InterchangeSchedule
-  target: InterchangeETCData
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: InterchangeSchedule
-  targetName: InterchangeETCData
+- source: InterchangeETCData
+  target: InterchangeSchedule
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: InterchangeETCData
+  targetName: InterchangeSchedule

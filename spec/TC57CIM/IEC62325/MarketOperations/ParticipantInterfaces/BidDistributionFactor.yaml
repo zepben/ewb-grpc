@@ -14,9 +14,9 @@ associations:
   targetCardinality: 0..*
   sourceName: BidDistributionFactor
   targetName: PnodeDistributionFactor
-- source: ProductBid
-  target: BidDistributionFactor
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ProductBid
-  targetName: BidDistributionFactor
+- source: BidDistributionFactor
+  target: ProductBid
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: BidDistributionFactor
+  targetName: ProductBid

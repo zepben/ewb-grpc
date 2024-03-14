@@ -15,15 +15,15 @@ associations:
   targetCardinality: 1..*
   sourceName: NMProjectStage
   targetName: ChangeSets
-- source: AnnotatedProjectDependency
-  target: NetworkModelProjectStage
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: DependencyDependentOnStage
-  targetName: DependentOnStage
-- source: AnnotatedProjectDependency
-  target: NetworkModelProjectStage
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: DenpendecyDependingStage
-  targetName: DependingStage
+- source: NetworkModelProjectStage
+  target: AnnotatedProjectDependency
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: DependentOnStage
+  targetName: DependencyDependentOnStage
+- source: NetworkModelProjectStage
+  target: AnnotatedProjectDependency
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: DependingStage
+  targetName: DenpendecyDependingStage

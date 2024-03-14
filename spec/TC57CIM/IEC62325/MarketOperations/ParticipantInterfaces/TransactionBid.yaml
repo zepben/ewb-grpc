@@ -14,33 +14,33 @@ attributes:
 ancestors:
 - Bid
 associations:
-- source: TransactionBidResults
-  target: TransactionBid
+- source: TransactionBid
+  target: TransactionBidResults
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TransactionBid
+  targetName: TransactionBidResults
+- source: TransactionBid
+  target: Pnode
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: TransactionBidResults
-  targetName: TransactionBid
-- source: Pnode
-  target: TransactionBid
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Receipt_Pnode
-  targetName: ReceiptTransactionBids
-- source: Pnode
-  target: TransactionBid
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Delivery_Pnode
-  targetName: DeliveryTransactionBids
-- source: EnergyProfile
-  target: TransactionBid
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: EnergyProfiles
-  targetName: TransactionBid
-- source: TransmissionReservation
-  target: TransactionBid
+  sourceName: ReceiptTransactionBids
+  targetName: Receipt_Pnode
+- source: TransactionBid
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DeliveryTransactionBids
+  targetName: Delivery_Pnode
+- source: TransactionBid
+  target: EnergyProfile
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: TransactionBid
+  targetName: EnergyProfiles
+- source: TransactionBid
+  target: TransmissionReservation
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: TransmissionReservation
-  targetName: TransactionBid
+  sourceName: TransactionBid
+  targetName: TransmissionReservation

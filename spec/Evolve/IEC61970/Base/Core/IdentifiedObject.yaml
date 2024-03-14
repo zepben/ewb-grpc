@@ -47,11 +47,11 @@ associations:
   sourceDescription: The domain object to which this diagram object is associated.
   targetName: DiagramObjects
   targetDescription: The diagram objects that are associated with the domain object.
-- source: Name
-  target: IdentifiedObject
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Names
-  sourceDescription: All names of this identified object.
-  targetName: IdentifiedObject
-  targetDescription: Identified object that this name designates.
+- source: IdentifiedObject
+  target: Name
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: IdentifiedObject
+  sourceDescription: Identified object that this name designates.
+  targetName: Names
+  targetDescription: All names of this identified object.

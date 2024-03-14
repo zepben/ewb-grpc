@@ -22,9 +22,9 @@ associations:
   targetCardinality: "1"
   sourceName: ExPostResults
   targetName: ExPostPricing
-- source: Pnode
-  target: ExPostPricingResults
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Pnode
-  targetName: ExPostResults
+- source: ExPostPricingResults
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ExPostResults
+  targetName: Pnode

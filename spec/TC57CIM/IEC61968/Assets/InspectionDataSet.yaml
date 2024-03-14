@@ -7,9 +7,9 @@ attributes:
 ancestors:
 - ProcedureDataSet
 associations:
-- source: ScheduledEventData
-  target: InspectionDataSet
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AccordingToSchedules
-  targetName: InspectionDataSet
+- source: InspectionDataSet
+  target: ScheduledEventData
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: InspectionDataSet
+  targetName: AccordingToSchedules

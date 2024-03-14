@@ -54,19 +54,19 @@ associations:
   sourceDescription: Pricing structure applicable for this transaction.
   targetName: Transactions
   targetDescription: All transactions applying this pricing structure.
-- source: ServiceCategory
-  target: PricingStructure
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ServiceCategory
-  sourceDescription: Service category to which this pricing structure applies.
-  targetName: PricingStructures
-  targetDescription: All pricing structures applicable to this service category.
-- source: CustomerAgreement
-  target: PricingStructure
+- source: PricingStructure
+  target: ServiceCategory
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PricingStructures
+  sourceDescription: All pricing structures applicable to this service category.
+  targetName: ServiceCategory
+  targetDescription: Service category to which this pricing structure applies.
+- source: PricingStructure
+  target: CustomerAgreement
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CustomerAgreements
-  sourceDescription: All customer agreements with this pricing structure.
-  targetName: PricingStructures
-  targetDescription: All pricing structures applicable to this customer agreement.
+  sourceName: PricingStructures
+  sourceDescription: All pricing structures applicable to this customer agreement.
+  targetName: CustomerAgreements
+  targetDescription: All customer agreements with this pricing structure.

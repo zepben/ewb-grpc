@@ -16,11 +16,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: AssetContainer
-  target: Seal
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AssetContainer
-  sourceDescription: Asset container to which this seal is applied.
-  targetName: Seals
-  targetDescription: All seals applied to this asset container.
+- source: Seal
+  target: AssetContainer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Seals
+  sourceDescription: All seals applied to this asset container.
+  targetName: AssetContainer
+  targetDescription: Asset container to which this seal is applied.

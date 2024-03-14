@@ -22,9 +22,9 @@ attributes:
 ancestors:
 - MarketFactors
 associations:
-- source: AncillaryServiceClearing
-  target: MarketCaseClearing
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: MarketProductClearing
-  targetName: MarketCaseClearing
+- source: MarketCaseClearing
+  target: AncillaryServiceClearing
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MarketCaseClearing
+  targetName: MarketProductClearing

@@ -9,27 +9,27 @@ associations:
   targetCardinality: 0..*
   sourceName: Domain
   targetName: RegisteredResource
-- source: MarketDocument
-  target: Domain
+- source: Domain
+  target: MarketDocument
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketDocument
-  targetName: Domain
-- source: Price
-  target: Domain
+  sourceName: Domain
+  targetName: MarketDocument
+- source: Domain
+  target: Price
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Price
-  targetName: Domain
-- source: Quantity
-  target: Domain
+  sourceName: Domain
+  targetName: Price
+- source: Domain
+  target: Quantity
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Quantity
-  targetName: Domain
-- source: TimeSeries
-  target: Domain
+  sourceName: Domain
+  targetName: Quantity
+- source: Domain
+  target: TimeSeries
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TimeSeries
-  targetName: Domain
+  sourceName: Domain
+  targetName: TimeSeries

@@ -11,9 +11,9 @@ attributes:
   type: DateTime
   description: Operating date and hour when the entitlement applies
 associations:
-- source: ContractRight
-  target: TREntitlement
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: TransmissionContractRight
-  targetName: TREntitlement
+- source: TREntitlement
+  target: ContractRight
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TREntitlement
+  targetName: TransmissionContractRight

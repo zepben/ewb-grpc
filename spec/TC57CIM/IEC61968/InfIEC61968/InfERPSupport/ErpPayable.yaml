@@ -4,15 +4,15 @@ description: A transaction that represents an invoice from a supplier. A payable
 ancestors:
 - ErpDocument
 associations:
-- source: ErpPayableLineItem
-  target: ErpPayable
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpPayableLineItems
-  targetName: ErpPayable
-- source: ContractorItem
-  target: ErpPayable
+- source: ErpPayable
+  target: ErpPayableLineItem
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpPayable
+  targetName: ErpPayableLineItems
+- source: ErpPayable
+  target: ContractorItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ContractorItems
-  targetName: ErpPayables
+  sourceName: ErpPayables
+  targetName: ContractorItems

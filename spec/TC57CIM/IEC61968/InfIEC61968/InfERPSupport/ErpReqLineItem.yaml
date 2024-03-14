@@ -28,21 +28,21 @@ associations:
   targetCardinality: 0..1
   sourceName: ErpReqLineItem
   targetName: ErpPOLineItem
-- source: ErpQuoteLineItem
-  target: ErpReqLineItem
+- source: ErpReqLineItem
+  target: ErpQuoteLineItem
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: ErpQuoteLineItem
-  targetName: ErpReqLineItem
-- source: TypeMaterial
-  target: ErpReqLineItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TypeMaterial
-  targetName: ErpReqLineItems
-- source: CatalogAssetType
-  target: ErpReqLineItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TypeAsset
-  targetName: ErpReqLineItems
+  sourceName: ErpReqLineItem
+  targetName: ErpQuoteLineItem
+- source: ErpReqLineItem
+  target: TypeMaterial
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpReqLineItems
+  targetName: TypeMaterial
+- source: ErpReqLineItem
+  target: CatalogAssetType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpReqLineItems
+  targetName: TypeAsset

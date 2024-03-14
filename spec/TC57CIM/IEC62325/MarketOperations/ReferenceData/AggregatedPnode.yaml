@@ -50,21 +50,21 @@ associations:
   targetCardinality: 1..*
   sourceName: AggregatedPnode
   targetName: LoadDistributionFactor
-- source: MktCombinedCyclePlant
-  target: AggregatedPnode
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: MktCombinedCyclePlant
-  targetName: AggregatedPnode
-- source: MPMTestThreshold
-  target: AggregatedPnode
-  sourceCardinality: 1..*
+- source: AggregatedPnode
+  target: MktCombinedCyclePlant
+  sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: MPMTestThreshold
-  targetName: AggregatedPnode
-- source: TradingHubValues
-  target: AggregatedPnode
+  sourceName: AggregatedPnode
+  targetName: MktCombinedCyclePlant
+- source: AggregatedPnode
+  target: MPMTestThreshold
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TradingHubValues
-  targetName: AggregatedPnode
+  targetCardinality: 1..*
+  sourceName: AggregatedPnode
+  targetName: MPMTestThreshold
+- source: AggregatedPnode
+  target: TradingHubValues
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: AggregatedPnode
+  targetName: TradingHubValues

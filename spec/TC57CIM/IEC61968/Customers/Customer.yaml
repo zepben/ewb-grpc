@@ -77,25 +77,25 @@ associations:
   sourceDescription: The customers that are affected by this planned outage.
   targetName: OutagePlan
   targetDescription: The outage plan that identifies the customers that are affected.
-- source: TroubleTicket
-  target: Customer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TroubleTickets
-  sourceDescription: All trouble tickets for this customer.
-  targetName: Customer
-  targetDescription: Customer for whom this trouble ticket is relevant.
-- source: CustomerNotification
-  target: Customer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: CustomerNotifications
-  sourceDescription: All notifications required by this customer.
-  targetName: Customer
-  targetDescription: Customer requiring this notification.
-- source: PlannedOutageNotification
-  target: Customer
+- source: Customer
+  target: TroubleTicket
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Customer
+  sourceDescription: Customer for whom this trouble ticket is relevant.
+  targetName: TroubleTickets
+  targetDescription: All trouble tickets for this customer.
+- source: Customer
+  target: CustomerNotification
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Customer
+  sourceDescription: Customer requiring this notification.
+  targetName: CustomerNotifications
+  targetDescription: All notifications required by this customer.
+- source: Customer
+  target: PlannedOutageNotification
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: PlannedOutageNotification
-  targetName: Customer
+  sourceName: Customer
+  targetName: PlannedOutageNotification

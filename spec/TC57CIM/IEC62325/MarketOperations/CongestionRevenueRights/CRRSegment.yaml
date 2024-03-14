@@ -20,21 +20,21 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: Pnode
-  target: CRRSegment
+- source: CRRSegment
+  target: Pnode
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Source
-  targetName: SourceCRRSegment
-- source: Pnode
-  target: CRRSegment
+  sourceName: SourceCRRSegment
+  targetName: Source
+- source: CRRSegment
+  target: Pnode
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Sink
-  targetName: SinkCRRSegment
-- source: CongestionRevenueRight
-  target: CRRSegment
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: CongestionRevenueRight
-  targetName: CRRSegment
+  sourceName: SinkCRRSegment
+  targetName: Sink
+- source: CRRSegment
+  target: CongestionRevenueRight
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: CRRSegment
+  targetName: CongestionRevenueRight

@@ -12,9 +12,9 @@ attributes:
   description: The MW amount the resource can contribute for this deployment. This is from the DR provider - as a response?
     Or actual? Does this belong in settlement? Discuss more.
 associations:
-- source: InstructionClearing
-  target: ResourceDeploymentStatus
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: InstructionClearing
-  targetName: ResourceDeploymentStatus
+- source: ResourceDeploymentStatus
+  target: InstructionClearing
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ResourceDeploymentStatus
+  targetName: InstructionClearing

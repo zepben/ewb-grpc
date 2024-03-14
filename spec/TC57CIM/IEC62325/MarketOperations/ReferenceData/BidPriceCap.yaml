@@ -20,9 +20,9 @@ attributes:
   type: MarketType
   description: Market Type of the cap (DAM or RTM)
 associations:
-- source: MarketProduct
-  target: BidPriceCap
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MarketProduct
-  targetName: BidPriceCap
+- source: BidPriceCap
+  target: MarketProduct
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BidPriceCap
+  targetName: MarketProduct

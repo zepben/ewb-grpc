@@ -28,15 +28,15 @@ associations:
   targetCardinality: 0..1
   sourceName: TroubleOrder
   targetName: Location
-- source: UnplannedOutage
-  target: TroubleOrder
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: UnplannedOutage
-  targetName: TroubleOrder
-- source: WorkTask
-  target: TroubleOrder
+- source: TroubleOrder
+  target: UnplannedOutage
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: WorkTask
-  targetName: TroubleOrder
+  sourceName: TroubleOrder
+  targetName: UnplannedOutage
+- source: TroubleOrder
+  target: WorkTask
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TroubleOrder
+  targetName: WorkTask

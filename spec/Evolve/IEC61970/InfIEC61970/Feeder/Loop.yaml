@@ -17,11 +17,11 @@ associations:
   sourceDescription: The loops that are energized by this substation.
   targetName: normalEnergizingSubstations
   targetDescription: The substations that normally energize this loop.
-- source: Circuit
-  target: Loop
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: circuits
-  sourceDescription: Sub-transmission circuits that form part of this loop.
-  targetName: loop
-  targetDescription: The loop containing this circuit.
+- source: Loop
+  target: Circuit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: loop
+  sourceDescription: The loop containing this circuit.
+  targetName: circuits
+  targetDescription: Sub-transmission circuits that form part of this loop.

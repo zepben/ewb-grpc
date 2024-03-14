@@ -25,27 +25,27 @@ associations:
   targetCardinality: 0..*
   sourceName: RegisteredInterTie
   targetName: InterTieDispatchResponse
-- source: Flowgate
-  target: RegisteredInterTie
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Flowgate
-  targetName: RegisteredInterTie
-- source: WheelingCounterParty
-  target: RegisteredInterTie
+- source: RegisteredInterTie
+  target: Flowgate
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: RegisteredInterTie
+  targetName: Flowgate
+- source: RegisteredInterTie
+  target: WheelingCounterParty
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: WheelingCounterParty
-  targetName: RegisteredInterTie
-- source: InterTieBid
-  target: RegisteredInterTie
+  sourceName: RegisteredInterTie
+  targetName: WheelingCounterParty
+- source: RegisteredInterTie
+  target: InterTieBid
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: InterTieBid
-  targetName: RegisteredInterTie
-- source: InterchangeSchedule
-  target: RegisteredInterTie
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: InterchangeSchedule
-  targetName: RegisteredInterTie
+  sourceName: RegisteredInterTie
+  targetName: InterTieBid
+- source: RegisteredInterTie
+  target: InterchangeSchedule
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredInterTie
+  targetName: InterchangeSchedule

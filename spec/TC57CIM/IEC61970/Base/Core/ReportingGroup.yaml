@@ -19,19 +19,19 @@ associations:
   sourceDescription: Reporting groups to which this power system resource belongs.
   targetName: PowerSystemResource
   targetDescription: Power system resources which belong to this reporting group.
-- source: BusNameMarker
-  target: ReportingGroup
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: BusNameMarker
-  sourceDescription: The bus name markers that belong to this reporting group.
-  targetName: ReportingGroup
-  targetDescription: The reporting group to which this bus name marker belongs.
-- source: TopologicalNode
-  target: ReportingGroup
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TopologicalNode
-  sourceDescription: The topological nodes that belong to the reporting group.
-  targetName: ReportingGroup
-  targetDescription: The reporting group to which the topological node belongs.
+- source: ReportingGroup
+  target: BusNameMarker
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReportingGroup
+  sourceDescription: The reporting group to which this bus name marker belongs.
+  targetName: BusNameMarker
+  targetDescription: The bus name markers that belong to this reporting group.
+- source: ReportingGroup
+  target: TopologicalNode
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReportingGroup
+  sourceDescription: The reporting group to which the topological node belongs.
+  targetName: TopologicalNode
+  targetDescription: The topological nodes that belong to the reporting group.

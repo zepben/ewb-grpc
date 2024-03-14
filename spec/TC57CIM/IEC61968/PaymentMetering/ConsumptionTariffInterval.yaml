@@ -38,11 +38,11 @@ associations:
   sourceDescription: All tariff intervals with consumption described by this reading type.
   targetName: ReadingType
   targetDescription: Reading type for 'startValue'.
-- source: TariffProfile
-  target: ConsumptionTariffInterval
+- source: ConsumptionTariffInterval
+  target: TariffProfile
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TariffProfiles
-  sourceDescription: All tariff profiles defined by this consumption tariff interval.
-  targetName: ConsumptionTariffIntervals
-  targetDescription: All consumption tariff intervals used to define this tariff profile.
+  sourceName: ConsumptionTariffIntervals
+  sourceDescription: All consumption tariff intervals used to define this tariff profile.
+  targetName: TariffProfiles
+  targetDescription: All tariff profiles defined by this consumption tariff interval.

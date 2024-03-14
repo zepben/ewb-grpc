@@ -4,15 +4,15 @@ description: An Asset Property that is described through curves rather than as a
 ancestors:
 - Curve
 associations:
-- source: Specification
-  target: AssetPropertyCurve
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Specification
-  targetName: AssetPropertyCurves
-- source: Asset
-  target: AssetPropertyCurve
+- source: AssetPropertyCurve
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AssetPropertyCurves
+  targetName: Specification
+- source: AssetPropertyCurve
+  target: Asset
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Assets
-  targetName: AssetPropertyCurves
+  sourceName: AssetPropertyCurves
+  targetName: Assets

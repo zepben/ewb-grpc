@@ -11,11 +11,11 @@ attributes:
 ancestors:
 - PowerSystemStabilizerDynamics
 associations:
-- source: ProprietaryParameterDynamics
-  target: PowerSystemStabilizerUserDefined
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetName: PowerSystemStabilizerUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+- source: PowerSystemStabilizerUserDefined
+  target: ProprietaryParameterDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PowerSystemStabilizerUserDefined
+  sourceDescription: Proprietary user-defined model with which this parameter is associated.
+  targetName: ProprietaryParameterDynamics
+  targetDescription: Parameter of this proprietary user-defined model.

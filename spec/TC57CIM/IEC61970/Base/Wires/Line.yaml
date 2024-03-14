@@ -6,11 +6,11 @@ descendents:
 - Circuit
 - MktLine
 associations:
-- source: SubGeographicalRegion
-  target: Line
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Region
-  sourceDescription: The sub-geographical region of the line.
-  targetName: Lines
-  targetDescription: The lines within the sub-geographical region.
+- source: Line
+  target: SubGeographicalRegion
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Lines
+  sourceDescription: The lines within the sub-geographical region.
+  targetName: Region
+  targetDescription: The sub-geographical region of the line.

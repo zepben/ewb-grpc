@@ -37,11 +37,11 @@ associations:
   targetName: DiagramObjectPoints
   targetDescription: A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or
     boundary (for polygons).
-- source: IdentifiedObject
-  target: DiagramObject
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: IdentifiedObject
-  sourceDescription: The domain object to which this diagram object is associated.
-  targetName: DiagramObjects
-  targetDescription: The diagram objects that are associated with the domain object.
+- source: DiagramObject
+  target: IdentifiedObject
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DiagramObjects
+  sourceDescription: The diagram objects that are associated with the domain object.
+  targetName: IdentifiedObject
+  targetDescription: The domain object to which this diagram object is associated.

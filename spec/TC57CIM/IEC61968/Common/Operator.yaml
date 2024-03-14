@@ -5,19 +5,19 @@ ancestors:
 descendents:
 - OperationsSafetySupervisor
 associations:
-- source: Incident
-  target: Operator
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Incidents
-  sourceDescription: All incidents owned by this operator.
-  targetName: Owner
-  targetDescription: Operator who owns this incident.
-- source: SwitchingAction
-  target: Operator
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SwitchingSteps
-  sourceDescription: All switching steps this operator is responsible for.
-  targetName: Operator
-  targetDescription: Operator responsible for this switching step.
+- source: Operator
+  target: Incident
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Owner
+  sourceDescription: Operator who owns this incident.
+  targetName: Incidents
+  targetDescription: All incidents owned by this operator.
+- source: Operator
+  target: SwitchingAction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Operator
+  sourceDescription: Operator responsible for this switching step.
+  targetName: SwitchingSteps
+  targetDescription: All switching steps this operator is responsible for.

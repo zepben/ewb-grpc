@@ -11,15 +11,15 @@ attributes:
   type: Float
   description: "Amount of interchange for the control zone \nAttribute Usage: hourly interchange value for the specific area"
 associations:
-- source: GeneralClearing
-  target: GeneralClearingResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: GeneralClearing
-  targetName: GeneralClearingResults
-- source: SubControlArea
-  target: GeneralClearingResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: SubControlArea
-  targetName: GeneralClearingResults
+- source: GeneralClearingResults
+  target: GeneralClearing
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneralClearingResults
+  targetName: GeneralClearing
+- source: GeneralClearingResults
+  target: SubControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneralClearingResults
+  targetName: SubControlArea

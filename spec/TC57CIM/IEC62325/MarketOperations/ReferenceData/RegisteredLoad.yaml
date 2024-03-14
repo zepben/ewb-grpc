@@ -24,9 +24,9 @@ associations:
   targetCardinality: 0..*
   sourceName: RegisteredLoad
   targetName: LoadBids
-- source: AuxiliaryObject
-  target: RegisteredLoad
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AuxillaryObject
-  targetName: RegisteredLoad
+- source: RegisteredLoad
+  target: AuxiliaryObject
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredLoad
+  targetName: AuxillaryObject

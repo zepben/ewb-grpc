@@ -41,11 +41,11 @@ associations:
   targetCardinality: 0..*
   sourceName: ChargeType
   targetName: MktUserAttribute
-- source: MajorChargeGroup
-  target: ChargeType
+- source: ChargeType
+  target: MajorChargeGroup
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MajorChargeGroup
+  sourceName: ChargeType
   sourceDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
-  targetName: ChargeType
+  targetName: MajorChargeGroup
   targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.

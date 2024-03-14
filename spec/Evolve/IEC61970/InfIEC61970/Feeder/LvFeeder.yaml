@@ -24,8 +24,8 @@ associations:
   targetDescription: |2-
 
     The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
-- source: Feeder
-  target: LvFeeder
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  targetName: normalEnergizedLvFeeders
+- source: LvFeeder
+  target: Feeder
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: normalEnergizedLvFeeders

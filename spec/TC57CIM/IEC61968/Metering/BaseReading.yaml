@@ -23,11 +23,11 @@ descendents:
 - Reading
 - IntervalReading
 associations:
-- source: ReadingQuality
-  target: BaseReading
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ReadingQualities
-  sourceDescription: All qualities of this reading.
-  targetName: Reading
-  targetDescription: Reading value to which this quality applies.
+- source: BaseReading
+  target: ReadingQuality
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Reading
+  sourceDescription: Reading value to which this quality applies.
+  targetName: ReadingQualities
+  targetDescription: All qualities of this reading.

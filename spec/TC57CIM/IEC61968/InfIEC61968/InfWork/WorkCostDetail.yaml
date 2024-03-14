@@ -51,33 +51,33 @@ associations:
   targetCardinality: 0..*
   sourceName: WorkCostDetails
   targetName: Works
-- source: OverheadCost
-  target: WorkCostDetail
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: OverheadCost
-  targetName: WorkCostDetails
-- source: MiscCostItem
-  target: WorkCostDetail
+- source: WorkCostDetail
+  target: OverheadCost
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: MiscCostItems
-  targetName: WorkCostDetail
-- source: LaborItem
-  target: WorkCostDetail
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: LaborItems
-  targetName: WorkCostDetail
-- source: Design
-  target: WorkCostDetail
+  sourceName: WorkCostDetails
+  targetName: OverheadCost
+- source: WorkCostDetail
+  target: MiscCostItem
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Design
-  targetName: WorkCostDetails
-- source: CostType
-  target: WorkCostDetail
+  sourceName: WorkCostDetail
+  targetName: MiscCostItems
+- source: WorkCostDetail
+  target: LaborItem
   sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: CostType
-  targetName: WorkCostDetails
+  sourceName: WorkCostDetail
+  targetName: LaborItems
+- source: WorkCostDetail
+  target: Design
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkCostDetails
+  targetName: Design
+- source: WorkCostDetail
+  target: CostType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: WorkCostDetails
+  targetName: CostType

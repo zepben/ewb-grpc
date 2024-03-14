@@ -9,11 +9,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: CashierShift
-  target: PointOfSale
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: CashierShifts
-  sourceDescription: All shifts this point of sale operated in.
-  targetName: PointOfSale
-  targetDescription: Point of sale that is in operation during this shift.
+- source: PointOfSale
+  target: CashierShift
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PointOfSale
+  sourceDescription: Point of sale that is in operation during this shift.
+  targetName: CashierShifts
+  targetDescription: All shifts this point of sale operated in.

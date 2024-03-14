@@ -7,19 +7,19 @@ attributes:
 ancestors:
 - PowerSystemResource
 associations:
-- source: CAESPlant
-  target: AirCompressor
+- source: AirCompressor
+  target: CAESPlant
   sourceCardinality: "1"
   targetCardinality: "1"
-  sourceName: CAESPlant
+  sourceName: AirCompressor
   sourceDescription: An air compressor may be a member of a compressed air energy storage plant.
-  targetName: AirCompressor
+  targetName: CAESPlant
   targetDescription: An air compressor may be a member of a compressed air energy storage plant.
-- source: CombustionTurbine
-  target: AirCompressor
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: CombustionTurbine
+- source: AirCompressor
+  target: CombustionTurbine
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: AirCompressor
   sourceDescription: A CAES air compressor is driven by combustion turbine.
-  targetName: AirCompressor
+  targetName: CombustionTurbine
   targetDescription: A CAES air compressor is driven by combustion turbine.

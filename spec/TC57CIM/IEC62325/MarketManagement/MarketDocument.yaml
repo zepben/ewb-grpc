@@ -29,39 +29,39 @@ associations:
   targetCardinality: 0..*
   sourceName: MarketDocument
   targetName: Period
-- source: DateAndOrTime
-  target: MarketDocument
+- source: MarketDocument
+  target: DateAndOrTime
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DateAndOrTime
-  targetName: MarketDocument
-- source: AceTariffType
-  target: MarketDocument
+  sourceName: MarketDocument
+  targetName: DateAndOrTime
+- source: MarketDocument
+  target: AceTariffType
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: AceTariffType
-  targetName: MarketDocument
-- source: Process
-  target: MarketDocument
+  sourceName: MarketDocument
+  targetName: AceTariffType
+- source: MarketDocument
+  target: Process
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Process
-  targetName: MarketDocument
-- source: Reason
-  target: MarketDocument
+  sourceName: MarketDocument
+  targetName: Process
+- source: MarketDocument
+  target: Reason
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Reason
-  targetName: MarketDocument
-- source: TimeSeries
-  target: MarketDocument
+  sourceName: MarketDocument
+  targetName: Reason
+- source: MarketDocument
+  target: TimeSeries
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TimeSeries
-  targetName: MarketDocument
-- source: MarketParticipant
-  target: MarketDocument
+  sourceName: MarketDocument
+  targetName: TimeSeries
+- source: MarketDocument
+  target: MarketParticipant
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketParticipant
-  targetName: MarketDocument
+  sourceName: MarketDocument
+  targetName: MarketParticipant

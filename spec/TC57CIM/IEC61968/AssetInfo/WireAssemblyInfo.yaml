@@ -10,11 +10,11 @@ associations:
   sourceName: WireAssemblyInfo
   targetName: PerLengthLineParameter
   targetDescription: Per length line parameter associated with this wire assembly.
-- source: WirePhaseInfo
-  target: WireAssemblyInfo
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: WirePhaseInfo
-  sourceDescription: Wire phase information associated with this wire assembly.
-  targetName: WireAssemblyInfo
-  targetDescription: Wire assembly information using this wire phase information.
+- source: WireAssemblyInfo
+  target: WirePhaseInfo
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: WireAssemblyInfo
+  sourceDescription: Wire assembly information using this wire phase information.
+  targetName: WirePhaseInfo
+  targetDescription: Wire phase information associated with this wire assembly.

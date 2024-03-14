@@ -61,19 +61,19 @@ associations:
   sourceDescription: Energy Source of a particular Energy Scheduling Type.
   targetName: EnergySchedulingType
   targetDescription: Energy Scheduling Type of an Energy Source.
-- source: EnergySourcePhase
-  target: EnergySource
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: EnergySourcePhase
-  sourceDescription: The individual phase information of the energy source.
-  targetName: EnergySource
-  targetDescription: The energy sourceto which the phase belongs.
-- source: EnergySourceAction
-  target: EnergySource
+- source: EnergySource
+  target: EnergySourcePhase
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EnergySource
+  sourceDescription: The energy sourceto which the phase belongs.
+  targetName: EnergySourcePhase
+  targetDescription: The individual phase information of the energy source.
+- source: EnergySource
+  target: EnergySourceAction
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: EnergySourceAction
-  sourceDescription: Action taken with this energy source.
-  targetName: EnergySource
-  targetDescription: Energy source on which this action is taken.
+  sourceName: EnergySource
+  sourceDescription: Energy source on which this action is taken.
+  targetName: EnergySourceAction
+  targetDescription: Action taken with this energy source.

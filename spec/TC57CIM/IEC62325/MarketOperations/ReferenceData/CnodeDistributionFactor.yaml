@@ -23,15 +23,15 @@ associations:
   targetCardinality: "1"
   sourceName: CnodeDistributionFactor
   targetName: MktConnectivityNode
-- source: HostControlArea
-  target: CnodeDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: HostControlArea
-  targetName: CnodeDistributionFactor
-- source: AggregateNode
-  target: CnodeDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AggregateNode
-  targetName: CnodeDistributionFactor
+- source: CnodeDistributionFactor
+  target: HostControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CnodeDistributionFactor
+  targetName: HostControlArea
+- source: CnodeDistributionFactor
+  target: AggregateNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CnodeDistributionFactor
+  targetName: AggregateNode

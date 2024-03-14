@@ -22,27 +22,27 @@ associations:
   sourceDescription: Parent of this charge sub-component.
   targetName: ChildCharges
   targetDescription: All sub-components of this complex charge.
-- source: ConsumptionTariffInterval
-  target: Charge
+- source: Charge
+  target: ConsumptionTariffInterval
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ConsumptionTariffIntervals
-  sourceDescription: Tariff intervals to which this consumption-based charge has to be levied.
-  targetName: Charges
-  targetDescription: All charges used to define this consumption tariff interval.
-- source: TimeTariffInterval
-  target: Charge
+  sourceName: Charges
+  sourceDescription: All charges used to define this consumption tariff interval.
+  targetName: ConsumptionTariffIntervals
+  targetDescription: Tariff intervals to which this consumption-based charge has to be levied.
+- source: Charge
+  target: TimeTariffInterval
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TimeTariffIntervals
-  sourceDescription: Tariff intervals to which this time-based charge has to be levied.
-  targetName: Charges
-  targetDescription: All charges used to define this time tariff interval.
-- source: AuxiliaryAccount
-  target: Charge
+  sourceName: Charges
+  sourceDescription: All charges used to define this time tariff interval.
+  targetName: TimeTariffIntervals
+  targetDescription: Tariff intervals to which this time-based charge has to be levied.
+- source: Charge
+  target: AuxiliaryAccount
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: AuxiliaryAccounts
-  sourceDescription: All auxiliary accounts to which this charge has to be levied.
-  targetName: Charges
-  targetDescription: All charges levied on this account.
+  sourceName: Charges
+  sourceDescription: All charges levied on this account.
+  targetName: AuxiliaryAccounts
+  targetDescription: All auxiliary accounts to which this charge has to be levied.

@@ -3,11 +3,11 @@ description: Identity of person/organization that took sample.
 ancestors:
 - AssetOrganisationRole
 associations:
-- source: Specimen
-  target: AssetTestSampleTaker
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Specimen
-  sourceDescription: Specimen taken by this sample taker.
-  targetName: AssetTestSampleTaker
-  targetDescription: Test sampler taker who gathered this specimen.
+- source: AssetTestSampleTaker
+  target: Specimen
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetTestSampleTaker
+  sourceDescription: Test sampler taker who gathered this specimen.
+  targetName: Specimen
+  targetDescription: Specimen taken by this sample taker.

@@ -17,9 +17,9 @@ associations:
   targetCardinality: 0..*
   sourceName: ResourceGroup
   targetName: ResourceGroupReqs
-- source: RegisteredResource
-  target: ResourceGroup
-  sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: RegisteredResources
-  targetName: ResourceGroups
+- source: ResourceGroup
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: ResourceGroups
+  targetName: RegisteredResources

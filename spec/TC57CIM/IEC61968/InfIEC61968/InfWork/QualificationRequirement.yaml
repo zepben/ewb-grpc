@@ -14,21 +14,21 @@ associations:
   targetCardinality: 0..*
   sourceName: QualificationRequirements
   targetName: Specifications
-- source: OldWorkTask
-  target: QualificationRequirement
+- source: QualificationRequirement
+  target: OldWorkTask
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: WorkTasks
-  targetName: QualificationRequirements
-- source: CULaborItem
-  target: QualificationRequirement
+  sourceName: QualificationRequirements
+  targetName: WorkTasks
+- source: QualificationRequirement
+  target: CULaborItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CULaborItems
-  targetName: QualificationRequirements
-- source: Skill
-  target: QualificationRequirement
+  sourceName: QualificationRequirements
+  targetName: CULaborItems
+- source: QualificationRequirement
+  target: Skill
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Skills
-  targetName: QualificationRequirements
+  sourceName: QualificationRequirements
+  targetName: Skills

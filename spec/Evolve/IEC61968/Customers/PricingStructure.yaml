@@ -14,11 +14,11 @@ associations:
   sourceDescription: All pricing structures using this tariff.
   targetName: Tariffs
   targetDescription: All tariffs used by this pricing structure.
-- source: CustomerAgreement
-  target: PricingStructure
+- source: PricingStructure
+  target: CustomerAgreement
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CustomerAgreements
-  sourceDescription: All customer agreements with this pricing structure.
-  targetName: PricingStructures
-  targetDescription: All pricing structures applicable to this customer agreement.
+  sourceName: PricingStructures
+  sourceDescription: All pricing structures applicable to this customer agreement.
+  targetName: CustomerAgreements
+  targetDescription: All customer agreements with this pricing structure.

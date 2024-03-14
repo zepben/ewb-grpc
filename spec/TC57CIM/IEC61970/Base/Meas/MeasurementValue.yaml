@@ -26,39 +26,39 @@ associations:
   sourceDescription: Link to the physical telemetered point associated with this measurement.
   targetName: RemoteSource
   targetDescription: Link to the physical telemetered point associated with this measurement.
-- source: MeasurementValueQuality
-  target: MeasurementValue
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: MeasurementValueQuality
-  sourceDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
-  targetName: MeasurementValue
-  targetDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
-- source: MeasurementValueSource
-  target: MeasurementValue
+- source: MeasurementValue
+  target: MeasurementValueQuality
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MeasurementValueSource
-  sourceDescription: A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc.
+  targetCardinality: 0..1
+  sourceName: MeasurementValue
+  sourceDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
+  targetName: MeasurementValueQuality
+  targetDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
+- source: MeasurementValue
+  target: MeasurementValueSource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MeasurementValues
+  sourceDescription: The MeasurementValues updated by the source.
+  targetName: MeasurementValueSource
+  targetDescription: A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc.
     User conventions for the names of sources are contained in the introduction to IEC 61970-301.
-  targetName: MeasurementValues
-  targetDescription: The MeasurementValues updated by the source.
-- source: OldPerson
-  target: MeasurementValue
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ErpPerson
-  targetName: MeasurementValues
-- source: ProcedureDataSet
-  target: MeasurementValue
+- source: MeasurementValue
+  target: OldPerson
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MeasurementValues
+  targetName: ErpPerson
+- source: MeasurementValue
+  target: ProcedureDataSet
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ProcedureDataSet
-  targetName: MeasurementValue
-- source: CalculationMethodHierarchy
-  target: MeasurementValue
+  sourceName: MeasurementValue
+  targetName: ProcedureDataSet
+- source: MeasurementValue
+  target: CalculationMethodHierarchy
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: CalculationMethodHierarchy
-  targetName: MeasurementValue
-  targetDescription: Measurement value to which this calculation method hierarchy applies.
+  sourceName: MeasurementValue
+  sourceDescription: Measurement value to which this calculation method hierarchy applies.
+  targetName: CalculationMethodHierarchy

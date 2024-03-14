@@ -7,11 +7,11 @@ descendents:
 - NonConformLoadGroup
 - ConformLoadGroup
 associations:
-- source: SubLoadArea
-  target: LoadGroup
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: SubLoadArea
-  sourceDescription: The SubLoadArea where the Loadgroup belongs.
-  targetName: LoadGroups
-  targetDescription: The Loadgroups in the SubLoadArea.
+- source: LoadGroup
+  target: SubLoadArea
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: LoadGroups
+  sourceDescription: The Loadgroups in the SubLoadArea.
+  targetName: SubLoadArea
+  targetDescription: The SubLoadArea where the Loadgroup belongs.

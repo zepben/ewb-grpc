@@ -4,9 +4,9 @@ description: General information that applies to a utility requisition that is a
 ancestors:
 - ErpDocument
 associations:
-- source: ErpReqLineItem
-  target: ErpRequisition
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpReqLineItems
-  targetName: ErpRequisition
+- source: ErpRequisition
+  target: ErpReqLineItem
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpRequisition
+  targetName: ErpReqLineItems

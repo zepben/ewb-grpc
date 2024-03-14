@@ -11,11 +11,11 @@ associations:
   sourceDescription: The set of limits.
   targetName: Limits
   targetDescription: The limit values used for supervision of Measurements.
-- source: Accumulator
-  target: AccumulatorLimitSet
+- source: AccumulatorLimitSet
+  target: Accumulator
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Measurements
-  sourceDescription: The Measurements using the LimitSet.
-  targetName: LimitSets
-  targetDescription: A measurement may have zero or more limit ranges defined for it.
+  sourceName: LimitSets
+  sourceDescription: A measurement may have zero or more limit ranges defined for it.
+  targetName: Measurements
+  targetDescription: The Measurements using the LimitSet.

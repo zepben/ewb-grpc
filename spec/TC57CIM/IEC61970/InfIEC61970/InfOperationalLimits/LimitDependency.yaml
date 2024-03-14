@@ -17,12 +17,12 @@ associations:
   sourceDescription: Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.
   targetName: Equipment
   targetDescription: The equipment for which this limit dependency model is organized under.
-- source: OperationalLimit
-  target: LimitDependency
+- source: LimitDependency
+  target: OperationalLimit
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: OperationalLimit
-  sourceDescription: The operational limits to which this limit dependency model applies.
-  targetName: LimitDependencyModel
-  targetDescription: The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified
+  sourceName: LimitDependencyModel
+  sourceDescription: The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified
     then the native limit value is used.
+  targetName: OperationalLimit
+  targetDescription: The operational limits to which this limit dependency model applies.

@@ -10,11 +10,11 @@ attributes:
 ancestors:
 - Asset
 associations:
-- source: Pole
-  target: Streetlight
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Pole
-  sourceDescription: Pole to which thiss streetlight is attached.
-  targetName: Streetlights
-  targetDescription: All streetlights attached to this pole.
+- source: Streetlight
+  target: Pole
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Streetlights
+  sourceDescription: All streetlights attached to this pole.
+  targetName: Pole
+  targetDescription: Pole to which thiss streetlight is attached.

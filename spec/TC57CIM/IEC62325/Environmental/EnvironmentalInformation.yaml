@@ -19,42 +19,42 @@ associations:
   sourceDescription: Environmental information provided by this environmental data provider.
   targetName: EnvironmentalDataProvider
   targetDescription: Environmental data provider supplying this environmental information.
-- source: EnvironmentalDiscrete
-  target: EnvironmentalInformation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnvironmentalDiscrete
-  sourceDescription: Environmental discrete (integer) associated with this observation or forecast.
-  targetName: EnvironmentalInformation
-  targetDescription: Observation or forecast with which this environmental discrete (integer) is associated.
-- source: EnvironmentalEvent
-  target: EnvironmentalInformation
+- source: EnvironmentalInformation
+  target: EnvironmentalDiscrete
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnvironmentalInformation
+  sourceDescription: Observation or forecast with which this environmental discrete (integer) is associated.
+  targetName: EnvironmentalDiscrete
+  targetDescription: Environmental discrete (integer) associated with this observation or forecast.
+- source: EnvironmentalInformation
+  target: EnvironmentalEvent
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: EnvironmentalEvent
-  sourceDescription: Environmental event to which this forecast or observation relates.
-  targetName: EnvironmentalInformation
-  targetDescription: Forecast or observation related to this environmental event.
-- source: EnvironmentalAnalog
-  target: EnvironmentalInformation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnvironmentalAnalog
-  sourceDescription: Environmental analog associated with this observation or forecast.
-  targetName: EnvironmentalInformation
-  targetDescription: Observation or forecast with which this environmental analog measurement is associated.
-- source: EnvironmentalPhenomenon
-  target: EnvironmentalInformation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnvironmentalPhenomenon
-  targetName: EnvironmentalInformation
-  targetDescription: The forecast or observation of which this phenomenon description is a part.
-- source: EnvironmentalStringMeasurement
-  target: EnvironmentalInformation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnvironmentalStringMeasurement
-  sourceDescription: Environmental string measurement associated with this forecast or observation.
-  targetName: EnvironmentalInformation
-  targetDescription: Observation or forecast with which this environmental string is associated.
+  sourceName: EnvironmentalInformation
+  sourceDescription: Forecast or observation related to this environmental event.
+  targetName: EnvironmentalEvent
+  targetDescription: Environmental event to which this forecast or observation relates.
+- source: EnvironmentalInformation
+  target: EnvironmentalAnalog
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnvironmentalInformation
+  sourceDescription: Observation or forecast with which this environmental analog measurement is associated.
+  targetName: EnvironmentalAnalog
+  targetDescription: Environmental analog associated with this observation or forecast.
+- source: EnvironmentalInformation
+  target: EnvironmentalPhenomenon
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnvironmentalInformation
+  sourceDescription: The forecast or observation of which this phenomenon description is a part.
+  targetName: EnvironmentalPhenomenon
+- source: EnvironmentalInformation
+  target: EnvironmentalStringMeasurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnvironmentalInformation
+  sourceDescription: Observation or forecast with which this environmental string is associated.
+  targetName: EnvironmentalStringMeasurement
+  targetDescription: Environmental string measurement associated with this forecast or observation.

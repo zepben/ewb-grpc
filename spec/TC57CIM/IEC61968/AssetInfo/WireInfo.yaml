@@ -62,9 +62,9 @@ associations:
   sourceDescription: Wire information contributing to this wire phase information.
   targetName: WirePhaseInfo
   targetDescription: Wire phase information associated with this wire information.
-- source: ACLineSegmentPhase
-  target: WireInfo
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ACLineSegmentPhase
-  targetName: WireInfo
+- source: WireInfo
+  target: ACLineSegmentPhase
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WireInfo
+  targetName: ACLineSegmentPhase

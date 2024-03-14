@@ -11,21 +11,21 @@ attributes:
   type: YesNo
   description: This value will be set to YES if the referenced Cnode is defined as the source point in the contract.
 associations:
-- source: ContractRight
-  target: ContractDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TransmissionContractRight
-  targetName: ContractDistributionFactor
-- source: Flowgate
-  target: ContractDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Flowgate
-  targetName: ContractDistributionFactor
-- source: RegisteredResource
-  target: ContractDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: ContractDistributionFactor
+- source: ContractDistributionFactor
+  target: ContractRight
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ContractDistributionFactor
+  targetName: TransmissionContractRight
+- source: ContractDistributionFactor
+  target: Flowgate
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ContractDistributionFactor
+  targetName: Flowgate
+- source: ContractDistributionFactor
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ContractDistributionFactor
+  targetName: RegisteredResource

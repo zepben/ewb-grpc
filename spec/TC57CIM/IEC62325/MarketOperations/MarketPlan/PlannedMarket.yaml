@@ -27,11 +27,11 @@ associations:
   sourceDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
   targetName: MarketRun
   targetDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
-- source: MarketPlan
-  target: PlannedMarket
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: MarketPlan
+- source: PlannedMarket
+  target: MarketPlan
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: PlannedMarket
   sourceDescription: A market plan has a number of markets (DA, HA, RT).
-  targetName: PlannedMarket
+  targetName: MarketPlan
   targetDescription: A market plan has a number of markets (DA, HA, RT).

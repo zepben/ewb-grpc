@@ -11,11 +11,11 @@ attributes:
 ancestors:
 - OrganisationRole
 associations:
-- source: BankAccount
-  target: Bank
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: BankAccounts
-  sourceDescription: All BankAccounts this Bank provides.
-  targetName: Bank
-  targetDescription: Bank that provides this BankAccount.
+- source: Bank
+  target: BankAccount
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Bank
+  sourceDescription: Bank that provides this BankAccount.
+  targetName: BankAccounts
+  targetDescription: All BankAccounts this Bank provides.

@@ -82,63 +82,63 @@ associations:
   targetCardinality: 0..*
   sourceName: TimeSeries
   targetName: EnvironmentalMonitoringStation
-- source: Point
-  target: TimeSeries
+- source: TimeSeries
+  target: Point
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Point
-  targetName: TimeSeries
-- source: MarketObjectStatus
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: Point
+- source: TimeSeries
+  target: MarketObjectStatus
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketObjectStatus
-  targetName: TimeSeries
-- source: MktPSRType
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: MarketObjectStatus
+- source: TimeSeries
+  target: MktPSRType
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MktPSRType
-  targetName: TimeSeries
-- source: Quantity
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: MktPSRType
+- source: TimeSeries
+  target: Quantity
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Quantity
-  targetName: TimeSeries
-- source: Price
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: Quantity
+- source: TimeSeries
+  target: Price
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Price
-  targetName: TimeSeries
-- source: Auction
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: Price
+- source: TimeSeries
+  target: Auction
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Auction
-  targetName: TimeSeries
-- source: AttributeInstanceComponent
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: Auction
+- source: TimeSeries
+  target: AttributeInstanceComponent
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: AttributeInstanceComponent
-  targetName: TimeSeries
-- source: ConstraintDuration
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: AttributeInstanceComponent
+- source: TimeSeries
+  target: ConstraintDuration
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ConstraintDuration
-  targetName: TimeSeries
-- source: Unit
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: ConstraintDuration
+- source: TimeSeries
+  target: Unit
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Unit
-  targetName: TimeSeries
-- source: RegisteredResource
-  target: TimeSeries
+  sourceName: TimeSeries
+  targetName: Unit
+- source: TimeSeries
+  target: RegisteredResource
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: TimeSeries
+  sourceName: TimeSeries
+  targetName: RegisteredResource

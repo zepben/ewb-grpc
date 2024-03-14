@@ -3,9 +3,9 @@ description: This is a table lookup that provides limit values corresponding to 
 ancestors:
 - EnvironmentalDependentLimit
 associations:
-- source: TemperatureDependentLimitPoint
-  target: TemperatureDependentLimitTable
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TemperatureLimitTablePoint
-  targetName: TemperatureDependentLimitTable
+- source: TemperatureDependentLimitTable
+  target: TemperatureDependentLimitPoint
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TemperatureDependentLimitTable
+  targetName: TemperatureLimitTablePoint

@@ -38,9 +38,9 @@ associations:
   targetName: LimitDependencyModel
   targetDescription: The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified
     then the native limit value is used.
-- source: LimitScalingLimit
-  target: OperationalLimit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: LimitScalingLimit
-  targetName: SourceOperationalLimit
+- source: OperationalLimit
+  target: LimitScalingLimit
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: SourceOperationalLimit
+  targetName: LimitScalingLimit

@@ -26,9 +26,9 @@ associations:
   targetCardinality: 0..*
   sourceName: MarketLedgerEntry
   targetName: Settlement
-- source: MarketLedger
-  target: MarketLedgerEntry
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MarketLedger
-  targetName: MarketLedgerEntries
+- source: MarketLedgerEntry
+  target: MarketLedger
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MarketLedgerEntries
+  targetName: MarketLedger

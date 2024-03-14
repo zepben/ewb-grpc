@@ -14,9 +14,9 @@ attributes:
     price is the price paid to buy or sell the commodity, sometimes referred to as an "all-in" price, or one of potentially
     many components.
 associations:
-- source: CommodityPrice
-  target: PriceDescriptor
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: CommodityPrice
-  targetName: PriceDescriptor
+- source: PriceDescriptor
+  target: CommodityPrice
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: PriceDescriptor
+  targetName: CommodityPrice

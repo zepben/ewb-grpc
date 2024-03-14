@@ -4,43 +4,43 @@ description: A collection of equipment for purposes other than generation or uti
 ancestors:
 - EquipmentContainer
 associations:
-- source: Feeder
-  target: Substation
+- source: Substation
+  target: Feeder
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: NormalEnergizingFeeder
-  sourceDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
+  sourceName: NormalEnergizingSubstation
+  sourceDescription: The substations that are normally energized by the feeder.
+  targetName: NormalEnergizingFeeder
+  targetDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
     that describe the naming hierarchy.
-  targetName: NormalEnergizingSubstation
-  targetDescription: The substations that are normally energized by the feeder.
-- source: SubGeographicalRegion
-  target: Substation
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Region
-  sourceDescription: The SubGeographicalRegion containing the substation.
-  targetName: Substations
-  targetDescription: The substations in this sub-geographical region.
-- source: Circuit
-  target: Substation
+- source: Substation
+  target: SubGeographicalRegion
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Substations
+  sourceDescription: The substations in this sub-geographical region.
+  targetName: Region
+  targetDescription: The SubGeographicalRegion containing the substation.
+- source: Substation
+  target: Circuit
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: circuits
-  sourceDescription: Simplification of the CIM association via Bay to Substation
-  targetName: endSubstations
-  targetDescription: Simplification of the CIM association via Bay to Circuit
-- source: Loop
-  target: Substation
+  sourceName: endSubstations
+  sourceDescription: Simplification of the CIM association via Bay to Circuit
+  targetName: circuits
+  targetDescription: Simplification of the CIM association via Bay to Substation
+- source: Substation
+  target: Loop
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: loops
-  sourceDescription: The loops that are energizing this substation.
-  targetName: substations
-  targetDescription: Substations that are energized by this loop.
-- source: Loop
-  target: Substation
-  targetCardinality: 0..*
-  sourceName: normalEnergizedLoops
-  sourceDescription: The loops that are energized by this substation.
-  targetName: normalEnergizingSubstations
-  targetDescription: The substations that normally energize this loop.
+  sourceName: substations
+  sourceDescription: Substations that are energized by this loop.
+  targetName: loops
+  targetDescription: The loops that are energizing this substation.
+- source: Substation
+  target: Loop
+  sourceCardinality: 0..*
+  sourceName: normalEnergizingSubstations
+  sourceDescription: The substations that normally energize this loop.
+  targetName: normalEnergizedLoops
+  targetDescription: The loops that are energized by this substation.

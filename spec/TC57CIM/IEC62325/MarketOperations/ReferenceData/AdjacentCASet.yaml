@@ -19,21 +19,21 @@ associations:
   targetCardinality: 0..*
   sourceName: AdjacentCASet
   targetName: BidSelfSched
-- source: HostControlArea
-  target: AdjacentCASet
+- source: AdjacentCASet
+  target: HostControlArea
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: HostControlArea
-  targetName: AdjacentCASet
-- source: RTO
-  target: AdjacentCASet
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RTO
-  targetName: AdjacentCASet
-- source: RegisteredResource
-  target: AdjacentCASet
+  sourceName: AdjacentCASet
+  targetName: HostControlArea
+- source: AdjacentCASet
+  target: RTO
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: RegisteredResource
-  targetName: AdjacentCASet
+  targetCardinality: "1"
+  sourceName: AdjacentCASet
+  targetName: RTO
+- source: AdjacentCASet
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AdjacentCASet
+  targetName: RegisteredResource

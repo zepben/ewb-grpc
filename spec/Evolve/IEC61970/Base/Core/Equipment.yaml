@@ -15,33 +15,33 @@ descendents:
 - PowerElectronicsUnit
 - AuxiliaryEquipment
 associations:
-- source: EquipmentContainer
-  target: Equipment
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EquipmentContainer
-  sourceDescription: Container of this equipment.
-  targetName: Equipments
-  targetDescription: Contained equipment.
-- source: UsagePoint
-  target: Equipment
+- source: Equipment
+  target: EquipmentContainer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Equipments
+  sourceDescription: Contained equipment.
+  targetName: EquipmentContainer
+  targetDescription: Container of this equipment.
+- source: Equipment
+  target: UsagePoint
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: UsagePoints
-  sourceDescription: All usage points connected to the electrical grid through this equipment.
-  targetName: Equipments
-  targetDescription: All equipment connecting this usage point to the electrical grid.
-- source: OperationalRestriction
-  target: Equipment
+  sourceName: Equipments
+  sourceDescription: All equipment connecting this usage point to the electrical grid.
+  targetName: UsagePoints
+  targetDescription: All usage points connected to the electrical grid through this equipment.
+- source: Equipment
+  target: OperationalRestriction
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: OperationalRestrictions
-  sourceDescription: All operational restrictions for this equipment.
-  targetName: Equipments
-  targetDescription: All equipments to which this restriction applies.
-- source: LvFeeder
-  target: Equipment
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  targetName: currentEquipment
-  targetDescription: Contained equipment using the current state of the network.
+  sourceName: Equipments
+  sourceDescription: All equipments to which this restriction applies.
+  targetName: OperationalRestrictions
+  targetDescription: All operational restrictions for this equipment.
+- source: Equipment
+  target: LvFeeder
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: currentEquipment
+  sourceDescription: Contained equipment using the current state of the network.

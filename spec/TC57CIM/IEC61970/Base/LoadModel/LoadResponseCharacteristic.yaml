@@ -63,11 +63,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: EnergyConsumer
-  target: LoadResponseCharacteristic
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnergyConsumer
-  sourceDescription: The set of loads that have the response characteristics.
-  targetName: LoadResponse
-  targetDescription: The load response characteristic of this load.  If missing, this load is assumed to be constant power.
+- source: LoadResponseCharacteristic
+  target: EnergyConsumer
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: LoadResponse
+  sourceDescription: The load response characteristic of this load.  If missing, this load is assumed to be constant power.
+  targetName: EnergyConsumer
+  targetDescription: The set of loads that have the response characteristics.

@@ -3,9 +3,9 @@ description: Subclass of ThermalGeneratingUnit from Production Package in IEC 61
 ancestors:
 - ThermalGeneratingUnit
 associations:
-- source: CombinedCycleConfigurationMember
-  target: MktThermalGeneratingUnit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CombinedCycleConfigurationMember
-  targetName: MktThermalGeneratingUnit
+- source: MktThermalGeneratingUnit
+  target: CombinedCycleConfigurationMember
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktThermalGeneratingUnit
+  targetName: CombinedCycleConfigurationMember

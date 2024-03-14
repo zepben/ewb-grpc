@@ -52,15 +52,15 @@ attributes:
   type: Float
   description: resource energy ramping upper limit
 associations:
-- source: ResourceClearing
-  target: ResourceDispatchResults
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: ResourceClearing
-  targetName: ResourceDispatchResults
-- source: RegisteredResource
-  target: ResourceDispatchResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: ResourceDispatchResults
+- source: ResourceDispatchResults
+  target: ResourceClearing
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: ResourceDispatchResults
+  targetName: ResourceClearing
+- source: ResourceDispatchResults
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ResourceDispatchResults
+  targetName: RegisteredResource

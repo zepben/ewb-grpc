@@ -15,12 +15,12 @@ associations:
   sourceDescription: Action changing status of this switch.
   targetName: OperatedSwitch
   targetDescription: Switch that is the object of this switch action.
-- source: Outage
-  target: SwitchAction
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PlannedOutage
-  sourceDescription: Planned outage for whose scope this switch action applies.
-  targetName: PlannedSwitchActions
-  targetDescription: All switch actions to apply within the scope of this planned outage. Each such action groups switches
+- source: SwitchAction
+  target: Outage
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PlannedSwitchActions
+  sourceDescription: All switch actions to apply within the scope of this planned outage. Each such action groups switches
     to which the action is to apply in order to produce the desired network state considered as outage.
+  targetName: PlannedOutage
+  targetDescription: Planned outage for whose scope this switch action applies.

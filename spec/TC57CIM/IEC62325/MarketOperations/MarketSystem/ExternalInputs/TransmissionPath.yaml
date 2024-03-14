@@ -29,27 +29,27 @@ associations:
   targetCardinality: 0..*
   sourceName: TransmissionPath
   targetName: TransmissionReservation
-- source: ServicePoint
-  target: TransmissionPath
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: PointOfReceipt
+- source: TransmissionPath
+  target: ServicePoint
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PORTransmissionPath
   sourceDescription: A transmission path has a "point-of-receipt" service point
-  targetName: PORTransmissionPath
+  targetName: PointOfReceipt
   targetDescription: A transmission path has a "point-of-receipt" service point
-- source: TransmissionProduct
-  target: TransmissionPath
+- source: TransmissionPath
+  target: TransmissionProduct
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: LocatedOn
+  sourceName: LocationFor
   sourceDescription: A transmission product is located on a transmission path.
-  targetName: LocationFor
+  targetName: LocatedOn
   targetDescription: A transmission product is located on a transmission path.
-- source: ServicePoint
-  target: TransmissionPath
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: DeliveryPoint
+- source: TransmissionPath
+  target: ServicePoint
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PODTransmissionPath
   sourceDescription: A transmission path has a "point-of-delivery" service point
-  targetName: PODTransmissionPath
+  targetName: DeliveryPoint
   targetDescription: A transmission path has a "point-of-delivery" service point

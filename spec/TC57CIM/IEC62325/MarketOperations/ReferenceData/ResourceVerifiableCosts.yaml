@@ -13,15 +13,15 @@ associations:
   targetCardinality: "1"
   sourceName: ResourceVerifiableCosts
   targetName: RegisteredResource
-- source: ResourceOperationMaintenanceCost
-  target: ResourceVerifiableCosts
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: ResourceOperationMaintenanceCost
-  targetName: ResourceVerifiableCosts
-- source: ResourceStartupCost
-  target: ResourceVerifiableCosts
-  sourceCardinality: 0..*
+- source: ResourceVerifiableCosts
+  target: ResourceOperationMaintenanceCost
+  sourceCardinality: 0..1
   targetCardinality: "1"
-  sourceName: ResourceStartupCost
-  targetName: ResourceVerifiableCosts
+  sourceName: ResourceVerifiableCosts
+  targetName: ResourceOperationMaintenanceCost
+- source: ResourceVerifiableCosts
+  target: ResourceStartupCost
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ResourceVerifiableCosts
+  targetName: ResourceStartupCost

@@ -9,19 +9,19 @@ descendents:
 - SwitchSchedule
 - TapSchedule
 associations:
-- source: DayType
-  target: SeasonDayTypeSchedule
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DayType
-  sourceDescription: DayType for the Schedule.
-  targetName: SeasonDayTypeSchedules
-  targetDescription: Schedules that use this DayType.
-- source: Season
-  target: SeasonDayTypeSchedule
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Season
-  sourceDescription: Season for the Schedule.
-  targetName: SeasonDayTypeSchedules
-  targetDescription: Schedules that use this Season.
+- source: SeasonDayTypeSchedule
+  target: DayType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SeasonDayTypeSchedules
+  sourceDescription: Schedules that use this DayType.
+  targetName: DayType
+  targetDescription: DayType for the Schedule.
+- source: SeasonDayTypeSchedule
+  target: Season
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SeasonDayTypeSchedules
+  sourceDescription: Schedules that use this Season.
+  targetName: Season
+  targetDescription: Season for the Schedule.

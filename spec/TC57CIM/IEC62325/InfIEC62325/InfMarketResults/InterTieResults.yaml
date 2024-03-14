@@ -9,15 +9,15 @@ attributes:
   type: Float
   description: Net Dispatched MW
 associations:
-- source: InterTieClearing
-  target: InterTieResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: InterTieClearing
-  targetName: InterTieResults
-- source: Flowgate
-  target: InterTieResults
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: Flowgate
-  targetName: InterTieResults
+- source: InterTieResults
+  target: InterTieClearing
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: InterTieResults
+  targetName: InterTieClearing
+- source: InterTieResults
+  target: Flowgate
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: InterTieResults
+  targetName: Flowgate

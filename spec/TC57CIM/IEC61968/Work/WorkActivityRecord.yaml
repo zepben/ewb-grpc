@@ -7,11 +7,11 @@ attributes:
 ancestors:
 - ActivityRecord
 associations:
-- source: BaseWork
-  target: WorkActivityRecord
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: BaseWork
-  sourceDescription: Base work that this activity record tracks.
-  targetName: WorkActivityRecords
-  targetDescription: All activity records for this work or work task.
+- source: WorkActivityRecord
+  target: BaseWork
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkActivityRecords
+  sourceDescription: All activity records for this work or work task.
+  targetName: BaseWork
+  targetDescription: Base work that this activity record tracks.

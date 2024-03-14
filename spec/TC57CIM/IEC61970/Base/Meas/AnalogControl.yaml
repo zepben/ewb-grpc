@@ -13,11 +13,11 @@ descendents:
 - SetPoint
 - RaiseLowerCommand
 associations:
-- source: AnalogValue
-  target: AnalogControl
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: AnalogValue
-  sourceDescription: The MeasurementValue that is controlled.
-  targetName: AnalogControl
-  targetDescription: The Control variable associated with the MeasurementValue.
+- source: AnalogControl
+  target: AnalogValue
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: AnalogControl
+  sourceDescription: The Control variable associated with the MeasurementValue.
+  targetName: AnalogValue
+  targetDescription: The MeasurementValue that is controlled.

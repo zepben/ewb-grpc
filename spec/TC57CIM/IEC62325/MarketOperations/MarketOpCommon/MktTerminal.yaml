@@ -9,9 +9,9 @@ associations:
   targetCardinality: 0..1
   sourceName: MktTerminal
   targetName: Flowgate
-- source: TerminalConstraintTerm
-  target: MktTerminal
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TerminalConstraintTerm
-  targetName: MktTerminal
+- source: MktTerminal
+  target: TerminalConstraintTerm
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktTerminal
+  targetName: TerminalConstraintTerm

@@ -11,11 +11,11 @@ attributes:
 ancestors:
 - UnderexcitationLimiterDynamics
 associations:
-- source: ProprietaryParameterDynamics
-  target: UnderexcitationLimiterUserDefined
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetName: UnderexcitationLimiterUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+- source: UnderexcitationLimiterUserDefined
+  target: ProprietaryParameterDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UnderexcitationLimiterUserDefined
+  sourceDescription: Proprietary user-defined model with which this parameter is associated.
+  targetName: ProprietaryParameterDynamics
+  targetDescription: Parameter of this proprietary user-defined model.

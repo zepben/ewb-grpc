@@ -4,19 +4,19 @@ description: An area of the power system network which is defined for secondary 
 ancestors:
 - PowerSystemResource
 associations:
-- source: RegulationSchedule
-  target: VoltageControlZone
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegulationSchedule
-  sourceDescription: A VoltageControlZone may have a  voltage regulation schedule.
-  targetName: VoltageControlZones
-  targetDescription: A VoltageControlZone may have a  voltage regulation schedule.
-- source: BusbarSection
-  target: VoltageControlZone
-  sourceCardinality: "1"
+- source: VoltageControlZone
+  target: RegulationSchedule
+  sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: BusbarSection
+  sourceName: VoltageControlZones
+  sourceDescription: A VoltageControlZone may have a  voltage regulation schedule.
+  targetName: RegulationSchedule
+  targetDescription: A VoltageControlZone may have a  voltage regulation schedule.
+- source: VoltageControlZone
+  target: BusbarSection
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: VoltageControlZone
   sourceDescription: A VoltageControlZone is controlled by a designated BusbarSection.
-  targetName: VoltageControlZone
+  targetName: BusbarSection
   targetDescription: A VoltageControlZone is controlled by a designated BusbarSection.

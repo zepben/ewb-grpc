@@ -8,9 +8,9 @@ attributes:
 ancestors:
 - OrganisationRole
 associations:
-- source: OldPerson
-  target: PersonOrganisationRole
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ErpPerson
-  targetName: OrganisationRoles
+- source: PersonOrganisationRole
+  target: OldPerson
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: OrganisationRoles
+  targetName: ErpPerson

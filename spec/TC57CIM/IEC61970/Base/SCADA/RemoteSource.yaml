@@ -16,11 +16,11 @@ attributes:
 ancestors:
 - RemotePoint
 associations:
-- source: MeasurementValue
-  target: RemoteSource
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: MeasurementValue
+- source: RemoteSource
+  target: MeasurementValue
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: RemoteSource
   sourceDescription: Link to the physical telemetered point associated with this measurement.
-  targetName: RemoteSource
+  targetName: MeasurementValue
   targetDescription: Link to the physical telemetered point associated with this measurement.

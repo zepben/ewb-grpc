@@ -23,19 +23,19 @@ associations:
   sourceDescription: The ValueAliasSet used for translation of a MeasurementValue.value to a name.
   targetName: Discretes
   targetDescription: The Measurements using the set for translation.
-- source: Command
-  target: ValueAliasSet
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Commands
-  sourceDescription: The Commands using the set for translation.
-  targetName: ValueAliasSet
-  targetDescription: The ValueAliasSet used for translation of a Control value to a name.
-- source: RaiseLowerCommand
-  target: ValueAliasSet
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: RaiseLowerCommands
-  sourceDescription: The Commands using the set for translation.
-  targetName: ValueAliasSet
-  targetDescription: The ValueAliasSet used for translation of a Control value to a name.
+- source: ValueAliasSet
+  target: Command
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ValueAliasSet
+  sourceDescription: The ValueAliasSet used for translation of a Control value to a name.
+  targetName: Commands
+  targetDescription: The Commands using the set for translation.
+- source: ValueAliasSet
+  target: RaiseLowerCommand
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ValueAliasSet
+  sourceDescription: The ValueAliasSet used for translation of a Control value to a name.
+  targetName: RaiseLowerCommands
+  targetDescription: The Commands using the set for translation.

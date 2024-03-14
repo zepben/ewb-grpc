@@ -15,21 +15,21 @@ attributes:
   type: Float
   description: Reactive power (MVAr) load distribution factor
 associations:
-- source: DistributionFactorSet
-  target: LoadDistributionFactor
+- source: LoadDistributionFactor
+  target: DistributionFactorSet
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DistributionFactorSet
-  targetName: LoadDistributionFactor
-- source: IndividualPnode
-  target: LoadDistributionFactor
+  sourceName: LoadDistributionFactor
+  targetName: DistributionFactorSet
+- source: LoadDistributionFactor
+  target: IndividualPnode
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: IndividualPnode
-  targetName: LoadDistributionFactor
-- source: AggregatedPnode
-  target: LoadDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: AggregatedPnode
-  targetName: LoadDistributionFactor
+  sourceName: LoadDistributionFactor
+  targetName: IndividualPnode
+- source: LoadDistributionFactor
+  target: AggregatedPnode
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: LoadDistributionFactor
+  targetName: AggregatedPnode

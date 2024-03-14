@@ -50,17 +50,17 @@ associations:
   targetCardinality: 0..*
   sourceName: CustomerAccount
   targetName: AccountNotification
-- source: CustomerBillingInfo
-  target: CustomerAccount
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: CustomerBillingInfos
-  targetName: CustomerAccount
-- source: Customer
-  target: CustomerAccount
-  sourceCardinality: "1"
+- source: CustomerAccount
+  target: CustomerBillingInfo
+  sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Customer
-  sourceDescription: Customer owning this account.
-  targetName: CustomerAccounts
-  targetDescription: All accounts of this customer.
+  sourceName: CustomerAccount
+  targetName: CustomerBillingInfos
+- source: CustomerAccount
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CustomerAccounts
+  sourceDescription: All accounts of this customer.
+  targetName: Customer
+  targetDescription: Customer owning this account.

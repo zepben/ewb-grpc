@@ -14,11 +14,11 @@ attributes:
   type: Float
   description: The second value at the time. The meaning of the value is defined by the derived type of the associated schedule.
 associations:
-- source: RegularIntervalSchedule
-  target: RegularTimePoint
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: IntervalSchedule
-  sourceDescription: Regular interval schedule containing this time point.
-  targetName: TimePoints
-  targetDescription: The regular interval time point data values that define this schedule.
+- source: RegularTimePoint
+  target: RegularIntervalSchedule
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: TimePoints
+  sourceDescription: The regular interval time point data values that define this schedule.
+  targetName: IntervalSchedule
+  targetDescription: Regular interval schedule containing this time point.

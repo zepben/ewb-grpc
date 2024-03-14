@@ -15,9 +15,9 @@ associations:
   targetCardinality: 0..1
   sourceName: ErpBomItemDatas
   targetName: DesignLocation
-- source: CatalogAssetType
-  target: ErpBomItemData
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TypeAsset
-  targetName: ErpBomItemDatas
+- source: ErpBomItemData
+  target: CatalogAssetType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpBomItemDatas
+  targetName: TypeAsset

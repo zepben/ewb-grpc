@@ -25,27 +25,27 @@ associations:
   sourceDescription: Analytic result related to this asset.
   targetName: Asset
   targetDescription: Asset to which this analytic score applies.
-- source: AssetGroup
-  target: AnalyticScore
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AssetGroup
-  sourceDescription: Asset group to which this analytic score applies..
-  targetName: AnalyticScore
-  targetDescription: Analytic score for this asset group.
-- source: AggregateScore
-  target: AnalyticScore
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: AssetAggregateScore
-  sourceDescription: Aggregate score to which this analytic score contributed.
-  targetName: AnalyticScore
-  targetDescription: Analytic score contributing to this aggregate score.
-- source: Analytic
-  target: AnalyticScore
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Analytic
-  sourceDescription: Analytic which was executed to arrive at this analytic score..
-  targetName: AnalyticScore
-  targetDescription: Analytic score produced by this analytic.
+- source: AnalyticScore
+  target: AssetGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AnalyticScore
+  sourceDescription: Analytic score for this asset group.
+  targetName: AssetGroup
+  targetDescription: Asset group to which this analytic score applies..
+- source: AnalyticScore
+  target: AggregateScore
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: AnalyticScore
+  sourceDescription: Analytic score contributing to this aggregate score.
+  targetName: AssetAggregateScore
+  targetDescription: Aggregate score to which this analytic score contributed.
+- source: AnalyticScore
+  target: Analytic
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AnalyticScore
+  sourceDescription: Analytic score produced by this analytic.
+  targetName: Analytic
+  targetDescription: Analytic which was executed to arrive at this analytic score..

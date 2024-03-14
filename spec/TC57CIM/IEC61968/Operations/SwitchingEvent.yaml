@@ -4,9 +4,9 @@ description: Event indicating the completion (success or fail) of any switching 
 ancestors:
 - ActivityRecord
 associations:
-- source: SwitchingAction
-  target: SwitchingEvent
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: SwitchingAction
-  targetName: SwitchingEvent
+- source: SwitchingEvent
+  target: SwitchingAction
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: SwitchingEvent
+  targetName: SwitchingAction

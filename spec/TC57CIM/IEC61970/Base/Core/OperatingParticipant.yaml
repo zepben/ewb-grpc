@@ -5,12 +5,12 @@ description: An operator of multiple power system resource objects. Note multple
 ancestors:
 - IdentifiedObject
 associations:
-- source: OperatingShare
-  target: OperatingParticipant
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: OperatingShare
-  sourceDescription: The operating shares of this operating participant.  An operating participant can be resused for any
+- source: OperatingParticipant
+  target: OperatingShare
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: OperatingParticipant
+  sourceDescription: The operating participant having this share with the associated power system resource.
+  targetName: OperatingShare
+  targetDescription: The operating shares of this operating participant.  An operating participant can be resused for any
     number of power system resources.
-  targetName: OperatingParticipant
-  targetDescription: The operating participant having this share with the associated power system resource.

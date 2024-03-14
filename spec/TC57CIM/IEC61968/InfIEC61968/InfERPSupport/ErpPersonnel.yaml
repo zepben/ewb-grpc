@@ -7,9 +7,9 @@ attributes:
 ancestors:
 - ErpIdentifiedObject
 associations:
-- source: OldPerson
-  target: ErpPersonnel
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpPersons
-  targetName: ErpPersonnel
+- source: ErpPersonnel
+  target: OldPerson
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ErpPersonnel
+  targetName: ErpPersons

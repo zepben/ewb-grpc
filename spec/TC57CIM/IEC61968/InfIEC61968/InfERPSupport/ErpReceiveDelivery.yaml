@@ -4,9 +4,9 @@ description: Transaction for an Organisation receiving goods or services that ma
 ancestors:
 - ErpDocument
 associations:
-- source: ErpRecDelvLineItem
-  target: ErpReceiveDelivery
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpRecDelvLineItems
-  targetName: ErpReceiveDelivery
+- source: ErpReceiveDelivery
+  target: ErpRecDelvLineItem
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpReceiveDelivery
+  targetName: ErpRecDelvLineItems

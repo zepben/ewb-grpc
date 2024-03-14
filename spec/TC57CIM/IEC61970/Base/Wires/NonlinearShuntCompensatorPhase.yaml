@@ -5,11 +5,11 @@ description: A per phase non linear shunt compensator has bank or section admitt
 ancestors:
 - ShuntCompensatorPhase
 associations:
-- source: NonlinearShuntCompensatorPhasePoint
-  target: NonlinearShuntCompensatorPhase
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: NonlinearShuntCompensatorPhasePoints
-  sourceDescription: All points of the non-linear shunt compensator phase.
-  targetName: NonlinearShuntCompensatorPhase
-  targetDescription: Non-linear shunt compensator phase owning this point.
+- source: NonlinearShuntCompensatorPhase
+  target: NonlinearShuntCompensatorPhasePoint
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: NonlinearShuntCompensatorPhase
+  sourceDescription: Non-linear shunt compensator phase owning this point.
+  targetName: NonlinearShuntCompensatorPhasePoints
+  targetDescription: All points of the non-linear shunt compensator phase.

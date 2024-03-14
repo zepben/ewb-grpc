@@ -6,11 +6,11 @@ descendents:
 - AssetStringMeasurement
 - EnvironmentalStringMeasurement
 associations:
-- source: StringMeasurementValue
-  target: StringMeasurement
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: StringMeasurementValues
-  sourceDescription: The values connected to this measurement.
-  targetName: StringMeasurement
-  targetDescription: Measurement to which this value is connected.
+- source: StringMeasurement
+  target: StringMeasurementValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: StringMeasurement
+  sourceDescription: Measurement to which this value is connected.
+  targetName: StringMeasurementValues
+  targetDescription: The values connected to this measurement.

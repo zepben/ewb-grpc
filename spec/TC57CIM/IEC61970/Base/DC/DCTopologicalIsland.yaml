@@ -5,11 +5,11 @@ description: "An electrically connected subset of the network. DC topological is
 ancestors:
 - IdentifiedObject
 associations:
-- source: DCTopologicalNode
-  target: DCTopologicalIsland
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: DCTopologicalNodes
-  sourceDescription: The DC topological nodes in a DC topological island.
-  targetName: DCTopologicalIsland
-  targetDescription: A DC topological node belongs to a DC topological island.
+- source: DCTopologicalIsland
+  target: DCTopologicalNode
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: DCTopologicalIsland
+  sourceDescription: A DC topological node belongs to a DC topological island.
+  targetName: DCTopologicalNodes
+  targetDescription: The DC topological nodes in a DC topological island.

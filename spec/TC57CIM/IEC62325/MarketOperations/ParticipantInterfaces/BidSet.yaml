@@ -5,9 +5,9 @@ description: |-
 ancestors:
 - IdentifiedObject
 associations:
-- source: GeneratingBid
-  target: BidSet
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: GeneratingBids
-  targetName: BidSet
+- source: BidSet
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: BidSet
+  targetName: GeneratingBids

@@ -34,9 +34,9 @@ associations:
   targetCardinality: 0..1
   sourceName: ChargeProfiles
   targetName: PassTroughBill
-- source: Bid
-  target: ChargeProfile
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Bid
-  targetName: ChargeProfiles
+- source: ChargeProfile
+  target: Bid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ChargeProfiles
+  targetName: Bid

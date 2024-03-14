@@ -18,27 +18,27 @@ associations:
   sourceDescription: The receipted payment for which this transaction has been recorded.
   targetName: Transactions
   targetDescription: All transactions recorded for this receipted payment.
-- source: VendorShift
-  target: Receipt
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: VendorShift
-  sourceDescription: Vendor shift during which this receipt was recorded.
-  targetName: Receipts
-  targetDescription: All receipts recorded during this vendor shift.
-- source: Tender
-  target: Receipt
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: Tenders
-  sourceDescription: All payments received in the form of tenders recorded by this receipt.
-  targetName: Receipt
-  targetDescription: Receipt that recorded this receiving of a payment in the form of tenders.
-- source: CashierShift
-  target: Receipt
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CashierShift
-  sourceDescription: Cashier shift during which this receipt was recorded.
-  targetName: Receipts
-  targetDescription: All Receipts recorded for this Shift.
+- source: Receipt
+  target: VendorShift
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Receipts
+  sourceDescription: All receipts recorded during this vendor shift.
+  targetName: VendorShift
+  targetDescription: Vendor shift during which this receipt was recorded.
+- source: Receipt
+  target: Tender
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: Receipt
+  sourceDescription: Receipt that recorded this receiving of a payment in the form of tenders.
+  targetName: Tenders
+  targetDescription: All payments received in the form of tenders recorded by this receipt.
+- source: Receipt
+  target: CashierShift
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Receipts
+  sourceDescription: All Receipts recorded for this Shift.
+  targetName: CashierShift
+  targetDescription: Cashier shift during which this receipt was recorded.

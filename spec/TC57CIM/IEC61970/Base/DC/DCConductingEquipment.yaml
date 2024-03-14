@@ -24,10 +24,10 @@ associations:
   sourceDescription: An DC  terminal belong to a DC conducting equipment.
   targetName: DCTerminals
   targetDescription: A DC conducting equipment has DC terminals.
-- source: ProtectiveActionAdjustment
-  target: DCConductingEquipment
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ProtectiveActionAdjustment
-  targetName: DCConductingEquipment
-  targetDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+- source: DCConductingEquipment
+  target: ProtectiveActionAdjustment
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: DCConductingEquipment
+  sourceDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+  targetName: ProtectiveActionAdjustment

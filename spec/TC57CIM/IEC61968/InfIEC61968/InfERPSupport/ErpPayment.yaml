@@ -9,21 +9,21 @@ attributes:
 ancestors:
 - ErpDocument
 associations:
-- source: ErpRecLineItem
-  target: ErpPayment
+- source: ErpPayment
+  target: ErpRecLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpRecLineItems
-  targetName: ErpPayments
-- source: ErpPayableLineItem
-  target: ErpPayment
+  sourceName: ErpPayments
+  targetName: ErpRecLineItems
+- source: ErpPayment
+  target: ErpPayableLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpPayableLineItems
-  targetName: ErpPayments
-- source: ErpInvoiceLineItem
-  target: ErpPayment
+  sourceName: ErpPayments
+  targetName: ErpPayableLineItems
+- source: ErpPayment
+  target: ErpInvoiceLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpInvoiceLineItems
-  targetName: ErpPayments
+  sourceName: ErpPayments
+  targetName: ErpInvoiceLineItems

@@ -16,23 +16,23 @@ associations:
   sourceName: Bushing
   targetName: Terminal
   targetDescription: Terminal to which this bushing is attached.
-- source: InterrupterUnit
-  target: Bushing
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: FixedContact
-  sourceDescription: Fixed contact of interrupter to which this bushing is attached.
-  targetName: Bushing
-  targetDescription: Bushing(s) to which the fixed contact(s) of this interrupter is(are) attached. Some interrupters have
+- source: Bushing
+  target: InterrupterUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Bushing
+  sourceDescription: Bushing(s) to which the fixed contact(s) of this interrupter is(are) attached. Some interrupters have
     one fixed and one moving contact, some have 2 fixed contacts, some 2 moving contacts. An interrupter will have relationships
     with 2 bushings and those relationships may be any combination of the FixedContact and MovingContact associations.
-- source: InterrupterUnit
-  target: Bushing
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MovingContact
-  sourceDescription: Moving contact of interrupter to which this bushing is attached.
-  targetName: Bushing
-  targetDescription: Bushing(s) to which the moving contact(s) of this interrupter is(are) attached. Some interrupters have
+  targetName: FixedContact
+  targetDescription: Fixed contact of interrupter to which this bushing is attached.
+- source: Bushing
+  target: InterrupterUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Bushing
+  sourceDescription: Bushing(s) to which the moving contact(s) of this interrupter is(are) attached. Some interrupters have
     one fixed and one moving contact, some have 2 fixed contacts, some 2 moving contacts. An interrupter will have relationships
     with 2 bushings and those relationships may be any combination of the FixedContact and MovingContact associations.
+  targetName: MovingContact
+  targetDescription: Moving contact of interrupter to which this bushing is attached.

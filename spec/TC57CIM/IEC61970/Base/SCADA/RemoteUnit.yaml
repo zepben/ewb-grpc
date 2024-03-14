@@ -11,19 +11,19 @@ attributes:
 ancestors:
 - PowerSystemResource
 associations:
-- source: CommunicationLink
-  target: RemoteUnit
-  sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: CommunicationLinks
-  sourceDescription: RTUs may be attached to communication links.
-  targetName: RemoteUnits
-  targetDescription: RTUs may be attached to communication links.
-- source: RemotePoint
-  target: RemoteUnit
+- source: RemoteUnit
+  target: CommunicationLink
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: RemotePoints
-  sourceDescription: Remote points this Remote unit contains.
-  targetName: RemoteUnit
-  targetDescription: Remote unit this point belongs to.
+  targetCardinality: 1..*
+  sourceName: RemoteUnits
+  sourceDescription: RTUs may be attached to communication links.
+  targetName: CommunicationLinks
+  targetDescription: RTUs may be attached to communication links.
+- source: RemoteUnit
+  target: RemotePoint
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RemoteUnit
+  sourceDescription: Remote unit this point belongs to.
+  targetName: RemotePoints
+  targetDescription: Remote points this Remote unit contains.

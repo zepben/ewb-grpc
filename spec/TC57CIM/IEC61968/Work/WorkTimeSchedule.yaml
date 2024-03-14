@@ -7,11 +7,11 @@ attributes:
 ancestors:
 - TimeSchedule
 associations:
-- source: BaseWork
-  target: WorkTimeSchedule
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: BaseWork
-  sourceDescription: Time schedule for this work or work task.
-  targetName: TimeSchedules
-  targetDescription: All time schedules for this work or work task.
+- source: WorkTimeSchedule
+  target: BaseWork
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TimeSchedules
+  sourceDescription: All time schedules for this work or work task.
+  targetName: BaseWork
+  targetDescription: Time schedule for this work or work task.

@@ -11,9 +11,9 @@ associations:
   targetCardinality: "1"
   sourceName: TradingHubValues
   targetName: AggregatedPnode
-- source: TradingHubPrice
-  target: TradingHubValues
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: TradingHubPrice
-  targetName: TradingHubValues
+- source: TradingHubValues
+  target: TradingHubPrice
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: TradingHubValues
+  targetName: TradingHubPrice

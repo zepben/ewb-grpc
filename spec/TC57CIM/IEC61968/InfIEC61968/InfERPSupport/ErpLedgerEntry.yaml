@@ -39,9 +39,9 @@ associations:
   targetCardinality: 0..*
   sourceName: ErpLedgerEntries
   targetName: UserAttributes
-- source: ErpLedger
-  target: ErpLedgerEntry
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ErpLedger
-  targetName: ErpLedgerEntries
+- source: ErpLedgerEntry
+  target: ErpLedger
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpLedgerEntries
+  targetName: ErpLedger

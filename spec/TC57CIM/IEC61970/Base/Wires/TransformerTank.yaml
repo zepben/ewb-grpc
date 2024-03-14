@@ -13,17 +13,17 @@ associations:
   sourceDescription: All transformers that belong to this bank.
   targetName: PowerTransformer
   targetDescription: Bank this transformer belongs to.
-- source: TransformerTankEnd
-  target: TransformerTank
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: TransformerTankEnds
-  sourceDescription: All windings of this transformer.
-  targetName: TransformerTank
-  targetDescription: Transformer this winding belongs to.
-- source: TransformerObservation
-  target: TransformerTank
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TransformerObservations
-  targetName: Transformer
+- source: TransformerTank
+  target: TransformerTankEnd
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: TransformerTank
+  sourceDescription: Transformer this winding belongs to.
+  targetName: TransformerTankEnds
+  targetDescription: All windings of this transformer.
+- source: TransformerTank
+  target: TransformerObservation
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Transformer
+  targetName: TransformerObservations

@@ -13,43 +13,43 @@ ancestors:
 descendents:
 - ClearanceDocument
 associations:
-- source: SwitchingPlan
-  target: SafetyDocument
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: SwitchingPlan
-  sourceDescription: Switching plan to which this safety document applies.
-  targetName: SafetyDocuments
-  targetDescription: All safety documents applicable to this swtiching plan.
-- source: OperationsSafetySupervisor
-  target: SafetyDocument
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ReleasedToSupervisor
-  sourceDescription: Supervisor to which this safety document is released.
-  targetName: ReleasedSafetyDocuments
-  targetDescription: All safety documents released to this supervisor.
-- source: OperationsSafetySupervisor
-  target: SafetyDocument
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: IssuedBySupervisor
-  sourceDescription: Supervisor that issued this safety document.
-  targetName: IssuedSafetyDocuments
-  targetDescription: All safety documents issued by this supervisor.
-- source: FieldSafetySupervisor
-  target: SafetyDocument
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ReleasedBySupervisor
-  sourceDescription: Supervisor that released this safety document.
-  targetName: ReleasedSafetyDocuments
-  targetDescription: All safety documents released by this supervisor.
-- source: FieldSafetySupervisor
-  target: SafetyDocument
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: IssuedToSupervisor
-  sourceDescription: Supervisor to whom this safety document is issued.
-  targetName: IssuedSafetyDocuments
-  targetDescription: All safety documents issued to this supervisor.
+- source: SafetyDocument
+  target: SwitchingPlan
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SafetyDocuments
+  sourceDescription: All safety documents applicable to this swtiching plan.
+  targetName: SwitchingPlan
+  targetDescription: Switching plan to which this safety document applies.
+- source: SafetyDocument
+  target: OperationsSafetySupervisor
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ReleasedSafetyDocuments
+  sourceDescription: All safety documents released to this supervisor.
+  targetName: ReleasedToSupervisor
+  targetDescription: Supervisor to which this safety document is released.
+- source: SafetyDocument
+  target: OperationsSafetySupervisor
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: IssuedSafetyDocuments
+  sourceDescription: All safety documents issued by this supervisor.
+  targetName: IssuedBySupervisor
+  targetDescription: Supervisor that issued this safety document.
+- source: SafetyDocument
+  target: FieldSafetySupervisor
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ReleasedSafetyDocuments
+  sourceDescription: All safety documents released by this supervisor.
+  targetName: ReleasedBySupervisor
+  targetDescription: Supervisor that released this safety document.
+- source: SafetyDocument
+  target: FieldSafetySupervisor
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: IssuedSafetyDocuments
+  sourceDescription: All safety documents issued to this supervisor.
+  targetName: IssuedToSupervisor
+  targetDescription: Supervisor to whom this safety document is issued.

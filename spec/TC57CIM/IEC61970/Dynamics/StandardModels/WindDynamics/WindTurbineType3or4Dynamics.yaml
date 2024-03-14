@@ -23,11 +23,11 @@ associations:
   sourceDescription: Wind turbine type 3 or type 4 models using this remote input signal.
   targetName: RemoteInputSignal
   targetDescription: Remote input signal used by these wind turbine type 3 or type 4 models.
-- source: WindPlantDynamics
-  target: WindTurbineType3or4Dynamics
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: WindPlantDynamics
-  sourceDescription: The wind plant with which the wind turbines type 3 or type 4 are associated.
-  targetName: WindTurbineType3or4Dynamics
-  targetDescription: The wind turbine type 3 or type 4 associated with this wind plant.
+- source: WindTurbineType3or4Dynamics
+  target: WindPlantDynamics
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: WindTurbineType3or4Dynamics
+  sourceDescription: The wind turbine type 3 or type 4 associated with this wind plant.
+  targetName: WindPlantDynamics
+  targetDescription: The wind plant with which the wind turbines type 3 or type 4 are associated.

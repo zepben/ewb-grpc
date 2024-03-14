@@ -49,29 +49,29 @@ associations:
   sourceDescription: All trouble tickets reporting this incident.
   targetName: Incident
   targetDescription: Incident reported in this trouble ticket
-- source: ServiceLocation
-  target: TroubleTicket
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ServiceLocation
-  targetName: TroubleTicket
-- source: CustomerNotification
-  target: TroubleTicket
+- source: TroubleTicket
+  target: ServiceLocation
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TroubleTicket
+  targetName: ServiceLocation
+- source: TroubleTicket
+  target: CustomerNotification
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Notification
-  sourceDescription: Notification for this trouble ticket.
-  targetName: TroubleTickets
-  targetDescription: All trouble tickets with this notification.
-- source: UnplannedOutage
-  target: TroubleTicket
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: UnplannedOutage
-  targetName: TroubleTicket
-- source: TroubleOrder
-  target: TroubleTicket
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TroubleOrder
-  targetName: TroubleTicket
+  sourceName: TroubleTickets
+  sourceDescription: All trouble tickets with this notification.
+  targetName: Notification
+  targetDescription: Notification for this trouble ticket.
+- source: TroubleTicket
+  target: UnplannedOutage
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TroubleTicket
+  targetName: UnplannedOutage
+- source: TroubleTicket
+  target: TroubleOrder
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TroubleTicket
+  targetName: TroubleOrder

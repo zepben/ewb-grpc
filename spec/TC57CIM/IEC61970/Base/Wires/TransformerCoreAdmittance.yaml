@@ -26,12 +26,12 @@ associations:
     of the transformer should be supplied for one transformer end only.
   targetName: TransformerEnd
   targetDescription: All transformer ends having this core admittance.
-- source: TransformerEndInfo
-  target: TransformerCoreAdmittance
+- source: TransformerCoreAdmittance
+  target: TransformerEndInfo
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: TransformerEndInfo
-  sourceDescription: Transformer end datasheet used to calculate this core admittance.
-  targetName: CoreAdmittance
-  targetDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and
+  sourceName: CoreAdmittance
+  sourceDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and
     core losses. The full values of the transformer should be supplied for one transformer end info only.
+  targetName: TransformerEndInfo
+  targetDescription: Transformer end datasheet used to calculate this core admittance.

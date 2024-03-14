@@ -62,17 +62,17 @@ associations:
   sourceDescription: Incident at this location.
   targetName: Location
   targetDescription: Location of this incident.
-- source: TroubleTicket
-  target: Incident
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TroubleTickets
-  sourceDescription: All trouble tickets reporting this incident.
-  targetName: Incident
-  targetDescription: Incident reported in this trouble ticket
-- source: TroubleOrder
-  target: Incident
+- source: Incident
+  target: TroubleTicket
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Incident
+  sourceDescription: Incident reported in this trouble ticket
+  targetName: TroubleTickets
+  targetDescription: All trouble tickets reporting this incident.
+- source: Incident
+  target: TroubleOrder
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: TroubleOrder
-  targetName: Incident
+  sourceName: Incident
+  targetName: TroubleOrder

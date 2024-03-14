@@ -34,44 +34,44 @@ associations:
   targetName: TurbineGovernorDynamics
   targetDescription: Turbine-governor model associated with this synchronous machine model. Multiplicity of greater than one
     is intended to support hydro units that have multiple turbines on one generator.
-- source: GenICompensationForGenJ
-  target: SynchronousMachineDynamics
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: GenICompensationForGenJ
-  sourceDescription: Compensation of voltage compensator's generator for current flow out of this  generator.
-  targetName: SynchronousMachineDynamics
-  targetDescription: Standard synchronous machine out of which current flow is being compensated for.
-- source: ExcitationSystemDynamics
-  target: SynchronousMachineDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: ExcitationSystemDynamics
-  sourceDescription: Excitation system model associated with this synchronous machine model.
-  targetName: SynchronousMachineDynamics
-  targetDescription: Synchronous machine model with which this excitation system model is associated.
-- source: CrossCompoundTurbineGovernorDynamics
-  target: SynchronousMachineDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: CrossCompoundTurbineGovernorDynamics
-  sourceDescription: The cross-compound turbine governor with which this low-pressure synchronous machine is associated.
-  targetName: LowPressureSynchronousMachineDynamics
-  targetDescription: Low-pressure synchronous machine with which this cross-compound turbine governor is associated.
-- source: CrossCompoundTurbineGovernorDynamics
-  target: SynchronousMachineDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: CrossCompoundTurbineGovernorDyanmics
-  sourceDescription: The cross-compound turbine governor with which this high-pressure synchronous machine is associated.
-  targetName: HighPressureSynchronousMachineDynamics
-  targetDescription: High-pressure synchronous machine with which this cross-compound turbine governor is associated.
-- source: MechanicalLoadDynamics
-  target: SynchronousMachineDynamics
+- source: SynchronousMachineDynamics
+  target: GenICompensationForGenJ
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: SynchronousMachineDynamics
+  sourceDescription: Standard synchronous machine out of which current flow is being compensated for.
+  targetName: GenICompensationForGenJ
+  targetDescription: Compensation of voltage compensator's generator for current flow out of this  generator.
+- source: SynchronousMachineDynamics
+  target: ExcitationSystemDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: SynchronousMachineDynamics
+  sourceDescription: Synchronous machine model with which this excitation system model is associated.
+  targetName: ExcitationSystemDynamics
+  targetDescription: Excitation system model associated with this synchronous machine model.
+- source: SynchronousMachineDynamics
+  target: CrossCompoundTurbineGovernorDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: LowPressureSynchronousMachineDynamics
+  sourceDescription: Low-pressure synchronous machine with which this cross-compound turbine governor is associated.
+  targetName: CrossCompoundTurbineGovernorDynamics
+  targetDescription: The cross-compound turbine governor with which this low-pressure synchronous machine is associated.
+- source: SynchronousMachineDynamics
+  target: CrossCompoundTurbineGovernorDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: HighPressureSynchronousMachineDynamics
+  sourceDescription: High-pressure synchronous machine with which this cross-compound turbine governor is associated.
+  targetName: CrossCompoundTurbineGovernorDyanmics
+  targetDescription: The cross-compound turbine governor with which this high-pressure synchronous machine is associated.
+- source: SynchronousMachineDynamics
+  target: MechanicalLoadDynamics
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: MechanicalLoadDynamics
-  sourceDescription: Mechanical load model associated with this synchronous machine model.
-  targetName: SynchronousMachineDynamics
-  targetDescription: Synchronous machine model with which this mechanical load model is associated. MechanicalLoadDynamics
+  sourceName: SynchronousMachineDynamics
+  sourceDescription: Synchronous machine model with which this mechanical load model is associated. MechanicalLoadDynamics
     shall have either an association to SynchronousMachineDynamics or AsynchronousMachineDyanmics.
+  targetName: MechanicalLoadDynamics
+  targetDescription: Mechanical load model associated with this synchronous machine model.

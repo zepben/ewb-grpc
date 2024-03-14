@@ -4,15 +4,15 @@ description: There is one internal control area in the system, which is the sing
 ancestors:
 - IdentifiedObject
 associations:
-- source: CurrentEmergencyScheduledInterchange
-  target: InternalControlArea
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CurrentEmergencySI
-  targetName: InternalControlArea
-- source: CurrentScheduledInterchange
-  target: InternalControlArea
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: CurrentScheduledInterchange
-  targetName: InternalControlArea
+- source: InternalControlArea
+  target: CurrentEmergencyScheduledInterchange
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: InternalControlArea
+  targetName: CurrentEmergencySI
+- source: InternalControlArea
+  target: CurrentScheduledInterchange
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: InternalControlArea
+  targetName: CurrentScheduledInterchange

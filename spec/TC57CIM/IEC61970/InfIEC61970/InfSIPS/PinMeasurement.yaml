@@ -10,10 +10,10 @@ associations:
   sourceName: PinMeasurement
   targetName: Measurement
   targetDescription: The Measurement that should be used in compare.
-- source: MeasurementCalculator
-  target: PinMeasurement
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MeasurementCalculator
-  sourceDescription: Result of the calculation used as input to a gate.
-  targetName: PinMeasurement
+- source: PinMeasurement
+  target: MeasurementCalculator
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PinMeasurement
+  targetName: MeasurementCalculator
+  targetDescription: Result of the calculation used as input to a gate.

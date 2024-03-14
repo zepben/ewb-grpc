@@ -34,45 +34,45 @@ associations:
   targetCardinality: 0..*
   sourceName: CompatibleUnits
   targetName: Procedures
-- source: PropertyUnit
-  target: CompatibleUnit
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PropertyUnit
-  targetName: CompatibleUnits
-- source: CostType
-  target: CompatibleUnit
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CostType
-  targetName: CompatibleUnits
-- source: CUWorkEquipmentItem
-  target: CompatibleUnit
+- source: CompatibleUnit
+  target: PropertyUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CompatibleUnits
+  targetName: PropertyUnit
+- source: CompatibleUnit
+  target: CostType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CompatibleUnits
+  targetName: CostType
+- source: CompatibleUnit
+  target: CUWorkEquipmentItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CUWorkEquipmentItems
-  targetName: CompatibleUnits
-- source: CUMaterialItem
-  target: CompatibleUnit
+  sourceName: CompatibleUnits
+  targetName: CUWorkEquipmentItems
+- source: CompatibleUnit
+  target: CUMaterialItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CUMaterialItems
-  targetName: CompatibleUnits
-- source: CULaborItem
-  target: CompatibleUnit
+  sourceName: CompatibleUnits
+  targetName: CUMaterialItems
+- source: CompatibleUnit
+  target: CULaborItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CULaborItems
-  targetName: CompatibleUnits
-- source: CUContractorItem
-  target: CompatibleUnit
+  sourceName: CompatibleUnits
+  targetName: CULaborItems
+- source: CompatibleUnit
+  target: CUContractorItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CUContractorItems
-  targetName: CompatibleUnits
-- source: CUAllowableAction
-  target: CompatibleUnit
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CUAllowableAction
-  targetName: CompatibleUnits
+  sourceName: CompatibleUnits
+  targetName: CUContractorItems
+- source: CompatibleUnit
+  target: CUAllowableAction
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CompatibleUnits
+  targetName: CUAllowableAction

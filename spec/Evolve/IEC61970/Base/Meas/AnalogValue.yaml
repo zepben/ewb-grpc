@@ -7,11 +7,11 @@ attributes:
 ancestors:
 - MeasurementValue
 associations:
-- source: Analog
-  target: AnalogValue
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Analog
-  sourceDescription: Measurement to which this value is connected.
-  targetName: AnalogValues
-  targetDescription: The values connected to this measurement.
+- source: AnalogValue
+  target: Analog
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AnalogValues
+  sourceDescription: The values connected to this measurement.
+  targetName: Analog
+  targetDescription: Measurement to which this value is connected.

@@ -24,15 +24,15 @@ associations:
   targetCardinality: "1"
   sourceName: LaborItems
   targetName: WorkCostDetail
-- source: OldWorkTask
-  target: LaborItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkTask
-  targetName: LaborItems
-- source: OldPerson
-  target: LaborItem
+- source: LaborItem
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LaborItems
+  targetName: WorkTask
+- source: LaborItem
+  target: OldPerson
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpPersons
-  targetName: LaborItems
+  sourceName: LaborItems
+  targetName: ErpPersons

@@ -44,19 +44,19 @@ associations:
   sourceDescription: Datasheet information for this power system resource.
   targetName: PowerSystemResources
   targetDescription: All power system resources with this datasheet information.
-- source: ProductAssetModel
-  target: AssetInfo
+- source: AssetInfo
+  target: ProductAssetModel
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: ProductAssetModel
-  sourceDescription: Product asset model which conforms to this catalog asset type.
-  targetName: AssetInfo
-  targetDescription: Asset information (nameplate) for this product asset model.
-- source: Asset
-  target: AssetInfo
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Assets
-  sourceDescription: All assets described by this data.
-  targetName: AssetInfo
-  targetDescription: Data applicable to this asset.
+  sourceName: AssetInfo
+  sourceDescription: Asset information (nameplate) for this product asset model.
+  targetName: ProductAssetModel
+  targetDescription: Product asset model which conforms to this catalog asset type.
+- source: AssetInfo
+  target: Asset
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetInfo
+  sourceDescription: Data applicable to this asset.
+  targetName: Assets
+  targetDescription: All assets described by this data.

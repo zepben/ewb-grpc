@@ -32,27 +32,27 @@ associations:
   targetCardinality: 0..*
   sourceName: Point
   targetName: TimeSeries
-- source: FlowDirection
-  target: Point
+- source: Point
+  target: FlowDirection
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: FlowDirection
-  targetName: Point
-- source: Price
-  target: Point
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Price
-  targetName: Point
-- source: Quantity
-  target: Point
+  sourceName: Point
+  targetName: FlowDirection
+- source: Point
+  target: Price
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Point
+  targetName: Price
+- source: Point
+  target: Quantity
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Quantity
-  targetName: Point
-- source: Reason
-  target: Point
+  sourceName: Point
+  targetName: Quantity
+- source: Point
+  target: Reason
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Reason
-  targetName: Point
+  sourceName: Point
+  targetName: Reason

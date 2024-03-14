@@ -11,11 +11,11 @@ attributes:
   type: Float
   description: The second value at the time. The meaning of the value is defined by the derived type of the associated schedule.
 associations:
-- source: IrregularIntervalSchedule
-  target: IrregularTimePoint
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: IntervalSchedule
-  sourceDescription: An IrregularTimePoint belongs to an IrregularIntervalSchedule.
-  targetName: TimePoints
-  targetDescription: The point data values that define a curve.
+- source: IrregularTimePoint
+  target: IrregularIntervalSchedule
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: TimePoints
+  sourceDescription: The point data values that define a curve.
+  targetName: IntervalSchedule
+  targetDescription: An IrregularTimePoint belongs to an IrregularIntervalSchedule.

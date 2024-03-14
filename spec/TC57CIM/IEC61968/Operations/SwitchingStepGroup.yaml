@@ -16,17 +16,17 @@ attributes:
   type: Integer
   description: Order of this activity in the sequence of activities within the switching plan.
 associations:
-- source: SwitchingPlan
-  target: SwitchingStepGroup
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: SwitchingPlan
-  sourceDescription: Switching plan to which this group belongs.
-  targetName: SwitchingStepGroups
-  targetDescription: All groups of switching steps within this switching plan.
-- source: SwitchingStep
-  target: SwitchingStepGroup
+- source: SwitchingStepGroup
+  target: SwitchingPlan
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: SwitchingStep
-  targetName: SwitchingStepGroup
+  sourceName: SwitchingStepGroups
+  sourceDescription: All groups of switching steps within this switching plan.
+  targetName: SwitchingPlan
+  targetDescription: Switching plan to which this group belongs.
+- source: SwitchingStepGroup
+  target: SwitchingStep
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SwitchingStepGroup
+  targetName: SwitchingStep

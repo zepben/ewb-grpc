@@ -16,35 +16,35 @@ attributes:
 ancestors:
 - GeneratingUnit
 associations:
-- source: TailbayLossCurve
-  target: HydroGeneratingUnit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TailbayLossCurve
-  sourceDescription: A hydro generating unit has a tailbay loss curve.
-  targetName: HydroGeneratingUnit
-  targetDescription: A hydro generating unit has a tailbay loss curve.
-- source: HydroPowerPlant
-  target: HydroGeneratingUnit
-  sourceCardinality: 0..1
+- source: HydroGeneratingUnit
+  target: TailbayLossCurve
+  sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: HydroPowerPlant
-  sourceDescription: The hydro generating unit belongs to a hydro power plant.
-  targetName: HydroGeneratingUnits
-  targetDescription: The hydro generating unit belongs to a hydro power plant.
-- source: HydroGeneratingEfficiencyCurve
-  target: HydroGeneratingUnit
+  sourceName: HydroGeneratingUnit
+  sourceDescription: A hydro generating unit has a tailbay loss curve.
+  targetName: TailbayLossCurve
+  targetDescription: A hydro generating unit has a tailbay loss curve.
+- source: HydroGeneratingUnit
+  target: HydroPowerPlant
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: HydroGeneratingEfficiencyCurves
+  targetCardinality: 0..1
+  sourceName: HydroGeneratingUnits
+  sourceDescription: The hydro generating unit belongs to a hydro power plant.
+  targetName: HydroPowerPlant
+  targetDescription: The hydro generating unit belongs to a hydro power plant.
+- source: HydroGeneratingUnit
+  target: HydroGeneratingEfficiencyCurve
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: HydroGeneratingUnit
   sourceDescription: A hydro generating unit has an efficiency curve.
-  targetName: HydroGeneratingUnit
+  targetName: HydroGeneratingEfficiencyCurves
   targetDescription: A hydro generating unit has an efficiency curve.
-- source: PenstockLossCurve
-  target: HydroGeneratingUnit
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: PenstockLossCurve
+- source: HydroGeneratingUnit
+  target: PenstockLossCurve
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: HydroGeneratingUnit
   sourceDescription: A hydro generating unit has a penstock loss curve.
-  targetName: HydroGeneratingUnit
+  targetName: PenstockLossCurve
   targetDescription: A hydro generating unit has a penstock loss curve.

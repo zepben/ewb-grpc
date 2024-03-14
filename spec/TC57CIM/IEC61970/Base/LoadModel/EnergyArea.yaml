@@ -9,11 +9,11 @@ descendents:
 - SubLoadArea
 - LoadArea
 associations:
-- source: ControlArea
-  target: EnergyArea
+- source: EnergyArea
+  target: ControlArea
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: ControlArea
-  sourceDescription: The control area specification that is used for the load forecast.
-  targetName: EnergyArea
-  targetDescription: The energy area that is forecast from this control area specification.
+  sourceName: EnergyArea
+  sourceDescription: The energy area that is forecast from this control area specification.
+  targetName: ControlArea
+  targetDescription: The control area specification that is used for the load forecast.

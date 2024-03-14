@@ -22,29 +22,29 @@ associations:
   targetName: SideB_SubControlArea
   targetDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's
     boundary for a ControlAreaOperator or CustomerConsumer.
-- source: CustomerConsumer
-  target: TieLine
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ParentOfB
-  sourceDescription: A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at
-    the collection of metering points, called a TieLine.
-  targetName: CustChildOf
-  targetDescription: A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a
+- source: TieLine
+  target: CustomerConsumer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CustChildOf
+  sourceDescription: A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a
     unique SubControlArea at the collection of metering points, called a TieLine.
-- source: ControlAreaOperator
-  target: TieLine
+  targetName: ParentOfB
+  targetDescription: A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at
+    the collection of metering points, called a TieLine.
+- source: TieLine
+  target: ControlAreaOperator
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ParentOfA
+  sourceName: CAChildOf
   sourceDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
-  targetName: CAChildOf
+  targetName: ParentOfA
   targetDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
-- source: EnergyTransaction
-  target: TieLine
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EnergyTransaction
+- source: TieLine
+  target: EnergyTransaction
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TieLines
   sourceDescription: A dynamic energy transaction can act as a pseudo tie line.
-  targetName: TieLines
+  targetName: EnergyTransaction
   targetDescription: A dynamic energy transaction can act as a pseudo tie line.

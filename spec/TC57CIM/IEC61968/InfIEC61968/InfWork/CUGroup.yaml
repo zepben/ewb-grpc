@@ -13,15 +13,15 @@ associations:
   targetCardinality: 0..*
   sourceName: ParentCUGroups
   targetName: ChildCUGroups
-- source: CompatibleUnit
-  target: CUGroup
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: CompatibleUnits
-  targetName: CUGroup
-- source: DesignLocationCU
-  target: CUGroup
+- source: CUGroup
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CUGroup
+  targetName: CompatibleUnits
+- source: CUGroup
+  target: DesignLocationCU
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DesignLocationCUs
-  targetName: CUGroups
+  sourceName: CUGroups
+  targetName: DesignLocationCUs

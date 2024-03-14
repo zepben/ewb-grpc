@@ -67,11 +67,11 @@ associations:
   targetName: DiagramObjectStyle
   targetDescription: A diagram object has a style associated that provides a reference for the style used in the originating
     system.
-- source: IdentifiedObject
-  target: DiagramObject
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: IdentifiedObject
-  sourceDescription: The domain object to which this diagram object is associated.
-  targetName: DiagramObjects
-  targetDescription: The diagram objects that are associated with the domain object.
+- source: DiagramObject
+  target: IdentifiedObject
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DiagramObjects
+  sourceDescription: The diagram objects that are associated with the domain object.
+  targetName: IdentifiedObject
+  targetDescription: The domain object to which this diagram object is associated.

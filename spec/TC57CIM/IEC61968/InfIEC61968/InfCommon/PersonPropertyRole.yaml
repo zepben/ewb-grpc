@@ -4,15 +4,15 @@ description: 'The role of a person relative to a given piece of property. Exampl
 ancestors:
 - Role
 associations:
-- source: LandProperty
-  target: PersonPropertyRole
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: LandProperty
-  targetName: ErpPersonRoles
-- source: OldPerson
-  target: PersonPropertyRole
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Person
-  targetName: LandPropertyRoles
+- source: PersonPropertyRole
+  target: LandProperty
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpPersonRoles
+  targetName: LandProperty
+- source: PersonPropertyRole
+  target: OldPerson
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LandPropertyRoles
+  targetName: Person

@@ -10,11 +10,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: UsagePoint
-  target: ServiceMultiplier
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: UsagePoint
-  sourceDescription: Usage point applying this multiplier.
-  targetName: ServiceMultipliers
-  targetDescription: All multipliers applied at this usage point.
+- source: ServiceMultiplier
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ServiceMultipliers
+  sourceDescription: All multipliers applied at this usage point.
+  targetName: UsagePoint
+  targetDescription: Usage point applying this multiplier.

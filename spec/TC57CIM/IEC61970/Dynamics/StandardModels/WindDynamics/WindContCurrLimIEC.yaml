@@ -46,11 +46,11 @@ associations:
   sourceDescription: Wind control current limitation model associated with this wind turbine type 3 or type 4 model.
   targetName: WindTurbineType3or4IEC
   targetDescription: Wind turbine type 3 or type 4 model with which this wind control current limitation model is associated.
-- source: WindDynamicsLookupTable
-  target: WindContCurrLimIEC
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: WindDynamicsLookupTable
-  sourceDescription: The wind dynamics lookup table associated with this current control limitation model.
-  targetName: WindContCurrLimIEC
-  targetDescription: The current control limitation model with which this wind dynamics lookup table is associated.
+- source: WindContCurrLimIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: WindContCurrLimIEC
+  sourceDescription: The current control limitation model with which this wind dynamics lookup table is associated.
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this current control limitation model.

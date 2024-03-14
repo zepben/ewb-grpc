@@ -5,9 +5,9 @@ description: Information that describes aptitudes of a utility employee. Unlike 
 ancestors:
 - ErpIdentifiedObject
 associations:
-- source: OldPerson
-  target: ErpCompetency
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpPersons
-  targetName: ErpCompetency
+- source: ErpCompetency
+  target: OldPerson
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ErpCompetency
+  targetName: ErpPersons

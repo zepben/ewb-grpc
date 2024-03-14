@@ -50,51 +50,51 @@ associations:
   sourceName: EndDevice
   sourceDescription: The generic class to support all field end devices such as meters or smart inverters
   targetName: DispatchablePowerCapability
-- source: EndDeviceGroup
-  target: EndDevice
+- source: EndDevice
+  target: EndDeviceGroup
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: EndDeviceGroups
-  sourceDescription: All end device groups referring to this end device.
-  targetName: EndDevices
-  targetDescription: All end devices this end device group refers to.
-- source: UsagePoint
-  target: EndDevice
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: UsagePoint
-  sourceDescription: Usage point to which this end device belongs.
-  targetName: EndDevices
-  targetDescription: All end devices at this usage point.
-- source: EndDeviceControl
-  target: EndDevice
-  sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: EndDeviceControls
-  sourceDescription: All end device controls sending commands to this end device.
-  targetName: EndDevices
-  targetDescription: All end devices receiving commands from this end device control.
-- source: EndDeviceEvent
-  target: EndDevice
+  sourceName: EndDevices
+  sourceDescription: All end devices this end device group refers to.
+  targetName: EndDeviceGroups
+  targetDescription: All end device groups referring to this end device.
+- source: EndDevice
+  target: UsagePoint
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: EndDeviceEvents
-  sourceDescription: All events reported by this end device.
-  targetName: EndDevice
-  targetDescription: End device that reported this end device event.
-- source: ServiceLocation
-  target: EndDevice
+  sourceName: EndDevices
+  sourceDescription: All end devices at this usage point.
+  targetName: UsagePoint
+  targetDescription: Usage point to which this end device belongs.
+- source: EndDevice
+  target: EndDeviceControl
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDevices
+  sourceDescription: All end devices receiving commands from this end device control.
+  targetName: EndDeviceControls
+  targetDescription: All end device controls sending commands to this end device.
+- source: EndDevice
+  target: EndDeviceEvent
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: ServiceLocation
-  sourceDescription: Service location whose service delivery is measured by this end device.
-  targetName: EndDevices
-  targetDescription: All end devices that measure the service delivered to this service location.
-- source: Customer
-  target: EndDevice
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Customer
-  sourceDescription: Customer owning this end device.
-  targetName: EndDevices
-  targetDescription: All end devices of this customer.
+  sourceName: EndDevice
+  sourceDescription: End device that reported this end device event.
+  targetName: EndDeviceEvents
+  targetDescription: All events reported by this end device.
+- source: EndDevice
+  target: ServiceLocation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDevices
+  sourceDescription: All end devices that measure the service delivered to this service location.
+  targetName: ServiceLocation
+  targetDescription: Service location whose service delivery is measured by this end device.
+- source: EndDevice
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDevices
+  sourceDescription: All end devices of this customer.
+  targetName: Customer
+  targetDescription: Customer owning this end device.

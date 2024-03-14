@@ -14,9 +14,9 @@ attributes:
 ancestors:
 - WorkDocument
 associations:
-- source: WorkLocation
-  target: OneCallRequest
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WorkLocations
-  targetName: OneCallRequest
+- source: OneCallRequest
+  target: WorkLocation
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: OneCallRequest
+  targetName: WorkLocations

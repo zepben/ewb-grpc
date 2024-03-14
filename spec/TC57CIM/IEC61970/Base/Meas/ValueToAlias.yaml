@@ -7,11 +7,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: ValueAliasSet
-  target: ValueToAlias
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: ValueAliasSet
-  sourceDescription: The ValueAliasSet having the ValueToAlias mappings.
-  targetName: Values
-  targetDescription: The ValueToAlias mappings included in the set.
+- source: ValueToAlias
+  target: ValueAliasSet
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: Values
+  sourceDescription: The ValueToAlias mappings included in the set.
+  targetName: ValueAliasSet
+  targetDescription: The ValueAliasSet having the ValueToAlias mappings.

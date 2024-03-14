@@ -30,9 +30,9 @@ associations:
   targetCardinality: "1"
   sourceName: FromWindingInsulations
   targetName: FromWinding
-- source: TransformerObservation
-  target: WindingInsulation
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TransformerObservation
-  targetName: WindingInsulationPFs
+- source: WindingInsulation
+  target: TransformerObservation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WindingInsulationPFs
+  targetName: TransformerObservation

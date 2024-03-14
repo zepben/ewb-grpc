@@ -14,15 +14,15 @@ attributes:
   type: PU
   description: Minimum DC voltage (Vdcmin).
 associations:
-- source: VSCtype1
-  target: DCvoltageControl
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: VSCtype1
-  targetName: DCvoltageControl
-- source: Delay
-  target: DCvoltageControl
+- source: DCvoltageControl
+  target: VSCtype1
   sourceCardinality: "1"
   targetCardinality: 0..1
-  sourceName: Delay
-  targetName: DCvoltageControl
+  sourceName: DCvoltageControl
+  targetName: VSCtype1
+- source: DCvoltageControl
+  target: Delay
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: DCvoltageControl
+  targetName: Delay

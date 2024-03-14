@@ -4,9 +4,9 @@ description: This is the price sensitivity that bidder expresses for allowing ma
 ancestors:
 - Curve
 associations:
-- source: LoadBid
-  target: LoadReductionPriceCurve
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: LoadBid
-  targetName: LoadReductionPriceCurve
+- source: LoadReductionPriceCurve
+  target: LoadBid
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LoadReductionPriceCurve
+  targetName: LoadBid

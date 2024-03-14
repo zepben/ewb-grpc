@@ -28,11 +28,11 @@ associations:
   sourceDescription: A thermal generating unit may have one or more fuel allocation schedules.
   targetName: ThermalGeneratingUnit
   targetDescription: A thermal generating unit may have one or more fuel allocation schedules.
-- source: FossilFuel
-  target: FuelAllocationSchedule
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: FossilFuel
+- source: FuelAllocationSchedule
+  target: FossilFuel
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: FuelAllocationSchedules
   sourceDescription: A fuel allocation schedule shall have a fossil fuel.
-  targetName: FuelAllocationSchedules
+  targetName: FossilFuel
   targetDescription: A fuel allocation schedule shall have a fossil fuel.

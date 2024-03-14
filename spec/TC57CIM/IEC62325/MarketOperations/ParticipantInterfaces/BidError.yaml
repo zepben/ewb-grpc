@@ -24,15 +24,15 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: ResourceBid
-  target: BidError
+- source: BidError
+  target: ResourceBid
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ResourceBid
-  targetName: BidError
-- source: MarketProduct
-  target: BidError
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MarketProduct
-  targetName: BidError
+  sourceName: BidError
+  targetName: ResourceBid
+- source: BidError
+  target: MarketProduct
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BidError
+  targetName: MarketProduct

@@ -35,15 +35,15 @@ attributes:
 ancestors:
 - ErpDocument
 associations:
-- source: ErpInvoiceLineItem
-  target: ErpInvoice
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpInvoiceLineItems
-  targetName: ErpInvoice
-- source: CustomerAccount
-  target: ErpInvoice
-  sourceCardinality: 0..1
+- source: ErpInvoice
+  target: ErpInvoiceLineItem
+  sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: CustomerAccount
-  targetName: ErpInvoicees
+  sourceName: ErpInvoice
+  targetName: ErpInvoiceLineItems
+- source: ErpInvoice
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpInvoicees
+  targetName: CustomerAccount

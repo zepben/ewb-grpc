@@ -2,11 +2,11 @@ name: ParentOrganization
 ancestors:
 - Organisation
 associations:
-- source: Organisation
-  target: ParentOrganization
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Organisation
-  sourceDescription: Organisation that is part of this parent organisation.
-  targetName: ParentOrganisation
-  targetDescription: Parent organisation of this organisation.
+- source: ParentOrganization
+  target: Organisation
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ParentOrganisation
+  sourceDescription: Parent organisation of this organisation.
+  targetName: Organisation
+  targetDescription: Organisation that is part of this parent organisation.

@@ -3,9 +3,9 @@ description: Subclass of IEC 61970:Wires:ShuntCompensator.
 ancestors:
 - ShuntCompensator
 associations:
-- source: ShuntCompensatorDynamicData
-  target: MktShuntCompensator
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ShuntCompensatorDynamicData
-  targetName: MktShuntCompensator
+- source: MktShuntCompensator
+  target: ShuntCompensatorDynamicData
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktShuntCompensator
+  targetName: ShuntCompensatorDynamicData

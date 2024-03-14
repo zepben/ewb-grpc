@@ -4,20 +4,20 @@ description: Control is used for supervisory/device control. It represents contr
 ancestors:
 - IOPoint
 associations:
-- source: PowerSystemResource
-  target: Control
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PowerSystemResource
-  sourceDescription: Regulating device governed by this control output.
-  targetName: Controls
-  targetDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
+- source: Control
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Controls
+  sourceDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
     machine or capacitor bank breaker actuator.
-- source: RemoteControl
-  target: Control
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: RemoteControl
-  sourceDescription: The remote point controlling the physical actuator.
-  targetName: Control
-  targetDescription: The Control for the RemoteControl point.
+  targetName: PowerSystemResource
+  targetDescription: Regulating device governed by this control output.
+- source: Control
+  target: RemoteControl
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: Control
+  sourceDescription: The Control for the RemoteControl point.
+  targetName: RemoteControl
+  targetDescription: The remote point controlling the physical actuator.

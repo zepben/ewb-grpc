@@ -11,29 +11,29 @@ associations:
   sourceDescription: The DC topological nodes in a DC topological island.
   targetName: DCTopologicalIsland
   targetDescription: A DC topological node belongs to a DC topological island.
-- source: DCBaseTerminal
-  target: DCTopologicalNode
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: DCTerminals
-  sourceDescription: See association end TopologicalNode.Terminal.
-  targetName: DCTopologicalNode
-  targetDescription: See association end Terminal.TopologicalNode.
-- source: DCNode
-  target: DCTopologicalNode
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: DCNodes
-  sourceDescription: The DC connectivity nodes combined together to form this DC topological node.  May depend on the current
-    state of switches in the network.
-  targetName: DCTopologicalNode
-  targetDescription: The DC topological node to which this DC connectivity node is assigned.  May depend on the current state
-    of switches in the network.
-- source: DCEquipmentContainer
-  target: DCTopologicalNode
+- source: DCTopologicalNode
+  target: DCBaseTerminal
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: DCEquipmentContainer
-  sourceDescription: The connectivity node container to which the topological node belongs.
-  targetName: DCTopologicalNode
-  targetDescription: The topological nodes which belong to this connectivity node container.
+  sourceName: DCTopologicalNode
+  sourceDescription: See association end Terminal.TopologicalNode.
+  targetName: DCTerminals
+  targetDescription: See association end TopologicalNode.Terminal.
+- source: DCTopologicalNode
+  target: DCNode
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DCTopologicalNode
+  sourceDescription: The DC topological node to which this DC connectivity node is assigned.  May depend on the current state
+    of switches in the network.
+  targetName: DCNodes
+  targetDescription: The DC connectivity nodes combined together to form this DC topological node.  May depend on the current
+    state of switches in the network.
+- source: DCTopologicalNode
+  target: DCEquipmentContainer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DCTopologicalNode
+  sourceDescription: The topological nodes which belong to this connectivity node container.
+  targetName: DCEquipmentContainer
+  targetDescription: The connectivity node container to which the topological node belongs.

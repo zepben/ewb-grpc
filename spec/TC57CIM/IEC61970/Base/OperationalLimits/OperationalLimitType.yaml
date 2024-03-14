@@ -17,23 +17,23 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: OperationalLimit
-  target: OperationalLimitType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: OperationalLimit
-  sourceDescription: The operational limits associated with this type of limit.
-  targetName: OperationalLimitType
-  targetDescription: The limit type associated with this limit.
-- source: OperatonalLimitTypeScaling
-  target: OperationalLimitType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SourceOperationalLimitTypeScaling
-  targetName: SourceOperationalLimitType
-- source: OperatonalLimitTypeScaling
-  target: OperationalLimitType
+- source: OperationalLimitType
+  target: OperationalLimit
   sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: TargetOperationalLimitmTypeScaling
-  targetName: TargetOperationalLimit
+  targetCardinality: 0..*
+  sourceName: OperationalLimitType
+  sourceDescription: The limit type associated with this limit.
+  targetName: OperationalLimit
+  targetDescription: The operational limits associated with this type of limit.
+- source: OperationalLimitType
+  target: OperatonalLimitTypeScaling
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SourceOperationalLimitType
+  targetName: SourceOperationalLimitTypeScaling
+- source: OperationalLimitType
+  target: OperatonalLimitTypeScaling
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: TargetOperationalLimit
+  targetName: TargetOperationalLimitmTypeScaling

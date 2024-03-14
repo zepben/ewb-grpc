@@ -49,11 +49,11 @@ associations:
   sourceDescription: Wind turbune protection model associated with this wind generator type 1 or type 2 model.
   targetName: WindTurbineType1or2IEC
   targetDescription: Wind generator type 1 or type 2 model with which this wind turbine protection model is associated.
-- source: WindDynamicsLookupTable
-  target: WindProtectionIEC
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: WindDynamicsLookupTable
-  sourceDescription: The wind dynamics lookup table associated with this grid protection model.
-  targetName: WindProtectionIEC
-  targetDescription: The grid protection model with which this wind dynamics lookup table is associated.
+- source: WindProtectionIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: WindProtectionIEC
+  sourceDescription: The grid protection model with which this wind dynamics lookup table is associated.
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this grid protection model.

@@ -3,11 +3,11 @@ description: Organisation that manufactures asset products.
 ancestors:
 - OrganisationRole
 associations:
-- source: ProductAssetModel
-  target: Manufacturer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProductAssetModels
-  sourceDescription: All asset models by this manufacturer.
-  targetName: Manufacturer
-  targetDescription: Manufacturer of this asset model.
+- source: Manufacturer
+  target: ProductAssetModel
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Manufacturer
+  sourceDescription: Manufacturer of this asset model.
+  targetName: ProductAssetModels
+  targetDescription: All asset models by this manufacturer.

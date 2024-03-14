@@ -11,11 +11,11 @@ associations:
   sourceDescription: The phase tap changer table for this phase tap changer.
   targetName: PhaseTapChangerTabular
   targetDescription: The phase tap changers to which this phase tap table applies.
-- source: PhaseTapChangerTablePoint
-  target: PhaseTapChangerTable
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: PhaseTapChangerTablePoint
-  sourceDescription: The points of this table.
-  targetName: PhaseTapChangerTable
-  targetDescription: The table of this point.
+- source: PhaseTapChangerTable
+  target: PhaseTapChangerTablePoint
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: PhaseTapChangerTable
+  sourceDescription: The table of this point.
+  targetName: PhaseTapChangerTablePoint
+  targetDescription: The points of this table.

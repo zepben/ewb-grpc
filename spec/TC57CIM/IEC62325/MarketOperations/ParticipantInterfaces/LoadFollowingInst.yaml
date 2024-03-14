@@ -14,9 +14,9 @@ attributes:
   type: DateTime
   description: Instruction Start Time
 associations:
-- source: RegisteredResource
-  target: LoadFollowingInst
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: LoadFollowingInst
+- source: LoadFollowingInst
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LoadFollowingInst
+  targetName: RegisteredResource

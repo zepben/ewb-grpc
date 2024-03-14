@@ -63,52 +63,52 @@ associations:
   sourceDescription: Measurement to which this calculation method hierarchy applies.
   targetName: CalculationMethodHierarchy
   targetDescription: Calculation method hierarchy which applies to this analog.
-- source: PowerSystemResource
-  target: Measurement
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PowerSystemResource
-  sourceDescription: The power system resource that contains the measurement.
-  targetName: Measurements
-  targetDescription: The measurements associated with this power system resource.
-- source: PinMeasurement
-  target: Measurement
+- source: Measurement
+  target: PowerSystemResource
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: PinMeasurement
-  targetName: Measurement
-  targetDescription: The Measurement that should be used in compare.
-- source: MeasurementCalculatorInput
-  target: Measurement
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: MeasurementCalculatorInput
-  targetName: Measurement
-  targetDescription: Measurement used as input to a calculation.
-- source: Procedure
-  target: Measurement
-  sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Procedures
-  sourceDescription: Measurements are specified in types of documents, such as procedures.
-  targetName: Measurements
-  targetDescription: Document containing this measurement.
-- source: Asset
-  target: Measurement
+  sourceName: Measurements
+  sourceDescription: The measurements associated with this power system resource.
+  targetName: PowerSystemResource
+  targetDescription: The power system resource that contains the measurement.
+- source: Measurement
+  target: PinMeasurement
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Asset
-  targetName: Measurements
-  targetDescription: Measurement related to this asset.
-- source: MeasurementAction
-  target: Measurement
+  sourceName: Measurement
+  sourceDescription: The Measurement that should be used in compare.
+  targetName: PinMeasurement
+- source: Measurement
+  target: MeasurementCalculatorInput
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Measurement
+  sourceDescription: Measurement used as input to a calculation.
+  targetName: MeasurementCalculatorInput
+- source: Measurement
+  target: Procedure
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Measurements
+  sourceDescription: Document containing this measurement.
+  targetName: Procedures
+  targetDescription: Measurements are specified in types of documents, such as procedures.
+- source: Measurement
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Measurements
+  sourceDescription: Measurement related to this asset.
+  targetName: Asset
+- source: Measurement
+  target: MeasurementAction
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: MeasurementAction
-  targetName: Measurement
-- source: Location
-  target: Measurement
+  sourceName: Measurement
+  targetName: MeasurementAction
+- source: Measurement
+  target: Location
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Locations
-  targetName: Measurements
+  sourceName: Measurements
+  targetName: Locations

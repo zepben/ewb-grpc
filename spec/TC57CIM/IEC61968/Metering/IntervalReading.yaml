@@ -5,11 +5,11 @@ description: |-
 ancestors:
 - BaseReading
 associations:
-- source: IntervalBlock
-  target: IntervalReading
+- source: IntervalReading
+  target: IntervalBlock
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: IntervalBlocks
-  sourceDescription: All blocks containing this interval reading.
-  targetName: IntervalReadings
-  targetDescription: Interval reading contained in this block.
+  sourceName: IntervalReadings
+  sourceDescription: Interval reading contained in this block.
+  targetName: IntervalBlocks
+  targetDescription: All blocks containing this interval reading.

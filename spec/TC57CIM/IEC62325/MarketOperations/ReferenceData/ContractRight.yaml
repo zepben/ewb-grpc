@@ -105,33 +105,33 @@ associations:
   targetCardinality: 0..*
   sourceName: TransmissionContractRight
   targetName: TREntitlement
-- source: RTO
-  target: ContractRight
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RTO
-  targetName: TransmissionContractRight
-- source: SchedulingCoordinator
-  target: ContractRight
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: SchedulingCoordinator
-  targetName: TransmissionContractRight
-- source: TransmissionRightChain
-  target: ContractRight
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: Ind_TransmissionRightChain
-  targetName: Ind_ContractRight
-- source: TransmissionRightChain
-  target: ContractRight
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: Chain_TransmissionRightChain
-  targetName: Chain_ContractRight
-- source: TransmissionInterfaceRightEntitlement
-  target: ContractRight
+- source: ContractRight
+  target: RTO
   sourceCardinality: 0..*
   targetCardinality: "1"
-  sourceName: TransmissionInterfaceEntitlement
-  targetName: ContractRight
+  sourceName: TransmissionContractRight
+  targetName: RTO
+- source: ContractRight
+  target: SchedulingCoordinator
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TransmissionContractRight
+  targetName: SchedulingCoordinator
+- source: ContractRight
+  target: TransmissionRightChain
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: Ind_ContractRight
+  targetName: Ind_TransmissionRightChain
+- source: ContractRight
+  target: TransmissionRightChain
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: Chain_ContractRight
+  targetName: Chain_TransmissionRightChain
+- source: ContractRight
+  target: TransmissionInterfaceRightEntitlement
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ContractRight
+  targetName: TransmissionInterfaceEntitlement

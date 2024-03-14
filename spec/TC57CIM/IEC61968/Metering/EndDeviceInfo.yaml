@@ -19,11 +19,11 @@ attributes:
 ancestors:
 - AssetInfo
 associations:
-- source: EndDevice
-  target: EndDeviceInfo
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EndDevices
-  sourceDescription: All end devices described with this data.
-  targetName: EndDeviceInfo
-  targetDescription: End device data.
+- source: EndDeviceInfo
+  target: EndDevice
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EndDeviceInfo
+  sourceDescription: End device data.
+  targetName: EndDevices
+  targetDescription: All end devices described with this data.

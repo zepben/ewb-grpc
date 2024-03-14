@@ -48,27 +48,27 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: AssetStringMeasurement
-  target: TestStandard
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AssetString
-  sourceDescription: An asset health string related to this lab test standard.
-  targetName: TestStandard
-  targetDescription: Test standard which describes this asset string measurement.
-- source: AssetDiscrete
-  target: TestStandard
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AssetDiscrete
-  sourceDescription: An asset health discrete related to this lab test standard.
-  targetName: TestStandard
-  targetDescription: The lab test standard to which this asset health discrete is related.
-- source: AssetAnalog
-  target: TestStandard
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AssetAnalog
-  sourceDescription: An asset health analog related to this lab test standard.
-  targetName: TestStandard
-  targetDescription: The lab test standard to which this asset health analog is related.
+- source: TestStandard
+  target: AssetStringMeasurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TestStandard
+  sourceDescription: Test standard which describes this asset string measurement.
+  targetName: AssetString
+  targetDescription: An asset health string related to this lab test standard.
+- source: TestStandard
+  target: AssetDiscrete
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TestStandard
+  sourceDescription: The lab test standard to which this asset health discrete is related.
+  targetName: AssetDiscrete
+  targetDescription: An asset health discrete related to this lab test standard.
+- source: TestStandard
+  target: AssetAnalog
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TestStandard
+  sourceDescription: The lab test standard to which this asset health analog is related.
+  targetName: AssetAnalog
+  targetDescription: An asset health analog related to this lab test standard.

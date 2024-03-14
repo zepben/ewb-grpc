@@ -27,11 +27,11 @@ associations:
   sourceDescription: All tariff profiles defined by this consumption tariff interval.
   targetName: ConsumptionTariffIntervals
   targetDescription: All consumption tariff intervals used to define this tariff profile.
-- source: Tariff
-  target: TariffProfile
+- source: TariffProfile
+  target: Tariff
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Tariffs
-  sourceDescription: All tariffs defined by this tariff profile.
-  targetName: TariffProfiles
-  targetDescription: All tariff profiles using this tariff.
+  sourceName: TariffProfiles
+  sourceDescription: All tariff profiles using this tariff.
+  targetName: Tariffs
+  targetDescription: All tariffs defined by this tariff profile.

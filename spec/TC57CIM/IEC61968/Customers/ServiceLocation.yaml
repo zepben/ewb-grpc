@@ -38,11 +38,11 @@ associations:
   targetCardinality: 0..*
   sourceName: ServiceLocation
   targetName: TroubleTicket
-- source: CustomerAgreement
-  target: ServiceLocation
+- source: ServiceLocation
+  target: CustomerAgreement
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CustomerAgreements
-  sourceDescription: All customer agreements regulating this service location.
-  targetName: ServiceLocations
-  targetDescription: All service locations regulated by this customer agreement.
+  sourceName: ServiceLocations
+  sourceDescription: All service locations regulated by this customer agreement.
+  targetName: CustomerAgreements
+  targetDescription: All customer agreements regulating this service location.

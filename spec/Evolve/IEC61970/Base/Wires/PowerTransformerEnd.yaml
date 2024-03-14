@@ -58,11 +58,11 @@ attributes:
 ancestors:
 - TransformerEnd
 associations:
-- source: PowerTransformer
-  target: PowerTransformerEnd
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PowerTransformer
-  sourceDescription: The power transformer of this power transformer end.
-  targetName: PowerTransformerEnd
-  targetDescription: The ends of this power transformer.
+- source: PowerTransformerEnd
+  target: PowerTransformer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PowerTransformerEnd
+  sourceDescription: The ends of this power transformer.
+  targetName: PowerTransformer
+  targetDescription: The power transformer of this power transformer end.

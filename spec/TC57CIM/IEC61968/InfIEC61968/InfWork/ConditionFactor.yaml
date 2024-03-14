@@ -12,21 +12,21 @@ attributes:
 ancestors:
 - WorkIdentifiedObject
 associations:
-- source: Design
-  target: ConditionFactor
+- source: ConditionFactor
+  target: Design
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Designs
-  targetName: ConditionFactors
-- source: DesignLocationCU
-  target: ConditionFactor
+  sourceName: ConditionFactors
+  targetName: Designs
+- source: ConditionFactor
+  target: DesignLocationCU
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DesignLocationCUs
-  targetName: ConditionFactors
-- source: DesignLocation
-  target: ConditionFactor
+  sourceName: ConditionFactors
+  targetName: DesignLocationCUs
+- source: ConditionFactor
+  target: DesignLocation
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DesignLocations
-  targetName: ConditionFactors
+  sourceName: ConditionFactors
+  targetName: DesignLocations

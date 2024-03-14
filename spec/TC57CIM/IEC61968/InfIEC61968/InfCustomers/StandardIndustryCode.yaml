@@ -9,9 +9,9 @@ attributes:
 ancestors:
 - Document
 associations:
-- source: CustomerAgreement
-  target: StandardIndustryCode
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: CustomerAgreements
-  targetName: StandardIndustryCode
+- source: StandardIndustryCode
+  target: CustomerAgreement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: StandardIndustryCode
+  targetName: CustomerAgreements

@@ -70,59 +70,59 @@ associations:
   sourceDescription: Excitation system model associated with this synchronous machine model.
   targetName: SynchronousMachineDynamics
   targetDescription: Synchronous machine model with which this excitation system model is associated.
-- source: PowerSystemStabilizerDynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: PowerSystemStabilizerDynamics
-  sourceDescription: Power system stabilizer model associated with this excitation system model.
-  targetName: ExcitationSystemDynamics
-  targetDescription: Excitation system model with which this power system stabilizer model is associated.
-- source: PFVArControllerType1Dynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: PFVArControllerType1Dynamics
-  sourceDescription: Power factor or VAr controller type 1 model associated with this excitation system model.
-  targetName: ExcitationSystemDynamics
-  targetDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
-- source: OverexcitationLimiterDynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: OverexcitationLimiterDynamics
-  sourceDescription: Overexcitation limiter model associated with this excitation system model.
-  targetName: ExcitationSystemDynamics
-  targetDescription: Excitation system model with which this overexcitation limiter model is associated.
-- source: DiscontinuousExcitationControlDynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: DiscontinuousExcitationControlDynamics
-  sourceDescription: Discontinuous excitation control model associated with this excitation system model.
-  targetName: ExcitationSystemDynamics
-  targetDescription: Excitation system model with which this discontinuous excitation control model is associated.
-- source: PFVArControllerType2Dynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: PFVArControllerType2Dynamics
-  sourceDescription: Power factor or VAr controller type 2 model associated with this excitation system model.
-  targetName: ExcitationSystemDynamics
-  targetDescription: Excitation system model with which this power factor or VAr controller type 2 is associated.
-- source: UnderexcitationLimiterDynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: UnderexcitationLimiterDynamics
-  sourceDescription: Undrexcitation limiter model associated with this excitation system model.
-  targetName: ExcitationSystemDynamics
-  targetDescription: Excitation system model with which this underexcitation limiter model is associated.
-- source: VoltageCompensatorDynamics
-  target: ExcitationSystemDynamics
+- source: ExcitationSystemDynamics
+  target: PowerSystemStabilizerDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this power system stabilizer model is associated.
+  targetName: PowerSystemStabilizerDynamics
+  targetDescription: Power system stabilizer model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: PFVArControllerType1Dynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
+  targetName: PFVArControllerType1Dynamics
+  targetDescription: Power factor or VAr controller type 1 model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: OverexcitationLimiterDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this overexcitation limiter model is associated.
+  targetName: OverexcitationLimiterDynamics
+  targetDescription: Overexcitation limiter model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: DiscontinuousExcitationControlDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this discontinuous excitation control model is associated.
+  targetName: DiscontinuousExcitationControlDynamics
+  targetDescription: Discontinuous excitation control model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: PFVArControllerType2Dynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this power factor or VAr controller type 2 is associated.
+  targetName: PFVArControllerType2Dynamics
+  targetDescription: Power factor or VAr controller type 2 model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: UnderexcitationLimiterDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this underexcitation limiter model is associated.
+  targetName: UnderexcitationLimiterDynamics
+  targetDescription: Undrexcitation limiter model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: VoltageCompensatorDynamics
   sourceCardinality: "1"
   targetCardinality: "1"
-  sourceName: VoltageCompensatorDynamics
-  sourceDescription: Voltage compensator model associated with this excitation system model.
-  targetName: ExcitationSystemDynamics
-  targetDescription: Excitation system model with which this voltage compensator is associated.
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this voltage compensator is associated.
+  targetName: VoltageCompensatorDynamics
+  targetDescription: Voltage compensator model associated with this excitation system model.

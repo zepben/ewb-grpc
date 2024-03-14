@@ -16,29 +16,29 @@ attributes:
 ancestors:
 - Equipment
 associations:
-- source: HydroPumpOpSchedule
-  target: HydroPump
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: HydroPumpOpSchedule
-  sourceDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
-  targetName: HydroPump
-  targetDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
-- source: HydroPowerPlant
-  target: HydroPump
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: HydroPowerPlant
-  sourceDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
-  targetName: HydroPumps
-  targetDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
-- source: RotatingMachine
-  target: HydroPump
+- source: HydroPump
+  target: HydroPumpOpSchedule
   sourceCardinality: "1"
   targetCardinality: 0..1
-  sourceName: RotatingMachine
+  sourceName: HydroPump
+  sourceDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
+  targetName: HydroPumpOpSchedule
+  targetDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
+- source: HydroPump
+  target: HydroPowerPlant
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: HydroPumps
+  sourceDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+  targetName: HydroPowerPlant
+  targetDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+- source: HydroPump
+  target: RotatingMachine
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: HydroPump
   sourceDescription: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
     The direction of machine rotation for pumping may or may not be the same as for generating.
-  targetName: HydroPump
+  targetName: RotatingMachine
   targetDescription: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
     The direction of machine rotation for pumping may or may not be the same as for generating.

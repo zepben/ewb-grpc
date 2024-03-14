@@ -48,15 +48,15 @@ associations:
     attributes to specify name and value of a parameter from meter.
   targetName: Transaction
   targetDescription: Transaction for which this snapshot has been recorded.
-- source: ErpLedgerEntry
-  target: UserAttribute
+- source: UserAttribute
+  target: ErpLedgerEntry
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpLedgerEntries
-  targetName: UserAttributes
-- source: ErpInvoiceLineItem
-  target: UserAttribute
+  sourceName: UserAttributes
+  targetName: ErpLedgerEntries
+- source: UserAttribute
+  target: ErpInvoiceLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpInvoiceLineItems
-  targetName: UserAttributes
+  sourceName: UserAttributes
+  targetName: ErpInvoiceLineItems

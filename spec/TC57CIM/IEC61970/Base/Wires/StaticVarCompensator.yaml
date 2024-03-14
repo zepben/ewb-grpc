@@ -31,11 +31,11 @@ attributes:
 ancestors:
 - RegulatingCondEq
 associations:
-- source: StaticVarCompensatorDynamics
-  target: StaticVarCompensator
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: StaticVarCompensatorDynamics
-  sourceDescription: Static Var Compensator dynamics model used to describe dynamic behaviour of this Static Var Compensator.
-  targetName: StaticVarCompensator
-  targetDescription: Static Var Compensator to which Static Var Compensator dynamics model applies.
+- source: StaticVarCompensator
+  target: StaticVarCompensatorDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: StaticVarCompensator
+  sourceDescription: Static Var Compensator to which Static Var Compensator dynamics model applies.
+  targetName: StaticVarCompensatorDynamics
+  targetDescription: Static Var Compensator dynamics model used to describe dynamic behaviour of this Static Var Compensator.

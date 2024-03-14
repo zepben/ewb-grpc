@@ -80,11 +80,11 @@ descendents:
 - ReserveDemandCurve
 - InterchangeSchedule
 associations:
-- source: CurveData
-  target: Curve
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CurveDatas
-  sourceDescription: The point data values that define this curve.
-  targetName: Curve
-  targetDescription: The curve of  this curve data point.
+- source: Curve
+  target: CurveData
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Curve
+  sourceDescription: The curve of  this curve data point.
+  targetName: CurveDatas
+  targetDescription: The point data values that define this curve.

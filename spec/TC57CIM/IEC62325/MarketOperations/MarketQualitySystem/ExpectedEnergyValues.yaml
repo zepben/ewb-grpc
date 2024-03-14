@@ -6,15 +6,15 @@ attributes:
 - name: expectedMwh
   type: Float
 associations:
-- source: ExpectedEnergy
-  target: ExpectedEnergyValues
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: ExpectedEnergy
-  targetName: ExpectedEnergyValues
-- source: RegisteredResource
-  target: ExpectedEnergyValues
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: ExpectedEnergyValues
+- source: ExpectedEnergyValues
+  target: ExpectedEnergy
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: ExpectedEnergyValues
+  targetName: ExpectedEnergy
+- source: ExpectedEnergyValues
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ExpectedEnergyValues
+  targetName: RegisteredResource

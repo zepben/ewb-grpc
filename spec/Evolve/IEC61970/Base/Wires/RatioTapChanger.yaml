@@ -12,11 +12,11 @@ attributes:
 ancestors:
 - TapChanger
 associations:
-- source: TransformerEnd
-  target: RatioTapChanger
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: TransformerEnd
-  sourceDescription: Transformer end to which this ratio tap changer belongs.
-  targetName: RatioTapChanger
-  targetDescription: Ratio tap changer associated with this transformer end.
+- source: RatioTapChanger
+  target: TransformerEnd
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: RatioTapChanger
+  sourceDescription: Ratio tap changer associated with this transformer end.
+  targetName: TransformerEnd
+  targetDescription: Transformer end to which this ratio tap changer belongs.

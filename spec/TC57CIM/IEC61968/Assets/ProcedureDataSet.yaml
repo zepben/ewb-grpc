@@ -42,19 +42,19 @@ associations:
   sourceDescription: Procedure data set that applies to this asset.
   targetName: Asset
   targetDescription: Asset to which this procedure data set applies.
-- source: Procedure
-  target: ProcedureDataSet
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Procedure
-  sourceDescription: Procedure capturing this data set.
-  targetName: ProcedureDataSets
-  targetDescription: All data sets captured by this procedure.
-- source: UserAttribute
-  target: ProcedureDataSet
+- source: ProcedureDataSet
+  target: Procedure
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ProcedureDataSets
+  sourceDescription: All data sets captured by this procedure.
+  targetName: Procedure
+  targetDescription: Procedure capturing this data set.
+- source: ProcedureDataSet
+  target: UserAttribute
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Properties
-  sourceDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
+  sourceName: ProcedureDataSets
+  targetName: Properties
+  targetDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
     kind of property it is, and 'value.value' attribute for the actual value.
-  targetName: ProcedureDataSets

@@ -9,11 +9,11 @@ attributes:
 ancestors:
 - WorkDocument
 associations:
-- source: OldCrew
-  target: Assignment
+- source: Assignment
+  target: OldCrew
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Crews
-  sourceDescription: All Crews having this Assignment.
-  targetName: Assignments
-  targetDescription: All Assignments for this Crew.
+  sourceName: Assignments
+  sourceDescription: All Assignments for this Crew.
+  targetName: Crews
+  targetDescription: All Crews having this Assignment.

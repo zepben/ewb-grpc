@@ -17,9 +17,9 @@ attributes:
 ancestors:
 - RegularIntervalSchedule
 associations:
-- source: ResourcePerformanceEvaluation
-  target: ResourcePerformanceTimeSeriesFactor
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ResourcePerformanceEvaluation
-  targetName: ResourcePerformanceTimeSeriesFactors
+- source: ResourcePerformanceTimeSeriesFactor
+  target: ResourcePerformanceEvaluation
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ResourcePerformanceTimeSeriesFactors
+  targetName: ResourcePerformanceEvaluation

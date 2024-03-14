@@ -7,27 +7,27 @@ attributes:
 ancestors:
 - Document
 associations:
-- source: MajorChargeGroup
-  target: Settlement
-  sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: MajorChargeGroup
-  targetName: Settlement
-- source: EnergyMarket
-  target: Settlement
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EnergyMarket
-  targetName: Settlements
-- source: MarketLedgerEntry
-  target: Settlement
+- source: Settlement
+  target: MajorChargeGroup
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: Settlement
+  targetName: MajorChargeGroup
+- source: Settlement
+  target: EnergyMarket
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Settlements
+  targetName: EnergyMarket
+- source: Settlement
+  target: MarketLedgerEntry
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketLedgerEntry
-  targetName: Settlement
-- source: MarketInvoiceLineItem
-  target: Settlement
+  sourceName: Settlement
+  targetName: MarketLedgerEntry
+- source: Settlement
+  target: MarketInvoiceLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketInvoiceLineItem
-  targetName: Settlement
+  sourceName: Settlement
+  targetName: MarketInvoiceLineItem

@@ -10,9 +10,9 @@ attributes:
 - name: time
   type: DateTime
 associations:
-- source: CustomerAccount
-  target: AccountNotification
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: CustomerAccount
-  targetName: AccountNotification
+- source: AccountNotification
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AccountNotification
+  targetName: CustomerAccount

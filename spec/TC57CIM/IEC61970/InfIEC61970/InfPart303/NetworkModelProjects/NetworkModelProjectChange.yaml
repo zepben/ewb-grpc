@@ -4,11 +4,11 @@ description: Network model project change described by versions of an associated
 ancestors:
 - NetworkModelProjectComponent
 associations:
-- source: NetworkModelProjectChangeVersion
-  target: NetworkModelProjectChange
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: NetworkModelProjectChangeVersion
-  sourceDescription: A specific version of the network model project change.
-  targetName: NetworkModelProjectChange
-  targetDescription: The persistent network model project change to which this version applies.
+- source: NetworkModelProjectChange
+  target: NetworkModelProjectChangeVersion
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: NetworkModelProjectChange
+  sourceDescription: The persistent network model project change to which this version applies.
+  targetName: NetworkModelProjectChangeVersion
+  targetDescription: A specific version of the network model project change.

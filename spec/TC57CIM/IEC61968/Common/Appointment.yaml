@@ -18,11 +18,11 @@ associations:
   sourceDescription: All appointments for this work.
   targetName: Works
   targetDescription: All works for this appointment.
-- source: PersonRole
-  target: Appointment
+- source: Appointment
+  target: PersonRole
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Persons
-  sourceDescription: All persons for this appointment.
-  targetName: Appointments
-  targetDescription: All appointments for this person.
+  sourceName: Appointments
+  sourceDescription: All appointments for this person.
+  targetName: Persons
+  targetDescription: All persons for this appointment.

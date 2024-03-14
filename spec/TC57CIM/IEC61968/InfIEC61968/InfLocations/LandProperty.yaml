@@ -56,11 +56,11 @@ associations:
   sourceName: LandProperties
   targetName: Locations
   targetDescription: The spatail description of a piece of property.
-- source: RightOfWay
-  target: LandProperty
+- source: LandProperty
+  target: RightOfWay
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: RightOfWays
-  sourceDescription: All rights of way this land property has.
-  targetName: LandProperties
-  targetDescription: All land properties this right of way applies to.
+  sourceName: LandProperties
+  sourceDescription: All land properties this right of way applies to.
+  targetName: RightOfWays
+  targetDescription: All rights of way this land property has.

@@ -260,45 +260,45 @@ associations:
   targetCardinality: 0..*
   sourceName: RegisteredGenerator
   targetName: Trade
-- source: FuelCostCurve
-  target: RegisteredGenerator
+- source: RegisteredGenerator
+  target: FuelCostCurve
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: FuelCostCurve
-  targetName: RegisteredGenerator
-- source: LocalReliabilityArea
-  target: RegisteredGenerator
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: LocalReliabilityArea
-  targetName: RegisteredGenerator
-- source: FuelRegion
-  target: RegisteredGenerator
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: FuelRegion
-  targetName: RegisteredGenerator
-- source: StartUpCostCurve
-  target: RegisteredGenerator
+  sourceName: RegisteredGenerator
+  targetName: FuelCostCurve
+- source: RegisteredGenerator
+  target: LocalReliabilityArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetName: LocalReliabilityArea
+- source: RegisteredGenerator
+  target: FuelRegion
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetName: FuelRegion
+- source: RegisteredGenerator
+  target: StartUpCostCurve
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: StartUpCostCurves
-  targetName: RegisteredGenerators
-- source: EnergyPriceIndex
-  target: RegisteredGenerator
+  sourceName: RegisteredGenerators
+  targetName: StartUpCostCurves
+- source: RegisteredGenerator
+  target: EnergyPriceIndex
   sourceCardinality: "1"
   targetCardinality: "1"
-  sourceName: EnergyPriceIndex
-  targetName: RegisteredGenerator
-- source: UnitInitialConditions
-  target: RegisteredGenerator
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: UnitInitialConditions
-  targetName: GeneratingUnit
-- source: AuxiliaryObject
-  target: RegisteredGenerator
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AuxillaryObject
-  targetName: RegisteredGenerator
+  sourceName: RegisteredGenerator
+  targetName: EnergyPriceIndex
+- source: RegisteredGenerator
+  target: UnitInitialConditions
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GeneratingUnit
+  targetName: UnitInitialConditions
+- source: RegisteredGenerator
+  target: AuxiliaryObject
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredGenerator
+  targetName: AuxillaryObject

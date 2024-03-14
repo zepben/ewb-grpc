@@ -39,33 +39,33 @@ associations:
   targetCardinality: 0..*
   sourceName: WorkTask
   targetName: ContractorItems
-- source: WorkFlowStep
-  target: OldWorkTask
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkFlowStep
-  targetName: WorkTasks
-- source: WorkCostDetail
-  target: OldWorkTask
+- source: OldWorkTask
+  target: WorkFlowStep
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: WorkCostDetails
-  targetName: WorkTask
-- source: DesignLocationCU
-  target: OldWorkTask
-  sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: DesignLocationCUs
-  targetName: WorkTasks
-- source: Design
-  target: OldWorkTask
+  sourceName: WorkTasks
+  targetName: WorkFlowStep
+- source: OldWorkTask
+  target: WorkCostDetail
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Design
-  targetName: WorkTasks
-- source: Capability
-  target: OldWorkTask
+  sourceName: WorkTask
+  targetName: WorkCostDetails
+- source: OldWorkTask
+  target: DesignLocationCU
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Capabilities
-  targetName: WorkTasks
+  sourceName: WorkTasks
+  targetName: DesignLocationCUs
+- source: OldWorkTask
+  target: Design
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkTasks
+  targetName: Design
+- source: OldWorkTask
+  target: Capability
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WorkTasks
+  targetName: Capabilities

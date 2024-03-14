@@ -10,11 +10,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: Meter
-  target: MeterMultiplier
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Meter
-  sourceDescription: Meter applying this multiplier.
-  targetName: MeterMultipliers
-  targetDescription: All multipliers applied at this meter.
+- source: MeterMultiplier
+  target: Meter
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MeterMultipliers
+  sourceDescription: All multipliers applied at this meter.
+  targetName: Meter
+  targetDescription: Meter applying this multiplier.

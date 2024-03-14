@@ -39,9 +39,9 @@ associations:
   targetCardinality: 1..*
   sourceName: DesignLocations
   targetName: WorkLocations
-- source: ErpBomItemData
-  target: DesignLocation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpBomItemDatas
-  targetName: DesignLocation
+- source: DesignLocation
+  target: ErpBomItemData
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DesignLocation
+  targetName: ErpBomItemDatas

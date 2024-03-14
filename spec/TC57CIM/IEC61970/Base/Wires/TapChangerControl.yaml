@@ -24,11 +24,11 @@ attributes:
 ancestors:
 - RegulatingControl
 associations:
-- source: TapChanger
-  target: TapChangerControl
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: TapChanger
-  sourceDescription: The tap changers that participates in this regulating tap control scheme.
-  targetName: TapChangerControl
-  targetDescription: The regulating control scheme in which this tap changer participates.
+- source: TapChangerControl
+  target: TapChanger
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: TapChangerControl
+  sourceDescription: The regulating control scheme in which this tap changer participates.
+  targetName: TapChanger
+  targetDescription: The tap changers that participates in this regulating tap control scheme.

@@ -29,15 +29,15 @@ associations:
   targetCardinality: 0..*
   sourceName: ProductBid
   targetName: BidDistributionFactor
-- source: BidHourlyProductSchedule
-  target: ProductBid
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: BidHourlyProductSchedule
-  targetName: ProductBid
-- source: MarketProduct
-  target: ProductBid
+- source: ProductBid
+  target: BidHourlyProductSchedule
   sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: MarketProduct
-  targetName: ProductBids
+  sourceName: ProductBid
+  targetName: BidHourlyProductSchedule
+- source: ProductBid
+  target: MarketProduct
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ProductBids
+  targetName: MarketProduct

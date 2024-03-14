@@ -35,15 +35,15 @@ attributes:
 - name: updateUser
   type: String
 associations:
-- source: ResourceAwardClearing
-  target: RUCAwardInstruction
+- source: RUCAwardInstruction
+  target: ResourceAwardClearing
   sourceCardinality: 1..*
   targetCardinality: 1..*
-  sourceName: ClearingResourceAward
-  targetName: RUCAwardInstruction
-- source: RegisteredResource
-  target: RUCAwardInstruction
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: RUCAwardInstruction
+  sourceName: RUCAwardInstruction
+  targetName: ClearingResourceAward
+- source: RUCAwardInstruction
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RUCAwardInstruction
+  targetName: RegisteredResource

@@ -79,11 +79,11 @@ associations:
   sourceDescription: All end device controls sending commands to this end device.
   targetName: EndDevices
   targetDescription: All end devices receiving commands from this end device control.
-- source: EndDeviceGroup
-  target: EndDeviceControl
+- source: EndDeviceControl
+  target: EndDeviceGroup
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: EndDeviceGroups
-  sourceDescription: All end device groups receiving commands from this end device control.
-  targetName: EndDeviceControls
-  targetDescription: All end device controls sending commands to this end device group.
+  sourceName: EndDeviceControls
+  sourceDescription: All end device controls sending commands to this end device group.
+  targetName: EndDeviceGroups
+  targetDescription: All end device groups receiving commands from this end device control.

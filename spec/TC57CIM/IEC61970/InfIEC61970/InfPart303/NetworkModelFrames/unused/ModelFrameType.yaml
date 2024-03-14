@@ -3,11 +3,11 @@ description: Examples would be "Boundary" or "Region" type of frame.
 ancestors:
 - IdentifiedObject
 associations:
-- source: FrameworkPart
-  target: ModelFrameType
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ModelFrame
-  sourceDescription: Model frames of the model frame type.
-  targetName: ModelFrameType
-  targetDescription: Model frame type of the model frame.
+- source: ModelFrameType
+  target: FrameworkPart
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ModelFrameType
+  sourceDescription: Model frame type of the model frame.
+  targetName: ModelFrame
+  targetDescription: Model frames of the model frame type.

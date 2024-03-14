@@ -11,13 +11,13 @@ attributes:
   type: ResourceCertificationKind
   description: Type of service based on ResourceAncillaryServiceType enumeration
 associations:
-- source: RegisteredResource
-  target: ResourceCertification
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
+- source: ResourceCertification
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ResourceAncillaryServiceQualification
   sourceDescription: RegisteredResources are qualified for resource ancillary service types (which include market product
     types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
-  targetName: ResourceAncillaryServiceQualification
+  targetName: RegisteredResource
   targetDescription: RegisteredResources are qualified for resource ancillary service types (which include market product
     types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.

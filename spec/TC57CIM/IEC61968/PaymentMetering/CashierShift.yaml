@@ -33,11 +33,11 @@ associations:
   sourceDescription: Cashier shift during which this transaction was recorded.
   targetName: Transactions
   targetDescription: All transactions recorded during this cashier shift.
-- source: Cashier
-  target: CashierShift
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Cashier
-  sourceDescription: Cashier operating this shift.
-  targetName: CashierShifts
-  targetDescription: All shifts operated by this cashier.
+- source: CashierShift
+  target: Cashier
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CashierShifts
+  sourceDescription: All shifts operated by this cashier.
+  targetName: Cashier
+  targetDescription: Cashier operating this shift.

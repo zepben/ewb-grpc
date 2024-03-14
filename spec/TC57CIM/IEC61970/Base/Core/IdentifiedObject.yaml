@@ -326,28 +326,28 @@ associations:
   sourceDescription: Data objects contained in the dataset.
   targetName: InstanceSet
   targetDescription: Dataset containing the data objects.
-- source: Name
-  target: IdentifiedObject
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Names
-  sourceDescription: All names of this identified object.
-  targetName: IdentifiedObject
-  targetDescription: Identified object that this name designates.
-- source: ChangeSetMember
-  target: IdentifiedObject
+- source: IdentifiedObject
+  target: Name
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: IdentifiedObject
+  sourceDescription: Identified object that this name designates.
+  targetName: Names
+  targetDescription: All names of this identified object.
+- source: IdentifiedObject
+  target: ChangeSetMember
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: PropertiesCIMDataObject
-  sourceDescription: The single CIM data object in the appropriate dataset context.
-  targetName: PropertiesObject
-  targetDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
+  sourceName: PropertiesObject
+  sourceDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
     and only the reference to the registered object is required.
-- source: ChangeSetMember
-  target: IdentifiedObject
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TargetingCIMDataObject
-  sourceDescription: Data objects registered.
-  targetName: TargetObject
-  targetDescription: The registered CIM object.
+  targetName: PropertiesCIMDataObject
+  targetDescription: The single CIM data object in the appropriate dataset context.
+- source: IdentifiedObject
+  target: ChangeSetMember
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TargetObject
+  sourceDescription: The registered CIM object.
+  targetName: TargetingCIMDataObject
+  targetDescription: Data objects registered.

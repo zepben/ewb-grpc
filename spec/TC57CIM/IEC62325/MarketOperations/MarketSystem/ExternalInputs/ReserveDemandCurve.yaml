@@ -12,15 +12,15 @@ attributes:
 ancestors:
 - Curve
 associations:
-- source: MarketRegion
-  target: ReserveDemandCurve
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MarketRegion
-  targetName: ReserveDemandCurve
-- source: ASRequirements
-  target: ReserveDemandCurve
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: ASRequirements
-  targetName: ReserveDemandCurve
+- source: ReserveDemandCurve
+  target: MarketRegion
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ReserveDemandCurve
+  targetName: MarketRegion
+- source: ReserveDemandCurve
+  target: ASRequirements
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: ReserveDemandCurve
+  targetName: ASRequirements

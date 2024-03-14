@@ -7,19 +7,19 @@ attributes:
 ancestors:
 - MeasurementValue
 associations:
-- source: Accumulator
-  target: AccumulatorValue
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Accumulator
-  sourceDescription: Measurement to which this value is connected.
-  targetName: AccumulatorValues
-  targetDescription: The values connected to this measurement.
-- source: AccumulatorReset
-  target: AccumulatorValue
-  sourceCardinality: 0..1
+- source: AccumulatorValue
+  target: Accumulator
+  sourceCardinality: 0..*
   targetCardinality: "1"
-  sourceName: AccumulatorReset
-  sourceDescription: The command that resets the accumulator value.
-  targetName: AccumulatorValue
-  targetDescription: The accumulator value that is reset by the command.
+  sourceName: AccumulatorValues
+  sourceDescription: The values connected to this measurement.
+  targetName: Accumulator
+  targetDescription: Measurement to which this value is connected.
+- source: AccumulatorValue
+  target: AccumulatorReset
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: AccumulatorValue
+  sourceDescription: The accumulator value that is reset by the command.
+  targetName: AccumulatorReset
+  targetDescription: The command that resets the accumulator value.

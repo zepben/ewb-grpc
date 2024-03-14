@@ -91,9 +91,9 @@ associations:
   targetCardinality: 0..*
   sourceName: PassThroughBill
   targetName: MktUserAttribute
-- source: ChargeProfile
-  target: PassThroughBill
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ChargeProfiles
-  targetName: PassTroughBill
+- source: PassThroughBill
+  target: ChargeProfile
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PassTroughBill
+  targetName: ChargeProfiles

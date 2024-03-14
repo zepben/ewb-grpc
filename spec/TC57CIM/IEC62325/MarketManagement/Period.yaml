@@ -14,21 +14,21 @@ associations:
   targetCardinality: 0..*
   sourceName: Period
   targetName: Reason
-- source: MarketDocument
-  target: Period
+- source: Period
+  target: MarketDocument
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MarketDocument
-  targetName: Period
-- source: Point
-  target: Period
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Point
-  targetName: Period
-- source: TimeSeries
-  target: Period
+  sourceName: Period
+  targetName: MarketDocument
+- source: Period
+  target: Point
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Period
+  targetName: Point
+- source: Period
+  target: TimeSeries
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TimeSeries
-  targetName: Period
+  sourceName: Period
+  targetName: TimeSeries

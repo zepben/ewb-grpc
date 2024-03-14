@@ -4,9 +4,9 @@ description: Document describing the prices of goods or services provided by a s
 ancestors:
 - ErpDocument
 associations:
-- source: ErpQuoteLineItem
-  target: ErpQuote
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpQuoteLineItems
-  targetName: ErpQuote
+- source: ErpQuote
+  target: ErpQuoteLineItem
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpQuote
+  targetName: ErpQuoteLineItems

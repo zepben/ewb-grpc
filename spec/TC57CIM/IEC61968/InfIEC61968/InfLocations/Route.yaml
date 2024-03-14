@@ -15,9 +15,9 @@ associations:
   targetCardinality: 0..*
   sourceName: Routes
   targetName: Locations
-- source: OldCrew
-  target: Route
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Crews
-  targetName: Route
+- source: Route
+  target: OldCrew
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Route
+  targetName: Crews

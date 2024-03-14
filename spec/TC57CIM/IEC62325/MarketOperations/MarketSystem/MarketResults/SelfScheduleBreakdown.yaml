@@ -9,9 +9,9 @@ attributes:
   type: SelfScheduleBreakdownType
   description: Self schedule breakdown type.
 associations:
-- source: ResourceAwardInstruction
-  target: SelfScheduleBreakdown
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ResourceAwardInstruction
-  targetName: SelfScheduleBreakdown
+- source: SelfScheduleBreakdown
+  target: ResourceAwardInstruction
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: SelfScheduleBreakdown
+  targetName: ResourceAwardInstruction

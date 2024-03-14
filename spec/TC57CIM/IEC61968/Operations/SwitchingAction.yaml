@@ -58,9 +58,9 @@ associations:
   targetCardinality: 0..*
   sourceName: SwitchingAction
   targetName: Crew
-- source: SwitchingStep
-  target: SwitchingAction
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: SwitchingStep
-  targetName: SwitchingAction
+- source: SwitchingAction
+  target: SwitchingStep
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: SwitchingAction
+  targetName: SwitchingStep

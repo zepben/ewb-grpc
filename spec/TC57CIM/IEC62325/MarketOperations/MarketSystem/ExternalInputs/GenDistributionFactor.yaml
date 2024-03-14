@@ -6,21 +6,21 @@ attributes:
   type: Float
   description: Used to calculate generation "participation" of an individual pnond in an AggregatePnode.
 associations:
-- source: DistributionFactorSet
-  target: GenDistributionFactor
+- source: GenDistributionFactor
+  target: DistributionFactorSet
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DistributionFactorSet
-  targetName: GenDistributionFactor
-- source: AggregatedPnode
-  target: GenDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: AggregatedPnode
-  targetName: GenDistributionFactor
-- source: IndividualPnode
-  target: GenDistributionFactor
+  sourceName: GenDistributionFactor
+  targetName: DistributionFactorSet
+- source: GenDistributionFactor
+  target: AggregatedPnode
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: GenDistributionFactor
+  targetName: AggregatedPnode
+- source: GenDistributionFactor
+  target: IndividualPnode
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: IndividualPnode
-  targetName: GenDistributionFactor
+  sourceName: GenDistributionFactor
+  targetName: IndividualPnode

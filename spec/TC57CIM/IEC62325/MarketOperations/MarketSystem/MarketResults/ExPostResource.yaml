@@ -3,9 +3,9 @@ description: Model of ex-post pricing of resources.
 ancestors:
 - MarketFactors
 associations:
-- source: ExPostResourceResults
-  target: ExPostResource
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ExPostResourceResults
-  targetName: ExPostResource
+- source: ExPostResource
+  target: ExPostResourceResults
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ExPostResource
+  targetName: ExPostResourceResults

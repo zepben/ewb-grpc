@@ -4,11 +4,11 @@ description: A two terminal and power conducting device of negligible impedance 
 ancestors:
 - Conductor
 associations:
-- source: WireSegmentPhase
-  target: WireSegment
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: WireSegmentPhases
-  sourceDescription: The wire segment phases which belong to the wire segment.
-  targetName: WireSegment
-  targetDescription: The wire segment to which the phase belongs.
+- source: WireSegment
+  target: WireSegmentPhase
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: WireSegment
+  sourceDescription: The wire segment to which the phase belongs.
+  targetName: WireSegmentPhases
+  targetDescription: The wire segment phases which belong to the wire segment.

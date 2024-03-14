@@ -90,11 +90,11 @@ associations:
   targetName: PccTerminal
   targetDescription: Point of common coupling terminal for this converter DC side. It is typically the terminal on the power
     transformer (or switch) closest to the AC network.
-- source: ACDCConverterDCTerminal
-  target: ACDCConverter
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: DCTerminals
-  sourceDescription: A DC converter have DC converter terminals. A converter has two DC converter terminals.
-  targetName: DCConductingEquipment
-  targetDescription: A DC converter terminal belong to an DC converter.
+- source: ACDCConverter
+  target: ACDCConverterDCTerminal
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: DCConductingEquipment
+  sourceDescription: A DC converter terminal belong to an DC converter.
+  targetName: DCTerminals
+  targetDescription: A DC converter have DC converter terminals. A converter has two DC converter terminals.

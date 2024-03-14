@@ -16,21 +16,21 @@ attributes:
   type: Float
   description: Point of delivery loss factor
 associations:
-- source: AggregatedPnode
-  target: PnodeDistributionFactor
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: AggregatedPnode
-  targetName: PnodeDistributionFactor
-- source: IndividualPnode
-  target: PnodeDistributionFactor
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: IndividualPnode
-  targetName: PnodeDistributionFactor
-- source: BidDistributionFactor
-  target: PnodeDistributionFactor
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: BidDistributionFactor
-  targetName: PnodeDistributionFactor
+- source: PnodeDistributionFactor
+  target: AggregatedPnode
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: PnodeDistributionFactor
+  targetName: AggregatedPnode
+- source: PnodeDistributionFactor
+  target: IndividualPnode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PnodeDistributionFactor
+  targetName: IndividualPnode
+- source: PnodeDistributionFactor
+  target: BidDistributionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PnodeDistributionFactor
+  targetName: BidDistributionFactor

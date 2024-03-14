@@ -31,11 +31,11 @@ associations:
   sourceDescription: The voltage levels having this base voltage.
   targetName: BaseVoltage
   targetDescription: The base voltage used for all equipment within the voltage level.
-- source: Substation
-  target: VoltageLevel
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Substation
-  sourceDescription: The substation of the voltage level.
-  targetName: VoltageLevels
-  targetDescription: The voltage levels within this substation.
+- source: VoltageLevel
+  target: Substation
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: VoltageLevels
+  sourceDescription: The voltage levels within this substation.
+  targetName: Substation
+  targetDescription: The substation of the voltage level.

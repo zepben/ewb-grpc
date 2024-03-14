@@ -13,19 +13,19 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: DiagramStyle
-  target: Diagram
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DiagramStyle
-  sourceDescription: A Diagram may have a DiagramStyle.
-  targetName: Diagram
-  targetDescription: A DiagramStyle can be used by many Diagrams.
-- source: DiagramObject
-  target: Diagram
+- source: Diagram
+  target: DiagramStyle
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: DiagramElements
-  sourceDescription: A diagram is made up of multiple diagram objects.
-  targetName: Diagram
-  targetDescription: A diagram object is part of a diagram.
+  sourceName: Diagram
+  sourceDescription: A DiagramStyle can be used by many Diagrams.
+  targetName: DiagramStyle
+  targetDescription: A Diagram may have a DiagramStyle.
+- source: Diagram
+  target: DiagramObject
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Diagram
+  sourceDescription: A diagram object is part of a diagram.
+  targetName: DiagramElements
+  targetDescription: A diagram is made up of multiple diagram objects.

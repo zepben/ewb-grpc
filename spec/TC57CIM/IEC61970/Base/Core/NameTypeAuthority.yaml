@@ -9,11 +9,11 @@ attributes:
   type: String
   description: Name of the name type authority.
 associations:
-- source: NameType
-  target: NameTypeAuthority
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: NameTypes
-  sourceDescription: All name types managed by this authority.
-  targetName: NameTypeAuthority
-  targetDescription: Authority responsible for managing names of this type.
+- source: NameTypeAuthority
+  target: NameType
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: NameTypeAuthority
+  sourceDescription: Authority responsible for managing names of this type.
+  targetName: NameTypes
+  targetDescription: All name types managed by this authority.

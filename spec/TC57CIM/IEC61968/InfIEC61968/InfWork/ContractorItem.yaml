@@ -21,15 +21,15 @@ associations:
   targetCardinality: 0..*
   sourceName: ContractorItems
   targetName: ErpPayables
-- source: WorkCostDetail
-  target: ContractorItem
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: WorkCostDetail
-  targetName: ContractorItems
-- source: OldWorkTask
-  target: ContractorItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkTask
-  targetName: ContractorItems
+- source: ContractorItem
+  target: WorkCostDetail
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ContractorItems
+  targetName: WorkCostDetail
+- source: ContractorItem
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ContractorItems
+  targetName: WorkTask

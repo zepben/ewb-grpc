@@ -69,19 +69,19 @@ associations:
   targetCardinality: 0..1
   sourceName: EnergyConsumer
   targetName: EnergyConsumerAction
-- source: PowerCutZone
-  target: EnergyConsumer
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: PowerCutZone
-  sourceDescription: The  energy consumer is assigned to this power cut zone.
-  targetName: EnergyConsumers
-  targetDescription: Energy consumer is assigned to the power cut zone.
-- source: LoadDynamics
-  target: EnergyConsumer
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: LoadDynamics
-  sourceDescription: Load dynamics model used to describe dynamic behaviour of this energy consumer.
-  targetName: EnergyConsumer
-  targetDescription: Energy consumer to which this dynamics load model applies.
+- source: EnergyConsumer
+  target: PowerCutZone
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: EnergyConsumers
+  sourceDescription: Energy consumer is assigned to the power cut zone.
+  targetName: PowerCutZone
+  targetDescription: The  energy consumer is assigned to this power cut zone.
+- source: EnergyConsumer
+  target: LoadDynamics
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnergyConsumer
+  sourceDescription: Energy consumer to which this dynamics load model applies.
+  targetName: LoadDynamics
+  targetDescription: Load dynamics model used to describe dynamic behaviour of this energy consumer.

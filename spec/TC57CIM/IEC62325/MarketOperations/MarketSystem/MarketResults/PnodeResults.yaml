@@ -24,15 +24,15 @@ attributes:
 - name: updateUser
   type: String
 associations:
-- source: PnodeClearing
-  target: PnodeResults
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: PnodeClearing
-  targetName: PnodeResults
-- source: Pnode
-  target: PnodeResults
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: Pnode
-  targetName: PnodeResults
+- source: PnodeResults
+  target: PnodeClearing
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: PnodeResults
+  targetName: PnodeClearing
+- source: PnodeResults
+  target: Pnode
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: PnodeResults
+  targetName: Pnode

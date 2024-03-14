@@ -11,19 +11,19 @@ descendents:
 - SimpleEndDeviceFunction
 - ComFunction
 associations:
-- source: Register
-  target: EndDeviceFunction
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Registers
-  sourceDescription: All registers for quantities metered by this end device function.
-  targetName: EndDeviceFunction
-  targetDescription: End device function metering quantities displayed by this register.
-- source: EndDevice
-  target: EndDeviceFunction
+- source: EndDeviceFunction
+  target: Register
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: EndDevice
-  sourceDescription: End device that performs this function.
-  targetName: EndDeviceFunctions
-  targetDescription: All end device functions this end device performs.
+  sourceName: EndDeviceFunction
+  sourceDescription: End device function metering quantities displayed by this register.
+  targetName: Registers
+  targetDescription: All registers for quantities metered by this end device function.
+- source: EndDeviceFunction
+  target: EndDevice
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDeviceFunctions
+  sourceDescription: All end device functions this end device performs.
+  targetName: EndDevice
+  targetDescription: End device that performs this function.

@@ -5,11 +5,11 @@ description: The entity that ultimately executes the transaction and which is in
 ancestors:
 - IdentifiedObject
 associations:
-- source: MerchantAccount
-  target: Transactor
+- source: Transactor
+  target: MerchantAccount
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: MerchantAccounts
-  sourceDescription: All merchant accounts registered with this transactor.
-  targetName: Transactors
-  targetDescription: All transactors this merchant account is registered with.
+  sourceName: Transactors
+  sourceDescription: All transactors this merchant account is registered with.
+  targetName: MerchantAccounts
+  targetDescription: All merchant accounts registered with this transactor.

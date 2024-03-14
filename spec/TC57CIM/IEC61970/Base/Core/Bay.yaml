@@ -25,17 +25,17 @@ associations:
   sourceDescription: Bays contained in the substation.
   targetName: Substation
   targetDescription: Substation containing the bay.
-- source: VoltageLevel
-  target: Bay
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: VoltageLevel
-  sourceDescription: The voltage level containing this bay.
-  targetName: Bays
-  targetDescription: The bays within this voltage level.
-- source: Circuit
-  target: Bay
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Circuit
-  targetName: EndBay
+- source: Bay
+  target: VoltageLevel
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Bays
+  sourceDescription: The bays within this voltage level.
+  targetName: VoltageLevel
+  targetDescription: The voltage level containing this bay.
+- source: Bay
+  target: Circuit
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndBay
+  targetName: Circuit

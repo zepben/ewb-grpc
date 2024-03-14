@@ -4,19 +4,19 @@ description: Matches buyers and sellers, and secures transmission (and other anc
 ancestors:
 - Organisation
 associations:
-- source: EnergyProduct
-  target: Marketer
+- source: Marketer
+  target: EnergyProduct
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Resells_EnergyProduct
+  sourceName: ResoldBy_Marketer
   sourceDescription: A Marketer may resell an EnergyProduct.
-  targetName: ResoldBy_Marketer
+  targetName: Resells_EnergyProduct
   targetDescription: A Marketer may resell an EnergyProduct.
-- source: EnergyProduct
-  target: Marketer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: HoldsTitleTo_EnergyProducts
+- source: Marketer
+  target: EnergyProduct
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TitleHeldBy_Marketer
   sourceDescription: A Marketer holds title to an EnergyProduct.
-  targetName: TitleHeldBy_Marketer
+  targetName: HoldsTitleTo_EnergyProducts
   targetDescription: A Marketer holds title to an EnergyProduct.

@@ -15,15 +15,15 @@ attributes:
   type: DateTime
   description: The start of the time interval for which requirement is defined.
 associations:
-- source: ResourceClearing
-  target: ResourceLoadFollowingInst
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ResourceClearing
-  targetName: ResourceLoadFollowingInst
-- source: RegisteredResource
-  target: ResourceLoadFollowingInst
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: ResourceLoadFollowingInst
+- source: ResourceLoadFollowingInst
+  target: ResourceClearing
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ResourceLoadFollowingInst
+  targetName: ResourceClearing
+- source: ResourceLoadFollowingInst
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ResourceLoadFollowingInst
+  targetName: RegisteredResource

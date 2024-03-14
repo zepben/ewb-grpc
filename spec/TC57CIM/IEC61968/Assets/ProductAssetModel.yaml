@@ -64,19 +64,19 @@ associations:
   sourceDescription: Product asset model which conforms to this catalog asset type.
   targetName: AssetInfo
   targetDescription: Asset information (nameplate) for this product asset model.
-- source: Asset
-  target: ProductAssetModel
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Asset
-  sourceDescription: An asset of this model.
-  targetName: ProductAssetModel
-  targetDescription: The model of this asset.
-- source: OperationalRestriction
-  target: ProductAssetModel
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: OperationalRestrictions
-  sourceDescription: All operational restrictions applying to this asset model.
-  targetName: ProductAssetModel
-  targetDescription: Asset model to which this restriction applies.
+- source: ProductAssetModel
+  target: Asset
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ProductAssetModel
+  sourceDescription: The model of this asset.
+  targetName: Asset
+  targetDescription: An asset of this model.
+- source: ProductAssetModel
+  target: OperationalRestriction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ProductAssetModel
+  sourceDescription: Asset model to which this restriction applies.
+  targetName: OperationalRestrictions
+  targetDescription: All operational restrictions applying to this asset model.

@@ -3,17 +3,17 @@ description: A collection of transmission lines that are close proximity to each
 ancestors:
 - PowerSystemResource
 associations:
-- source: TransmissionCorridor
-  target: TransmissionRightOfWay
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: TransmissionCorridor
+- source: TransmissionRightOfWay
+  target: TransmissionCorridor
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: TransmissionRightOfWays
   sourceDescription: A transmission right-of-way is a member of a transmission corridor
-  targetName: TransmissionRightOfWays
+  targetName: TransmissionCorridor
   targetDescription: A transmission right-of-way is a member of a transmission corridor
-- source: MktLine
-  target: TransmissionRightOfWay
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: MktLine
-  targetName: TransmissionRightOfWay
+- source: TransmissionRightOfWay
+  target: MktLine
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TransmissionRightOfWay
+  targetName: MktLine

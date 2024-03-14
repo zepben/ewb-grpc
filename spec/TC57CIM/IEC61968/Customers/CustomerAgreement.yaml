@@ -61,43 +61,43 @@ associations:
   sourceDescription: Customer agreement regulating this service delivery point.
   targetName: UsagePoints
   targetDescription: All service delivery points regulated by this customer agreement.
-- source: DemandResponseProgram
-  target: CustomerAgreement
+- source: CustomerAgreement
+  target: DemandResponseProgram
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DemandResponsePrograms
-  sourceDescription: All demand response programs the customer is enrolled in through this customer agreement.
-  targetName: CustomerAgreements
-  targetDescription: All customer agreements through which the customer is enrolled in this demand response program.
-- source: MeterReading
-  target: CustomerAgreement
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements through which the customer is enrolled in this demand response program.
+  targetName: DemandResponsePrograms
+  targetDescription: All demand response programs the customer is enrolled in through this customer agreement.
+- source: CustomerAgreement
+  target: MeterReading
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerAgreement
+  sourceDescription: (could be deprecated in the future) Customer agreement for this meter reading.
+  targetName: MeterReadings
+  targetDescription: (could be deprecated in the future) All meter readings for this customer agreement.
+- source: CustomerAgreement
+  target: ServiceSupplier
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: MeterReadings
-  sourceDescription: (could be deprecated in the future) All meter readings for this customer agreement.
-  targetName: CustomerAgreement
-  targetDescription: (could be deprecated in the future) Customer agreement for this meter reading.
-- source: ServiceSupplier
-  target: CustomerAgreement
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ServiceSupplier
-  sourceDescription: Service supplier for this customer agreement.
-  targetName: CustomerAgreements
-  targetDescription: All customer agreements of this service supplier.
-- source: CustomerAccount
-  target: CustomerAgreement
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: CustomerAccount
-  sourceDescription: Customer account owning this agreement.
-  targetName: CustomerAgreements
-  targetDescription: All agreements for this customer account.
-- source: Customer
-  target: CustomerAgreement
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Customer
-  sourceDescription: Customer for this agreement.
-  targetName: CustomerAgreements
-  targetDescription: All agreements of this customer.
+  targetCardinality: "1"
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements of this service supplier.
+  targetName: ServiceSupplier
+  targetDescription: Service supplier for this customer agreement.
+- source: CustomerAgreement
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements for this customer account.
+  targetName: CustomerAccount
+  targetDescription: Customer account owning this agreement.
+- source: CustomerAgreement
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements of this customer.
+  targetName: Customer
+  targetDescription: Customer for this agreement.

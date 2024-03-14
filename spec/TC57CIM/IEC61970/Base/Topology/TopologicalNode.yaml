@@ -48,61 +48,61 @@ associations:
   sourceDescription: The topological nodes at the base voltage.
   targetName: BaseVoltage
   targetDescription: The base voltage of the topological node.
-- source: SvInjection
-  target: TopologicalNode
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: SvInjection
-  sourceDescription: The injection flows state variables associated with the topological node.
-  targetName: TopologicalNode
-  targetDescription: The topological node associated with the flow injection state variable.
-- source: SvVoltage
-  target: TopologicalNode
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: SvVoltage
-  sourceDescription: The state voltage associated with the topological node.
-  targetName: TopologicalNode
-  targetDescription: The topological node associated with the voltage state.
-- source: TopologicalIsland
-  target: TopologicalNode
+- source: TopologicalNode
+  target: SvInjection
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TopologicalNode
+  sourceDescription: The topological node associated with the flow injection state variable.
+  targetName: SvInjection
+  targetDescription: The injection flows state variables associated with the topological node.
+- source: TopologicalNode
+  target: SvVoltage
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TopologicalNode
+  sourceDescription: The topological node associated with the voltage state.
+  targetName: SvVoltage
+  targetDescription: The state voltage associated with the topological node.
+- source: TopologicalNode
+  target: TopologicalIsland
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: AngleRefTopologicalIsland
-  sourceDescription: The island for which the node is an angle reference.   Normally there is one angle reference node for
-    each island.
-  targetName: AngleRefTopologicalNode
-  targetDescription: The angle reference for the island.   Normally there is one TopologicalNode that is selected as the angle
+  sourceName: AngleRefTopologicalNode
+  sourceDescription: The angle reference for the island.   Normally there is one TopologicalNode that is selected as the angle
     reference for each island.   Other reference schemes exist, so the association is typically optional.
-- source: ConnectivityNode
-  target: TopologicalNode
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConnectivityNodes
-  sourceDescription: The connectivity nodes combine together to form this topological node.  May depend on the current state
-    of switches in the network.
-  targetName: TopologicalNode
-  targetDescription: The topological node to which this connectivity node is assigned.  May depend on the current state of
+  targetName: AngleRefTopologicalIsland
+  targetDescription: The island for which the node is an angle reference.   Normally there is one angle reference node for
+    each island.
+- source: TopologicalNode
+  target: ConnectivityNode
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TopologicalNode
+  sourceDescription: The topological node to which this connectivity node is assigned.  May depend on the current state of
     switches in the network.
-- source: Terminal
-  target: TopologicalNode
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Terminal
-  sourceDescription: The terminals associated with the topological node.   This can be used as an alternative to the connectivity
-    node path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if connectivity
-    nodes are in the model, this association would probably not be used as an input specification.
-  targetName: TopologicalNode
-  targetDescription: The topological node associated with the terminal.   This can be used as an alternative to the connectivity
+  targetName: ConnectivityNodes
+  targetDescription: The connectivity nodes combine together to form this topological node.  May depend on the current state
+    of switches in the network.
+- source: TopologicalNode
+  target: Terminal
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TopologicalNode
+  sourceDescription: The topological node associated with the terminal.   This can be used as an alternative to the connectivity
     node path to topological node, thus making it unnecessary to model connectivity nodes in some cases.   Note that the if
     connectivity nodes are in the model, this association would probably not be used as an input specification.
-- source: BusNameMarker
-  target: TopologicalNode
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: BusNameMarker
-  sourceDescription: BusnameMarkers that may refer to a pre defined TopologicalNode.
-  targetName: TopologicalNode
-  targetDescription: A user defined topological node that was originally defined in a planning model not yet having topology
+  targetName: Terminal
+  targetDescription: The terminals associated with the topological node.   This can be used as an alternative to the connectivity
+    node path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if connectivity
+    nodes are in the model, this association would probably not be used as an input specification.
+- source: TopologicalNode
+  target: BusNameMarker
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TopologicalNode
+  sourceDescription: A user defined topological node that was originally defined in a planning model not yet having topology
     described by ConnectivityNodes. Once ConnectivityNodes has been created they may linked to user defined ToplogicalNdes
     using BusNameMarkers.
+  targetName: BusNameMarker
+  targetDescription: BusnameMarkers that may refer to a pre defined TopologicalNode.

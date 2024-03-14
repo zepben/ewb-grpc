@@ -6,15 +6,15 @@ description: |-
 ancestors:
 - ErpDocument
 associations:
-- source: ErpBomItemData
-  target: ErpBOM
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpBomItemDatas
-  targetName: ErpBOM
-- source: Design
-  target: ErpBOM
-  sourceCardinality: 0..1
+- source: ErpBOM
+  target: ErpBomItemData
+  sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: Design
-  targetName: ErpBOMs
+  sourceName: ErpBOM
+  targetName: ErpBomItemDatas
+- source: ErpBOM
+  target: Design
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpBOMs
+  targetName: Design

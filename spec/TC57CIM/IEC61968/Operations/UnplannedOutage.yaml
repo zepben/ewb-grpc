@@ -36,15 +36,15 @@ associations:
   targetCardinality: 0..*
   sourceName: UnplannedOutage
   targetName: TroubleOrder
-- source: FieldDispatchHistory
-  target: UnplannedOutage
+- source: UnplannedOutage
+  target: FieldDispatchHistory
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: FieldDispatchHistory
-  targetName: UnplannedOutage
-- source: Incident
-  target: UnplannedOutage
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Incident
-  targetName: UnplannedOutage
+  sourceName: UnplannedOutage
+  targetName: FieldDispatchHistory
+- source: UnplannedOutage
+  target: Incident
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UnplannedOutage
+  targetName: Incident

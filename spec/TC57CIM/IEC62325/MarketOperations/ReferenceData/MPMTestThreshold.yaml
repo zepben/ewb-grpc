@@ -23,9 +23,9 @@ associations:
   targetCardinality: 0..*
   sourceName: MPMTestThreshold
   targetName: RegisteredResource
-- source: MPMTestCategory
-  target: MPMTestThreshold
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MPMTestCategory
-  targetName: MPMTestThreshold
+- source: MPMTestThreshold
+  target: MPMTestCategory
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MPMTestThreshold
+  targetName: MPMTestCategory

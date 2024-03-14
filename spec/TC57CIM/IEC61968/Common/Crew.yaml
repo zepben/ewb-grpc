@@ -25,43 +25,43 @@ associations:
   sourceDescription: All crews of this type.
   targetName: CrewType
   targetDescription: Type of this crew.
-- source: FieldDispatchHistory
-  target: Crew
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: FieldDispatchHistory
-  targetName: Crew
-- source: WorkTask
-  target: Crew
-  sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: WorkTasks
-  sourceDescription: All work tasks this crew participates in.
-  targetName: Crews
-  targetDescription: All crews participating in this work task.
-- source: Outage
-  target: Crew
-  sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Outage
-  targetName: Crew
-- source: SwitchingAction
-  target: Crew
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: SwitchingAction
-  targetName: Crew
-- source: WorkAsset
-  target: Crew
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WorkAssets
-  sourceDescription: All work assets used by this crew.
-  targetName: Crew
-  targetDescription: Crew using this work asset.
-- source: Location
-  target: Crew
+- source: Crew
+  target: FieldDispatchHistory
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Location
-  targetName: Crew
+  sourceName: Crew
+  targetName: FieldDispatchHistory
+- source: Crew
+  target: WorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Crews
+  sourceDescription: All crews participating in this work task.
+  targetName: WorkTasks
+  targetDescription: All work tasks this crew participates in.
+- source: Crew
+  target: Outage
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Crew
+  targetName: Outage
+- source: Crew
+  target: SwitchingAction
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Crew
+  targetName: SwitchingAction
+- source: Crew
+  target: WorkAsset
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Crew
+  sourceDescription: Crew using this work asset.
+  targetName: WorkAssets
+  targetDescription: All work assets used by this crew.
+- source: Crew
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Crew
+  targetName: Location

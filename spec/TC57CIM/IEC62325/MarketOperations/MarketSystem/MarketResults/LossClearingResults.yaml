@@ -10,21 +10,21 @@ associations:
   targetCardinality: 0..1
   sourceName: LossClearingResults
   targetName: SubControlArea
-- source: HostControlArea
-  target: LossClearingResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: HostControlArea
-  targetName: LossClearingResults
-- source: LossClearing
-  target: LossClearingResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: LossClearing
-  targetName: LossClearingResults
-- source: RUCZone
-  target: LossClearingResults
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RUCZone
-  targetName: LossClearingResults
+- source: LossClearingResults
+  target: HostControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LossClearingResults
+  targetName: HostControlArea
+- source: LossClearingResults
+  target: LossClearing
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LossClearingResults
+  targetName: LossClearing
+- source: LossClearingResults
+  target: RUCZone
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LossClearingResults
+  targetName: RUCZone

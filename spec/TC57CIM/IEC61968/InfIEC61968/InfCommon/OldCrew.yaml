@@ -33,9 +33,9 @@ associations:
   targetCardinality: 0..*
   sourceName: Crews
   targetName: Locations
-- source: Capability
-  target: OldCrew
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Capabilities
-  targetName: Crew
+- source: OldCrew
+  target: Capability
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Crew
+  targetName: Capabilities

@@ -25,13 +25,13 @@ associations:
   sourceDescription: A Marketer holds title to an EnergyProduct.
   targetName: TitleHeldBy_Marketer
   targetDescription: A Marketer holds title to an EnergyProduct.
-- source: EnergyTransaction
-  target: EnergyProduct
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: EnergyTransactions
+- source: EnergyProduct
+  target: EnergyTransaction
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: EnergyProduct
   sourceDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
     this is a ServicePoint.
-  targetName: EnergyProduct
+  targetName: EnergyTransactions
   targetDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
     this is a ServicePoint.

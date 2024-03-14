@@ -19,11 +19,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: EndDeviceControl
-  target: EndDeviceControlType
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: EndDeviceControls
-  sourceDescription: All end device controls of this type.
-  targetName: EndDeviceControlType
-  targetDescription: Type of this end device control.
+- source: EndDeviceControlType
+  target: EndDeviceControl
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EndDeviceControlType
+  sourceDescription: Type of this end device control.
+  targetName: EndDeviceControls
+  targetDescription: All end device controls of this type.

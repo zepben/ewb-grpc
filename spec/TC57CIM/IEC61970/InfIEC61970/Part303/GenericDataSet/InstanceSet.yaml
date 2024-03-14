@@ -3,19 +3,19 @@ description: Instance of a version of a model part.   This corresponds to a payl
 ancestors:
 - DataSet
 associations:
-- source: DatasetArg
-  target: InstanceSet
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: DatasetArg
-  sourceDescription: The role of a dataset in the context of an operation.
-  targetName: Dataset
-  targetDescription: Dataset referenced by this argument of a model operation..
-- source: IdentifiedObject
-  target: InstanceSet
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: InstanceSetMember
-  sourceDescription: Data objects contained in the dataset.
-  targetName: InstanceSet
-  targetDescription: Dataset containing the data objects.
+- source: InstanceSet
+  target: DatasetArg
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Dataset
+  sourceDescription: Dataset referenced by this argument of a model operation..
+  targetName: DatasetArg
+  targetDescription: The role of a dataset in the context of an operation.
+- source: InstanceSet
+  target: IdentifiedObject
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: InstanceSet
+  sourceDescription: Dataset containing the data objects.
+  targetName: InstanceSetMember
+  targetDescription: Data objects contained in the dataset.

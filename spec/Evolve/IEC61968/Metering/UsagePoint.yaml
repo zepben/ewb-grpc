@@ -31,11 +31,11 @@ associations:
   sourceDescription: Usage point to which this end device belongs.
   targetName: EndDevices
   targetDescription: All end devices at this usage point.
-- source: UsagePointLocation
-  target: UsagePoint
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: UsagePointLocation
-  sourceDescription: Location of this usage point.
-  targetName: UsagePoints
-  targetDescription: All usage points at this location.
+- source: UsagePoint
+  target: UsagePointLocation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: UsagePoints
+  sourceDescription: All usage points at this location.
+  targetName: UsagePointLocation
+  targetDescription: Location of this usage point.

@@ -18,11 +18,11 @@ attributes:
 ancestors:
 - EndDeviceFunction
 associations:
-- source: ComModule
-  target: ComFunction
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ComModule
-  sourceDescription: Module performing this communication function.
-  targetName: ComFunctions
-  targetDescription: All functions this communication module performs.
+- source: ComFunction
+  target: ComModule
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ComFunctions
+  sourceDescription: All functions this communication module performs.
+  targetName: ComModule
+  targetDescription: Module performing this communication function.

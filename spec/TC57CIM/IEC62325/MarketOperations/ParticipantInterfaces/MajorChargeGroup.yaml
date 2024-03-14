@@ -42,9 +42,9 @@ associations:
   targetCardinality: 0..*
   sourceName: MajorChargeGroup
   targetName: Settlement
-- source: MarketInvoice
-  target: MajorChargeGroup
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: MarketInvoice
-  targetName: MajorChargeGroup
+- source: MajorChargeGroup
+  target: MarketInvoice
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: MajorChargeGroup
+  targetName: MarketInvoice

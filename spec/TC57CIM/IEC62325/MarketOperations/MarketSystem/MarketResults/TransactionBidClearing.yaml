@@ -4,9 +4,9 @@ description: Contains the intervals relavent for the associated TransactionBidRe
 ancestors:
 - MarketFactors
 associations:
-- source: TransactionBidResults
-  target: TransactionBidClearing
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TransactionBidResults
-  targetName: TransactionBidClearing
+- source: TransactionBidClearing
+  target: TransactionBidResults
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TransactionBidClearing
+  targetName: TransactionBidResults

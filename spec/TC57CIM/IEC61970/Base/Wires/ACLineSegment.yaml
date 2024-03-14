@@ -52,55 +52,55 @@ associations:
   targetCardinality: 0..1
   sourceName: ACLineSegment
   targetName: WireSpacingInfo
-- source: PerLengthImpedance
-  target: ACLineSegment
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PerLengthImpedance
-  sourceDescription: Per-length impedance of this line segment.
-  targetName: ACLineSegments
-  targetDescription: All line segments described by this per-length impedance.
-- source: Cut
-  target: ACLineSegment
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Cut
-  sourceDescription: Cuts applied to the line segment.
-  targetName: ACLineSegment
-  targetDescription: The line segment to which the cut is applied.
-- source: LineFault
-  target: ACLineSegment
+- source: ACLineSegment
+  target: PerLengthImpedance
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: LineFaults
-  sourceDescription: The line faults of the line segment.
-  targetName: ACLineSegment
-  targetDescription: The line segment of this line fault.
-- source: ACLineSegmentPhase
-  target: ACLineSegment
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ACLineSegmentPhases
-  sourceDescription: The line segment phases which belong to the line segment.
-  targetName: ACLineSegment
-  targetDescription: The line segment to which the phase belongs.
-- source: JumperAction
-  target: ACLineSegment
+  sourceName: ACLineSegments
+  sourceDescription: All line segments described by this per-length impedance.
+  targetName: PerLengthImpedance
+  targetDescription: Per-length impedance of this line segment.
+- source: ACLineSegment
+  target: Cut
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the cut is applied.
+  targetName: Cut
+  targetDescription: Cuts applied to the line segment.
+- source: ACLineSegment
+  target: LineFault
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: LineJumpingAction
-  sourceDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
-    of at its terminals).
-  targetName: ACLineSegments
-  targetDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
+  sourceName: ACLineSegment
+  sourceDescription: The line segment of this line fault.
+  targetName: LineFaults
+  targetDescription: The line faults of the line segment.
+- source: ACLineSegment
+  target: ACLineSegmentPhase
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the phase belongs.
+  targetName: ACLineSegmentPhases
+  targetDescription: The line segment phases which belong to the line segment.
+- source: ACLineSegment
+  target: JumperAction
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ACLineSegments
+  sourceDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
     clamp in case the jumper needs to connect along the line segment.
-- source: GroundAction
-  target: ACLineSegment
+  targetName: LineJumpingAction
+  targetDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
+    of at its terminals).
+- source: ACLineSegment
+  target: GroundAction
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: LineGroundingAction
-  sourceDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead
-    of at its terminals).
-  targetName: AlongACLineSegment
-  targetDescription: The line segment that this ground action will affect. This is the only way to access relationship to
+  sourceName: AlongACLineSegment
+  sourceDescription: The line segment that this ground action will affect. This is the only way to access relationship to
     clamp in case the ground needs to be placed along the line segment.
+  targetName: LineGroundingAction
+  targetDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead
+    of at its terminals).

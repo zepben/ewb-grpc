@@ -21,11 +21,11 @@ attributes:
   type: String
   description: (if applicable) Z axis position.
 associations:
-- source: Location
-  target: PositionPoint
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Location
-  sourceDescription: Location described by this position point.
-  targetName: PositionPoints
-  targetDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+- source: PositionPoint
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PositionPoints
+  sourceDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+  targetName: Location
+  targetDescription: Location described by this position point.

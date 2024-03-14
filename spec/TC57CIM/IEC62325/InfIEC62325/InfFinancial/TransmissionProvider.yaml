@@ -5,21 +5,21 @@ description: Provider of  the transmission capacity (interconnecting wires betwe
 ancestors:
 - Organisation
 associations:
-- source: TransmissionProduct
-  target: TransmissionProvider
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: TransmissionProducts
+- source: TransmissionProvider
+  target: TransmissionProduct
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: TransmissionProvider
   sourceDescription: A TransmissionProvider offers a TransmissionProduct.
-  targetName: TransmissionProvider
+  targetName: TransmissionProducts
   targetDescription: A TransmissionProvider offers a TransmissionProduct.
-- source: LossProfile
-  target: TransmissionProvider
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: For
+- source: TransmissionProvider
+  target: LossProfile
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: HasLoss_
   sourceDescription: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
     TransmissionProvider must be one of the participating entities in the EnergyTransaction.
-  targetName: HasLoss_
+  targetName: For
   targetDescription: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
     TransmissionProvider must be one of the participating entities in the EnergyTransaction.

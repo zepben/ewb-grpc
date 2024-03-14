@@ -4,11 +4,11 @@ description: A Modeling Authority is an entity responsible for supplying and mai
 ancestors:
 - IdentifiedObject
 associations:
-- source: ModelAuthoritySet
-  target: ModelAuthority
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: ModelingAuthoritySets
-  sourceDescription: Modeling Authority Sets supplied and maintained by this Modeling Authority.
-  targetName: ModelingAuthority
-  targetDescription: Modeling Authority suppliying and maintaining the data for the objects in this Modeling Authority Set.
+- source: ModelAuthority
+  target: ModelAuthoritySet
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: ModelingAuthority
+  sourceDescription: Modeling Authority suppliying and maintaining the data for the objects in this Modeling Authority Set.
+  targetName: ModelingAuthoritySets
+  targetDescription: Modeling Authority Sets supplied and maintained by this Modeling Authority.

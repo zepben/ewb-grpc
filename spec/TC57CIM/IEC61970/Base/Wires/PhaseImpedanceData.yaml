@@ -30,11 +30,11 @@ attributes:
   description: The matrix element's column number, in the range 1 to row. Only the lower triangle needs to be stored. This
     column number matches ACLineSegmentPhase.sequenceNumber.
 associations:
-- source: PerLengthPhaseImpedance
-  target: PhaseImpedanceData
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: PhaseImpedance
-  sourceDescription: Conductor phase impedance to which this data belongs.
-  targetName: PhaseImpedanceData
-  targetDescription: All data that belong to this conductor phase impedance.
+- source: PhaseImpedanceData
+  target: PerLengthPhaseImpedance
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: PhaseImpedanceData
+  sourceDescription: All data that belong to this conductor phase impedance.
+  targetName: PhaseImpedance
+  targetDescription: Conductor phase impedance to which this data belongs.

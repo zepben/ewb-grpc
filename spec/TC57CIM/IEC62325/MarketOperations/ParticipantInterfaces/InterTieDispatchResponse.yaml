@@ -17,9 +17,9 @@ attributes:
   type: DateTime
   description: Part of the Composite key that downstream app uses to match the instruction
 associations:
-- source: RegisteredInterTie
-  target: InterTieDispatchResponse
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RegisteredInterTie
-  targetName: InterTieDispatchResponse
+- source: InterTieDispatchResponse
+  target: RegisteredInterTie
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: InterTieDispatchResponse
+  targetName: RegisteredInterTie

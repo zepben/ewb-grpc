@@ -26,11 +26,11 @@ associations:
   sourceDescription: Location of this power system resource.
   targetName: PowerSystemResources
   targetDescription: All power system resources at this location.
-- source: Asset
-  target: Location
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Assets
-  sourceDescription: All assets at this location.
-  targetName: Location
-  targetDescription: Location of this asset.
+- source: Location
+  target: Asset
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Location
+  sourceDescription: Location of this asset.
+  targetName: Assets
+  targetDescription: All assets at this location.

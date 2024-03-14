@@ -43,11 +43,11 @@ associations:
   targetCardinality: 0..1
   sourceName: Fault
   targetName: Location
-- source: Outage
-  target: Fault
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Outage
-  sourceDescription: Outage associated with this fault.
-  targetName: Faults
-  targetDescription: All faults involved in this outage.
+- source: Fault
+  target: Outage
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Faults
+  sourceDescription: All faults involved in this outage.
+  targetName: Outage
+  targetDescription: Outage associated with this fault.

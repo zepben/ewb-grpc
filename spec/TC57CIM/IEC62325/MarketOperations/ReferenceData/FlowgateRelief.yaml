@@ -12,9 +12,9 @@ attributes:
   type: DateTime
   description: "Date/Time when record is no longer effective \nUsed to determine when a record is no longer effective"
 associations:
-- source: Flowgate
-  target: FlowgateRelief
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Flowgate
-  targetName: FlowgateRelief
+- source: FlowgateRelief
+  target: Flowgate
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: FlowgateRelief
+  targetName: Flowgate

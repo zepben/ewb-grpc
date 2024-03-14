@@ -23,18 +23,18 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: BranchGroupTerminal
-  target: BranchGroup
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: BranchGroupTerminal
-  sourceDescription: The directed branch group terminals to be summed.
-  targetName: BranchGroup
-  targetDescription: The branch group to which the directed branch group terminals belong.
-- source: PinBranchGroup
-  target: BranchGroup
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: PinBranchGroup
-  targetName: BranchGroup
-  targetDescription: The branch group that should be used in compare.
+- source: BranchGroup
+  target: BranchGroupTerminal
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: BranchGroup
+  sourceDescription: The branch group to which the directed branch group terminals belong.
+  targetName: BranchGroupTerminal
+  targetDescription: The directed branch group terminals to be summed.
+- source: BranchGroup
+  target: PinBranchGroup
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: BranchGroup
+  sourceDescription: The branch group that should be used in compare.
+  targetName: PinBranchGroup

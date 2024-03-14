@@ -4,11 +4,11 @@ associations:
   target: IdcInverterControl
   sourceCardinality: "1"
   targetCardinality: 0..1
-- source: HVDCLookUpTable
-  target: VDCOL
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-- source: Delay
-  target: VDCOL
-  sourceCardinality: "1"
-  targetCardinality: 0..1
+- source: VDCOL
+  target: HVDCLookUpTable
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+- source: VDCOL
+  target: Delay
+  sourceCardinality: 0..1
+  targetCardinality: "1"

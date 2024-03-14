@@ -15,9 +15,9 @@ attributes:
   description: The sequence number of the field dispatch step within the field dispatch history.  Begins with 1 and increments
     up.
 associations:
-- source: FieldDispatchHistory
-  target: FieldDispatchStep
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: FieldDispatchHistory
-  targetName: FieldDispatchStep
+- source: FieldDispatchStep
+  target: FieldDispatchHistory
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: FieldDispatchStep
+  targetName: FieldDispatchHistory

@@ -29,19 +29,19 @@ associations:
   sourceDescription: The power system resource that contains the measurement.
   targetName: Measurements
   targetDescription: The measurements associated with this power system resource.
-- source: AssetInfo
-  target: PowerSystemResource
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AssetDatasheet
-  sourceDescription: Datasheet information for this power system resource.
-  targetName: PowerSystemResources
-  targetDescription: All power system resources with this datasheet information.
-- source: Location
-  target: PowerSystemResource
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Location
-  sourceDescription: Location of this power system resource.
-  targetName: PowerSystemResources
-  targetDescription: All power system resources at this location.
+- source: PowerSystemResource
+  target: AssetInfo
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PowerSystemResources
+  sourceDescription: All power system resources with this datasheet information.
+  targetName: AssetDatasheet
+  targetDescription: Datasheet information for this power system resource.
+- source: PowerSystemResource
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PowerSystemResources
+  sourceDescription: All power system resources at this location.
+  targetName: Location
+  targetDescription: Location of this power system resource.

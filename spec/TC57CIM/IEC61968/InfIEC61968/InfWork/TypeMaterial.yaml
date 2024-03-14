@@ -31,15 +31,15 @@ associations:
   targetCardinality: 0..*
   sourceName: TypeMaterial
   targetName: MaterialItems
-- source: ErpIssueInventory
-  target: TypeMaterial
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpIssueInventories
-  targetName: TypeMaterial
-- source: CUMaterialItem
-  target: TypeMaterial
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: CUMaterialItems
-  targetName: TypeMaterial
+- source: TypeMaterial
+  target: ErpIssueInventory
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TypeMaterial
+  targetName: ErpIssueInventories
+- source: TypeMaterial
+  target: CUMaterialItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TypeMaterial
+  targetName: CUMaterialItems

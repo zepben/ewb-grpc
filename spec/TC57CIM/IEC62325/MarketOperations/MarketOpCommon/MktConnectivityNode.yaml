@@ -3,45 +3,45 @@ description: Subclass of IEC61970:Topology:ConnectivityNode.
 ancestors:
 - ConnectivityNode
 associations:
-- source: NodeConstraintTerm
-  target: MktConnectivityNode
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: NodeConstraintTerm
-  targetName: MktConnectivityNode
-- source: RTO
-  target: MktConnectivityNode
+- source: MktConnectivityNode
+  target: NodeConstraintTerm
   sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: RTO
-  targetName: MktConnectivityNode
-- source: SysLoadDistributionFactor
-  target: MktConnectivityNode
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: SysLoadDistribuFactor
-  targetName: MktConnectivityNode
-- source: LossSensitivity
-  target: MktConnectivityNode
+  sourceName: MktConnectivityNode
+  targetName: NodeConstraintTerm
+- source: MktConnectivityNode
+  target: RTO
   sourceCardinality: 0..*
   targetCardinality: "1"
-  sourceName: LossPenaltyFactor
-  targetName: MktConnectivityNode
-- source: CnodeDistributionFactor
-  target: MktConnectivityNode
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CnodeDistributionFactor
-  targetName: MktConnectivityNode
-- source: IndividualPnode
-  target: MktConnectivityNode
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: IndividualPnode
-  targetName: MktConnectivityNode
-- source: RegisteredResource
-  target: MktConnectivityNode
-  sourceCardinality: 0..*
+  sourceName: MktConnectivityNode
+  targetName: RTO
+- source: MktConnectivityNode
+  target: SysLoadDistributionFactor
+  sourceCardinality: "1"
   targetCardinality: 0..1
-  sourceName: RegisteredResource
-  targetName: MktConnectivityNode
+  sourceName: MktConnectivityNode
+  targetName: SysLoadDistribuFactor
+- source: MktConnectivityNode
+  target: LossSensitivity
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktConnectivityNode
+  targetName: LossPenaltyFactor
+- source: MktConnectivityNode
+  target: CnodeDistributionFactor
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MktConnectivityNode
+  targetName: CnodeDistributionFactor
+- source: MktConnectivityNode
+  target: IndividualPnode
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: MktConnectivityNode
+  targetName: IndividualPnode
+- source: MktConnectivityNode
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MktConnectivityNode
+  targetName: RegisteredResource

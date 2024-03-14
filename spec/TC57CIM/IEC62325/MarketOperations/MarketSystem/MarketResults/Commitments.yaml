@@ -31,15 +31,15 @@ attributes:
 - name: updateUser
   type: String
 associations:
-- source: CommitmentClearing
-  target: Commitments
+- source: Commitments
+  target: CommitmentClearing
   sourceCardinality: 1..*
   targetCardinality: 1..*
-  sourceName: CommitmentClearing
-  targetName: Commitments
-- source: RegisteredResource
-  target: Commitments
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: Commitments
+  sourceName: Commitments
+  targetName: CommitmentClearing
+- source: Commitments
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Commitments
+  targetName: RegisteredResource

@@ -77,43 +77,43 @@ associations:
   sourceDescription: Reading type for register values reported/collected by this channel.
   targetName: Channel
   targetDescription: Channel reporting/collecting register values with this type information.
-- source: ConsumptionTariffInterval
-  target: ReadingType
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConsumptionTariffIntervals
-  sourceDescription: All tariff intervals with consumption described by this reading type.
-  targetName: ReadingType
-  targetDescription: Reading type for 'startValue'.
-- source: Reading
-  target: ReadingType
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Readings
-  sourceDescription: All reading values with this type information.
-  targetName: ReadingType
-  targetDescription: Type information for this reading value.
-- source: PendingCalculation
-  target: ReadingType
+- source: ReadingType
+  target: ConsumptionTariffInterval
   sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: PendingCalculation
-  sourceDescription: Pending calculation that produced this reading type.
-  targetName: ReadingType
-  targetDescription: Reading type resulting from this pending conversion.
-- source: MetrologyRequirement
-  target: ReadingType
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: MetrologyRequirements
-  sourceDescription: All metrology requirements that require this reading type to be collected.
-  targetName: ReadingTypes
-  targetDescription: All reading types required to be collected by this metrology requirement.
-- source: IntervalBlock
-  target: ReadingType
-  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ReadingType
+  sourceDescription: Reading type for 'startValue'.
+  targetName: ConsumptionTariffIntervals
+  targetDescription: All tariff intervals with consumption described by this reading type.
+- source: ReadingType
+  target: Reading
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ReadingType
+  sourceDescription: Type information for this reading value.
+  targetName: Readings
+  targetDescription: All reading values with this type information.
+- source: ReadingType
+  target: PendingCalculation
+  sourceCardinality: "1"
   targetCardinality: 0..1
-  sourceName: IntervalBlocks
-  sourceDescription: All blocks containing interval reading values with this type information.
-  targetName: ReadingType
-  targetDescription: Type information for interval reading values contained in this block.
+  sourceName: ReadingType
+  sourceDescription: Reading type resulting from this pending conversion.
+  targetName: PendingCalculation
+  targetDescription: Pending calculation that produced this reading type.
+- source: ReadingType
+  target: MetrologyRequirement
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: ReadingTypes
+  sourceDescription: All reading types required to be collected by this metrology requirement.
+  targetName: MetrologyRequirements
+  targetDescription: All metrology requirements that require this reading type to be collected.
+- source: ReadingType
+  target: IntervalBlock
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReadingType
+  sourceDescription: Type information for interval reading values contained in this block.
+  targetName: IntervalBlocks
+  targetDescription: All blocks containing interval reading values with this type information.

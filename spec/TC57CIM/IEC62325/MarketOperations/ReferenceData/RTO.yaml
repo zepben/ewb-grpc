@@ -69,33 +69,33 @@ associations:
   targetCardinality: 0..*
   sourceName: RTO
   targetName: MktConnectivityNode
-- source: MSSAggregation
-  target: RTO
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: MSSAggregation
-  targetName: RTO
-- source: ResourceGroupReq
-  target: RTO
+- source: RTO
+  target: MSSAggregation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: MSSAggregation
+- source: RTO
+  target: ResourceGroupReq
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ResourceGroupReqs
-  targetName: RTOs
-- source: SecurityConstraintSum
-  target: RTO
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SecurityConstraintsLinear
-  targetName: RTO
-- source: SecurityConstraints
-  target: RTO
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SecurityConstraints
-  targetName: RTO
-- source: EnergyMarket
-  target: RTO
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnergyMarkets
-  targetName: RTO
+  sourceName: RTOs
+  targetName: ResourceGroupReqs
+- source: RTO
+  target: SecurityConstraintSum
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: SecurityConstraintsLinear
+- source: RTO
+  target: SecurityConstraints
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: SecurityConstraints
+- source: RTO
+  target: EnergyMarket
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: EnergyMarkets

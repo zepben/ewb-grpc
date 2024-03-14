@@ -38,11 +38,11 @@ associations:
     transformer (CT) at the bar between a breaker and an isolator.
   targetName: Terminal
   targetDescription: One or more measurements may be associated with a terminal in the network.
-- source: PowerSystemResource
-  target: Measurement
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PowerSystemResource
-  sourceDescription: The power system resource that contains the measurement.
-  targetName: Measurements
-  targetDescription: The measurements associated with this power system resource.
+- source: Measurement
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Measurements
+  sourceDescription: The measurements associated with this power system resource.
+  targetName: PowerSystemResource
+  targetDescription: The power system resource that contains the measurement.

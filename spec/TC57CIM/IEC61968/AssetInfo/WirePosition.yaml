@@ -22,11 +22,11 @@ associations:
   sourceDescription: Wire position with this wire phase information.
   targetName: WirePhaseInfo
   targetDescription: Wire phase information for this wire position.
-- source: WireSpacingInfo
-  target: WirePosition
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: WireSpacingInfo
-  sourceDescription: Wire spacing data this wire position belongs to.
-  targetName: WirePositions
-  targetDescription: All positions of single wires (phase or neutral) making the conductor.
+- source: WirePosition
+  target: WireSpacingInfo
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: WirePositions
+  sourceDescription: All positions of single wires (phase or neutral) making the conductor.
+  targetName: WireSpacingInfo
+  targetDescription: Wire spacing data this wire position belongs to.

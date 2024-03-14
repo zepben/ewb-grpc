@@ -47,11 +47,11 @@ associations:
   sourceDescription: All events reported by this end device.
   targetName: EndDevice
   targetDescription: End device that reported this end device event.
-- source: MeterReading
-  target: EndDeviceEvent
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MeterReading
-  sourceDescription: Set of measured values to which this event applies.
-  targetName: EndDeviceEvents
-  targetDescription: All end device events associated with this set of measured values.
+- source: EndDeviceEvent
+  target: MeterReading
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDeviceEvents
+  sourceDescription: All end device events associated with this set of measured values.
+  targetName: MeterReading
+  targetDescription: Set of measured values to which this event applies.

@@ -18,15 +18,15 @@ attributes:
   description: "Choices are: \nME - Market Energy Capacity; \nSR - Spinning Reserve Capacity; \nNR - Non-Spinning Reserve\
     \ Capacity; \nDAC - Day Ahead Capacity; \nDEC - Derate Capacity"
 associations:
-- source: AllocationResult
-  target: AllocationResultValues
-  sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: AllocationResult
-  targetName: AllocationResultValues
-- source: RegisteredResource
-  target: AllocationResultValues
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: AllocationResultValues
+- source: AllocationResultValues
+  target: AllocationResult
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: AllocationResultValues
+  targetName: AllocationResult
+- source: AllocationResultValues
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AllocationResultValues
+  targetName: RegisteredResource

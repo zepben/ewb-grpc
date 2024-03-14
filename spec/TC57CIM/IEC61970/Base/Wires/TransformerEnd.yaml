@@ -73,40 +73,40 @@ associations:
   sourceDescription: All transformer ends connected at this terminal.
   targetName: Terminal
   targetDescription: Terminal of the power transformer to which this transformer end belongs.
-- source: TransformerMeshImpedance
-  target: TransformerEnd
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: ToMeshImpedance
-  sourceDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
-  targetName: ToTransformerEnd
-  targetDescription: All transformer ends this mesh impedance is connected to.
-- source: TransformerMeshImpedance
-  target: TransformerEnd
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: FromMeshImpedance
-  sourceDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
-  targetName: FromTransformerEnd
-  targetDescription: From end this mesh impedance is connected to. It determines the voltage reference.
-- source: TransformerCoreAdmittance
-  target: TransformerEnd
-  sourceCardinality: 0..1
+- source: TransformerEnd
+  target: TransformerMeshImpedance
+  sourceCardinality: 1..*
   targetCardinality: 0..*
-  sourceName: CoreAdmittance
-  sourceDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values
+  sourceName: ToTransformerEnd
+  sourceDescription: All transformer ends this mesh impedance is connected to.
+  targetName: ToMeshImpedance
+  targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
+- source: TransformerEnd
+  target: TransformerMeshImpedance
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: FromTransformerEnd
+  sourceDescription: From end this mesh impedance is connected to. It determines the voltage reference.
+  targetName: FromMeshImpedance
+  targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
+- source: TransformerEnd
+  target: TransformerCoreAdmittance
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransformerEnd
+  sourceDescription: All transformer ends having this core admittance.
+  targetName: CoreAdmittance
+  targetDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values
     of the transformer should be supplied for one transformer end only.
-  targetName: TransformerEnd
-  targetDescription: All transformer ends having this core admittance.
-- source: WindingInsulation
-  target: TransformerEnd
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ToWindingInsulations
-  targetName: ToWinding
-- source: WindingInsulation
-  target: TransformerEnd
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: FromWindingInsulations
-  targetName: FromWinding
+- source: TransformerEnd
+  target: WindingInsulation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ToWinding
+  targetName: ToWindingInsulations
+- source: TransformerEnd
+  target: WindingInsulation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: FromWinding
+  targetName: FromWindingInsulations

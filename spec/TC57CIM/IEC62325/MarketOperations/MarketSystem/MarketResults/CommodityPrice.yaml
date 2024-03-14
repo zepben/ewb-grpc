@@ -25,9 +25,9 @@ associations:
   targetCardinality: "1"
   sourceName: CommodityPrice
   targetName: CommodityDefinition
-- source: PnodeClearing
-  target: CommodityPrice
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PnodeClearing
-  targetName: CommodityPrice
+- source: CommodityPrice
+  target: PnodeClearing
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CommodityPrice
+  targetName: PnodeClearing

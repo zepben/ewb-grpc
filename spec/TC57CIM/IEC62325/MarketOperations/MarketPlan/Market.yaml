@@ -45,21 +45,21 @@ descendents:
 - EnergyMarket
 - CRRMarket
 associations:
-- source: MarketFactors
-  target: Market
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: MarketFactors
-  targetName: Market
-- source: MarketProduct
-  target: Market
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: MarketProducts
-  targetName: Market
-- source: MarketRun
-  target: Market
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: MarketRun
-  targetName: Market
+- source: Market
+  target: MarketFactors
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Market
+  targetName: MarketFactors
+- source: Market
+  target: MarketProduct
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: Market
+  targetName: MarketProducts
+- source: Market
+  target: MarketRun
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Market
+  targetName: MarketRun

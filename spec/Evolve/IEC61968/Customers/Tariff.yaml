@@ -3,11 +3,11 @@ description: Document, approved by the responsible regulatory agency, listing th
   of prices, under which utility services will be provided. It has a unique number within the state or province. For rate
   schedules it is frequently allocated by the affiliated Public utilities commission (PUC).
 associations:
-- source: PricingStructure
-  target: Tariff
+- source: Tariff
+  target: PricingStructure
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: PricingStructures
-  sourceDescription: All pricing structures using this tariff.
-  targetName: Tariffs
-  targetDescription: All tariffs used by this pricing structure.
+  sourceName: Tariffs
+  sourceDescription: All tariffs used by this pricing structure.
+  targetName: PricingStructures
+  targetDescription: All pricing structures using this tariff.

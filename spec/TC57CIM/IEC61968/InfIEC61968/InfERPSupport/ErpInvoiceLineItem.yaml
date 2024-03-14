@@ -73,30 +73,30 @@ associations:
   targetCardinality: 0..*
   sourceName: ErpInvoiceLineItems
   targetName: UserAttributes
-- source: ErpRecDelvLineItem
-  target: ErpInvoiceLineItem
+- source: ErpInvoiceLineItem
+  target: ErpRecDelvLineItem
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: ErpRecDelvLineItem
-  targetName: ErpInvoiceLineItem
-- source: ErpQuoteLineItem
-  target: ErpInvoiceLineItem
+  sourceName: ErpInvoiceLineItem
+  targetName: ErpRecDelvLineItem
+- source: ErpInvoiceLineItem
+  target: ErpQuoteLineItem
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: ErpQuoteLineItem
-  targetName: ErpInvoiceLineItem
-  targetDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
+  sourceName: ErpInvoiceLineItem
+  sourceDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
     a payment. An invoice is required for this to occur.
-- source: WorkBillingInfo
-  target: ErpInvoiceLineItem
+  targetName: ErpQuoteLineItem
+- source: ErpInvoiceLineItem
+  target: WorkBillingInfo
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: WorkBillingInfos
-  targetName: ErpLineItems
-- source: CustomerBillingInfo
-  target: ErpInvoiceLineItem
+  sourceName: ErpLineItems
+  targetName: WorkBillingInfos
+- source: ErpInvoiceLineItem
+  target: CustomerBillingInfo
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CustomerBillingInfos
-  sourceDescription: Customer billing for services rendered.
-  targetName: ErpInvoiceLineItems
+  sourceName: ErpInvoiceLineItems
+  targetName: CustomerBillingInfos
+  targetDescription: Customer billing for services rendered.

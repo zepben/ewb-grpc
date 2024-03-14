@@ -70,11 +70,11 @@ attributes:
 ancestors:
 - EquivalentEquipment
 associations:
-- source: ReactiveCapabilityCurve
-  target: EquivalentInjection
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ReactiveCapabilityCurve
-  sourceDescription: The reactive capability curve used by this equivalent injection.
-  targetName: EquivalentInjection
-  targetDescription: The equivalent injection using this reactive capability curve.
+- source: EquivalentInjection
+  target: ReactiveCapabilityCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EquivalentInjection
+  sourceDescription: The equivalent injection using this reactive capability curve.
+  targetName: ReactiveCapabilityCurve
+  targetDescription: The reactive capability curve used by this equivalent injection.

@@ -64,11 +64,11 @@ associations:
   targetCardinality: 0..1
   sourceName: ShuntCompensator
   targetName: ShuntCompensatorAction
-- source: SvShuntCompensatorSections
-  target: ShuntCompensator
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: SvShuntCompensatorSections
-  sourceDescription: The state for the number of shunt compensator sections in service.
-  targetName: ShuntCompensator
-  targetDescription: The shunt compensator for which the state applies.
+- source: ShuntCompensator
+  target: SvShuntCompensatorSections
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ShuntCompensator
+  sourceDescription: The shunt compensator for which the state applies.
+  targetName: SvShuntCompensatorSections
+  targetDescription: The state for the number of shunt compensator sections in service.

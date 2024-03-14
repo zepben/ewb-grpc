@@ -4,11 +4,11 @@ associations:
   target: CSCtype1
   sourceCardinality: "1"
   targetCardinality: 0..1
-- source: VDCOL
-  target: IdcInverterControl
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-- source: Delay
-  target: IdcInverterControl
-  sourceCardinality: "1"
-  targetCardinality: 0..1
+- source: IdcInverterControl
+  target: VDCOL
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+- source: IdcInverterControl
+  target: Delay
+  sourceCardinality: 0..1
+  targetCardinality: "1"

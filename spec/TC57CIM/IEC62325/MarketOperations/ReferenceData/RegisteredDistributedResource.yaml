@@ -9,15 +9,15 @@ attributes:
 ancestors:
 - RegisteredResource
 associations:
-- source: ResponseMethod
-  target: RegisteredDistributedResource
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ResponseMethods
-  targetName: RegisteredResource
-- source: ResourcePerformanceRating
-  target: RegisteredDistributedResource
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ResourcePerformanceRatings
-  targetName: RegisteredResource
+- source: RegisteredDistributedResource
+  target: ResponseMethod
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: ResponseMethods
+- source: RegisteredDistributedResource
+  target: ResourcePerformanceRating
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: ResourcePerformanceRatings

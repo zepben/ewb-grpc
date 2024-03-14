@@ -13,11 +13,11 @@ associations:
   sourceDescription: All customer agreements with this pricing structure.
   targetName: PricingStructures
   targetDescription: All pricing structures applicable to this customer agreement.
-- source: Customer
-  target: CustomerAgreement
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Customer
-  sourceDescription: Customer for this agreement.
-  targetName: CustomerAgreements
-  targetDescription: All agreements of this customer.
+- source: CustomerAgreement
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements of this customer.
+  targetName: Customer
+  targetDescription: Customer for this agreement.

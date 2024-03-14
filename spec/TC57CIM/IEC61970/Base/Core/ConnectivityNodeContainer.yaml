@@ -6,19 +6,19 @@ descendents:
 - EquivalentNetwork
 - EquipmentContainer
 associations:
-- source: TopologicalNode
-  target: ConnectivityNodeContainer
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TopologicalNode
-  sourceDescription: The topological nodes which belong to this connectivity node container.
-  targetName: ConnectivityNodeContainer
-  targetDescription: The connectivity node container to which the topological node belongs.
-- source: ConnectivityNode
-  target: ConnectivityNodeContainer
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ConnectivityNodes
-  sourceDescription: Connectivity nodes which belong to this connectivity node container.
-  targetName: ConnectivityNodeContainer
-  targetDescription: Container of this connectivity node.
+- source: ConnectivityNodeContainer
+  target: TopologicalNode
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ConnectivityNodeContainer
+  sourceDescription: The connectivity node container to which the topological node belongs.
+  targetName: TopologicalNode
+  targetDescription: The topological nodes which belong to this connectivity node container.
+- source: ConnectivityNodeContainer
+  target: ConnectivityNode
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ConnectivityNodeContainer
+  sourceDescription: Container of this connectivity node.
+  targetName: ConnectivityNodes
+  targetDescription: Connectivity nodes which belong to this connectivity node container.

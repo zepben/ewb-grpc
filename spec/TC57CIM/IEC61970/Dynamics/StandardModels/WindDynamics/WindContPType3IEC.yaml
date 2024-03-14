@@ -97,11 +97,11 @@ associations:
   sourceDescription: Wind control P type 3 model associated with this wind turbine type 3 model.
   targetName: WindTurbineType3IEC
   targetDescription: Wind turbine type 3 model with which this wind control P type 3 model is associated.
-- source: WindDynamicsLookupTable
-  target: WindContPType3IEC
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: WindDynamicsLookupTable
-  sourceDescription: The wind dynamics lookup table associated with this P control type 3 model.
-  targetName: WindContPType3IEC
-  targetDescription: The P control type 3 model with which this wind dynamics lookup table is associated.
+- source: WindContPType3IEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: WindContPType3IEC
+  sourceDescription: The P control type 3 model with which this wind dynamics lookup table is associated.
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this P control type 3 model.

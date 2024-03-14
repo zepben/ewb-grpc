@@ -5,11 +5,11 @@ ancestors:
 descendents:
 - AssetOwner
 associations:
-- source: Asset
-  target: AssetOrganisationRole
+- source: AssetOrganisationRole
+  target: Asset
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Assets
-  sourceDescription: All assets for this organisation role.
-  targetName: OrganisationRoles
-  targetDescription: All roles an organisation plays for this asset.
+  sourceName: OrganisationRoles
+  sourceDescription: All roles an organisation plays for this asset.
+  targetName: Assets
+  targetDescription: All assets for this organisation role.

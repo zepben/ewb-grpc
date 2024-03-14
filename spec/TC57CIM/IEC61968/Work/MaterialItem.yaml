@@ -8,15 +8,15 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: WorkTask
-  target: MaterialItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkTask
-  targetName: MaterialItems
-- source: TypeMaterial
-  target: MaterialItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TypeMaterial
-  targetName: MaterialItems
+- source: MaterialItem
+  target: WorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MaterialItems
+  targetName: WorkTask
+- source: MaterialItem
+  target: TypeMaterial
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MaterialItems
+  targetName: TypeMaterial

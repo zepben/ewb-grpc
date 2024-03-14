@@ -25,9 +25,9 @@ associations:
   targetCardinality: "1"
   sourceName: DispatchSchedule
   targetName: DERMonitorableParameter
-- source: DERCurveData
-  target: DispatchSchedule
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: DERCurveData
-  targetName: DispatchSchedule
+- source: DispatchSchedule
+  target: DERCurveData
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DispatchSchedule
+  targetName: DERCurveData

@@ -15,27 +15,27 @@ attributes:
 ancestors:
 - Curve
 associations:
-- source: GeneratingBid
-  target: RampRateCurve
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: GeneratingBid
-  targetName: RampRateCurve
-- source: LoadBid
-  target: RampRateCurve
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: LoadBid
-  targetName: RampRateCurve
-- source: InterTieBid
-  target: RampRateCurve
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: InterTieBid
-  targetName: RampRateCurve
-- source: RegisteredResource
-  target: RampRateCurve
+- source: RampRateCurve
+  target: GeneratingBid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RampRateCurve
+  targetName: GeneratingBid
+- source: RampRateCurve
+  target: LoadBid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RampRateCurve
+  targetName: LoadBid
+- source: RampRateCurve
+  target: InterTieBid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RampRateCurve
+  targetName: InterTieBid
+- source: RampRateCurve
+  target: RegisteredResource
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: RampRateCurve
+  sourceName: RampRateCurve
+  targetName: RegisteredResource

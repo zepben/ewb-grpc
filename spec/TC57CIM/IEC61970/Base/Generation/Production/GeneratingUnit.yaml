@@ -151,38 +151,38 @@ associations:
   sourceDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
   targetName: RotatingMachine
   targetDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
-- source: GenUnitOpSchedule
-  target: GeneratingUnit
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: GenUnitOpSchedule
+- source: GeneratingUnit
+  target: GenUnitOpSchedule
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: GeneratingUnit
   sourceDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
-  targetName: GeneratingUnit
+  targetName: GenUnitOpSchedule
   targetDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
-- source: ControlAreaGeneratingUnit
-  target: GeneratingUnit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ControlAreaGeneratingUnit
-  sourceDescription: ControlArea specifications for this generating unit.
-  targetName: GeneratingUnit
-  targetDescription: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
+- source: GeneratingUnit
+  target: ControlAreaGeneratingUnit
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: GeneratingUnit
+  sourceDescription: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
     only once.
-- source: GrossToNetActivePowerCurve
-  target: GeneratingUnit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: GrossToNetActivePowerCurves
+  targetName: ControlAreaGeneratingUnit
+  targetDescription: ControlArea specifications for this generating unit.
+- source: GeneratingUnit
+  target: GrossToNetActivePowerCurve
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: GeneratingUnit
   sourceDescription: A generating unit may have a gross active power to net active power curve, describing the losses and
     auxiliary power requirements of the unit.
-  targetName: GeneratingUnit
+  targetName: GrossToNetActivePowerCurves
   targetDescription: A generating unit may have a gross active power to net active power curve, describing the losses and
     auxiliary power requirements of the unit.
-- source: GenUnitOpCostCurve
-  target: GeneratingUnit
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: GenUnitOpCostCurves
+- source: GeneratingUnit
+  target: GenUnitOpCostCurve
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: GeneratingUnit
   sourceDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
-  targetName: GeneratingUnit
+  targetName: GenUnitOpCostCurves
   targetDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.

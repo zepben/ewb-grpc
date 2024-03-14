@@ -2,12 +2,12 @@ name: DiagramObjectGluePoint
 description: This is used for grouping diagram object points from different diagram objects that are considered to be glued
   together in a diagram even if they are not at the exact same coordinates.
 associations:
-- source: DiagramObjectPoint
-  target: DiagramObjectGluePoint
-  sourceCardinality: 2..*
-  targetCardinality: 0..1
-  sourceName: DiagramObjectPoints
-  sourceDescription: A diagram object glue point is associated with 2 or more object points that are considered to be 'glued'
+- source: DiagramObjectGluePoint
+  target: DiagramObjectPoint
+  sourceCardinality: 0..1
+  targetCardinality: 2..*
+  sourceName: DiagramObjectGluePoint
+  sourceDescription: The 'glue' point to which this point is associated.
+  targetName: DiagramObjectPoints
+  targetDescription: A diagram object glue point is associated with 2 or more object points that are considered to be 'glued'
     together.
-  targetName: DiagramObjectGluePoint
-  targetDescription: The 'glue' point to which this point is associated.

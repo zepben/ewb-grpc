@@ -84,21 +84,21 @@ associations:
   targetCardinality: 0..*
   sourceName: GeneratingBid
   targetName: SecurityConstraints
-- source: RegisteredGenerator
-  target: GeneratingBid
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredGenerator
-  targetName: GeneratingBids
-- source: StartUpCostCurve
-  target: GeneratingBid
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: StartUpCostCurve
-  targetName: GeneratingBid
-- source: StartUpTimeCurve
-  target: GeneratingBid
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: StartUpTimeCurve
-  targetName: GeneratingBid
+- source: GeneratingBid
+  target: RegisteredGenerator
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneratingBids
+  targetName: RegisteredGenerator
+- source: GeneratingBid
+  target: StartUpCostCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneratingBid
+  targetName: StartUpCostCurve
+- source: GeneratingBid
+  target: StartUpTimeCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneratingBid
+  targetName: StartUpTimeCurve

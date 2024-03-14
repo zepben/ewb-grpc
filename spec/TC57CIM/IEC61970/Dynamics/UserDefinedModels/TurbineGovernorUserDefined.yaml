@@ -11,11 +11,11 @@ attributes:
 ancestors:
 - TurbineGovernorDynamics
 associations:
-- source: ProprietaryParameterDynamics
-  target: TurbineGovernorUserDefined
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetName: TurbineGovernorUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+- source: TurbineGovernorUserDefined
+  target: ProprietaryParameterDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TurbineGovernorUserDefined
+  sourceDescription: Proprietary user-defined model with which this parameter is associated.
+  targetName: ProprietaryParameterDynamics
+  targetDescription: Parameter of this proprietary user-defined model.

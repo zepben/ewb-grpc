@@ -3,19 +3,19 @@ description: Hazardous situation associated with an incident. Examples are line 
 ancestors:
 - Hazard
 associations:
-- source: TroubleTicket
-  target: IncidentHazard
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TroubleTicket
-  sourceDescription: Trouble ticket associated with this hazard.
-  targetName: IncidentHazard
-  targetDescription: All hazards reported with this trouble ticket.
-- source: Incident
-  target: IncidentHazard
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Incident
-  sourceDescription: Incident associated with this hazard.
-  targetName: IncidentHazard
-  targetDescription: All hazards associated with this incident.
+- source: IncidentHazard
+  target: TroubleTicket
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: IncidentHazard
+  sourceDescription: All hazards reported with this trouble ticket.
+  targetName: TroubleTicket
+  targetDescription: Trouble ticket associated with this hazard.
+- source: IncidentHazard
+  target: Incident
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: IncidentHazard
+  sourceDescription: All hazards associated with this incident.
+  targetName: Incident
+  targetDescription: Incident associated with this hazard.

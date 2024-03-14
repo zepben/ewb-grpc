@@ -52,11 +52,11 @@ associations:
   sourceDescription: Auxiliary agreement regulating this account.
   targetName: AuxiliaryAccounts
   targetDescription: All auxiliary accounts regulated by this agreement.
-- source: CustomerAgreement
-  target: AuxiliaryAgreement
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CustomerAgreement
-  sourceDescription: Customer agreement this (non-service related) auxiliary agreement refers to.
-  targetName: AuxiliaryAgreements
-  targetDescription: All (non-service related) auxiliary agreements that refer to this customer agreement.
+- source: AuxiliaryAgreement
+  target: CustomerAgreement
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AuxiliaryAgreements
+  sourceDescription: All (non-service related) auxiliary agreements that refer to this customer agreement.
+  targetName: CustomerAgreement
+  targetDescription: Customer agreement this (non-service related) auxiliary agreement refers to.

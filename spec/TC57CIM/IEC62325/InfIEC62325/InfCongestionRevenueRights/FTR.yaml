@@ -26,15 +26,15 @@ associations:
   targetCardinality: 0..*
   sourceName: FTRs
   targetName: Pnodes
-- source: Flowgate
-  target: FTR
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Flowgate
-  targetName: FTRs
-- source: EnergyPriceCurve
-  target: FTR
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EnergyPriceCurve
-  targetName: FTRs
+- source: FTR
+  target: Flowgate
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: FTRs
+  targetName: Flowgate
+- source: FTR
+  target: EnergyPriceCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: FTRs
+  targetName: EnergyPriceCurve

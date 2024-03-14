@@ -21,11 +21,11 @@ associations:
   sourceDescription: All persons for this appointment.
   targetName: Appointments
   targetDescription: All appointments for this person.
-- source: Person
-  target: PersonRole
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Person
-  sourceDescription: Person having this role.
-  targetName: Roles
-  targetDescription: All roles of this person.
+- source: PersonRole
+  target: Person
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Roles
+  sourceDescription: All roles of this person.
+  targetName: Person
+  targetDescription: Person having this role.

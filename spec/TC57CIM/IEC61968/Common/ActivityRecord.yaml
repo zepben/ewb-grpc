@@ -33,19 +33,19 @@ descendents:
 - EnvironmentalEvent
 - MktActivityRecord
 associations:
-- source: Asset
-  target: ActivityRecord
+- source: ActivityRecord
+  target: Asset
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: Assets
-  sourceDescription: All assets for which this activity record has been created.
-  targetName: ActivityRecords
-  targetDescription: All activity records created for this asset.
-- source: Author
-  target: ActivityRecord
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Author
-  sourceDescription: Author of this activity record.
-  targetName: ActivityRecords
-  targetDescription: All activity records with this author.
+  sourceName: ActivityRecords
+  sourceDescription: All activity records created for this asset.
+  targetName: Assets
+  targetDescription: All assets for which this activity record has been created.
+- source: ActivityRecord
+  target: Author
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ActivityRecords
+  sourceDescription: All activity records with this author.
+  targetName: Author
+  targetDescription: Author of this activity record.

@@ -28,15 +28,15 @@ associations:
   targetCardinality: 0..1
   sourceName: MiscCostItems
   targetName: WorkCostDetail
-- source: OldWorkTask
-  target: MiscCostItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkTask
-  targetName: MiscCostItems
-- source: DesignLocation
-  target: MiscCostItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DesignLocation
-  targetName: MiscCostItems
+- source: MiscCostItem
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MiscCostItems
+  targetName: WorkTask
+- source: MiscCostItem
+  target: DesignLocation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MiscCostItems
+  targetName: DesignLocation

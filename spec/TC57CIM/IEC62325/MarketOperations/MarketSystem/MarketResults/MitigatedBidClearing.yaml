@@ -9,15 +9,15 @@ associations:
   targetCardinality: 0..*
   sourceName: MitigatedBidClearing
   targetName: MPMResourceStatus
-- source: MitigatedBid
-  target: MitigatedBidClearing
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: MitigatedBid
-  targetName: MitigatedBidClearing
-- source: RMRDetermination
-  target: MitigatedBidClearing
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: RMRDetermination
-  targetName: MitigatedBidClearing
+- source: MitigatedBidClearing
+  target: MitigatedBid
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: MitigatedBidClearing
+  targetName: MitigatedBid
+- source: MitigatedBidClearing
+  target: RMRDetermination
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: MitigatedBidClearing
+  targetName: RMRDetermination

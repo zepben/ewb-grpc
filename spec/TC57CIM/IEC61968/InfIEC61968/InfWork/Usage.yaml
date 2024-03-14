@@ -7,9 +7,9 @@ attributes:
 ancestors:
 - WorkIdentifiedObject
 associations:
-- source: OldWorkTask
-  target: Usage
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkTask
-  targetName: Usages
+- source: Usage
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Usages
+  targetName: WorkTask

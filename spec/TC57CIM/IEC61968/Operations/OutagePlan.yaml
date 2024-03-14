@@ -32,19 +32,19 @@ associations:
   targetCardinality: 0..1
   sourceName: OutagePlan
   targetName: OutageOrder
-- source: Customer
-  target: OutagePlan
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Customer
-  sourceDescription: The customers that are affected by this planned outage.
-  targetName: OutagePlan
-  targetDescription: The outage plan that identifies the customers that are affected.
-- source: SwitchingPlan
-  target: OutagePlan
+- source: OutagePlan
+  target: Customer
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: OutagePlan
+  sourceDescription: The outage plan that identifies the customers that are affected.
+  targetName: Customer
+  targetDescription: The customers that are affected by this planned outage.
+- source: OutagePlan
+  target: SwitchingPlan
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: SwitchingPlan
-  sourceDescription: The swiching plan that is associated with the outage plan.
-  targetName: OutagePlan
-  targetDescription: The outage plan for which the switching plan is defined.
+  sourceName: OutagePlan
+  sourceDescription: The outage plan for which the switching plan is defined.
+  targetName: SwitchingPlan
+  targetDescription: The swiching plan that is associated with the outage plan.

@@ -4,12 +4,12 @@ description: Describes the existence of a profile.  The MRID is usually defined 
 ancestors:
 - IdentifiedObject
 associations:
-- source: DataSet
-  target: Profile
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: DataSet
-  sourceDescription: The data sets that make use of the profile.
-  targetName: Profile
-  targetDescription: The profiles that describe the contents of the data set and the rules governing the contents of the data
+- source: Profile
+  target: DataSet
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: Profile
+  sourceDescription: The profiles that describe the contents of the data set and the rules governing the contents of the data
     set.
+  targetName: DataSet
+  targetDescription: The data sets that make use of the profile.

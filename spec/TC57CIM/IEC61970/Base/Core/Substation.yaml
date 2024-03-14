@@ -12,54 +12,54 @@ associations:
   sourceDescription: The substation of the voltage level.
   targetName: VoltageLevels
   targetDescription: The voltage levels within this substation.
-- source: SubGeographicalRegion
-  target: Substation
+- source: Substation
+  target: SubGeographicalRegion
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Substations
+  sourceDescription: The substations in this sub-geographical region.
+  targetName: Region
+  targetDescription: The SubGeographicalRegion containing the substation.
+- source: Substation
+  target: Bay
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Region
-  sourceDescription: The SubGeographicalRegion containing the substation.
-  targetName: Substations
-  targetDescription: The substations in this sub-geographical region.
-- source: Bay
-  target: Substation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Bays
-  sourceDescription: Bays contained in the substation.
-  targetName: Substation
-  targetDescription: Substation containing the bay.
-- source: DCConverterUnit
-  target: Substation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: DCConverterUnit
-  sourceDescription: The DC converter unit belonging of the substation.
-  targetName: Substation
-  targetDescription: The containing substation of the DC converter unit.
-- source: Feeder
-  target: Substation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: NormalEnergizedFeeder
-  sourceDescription: The normal energized feeders of the substation. Also used for naming purposes.
-  targetName: NormalEnergizingSubstation
-  targetDescription: The substation that nominally energizes the feeder.  Also used for naming purposes.
-- source: Feeder
-  target: Substation
+  sourceName: Substation
+  sourceDescription: Substation containing the bay.
+  targetName: Bays
+  targetDescription: Bays contained in the substation.
+- source: Substation
+  target: DCConverterUnit
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: NamingFeeder
-  sourceDescription: The primary feeder that normally energizes the secondary substation. Used for naming purposes.  Either
-    this association or the substation to subgeographical region should be used for hierarchical containment specification.
-  targetName: NamingSecondarySubstation
-  targetDescription: The secondary substations that are normally energized from the feeder.  Used for naming purposes.   Should
+  sourceName: Substation
+  sourceDescription: The containing substation of the DC converter unit.
+  targetName: DCConverterUnit
+  targetDescription: The DC converter unit belonging of the substation.
+- source: Substation
+  target: Feeder
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: NormalEnergizingSubstation
+  sourceDescription: The substation that nominally energizes the feeder.  Also used for naming purposes.
+  targetName: NormalEnergizedFeeder
+  targetDescription: The normal energized feeders of the substation. Also used for naming purposes.
+- source: Substation
+  target: Feeder
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: NamingSecondarySubstation
+  sourceDescription: The secondary substations that are normally energized from the feeder.  Used for naming purposes.   Should
     be consistent with the other associations for energizing terminal specification and the feeder energization specification.
-- source: Feeder
-  target: Substation
+  targetName: NamingFeeder
+  targetDescription: The primary feeder that normally energizes the secondary substation. Used for naming purposes.  Either
+    this association or the substation to subgeographical region should be used for hierarchical containment specification.
+- source: Substation
+  target: Feeder
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: NormalEnergizingFeeder
-  sourceDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
+  sourceName: NormalEnergizedSubstation
+  sourceDescription: The substations that are normally energized by the feeder.
+  targetName: NormalEnergizingFeeder
+  targetDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
     that describe the naming hierarchy.
-  targetName: NormalEnergizedSubstation
-  targetDescription: The substations that are normally energized by the feeder.

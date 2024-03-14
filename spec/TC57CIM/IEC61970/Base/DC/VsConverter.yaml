@@ -60,11 +60,11 @@ associations:
   sourceDescription: All converters with this capability curve.
   targetName: CapabilityCurve
   targetDescription: Capability curve of this converter.
-- source: VSCDynamics
-  target: VsConverter
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: VSCDynamics
-  sourceDescription: Voltage source converter dynamics model used to describe dynamic behaviour of this converter.
-  targetName: VsConverter
-  targetDescription: Voltage source converter to which voltage source converter dynamics model applies.
+- source: VsConverter
+  target: VSCDynamics
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: VsConverter
+  sourceDescription: Voltage source converter to which voltage source converter dynamics model applies.
+  targetName: VSCDynamics
+  targetDescription: Voltage source converter dynamics model used to describe dynamic behaviour of this converter.

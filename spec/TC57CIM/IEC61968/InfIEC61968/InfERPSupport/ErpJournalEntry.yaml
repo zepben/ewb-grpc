@@ -21,39 +21,39 @@ attributes:
 ancestors:
 - ErpIdentifiedObject
 associations:
-- source: ErpPayableLineItem
-  target: ErpJournalEntry
+- source: ErpJournalEntry
+  target: ErpPayableLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpPayableLineItems
-  targetName: ErpJournalEntries
-- source: ErpLedgerEntry
-  target: ErpJournalEntry
+  sourceName: ErpJournalEntries
+  targetName: ErpPayableLineItems
+- source: ErpJournalEntry
+  target: ErpLedgerEntry
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: ErpLedgerEntry
-  targetName: ErpJounalEntry
-- source: ErpRecLineItem
-  target: ErpJournalEntry
+  sourceName: ErpJounalEntry
+  targetName: ErpLedgerEntry
+- source: ErpJournalEntry
+  target: ErpRecLineItem
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ErpRecLineItems
-  targetName: ErpJournalEntries
-- source: ErpJournal
-  target: ErpJournalEntry
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ErpJournal
-  targetName: ErpJournalEntries
-- source: ErpInvoiceLineItem
-  target: ErpJournalEntry
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ErpInvoiceLineItem
-  targetName: ErpJournalEntries
-- source: CostType
-  target: ErpJournalEntry
+  sourceName: ErpJournalEntries
+  targetName: ErpRecLineItems
+- source: ErpJournalEntry
+  target: ErpJournal
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpJournalEntries
+  targetName: ErpJournal
+- source: ErpJournalEntry
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpJournalEntries
+  targetName: ErpInvoiceLineItem
+- source: ErpJournalEntry
+  target: CostType
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: CostTypes
-  targetName: ErpJournalEntries
+  sourceName: ErpJournalEntries
+  targetName: CostTypes

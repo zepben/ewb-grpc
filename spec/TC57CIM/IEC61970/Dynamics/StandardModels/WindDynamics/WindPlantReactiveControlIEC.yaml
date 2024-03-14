@@ -75,20 +75,20 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: WindDynamicsLookupTable
-  target: WindPlantReactiveControlIEC
-  sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: WindDynamicsLookupTable
-  sourceDescription: The wind dynamics lookup table associated with this voltage and reactive power wind plant model.
-  targetName: WindPlantReactiveControlIEC
-  targetDescription: The voltage and reactive power wind plant control model with which this wind dynamics lookup table is
+- source: WindPlantReactiveControlIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: WindPlantReactiveControlIEC
+  sourceDescription: The voltage and reactive power wind plant control model with which this wind dynamics lookup table is
     associated.
-- source: WindPlantIEC
-  target: WindPlantReactiveControlIEC
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this voltage and reactive power wind plant model.
+- source: WindPlantReactiveControlIEC
+  target: WindPlantIEC
   sourceCardinality: "1"
   targetCardinality: "1"
-  sourceName: WindPlantIEC
-  sourceDescription: Wind plant reactive control model associated with this wind plant.
-  targetName: WindPlantReactiveControlIEC
-  targetDescription: Wind plant model with which this wind reactive control is associated.
+  sourceName: WindPlantReactiveControlIEC
+  sourceDescription: Wind plant model with which this wind reactive control is associated.
+  targetName: WindPlantIEC
+  targetDescription: Wind plant reactive control model associated with this wind plant.

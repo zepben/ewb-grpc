@@ -5,11 +5,11 @@ description: A class that groups electrical equivalents, including internal node
 ancestors:
 - ConnectivityNodeContainer
 associations:
-- source: EquivalentEquipment
-  target: EquivalentNetwork
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EquivalentEquipments
-  sourceDescription: The associated reduced equivalents.
-  targetName: EquivalentNetwork
-  targetDescription: The equivalent where the reduced model belongs.
+- source: EquivalentNetwork
+  target: EquivalentEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EquivalentNetwork
+  sourceDescription: The equivalent where the reduced model belongs.
+  targetName: EquivalentEquipments
+  targetDescription: The associated reduced equivalents.

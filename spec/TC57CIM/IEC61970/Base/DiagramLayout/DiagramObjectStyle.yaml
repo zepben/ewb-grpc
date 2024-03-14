@@ -4,12 +4,12 @@ description: A reference to a style used by the originating system for a diagram
 ancestors:
 - IdentifiedObject
 associations:
-- source: DiagramObject
-  target: DiagramObjectStyle
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: StyledObjects
-  sourceDescription: A style can be assigned to multiple diagram objects.
-  targetName: DiagramObjectStyle
-  targetDescription: A diagram object has a style associated that provides a reference for the style used in the originating
+- source: DiagramObjectStyle
+  target: DiagramObject
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DiagramObjectStyle
+  sourceDescription: A diagram object has a style associated that provides a reference for the style used in the originating
     system.
+  targetName: StyledObjects
+  targetDescription: A style can be assigned to multiple diagram objects.

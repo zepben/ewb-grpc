@@ -10,11 +10,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: Location
-  target: CoordinateSystem
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Locations
-  sourceDescription: All locations described with position points in this coordinate system.
-  targetName: CoordinateSystem
-  targetDescription: Coordinate system used to describe position points of this location.
+- source: CoordinateSystem
+  target: Location
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CoordinateSystem
+  sourceDescription: Coordinate system used to describe position points of this location.
+  targetName: Locations
+  targetDescription: All locations described with position points in this coordinate system.

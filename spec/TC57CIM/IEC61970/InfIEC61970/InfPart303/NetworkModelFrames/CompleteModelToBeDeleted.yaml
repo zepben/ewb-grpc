@@ -4,11 +4,11 @@ description: A complete model can be used in applications to perform meaningful 
 ancestors:
 - ModelToBeDeleted
 associations:
-- source: ModelPartVersion
-  target: CompleteModelToBeDeleted
+- source: CompleteModelToBeDeleted
+  target: ModelPartVersion
   sourceCardinality: 0..*
   targetCardinality: 0..*
-- source: AssemblyManifest
-  target: CompleteModelToBeDeleted
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
+- source: CompleteModelToBeDeleted
+  target: AssemblyManifest
+  sourceCardinality: 0..1
+  targetCardinality: 0..*

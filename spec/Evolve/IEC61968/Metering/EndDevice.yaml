@@ -8,19 +8,19 @@ ancestors:
 descendents:
 - Meter
 associations:
-- source: UsagePoint
-  target: EndDevice
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: UsagePoint
-  sourceDescription: Usage point to which this end device belongs.
-  targetName: EndDevices
-  targetDescription: All end devices at this usage point.
-- source: Customer
-  target: EndDevice
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Customer
-  sourceDescription: Customer owning this end device.
-  targetName: EndDevices
-  targetDescription: All end devices of this customer.
+- source: EndDevice
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDevices
+  sourceDescription: All end devices at this usage point.
+  targetName: UsagePoint
+  targetDescription: Usage point to which this end device belongs.
+- source: EndDevice
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDevices
+  sourceDescription: All end devices of this customer.
+  targetName: Customer
+  targetDescription: Customer owning this end device.

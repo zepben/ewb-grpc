@@ -8,11 +8,11 @@ descendents:
 - PhaseTapChangerNonLinear
 - PhaseTapChangerTabular
 associations:
-- source: TransformerEnd
-  target: PhaseTapChanger
-  sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: TransformerEnd
-  sourceDescription: Transformer end to which this phase tap changer belongs.
-  targetName: PhaseTapChanger
-  targetDescription: Phase tap changer associated with this transformer end.
+- source: PhaseTapChanger
+  target: TransformerEnd
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: PhaseTapChanger
+  sourceDescription: Phase tap changer associated with this transformer end.
+  targetName: TransformerEnd
+  targetDescription: Transformer end to which this phase tap changer belongs.

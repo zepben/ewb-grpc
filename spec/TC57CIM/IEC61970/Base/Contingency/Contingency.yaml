@@ -9,11 +9,11 @@ ancestors:
 descendents:
 - MktContingency
 associations:
-- source: ContingencyElement
-  target: Contingency
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ContingencyElement
-  sourceDescription: A contingency can have any number of contingency elements.
-  targetName: Contingency
-  targetDescription: A contingency element belongs to one contingency.
+- source: Contingency
+  target: ContingencyElement
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Contingency
+  sourceDescription: A contingency element belongs to one contingency.
+  targetName: ContingencyElement
+  targetDescription: A contingency can have any number of contingency elements.

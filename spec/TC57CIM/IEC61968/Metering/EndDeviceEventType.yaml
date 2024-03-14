@@ -20,11 +20,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: EndDeviceEvent
-  target: EndDeviceEventType
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: EndDeviceEvents
-  sourceDescription: All end device events of this type.
-  targetName: EndDeviceEventType
-  targetDescription: Type of this end device event.
+- source: EndDeviceEventType
+  target: EndDeviceEvent
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EndDeviceEventType
+  sourceDescription: Type of this end device event.
+  targetName: EndDeviceEvents
+  targetDescription: All end device events of this type.

@@ -28,9 +28,9 @@ associations:
   targetCardinality: "1"
   sourceName: AssetModelCatalogueItems
   targetName: AssetModelCatalogue
-- source: ProductAssetModel
-  target: AssetModelCatalogueItem
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AssetModel
-  targetName: AssetModelCatalogueItems
+- source: AssetModelCatalogueItem
+  target: ProductAssetModel
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AssetModelCatalogueItems
+  targetName: AssetModel

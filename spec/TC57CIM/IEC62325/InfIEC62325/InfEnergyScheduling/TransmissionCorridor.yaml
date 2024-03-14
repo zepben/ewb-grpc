@@ -11,11 +11,11 @@ associations:
   sourceDescription: A transmission right-of-way is a member of a transmission corridor
   targetName: TransmissionRightOfWays
   targetDescription: A transmission right-of-way is a member of a transmission corridor
-- source: TransmissionPath
-  target: TransmissionCorridor
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ContainedIn
+- source: TransmissionCorridor
+  target: TransmissionPath
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: For
   sourceDescription: A TransmissionPath is contained in a TransmissionCorridor.
-  targetName: For
+  targetName: ContainedIn
   targetDescription: A TransmissionPath is contained in a TransmissionCorridor.

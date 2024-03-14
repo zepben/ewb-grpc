@@ -32,25 +32,25 @@ associations:
   targetCardinality: 0..*
   sourceName: EnvironmentalMonitoringStation
   targetName: UsagePoint
-- source: EnvironmentalAnalog
-  target: EnvironmentalMonitoringStation
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnvironmentalAnalog
-  sourceDescription: Environmental analog measurement provided by this monitoring station.
-  targetName: EnvironmentalMonitoringStation
-  targetDescription: Monitoring station which provides this environmental analog measurement.
-- source: TimeSeries
-  target: EnvironmentalMonitoringStation
+- source: EnvironmentalMonitoringStation
+  target: EnvironmentalAnalog
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnvironmentalMonitoringStation
+  sourceDescription: Monitoring station which provides this environmental analog measurement.
+  targetName: EnvironmentalAnalog
+  targetDescription: Environmental analog measurement provided by this monitoring station.
+- source: EnvironmentalMonitoringStation
+  target: TimeSeries
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TimeSeries
-  targetName: EnvironmentalMonitoringStation
-- source: ReportingCapability
-  target: EnvironmentalMonitoringStation
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ReportingCapability
-  sourceDescription: One of the reporting capabilities of this monitoring station.
-  targetName: EnvironmentalMonitoringStation
-  targetDescription: The environmental monitoring station to which this set of reporting capabilities belong.
+  sourceName: EnvironmentalMonitoringStation
+  targetName: TimeSeries
+- source: EnvironmentalMonitoringStation
+  target: ReportingCapability
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EnvironmentalMonitoringStation
+  sourceDescription: The environmental monitoring station to which this set of reporting capabilities belong.
+  targetName: ReportingCapability
+  targetDescription: One of the reporting capabilities of this monitoring station.

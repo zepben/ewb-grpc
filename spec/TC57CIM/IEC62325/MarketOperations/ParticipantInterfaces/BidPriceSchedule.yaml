@@ -18,15 +18,15 @@ attributes:
 ancestors:
 - RegularIntervalSchedule
 associations:
-- source: BidPriceCurve
-  target: BidPriceSchedule
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: BidPriceCurve
-  targetName: BidSchedule
-- source: ProductBid
-  target: BidPriceSchedule
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ProductBid
-  targetName: BidSchedule
+- source: BidPriceSchedule
+  target: BidPriceCurve
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: BidSchedule
+  targetName: BidPriceCurve
+- source: BidPriceSchedule
+  target: ProductBid
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: BidSchedule
+  targetName: ProductBid

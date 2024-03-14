@@ -102,15 +102,15 @@ associations:
   targetCardinality: 0..1
   sourceName: ResourceAwardInstruction
   targetName: RegisteredResource
-- source: ResourceAwardClearing
-  target: ResourceAwardInstruction
+- source: ResourceAwardInstruction
+  target: ResourceAwardClearing
   sourceCardinality: 1..*
   targetCardinality: 1..*
-  sourceName: ClearingResourceAward
-  targetName: ResourceAwardInstruction
-- source: MarketProduct
-  target: ResourceAwardInstruction
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MarketProduct
-  targetName: ResourceAwardInstruction
+  sourceName: ResourceAwardInstruction
+  targetName: ClearingResourceAward
+- source: ResourceAwardInstruction
+  target: MarketProduct
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ResourceAwardInstruction
+  targetName: MarketProduct

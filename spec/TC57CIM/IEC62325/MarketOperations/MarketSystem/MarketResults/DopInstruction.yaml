@@ -24,15 +24,15 @@ attributes:
 - name: updateUser
   type: String
 associations:
-- source: InstructionClearingDOP
-  target: DopInstruction
+- source: DopInstruction
+  target: InstructionClearingDOP
   sourceCardinality: 1..*
   targetCardinality: 1..*
-  sourceName: InstructionClearingDOP
-  targetName: DopInstruction
-- source: RegisteredResource
-  target: DopInstruction
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RegisteredResouce
-  targetName: DopInstruction
+  sourceName: DopInstruction
+  targetName: InstructionClearingDOP
+- source: DopInstruction
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DopInstruction
+  targetName: RegisteredResouce

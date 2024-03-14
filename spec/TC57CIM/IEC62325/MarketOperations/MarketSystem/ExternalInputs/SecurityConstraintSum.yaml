@@ -22,21 +22,21 @@ associations:
   targetCardinality: 0..1
   sourceName: SecurityConstraintsLinear
   targetName: RTO
-- source: ContingencyConstraintLimit
-  target: SecurityConstraintSum
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ContingencyConstraintLimits
-  targetName: SecurityConstraintSum
-- source: BaseCaseConstraintLimit
-  target: SecurityConstraintSum
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: BaseCaseConstraintLimit
-  targetName: SecurityConstraintSum
-- source: DefaultConstraintLimit
-  target: SecurityConstraintSum
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: DefaultConstraintLimit
-  targetName: SecurityConstraintSum
+- source: SecurityConstraintSum
+  target: ContingencyConstraintLimit
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: SecurityConstraintSum
+  targetName: ContingencyConstraintLimits
+- source: SecurityConstraintSum
+  target: BaseCaseConstraintLimit
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: SecurityConstraintSum
+  targetName: BaseCaseConstraintLimit
+- source: SecurityConstraintSum
+  target: DefaultConstraintLimit
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: SecurityConstraintSum
+  targetName: DefaultConstraintLimit

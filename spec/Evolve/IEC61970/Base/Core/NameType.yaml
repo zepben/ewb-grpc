@@ -10,11 +10,11 @@ attributes:
   type: String
   description: Description of the name type.
 associations:
-- source: Name
-  target: NameType
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Names
-  sourceDescription: All names of this type.
-  targetName: NameType
-  targetDescription: Type of this name.
+- source: NameType
+  target: Name
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: NameType
+  sourceDescription: Type of this name.
+  targetName: Names
+  targetDescription: All names of this type.

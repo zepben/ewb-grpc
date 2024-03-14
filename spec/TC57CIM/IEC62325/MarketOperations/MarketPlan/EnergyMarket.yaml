@@ -28,9 +28,9 @@ associations:
   targetCardinality: 0..*
   sourceName: EnergyMarkets
   targetName: RegisteredResources
-- source: Bid
-  target: EnergyMarket
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Bids
-  targetName: EnergyMarket
+- source: EnergyMarket
+  target: Bid
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EnergyMarket
+  targetName: Bids

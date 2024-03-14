@@ -45,21 +45,21 @@ associations:
   targetCardinality: 0..1
   sourceName: Designs
   targetName: Work
-- source: ErpQuoteLineItem
-  target: Design
+- source: Design
+  target: ErpQuoteLineItem
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: ErpQuoteLineItem
-  targetName: Design
-- source: DesignLocation
-  target: Design
-  sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: DesignLocations
-  targetName: Designs
-- source: DesignLocationCU
-  target: Design
+  sourceName: Design
+  targetName: ErpQuoteLineItem
+- source: Design
+  target: DesignLocation
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: Designs
+  targetName: DesignLocations
+- source: Design
+  target: DesignLocationCU
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: DesignLocationsCUs
-  targetName: Designs
+  sourceName: Designs
+  targetName: DesignLocationsCUs

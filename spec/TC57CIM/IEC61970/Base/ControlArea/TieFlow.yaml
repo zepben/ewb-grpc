@@ -26,11 +26,11 @@ associations:
   sourceDescription: The control area tie flows to which this terminal associates.
   targetName: Terminal
   targetDescription: The terminal to which this tie flow belongs.
-- source: AltTieMeas
-  target: TieFlow
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AltTieMeas
-  sourceDescription: The primary and alternate tie flow measurements associated with the tie flow.
-  targetName: TieFlow
-  targetDescription: The tie flow of the alternate measurements.
+- source: TieFlow
+  target: AltTieMeas
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TieFlow
+  sourceDescription: The tie flow of the alternate measurements.
+  targetName: AltTieMeas
+  targetDescription: The primary and alternate tie flow measurements associated with the tie flow.

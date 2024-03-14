@@ -3,19 +3,19 @@ description: Describes a curve for how the voltage magnitude and impedance varie
 ancestors:
 - IdentifiedObject
 associations:
-- source: RatioTapChangerTablePoint
-  target: RatioTapChangerTable
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: RatioTapChangerTablePoint
-  sourceDescription: Points of this table.
-  targetName: RatioTapChangerTable
-  targetDescription: Table of this point.
-- source: RatioTapChanger
-  target: RatioTapChangerTable
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: RatioTapChanger
-  sourceDescription: The ratio tap changer of this tap ratio table.
-  targetName: RatioTapChangerTable
-  targetDescription: The tap ratio table for this ratio  tap changer.
+- source: RatioTapChangerTable
+  target: RatioTapChangerTablePoint
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: RatioTapChangerTable
+  sourceDescription: Table of this point.
+  targetName: RatioTapChangerTablePoint
+  targetDescription: Points of this table.
+- source: RatioTapChangerTable
+  target: RatioTapChanger
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RatioTapChangerTable
+  sourceDescription: The tap ratio table for this ratio  tap changer.
+  targetName: RatioTapChanger
+  targetDescription: The ratio tap changer of this tap ratio table.

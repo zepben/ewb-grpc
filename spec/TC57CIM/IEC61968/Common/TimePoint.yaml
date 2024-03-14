@@ -21,11 +21,11 @@ attributes:
 ancestors:
 - IdentifiedObject
 associations:
-- source: TimeSchedule
-  target: TimePoint
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: TimeSchedule
-  sourceDescription: Time schedule owning this time point.
-  targetName: TimePoints
-  targetDescription: Sequence of time points belonging to this time schedule.
+- source: TimePoint
+  target: TimeSchedule
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TimePoints
+  sourceDescription: Sequence of time points belonging to this time schedule.
+  targetName: TimeSchedule
+  targetDescription: Time schedule owning this time point.

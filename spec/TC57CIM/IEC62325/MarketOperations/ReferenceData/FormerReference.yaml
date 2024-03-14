@@ -3,9 +3,9 @@ description: Used to indicate former references to the same piece of equipment. 
 ancestors:
 - IdentifiedObject
 associations:
-- source: RegisteredResource
-  target: FormerReference
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: FormerReference
+- source: FormerReference
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: FormerReference
+  targetName: RegisteredResource

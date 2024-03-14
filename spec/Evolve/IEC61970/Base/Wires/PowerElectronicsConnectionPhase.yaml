@@ -17,11 +17,11 @@ attributes:
 ancestors:
 - PowerSystemResource
 associations:
-- source: PowerElectronicsConnection
-  target: PowerElectronicsConnectionPhase
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: PowerElectronicsConnection
-  sourceDescription: Power electronics connection of this power electronics connection phase.
-  targetName: PowerElectronicsConnectionPhase
-  targetDescription: The individual phases models for the power electronics connection.
+- source: PowerElectronicsConnectionPhase
+  target: PowerElectronicsConnection
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PowerElectronicsConnectionPhase
+  sourceDescription: The individual phases models for the power electronics connection.
+  targetName: PowerElectronicsConnection
+  targetDescription: Power electronics connection of this power electronics connection phase.

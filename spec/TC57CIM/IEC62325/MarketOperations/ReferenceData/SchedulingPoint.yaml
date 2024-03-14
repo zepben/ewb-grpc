@@ -3,21 +3,21 @@ description: Connection to other organizations at the boundary of the ISO/RTO.
 ancestors:
 - IdentifiedObject
 associations:
-- source: Flowgate
-  target: SchedulingPoint
-  sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Flowgate
-  targetName: InterTie
-- source: InterchangeSchedule
-  target: SchedulingPoint
+- source: SchedulingPoint
+  target: Flowgate
   sourceCardinality: 0..*
   targetCardinality: 0..1
-  sourceName: InterchangeSchedule
-  targetName: InterTie
-- source: RegisteredResource
-  target: SchedulingPoint
+  sourceName: InterTie
+  targetName: Flowgate
+- source: SchedulingPoint
+  target: InterchangeSchedule
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: InterTie
+  targetName: InterchangeSchedule
+- source: SchedulingPoint
+  target: RegisteredResource
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: RegisteredResource
-  targetName: InterTie
+  sourceName: InterTie
+  targetName: RegisteredResource

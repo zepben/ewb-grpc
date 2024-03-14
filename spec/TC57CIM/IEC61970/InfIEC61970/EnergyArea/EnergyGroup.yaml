@@ -15,15 +15,15 @@ associations:
   target: ControlArea
   sourceCardinality: 0..*
   targetCardinality: "1"
-- source: SvPowerFlow
-  target: EnergyGroup
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-- source: BlockDispatchInstruction
-  target: EnergyGroup
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-- source: EnergyComponent
-  target: EnergyGroup
-  sourceCardinality: 0..*
-  targetCardinality: "1"
+- source: EnergyGroup
+  target: SvPowerFlow
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+- source: EnergyGroup
+  target: BlockDispatchInstruction
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+- source: EnergyGroup
+  target: EnergyComponent
+  sourceCardinality: "1"
+  targetCardinality: 0..*

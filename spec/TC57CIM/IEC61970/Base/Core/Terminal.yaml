@@ -52,114 +52,114 @@ associations:
     regulation at a terminal of a bus bar object.
   targetName: RegulatingControl
   targetDescription: The controls regulating this terminal.
-- source: MutualCoupling
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: HasFirstMutualCoupling
-  sourceDescription: Mutual couplings associated with the branch as the first branch.
-  targetName: First_Terminal
-  targetDescription: The starting terminal for the calculation of distances along the first branch of the mutual coupling.  Normally
+- source: Terminal
+  target: MutualCoupling
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: First_Terminal
+  sourceDescription: The starting terminal for the calculation of distances along the first branch of the mutual coupling.  Normally
     MutualCoupling would only be used for terminals of AC line segments.  The first and second terminals of a mutual coupling
     should point to different AC line segments.
-- source: TransformerEnd
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TransformerEnd
-  sourceDescription: All transformer ends connected at this terminal.
-  targetName: Terminal
-  targetDescription: Terminal of the power transformer to which this transformer end belongs.
-- source: BranchGroupTerminal
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: BranchGroupTerminal
-  sourceDescription: The directed branch group terminals for which this terminal is monitored.
-  targetName: Terminal
-  targetDescription: The terminal to be summed.
-- source: SvPowerFlow
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: SvPowerFlow
-  sourceDescription: The power flow state variable associated with the terminal.
-  targetName: Terminal
-  targetDescription: The terminal associated with the power flow state variable.
-- source: AuxiliaryEquipment
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AuxiliaryEquipment
-  sourceDescription: The auxiliary equipment connected to the terminal.
-  targetName: Terminal
-  targetDescription: The Terminal at the equipment where the AuxiliaryEquipment is attached.
-- source: MutualCoupling
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: HasSecondMutualCoupling
-  sourceDescription: Mutual couplings with the branch associated as the first branch.
-  targetName: Second_Terminal
-  targetDescription: The starting terminal for the calculation of distances along the second branch of the mutual coupling.
-- source: TieFlow
-  target: Terminal
-  sourceCardinality: 0..2
-  targetCardinality: "1"
-  sourceName: TieFlow
-  sourceDescription: The control area tie flows to which this terminal associates.
-  targetName: Terminal
-  targetDescription: The terminal to which this tie flow belongs.
-- source: EquipmentFault
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EquipmentFaults
-  sourceDescription: The equipment faults at this terminal.
-  targetName: Terminal
-  targetDescription: The terminal connecting to the bus to which the fault is applied.
-- source: ACDCConverter
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConverterDCSides
-  sourceDescription: All converters' DC sides linked to this point of common coupling terminal.
-  targetName: PccTerminal
-  targetDescription: Point of common coupling terminal for this converter DC side. It is typically the terminal on the power
-    transformer (or switch) closest to the AC network.
-- source: PinTerminal
-  target: Terminal
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: PinTerminal
-  targetName: Terminal
-  targetDescription: The Terminal that should be used in compare.
-- source: Circuit
-  target: Terminal
+  targetName: HasFirstMutualCoupling
+  targetDescription: Mutual couplings associated with the branch as the first branch.
+- source: Terminal
+  target: TransformerEnd
   sourceCardinality: 0..1
   targetCardinality: 0..*
-  sourceName: Circuit
-  targetName: EndTerminal
-- source: Feeder
-  target: Terminal
+  sourceName: Terminal
+  sourceDescription: Terminal of the power transformer to which this transformer end belongs.
+  targetName: TransformerEnd
+  targetDescription: All transformer ends connected at this terminal.
+- source: Terminal
+  target: BranchGroupTerminal
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription: The terminal to be summed.
+  targetName: BranchGroupTerminal
+  targetDescription: The directed branch group terminals for which this terminal is monitored.
+- source: Terminal
+  target: SvPowerFlow
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription: The terminal associated with the power flow state variable.
+  targetName: SvPowerFlow
+  targetDescription: The power flow state variable associated with the terminal.
+- source: Terminal
+  target: AuxiliaryEquipment
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription: The Terminal at the equipment where the AuxiliaryEquipment is attached.
+  targetName: AuxiliaryEquipment
+  targetDescription: The auxiliary equipment connected to the terminal.
+- source: Terminal
+  target: MutualCoupling
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Second_Terminal
+  sourceDescription: The starting terminal for the calculation of distances along the second branch of the mutual coupling.
+  targetName: HasSecondMutualCoupling
+  targetDescription: Mutual couplings with the branch associated as the first branch.
+- source: Terminal
+  target: TieFlow
+  sourceCardinality: "1"
+  targetCardinality: 0..2
+  sourceName: Terminal
+  sourceDescription: The terminal to which this tie flow belongs.
+  targetName: TieFlow
+  targetDescription: The control area tie flows to which this terminal associates.
+- source: Terminal
+  target: EquipmentFault
   sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: NormalHeadFeeder
-  sourceDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
-  targetName: NormalHeadTerminal
-  targetDescription: The normal head terminal or terminals of the feeder.
-- source: RemoteInputSignal
-  target: Terminal
+  targetCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription: The terminal connecting to the bus to which the fault is applied.
+  targetName: EquipmentFaults
+  targetDescription: The equipment faults at this terminal.
+- source: Terminal
+  target: ACDCConverter
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PccTerminal
+  sourceDescription: Point of common coupling terminal for this converter DC side. It is typically the terminal on the power
+    transformer (or switch) closest to the AC network.
+  targetName: ConverterDCSides
+  targetDescription: All converters' DC sides linked to this point of common coupling terminal.
+- source: Terminal
+  target: PinTerminal
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription: The Terminal that should be used in compare.
+  targetName: PinTerminal
+- source: Terminal
+  target: Circuit
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: RemoteInputSignal
-  sourceDescription: Input signal coming from this terminal.
-  targetName: Terminal
-  targetDescription: Remote terminal with which this input signal is associated.
-- source: Bushing
-  target: Terminal
+  targetCardinality: 0..1
+  sourceName: EndTerminal
+  targetName: Circuit
+- source: Terminal
+  target: Feeder
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: NormalHeadTerminal
+  sourceDescription: The normal head terminal or terminals of the feeder.
+  targetName: NormalHeadFeeder
+  targetDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
+- source: Terminal
+  target: RemoteInputSignal
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription: Remote terminal with which this input signal is associated.
+  targetName: RemoteInputSignal
+  targetDescription: Input signal coming from this terminal.
+- source: Terminal
+  target: Bushing
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: Bushing
-  targetName: Terminal
-  targetDescription: Terminal to which this bushing is attached.
+  sourceName: Terminal
+  sourceDescription: Terminal to which this bushing is attached.
+  targetName: Bushing

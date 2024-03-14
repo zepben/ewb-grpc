@@ -14,24 +14,24 @@ attributes:
 ancestors:
 - PowerSystemResource
 associations:
-- source: Stage
-  target: RemedialActionScheme
-  sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: Stage
-  sourceDescription: A Remedial Action Scheme (RAS) consist of one or more stage that are trigger and execute protection action.
-  targetName: RemedialActionScheme
-- source: TriggerCondition
-  target: RemedialActionScheme
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TriggerCondition
-  sourceDescription: Triggering of the Remedial Action Schemes (RAS).
-  targetName: RemedialActionScheme
-- source: Gate
-  target: RemedialActionScheme
-  sourceCardinality: 0..1
+- source: RemedialActionScheme
+  target: Stage
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: RemedialActionScheme
+  targetName: Stage
+  targetDescription: A Remedial Action Scheme (RAS) consist of one or more stage that are trigger and execute protection action.
+- source: RemedialActionScheme
+  target: TriggerCondition
+  sourceCardinality: "1"
   targetCardinality: 0..*
-  sourceName: GateArmed
-  sourceDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).
-  targetName: RemedialActionScheme
+  sourceName: RemedialActionScheme
+  targetName: TriggerCondition
+  targetDescription: Triggering of the Remedial Action Schemes (RAS).
+- source: RemedialActionScheme
+  target: Gate
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RemedialActionScheme
+  targetName: GateArmed
+  targetDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).

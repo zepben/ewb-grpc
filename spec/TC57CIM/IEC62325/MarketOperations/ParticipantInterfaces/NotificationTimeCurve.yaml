@@ -4,9 +4,9 @@ description: Notification time curve as a function of down time.  Relationship b
 ancestors:
 - Curve
 associations:
-- source: GeneratingBid
-  target: NotificationTimeCurve
-  sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: GeneratingBids
-  targetName: NotificationTimeCurve
+- source: NotificationTimeCurve
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: NotificationTimeCurve
+  targetName: GeneratingBids

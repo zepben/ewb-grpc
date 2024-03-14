@@ -15,11 +15,11 @@ associations:
   sourceDescription: The connectivity node container to which the topological node belongs.
   targetName: DCTopologicalNode
   targetDescription: The topological nodes which belong to this connectivity node container.
-- source: DCNode
-  target: DCEquipmentContainer
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: DCNodes
-  sourceDescription: The DC nodes contained in the DC equipment container.
-  targetName: DCEquipmentContainer
-  targetDescription: The DC container for the DC nodes.
+- source: DCEquipmentContainer
+  target: DCNode
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: DCEquipmentContainer
+  sourceDescription: The DC container for the DC nodes.
+  targetName: DCNodes
+  targetDescription: The DC nodes contained in the DC equipment container.

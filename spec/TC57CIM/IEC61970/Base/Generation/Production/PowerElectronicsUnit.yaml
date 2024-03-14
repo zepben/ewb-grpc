@@ -15,11 +15,11 @@ descendents:
 - PhotoVoltaicUnit
 - BatteryUnit
 associations:
-- source: PowerElectronicsConnection
-  target: PowerElectronicsUnit
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: PowerElectronicsConnection
-  sourceDescription: A power electronics unit has a connection to the AC network.
-  targetName: PowerElectronicsUnit
-  targetDescription: An AC network connection may have several power electronics units connecting through it.
+- source: PowerElectronicsUnit
+  target: PowerElectronicsConnection
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PowerElectronicsUnit
+  sourceDescription: An AC network connection may have several power electronics units connecting through it.
+  targetName: PowerElectronicsConnection
+  targetDescription: A power electronics unit has a connection to the AC network.

@@ -20,20 +20,20 @@ associations:
   sourceDescription: Tariff intervals to which this time-based charge has to be levied.
   targetName: Charges
   targetDescription: All charges used to define this time tariff interval.
-- source: TariffProfile
-  target: TimeTariffInterval
+- source: TimeTariffInterval
+  target: TariffProfile
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: TariffProfiles
-  sourceDescription: All tariff profiles defined by this time tariff interval.
-  targetName: TimeTariffIntervals
-  targetDescription: All time tariff intervals used to define this tariff profile.
-- source: ConsumptionTariffInterval
-  target: TimeTariffInterval
+  sourceName: TimeTariffIntervals
+  sourceDescription: All time tariff intervals used to define this tariff profile.
+  targetName: TariffProfiles
+  targetDescription: All tariff profiles defined by this time tariff interval.
+- source: TimeTariffInterval
+  target: ConsumptionTariffInterval
   sourceCardinality: 0..*
   targetCardinality: 0..*
-  sourceName: ConsumptionTariffIntervals
-  sourceDescription: All consumption tariff intervals that introduce variation in this time of use tariff interval; allows
+  sourceName: TouTariffIntervals
+  sourceDescription: All time of use tariff intervals influenced by this consumption tariff interval.
+  targetName: ConsumptionTariffIntervals
+  targetDescription: All consumption tariff intervals that introduce variation in this time of use tariff interval; allows
     to express e.g., peak hour prices that are different with different consumption blocks.
-  targetName: TouTariffIntervals
-  targetDescription: All time of use tariff intervals influenced by this consumption tariff interval.

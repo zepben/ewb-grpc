@@ -3,11 +3,11 @@ description: A grouping of network model change descriptions.  Primarily used to
 ancestors:
 - NetworkModelProjectComponent
 associations:
-- source: NetworkModelProjectComponent
-  target: NetworkModelProject
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ContainedProject
-  sourceDescription: Projects that are included in this parent project.
-  targetName: ContainingProject
-  targetDescription: The parent project of this project.
+- source: NetworkModelProject
+  target: NetworkModelProjectComponent
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ContainingProject
+  sourceDescription: The parent project of this project.
+  targetName: ContainedProject
+  targetDescription: Projects that are included in this parent project.
