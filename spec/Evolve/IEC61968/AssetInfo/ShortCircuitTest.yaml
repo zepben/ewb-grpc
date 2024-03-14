@@ -35,21 +35,3 @@ attributes:
   description: Short Circuit Voltage – Ohmic Part.
 ancestors:
 - TransformerTest
-associations:
-- source: ShortCircuitTest
-  target: TransformerEndInfo
-  sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: GroundedEndShortCircuitTests
-  sourceDescription: All short-circuit test measurements in which this transformer end was short-circuited.
-  targetName: GroundedEnds
-  targetDescription: All ends short-circuited in this short-circuit test.
-- source: ShortCircuitTest
-  target: TransformerEndInfo
-  sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: EnergisedEndShortCircuitTests
-  sourceDescription: All short-circuit test measurements in which this transformer end was energised.
-  targetName: EnergisedEnd
-  targetDescription: Transformer end that voltage is applied to in this short-circuit test. The test voltage is chosen to
-    induce rated current in the energised end.

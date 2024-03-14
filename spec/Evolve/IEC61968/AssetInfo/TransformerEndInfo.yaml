@@ -45,18 +45,12 @@ associations:
   targetDescription: Transformer star impedance calculated from this transformer end datasheet.
 - source: TransformerEndInfo
   target: TransformerTankInfo
-  sourceCardinality: 1..*
   targetCardinality: "1"
-  sourceName: TransformerEndInfos
-  sourceDescription: Data for all the ends described by this transformer tank data.
   targetName: TransformerTankInfo
   targetDescription: Transformer tank data that this end description is part of.
 - source: TransformerEndInfo
   target: NoLoadTest
-  sourceCardinality: 0..1
   targetCardinality: 0..1
-  sourceName: EnergisedEnd
-  sourceDescription: Transformer end that current is applied to in this no-load test.
   targetName: EnergisedEndNoLoadTests
   targetDescription: All no-load test measurements in which this transformer end was energised.
 - source: TransformerEndInfo
@@ -69,26 +63,16 @@ associations:
   targetDescription: All open-circuit test measurements in which this transformer end was not excited.
 - source: TransformerEndInfo
   target: OpenCircuitTest
-  sourceCardinality: "1"
   targetCardinality: 0..1
-  sourceName: EnergisedEnd
-  sourceDescription: Transformer end that current is applied to in this open-circuit test.
   targetName: EnergisedEndOpenCircuitTests
   targetDescription: All open-circuit test measurements in which this transformer end was excited.
 - source: TransformerEndInfo
   target: ShortCircuitTest
-  sourceCardinality: 1..*
   targetCardinality: 0..1
-  sourceName: GroundedEnds
-  sourceDescription: All ends short-circuited in this short-circuit test.
   targetName: GroundedEndShortCircuitTests
   targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
 - source: TransformerEndInfo
   target: ShortCircuitTest
-  sourceCardinality: "1"
   targetCardinality: 0..1
-  sourceName: EnergisedEnd
-  sourceDescription: Transformer end that voltage is applied to in this short-circuit test. The test voltage is chosen to
-    induce rated current in the energised end.
   targetName: EnergisedEndShortCircuitTests
   targetDescription: All short-circuit test measurements in which this transformer end was energised.
