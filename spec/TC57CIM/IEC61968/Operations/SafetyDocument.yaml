@@ -1,0 +1,55 @@
+name: SafetyDocument
+description: Document restricting or authorising works on electrical equipment (for example a permit to work, sanction for
+  test, limitation of access, or certificate of isolation), defined based upon organisational practices.
+attributes:
+- name: issuedDateTime
+  type: DateTime
+  description: Date and time this safety document has been issued.
+- name: releasedDateTime
+  type: DateTime
+  description: Date and time this safety document has been released.
+ancestors:
+- Document
+descendents:
+- ClearanceDocument
+associations:
+- source: SwitchingPlan
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SwitchingPlan
+  sourceDescription: Switching plan to which this safety document applies.
+  targetName: SafetyDocuments
+  targetDescription: All safety documents applicable to this swtiching plan.
+- source: OperationsSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReleasedToSupervisor
+  sourceDescription: Supervisor to which this safety document is released.
+  targetName: ReleasedSafetyDocuments
+  targetDescription: All safety documents released to this supervisor.
+- source: OperationsSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: IssuedBySupervisor
+  sourceDescription: Supervisor that issued this safety document.
+  targetName: IssuedSafetyDocuments
+  targetDescription: All safety documents issued by this supervisor.
+- source: FieldSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReleasedBySupervisor
+  sourceDescription: Supervisor that released this safety document.
+  targetName: ReleasedSafetyDocuments
+  targetDescription: All safety documents released by this supervisor.
+- source: FieldSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: IssuedToSupervisor
+  sourceDescription: Supervisor to whom this safety document is issued.
+  targetName: IssuedSafetyDocuments
+  targetDescription: All safety documents issued to this supervisor.

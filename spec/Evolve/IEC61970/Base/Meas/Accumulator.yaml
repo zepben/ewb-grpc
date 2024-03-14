@@ -1,0 +1,13 @@
+name: Accumulator
+description: Accumulator represents an accumulated (counted) Measurement, e.g. an energy value.
+ancestors:
+- Measurement
+associations:
+- source: Accumulator
+  target: AccumulatorValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Accumulator
+  sourceDescription: Measurement to which this value is connected.
+  targetName: AccumulatorValues
+  targetDescription: The values connected to this measurement.

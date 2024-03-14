@@ -1,0 +1,31 @@
+name: TimePoint
+description: A point in time within a sequence of points in time relative to a time schedule.
+attributes:
+- name: dateTime
+  type: DateTime
+  description: Absolute date and time for this time point. For calendar-based time point, it is typically manually entered,
+    while for interval-based or sequence-based time point it is derived.
+- name: relativeTimeInterval
+  type: Seconds
+  description: (if interval-based) A point in time relative to scheduled start time in 'TimeSchedule.scheduleInterval.start'.
+- name: sequenceNumber
+  type: Integer
+  description: (if sequence-based) Relative sequence number for this time point.
+- name: status
+  type: Status
+  description: Status of this time point.
+- name: window
+  type: DateTimeInterval
+  description: Interval defining the window of time that this time point is valid (for example, seasonal, only on weekends,
+    not on weekends, only 8:00 am to 5:00 pm, etc.).
+ancestors:
+- IdentifiedObject
+associations:
+- source: TimeSchedule
+  target: TimePoint
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TimeSchedule
+  sourceDescription: Time schedule owning this time point.
+  targetName: TimePoints
+  targetDescription: Sequence of time points belonging to this time schedule.

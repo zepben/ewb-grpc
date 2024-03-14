@@ -1,0 +1,13 @@
+name: TapSchedule
+description: A pre-established pattern over time for a tap step.
+ancestors:
+- SeasonDayTypeSchedule
+associations:
+- source: TapSchedule
+  target: TapChanger
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TapSchedules
+  sourceDescription: A TapChanger can have TapSchedules.
+  targetName: TapChanger
+  targetDescription: A TapSchedule is associated with a TapChanger.

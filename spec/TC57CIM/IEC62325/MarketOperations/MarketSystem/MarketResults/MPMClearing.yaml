@@ -1,0 +1,18 @@
+name: MPMClearing
+description: Model of results of Market Power tests, and possible mitigation. Interval based.
+attributes:
+- name: LMPMFinalFlag
+  type: YesNo
+- name: mitigationOccuredFlag
+  type: YesNo
+- name: SMPMFinalFlag
+  type: YesNo
+ancestors:
+- MarketFactors
+associations:
+- source: MPMClearing
+  target: MPMTestResults
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MPMClearing
+  targetName: MPMTestResults

@@ -1,0 +1,41 @@
+name: VoltageLevel
+description: A collection of equipment at one common system voltage forming a switchgear. The equipment typically consists
+  of breakers, busbars, instrumentation, control, regulation and protection devices as well as assemblies of all these.
+attributes:
+- name: highVoltageLimit
+  type: Voltage
+  description: |-
+    The bus bar's high voltage limit.
+    The limit applies to all equipment and nodes contained in a given VoltageLevel. It is not required that it is exchanged in pair with lowVoltageLimit. It is preferable to use operational VoltageLimit, which prevails, if present.
+- name: lowVoltageLimit
+  type: Voltage
+  description: |-
+    The bus bar's low voltage limit.
+    The limit applies to all equipment and nodes contained in a given VoltageLevel. It is not required that it is exchanged in pair with highVoltageLimit. It is preferable to use operational VoltageLimit, which prevails, if present.
+ancestors:
+- EquipmentContainer
+associations:
+- source: VoltageLevel
+  target: Bay
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: VoltageLevel
+  sourceDescription: The voltage level containing this bay.
+  targetName: Bays
+  targetDescription: The bays within this voltage level.
+- source: VoltageLevel
+  target: BaseVoltage
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: VoltageLevel
+  sourceDescription: The voltage levels having this base voltage.
+  targetName: BaseVoltage
+  targetDescription: The base voltage used for all equipment within the voltage level.
+- source: Substation
+  target: VoltageLevel
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Substation
+  sourceDescription: The substation of the voltage level.
+  targetName: VoltageLevels
+  targetDescription: The voltage levels within this substation.

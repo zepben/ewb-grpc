@@ -1,0 +1,27 @@
+name: AlertTypeList
+description: |-
+  A named list of alert types.
+  Note:  the name of the list is reflected in the .name attribute (inherited from IdentifiedObject).
+attributes:
+- name: version
+  type: String
+  description: The version of the named list of alert types.
+ancestors:
+- IdentifiedObject
+associations:
+- source: AlertTypeList
+  target: EnvironmentalDataAuthority
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AlertTypeList
+  sourceDescription: A specific version of a list of alerts published by this environmental data authority.
+  targetName: EnvironmentalDataAuthority
+  targetDescription: The environmental data authority responsible for publishing this list of alert types.
+- source: EnvironmentalAlert
+  target: AlertTypeList
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EnvironmentalAlert
+  sourceDescription: An alert whose type is drawn from this alert type list.
+  targetName: AlertTypeList
+  targetDescription: The list of alert types from which the type of this alert is drawn.

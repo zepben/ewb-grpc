@@ -1,0 +1,24 @@
+name: WindGenTurbineType2IEC
+description: |-
+  Wind turbine IEC type 2.
+
+  Reference: IEC 61400-27-1:2015, 5.5.3.
+ancestors:
+- WindTurbineType1or2IEC
+associations:
+- source: WindContRotorRIEC
+  target: WindGenTurbineType2IEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindContRotorRIEC
+  sourceDescription: Wind control rotor resistance model associated with wind turbine type 2 model.
+  targetName: WindGenTurbineType2IEC
+  targetDescription: Wind turbine type 2 model with whitch this wind control rotor resistance model is associated.
+- source: WindPitchContPowerIEC
+  target: WindGenTurbineType2IEC
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: WindPitchContPowerIEC
+  sourceDescription: Pitch control power model associated with this wind turbine type 2 model.
+  targetName: WindGenTurbineType2IEC
+  targetDescription: Wind turbine type 2 model with which this pitch control power model is associated.

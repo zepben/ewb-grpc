@@ -1,0 +1,56 @@
+name: AccumulationKind
+description: Kind of accumulation behaviour for read / measured values from individual end points.
+attributes:
+- name: none
+  description: Not applicable, or implied by the unit of measure.
+- name: bulkQuantity
+  description: "A value from a register which represents the bulk quantity of a commodity. This quantity is computed as the\
+    \ integral of the commodity usage rate. This value is typically used as the basis for the dial reading at the meter, and\
+    \ as a result, will roll over upon reaching a maximum dial value. \nNote 1: With the metering system, the roll-over behaviour\
+    \ typically implies a roll-under behavior so that the value presented is always a positive value (e.g. unsigned integer\
+    \ or positive decimal.) However, when communicating data between enterprise applications a negative value might occur\
+    \ in a case such as net metering.\nNote 2: A 'bulkQuantity' refers primarily to the dial reading and not the consumption\
+    \ over a specific period of time."
+- name: continuousCumulative
+  description: |-
+    The sum of the previous billing period values and the present period value.
+    Note: 'continuousCumulative' is commonly used in conjunction with 'demand', and it  would represent the cumulative sum of the previous billing period maximum demand values (as occurring with each demand reset) summed with the present period maximum demand value (which has yet to be reset.)
+- name: cumulative
+  description: |-
+    The sum of the previous billing period values.
+    Note: 'cumulative' is commonly used in conjunction with “demand.” Each demand reset causes the maximum demand value for the present billing period (since the last demand reset) to accumulate as an accumulative total of all maximum demands. So instead of 'zeroing' the demand register, a demand reset has the effect of adding the present maximum demand to this accumulating total.
+- name: deltaData
+  description: "The difference between the value at the end of the prescribed interval and the beginning of the interval.\
+    \ This is used for incremental interval data. \nNote: One common application would be for load profile data, another use\
+    \ might be to report the number of events within an interval (such as the number of equipment energisations within the\
+    \ specified period of time.)"
+- name: indicating
+  description: |-
+    As if a needle is swung out on the meter face to a value to indicate the current value.
+    Note: An 'indicating' value is typically measured over hundreds of milliseconds or greater, or may imply a “pusher” mechanism to capture a value. Compare this to 'instantaneous' which is measured over a shorter period of time.
+- name: summation
+  description: "A form of accumulation which is selective with respect to time. \nNote : 'summation' could be considered a\
+    \ specialisation of 'bulkQuantity' as it selectively accumulates pulses over a timing pattern (while 'bulkQuantity' accumulates\
+    \ pulses all of the time)."
+- name: timeDelay
+  description: A form of computation which introduces a time delay characteristic to the data value.
+- name: instantaneous
+  description: |-
+    Typically measured over the fastest period of time allowed by the definition of the metric (usually milliseconds or tens of milliseconds.)
+    Note: 'instantaneous' was moved to attribute #3 in Ed.2 of IEC 61968-9, from attribute #1 in Ed.1 of IEC 61968-9.
+- name: latchingQuantity
+  description: "When this description is applied to a metered value, it implies that the value is a time-independent cumulative\
+    \ quantity much like a 'bulkQuantity', except that it latches upon the maximum value upon reaching that value. Any additional\
+    \ accumulation (positive or negative) is discarded until a reset occurs. \nNote: A 'latchingQuantity' may also occur in\
+    \ the downward direction – upon reaching a minimum value. The terms 'maximum' or 'minimum' (for 'aggregate') will usually\
+    \ be included when this type of accumulation behaviour is present. \nWhen this description is applied to an encoded value\
+    \ (UOM= 'Code'), it implies that the value has one or more bits which are latching. The condition that caused the bit\
+    \ to be set may have long since evaporated.\nIn either case, the timestamp that accompanies the value may not coincide\
+    \ with the moment the value was initially set.\nIn both cases a system will need to perform an operation to clear the\
+    \ latched value."
+- name: boundedQuantity
+  description: A time-independent cumulative quantity much like a 'bulkQuantity' or a 'latchingQuantity', except that the
+    accumulation stops at the maximum or minimum values. When the maximum is reached, any additional positive accumulation
+    is discarded, but negative accumulation may be accepted (thus lowering the counter.) Likewise, when the negative bound
+    is reached, any additional negative accumulation is discarded, but positive accumulation is accepted (thus increasing
+    the counter.)

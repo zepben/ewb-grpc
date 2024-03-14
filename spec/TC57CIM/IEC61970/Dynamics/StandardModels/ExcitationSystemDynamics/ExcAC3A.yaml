@@ -1,0 +1,88 @@
+name: ExcAC3A
+description: Modified IEEE AC3A alternator-supplied rectifier excitation system with different field current limit.
+attributes:
+- name: efdn
+  type: PU
+  description: Value of <i>Efd </i>at which feedback gain changes (<i>Efdn</i>) (&gt; 0).  Typical value = 2,36.
+- name: ka
+  type: Seconds
+  description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 45,62.
+- name: kc
+  type: PU
+  description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0).  Typical value = 0,104.
+- name: kd
+  type: PU
+  description: Demagnetizing factor, a function of exciter alternator reactances (<i>Kd</i>) (&gt;= 0).  Typical value = 0,499.
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>Ke</i>).  Typical value = 1.
+- name: kf
+  type: PU
+  description: Excitation control system stabilizer gains (<i>Kf</i>) (&gt;= 0).  Typical value = 0,143.
+- name: kf1
+  type: PU
+  description: Coefficient to allow different usage of the model (<i>Kf1</i>).  Typical value = 1.
+- name: kf2
+  type: PU
+  description: Coefficient to allow different usage of the model (<i>Kf2</i>).  Typical value = 0.
+- name: klv
+  type: PU
+  description: Gain used in the minimum field voltage limiter loop (<i>Klv</i>).  Typical value = 0,194.
+- name: kn
+  type: PU
+  description: Excitation control system stabilizer gain (<i>Kn</i>) (&gt;= 0).  Typical value =0,05.
+- name: kr
+  type: PU
+  description: Constant associated with regulator and alternator field power supply (<i>Kr</i>) (&gt; 0).  Typical value =3,77.
+- name: ks
+  type: PU
+  description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
+- name: seve1
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 1,143.
+- name: seve2
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,1.
+- name: ta
+  type: PU
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,013.
+- name: tb
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 0.
+- name: tc
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value
+    = 1,17.
+- name: tf
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt; 0).  Typical value = 1.
+- name: vamax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vamax</i>) (&gt; 0).  Typical value = 1.
+- name: vamin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vamin</i>) (&lt; 0).  Typical value = -0,95.
+- name: ve1
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>1</sub></i>)
+    (&gt; 0).  Typical value = 6.24.
+- name: ve2
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>2</sub></i>)
+    (&gt; 0).  Typical value = 4,68.
+- name: vemin
+  type: PU
+  description: Minimum exciter voltage output (<i>Vemin</i>) (&lt;= 0).  Typical value = 0.
+- name: vfemax
+  type: PU
+  description: Exciter field current limit reference (<i>Vfemax</i>) (&gt;= 0).  Typical value = 16.
+- name: vlv
+  type: PU
+  description: Field voltage used in the minimum field voltage limiter loop (<i>Vlv</i>).  Typical value = 0,79.
+ancestors:
+- ExcitationSystemDynamics

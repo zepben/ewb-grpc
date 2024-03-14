@@ -1,0 +1,29 @@
+name: FieldDispatchHistory
+description: The history of field dispatch statuses for this work.
+ancestors:
+- IdentifiedObject
+associations:
+- source: FieldDispatchHistory
+  target: UnplannedOutage
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: FieldDispatchHistory
+  targetName: UnplannedOutage
+- source: FieldDispatchHistory
+  target: PlannedOutage
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: FieldDispatchHistory
+  targetName: PlannedOutage
+- source: FieldDispatchHistory
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: FieldDispatchHistory
+  targetName: Crew
+- source: FieldDispatchHistory
+  target: FieldDispatchStep
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: FieldDispatchHistory
+  targetName: FieldDispatchStep

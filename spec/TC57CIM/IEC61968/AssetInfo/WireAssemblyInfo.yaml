@@ -1,0 +1,20 @@
+name: WireAssemblyInfo
+description: 'Describes the construction of a multi-conductor wire.<-NOTE: period missing.'
+ancestors:
+- AssetInfo
+associations:
+- source: WireAssemblyInfo
+  target: PerLengthLineParameter
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WireAssemblyInfo
+  targetName: PerLengthLineParameter
+  targetDescription: Per length line parameter associated with this wire assembly.
+- source: WirePhaseInfo
+  target: WireAssemblyInfo
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: WirePhaseInfo
+  sourceDescription: Wire phase information associated with this wire assembly.
+  targetName: WireAssemblyInfo
+  targetDescription: Wire assembly information using this wire phase information.

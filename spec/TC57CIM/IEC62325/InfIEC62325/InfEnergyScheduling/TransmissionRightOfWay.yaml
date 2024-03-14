@@ -1,0 +1,19 @@
+name: TransmissionRightOfWay
+description: A collection of transmission lines that are close proximity to each other.
+ancestors:
+- PowerSystemResource
+associations:
+- source: TransmissionCorridor
+  target: TransmissionRightOfWay
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: TransmissionCorridor
+  sourceDescription: A transmission right-of-way is a member of a transmission corridor
+  targetName: TransmissionRightOfWays
+  targetDescription: A transmission right-of-way is a member of a transmission corridor
+- source: MktLine
+  target: TransmissionRightOfWay
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MktLine
+  targetName: TransmissionRightOfWay

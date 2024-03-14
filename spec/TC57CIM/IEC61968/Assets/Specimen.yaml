@@ -1,0 +1,39 @@
+name: Specimen
+description: Sample or specimen of a material (fluid or solid).
+attributes:
+- name: ambientTemperatureAtSampling
+  type: Temperature
+  description: Operating ambient temperature (in °C).
+- name: humidityAtSampling
+  type: PerCent
+  description: Operating ambient humidity (in percent).
+- name: specimenID
+  type: String
+  description: Identifier of specimen used in inspection or test.
+- name: specimenSampleDateTime
+  type: DateTime
+  description: Date and time sample specimen taken.
+- name: specimenToLabDateTime
+  type: DateTime
+  description: Date and time the specimen was received by the lab.
+ancestors:
+- IdentifiedObject
+descendents:
+- OilSpecimen
+associations:
+- source: Specimen
+  target: AssetTestSampleTaker
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Specimen
+  sourceDescription: Specimen taken by this sample taker.
+  targetName: AssetTestSampleTaker
+  targetDescription: Test sampler taker who gathered this specimen.
+- source: LabTestDataSet
+  target: Specimen
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LabTestDataSet
+  sourceDescription: Results from lab testing done on specimen.
+  targetName: Specimen
+  targetDescription: Specimen on which lab testing done in determining results.

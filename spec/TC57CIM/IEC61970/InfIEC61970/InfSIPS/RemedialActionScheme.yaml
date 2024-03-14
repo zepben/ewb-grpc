@@ -1,0 +1,37 @@
+name: RemedialActionScheme
+description: Remedial Action Scheme (RAS), Special Protection Schemes (SPS), System Protection Schemes (SPS) or System Integrity
+  Protection Schemes (SIPS).
+attributes:
+- name: armed
+  type: Boolean
+  description: The status of the class set by operation or by signal. Optional field that will override other status fields.
+- name: kind
+  type: RemedialActionSchemeKind
+  description: Kind of Remedial Action Scheme (RAS).
+- name: normalArmed
+  type: Boolean
+  description: The default/normal value used when other active signal/values are missing.
+ancestors:
+- PowerSystemResource
+associations:
+- source: Stage
+  target: RemedialActionScheme
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: Stage
+  sourceDescription: A Remedial Action Scheme (RAS) consist of one or more stage that are trigger and execute protection action.
+  targetName: RemedialActionScheme
+- source: TriggerCondition
+  target: RemedialActionScheme
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TriggerCondition
+  sourceDescription: Triggering of the Remedial Action Schemes (RAS).
+  targetName: RemedialActionScheme
+- source: Gate
+  target: RemedialActionScheme
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GateArmed
+  sourceDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).
+  targetName: RemedialActionScheme

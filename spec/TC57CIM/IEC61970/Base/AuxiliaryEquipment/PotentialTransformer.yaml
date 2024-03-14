@@ -1,0 +1,19 @@
+name: PotentialTransformer
+description: Instrument transformer (also known as Voltage Transformer) used to measure electrical qualities of the circuit
+  that is being protected and/or monitored. Typically used as voltage transducer for the purpose of metering, protection,
+  or sometimes auxiliary substation supply. A typical secondary voltage rating would be 120V.
+attributes:
+- name: accuracyClass
+  type: String
+  description: PT accuracy classification.
+- name: nominalRatio
+  type: Float
+  description: Nominal ratio between the primary and secondary voltage.
+- name: ptClass
+  type: String
+  description: Potential transformer (PT) classification covering burden.
+- name: type
+  type: PotentialTransformerKind
+  description: Potential transformer construction type.
+ancestors:
+- Sensor

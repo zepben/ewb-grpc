@@ -1,0 +1,30 @@
+name: ScheduledEvent
+description: An event to trigger one or more activities, such as reading a meter, recalculating a bill, requesting work, when
+  generating units must be scheduled for maintenance, when a transformer is scheduled to be refurbished, etc.
+attributes:
+- name: duration
+  type: Seconds
+  description: Duration of the scheduled event, for example, the time to ramp between values.
+- name: status
+  type: Status
+- name: type
+  type: String
+  description: Type of scheduled event.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ScheduledEvent
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ScheduledEvents
+  sourceDescription: Scheduled event related to this asset.
+  targetName: Assets
+- source: ScheduledEventData
+  target: ScheduledEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ScheduledEventData
+  sourceDescription: Specification for this scheduled event.
+  targetName: ScheduledEvents
+  targetDescription: All scheduled events with this specification.

@@ -1,0 +1,107 @@
+name: GovGAST2
+description: Gas turbine.
+attributes:
+- name: a
+  type: Float
+  description: Valve positioner (<i>A</i>).
+- name: af1
+  type: PU
+  description: Exhaust temperature parameter (<i>Af1</i>).  Unit = PU temperature.  Based on temperature in degrees C.
+- name: af2
+  type: PU
+  description: Coefficient equal to 0,5(1-speed) (<i>Af2</i>).
+- name: b
+  type: Float
+  description: Valve positioner (<i>B</i>).
+- name: bf1
+  type: PU
+  description: (<i>Bf1</i>).  <i>Bf1</i> = <i>E</i>(1 - <i>W</i>) where <i>E</i> (speed sensitivity coefficient) is 0,55 to
+    0,65 x <i>Tr</i>.  Unit = PU temperature.  Based on temperature in degrees C.
+- name: bf2
+  type: PU
+  description: Turbine torque coefficient K<sub>hhv</sub> (depends on heating value of fuel stream in combustion chamber)
+    (<i>Bf2</i>).
+- name: c
+  type: Float
+  description: Valve positioner (<i>C</i>).
+- name: cf2
+  type: PU
+  description: Coefficient defining fuel flow where power output is 0% (<i>Cf2</i>).  Synchronous but no output.  Typically
+    0,23 x K<sub>hhv</sub> (23% fuel flow).
+- name: ecr
+  type: Seconds
+  description: Combustion reaction time delay (<i>Ecr</i>) (&gt;= 0).
+- name: etd
+  type: Seconds
+  description: Turbine and exhaust delay (<i>Etd</i>) (&gt;= 0).
+- name: k3
+  type: PU
+  description: Ratio of fuel adjustment (<i>K3</i>).
+- name: k4
+  type: PU
+  description: Gain of radiation shield (<i>K4</i>).
+- name: k5
+  type: PU
+  description: Gain of radiation shield (<i>K5</i>).
+- name: k6
+  type: PU
+  description: Minimum fuel flow (<i>K6</i>).
+- name: kf
+  type: PU
+  description: Fuel system feedback (<i>Kf</i>).
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: t
+  type: Seconds
+  description: Fuel control time constant (<i>T</i>) (&gt;= 0).
+- name: t3
+  type: Seconds
+  description: Radiation shield time constant (<i>T3</i>) (&gt;= 0).
+- name: t4
+  type: Seconds
+  description: Thermocouple time constant (<i>T4</i>) (&gt;= 0).
+- name: t5
+  type: Seconds
+  description: Temperature control time constant (<i>T5</i>) (&gt;= 0).
+- name: tc
+  type: Temperature
+  description: Temperature control (<i>Tc</i>).  Unit = °F or °C depending on parameters <i>Af1</i> and <i>Bf1</i>.
+- name: tcd
+  type: Seconds
+  description: Compressor discharge time constant (<i>Tcd</i>) (&gt;= 0).
+- name: tf
+  type: Seconds
+  description: Fuel system time constant (<i>Tf</i>) (&gt;= 0).
+- name: tmax
+  type: PU
+  description: Maximum turbine limit (<i>Tmax</i>) (&gt; GovGAST2.tmin).
+- name: tmin
+  type: PU
+  description: Minimum turbine limit (<i>Tmin</i>) (&lt; GovGAST2.tmax).
+- name: tr
+  type: Temperature
+  description: Rated temperature (<i>Tr</i>).  Unit = °C depending on parameters<i> Af1 </i>and <i>Bf1</i>.
+- name: trate
+  type: ActivePower
+  description: Turbine rating (<i>Trate</i>).  Unit = MW.
+- name: tt
+  type: Seconds
+  description: Temperature controller integration rate (<i>Tt</i>) (&gt;= 0).
+- name: w
+  type: PU
+  description: Governor gain (1/droop) on turbine rating (<i>W</i>).
+- name: x
+  type: Seconds
+  description: Governor lead time constant (<i>X</i>) (&gt;= 0).
+- name: y
+  type: Seconds
+  description: Governor lag time constant (<i>Y</i>) (&gt; 0).
+- name: z
+  type: Integer
+  description: |-
+    Governor mode (<i>Z</i>).
+    1 = droop
+    0 = isochronous.
+ancestors:
+- TurbineGovernorDynamics

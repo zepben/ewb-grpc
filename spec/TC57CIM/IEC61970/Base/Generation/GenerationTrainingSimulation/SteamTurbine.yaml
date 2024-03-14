@@ -1,0 +1,50 @@
+name: SteamTurbine
+description: Steam turbine.
+attributes:
+- name: crossoverTC
+  type: Seconds
+  description: Crossover time constant.
+- name: reheater1TC
+  type: Seconds
+  description: First reheater time constant.
+- name: reheater2TC
+  type: Seconds
+  description: Second reheater time constant.
+- name: shaft1PowerHP
+  type: Float
+  description: Fraction of power from shaft 1 high pressure turbine output.
+- name: shaft1PowerIP
+  type: Float
+  description: Fraction of power from shaft 1 intermediate pressure turbine output.
+- name: shaft1PowerLP1
+  type: Float
+  description: Fraction of power from shaft 1 first low pressure turbine output.
+- name: shaft1PowerLP2
+  type: Float
+  description: Fraction of power from shaft 1 second low pressure turbine output.
+- name: shaft2PowerHP
+  type: Float
+  description: Fraction of power from shaft 2 high pressure turbine output.
+- name: shaft2PowerIP
+  type: Float
+  description: Fraction of power from shaft 2 intermediate pressure turbine output.
+- name: shaft2PowerLP1
+  type: Float
+  description: Fraction of power from shaft 2 first low pressure turbine output.
+- name: shaft2PowerLP2
+  type: Float
+  description: Fraction of power from shaft 2 second low pressure turbine output.
+- name: steamChestTC
+  type: Seconds
+  description: Steam chest time constant.
+ancestors:
+- PrimeMover
+associations:
+- source: SteamSupply
+  target: SteamTurbine
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: SteamSupplys
+  sourceDescription: Steam turbines may have steam supplied by a steam supply.
+  targetName: SteamTurbines
+  targetDescription: Steam turbines may have steam supplied by a steam supply.

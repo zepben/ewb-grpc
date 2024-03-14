@@ -1,0 +1,64 @@
+name: MeasurementValue
+description: The current state for a measurement. A state value is an instance of a measurement from a specific source. Measurements
+  can be associated with many state values, each representing a different source for the measurement.
+attributes:
+- name: sensorAccuracy
+  type: PerCent
+  description: The limit, expressed as a percentage of the sensor maximum, that errors will not exceed when the sensor is
+    used under  reference conditions.
+- name: timeStamp
+  type: DateTime
+  description: The time when the value was last updated.
+ancestors:
+- IOPoint
+descendents:
+- AnalogValue
+- AccumulatorValue
+- StringMeasurementValue
+- DiscreteValue
+- BaseReading
+associations:
+- source: MeasurementValue
+  target: RemoteSource
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: MeasurementValue
+  sourceDescription: Link to the physical telemetered point associated with this measurement.
+  targetName: RemoteSource
+  targetDescription: Link to the physical telemetered point associated with this measurement.
+- source: MeasurementValueQuality
+  target: MeasurementValue
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: MeasurementValueQuality
+  sourceDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
+  targetName: MeasurementValue
+  targetDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
+- source: MeasurementValueSource
+  target: MeasurementValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MeasurementValueSource
+  sourceDescription: A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc.
+    User conventions for the names of sources are contained in the introduction to IEC 61970-301.
+  targetName: MeasurementValues
+  targetDescription: The MeasurementValues updated by the source.
+- source: OldPerson
+  target: MeasurementValue
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ErpPerson
+  targetName: MeasurementValues
+- source: ProcedureDataSet
+  target: MeasurementValue
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ProcedureDataSet
+  targetName: MeasurementValue
+- source: CalculationMethodHierarchy
+  target: MeasurementValue
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: CalculationMethodHierarchy
+  targetName: MeasurementValue
+  targetDescription: Measurement value to which this calculation method hierarchy applies.

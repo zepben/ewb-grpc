@@ -1,0 +1,33 @@
+name: BaseReading
+description: Common representation for reading values. Note that a reading value may have multiple qualities, as produced
+  by various systems ('ReadingQuality.source').
+attributes:
+- name: reportedDateTime
+  type: DateTime
+  description: (used only when there are detailed auditing requirements) Date and time at which the reading was first delivered
+    to the metering system.
+- name: source
+  type: String
+  description: System that originally supplied the reading (e.g., customer, AMI system, handheld reading system, another enterprise
+    system, etc.).
+- name: timePeriod
+  type: DateTimeInterval
+  description: Start and end of the period for those readings whose type has a time attribute such as 'billing', seasonal'
+    or 'forTheSpecifiedPeriod'.
+- name: value
+  type: String
+  description: Value of this reading.
+ancestors:
+- MeasurementValue
+descendents:
+- Reading
+- IntervalReading
+associations:
+- source: ReadingQuality
+  target: BaseReading
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ReadingQualities
+  sourceDescription: All qualities of this reading.
+  targetName: Reading
+  targetDescription: Reading value to which this quality applies.

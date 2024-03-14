@@ -1,0 +1,93 @@
+name: ExcELIN2
+description: 'Detailed excitation system ELIN (VATECH).  This model represents an all-static excitation system. A PI voltage
+  controller establishes a desired field current set point for a proportional current controller. The integrator of the PI
+  controller has a follow-up input to match its signal to the present field current.  Power system stabilizer models used
+  in conjunction with this excitation system model: PssELIN2, PssIEEE2B, Pss2B.'
+attributes:
+- name: efdbas
+  type: PU
+  description: Gain (<i>Efdbas</i>).  Typical value = 0,1.
+- name: iefmax
+  type: PU
+  description: Limiter (<i>I</i><i><sub>efmax</sub></i>) (&gt; ExcELIN2.iefmin).  Typical value = 1.
+- name: iefmax2
+  type: PU
+  description: Minimum open circuit excitation voltage (<i>I</i><i><sub>efmax2</sub></i>).  Typical value = -5.
+- name: iefmin
+  type: PU
+  description: Limiter (<i>I</i><i><sub>efmin</sub></i>) (&lt; ExcELIN2.iefmax).  Typical value = 1.
+- name: k1
+  type: PU
+  description: Voltage regulator input gain (<i>K1</i>).  Typical value = 0.
+- name: k1ec
+  type: PU
+  description: Voltage regulator input limit (<i>K1ec</i>).  Typical value = 2.
+- name: k2
+  type: PU
+  description: Gain (<i>K2</i>).  Typical value = 5.
+- name: k3
+  type: PU
+  description: Gain (<i>K3</i>).  Typical value = 0,1.
+- name: k4
+  type: PU
+  description: Gain (<i>K4</i>).  Typical value = 0.
+- name: kd1
+  type: PU
+  description: Voltage controller derivative gain (<i>Kd1</i>).  Typical value = 34,5.
+- name: ke2
+  type: PU
+  description: Gain (<i>Ke2</i>).  Typical value = 0,1.
+- name: ketb
+  type: PU
+  description: Gain (<i>Ketb</i>).  Typical value = 0,06.
+- name: pid1max
+  type: PU
+  description: Controller follow up gain (<i>PID1max</i>).  Typical value = 2.
+- name: seve1
+  type: PU
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0.
+- name: seve2
+  type: PU
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 1.
+- name: tb1
+  type: Seconds
+  description: Voltage controller derivative washout time constant (<i>Tb1</i>) (&gt;= 0).  Typical value = 12,45.
+- name: te
+  type: Seconds
+  description: Time constant (<i>Te</i>) (&gt;= 0).  Typical value = 0.
+- name: te2
+  type: Seconds
+  description: Time Constant (<i>T</i><i><sub>e2</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: ti1
+  type: PU
+  description: Controller follow up deadband (<i>Ti1</i>).  Typical value = 0.
+- name: ti3
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>i3</sub></i>) (&gt;= 0).  Typical value = 3.
+- name: ti4
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>i4</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tr4
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>r4</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: upmax
+  type: PU
+  description: Limiter (<i>Upmax</i>) (&gt; ExcELIN2.upmin).  Typical value = 3.
+- name: upmin
+  type: PU
+  description: Limiter (<i>Upmin</i>) (&lt; ExcELIN2.upmax).  Typical value = 0.
+- name: ve1
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>1</sub></i>)
+    (&gt; 0).  Typical value = 3.
+- name: ve2
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>2</sub></i>)
+    (&gt; 0).  Typical value = 0.
+- name: xp
+  type: PU
+  description: Excitation transformer effective reactance (<i>Xp</i>).  Typical value = 1.
+ancestors:
+- ExcitationSystemDynamics

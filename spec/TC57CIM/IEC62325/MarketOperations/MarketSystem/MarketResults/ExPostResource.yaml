@@ -1,0 +1,11 @@
+name: ExPostResource
+description: Model of ex-post pricing of resources.
+ancestors:
+- MarketFactors
+associations:
+- source: ExPostResourceResults
+  target: ExPostResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ExPostResourceResults
+  targetName: ExPostResource

@@ -1,0 +1,28 @@
+name: Season
+description: A specified time period of the year.
+attributes:
+- name: endDate
+  type: MonthDay
+  description: Date season ends.
+- name: startDate
+  type: MonthDay
+  description: Date season starts.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Season
+  target: SeasonDayTypeSchedule
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Season
+  sourceDescription: Season for the Schedule.
+  targetName: SeasonDayTypeSchedules
+  targetDescription: Schedules that use this Season.
+- source: ScheduledLimitValue
+  target: Season
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ScheduledLimits
+  sourceDescription: The scheduled limits associated with the season.
+  targetName: Season
+  targetDescription: The season for which the scheduled limits applies.    If not specified, then applicable ot any season.

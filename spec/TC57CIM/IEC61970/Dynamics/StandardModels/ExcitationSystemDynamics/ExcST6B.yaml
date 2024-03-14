@@ -1,0 +1,83 @@
+name: ExcST6B
+description: Modified IEEE ST6B static excitation system with PID controller and optional inner feedback loop.
+attributes:
+- name: ilr
+  type: PU
+  description: Exciter output current limit reference (<i>Ilr</i>) (&gt; 0).  Typical value = 4,164.
+- name: k1
+  type: Boolean
+  description: |-
+    Selector (<i>K1</i>).
+    true = feedback is from <i>Ifd</i>
+    false = feedback is not from <i>Ifd</i>.
+    Typical value = true.
+- name: kcl
+  type: PU
+  description: Exciter output current limit adjustment (<i>Kcl</i>) (&gt; 0).  Typical value = 1,0577.
+- name: kff
+  type: PU
+  description: Pre-control gain constant of the inner loop field regulator (<i>Kff</i>).  Typical value = 1.
+- name: kg
+  type: PU
+  description: Feedback gain constant of the inner loop field regulator (<i>Kg</i>) (&gt;= 0).  Typical value = 1.
+- name: kia
+  type: PU
+  description: Voltage regulator integral gain (<i>Kia</i>) (&gt; 0).  Typical value = 45,094.
+- name: klr
+  type: PU
+  description: Exciter output current limit adjustment (<i>Kcl</i>) (&gt; 0).  Typical value = 17,33.
+- name: km
+  type: PU
+  description: Forward gain constant of the inner loop field regulator (<i>Km</i>).  Typical value = 1.
+- name: kpa
+  type: PU
+  description: Voltage regulator proportional gain (<i>Kpa</i>) (&gt; 0).  Typical value = 18,038.
+- name: kvd
+  type: PU
+  description: Voltage regulator derivative gain (<i>Kvd</i>).  Typical value = 0.
+- name: oelin
+  type: ExcST6BOELselectorKind
+  description: OEL input selector (<i>OELin</i>).  Typical value = noOELinput (corresponds to <i>OELin</i> = 0 on diagram).
+- name: tg
+  type: Seconds
+  description: Feedback time constant of inner loop field voltage regulator (<i>Tg</i>) (&gt;= 0).  Typical value = 0,02.
+- name: ts
+  type: Seconds
+  description: Rectifier firing time constant (<i>Ts</i>) (&gt;= 0).  Typical value = 0.
+- name: tvd
+  type: Seconds
+  description: Voltage regulator derivative gain (<i>Tvd</i>) (&gt;= 0).  Typical value = 0.
+- name: vamax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vamax</i>) (&gt; 0).  Typical value = 4,81.
+- name: vamin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vamin</i>) (&lt; 0).  Typical value = -3,85.
+- name: vilim
+  type: Boolean
+  description: |-
+    Selector (<i>Vilim</i>).
+    true = <i>Vimin</i>-<i>Vimax</i> limiter is active
+    false = <i>Vimin</i>-<i>Vimax</i> limiter is not active.
+    Typical value = true.
+- name: vimax
+  type: PU
+  description: Maximum voltage regulator input limit (<i>Vimax</i>) (&gt; ExcST6B.vimin).  Typical value = 10.
+- name: vimin
+  type: PU
+  description: Minimum voltage regulator input limit (<i>Vimin</i>) (&lt; ExcST6B.vimax).  Typical value = -10.
+- name: vmult
+  type: Boolean
+  description: "Selector (<i>vmult</i>).\ntrue = multiply regulator output by terminal voltage\nfalse = do not multiply regulator\
+    \ output by terminal voltage. \nTypical value = true."
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vrmax</i>) (&gt; 0).  Typical value = 4,81.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vrmin</i>) (&lt; 0).  Typical value = -3,85.
+- name: xc
+  type: PU
+  description: Excitation source reactance (<i>Xc</i>).  Typical value = 0,05.
+ancestors:
+- ExcitationSystemDynamics

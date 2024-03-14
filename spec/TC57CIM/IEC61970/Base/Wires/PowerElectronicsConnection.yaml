@@ -1,0 +1,80 @@
+name: PowerElectronicsConnection
+description: A connection to the AC network for energy production or consumption that uses power electronics rather than rotating
+  machines.
+attributes:
+- name: maxQ
+  type: ReactivePower
+  description: Maximum reactive power limit. This is the maximum (nameplate) limit for the unit.
+- name: minQ
+  type: ReactivePower
+  description: Minimum reactive power limit for the unit. This is the minimum (nameplate) limit for the unit.
+- name: p
+  type: ActivePower
+  description: |-
+    Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for a steady state solution.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for a steady state solution.
+- name: r
+  type: Resistance
+  description: Equivalent resistance (RG) of generator. RG is considered for the calculation of all currents, except for the
+    calculation of the peak current ip. Used for short circuit data exchange according to IEC 60909.
+- name: r0
+  type: Resistance
+  description: Zero sequence resistance of the synchronous machine.
+- name: ratedS
+  type: ApparentPower
+  description: |-
+    Nameplate apparent power rating for the unit.
+    The attribute shall have a positive value.
+- name: ratedU
+  type: Voltage
+  description: |-
+    Rated voltage (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according to IEC 60909.
+    The attribute shall be a positive value.
+- name: rn
+  type: Resistance
+  description: Negative sequence Thevenin resistance.
+- name: x
+  type: Reactance
+  description: Positive sequence Thevenin reactance.
+- name: x0
+  type: Reactance
+  description: Zero sequence Thevenin reactance.
+- name: xn
+  type: Reactance
+  description: Negative sequence Thevenin reactance.
+- name: maxIFault
+  type: PU
+  description: Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection
+    will trip or bypass.
+ancestors:
+- RegulatingCondEq
+associations:
+- source: PowerElectronicsConnection
+  target: PowerElectronicsUnit
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: PowerElectronicsConnection
+  sourceDescription: A power electronics unit has a connection to the AC network.
+  targetName: PowerElectronicsUnit
+  targetDescription: An AC network connection may have several power electronics units connecting through it.
+- source: PowerElectronicsConnection
+  target: PowerElectronicsConnectionPhase
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: PowerElectronicsConnection
+  sourceDescription: Power electronics connection of this power electronics connection phase.
+  targetName: PowerElectronicsConnectionPhase
+  targetDescription: The individual phases models for the power electronics connection.
+- source: WindTurbineType3or4Dynamics
+  target: PowerElectronicsConnection
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: WindTurbineType3or4Dynamics
+  sourceDescription: The wind turbine type 3 or type 4 dynamics model associated with this power electronics connection.
+  targetName: PowerElectronicsConnection
+  targetDescription: The power electronics connection associated with this wind turbine type 3 or type 4 dynamics model.

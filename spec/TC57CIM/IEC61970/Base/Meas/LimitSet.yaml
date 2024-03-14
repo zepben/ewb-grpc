@@ -1,0 +1,13 @@
+name: LimitSet
+description: Specifies a set of Limits that are associated with a Measurement. A Measurement may have several LimitSets corresponding
+  to seasonal or other changing conditions. The condition is captured in the name and description attributes. The same LimitSet
+  may be used for several Measurements. In particular percentage limits are used this way.
+attributes:
+- name: isPercentageLimits
+  type: Boolean
+  description: Tells if the limit values are in percentage of normalValue or the specified Unit for Measurements and Controls.
+ancestors:
+- IdentifiedObject
+descendents:
+- AnalogLimitSet
+- AccumulatorLimitSet

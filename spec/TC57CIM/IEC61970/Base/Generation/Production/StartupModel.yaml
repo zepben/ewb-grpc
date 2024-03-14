@@ -1,0 +1,70 @@
+name: StartupModel
+description: Unit start up characteristics depending on how long the unit has been off line.
+attributes:
+- name: fixedMaintCost
+  type: CostRate
+  description: Fixed maintenance cost.
+- name: hotStandbyHeat
+  type: HeatRate
+  description: The amount of heat input per time unit required for hot standby operation.
+- name: incrementalMaintCost
+  type: CostPerEnergyUnit
+  description: Incremental maintenance cost.
+- name: minimumDownTime
+  type: Hours
+  description: The minimum number of hours the unit must be down before restart.
+- name: minimumRunTime
+  type: Hours
+  description: The minimum number of hours the unit must be operating before being allowed to shut down.
+- name: riskFactorCost
+  type: Money
+  description: The opportunity cost associated with the return in monetary unit. This represents the restart's "share" of
+    the unit depreciation and risk of an event which would damage the unit.
+- name: startupCost
+  type: Money
+  description: Total miscellaneous start up costs.
+- name: startupDate
+  type: DateTime
+  description: The date and time of the most recent generating unit startup.
+- name: startupPriority
+  type: Integer
+  description: Startup priority within control area where lower numbers indicate higher priorities.  More than one unit in
+    an area may be assigned the same priority.
+- name: stbyAuxP
+  type: ActivePower
+  description: The unit's auxiliary active power consumption to maintain standby mode.
+ancestors:
+- IdentifiedObject
+associations:
+- source: StartupModel
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: StartupModel
+  sourceDescription: A thermal generating unit may have a startup model.
+  targetName: ThermalGeneratingUnit
+  targetDescription: A thermal generating unit may have a startup model.
+- source: StartRampCurve
+  target: StartupModel
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: StartRampCurve
+  sourceDescription: The unit's startup model may have a startup ramp curve.
+  targetName: StartupModel
+  targetDescription: The unit's startup model may have a startup ramp curve.
+- source: StartIgnFuelCurve
+  target: StartupModel
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: StartIgnFuelCurve
+  sourceDescription: The unit's startup model may have a startup ignition fuel curve.
+  targetName: StartupModel
+  targetDescription: The unit's startup model may have a startup ignition fuel curve.
+- source: StartMainFuelCurve
+  target: StartupModel
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: StartMainFuelCurve
+  sourceDescription: The unit's startup model may have a startup main fuel curve.
+  targetName: StartupModel
+  targetDescription: The unit's startup model may have a startup main fuel curve.

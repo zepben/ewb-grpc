@@ -1,0 +1,16 @@
+name: AttributeProperty
+description: Property for a particular attribute that contains name and value.
+attributes:
+- name: propertyName
+  type: String
+- name: propertyValue
+  type: String
+- name: sequence
+  type: String
+associations:
+- source: AttributeProperty
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AttributeProperty
+  targetName: MktUserAttribute

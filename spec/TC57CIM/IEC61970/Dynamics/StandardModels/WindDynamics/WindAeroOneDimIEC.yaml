@@ -1,0 +1,20 @@
+name: WindAeroOneDimIEC
+description: "One-dimensional aerodynamic model.  \nReference: IEC 61400-27-1:2015, 5.6.1.2."
+attributes:
+- name: ka
+  type: Float
+  description: Aerodynamic gain (<i>k</i><i><sub>a</sub></i>). It is a type-dependent parameter.
+- name: thetaomega
+  type: AngleDegrees
+  description: Initial pitch angle (<i>theta</i><i><sub>omega0</sub></i>). It is a case-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindAeroOneDimIEC
+  target: WindTurbineType3IEC
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: WindAeroOneDimIEC
+  sourceDescription: Wind aerodynamic model associated with this wind generator type 3 model.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind aerodynamic model is associated.

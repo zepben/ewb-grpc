@@ -1,0 +1,14 @@
+name: VDCOL
+associations:
+- source: VDCOL
+  target: IdcInverterControl
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+- source: HVDCLookUpTable
+  target: VDCOL
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+- source: Delay
+  target: VDCOL
+  sourceCardinality: "1"
+  targetCardinality: 0..1

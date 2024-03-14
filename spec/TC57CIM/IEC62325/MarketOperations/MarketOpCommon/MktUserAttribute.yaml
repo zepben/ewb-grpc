@@ -1,0 +1,41 @@
+name: MktUserAttribute
+description: Subclass of IEC61968:Domain2:UserAttribute.
+ancestors:
+- UserAttribute
+associations:
+- source: ChargeType
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ChargeType
+  targetName: MktUserAttribute
+- source: MarketStatementLineItem
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketStatementLineItem
+  targetName: MktUserAttribute
+- source: PassThroughBill
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: PassThroughBill
+  targetName: MktUserAttribute
+- source: ChargeGroup
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ChargeGroup
+  targetName: MktUserAttribute
+- source: AttributeProperty
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AttributeProperty
+  targetName: MktUserAttribute
+- source: BillDeterminant
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: BillDeterminant
+  targetName: MktUserAttribute

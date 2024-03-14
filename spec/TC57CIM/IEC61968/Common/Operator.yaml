@@ -1,0 +1,23 @@
+name: Operator
+description: Control room operator.
+ancestors:
+- OperationPersonRole
+descendents:
+- OperationsSafetySupervisor
+associations:
+- source: Incident
+  target: Operator
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Incidents
+  sourceDescription: All incidents owned by this operator.
+  targetName: Owner
+  targetDescription: Operator who owns this incident.
+- source: SwitchingAction
+  target: Operator
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SwitchingSteps
+  sourceDescription: All switching steps this operator is responsible for.
+  targetName: Operator
+  targetDescription: Operator responsible for this switching step.

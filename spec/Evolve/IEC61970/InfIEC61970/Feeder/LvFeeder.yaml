@@ -1,0 +1,31 @@
+name: LvFeeder
+description: A branch of LV network starting at a distribution substation and continuing until the end of the LV network.
+ancestors:
+- EquipmentContainer
+associations:
+- source: LvFeeder
+  target: Feeder
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  targetName: normalEnergizingFeeders
+- source: LvFeeder
+  target: Equipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  targetName: currentEquipment
+  targetDescription: Contained equipment using the current state of the network.
+- source: LvFeeder
+  target: Terminal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: normalHeadLvFeeder
+  sourceDescription: The LV feeder that this terminal normally feeds.
+  targetName: normalHeadTerminal
+  targetDescription: |2-
+
+    The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
+- source: Feeder
+  target: LvFeeder
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  targetName: normalEnergizedLvFeeders

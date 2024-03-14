@@ -1,0 +1,13 @@
+name: ASRequirements
+description: Models Ancillary Service Requirements.  Describes interval for which the requirement is applicable.
+attributes:
+- name: intervalStartTime
+  type: DateTime
+  description: The start of the time interval for which requirement is defined.
+associations:
+- source: ASRequirements
+  target: ReserveDemandCurve
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: ASRequirements
+  targetName: ReserveDemandCurve

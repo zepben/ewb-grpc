@@ -1,0 +1,13 @@
+name: ModelFrameType
+description: Examples would be "Boundary" or "Region" type of frame.
+ancestors:
+- IdentifiedObject
+associations:
+- source: FrameworkPart
+  target: ModelFrameType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ModelFrame
+  sourceDescription: Model frames of the model frame type.
+  targetName: ModelFrameType
+  targetDescription: Model frame type of the model frame.

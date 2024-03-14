@@ -1,0 +1,40 @@
+name: BranchGroup
+description: A group of branch terminals whose directed flow summation is to be monitored. A branch group need not form a
+  cutset of the network.
+attributes:
+- name: maximumActivePower
+  type: ActivePower
+  description: The maximum active power flow.
+- name: maximumReactivePower
+  type: ReactivePower
+  description: The maximum reactive power flow.
+- name: minimumActivePower
+  type: ActivePower
+  description: The minimum active power flow.
+- name: minimumReactivePower
+  type: ReactivePower
+  description: The minimum reactive power flow.
+- name: monitorActivePower
+  type: Boolean
+  description: Monitor the active power flow.
+- name: monitorReactivePower
+  type: Boolean
+  description: Monitor the reactive power flow.
+ancestors:
+- IdentifiedObject
+associations:
+- source: BranchGroupTerminal
+  target: BranchGroup
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: BranchGroupTerminal
+  sourceDescription: The directed branch group terminals to be summed.
+  targetName: BranchGroup
+  targetDescription: The branch group to which the directed branch group terminals belong.
+- source: PinBranchGroup
+  target: BranchGroup
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PinBranchGroup
+  targetName: BranchGroup
+  targetDescription: The branch group that should be used in compare.

@@ -1,0 +1,29 @@
+name: ResponseMethod
+description: Specifies a category of energy usage that the demand response applies for; e.g. energy from lighting, HVAC, other.
+attributes:
+- name: activePower
+  type: Float
+  description: The active power value for the demand adjustment type. This supports requests to be made to a resource for
+    some amount of active power provided by a particular response method, as specified by the method attribute (e.g. lighting,
+    HVAC, wall mounted air conditioners, etc.).
+- name: activePowerUOM
+  type: String
+  description: The unit of measure of active power, e.g. kiloWatts (kW), megaWatts (mW), etc.
+- name: method
+  type: String
+  description: The response method (e.g. lighting, HVAC, wall mounted air conditioners, etc.).
+- name: siteMultiplier
+  type: Integer
+  description: This value provides for scaling of a response method's active power. For example, a response method of air
+    conditioning could utilize a small amount of active power from each air conditioning unit (e.g. 0.1 kiloWatt), but the
+    site multiplier could be used to produce a the total active power adjustment by multiplying the response method active
+    power by this value (e.g. a building with 100 window air conditioning  units, so 100 * 0.1 kW = 10 kW).
+ancestors:
+- IdentifiedObject
+associations:
+- source: ResponseMethod
+  target: RegisteredDistributedResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ResponseMethods
+  targetName: RegisteredResource

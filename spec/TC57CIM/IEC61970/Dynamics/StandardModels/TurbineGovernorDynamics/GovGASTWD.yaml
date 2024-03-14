@@ -1,0 +1,109 @@
+name: GovGASTWD
+description: "Woodward™ gas turbine governor. \n[Footnote: Woodward gas turbines are an example of suitable products available\
+  \ commercially. This information is given for the convenience of users of this document and does not constitute an endorsement\
+  \ by IEC of these products.]"
+attributes:
+- name: a
+  type: Float
+  description: Valve positioner (<i>A</i>).
+- name: af1
+  type: PU
+  description: Exhaust temperature parameter (<i>Af1</i>).
+- name: af2
+  type: PU
+  description: Coefficient equal to 0,5(1-speed) (<i>Af2</i>).
+- name: b
+  type: Float
+  description: Valve positioner (<i>B</i>).
+- name: bf1
+  type: PU
+  description: (<i>Bf1</i>).  <i>Bf1</i> = <i>E</i>(1-<i>w</i>) where <i>E</i> (speed sensitivity coefficient) is 0,55 to
+    0,65 x <i>Tr</i>.
+- name: bf2
+  type: PU
+  description: Turbine torque coefficient K<sub>hhv</sub> (depends on heating value of fuel stream in combustion chamber)
+    (<i>Bf2</i>).
+- name: c
+  type: Float
+  description: Valve positioner (<i>C</i>).
+- name: cf2
+  type: PU
+  description: Coefficient defining fuel flow where power output is 0 % (<i>Cf2</i>).  Synchronous but no output.  Typically
+    0,23 x K<sub>hhv </sub>(23 % fuel flow).
+- name: ecr
+  type: Seconds
+  description: Combustion reaction time delay (<i>Ecr</i>) (&gt;= 0).
+- name: etd
+  type: Seconds
+  description: Turbine and exhaust delay (<i>Etd</i>) (&gt;= 0).
+- name: k3
+  type: PU
+  description: Ratio of fuel adjustment (<i>K3</i>).
+- name: k4
+  type: PU
+  description: Gain of radiation shield (<i>K4</i>).
+- name: k5
+  type: PU
+  description: Gain of radiation shield (<i>K5</i>).
+- name: k6
+  type: PU
+  description: Minimum fuel flow (<i>K6</i>).
+- name: kd
+  type: PU
+  description: Drop governor gain (<i>Kd</i>).
+- name: kdroop
+  type: PU
+  description: (<i>Kdroop</i>) (&gt;= 0).
+- name: kf
+  type: PU
+  description: Fuel system feedback (<i>Kf</i>).
+- name: ki
+  type: PU
+  description: Isochronous Governor Gain (<i>Ki</i>).
+- name: kp
+  type: PU
+  description: PID proportional gain (<i>Kp</i>).
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: t
+  type: Seconds
+  description: Fuel control time constant (<i>T</i>) (&gt;= 0).
+- name: t3
+  type: Seconds
+  description: Radiation shield time constant (<i>T3</i>) (&gt;= 0).
+- name: t4
+  type: Seconds
+  description: Thermocouple time constant (<i>T4</i>) (&gt;= 0).
+- name: t5
+  type: Seconds
+  description: Temperature control time constant (<i>T5</i>) (&gt;= 0).
+- name: tc
+  type: Temperature
+  description: Temperature control (<i>Tc</i>).
+- name: tcd
+  type: Seconds
+  description: Compressor discharge time constant (<i>Tcd</i>) (&gt;= 0).
+- name: td
+  type: Seconds
+  description: Power transducer time constant (<i>Td</i>) (&gt;= 0).
+- name: tf
+  type: Seconds
+  description: Fuel system time constant (<i>Tf</i>) (&gt;= 0).
+- name: tmax
+  type: PU
+  description: Maximum Turbine limit (<i>Tmax</i>) (&gt; GovGASTWD.tmin).
+- name: tmin
+  type: PU
+  description: Minimum turbine limit (<i>Tmin</i>) (&lt; GovGASTWD.tmax).
+- name: tr
+  type: Temperature
+  description: Rated temperature (<i>Tr</i>).
+- name: trate
+  type: ActivePower
+  description: Turbine rating (<i>Trate</i>).  Unit = MW.
+- name: tt
+  type: Seconds
+  description: Temperature controller integration rate (<i>Tt</i>) (&gt;= 0).
+ancestors:
+- TurbineGovernorDynamics

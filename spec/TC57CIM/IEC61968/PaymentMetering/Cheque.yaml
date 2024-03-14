@@ -1,0 +1,27 @@
+name: Cheque
+description: The actual tender when it is a type of cheque.
+attributes:
+- name: bankAccountDetail
+  type: BankAccountDetail
+  description: Details of the account holder and bank.
+- name: chequeNumber
+  type: String
+  description: Cheque reference number as printed on the cheque.
+- name: date
+  type: Date
+  description: Date when cheque becomes valid.
+- name: kind
+  type: ChequeKind
+  description: Kind of cheque.
+- name: micrNumber
+  type: String
+  description: The magnetic ink character recognition number printed on the cheque.
+associations:
+- source: Cheque
+  target: Tender
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: Cheque
+  sourceDescription: Cheque used to tender payment.
+  targetName: Tender
+  targetDescription: Payment tender the cheque is being used for.

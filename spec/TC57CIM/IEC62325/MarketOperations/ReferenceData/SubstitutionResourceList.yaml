@@ -1,0 +1,20 @@
+name: SubstitutionResourceList
+description: List of resources that can be substituted for within the bounds of a Contract definition. This class has a precedence
+  and a resource.
+attributes:
+- name: precedence
+  type: Integer
+  description: An indicator of the order a resource should be substituted. The lower the number the higher the precedence.
+associations:
+- source: ContractRight
+  target: SubstitutionResourceList
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TransmissionContractRight
+  targetName: SubstitutionResourceList
+- source: RegisteredResource
+  target: SubstitutionResourceList
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: SubstitutionResourceList

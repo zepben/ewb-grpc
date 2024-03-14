@@ -1,0 +1,62 @@
+name: MarketPerson
+description: General purpose information for name and other information to contact people.
+attributes:
+- name: category
+  type: String
+  description: |-
+    Category of this person relative to utility operations, classified according to the utility's corporate standards and practices. Examples include employee, contractor, agent, not affiliated, etc.
+    This field is not used to indicate whether this person is a customer of the utility. Often an employee or contractor is also a customer. Customer information is gained with relationship to Organisation and CustomerData. In similar fashion, this field does not indicate the various roles this person may fill as part of utility operations.
+- name: electronicAddressAlternate
+  type: ElectronicAddress
+  description: Alternate Electronic address.
+- name: electronicAddressPrimary
+  type: ElectronicAddress
+  description: Primary Electronic address.
+- name: firstName
+  type: String
+  description: Person's first name.
+- name: governmentID
+  type: String
+  description: Unique identifier for person relative to its governing authority, for example a federal tax identifier (such
+    as a Social Security number in the United States).
+- name: landlinePhone
+  type: TelephoneNumber
+  description: Landline phone number.
+- name: lastName
+  type: String
+  description: ' Person''s last (family, sir) name.'
+- name: mName
+  type: String
+  description: ' Middle name(s) or initial(s).'
+- name: mobilePhone
+  type: TelephoneNumber
+  description: Mobile phone number.
+- name: prefix
+  type: String
+  description: A prefix or title for the person's name, such as Miss, Mister, Doctor, etc.
+- name: specialNeed
+  type: String
+  description: Special service needs for the person (contact) are described; examples include life support, etc.
+- name: status
+  type: Status
+- name: suffix
+  type: String
+  description: A suffix for the person's name, such as II, III, etc.
+- name: userID
+  type: String
+  description: The user name for the person; required to log in.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MarketPerson
+  target: MarketSkill
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MarketPerson
+  targetName: MarketSkills
+- source: MarketParticipant
+  target: MarketPerson
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketParticipant
+  targetName: MarketPerson

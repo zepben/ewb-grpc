@@ -1,0 +1,19 @@
+name: MarketObjectStatus
+description: The condition or position of an object with regard to its standing.
+attributes:
+- name: status
+  type: String
+  description: The coded condition or position of an object with regard to its standing.
+associations:
+- source: MarketObjectStatus
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketObjectStatus
+  targetName: TimeSeries
+- source: MarketObjectStatus
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketObjectStatus
+  targetName: RegisteredResource

@@ -1,0 +1,26 @@
+name: SysLoadDistributionFactor
+description: This class models the system distribution factors. This class needs to be used along with the HostControlArea
+  and the ConnectivityNode to show the distribution of each individual party.
+attributes:
+- name: factor
+  type: Float
+  description: Used to calculate load "participation" of a connectivity node in an host control area
+associations:
+- source: SysLoadDistributionFactor
+  target: MktConnectivityNode
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: SysLoadDistribuFactor
+  targetName: MktConnectivityNode
+- source: DistributionFactorSet
+  target: SysLoadDistributionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DistributionFactorSet
+  targetName: SysLoadDistribuFactor
+- source: HostControlArea
+  target: SysLoadDistributionFactor
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: HostControlArea
+  targetName: SysLoadDistribuFactor

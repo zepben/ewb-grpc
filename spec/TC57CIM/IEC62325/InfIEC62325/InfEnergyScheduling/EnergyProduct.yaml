@@ -1,0 +1,37 @@
+name: EnergyProduct
+description: An EnergyProduct is offered commercially as a ContractOrTariff.
+ancestors:
+- Agreement
+associations:
+- source: EnergyProduct
+  target: Marketer
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Resells_EnergyProduct
+  sourceDescription: A Marketer may resell an EnergyProduct.
+  targetName: ResoldBy_Marketer
+  targetDescription: A Marketer may resell an EnergyProduct.
+- source: EnergyProduct
+  target: GenerationProvider
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: ProvidedBy
+  targetName: GenerationProvider
+- source: EnergyProduct
+  target: Marketer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: HoldsTitleTo_EnergyProducts
+  sourceDescription: A Marketer holds title to an EnergyProduct.
+  targetName: TitleHeldBy_Marketer
+  targetDescription: A Marketer holds title to an EnergyProduct.
+- source: EnergyTransaction
+  target: EnergyProduct
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: EnergyTransactions
+  sourceDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
+    this is a ServicePoint.
+  targetName: EnergyProduct
+  targetDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
+    this is a ServicePoint.

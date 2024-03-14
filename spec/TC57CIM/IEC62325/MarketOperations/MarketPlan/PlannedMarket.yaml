@@ -1,0 +1,37 @@
+name: PlannedMarket
+description: Represent a planned market. For example a planned DA/HA/RT market.
+attributes:
+- name: marketEndTime
+  type: DateTime
+  description: Market end time.
+- name: marketStartTime
+  type: DateTime
+  description: Market start time.
+- name: marketType
+  type: MarketType
+  description: Market type.
+associations:
+- source: PlannedMarket
+  target: PlannedMarketEvent
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: PlannedMarket
+  sourceDescription: A planned market shall have a set of planned events
+  targetName: PlannedMarketEvent
+  targetDescription: A planned market shall have a set of planned events
+- source: PlannedMarket
+  target: MarketRun
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: PlannedMarket
+  sourceDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
+  targetName: MarketRun
+  targetDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
+- source: MarketPlan
+  target: PlannedMarket
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: MarketPlan
+  sourceDescription: A market plan has a number of markets (DA, HA, RT).
+  targetName: PlannedMarket
+  targetDescription: A market plan has a number of markets (DA, HA, RT).

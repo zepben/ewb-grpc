@@ -1,0 +1,28 @@
+name: ResourcePerformanceRating
+description: Rating of a resource for its demand response performance. e.g. given a set on monthly resource demand response
+  performance evaluations, the resource may be rated with excellent, average, or poor performance for the sample set.
+attributes:
+- name: effectiveEndTime
+  type: DateTime
+  description: starting date time that the rating is valid for
+- name: effectiveStartTime
+  type: DateTime
+  description: ending date time that the rating is valid for
+- name: ratingDescription
+  type: String
+  description: the resource's demand response rating description
+- name: ratingType
+  type: String
+  description: the type of performance rating, e.g. which market or product the rating is for
+- name: ratingValue
+  type: String
+  description: the resource's demand response rating
+ancestors:
+- IdentifiedObject
+associations:
+- source: ResourcePerformanceRating
+  target: RegisteredDistributedResource
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ResourcePerformanceRatings
+  targetName: RegisteredResource

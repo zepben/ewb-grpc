@@ -1,0 +1,16 @@
+name: InterchangeETCData
+description: Existing Transmission Contract data for an interchange schedule.
+attributes:
+- name: contractNumber
+  type: String
+  description: Existing transmission contract number
+- name: usageMW
+  type: Float
+  description: Existing transmission contract usage MW value
+associations:
+- source: InterchangeSchedule
+  target: InterchangeETCData
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: InterchangeSchedule
+  targetName: InterchangeETCData

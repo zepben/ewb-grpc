@@ -1,0 +1,21 @@
+name: InstanceSet
+description: Instance of a version of a model part.   This corresponds to a payload of instance data.
+ancestors:
+- DataSet
+associations:
+- source: DatasetArg
+  target: InstanceSet
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: DatasetArg
+  sourceDescription: The role of a dataset in the context of an operation.
+  targetName: Dataset
+  targetDescription: Dataset referenced by this argument of a model operation..
+- source: IdentifiedObject
+  target: InstanceSet
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: InstanceSetMember
+  sourceDescription: Data objects contained in the dataset.
+  targetName: InstanceSet
+  targetDescription: Dataset containing the data objects.

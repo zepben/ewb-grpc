@@ -1,0 +1,52 @@
+name: PanPricingDetail
+description: Detail for a single price command/action.
+attributes:
+- name: alternateCostDelivered
+  type: Float
+  description: Alternative measure of the cost of the energy consumed. An example might be the emissions of CO2 for each kWh
+    of electricity consumed providing a measure of the environmental cost.
+- name: alternateCostUnit
+  type: String
+  description: Cost unit for the alternate cost delivered field. One example is kg of CO2 per unit of measure.
+- name: currentTimeDate
+  type: DateTime
+  description: Current time as determined by a PAN device.
+- name: generationPrice
+  type: Money
+  description: Price of the commodity measured in base unit of currency per 'unitOfMeasure'.
+- name: generationPriceRatio
+  type: Float
+  description: Ratio of 'generationPrice' to the "normal" price chosen by the commodity provider.
+- name: price
+  type: Money
+  description: Price of the commodity measured in base unit of currency per 'unitOfMeasure'.
+- name: priceRatio
+  type: Float
+  description: Ratio of 'price' to the "normal" price chosen by the commodity provider.
+- name: priceTier
+  type: Integer
+  description: Pricing tier as chosen by the commodity provider.
+- name: priceTierCount
+  type: Integer
+  description: Maximum number of price tiers available.
+- name: priceTierLabel
+  type: String
+  description: Label for price tier.
+- name: rateLabel
+  type: String
+  description: Label of the current billing rate specified by commodity provider.
+- name: registerTier
+  type: String
+  description: Register tier accumulating usage information.
+- name: unitOfMeasure
+  type: String
+  description: Defines commodity as well as its base unit of measure.
+associations:
+- source: PanPricing
+  target: PanPricingDetail
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PanPricing
+  sourceDescription: PAN pricing command/action issuing this price detail.
+  targetName: PanPricingDetails
+  targetDescription: All pricing details issued by this PAN pricing command/action.

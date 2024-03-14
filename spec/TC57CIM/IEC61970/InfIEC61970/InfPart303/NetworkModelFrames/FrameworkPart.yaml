@@ -1,0 +1,24 @@
+name: FrameworkPart
+description: The type of alternate model frame.  For example, it could be generator group used to represent generators in
+  state estimator, planning, planning dynamics, short circuit, or real-time dynamics etc., but does not specifically represent
+  any one alternative model. This need to know what objects to be removed in the realization of any one alternate model.
+ancestors:
+- ModelAuthoritySet
+descendents:
+- NetworkFrame
+- NetworkBoundary
+associations:
+- source: FrameworkPart
+  target: ModelFrameType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ModelFrame
+  sourceDescription: Model frames of the model frame type.
+  targetName: ModelFrameType
+  targetDescription: Model frame type of the model frame.
+- source: NetworkFrame
+  target: FrameworkPart
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Frame
+  targetName: FrameworkPart

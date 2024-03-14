@@ -1,0 +1,25 @@
+name: GeneralClearingResults
+description: Provides the adjusted load forecast value on a load forecast zone basis.
+attributes:
+- name: loadForecast
+  type: ActivePower
+  description: Load Prediction/Forecast (MW), by Time Period (5', 10', 15')
+- name: totalLoad
+  type: Float
+  description: "Amount of load in the control zone \nAttribute Usage: hourly load value for the specific area"
+- name: totalNetInterchange
+  type: Float
+  description: "Amount of interchange for the control zone \nAttribute Usage: hourly interchange value for the specific area"
+associations:
+- source: GeneralClearing
+  target: GeneralClearingResults
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GeneralClearing
+  targetName: GeneralClearingResults
+- source: SubControlArea
+  target: GeneralClearingResults
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SubControlArea
+  targetName: GeneralClearingResults

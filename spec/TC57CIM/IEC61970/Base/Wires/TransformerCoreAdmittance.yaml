@@ -1,0 +1,37 @@
+name: TransformerCoreAdmittance
+description: The transformer core admittance.  Used to specify the core admittance of a transformer in a manner that can be
+  shared among power transformers.
+attributes:
+- name: b
+  type: Susceptance
+  description: Magnetizing branch susceptance (B mag).  The value can be positive or negative.
+- name: b0
+  type: Susceptance
+  description: Zero sequence magnetizing branch susceptance.
+- name: g
+  type: Conductance
+  description: Magnetizing branch conductance (G mag).
+- name: g0
+  type: Conductance
+  description: Zero sequence magnetizing branch conductance.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TransformerCoreAdmittance
+  target: TransformerEnd
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CoreAdmittance
+  sourceDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values
+    of the transformer should be supplied for one transformer end only.
+  targetName: TransformerEnd
+  targetDescription: All transformer ends having this core admittance.
+- source: TransformerEndInfo
+  target: TransformerCoreAdmittance
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TransformerEndInfo
+  sourceDescription: Transformer end datasheet used to calculate this core admittance.
+  targetName: CoreAdmittance
+  targetDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and
+    core losses. The full values of the transformer should be supplied for one transformer end info only.

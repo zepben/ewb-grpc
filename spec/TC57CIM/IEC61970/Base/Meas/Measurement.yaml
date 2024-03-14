@@ -1,0 +1,114 @@
+name: Measurement
+description: "A Measurement represents any measured, calculated or non-measured non-calculated quantity. Any piece of equipment\
+  \ may contain Measurements, e.g. a substation may have temperature measurements and door open indications, a transformer\
+  \ may have oil temperature and tank pressure measurements, a bay may contain a number of power flow measurements and a Breaker\
+  \ may contain a switch status measurement. \nThe PSR - Measurement association is intended to capture this use of Measurement\
+  \ and is included in the naming hierarchy based on EquipmentContainer. The naming hierarchy typically has Measurements as\
+  \ leaves, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.\nSome Measurements represent quantities related to a particular\
+  \ sensor location in the network, e.g. a voltage transformer (VT) or potential transformer (PT) at a busbar or a current\
+  \ transformer (CT) at the bar between a breaker and an isolator. The sensing position is not captured in the PSR - Measurement\
+  \ association. Instead it is captured by the Measurement - Terminal association that is used to define the sensing location\
+  \ in the network topology. The location is defined by the connection of the Terminal to ConductingEquipment. \nIf both a\
+  \ Terminal and PSR are associated, and the PSR is of type ConductingEquipment, the associated Terminal should belong to\
+  \ that ConductingEquipment instance.\nWhen the sensor location is needed both Measurement-PSR and Measurement-Terminal are\
+  \ used. The Measurement-Terminal association is never used alone."
+attributes:
+- name: measurementType
+  type: String
+  description: |-
+    Specifies the type of measurement.  For example, this specifies if the measurement represents an indoor temperature, outdoor temperature, bus voltage, line flow, etc.
+    When the measurementType is set to "Specialization", the type of Measurement is defined in more detail by the specialized class which inherits from Measurement.
+- name: phases
+  type: PhaseCode
+  description: |-
+    Indicates to which phases the measurement applies and avoids the need to use 'measurementType' to also encode phase information (which would explode the types). The phase information in Measurement, along with 'measurementType' and 'phases' uniquely defines a Measurement for a device, based on normal network phase. Their meaning will not change when the computed energizing phasing is changed due to jumpers or other reasons.
+    If the attribute is missing three phases (ABC) shall be assumed.
+- name: unitMultiplier
+  type: UnitMultiplier
+  description: The unit multiplier of the measured quantity.
+- name: unitSymbol
+  type: UnitSymbol
+  description: The unit of measure of the measured quantity.
+ancestors:
+- IdentifiedObject
+descendents:
+- Analog
+- Discrete
+- Accumulator
+- StringMeasurement
+- MktMeasurement
+associations:
+- source: Measurement
+  target: ACDCTerminal
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Measurements
+  sourceDescription: Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It
+    may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current
+    transformer (CT) at the bar between a breaker and an isolator.
+  targetName: Terminal
+  targetDescription: One or more measurements may be associated with a terminal in the network.
+- source: Measurement
+  target: ProtectiveActionAdjustment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Measurement
+  sourceDescription: The measurement is used to control the operation of an equipment.
+  targetName: ProtectiveActionAdjustment
+- source: Measurement
+  target: CalculationMethodHierarchy
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Measurement
+  sourceDescription: Measurement to which this calculation method hierarchy applies.
+  targetName: CalculationMethodHierarchy
+  targetDescription: Calculation method hierarchy which applies to this analog.
+- source: PowerSystemResource
+  target: Measurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PowerSystemResource
+  sourceDescription: The power system resource that contains the measurement.
+  targetName: Measurements
+  targetDescription: The measurements associated with this power system resource.
+- source: PinMeasurement
+  target: Measurement
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PinMeasurement
+  targetName: Measurement
+  targetDescription: The Measurement that should be used in compare.
+- source: MeasurementCalculatorInput
+  target: Measurement
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MeasurementCalculatorInput
+  targetName: Measurement
+  targetDescription: Measurement used as input to a calculation.
+- source: Procedure
+  target: Measurement
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Procedures
+  sourceDescription: Measurements are specified in types of documents, such as procedures.
+  targetName: Measurements
+  targetDescription: Document containing this measurement.
+- source: Asset
+  target: Measurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Asset
+  targetName: Measurements
+  targetDescription: Measurement related to this asset.
+- source: MeasurementAction
+  target: Measurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: MeasurementAction
+  targetName: Measurement
+- source: Location
+  target: Measurement
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Locations
+  targetName: Measurements

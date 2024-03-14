@@ -1,0 +1,24 @@
+name: ShuntCompensatorInfo
+description: Properties of shunt capacitor, shunt reactor or switchable bank of shunt capacitor or reactor assets.
+attributes:
+- name: maxPowerLoss
+  type: ApparentPower
+  description: Maximum allowed apparent power loss.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: Rated current.
+- name: ratedReactivePower
+  type: ReactivePower
+  description: Rated reactive power.
+- name: ratedVoltage
+  type: Voltage
+  description: Rated voltage.
+ancestors:
+- AssetInfo
+associations:
+- source: ShuntCompensatorInfo
+  target: ShuntCompensatorControl
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ShuntCompensatorInfo
+  targetName: ShuntCompensatorControl

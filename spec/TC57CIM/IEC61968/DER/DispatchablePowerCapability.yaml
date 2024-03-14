@@ -1,0 +1,44 @@
+name: DispatchablePowerCapability
+attributes:
+- name: currentActivePower
+  type: ActivePower
+  description: The current level of active power for a DER group
+- name: currentApparentPower
+  type: ApparentPower
+  description: The current level of apparent power for a DER group
+- name: currentReactivePower
+  type: ReactivePower
+  description: The current level of reactive power for a DER group
+- name: maxActivePower
+  type: ActivePower
+  description: The maximum level of active power to which a DER group can be set
+- name: maxApparentPower
+  type: ApparentPower
+  description: The maximum level of apparent power to which a DER group can be set
+- name: maxReactivePower
+  type: ReactivePower
+  description: The maximum level of reactive power to which a DER group can be set
+- name: minActivePower
+  type: ActivePower
+  description: The minimum level of active power to which a DER group can be set
+- name: minApparentPower
+  type: ApparentPower
+  description: The minimum level of apparent power to which a DER group can be set
+- name: minReactivePower
+  type: ReactivePower
+  description: The minimum level of reactive power to which a DER group can be set
+associations:
+- source: EndDeviceGroup
+  target: DispatchablePowerCapability
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: EndDeviceGroup
+  sourceDescription: EndDeviceGroup is used in metering to group end devices, this same class is used to group DER
+  targetName: DispatchablePowerCapability
+- source: EndDevice
+  target: DispatchablePowerCapability
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EndDevice
+  sourceDescription: The generic class to support all field end devices such as meters or smart inverters
+  targetName: DispatchablePowerCapability

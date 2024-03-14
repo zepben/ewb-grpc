@@ -1,0 +1,76 @@
+name: ExcDC2A
+description: Modified IEEE DC2A direct current commutator exciter with speed input, one more leg block in feedback loop and
+  without underexcitation limiters (UEL) inputs.  DC type 2 excitation system model with added speed multiplier, added lead-lag,
+  and voltage-dependent limits.
+attributes:
+- name: efd1
+  type: PU
+  description: Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>1</sub></i>) (&gt; 0).  Typical value
+    = 3,05.
+- name: efd2
+  type: PU
+  description: Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>2</sub></i>) (&gt; 0).  Typical value
+    = 2,29.
+- name: exclim
+  type: Boolean
+  description: |-
+    (<i>exclim</i>).  IEEE standard is ambiguous about lower limit on exciter output.
+    true = a lower limit of zero is applied to integrator output
+    false = a lower limit of zero is not applied to integrator output.
+    Typical value = true.
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 300.
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>Ke</i>).  If <i>Ke</i> is entered as zero, the model calculates
+    an effective value of <i>Ke</i> such that the initial condition value of <i>Vr</i> is zero. The zero value of <i>Ke</i>
+    is not changed.  If <i>Ke</i> is entered as non-zero, its value is used directly, without change.  Typical value = 1.
+- name: kf
+  type: PU
+  description: Excitation control system stabilizer gain (<i>Kf</i>) (&gt;= 0).  Typical value = 0,1.
+- name: ks
+  type: PU
+  description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
+- name: seefd1
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>1</sub></i> (<i>Se[Efd</i><i><sub>1</sub></i><i>]</i>)
+    (&gt;= 0).  Typical value = 0,279.
+- name: seefd2
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>2</sub></i> (<i>Se[Efd</i><i><sub>2</sub></i><i>]</i>)
+    (&gt;= 0).  Typical value = 0,117.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,01.
+- name: tb
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 0.
+- name: tc
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value
+    = 1,33.
+- name: tf
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt; 0).  Typical value = 0,675.
+- name: tf1
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf1</i>) (&gt;= 0).  Typical value = 0.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vrmax</i>) (&gt; ExcDC2A.vrmin).  Typical value = 4,95.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vrmin</i>) (&lt; 0 and &lt; ExcDC2A.vrmax).  Typical value = -4,9.
+- name: vtlim
+  type: Boolean
+  description: |-
+    (<i>Vtlim</i>).
+    true = limiter at the block (<i>Ka / [1 + sTa]</i>) is dependent on <i>Vt </i>
+    false = limiter at the block is not dependent on <i>Vt</i>.
+    Typical value = true.
+ancestors:
+- ExcitationSystemDynamics

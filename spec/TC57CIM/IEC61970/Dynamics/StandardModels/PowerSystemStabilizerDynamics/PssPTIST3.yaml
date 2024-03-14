@@ -1,0 +1,111 @@
+name: PssPTIST3
+description: PTI microprocessor-based stabilizer type 3.
+attributes:
+- name: a0
+  type: PU
+  description: Filter coefficient (<i>A0</i>).
+- name: a1
+  type: PU
+  description: Limiter (<i>Al</i>).
+- name: a2
+  type: PU
+  description: Filter coefficient (<i>A2</i>).
+- name: a3
+  type: PU
+  description: Filter coefficient (<i>A3</i>).
+- name: a4
+  type: PU
+  description: Filter coefficient (<i>A4</i>).
+- name: a5
+  type: PU
+  description: Filter coefficient (<i>A5</i>).
+- name: al
+  type: PU
+  description: Limiter (<i>Al</i>).
+- name: athres
+  type: PU
+  description: Threshold value above which output averaging will be bypassed (<i>Athres</i>).  Typical value = 0,005.
+- name: b0
+  type: PU
+  description: Filter coefficient (<i>B0</i>).
+- name: b1
+  type: PU
+  description: Filter coefficient (<i>B1</i>).
+- name: b2
+  type: PU
+  description: Filter coefficient (<i>B2</i>).
+- name: b3
+  type: PU
+  description: Filter coefficient (<i>B3</i>).
+- name: b4
+  type: PU
+  description: Filter coefficient (<i>B4</i>).
+- name: b5
+  type: PU
+  description: Filter coefficient (<i>B5</i>).
+- name: dl
+  type: PU
+  description: Limiter (<i>Dl</i>).
+- name: dtc
+  type: Seconds
+  description: Time step related to activation of controls (<i>deltatc</i>) (&gt;= 0).  Typical value = 0,025 (0,03 for 50
+    Hz).
+- name: dtf
+  type: Seconds
+  description: Time step frequency calculation (<i>deltatf</i>) (&gt;= 0).  Typical value = 0,025 (0,03 for 50 Hz).
+- name: dtp
+  type: Seconds
+  description: Time step active power calculation (<i>deltatp</i>) (&gt;= 0).  Typical value = 0,0125  (0,015 for 50 Hz).
+- name: isw
+  type: Boolean
+  description: |-
+    Digital/analogue output switch (<i>Isw</i>).
+    true = produce analogue output
+    false = convert to digital output, using tap selection table.
+- name: k
+  type: PU
+  description: Gain (<i>K</i>).  Typical value = 9.
+- name: lthres
+  type: PU
+  description: Threshold value (<i>Lthres</i>).
+- name: m
+  type: PU
+  description: (<i>M</i>).  <i>M</i> = 2 x <i>H</i>.  Typical value = 5.
+- name: nav
+  type: Float
+  description: Number of control outputs to average (<i>NAV</i>) (1 &lt;=  <i>NAV</i> &lt;= 16).  Typical value = 4.
+- name: ncl
+  type: Float
+  description: Number of counts at limit to active limit function (<i>NCL</i>) (&gt; 0).
+- name: ncr
+  type: Float
+  description: Number of counts until reset after limit function is triggered (<i>NCR</i>).
+- name: pmin
+  type: PU
+  description: (<i>Pmin</i>).
+- name: t1
+  type: Seconds
+  description: Time constant (<i>T1</i>) (&gt;= 0).  Typical value = 0,3.
+- name: t2
+  type: Seconds
+  description: Time constant (<i>T2</i>) (&gt;= 0).  Typical value = 1.
+- name: t3
+  type: Seconds
+  description: Time constant (<i>T3</i>) (&gt;= 0).  Typical value = 0,2.
+- name: t4
+  type: Seconds
+  description: Time constant (<i>T4</i>) (&gt;= 0).  Typical value = 0,05.
+- name: t5
+  type: Seconds
+  description: Time constant (<i>T5</i>) (&gt;= 0).
+- name: t6
+  type: Seconds
+  description: Time constant (<i>T6</i>) (&gt;= 0).
+- name: tf
+  type: Seconds
+  description: Time constant (<i>Tf</i>) (&gt;= 0).  Typical value = 0,2.
+- name: tp
+  type: Seconds
+  description: Time constant (<i>Tp</i>) (&gt;= 0).  Typical value = 0,2.
+ancestors:
+- PowerSystemStabilizerDynamics

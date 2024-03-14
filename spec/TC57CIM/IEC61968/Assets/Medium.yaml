@@ -1,0 +1,28 @@
+name: Medium
+description: A substance that either (1) provides the means of transmission of a force or effect, such as hydraulic fluid,
+  or (2) is used for a surrounding or enveloping substance, such as oil in a transformer or circuit breaker.
+attributes:
+- name: kind
+  type: MediumKind
+  description: Kind of this medium.
+- name: volumeSpec
+  type: Volume
+  description: The volume of the medium specified for this application. Note that the actual volume is a type of measurement
+    associated witht the asset.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Medium
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Medium
+  sourceDescription: Medium with which this asset is filled.
+  targetName: Asset
+  targetDescription: Medium with which this asset is filled.
+- source: Specification
+  target: Medium
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Specification
+  targetName: Mediums

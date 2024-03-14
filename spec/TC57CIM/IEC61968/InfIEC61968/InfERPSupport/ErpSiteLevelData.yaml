@@ -1,0 +1,16 @@
+name: ErpSiteLevelData
+description: For a utility, general information that describes physical locations of organizations or the location codes and
+  their meanings. This enables ERP applications to ensure that the physical location identifiers are synchronized between
+  the business applications.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: LandProperty
+  target: ErpSiteLevelData
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: LandProperty
+  targetName: ErpSiteLevelDatas

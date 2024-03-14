@@ -1,0 +1,60 @@
+name: MarketRun
+description: This class represents an actual instance of a planned market. For example, a Day Ahead market opens with the
+  Bid Submission, ends with the closing of the Bid Submission. The market run represent the whole process. MarketRuns can
+  be defined for markets such as Day Ahead Market, Real Time Market, Hour Ahead Market, Week Ahead Market, etc.
+attributes:
+- name: executionType
+  type: ExecutionType
+  description: The execution type; Day Ahead, Intra Day, Real Time Pre-Dispatch, Real Time Dispatch
+- name: marketApprovalTime
+  type: DateTime
+  description: Approved time for case. Identifies the time that the dispatcher approved a specific real time unit dispatch
+    case
+- name: marketApprovedStatus
+  type: Boolean
+  description: Set to true when the plan is approved by authority and becomes the official plan for the day ahead market.
+    Identifies the approved case for the market for the specified time interval.
+- name: marketEndTime
+  type: DateTime
+  description: The end time defined as the end of the market, market end time.
+- name: marketStartTime
+  type: DateTime
+  description: The start time defined as the beginning of the market, market start time.
+- name: marketType
+  type: MarketType
+  description: The market type, Day Ahead Market or Real Time Market.
+- name: reportedState
+  type: String
+  description: This is the state of market run activity as reported by market systems to the market definition services.
+- name: runState
+  type: String
+  description: |-
+    This is the state controlled by market defintion service.
+    Possible values could be but not limited by: Open, Close.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MarketRun
+  target: Market
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MarketRun
+  targetName: Market
+- source: PlannedMarket
+  target: MarketRun
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: PlannedMarket
+  sourceDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
+  targetName: MarketRun
+  targetDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
+- source: MarketActualEvent
+  target: MarketRun
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: MarketActualEvent
+  sourceDescription: All actual events that trigger this market run.
+  targetName: MarketRun
+  targetDescription: Market run triggered by this actual event. For example, the DA market run is triggered by the actual
+    open bid submission event and terminated by the actual execution and completion of the DA market run captured by the runState
+    of the MarketRun.

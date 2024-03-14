@@ -1,0 +1,60 @@
+name: ExcST1A
+description: Modification of an old IEEE ST1A static excitation system without overexcitation limiter (OEL) and underexcitation
+  limiter (UEL).
+attributes:
+- name: tf
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt;= 0).  Typical value = 1.
+- name: vamax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vamax</i>) (&gt; 0).  Typical value = 999.
+- name: vamin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vamin</i>) (&lt; 0).  Typical value = -999.
+- name: vimax
+  type: PU
+  description: Maximum voltage regulator input limit (<i>Vimax</i>) (&gt; 0).  Typical value = 999.
+- name: vimin
+  type: PU
+  description: Minimum voltage regulator input limit (<i>Vimin</i>) (&lt; 0).  Typical value = -999.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator outputs (<i>Vrmax</i>) (&gt; 0) .  Typical value = 7,8.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator outputs (<i>Vrmin</i>) (&lt; 0).  Typical value = -6,7.
+- name: xe
+  type: PU
+  description: Excitation xfmr effective reactance (<i>Xe</i>).  Typical value = 0,04.
+- name: ilr
+  type: PU
+  description: Exciter output current limit reference (<i>Ilr</i>).  Typical value = 0.
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 190.
+- name: kc
+  type: PU
+  description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,05.
+- name: kf
+  type: PU
+  description: Excitation control system stabilizer gains (<i>Kf</i>) (&gt;= 0).  Typical value = 0.
+- name: klr
+  type: PU
+  description: Exciter output current limiter gain (<i>Klr</i>).  Typical value = 0.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0,02.
+- name: tb
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 10.
+- name: tb1
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tb1</i>) (&gt;= 0).  Typical value = 0.
+- name: tc
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 1.
+- name: tc1
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tc1</i>) (&gt;= 0).  Typical value = 0.
+ancestors:
+- ExcitationSystemDynamics

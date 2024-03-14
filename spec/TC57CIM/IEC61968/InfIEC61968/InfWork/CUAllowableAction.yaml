@@ -1,0 +1,14 @@
+name: CUAllowableAction
+description: 'Allowed actions: Install, Remove, Transfer, Abandon, etc.'
+attributes:
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: CUAllowableAction
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CUAllowableAction
+  targetName: CompatibleUnits

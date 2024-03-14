@@ -1,0 +1,33 @@
+name: ResourceOperationMaintenanceCost
+description: To model the Operation and Maintenance (O and M) costs of a generation resource.
+attributes:
+- name: gasPercentAboveLowSustainedLimit
+  type: PerCent
+  description: Percentage of Fuel Index Price (gas) for operating above Low Sustained Limit (LSL)
+- name: oilPercentAboveLowSustainedLimit
+  type: PerCent
+  description: Percentage of Fuel Oil Price (FOP) for operating above Low Sustained Limit (LSL)
+- name: omCostColdStartup
+  type: Float
+  description: Verifiable O&amp;M Cost ($), Cold Startup
+- name: omCostHotStartup
+  type: Float
+  description: Verifiable O&amp;M Cost ($), Hot Startup
+- name: omCostIntermediateStartup
+  type: Float
+  description: Verifiable O&amp;M Cost ($), Intermediate Startup
+- name: omCostLowSustainedLimit
+  type: Float
+  description: Verifiable O&amp;M Cost ($/MWh), LSL
+- name: solidfuelPercentAboveLowSustainedLimit
+  type: PerCent
+  description: Percentage of Solid Fuel for operating above Low Sustained Limit (LSL)
+ancestors:
+- Curve
+associations:
+- source: ResourceOperationMaintenanceCost
+  target: ResourceVerifiableCosts
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: ResourceOperationMaintenanceCost
+  targetName: ResourceVerifiableCosts

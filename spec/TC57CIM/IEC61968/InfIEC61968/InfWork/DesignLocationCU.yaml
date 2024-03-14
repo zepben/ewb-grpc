@@ -1,0 +1,63 @@
+name: DesignLocationCU
+description: Compatible unit at a given design location.
+attributes:
+- name: cuAccount
+  type: String
+  description: A code that helps direct accounting (capital, expense, or accounting treatment).
+- name: cuAction
+  type: WorkActionKind
+  description: A code that instructs the crew what action to perform.
+- name: cuQuantity
+  type: IntegerQuantity
+  description: The quantity of the CU being assigned to this location.
+- name: cuUsage
+  type: String
+  description: 'As the same CU can be used for different purposes and accounting purposes, usage must be specified. Examples
+    include: distribution, transmission, substation.'
+- name: removalDate
+  type: Date
+  description: Year when a CU that represents an asset is removed.
+- name: status
+  type: Status
+- name: toBeEnergised
+  type: Boolean
+  description: True if associated electrical equipment is intended to be energized while work is being performed.
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: DesignLocationCU
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DesignLocationCUs
+  targetName: WorkTasks
+- source: DesignLocationCU
+  target: Design
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DesignLocationsCUs
+  targetName: Designs
+- source: DesignLocationCU
+  target: ConditionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DesignLocationCUs
+  targetName: ConditionFactors
+- source: DesignLocationCU
+  target: CUGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DesignLocationCUs
+  targetName: CUGroups
+- source: DesignLocation
+  target: DesignLocationCU
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DesignLocation
+  targetName: DesignLocationCUs
+- source: CompatibleUnit
+  target: DesignLocationCU
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetName: DesignLocationCUs

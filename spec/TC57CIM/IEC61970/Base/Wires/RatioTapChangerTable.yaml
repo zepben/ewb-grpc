@@ -1,0 +1,21 @@
+name: RatioTapChangerTable
+description: Describes a curve for how the voltage magnitude and impedance varies with the tap step.
+ancestors:
+- IdentifiedObject
+associations:
+- source: RatioTapChangerTablePoint
+  target: RatioTapChangerTable
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: RatioTapChangerTablePoint
+  sourceDescription: Points of this table.
+  targetName: RatioTapChangerTable
+  targetDescription: Table of this point.
+- source: RatioTapChanger
+  target: RatioTapChangerTable
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RatioTapChanger
+  sourceDescription: The ratio tap changer of this tap ratio table.
+  targetName: RatioTapChangerTable
+  targetDescription: The tap ratio table for this ratio  tap changer.

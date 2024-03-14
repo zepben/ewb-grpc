@@ -1,0 +1,12 @@
+name: BlockDispatchInstruction
+ancestors:
+- IdentifiedObject
+associations:
+- source: BlockDispatchInstruction
+  target: EnergyGroup
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: BlockDispatchOrder
+  target: BlockDispatchInstruction
+  sourceCardinality: 1..*
+  targetCardinality: "1"

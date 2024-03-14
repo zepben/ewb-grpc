@@ -1,0 +1,30 @@
+name: ModelPartSpecification
+description: The type of model.  For example,  state estimator, planning, planning dynamics, short circuit, or real-time dynamics
+  etc.     The model must conform to a profile.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ModelPartSpecification
+  target: ModelAuthoritySet
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ModelSpecification
+  sourceDescription: Models of the model frame.
+  targetName: FrameworkPart
+  targetDescription: Model frame of the model part.
+- source: ModelPartVersion
+  target: ModelPartSpecification
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Model
+  sourceDescription: Modle parts conforming to the model part specification.
+  targetName: ModelSpecification
+  targetDescription: Model specification of the modelt.
+- source: AssemblyDescription
+  target: ModelPartSpecification
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AssemblyDescription
+  sourceDescription: The assembly description into which model parts should be included.
+  targetName: ModelSpecification
+  targetDescription: The models that are part of the assembly descrption.

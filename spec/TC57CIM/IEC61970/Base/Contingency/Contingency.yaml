@@ -1,0 +1,19 @@
+name: Contingency
+description: An event threatening system reliability, consisting of one or more contingency elements.
+attributes:
+- name: mustStudy
+  type: Boolean
+  description: Set true if must study this contingency.
+ancestors:
+- IdentifiedObject
+descendents:
+- MktContingency
+associations:
+- source: ContingencyElement
+  target: Contingency
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ContingencyElement
+  sourceDescription: A contingency can have any number of contingency elements.
+  targetName: Contingency
+  targetDescription: A contingency element belongs to one contingency.

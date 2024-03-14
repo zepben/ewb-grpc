@@ -1,0 +1,27 @@
+name: DERFunction
+attributes:
+- name: connectDisconnect
+  type: Boolean
+- name: frequencyWattCurveFunction
+  type: Boolean
+- name: maxRealPowerLimiting
+  type: Boolean
+- name: rampRateControl
+  type: Boolean
+- name: reactivePowerDispatch
+  type: Boolean
+- name: realPowerDispatch
+  type: Boolean
+- name: voltageRegulation
+  type: Boolean
+- name: voltVarCurveFunction
+  type: Boolean
+- name: voltWattCurveFunction
+  type: Boolean
+associations:
+- source: DERFunction
+  target: EndDeviceGroup
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DERFunction
+  targetName: EndDeviceGroup

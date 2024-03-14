@@ -1,0 +1,54 @@
+name: Specification
+description: Specification can be used for various purposes relative to an asset, a logical device (PowerSystemResource),
+  location, etc. Examples include documents supplied by manufacturers such as asset installation instructions, asset maintenance
+  instructions, etc.
+ancestors:
+- Document
+associations:
+- source: Specification
+  target: AssetPropertyCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Specification
+  targetName: AssetPropertyCurves
+- source: Specification
+  target: Medium
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Specification
+  targetName: Mediums
+- source: QualificationRequirement
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: QualificationRequirements
+  targetName: Specifications
+- source: ReliabilityInfo
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ReliabilityInfos
+  targetName: Specification
+- source: DimensionsInfo
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DimensionsInfos
+  targetName: Specifications
+- source: UserAttribute
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Ratings
+  sourceDescription: UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be
+    used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g.,
+    voltage, current), and 'value' attribute for the actual value and unit information of the rating.
+  targetName: RatingSpecification
+- source: UserAttribute
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AssetProperites
+  sourceDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
+    to specify what kind of property it is, and 'value.value' attribute for the actual value.
+  targetName: PropertySpecification

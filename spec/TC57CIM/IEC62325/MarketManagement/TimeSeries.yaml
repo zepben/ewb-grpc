@@ -1,0 +1,144 @@
+name: TimeSeries
+description: A set of regular time-ordered measurements or values of quantitative nature of an individual or collective phenomenon
+  taken at successive, in most cases equidistant, periods / points of time.
+attributes:
+- name: businessType
+  type: String
+  description: The identification of the nature of the time series.
+- name: cancelledTS
+  type: String
+  description: An indicator stating that the TimeSeries, identified by the mRID, is cancelled as well as all the values sent
+    in a previous version of the TimeSeries in a previous document.
+- name: curveType
+  type: String
+  description: The coded representation of the type of curve being described.
+- name: objectAggregation
+  type: String
+  description: Identification of the object that is the common denominator used to aggregate a time series.
+- name: product
+  type: String
+  description: The type of the product such as Power, energy, reactive power, transport capacity that is the subject of the
+    time series.
+- name: version
+  type: String
+  description: Version of the time series.
+ancestors:
+- IdentifiedObject
+descendents:
+- BidTimeSeries
+- Series
+associations:
+- source: TimeSeries
+  target: Reason
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: Reason
+- source: TimeSeries
+  target: MarketEvaluationPoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: MarketEvaluationPoint
+- source: TimeSeries
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: MarketDocument
+- source: TimeSeries
+  target: DateAndOrTime
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: DateAndOrTime
+- source: TimeSeries
+  target: Domain
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: Domain
+- source: TimeSeries
+  target: Period
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: Period
+- source: TimeSeries
+  target: FlowDirection
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: FlowDirection
+- source: TimeSeries
+  target: MarketParticipant
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: MarketParticipant
+- source: TimeSeries
+  target: EnvironmentalMonitoringStation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: EnvironmentalMonitoringStation
+- source: Point
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Point
+  targetName: TimeSeries
+- source: MarketObjectStatus
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketObjectStatus
+  targetName: TimeSeries
+- source: MktPSRType
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MktPSRType
+  targetName: TimeSeries
+- source: Quantity
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Quantity
+  targetName: TimeSeries
+- source: Price
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Price
+  targetName: TimeSeries
+- source: Auction
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Auction
+  targetName: TimeSeries
+- source: AttributeInstanceComponent
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AttributeInstanceComponent
+  targetName: TimeSeries
+- source: ConstraintDuration
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ConstraintDuration
+  targetName: TimeSeries
+- source: Unit
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Unit
+  targetName: TimeSeries
+- source: RegisteredResource
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: TimeSeries

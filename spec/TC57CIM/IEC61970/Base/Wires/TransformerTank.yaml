@@ -1,0 +1,29 @@
+name: TransformerTank
+description: An assembly of two or more coupled windings that transform electrical power between voltage levels. These windings
+  are bound on a common core and placed in the same tank. Transformer tank can be used to model both single-phase and 3-phase
+  transformers.
+ancestors:
+- Equipment
+associations:
+- source: TransformerTank
+  target: PowerTransformer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransformerTanks
+  sourceDescription: All transformers that belong to this bank.
+  targetName: PowerTransformer
+  targetDescription: Bank this transformer belongs to.
+- source: TransformerTankEnd
+  target: TransformerTank
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: TransformerTankEnds
+  sourceDescription: All windings of this transformer.
+  targetName: TransformerTank
+  targetDescription: Transformer this winding belongs to.
+- source: TransformerObservation
+  target: TransformerTank
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransformerObservations
+  targetName: Transformer

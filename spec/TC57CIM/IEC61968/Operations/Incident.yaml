@@ -1,0 +1,78 @@
+name: Incident
+description: Description of a problem in the field that may be reported in a trouble ticket or come from another source. It
+  may have to do with an outage.
+attributes:
+- name: cause
+  type: String
+  description: Cause of this incident.
+ancestors:
+- Document
+associations:
+- source: Incident
+  target: UnplannedOutage
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Incident
+  targetName: UnplannedOutage
+- source: Incident
+  target: CustomerNotification
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Incident
+  sourceDescription: Incident as a subject of this customer notification.
+  targetName: CustomerNotifications
+  targetDescription: All notifications for a customer related to the status change of this incident.
+- source: Incident
+  target: IncidentHazard
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Incident
+  sourceDescription: Incident associated with this hazard.
+  targetName: IncidentHazard
+  targetDescription: All hazards associated with this incident.
+- source: Incident
+  target: Work
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Incidents
+  sourceDescription: All incidents being addressed by this work.
+  targetName: Works
+  targetDescription: All works addressing this incident.
+- source: Incident
+  target: Outage
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Incident
+  sourceDescription: Incident reported in trouble call that results in this outage.
+  targetName: Outage
+  targetDescription: Outage for this incident.
+- source: Incident
+  target: Operator
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Incidents
+  sourceDescription: All incidents owned by this operator.
+  targetName: Owner
+  targetDescription: Operator who owns this incident.
+- source: Incident
+  target: Location
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: Incident
+  sourceDescription: Incident at this location.
+  targetName: Location
+  targetDescription: Location of this incident.
+- source: TroubleTicket
+  target: Incident
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TroubleTickets
+  sourceDescription: All trouble tickets reporting this incident.
+  targetName: Incident
+  targetDescription: Incident reported in this trouble ticket
+- source: TroubleOrder
+  target: Incident
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TroubleOrder
+  targetName: Incident

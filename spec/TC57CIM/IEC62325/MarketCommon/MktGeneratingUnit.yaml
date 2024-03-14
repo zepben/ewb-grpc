@@ -1,0 +1,11 @@
+name: MktGeneratingUnit
+description: Subclass of IEC61970:Production:GeneratingUnit.
+ancestors:
+- GeneratingUnit
+associations:
+- source: GeneratingUnitDynamicValues
+  target: MktGeneratingUnit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: GeneratingUnitDynamicValues
+  targetName: MktGeneratingUnit

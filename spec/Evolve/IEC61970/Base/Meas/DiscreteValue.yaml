@@ -1,0 +1,17 @@
+name: DiscreteValue
+description: DiscreteValue represents a discrete MeasurementValue.
+attributes:
+- name: value
+  type: Integer
+  description: The value to supervise.
+ancestors:
+- MeasurementValue
+associations:
+- source: Discrete
+  target: DiscreteValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Discrete
+  sourceDescription: Measurement to which this value is connected.
+  targetName: DiscreteValues
+  targetDescription: The values connected to this measurement.

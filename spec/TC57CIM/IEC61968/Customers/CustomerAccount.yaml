@@ -1,0 +1,66 @@
+name: CustomerAccount
+description: Assignment of a group of products and services purchased by the customer through a customer agreement, used as
+  a mechanism for customer billing and payment. It contains common information from the various types of customer agreements
+  to create billings (invoices) for a customer and receive payment.
+attributes:
+- name: billingCycle
+  type: String
+  description: Cycle day on which the associated customer account will normally be billed, used to determine when to produce
+    the billing.
+- name: budgetBill
+  type: String
+  description: Budget bill code.
+- name: lastBillAmount
+  type: Money
+  description: The last amount that will be billed to the customer prior to shut off of the account.
+ancestors:
+- Document
+associations:
+- source: CustomerAccount
+  target: ErpInvoice
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerAccount
+  targetName: ErpInvoicees
+- source: CustomerAccount
+  target: WorkBillingInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerAccount
+  targetName: WorkBillingInfos
+- source: CustomerAccount
+  target: CustomerAgreement
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: CustomerAccount
+  sourceDescription: Customer account owning this agreement.
+  targetName: CustomerAgreements
+  targetDescription: All agreements for this customer account.
+- source: CustomerAccount
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerAccount
+  sourceDescription: Customer account for this payment transaction.
+  targetName: PaymentTransactions
+  targetDescription: All payment transactions for this customer account.
+- source: CustomerAccount
+  target: AccountNotification
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: CustomerAccount
+  targetName: AccountNotification
+- source: CustomerBillingInfo
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CustomerBillingInfos
+  targetName: CustomerAccount
+- source: Customer
+  target: CustomerAccount
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Customer
+  sourceDescription: Customer owning this account.
+  targetName: CustomerAccounts
+  targetDescription: All accounts of this customer.

@@ -1,0 +1,13 @@
+name: Manufacturer
+description: Organisation that manufactures asset products.
+ancestors:
+- OrganisationRole
+associations:
+- source: ProductAssetModel
+  target: Manufacturer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ProductAssetModels
+  sourceDescription: All asset models by this manufacturer.
+  targetName: Manufacturer
+  targetDescription: Manufacturer of this asset model.

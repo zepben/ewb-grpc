@@ -1,0 +1,42 @@
+name: ChargeProfile
+description: A type of profile for financial charges.
+attributes:
+- name: frequency
+  type: String
+  description: The calculation frequency, daily or monthly.
+- name: numberInterval
+  type: Integer
+  description: The number of intervals in the profile data.
+- name: type
+  type: String
+  description: The type of profile.  It could be amount, price, or quantity.
+- name: unitOfMeasure
+  type: String
+  description: The unit of measure applied to the value attribute of the profile data.
+ancestors:
+- Profile
+associations:
+- source: ChargeProfile
+  target: BillDeterminant
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ChargeProfile
+  targetName: BillDeterminant
+- source: ChargeProfile
+  target: ChargeProfileData
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChargeProfile
+  targetName: ChargeProfileData
+- source: ChargeProfile
+  target: PassThroughBill
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ChargeProfiles
+  targetName: PassTroughBill
+- source: Bid
+  target: ChargeProfile
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Bid
+  targetName: ChargeProfiles

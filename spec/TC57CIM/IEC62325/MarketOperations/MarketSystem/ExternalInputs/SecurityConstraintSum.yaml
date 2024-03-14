@@ -1,0 +1,42 @@
+name: SecurityConstraintSum
+description: "Typically provided by RTO systems, constraints identified in both base case and critical contingency cases have\
+  \ to be transferred.\nA constraint has N (&gt;=1) constraint terms. A term is represented by an instance of TerminalConstraintTerm.\
+  \ \nThe constraint expression is:\nminValue &lt;= c1*x1 + c2*x2 + .... cn*xn + k &lt;= maxValue\nwhere:\n- cn is ConstraintTerm.factor\
+  \ \n- xn is the flow at the terminal\nFlow into the associated equipment is positive for the purpose of ConnectivityNode\
+  \ NodeConstraintTerm.\n\nk is SecurityConstraintsLinear.resourceMW.\nThe units of k are assumed to be same as the units\
+  \ of the flows, xn.  The constants, cn, are dimensionless.\nWith these conventions, cn and k are all positive for a typical\
+  \ constraint such as \"weighted sum of generation shall be less than limit\". Furthermore, cn are all 1.0 for a case such\
+  \ as \"interface flow shall be less than limit\", assuming the terminals are chosen on the importing side of the interface."
+ancestors:
+- MarketFactors
+associations:
+- source: SecurityConstraintSum
+  target: ConstraintTerm
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: SecurityConstraintSum
+  targetName: ConstraintTerms
+- source: SecurityConstraintSum
+  target: RTO
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SecurityConstraintsLinear
+  targetName: RTO
+- source: ContingencyConstraintLimit
+  target: SecurityConstraintSum
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ContingencyConstraintLimits
+  targetName: SecurityConstraintSum
+- source: BaseCaseConstraintLimit
+  target: SecurityConstraintSum
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: BaseCaseConstraintLimit
+  targetName: SecurityConstraintSum
+- source: DefaultConstraintLimit
+  target: SecurityConstraintSum
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: DefaultConstraintLimit
+  targetName: SecurityConstraintSum

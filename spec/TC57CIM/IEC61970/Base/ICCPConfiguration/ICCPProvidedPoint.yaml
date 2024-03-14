@@ -1,0 +1,24 @@
+name: ICCPProvidedPoint
+description: The IdentifiedObject.name attribute must have a value.  The name attribute shall be used as the DataValue name
+  used for the exchange.
+attributes:
+- name: scope
+  type: ICCPScopeKind
+  description: Indicates if the Point is global scoped (e.g. VCC) or accessible only to the Bilateral table peer (e.g. ICC).
+- name: pointType
+  type: ICCPPointKind
+  description: |-
+    Indicates the ICCP Point type that is to be conveyed.
+
+    A CIM AccumlatorValue  shall be mapped to an ICCP real.
+    A CIM AnalogValue shall be mapped to an ICCP real.
+    A CIM DiscreteValue shall be mapped to either an ICCP real, state, stateSupplemental, or either protection event type.
+    A CIM StringMeasurementValue does not have a standardized mapping.
+- name: pointQuality
+  type: ICCPQualityKind
+  description: Specifies the type of ICCP quality that will be conveyed as part of the ICCP Point.
+- name: accessPriviledge
+  type: ICCPAccessPrivilegeKind
+  description: Provides information regarding the access privileges allowed to the ICCP Point.
+ancestors:
+- ProvidedBilateralPoint

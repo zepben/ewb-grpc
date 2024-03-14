@@ -1,0 +1,51 @@
+name: ExcAVR4
+description: Italian excitation system. It represents a static exciter and electric voltage regulator.
+attributes:
+- name: imul
+  type: Boolean
+  description: |-
+    AVR output voltage dependency selector (<i>I</i><i><sub>MUL</sub></i>).
+    true = selector is connected
+    false = selector is not connected.
+    Typical value = true.
+- name: ka
+  type: Float
+  description: AVR gain (<i>K</i><i><sub>A</sub></i>).  Typical value = 300.
+- name: ke
+  type: Float
+  description: Exciter gain (<i>K</i><i><sub>E</sub></i><i>)</i>.  Typical value = 1.
+- name: kif
+  type: Float
+  description: Exciter internal reactance (<i>K</i><i><sub>IF</sub></i>).  Typical value = 0.
+- name: t1
+  type: Seconds
+  description: AVR time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).  Typical value = 4,8.
+- name: t1if
+  type: Seconds
+  description: Exciter current feedback time constant (<i>T</i><i><sub>1IF</sub></i>) (&gt;= 0).  Typical value = 60.
+- name: t2
+  type: Seconds
+  description: AVR time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).  Typical value = 1,5.
+- name: t3
+  type: Seconds
+  description: AVR time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: t4
+  type: Seconds
+  description: AVR time constant (<i>T</i><i><sub>4</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tif
+  type: Seconds
+  description: Exciter current feedback time constant (<i>T</i><i><sub>IF</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: vfmn
+  type: PU
+  description: Minimum exciter output (<i>V</i><i><sub>FMN</sub></i>).  Typical value = 0.
+- name: vfmx
+  type: PU
+  description: Maximum exciter output (<i>V</i><i><sub>FMX</sub></i>).  Typical value = 5.
+- name: vrmn
+  type: PU
+  description: Minimum AVR output (<i>V</i><i><sub>RMN</sub></i>).  Typical value = 0.
+- name: vrmx
+  type: PU
+  description: Maximum AVR output (<i>V</i><i><sub>RMX</sub></i>).  Typical value = 5.
+ancestors:
+- ExcitationSystemDynamics

@@ -1,0 +1,22 @@
+name: ModelOperationArg
+description: Describes the role a dataset plays in a model operation.   The role is applicable only in the context of a single
+  operation.
+attributes:
+- name: sequenceNumber
+  type: Integer
+  description: The sequence number of the argument in an operation.  Argument entries are considered in numerical order where
+    the operation requires an ordering.
+ancestors:
+- IdentifiedObject
+descendents:
+- IncrementalDatasetArg
+- DatasetArg
+associations:
+- source: ModelOperationArg
+  target: ModelOperation
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ModelOperationArg
+  sourceDescription: Arguments of the operation.
+  targetName: ModelOperation
+  targetDescription: The opeation for the operation argument.

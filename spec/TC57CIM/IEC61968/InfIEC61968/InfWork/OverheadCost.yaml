@@ -1,0 +1,26 @@
+name: OverheadCost
+description: Overhead cost applied to work order.
+attributes:
+- name: code
+  type: String
+  description: ' Overhead code.'
+- name: cost
+  type: Money
+  description: The overhead cost to be applied.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: OverheadCost
+  target: WorkCostDetail
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: OverheadCost
+  targetName: WorkCostDetails
+- source: OldWorkTask
+  target: OverheadCost
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkTasks
+  targetName: OverheadCost

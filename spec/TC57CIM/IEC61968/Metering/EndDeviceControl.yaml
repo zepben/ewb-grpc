@@ -1,0 +1,89 @@
+name: EndDeviceControl
+description: Instructs an end device (or an end device group) to perform a specified action.
+attributes:
+- name: drProgramLevel
+  type: Integer
+  description: 'Level of a demand response program request, where 0=emergency. Note: Attribute is not defined on DemandResponseProgram
+    as it is not its inherent property (it serves to control it).'
+- name: drProgramMandatory
+  type: Boolean
+  description: 'Whether a demand response program request is mandatory. Note: Attribute is not defined on DemandResponseProgram
+    as it is not its inherent property (it serves to control it).'
+- name: issuerID
+  type: String
+  description: Unique identifier of the business entity originating an end device control.
+- name: issuerTrackingID
+  type: String
+  description: Identifier assigned by the initiator (e.g. retail electric provider) of an end device control action to uniquely
+    identify the demand response event, text message, or other subject of the control action. Can be used when cancelling
+    an event or text message request or to identify the originating event or text message in a consequential end device event.
+- name: priceSignal
+  type: FloatQuantity
+  description: (if applicable) Price signal used as parameter for this end device control.
+- name: primaryDeviceTiming
+  type: EndDeviceTiming
+  description: Timing for the control actions performed on the device identified in the end device control.
+- name: reason
+  type: String
+  description: Reason for the control action that allows to determine how to continue processing. For example, disconnect
+    meter command may require different processing by the receiving system if it has been issued for a network-related reason
+    (protection) or for a payment-related reason.
+- name: scheduledInterval
+  type: DateTimeInterval
+  description: (if control has scheduled duration) Date and time interval the control has been scheduled to execute within.
+- name: secondaryDeviceTiming
+  type: EndDeviceTiming
+  description: Timing for the control actions performed by devices that are responding to event related information sent to
+    the primary device indicated in the end device control.  For example, load control actions performed by a PAN device in
+    response to demand response event information sent to a PAN gateway server.
+ancestors:
+- IdentifiedObject
+associations:
+- source: EndDeviceControl
+  target: EndDeviceControlType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EndDeviceControls
+  sourceDescription: All end device controls of this type.
+  targetName: EndDeviceControlType
+  targetDescription: Type of this end device control.
+- source: EndDeviceControl
+  target: UsagePointGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceControls
+  sourceDescription: All end device controls sending commands to this usage point group.
+  targetName: UsagePointGroups
+  targetDescription: All usage point groups receiving commands from this end device control.
+- source: EndDeviceControl
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceControls
+  sourceDescription: All end device controls sending commands to this usage point.
+  targetName: UsagePoints
+  targetDescription: All usage points receiving commands from this end device control.
+- source: EndDeviceControl
+  target: EndDeviceAction
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: EndDeviceControl
+  sourceDescription: End device control issuing this end device action.
+  targetName: EndDeviceAction
+  targetDescription: End device action issued by this end device control.
+- source: EndDeviceControl
+  target: EndDevice
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceControls
+  sourceDescription: All end device controls sending commands to this end device.
+  targetName: EndDevices
+  targetDescription: All end devices receiving commands from this end device control.
+- source: EndDeviceGroup
+  target: EndDeviceControl
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceGroups
+  sourceDescription: All end device groups receiving commands from this end device control.
+  targetName: EndDeviceControls
+  targetDescription: All end device controls sending commands to this end device group.

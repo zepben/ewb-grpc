@@ -1,0 +1,19 @@
+name: MktCombinedCyclePlant
+description: |-
+  Subclass of Production: CombinedCyclePlant from IEC 61970 package.
+  A set of combustion turbines and steam turbines where the exhaust heat from the combustion turbines is recovered to make steam for the steam turbines, resulting in greater overall plant efficiency.
+ancestors:
+- CombinedCyclePlant
+associations:
+- source: MktCombinedCyclePlant
+  target: AggregatedPnode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MktCombinedCyclePlant
+  targetName: AggregatedPnode
+- source: CombinedCycleLogicalConfiguration
+  target: MktCombinedCyclePlant
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: CombinedCycleLogicalConfiguration
+  targetName: MktCombinedCyclePlant

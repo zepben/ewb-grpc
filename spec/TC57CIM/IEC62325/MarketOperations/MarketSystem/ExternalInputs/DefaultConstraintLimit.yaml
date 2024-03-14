@@ -1,0 +1,13 @@
+name: DefaultConstraintLimit
+description: Possibly time-varying max MW or MVA and optionally Min MW limit or MVA limit (Y1 and Y2, respectively) applied
+  as a default value if no specific constraint limits are specified for a contingency analysis. Use CurveSchedule XAxisUnits
+  to specify MW or MVA.
+ancestors:
+- Curve
+associations:
+- source: DefaultConstraintLimit
+  target: SecurityConstraintSum
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: DefaultConstraintLimit
+  targetName: SecurityConstraintSum

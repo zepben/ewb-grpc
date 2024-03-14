@@ -1,0 +1,43 @@
+name: Person
+description: General purpose information for name and other information to contact people.
+attributes:
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+- name: firstName
+  type: String
+  description: Person's first name.
+- name: landlinePhone
+  type: TelephoneNumber
+  description: Landline phone number.
+- name: lastName
+  type: String
+  description: ' Person''s last (family, sir) name.'
+- name: mName
+  type: String
+  description: ' Middle name(s) or initial(s).'
+- name: mobilePhone
+  type: TelephoneNumber
+  description: Mobile phone number.
+- name: prefix
+  type: String
+  description: A prefix or title for the person's name, such as Miss, Mister, Doctor, etc.
+- name: specialNeed
+  type: String
+  description: Special service needs for the person (contact) are described; examples include life support, etc.
+- name: suffix
+  type: String
+  description: A suffix for the person's name, such as II, III, etc.
+ancestors:
+- IdentifiedObject
+descendents:
+- OldPerson
+associations:
+- source: Person
+  target: PersonRole
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Person
+  sourceDescription: Person having this role.
+  targetName: Roles
+  targetDescription: All roles of this person.

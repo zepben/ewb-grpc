@@ -1,0 +1,25 @@
+name: AirCompressor
+description: Combustion turbine air compressor which is an integral part of a compressed air energy storage (CAES) plant.
+attributes:
+- name: airCompressorRating
+  type: Float
+  description: Rating of the CAES air compressor.
+ancestors:
+- PowerSystemResource
+associations:
+- source: CAESPlant
+  target: AirCompressor
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: CAESPlant
+  sourceDescription: An air compressor may be a member of a compressed air energy storage plant.
+  targetName: AirCompressor
+  targetDescription: An air compressor may be a member of a compressed air energy storage plant.
+- source: CombustionTurbine
+  target: AirCompressor
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: CombustionTurbine
+  sourceDescription: A CAES air compressor is driven by combustion turbine.
+  targetName: AirCompressor
+  targetDescription: A CAES air compressor is driven by combustion turbine.

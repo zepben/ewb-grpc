@@ -1,0 +1,18 @@
+name: Profile
+description: A profile is a simpler curve type.
+ancestors:
+- IdentifiedObject
+descendents:
+- CurtailmentProfile
+- LossProfile
+- ChargeProfile
+- EnergyProfile
+associations:
+- source: ProfileData
+  target: Profile
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ProfileDatas
+  sourceDescription: A profile has profile data associated with it.
+  targetName: Profile
+  targetDescription: A profile has profile data associated with it.

@@ -1,0 +1,18 @@
+name: StartUpTimeCurve
+description: Startup time curve as a function of down time, where time is specified in minutes.  Relationship between unit
+  startup time (Y1-axis) vs. unit elapsed down time (X-axis).
+ancestors:
+- Curve
+associations:
+- source: StartUpTimeCurve
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: StartUpTimeCurve
+  targetName: GeneratingBid
+- source: RegisteredGenerator
+  target: StartUpTimeCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetName: StartUpTimeCurve

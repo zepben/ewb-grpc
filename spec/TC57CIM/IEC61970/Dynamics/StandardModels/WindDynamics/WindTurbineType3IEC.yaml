@@ -1,0 +1,53 @@
+name: WindTurbineType3IEC
+description: Parent class supporting relationships to IEC wind turbines type 3 including their control models.
+ancestors:
+- WindTurbineType3or4IEC
+associations:
+- source: WindAeroTwoDimIEC
+  target: WindTurbineType3IEC
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: WindAeroTwoDimIEC
+  sourceDescription: Wind aerodynamic model associated with this wind turbine type 3 model.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind aerodynamic model is associated.
+- source: WindMechIEC
+  target: WindTurbineType3IEC
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: WindMechIEC
+  sourceDescription: Wind mechanical model associated with this wind turbine type 3 model.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind mechanical model is associated.
+- source: WindContPitchAngleIEC
+  target: WindTurbineType3IEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindContPitchAngleIEC
+  sourceDescription: Wind control pitch angle model associated with this wind turbine type 3.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this pitch control model is associated.
+- source: WindGenType3IEC
+  target: WindTurbineType3IEC
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: WindGenType3IEC
+  sourceDescription: Wind generator type 3 model associated with this wind turbine type 3 model.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind generator type 3 is associated.
+- source: WindContPType3IEC
+  target: WindTurbineType3IEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindContPType3IEC
+  sourceDescription: Wind control P type 3 model associated with this wind turbine type 3 model.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind control P type 3 model is associated.
+- source: WindAeroOneDimIEC
+  target: WindTurbineType3IEC
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: WindAeroOneDimIEC
+  sourceDescription: Wind aerodynamic model associated with this wind generator type 3 model.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind aerodynamic model is associated.

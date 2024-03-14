@@ -1,0 +1,17 @@
+name: PnodeClearing
+description: Pricing node clearing results posted for a given settlement period.
+ancestors:
+- MarketFactors
+associations:
+- source: PnodeClearing
+  target: CommodityPrice
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PnodeClearing
+  targetName: CommodityPrice
+- source: PnodeClearing
+  target: PnodeResults
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: PnodeClearing
+  targetName: PnodeResults

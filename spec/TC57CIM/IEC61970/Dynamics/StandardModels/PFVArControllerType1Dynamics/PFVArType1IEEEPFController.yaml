@@ -1,0 +1,36 @@
+name: PFVArType1IEEEPFController
+description: |-
+  IEEE PF controller type 1 which operates by moving the voltage reference directly.
+  Reference: IEEE 421.5-2005, 11.2.
+attributes:
+- name: ovex
+  type: Boolean
+  description: |-
+    Overexcitation Flag (<i>OVEX</i>)
+    true = overexcited
+    false = underexcited.
+- name: tpfc
+  type: Seconds
+  description: PF controller time delay (<i>T</i><i><sub>PFC</sub></i>) (&gt;= 0).  Typical value = 5.
+- name: vitmin
+  type: PU
+  description: Minimum machine terminal current needed to enable pf/var controller (<i>V</i><i><sub>ITMIN</sub></i>).
+- name: vpf
+  type: PU
+  description: Synchronous machine power factor (<i>V</i><i><sub>PF</sub></i>).
+- name: vpfcbw
+  type: Float
+  description: PF controller deadband (<i>V</i><i><sub>PFC_BW</sub></i>).  Typical value = 0,05.
+- name: vpfref
+  type: PU
+  description: PF controller reference (<i>V</i><i><sub>PFREF</sub></i>).
+- name: vvtmax
+  type: PU
+  description: Maximum machine terminal voltage needed for pf/var controller to be enabled (<i>V</i><i><sub>VTMAX</sub></i>)
+    (&gt; PFVArType1IEEEPFController.vvtmin).
+- name: vvtmin
+  type: PU
+  description: Minimum machine terminal voltage needed to enable pf/var controller (<i>V</i><i><sub>VTMIN</sub></i>) (&lt;
+    PFVArType1IEEEPFController.vvtmax).
+ancestors:
+- PFVArControllerType1Dynamics

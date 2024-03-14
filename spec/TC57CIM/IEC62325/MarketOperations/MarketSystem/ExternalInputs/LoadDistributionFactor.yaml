@@ -1,0 +1,35 @@
+name: LoadDistributionFactor
+description: |-
+  This class models the load distribution factors. This class should be used in one of two ways:
+
+  Use it along with the AggregatedPnode and the IndividualPnode to show the distriubtion of each individual party
+
+  OR
+
+  Use it with Mkt_EnergyConsumer to represent the current MW/Mvar distribution within it's parnet load group.
+attributes:
+- name: pDistFactor
+  type: Float
+  description: Real power (MW) load distribution factor
+- name: qDistFactor
+  type: Float
+  description: Reactive power (MVAr) load distribution factor
+associations:
+- source: DistributionFactorSet
+  target: LoadDistributionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DistributionFactorSet
+  targetName: LoadDistributionFactor
+- source: IndividualPnode
+  target: LoadDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: IndividualPnode
+  targetName: LoadDistributionFactor
+- source: AggregatedPnode
+  target: LoadDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: AggregatedPnode
+  targetName: LoadDistributionFactor

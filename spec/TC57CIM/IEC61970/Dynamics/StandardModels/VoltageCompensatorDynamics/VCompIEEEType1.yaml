@@ -1,0 +1,20 @@
+name: VCompIEEEType1
+description: "<font color=\"#0f0f0f\">Terminal voltage transducer and load compensator as defined in IEEE 421.5-2005, 4. This\
+  \ model is common to all excitation system models described in the IEEE Standard. </font>\n<font color=\"#0f0f0f\">Parameter\
+  \ details:</font>\n<ol>\n\t<li><font color=\"#0f0f0f\">If <i>Rc</i> and <i>Xc</i> are set to zero, the l</font>oad compensation\
+  \ is not employed and the behaviour is as a simple sensing circuit.</li>\n</ol>\n<ol>\n\t<li>If all parameters (<i>Rc</i>,\
+  \ <i>Xc</i> and <i>Tr</i>) are set to zero, the standard model VCompIEEEType1 is bypassed.</li>\n</ol>\nReference: IEEE\
+  \ 421.5-2005 4."
+attributes:
+- name: rc
+  type: PU
+  description: <font color="#0f0f0f">Resistive component of compensation of a generator (<i>Rc</i>) (&gt;= 0).</font>
+- name: tr
+  type: Seconds
+  description: <font color="#0f0f0f">Time constant which is used for the combined voltage sensing and compensation signal
+    (<i>Tr</i>) (&gt;= 0).</font>
+- name: xc
+  type: PU
+  description: <font color="#0f0f0f">Reactive component of compensation of a generator (<i>Xc</i>) (&gt;= 0).</font>
+ancestors:
+- VoltageCompensatorDynamics

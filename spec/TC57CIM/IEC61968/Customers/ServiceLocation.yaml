@@ -1,0 +1,48 @@
+name: ServiceLocation
+description: A real estate location, commonly referred to as premises.
+attributes:
+- name: accessMethod
+  type: String
+  description: Method for the service person to access this service location. For example, a description of where to obtain
+    a key if the facility is unmanned and secured.
+- name: needsInspection
+  type: Boolean
+  description: True if inspection is needed of facilities at this service location. This could be requested by a customer,
+    due to suspected tampering, environmental concerns (e.g., a fire in the vicinity), or to correct incompatible data.
+- name: siteAccessProblem
+  type: String
+  description: 'Problems previously encountered when visiting or performing work on this location. Examples include: bad dog,
+    violent customer, verbally abusive occupant, obstructions, safety hazards, etc.'
+ancestors:
+- WorkLocation
+associations:
+- source: ServiceLocation
+  target: EndDevice
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ServiceLocation
+  sourceDescription: Service location whose service delivery is measured by this end device.
+  targetName: EndDevices
+  targetDescription: All end devices that measure the service delivered to this service location.
+- source: ServiceLocation
+  target: UsagePoint
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ServiceLocation
+  sourceDescription: Service location where the service delivered by this usage point is consumed.
+  targetName: UsagePoints
+  targetDescription: All usage points delivering service (of the same type) to this service location.
+- source: ServiceLocation
+  target: TroubleTicket
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ServiceLocation
+  targetName: TroubleTicket
+- source: CustomerAgreement
+  target: ServiceLocation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements regulating this service location.
+  targetName: ServiceLocations
+  targetDescription: All service locations regulated by this customer agreement.

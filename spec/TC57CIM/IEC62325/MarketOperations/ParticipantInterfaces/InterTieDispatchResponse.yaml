@@ -1,0 +1,25 @@
+name: InterTieDispatchResponse
+description: Response from an intertie resource acknowledging receipt of dispatch instructions.
+attributes:
+- name: acceptMW
+  type: Float
+  description: The accepted mw amount by the responder. aka response mw.
+- name: acceptStatus
+  type: DispatchResponseType
+  description: The accept status submitted by the responder. Valid values are NON-RESPONSE, ACCEPT, DECLINE, PARTIAL.
+- name: clearedMW
+  type: Float
+  description: MW amount associated with instruction.  For 5 minute binding dispatches, this is the Goto MW or DOT
+- name: passIndicator
+  type: PassIndicatorType
+  description: Part of the Composite key that downstream app uses to match the instruction
+- name: startTime
+  type: DateTime
+  description: Part of the Composite key that downstream app uses to match the instruction
+associations:
+- source: RegisteredInterTie
+  target: InterTieDispatchResponse
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredInterTie
+  targetName: InterTieDispatchResponse

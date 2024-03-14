@@ -1,0 +1,33 @@
+name: ConductingEquipment
+description: The parts of the AC power system that are designed to carry current or that are conductively connected through
+  terminals.
+ancestors:
+- Equipment
+descendents:
+- Conductor
+- Connector
+- EnergyConnection
+- PowerTransformer
+- Switch
+- EquivalentEquipment
+associations:
+- source: Terminal
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Terminals
+  sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
+    connectivity nodes or topological nodes.
+  targetName: ConductingEquipment
+  targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
+    to other conducting equipment terminals via connectivity nodes or topological nodes.
+- source: BaseVoltage
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: BaseVoltage
+  sourceDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and
+    only one base voltage applies.  For example, not used for transformers.
+  targetName: ConductingEquipment
+  targetDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used
+    and only one base voltage applies.  For example, not used for transformers.

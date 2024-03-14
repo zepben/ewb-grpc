@@ -1,0 +1,52 @@
+name: ShortCircuitTest
+description: Short-circuit test results determine mesh impedance parameters. They include load losses and leakage impedances.
+  For three-phase windings, the excitation can be a positive sequence (the default) or a zero sequence. There shall be at
+  least one grounded winding.
+attributes:
+- name: current
+  type: CurrentFlow
+  description: Short circuit current..
+- name: energisedEndStep
+  type: Integer
+  description: Tap step number for the energised end of the test pair.
+- name: groundedEndStep
+  type: Integer
+  description: Tap step number for the grounded end of the test pair.
+- name: leakageImpedance
+  type: Impedance
+  description: Leakage impedance measured from a positive-sequence or single-phase short-circuit test.
+- name: leakageImpedanceZero
+  type: Impedance
+  description: Leakage impedance measured from a zero-sequence short-circuit test.
+- name: loss
+  type: KiloActivePower
+  description: Load losses from a positive-sequence or single-phase short-circuit test.
+- name: lossZero
+  type: KiloActivePower
+  description: Load losses from a zero-sequence short-circuit test.
+- name: power
+  type: ApparentPower
+  description: Short circuit apparent power.
+- name: voltage
+  type: PerCent
+  description: Short circuit voltage..
+ancestors:
+- TransformerTest
+associations:
+- source: ShortCircuitTest
+  target: TransformerEndInfo
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: GroundedEndShortCircuitTests
+  sourceDescription: All short-circuit test measurements in which this transformer end was short-circuited.
+  targetName: GroundedEnds
+  targetDescription: All ends short-circuited in this short-circuit test.
+- source: ShortCircuitTest
+  target: TransformerEndInfo
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EnergisedEndShortCircuitTests
+  sourceDescription: All short-circuit test measurements in which this transformer end was energised.
+  targetName: EnergisedEnd
+  targetDescription: Transformer end that voltage is applied to in this short-circuit test. The test voltage is chosen to
+    induce rated current in the energised end.

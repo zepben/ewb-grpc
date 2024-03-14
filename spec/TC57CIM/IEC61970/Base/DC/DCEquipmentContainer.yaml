@@ -1,0 +1,25 @@
+name: DCEquipmentContainer
+description: A modelling construct to provide a root class for containment of DC as well as AC equipment. The class differ
+  from the EquipmentContaner for AC in that it may also contain DCNode-s. Hence it can contain both AC and DC equipment.
+ancestors:
+- EquipmentContainer
+descendents:
+- DCConverterUnit
+- DCLine
+associations:
+- source: DCEquipmentContainer
+  target: DCTopologicalNode
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DCEquipmentContainer
+  sourceDescription: The connectivity node container to which the topological node belongs.
+  targetName: DCTopologicalNode
+  targetDescription: The topological nodes which belong to this connectivity node container.
+- source: DCNode
+  target: DCEquipmentContainer
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: DCNodes
+  sourceDescription: The DC nodes contained in the DC equipment container.
+  targetName: DCEquipmentContainer
+  targetDescription: The DC container for the DC nodes.

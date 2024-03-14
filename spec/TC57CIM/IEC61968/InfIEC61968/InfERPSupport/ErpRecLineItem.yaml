@@ -1,0 +1,33 @@
+name: ErpRecLineItem
+description: Individual entry of an ErpReceivable, it is a particular transaction representing an invoice, credit memo or
+  debit memo to a customer.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpRecLineItem
+  target: ErpReceivable
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpRecLineItems
+  targetName: ErpReceivable
+- source: ErpRecLineItem
+  target: ErpPayment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ErpRecLineItems
+  targetName: ErpPayments
+- source: ErpRecLineItem
+  target: ErpJournalEntry
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ErpRecLineItems
+  targetName: ErpJournalEntries
+- source: ErpInvoiceLineItem
+  target: ErpRecLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpInvoiceLineItem
+  targetName: ErpRecLineItem

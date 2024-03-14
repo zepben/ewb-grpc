@@ -1,0 +1,36 @@
+name: Location
+description: The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment
+  in time. It can be defined with one or more position points (coordinates) in a given coordinate system.
+attributes:
+- name: mainAddress
+  type: StreetAddress
+  description: Main address of the location.
+ancestors:
+- IdentifiedObject
+descendents:
+- UsagePointLocation
+associations:
+- source: Location
+  target: PositionPoint
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Location
+  sourceDescription: Location described by this position point.
+  targetName: PositionPoints
+  targetDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+- source: Location
+  target: PowerSystemResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Location
+  sourceDescription: Location of this power system resource.
+  targetName: PowerSystemResources
+  targetDescription: All power system resources at this location.
+- source: Asset
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Assets
+  sourceDescription: All assets at this location.
+  targetName: Location
+  targetDescription: Location of this asset.

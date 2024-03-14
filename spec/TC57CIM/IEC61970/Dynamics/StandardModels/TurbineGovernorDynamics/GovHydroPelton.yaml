@@ -1,0 +1,104 @@
+name: GovHydroPelton
+description: |-
+  Detailed hydro unit - Pelton model.  This model can be used to represent the dynamic related to water tunnel and surge chamber.
+  The DetailedHydroModelHydraulicSystem diagram, located under the GovHydroFrancis class, provides a schematic of the hydraulic system of detailed hydro unit models, such as Francis and Pelton.
+attributes:
+- name: av0
+  type: Area
+  description: Area of the surge tank (<i>A</i><i><sub>V0</sub></i>). Unit = m<sup>2</sup>. Typical value = 30.
+- name: av1
+  type: Area
+  description: Area of the compensation tank (<i>A</i><i><sub>V1</sub></i>). Unit = m<sup>2</sup>. Typical value = 700.
+- name: bp
+  type: PU
+  description: Droop (<i>bp</i>).  Typical value = 0,05.
+- name: db1
+  type: Frequency
+  description: Intentional dead-band width (<i>DB1</i>).  Unit = Hz.  Typical value = 0.
+- name: db2
+  type: Frequency
+  description: Intentional dead-band width of valve opening error (<i>DB2</i>). Unit = Hz.  Typical value = 0,01.
+- name: h1
+  type: Length
+  description: Head of compensation chamber water level with respect to the level of penstock (<i>H</i><i><sub>1</sub></i>).  Unit
+    = km.  Typical value = 0,004.
+- name: h2
+  type: Length
+  description: Head of surge tank water level with respect to the level of penstock (<i>H</i><i><sub>2</sub></i>).  Unit =
+    km.  Typical value = 0,040.
+- name: hn
+  type: Length
+  description: Rated hydraulic head (<i>H</i><i><sub>n</sub></i>).  Unit = km.  Typical value = 0,250.
+- name: kc
+  type: PU
+  description: Penstock loss coefficient (due to friction) (<i>Kc</i>).  Typical value = 0,025.
+- name: kg
+  type: PU
+  description: Water tunnel and surge chamber loss coefficient (due to friction) (<i>Kg</i>).  Typical value = 0,025.
+- name: qc0
+  type: PU
+  description: No-load turbine flow at nominal head (<i>Qc0</i>).  Typical value = 0,05.
+- name: qn
+  type: VolumeFlowRate
+  description: Rated flow (<i>Q</i><i><sub>n</sub></i>). Unit = m<sup>3</sup>/s. Typical value = 250.
+- name: simplifiedPelton
+  type: Boolean
+  description: |-
+    Simplified Pelton model simulation (<i>Sflag</i>).
+    true = enable of simplified Pelton model simulation
+    false = enable of complete Pelton model simulation (non-linear gain).
+    Typical value = true.
+- name: staticCompensating
+  type: Boolean
+  description: "Static compensating characteristic (<i>Cflag</i>). It should be true if simplifiedPelton = false.\ntrue =\
+    \ enable of static compensating characteristic \nfalse = inhibit of static compensating characteristic.\nTypical value\
+    \ = false."
+- name: ta
+  type: Seconds
+  description: Derivative gain (accelerometer time constant) (<i>Ta</i>) (&gt;= 0).  Typical value = 3.
+- name: ts
+  type: Seconds
+  description: Gate servo time constant (<i>Ts</i>) (&gt;= 0).  Typical value = 0,15.
+- name: tv
+  type: Seconds
+  description: Servomotor integrator time constant (<i>Tv</i>) (&gt;= 0).  Typical value = 0,3.
+- name: twnc
+  type: Seconds
+  description: Water inertia time constant (<i>Twnc</i>) (&gt;= 0).  Typical value = 1.
+- name: twng
+  type: Seconds
+  description: Water tunnel and surge chamber inertia time constant (<i>Twng</i>) (&gt;= 0). Typical value = 3.
+- name: tx
+  type: Seconds
+  description: Electronic integrator time constant (<i>Tx</i>) (&gt;= 0).  Typical value = 0,5.
+- name: va
+  type: Float
+  description: Maximum gate opening velocity (<i>Va</i>).  Unit = PU / s.  Typical value = 0,06.
+- name: valvmax
+  type: PU
+  description: Maximum gate opening (<i>ValvMax</i>) (&gt; GovHydroPelton.valvmin).  Typical value = 1,1.
+- name: valvmin
+  type: PU
+  description: Minimum gate opening (<i>ValvMin</i>) (&lt; GovHydroPelton.valvmax).  Typical value = 0.
+- name: vav
+  type: PU
+  description: Maximum servomotor valve opening velocity (<i>Vav</i>).  Typical value = 0,1.
+- name: vc
+  type: Float
+  description: Maximum gate closing velocity (<i>Vc</i>).  Unit = PU / s.  Typical value = -0,06.
+- name: vcv
+  type: PU
+  description: Maximum servomotor valve closing velocity (<i>Vcv</i>).  Typical value = -0,1.
+- name: waterTunnelSurgeChamberSimulation
+  type: Boolean
+  description: |-
+    Water tunnel and surge chamber simulation (<i>Tflag</i>).
+    true = enable of water tunnel and surge chamber simulation
+    false = inhibit of water tunnel and surge chamber simulation.
+    Typical value = false.
+- name: zsfc
+  type: Length
+  description: Head of upper water level with respect to the level of penstock (<i>Zsfc</i>).  Unit = km.  Typical value =
+    0,025.
+ancestors:
+- TurbineGovernorDynamics

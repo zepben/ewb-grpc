@@ -1,0 +1,48 @@
+name: Charge
+description: A charge element associated with other entities such as tariff structures, auxiliary agreements or other charge
+  elements. The total charge amount applicable to this instance of charge is the sum of fixed and variable portion.
+attributes:
+- name: fixedPortion
+  type: AccountingUnit
+  description: The fixed portion of this charge element.
+- name: kind
+  type: ChargeKind
+  description: The kind of charge to be applied.
+- name: variablePortion
+  type: PerCent
+  description: The variable portion of this charge element, calculated as a percentage of the total amount of a parent charge.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Charge
+  target: Charge
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ParentCharge
+  sourceDescription: Parent of this charge sub-component.
+  targetName: ChildCharges
+  targetDescription: All sub-components of this complex charge.
+- source: ConsumptionTariffInterval
+  target: Charge
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ConsumptionTariffIntervals
+  sourceDescription: Tariff intervals to which this consumption-based charge has to be levied.
+  targetName: Charges
+  targetDescription: All charges used to define this consumption tariff interval.
+- source: TimeTariffInterval
+  target: Charge
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeTariffIntervals
+  sourceDescription: Tariff intervals to which this time-based charge has to be levied.
+  targetName: Charges
+  targetDescription: All charges used to define this time tariff interval.
+- source: AuxiliaryAccount
+  target: Charge
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AuxiliaryAccounts
+  sourceDescription: All auxiliary accounts to which this charge has to be levied.
+  targetName: Charges
+  targetDescription: All charges levied on this account.

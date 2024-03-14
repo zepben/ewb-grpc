@@ -1,0 +1,18 @@
+name: DefaultBidCurve
+description: Default bid curve for default energy bid curve and default startup curves (cost and time).
+attributes:
+- name: curveType
+  type: String
+  description: To indicate a type used for a default energy bid curve, such as LMP, cost or consultative based.
+- name: debAdderFlag
+  type: YesNo
+  description: Default energy bid adder flag
+ancestors:
+- Curve
+associations:
+- source: DefaultBid
+  target: DefaultBidCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: DefaultBid
+  targetName: DefaultBidCurve

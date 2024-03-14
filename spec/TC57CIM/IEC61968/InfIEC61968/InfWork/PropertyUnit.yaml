@@ -1,0 +1,35 @@
+name: PropertyUnit
+description: Unit of property for reporting purposes.
+attributes:
+- name: accountingUsage
+  type: String
+  description: A code that identifies appropriate type of property accounts such as distribution, streetlgihts, communications.
+- name: activityCode
+  type: WorkActionKind
+  description: Activity code identifies a specific and distinguishable work action.
+- name: propertyAccount
+  type: String
+  description: Used for property record accounting. For example, in the USA, this would be a FERC account.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: PropertyUnit
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PropertyUnit
+  targetName: CompatibleUnits
+- source: PropertyUnit
+  target: CUMaterialItem
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: PropertyUnits
+  targetName: CUMaterialItems
+- source: WorkCostDetail
+  target: PropertyUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetName: PropertyUnits

@@ -1,0 +1,19 @@
+name: NetworkFrame
+description: A region isolated by boundaries.
+ancestors:
+- FrameworkPart
+associations:
+- source: NetworkFrame
+  target: FrameworkPart
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Frame
+  targetName: FrameworkPart
+- source: NetworkBoundary
+  target: NetworkFrame
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: NetworkBoundary
+  target: NetworkFrame
+  sourceCardinality: 0..*
+  targetCardinality: 0..1

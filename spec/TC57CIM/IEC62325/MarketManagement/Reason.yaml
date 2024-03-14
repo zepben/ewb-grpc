@@ -1,0 +1,40 @@
+name: Reason
+description: The motivation of an act.
+attributes:
+- name: code
+  type: String
+  description: The motivation of an act in coded form.
+- name: text
+  type: String
+  description: The textual explanation corresponding to the reason code.
+associations:
+- source: Reason
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Reason
+  targetName: MarketDocument
+- source: Reason
+  target: Point
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Reason
+  targetName: Point
+- source: Period
+  target: Reason
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Period
+  targetName: Reason
+- source: TimeSeries
+  target: Reason
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: Reason
+- source: RegisteredResource
+  target: Reason
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: Reason

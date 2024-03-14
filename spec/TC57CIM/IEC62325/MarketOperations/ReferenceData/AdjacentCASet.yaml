@@ -1,0 +1,39 @@
+name: AdjacentCASet
+description: Groups Adjacent Control Areas.
+attributes:
+- name: 'lossPercentage '
+  type: Float
+  description: Loss percentage
+ancestors:
+- IdentifiedObject
+associations:
+- source: AdjacentCASet
+  target: SubControlArea
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AdjacentCASet
+  targetName: SubControlArea
+- source: AdjacentCASet
+  target: BidSelfSched
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AdjacentCASet
+  targetName: BidSelfSched
+- source: HostControlArea
+  target: AdjacentCASet
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: HostControlArea
+  targetName: AdjacentCASet
+- source: RTO
+  target: AdjacentCASet
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: AdjacentCASet
+- source: RegisteredResource
+  target: AdjacentCASet
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RegisteredResource
+  targetName: AdjacentCASet

@@ -1,0 +1,16 @@
+name: UnavailabilityScheduleDependency
+ancestors:
+- IdentifiedObject
+associations:
+- source: UnavailabilityScheduleDependency
+  target: UnavailablitySchedule
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: DependsOn
+  targetName: UnavailabilityScheduleImpacts
+- source: UnavailabilityScheduleDependency
+  target: UnavailablitySchedule
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Impacts
+  targetName: UnavailabilityScheduleDependsOn

@@ -1,0 +1,15 @@
+name: ConformLoadSchedule
+description: A curve of load  versus time (X-axis) showing the active power values (Y1-axis) and reactive power (Y2-axis)
+  for each unit of the period covered. This curve represents a typical pattern of load over the time period for a given day
+  type and season.
+ancestors:
+- SeasonDayTypeSchedule
+associations:
+- source: ConformLoadGroup
+  target: ConformLoadSchedule
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ConformLoadGroup
+  sourceDescription: The ConformLoadGroup where the ConformLoadSchedule belongs.
+  targetName: ConformLoadSchedules
+  targetDescription: The ConformLoadSchedules in the ConformLoadGroup.

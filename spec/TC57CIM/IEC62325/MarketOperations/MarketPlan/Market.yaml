@@ -1,0 +1,65 @@
+name: Market
+description: Market (e.g. Day Ahead Market, Real Time Market) with a description of the Market operation control parameters.
+attributes:
+- name: actualEnd
+  type: DateTime
+  description: Market ending time - actual market end
+- name: actualStart
+  type: DateTime
+  description: Market starting time - actual market start
+- name: dst
+  type: Boolean
+  description: True if daylight savings time (DST) is in effect.
+- name: end
+  type: DateTime
+  description: Market end time.
+- name: localTimeZone
+  type: String
+  description: Local time zone.
+- name: start
+  type: DateTime
+  description: Market start time.
+- name: status
+  type: String
+  description: "Market Status \n'OPEN', 'CLOSED', 'CLEARED', 'BLOCKED'"
+- name: timeIntervalLength
+  type: Float
+  description: Trading time interval length.
+- name: tradingDay
+  type: DateTime
+  description: Market trading date
+- name: tradingPeriod
+  type: String
+  description: |-
+    Trading period that describes the market, possibilities could be for an Energy Market:
+    Day
+    Hour
+
+    For a CRR Market:
+    Year
+    Month
+    Season
+ancestors:
+- IdentifiedObject
+descendents:
+- EnergyMarket
+- CRRMarket
+associations:
+- source: MarketFactors
+  target: Market
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MarketFactors
+  targetName: Market
+- source: MarketProduct
+  target: Market
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: MarketProducts
+  targetName: Market
+- source: MarketRun
+  target: Market
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: MarketRun
+  targetName: Market

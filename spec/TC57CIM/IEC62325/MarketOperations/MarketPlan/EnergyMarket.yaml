@@ -1,0 +1,36 @@
+name: EnergyMarket
+description: Energy and Ancillary Market (e.g. Energy, Spinning Reserve, Non-Spinning Reserve) with a description of the Market
+  operation control parameters.
+ancestors:
+- Market
+associations:
+- source: EnergyMarket
+  target: RTO
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnergyMarkets
+  targetName: RTO
+- source: EnergyMarket
+  target: Settlement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnergyMarket
+  targetName: Settlements
+- source: EnergyMarket
+  target: MarketResults
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: EnergyMarket
+  targetName: MarketResults
+- source: EnergyMarket
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EnergyMarkets
+  targetName: RegisteredResources
+- source: Bid
+  target: EnergyMarket
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Bids
+  targetName: EnergyMarket

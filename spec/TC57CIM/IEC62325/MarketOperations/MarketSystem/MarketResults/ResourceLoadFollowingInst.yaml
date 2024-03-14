@@ -1,0 +1,29 @@
+name: ResourceLoadFollowingInst
+description: Model of market clearing results for resources that bid to follow load.
+attributes:
+- name: calcLoadFollowingMW
+  type: Float
+  description: weighted average for RTPD and RTCD and same for RTID
+- name: dispWindowHighLimt
+  type: Float
+- name: dispWindowLowLimt
+  type: Float
+- name: instructionID
+  type: String
+  description: Unique instruction id per instruction, assigned by the SC and provided to ADS. ADS passes through.
+- name: intervalStartTime
+  type: DateTime
+  description: The start of the time interval for which requirement is defined.
+associations:
+- source: ResourceClearing
+  target: ResourceLoadFollowingInst
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ResourceClearing
+  targetName: ResourceLoadFollowingInst
+- source: RegisteredResource
+  target: ResourceLoadFollowingInst
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: ResourceLoadFollowingInst

@@ -1,0 +1,50 @@
+name: Pole
+description: Pole asset.
+attributes:
+- name: baseKind
+  type: PoleBaseKind
+  description: Kind of base for this pole.
+- name: breastBlock
+  type: Boolean
+  description: True if a block of material has been attached to base of pole in ground for stability. This technique is used
+    primarily when anchors can not be used.
+- name: classification
+  type: String
+  description: ' Pole class: 1, 2, 3, 4, 5, 6, 7, H1, H2, Other, Unknown.'
+- name: construction
+  type: String
+  description: The framing structure mounted on the pole.
+- name: diameter
+  type: Length
+  description: Diameter of the pole.
+- name: jpaReference
+  type: String
+  description: Joint pole agreement reference number.
+- name: length
+  type: Length
+  description: Length of the pole (inclusive of any section of the pole that may be underground post-installation).
+- name: preservativeKind
+  type: PolePreservativeKind
+  description: Kind of preservative for this pole.
+- name: speciesType
+  type: String
+  description: Pole species. Aluminum, Aluminum Davit, Concrete, Fiberglass, Galvanized Davit, Galvanized, Steel Davit Primed,
+    Steel Davit, Steel Standard Primed, Steel, Truncated, Wood-Treated, Wood-Hard, Wood-Salt Treated, Wood-Soft, Wood, Other,
+    Unknown.
+- name: treatedDateTime
+  type: DateTime
+  description: Date and time pole was last treated with preservative.
+- name: treatmentKind
+  type: PoleTreatmentKind
+  description: Kind of treatment for this pole.
+ancestors:
+- Structure
+associations:
+- source: Pole
+  target: Streetlight
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Pole
+  sourceDescription: Pole to which thiss streetlight is attached.
+  targetName: Streetlights
+  targetDescription: All streetlights attached to this pole.

@@ -1,0 +1,108 @@
+name: Pnode
+description: A pricing node is directly associated with a connectivity node.  It is a pricing location for which market participants
+  submit their bids, offers, buy/sell CRRs, and settle.
+attributes:
+- name: isPublic
+  type: Boolean
+  description: If true, this Pnode is public (prices are published for DA/RT and FTR markets), otherwise it is private (location
+    is not usable by market for bidding/FTRs/transactions).
+ancestors:
+- IdentifiedObject
+descendents:
+- IndividualPnode
+- AggregatedPnode
+associations:
+- source: Pnode
+  target: SubControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Pnode
+  targetName: SubControlArea
+- source: Pnode
+  target: Trade
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Pnode
+  targetName: Trade
+- source: Pnode
+  target: TransactionBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Receipt_Pnode
+  targetName: ReceiptTransactionBids
+- source: Pnode
+  target: TransactionBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Delivery_Pnode
+  targetName: DeliveryTransactionBids
+- source: Pnode
+  target: ExPostPricingResults
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Pnode
+  targetName: ExPostResults
+- source: Pnode
+  target: PnodeResults
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: Pnode
+  targetName: PnodeResults
+- source: Pnode
+  target: CRRSegment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Source
+  targetName: SourceCRRSegment
+- source: Pnode
+  target: CRRSegment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Sink
+  targetName: SinkCRRSegment
+- source: Pnode
+  target: MktMeasurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Pnode
+  sourceDescription: Allows Pnode an association to aggregated resources external DC ties or psuedo tie measurements.
+  targetName: MktMeasurement
+  targetDescription: Allows Measurements to be associated to Pnodes.
+- source: Pnode
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Pnode
+  sourceDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
+  targetName: RegisteredResources
+  targetDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
+- source: AggregateNode
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AggregateNode
+  targetName: Pnode
+- source: FTR
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: FTRs
+  targetName: Pnodes
+- source: OrgPnodeAllocation
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: OrgPnodeAllocation
+  targetName: Pnode
+- source: RTO
+  target: Pnode
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: Pnodes
+- source: CommodityDefinition
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CommodityDefinition
+  targetName: Pnode

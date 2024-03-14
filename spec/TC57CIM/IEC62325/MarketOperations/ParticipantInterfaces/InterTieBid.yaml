@@ -1,0 +1,21 @@
+name: InterTieBid
+description: This class represents the inter tie bid.
+attributes:
+- name: 'minHourlyBlock '
+  type: Integer
+  description: The minimum hourly block for an Inter-Tie Resource supplied within the bid.
+ancestors:
+- ResourceBid
+associations:
+- source: InterTieBid
+  target: RegisteredInterTie
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: InterTieBid
+  targetName: RegisteredInterTie
+- source: InterTieBid
+  target: RampRateCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: InterTieBid
+  targetName: RampRateCurve

@@ -1,0 +1,20 @@
+name: ErpTimeEntry
+description: An individual entry on an ErpTimeSheet.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpTimeEntry
+  target: ErpProjectAccounting
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpTimeEntries
+  targetName: ErpProjectAccounting
+- source: ErpTimeSheet
+  target: ErpTimeEntry
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpTimeSheet
+  targetName: ErpTimeEntries

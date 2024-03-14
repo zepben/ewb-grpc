@@ -1,0 +1,90 @@
+name: FossilSteamSupply
+description: Fossil fuelled boiler (e.g., coal, oil, gas).
+attributes:
+- name: auxPowerVersusFrequency
+  type: PU
+  description: Off nominal frequency effect on auxiliary real power. Per unit active power variation versus per unit frequency
+    variation.
+- name: auxPowerVersusVoltage
+  type: PU
+  description: Off nominal voltage effect on auxiliary real power. Per unit active power variation versus per unit voltage
+    variation.
+- name: boilerControlMode
+  type: BoilerControlMode
+  description: The control mode of the boiler.
+- name: controlErrorBiasP
+  type: Float
+  description: Active power error bias ratio.
+- name: controlIC
+  type: Float
+  description: Integral constant.
+- name: controlPC
+  type: Float
+  description: Proportional constant.
+- name: controlPEB
+  type: Float
+  description: Pressure error bias ratio.
+- name: controlPED
+  type: PU
+  description: Pressure error deadband.
+- name: controlTC
+  type: Float
+  description: Time constant.
+- name: feedWaterIG
+  type: Float
+  description: Feedwater integral gain ratio.
+- name: feedWaterPG
+  type: Float
+  description: Feedwater proportional gain ratio.
+- name: feedWaterTC
+  type: Seconds
+  description: Feedwater time constant ratio.
+- name: fuelDemandLimit
+  type: PU
+  description: Fuel demand limit.
+- name: fuelSupplyDelay
+  type: Seconds
+  description: Fuel delay.
+- name: fuelSupplyTC
+  type: Seconds
+  description: Fuel supply time constant.
+- name: maxErrorRateP
+  type: Float
+  description: Active power maximum error rate limit.
+- name: mechPowerSensorLag
+  type: Seconds
+  description: Mechanical power sensor lag.
+- name: minErrorRateP
+  type: Float
+  description: Active power minimum error rate limit.
+- name: pressureCtrlDG
+  type: Float
+  description: Pressure control derivative gain ratio.
+- name: pressureCtrlIG
+  type: Float
+  description: Pressure control integral gain ratio.
+- name: pressureCtrlPG
+  type: Float
+  description: Pressure control proportional gain ratio.
+- name: pressureFeedback
+  type: Integer
+  description: Pressure feedback indicator.
+- name: superHeater1Capacity
+  type: Float
+  description: Drum/primary superheater capacity.
+- name: superHeater2Capacity
+  type: Float
+  description: Secondary superheater capacity.
+- name: superHeaterPipePD
+  type: Float
+  description: Superheater pipe pressure drop constant.
+- name: throttlePressureSP
+  type: PU
+  description: Throttle pressure setpoint.
+ancestors:
+- SteamSupply
+descendents:
+- HeatRecoveryBoiler
+- Supercritical
+- DrumBoiler
+- Subcritical

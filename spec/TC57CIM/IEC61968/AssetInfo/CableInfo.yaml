@@ -1,0 +1,38 @@
+name: CableInfo
+description: Cable data.
+attributes:
+- name: constructionKind
+  type: CableConstructionKind
+  description: Kind of construction of this cable.
+- name: diameterOverCore
+  type: Length
+  description: Diameter over the core, including any semi-con screen; should be the insulating layer's inside diameter.
+- name: diameterOverInsulation
+  type: Length
+  description: Diameter over the insulating layer, excluding outer screen.
+- name: diameterOverJacket
+  type: Length
+  description: Diameter over the outermost jacketing layer.
+- name: diameterOverScreen
+  type: Length
+  description: Diameter over the outer screen; should be the shield's inside diameter.
+- name: isStrandFill
+  type: Boolean
+  description: True if wire strands are extruded in a way to fill the voids in the cable.
+- name: nominalTemperature
+  type: Temperature
+  description: Maximum nominal design operating temperature.
+- name: outerJacketKind
+  type: CableOuterJacketKind
+  description: Kind of outer jacket of this cable.
+- name: sheathAsNeutral
+  type: Boolean
+  description: True if sheath / shield is used as a neutral (i.e., bonded).
+- name: shieldMaterial
+  type: CableShieldMaterialKind
+  description: Material of the shield.
+ancestors:
+- WireInfo
+descendents:
+- TapeShieldCableInfo
+- ConcentricNeutralCableInfo

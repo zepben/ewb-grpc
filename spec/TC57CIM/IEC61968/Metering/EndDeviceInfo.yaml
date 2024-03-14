@@ -1,0 +1,29 @@
+name: EndDeviceInfo
+description: End device data.
+attributes:
+- name: capability
+  type: EndDeviceCapability
+  description: Inherent capabilities of the device (i.e., the functions it supports).
+- name: isSolidState
+  type: Boolean
+  description: If true, this is a solid state end device (as opposed to a mechanical or electromechanical device).
+- name: phaseCount
+  type: Integer
+  description: Number of potential phases the end device supports, typically 0, 1 or 3.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: Rated current.
+- name: ratedVoltage
+  type: Voltage
+  description: Rated voltage.
+ancestors:
+- AssetInfo
+associations:
+- source: EndDevice
+  target: EndDeviceInfo
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDevices
+  sourceDescription: All end devices described with this data.
+  targetName: EndDeviceInfo
+  targetDescription: End device data.

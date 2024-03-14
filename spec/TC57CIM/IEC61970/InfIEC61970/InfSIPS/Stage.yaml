@@ -1,0 +1,24 @@
+name: Stage
+description: Stage of a remedial action scheme.
+attributes:
+- name: priority
+  type: Integer
+  description: The priority of the stage.   0 = don t care (default) 1 = highest priority. 2 is less than 1 and so on. A stage
+    with higher priority needs be activated before a lower stage can be activated.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Stage
+  target: RemedialActionScheme
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: Stage
+  sourceDescription: A Remedial Action Scheme (RAS) consist of one or more stage that are trigger and execute protection action.
+  targetName: RemedialActionScheme
+- source: StageTrigger
+  target: Stage
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: StageTrigger
+  sourceDescription: A Stage consist of one or more StageTrigger.
+  targetName: Stage

@@ -1,0 +1,18 @@
+name: ControlAction
+description: Control executed as a switching step.
+attributes:
+- name: analogValue
+  type: Float
+  description: The analog value used for the analog control, the raise/lower control and the set point control
+- name: discreteValue
+  type: Integer
+  description: The integer value used for the command or the accumulator reset.
+ancestors:
+- SwitchingAction
+associations:
+- source: ControlAction
+  target: Control
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ControlAction
+  targetName: Control

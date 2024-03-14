@@ -1,0 +1,24 @@
+name: ContingencyConstraintLimit
+description: Possibly time-varying max MW or MVA and optionally Min MW limit or MVA limit (Y1 and Y2, respectively) assigned
+  to a constraint for a specific contingency. Use CurveSchedule XAxisUnits to specify MW or MVA.
+ancestors:
+- Curve
+associations:
+- source: ContingencyConstraintLimit
+  target: MktContingency
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ContingencyConstraintLimit
+  targetName: MktContingency
+- source: ContingencyConstraintLimit
+  target: SecurityConstraintSum
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ContingencyConstraintLimits
+  targetName: SecurityConstraintSum
+- source: ContingencyConstraintLimit
+  target: MWLimitSchedule
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: SecurityConstraintLimit
+  targetName: MWLimitSchedules

@@ -1,0 +1,20 @@
+name: ErpBOM
+description: |-
+  Information that generally describes the Bill of Material Structure and its contents for a utility.
+
+  This is used by ERP systems to transfer Bill of Material information between two business applications.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpBomItemData
+  target: ErpBOM
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpBomItemDatas
+  targetName: ErpBOM
+- source: Design
+  target: ErpBOM
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Design
+  targetName: ErpBOMs

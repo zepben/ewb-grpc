@@ -1,0 +1,42 @@
+name: PendingCalculation
+description: When present, a scalar conversion that needs to be applied to every IntervalReading.value contained in IntervalBlock.
+  This conversion results in a new associated ReadingType, reflecting the true dimensions of IntervalReading values after
+  the conversion.
+attributes:
+- name: multiplyBeforeAdd
+  type: Boolean
+  description: Whether scalars should be applied before adding the 'offset'.
+- name: offset
+  type: Integer
+  description: (if applicable) Offset to be added as well as multiplication using scalars.
+- name: scalarDenominator
+  type: Integer
+  description: (if scalar is rational number) When 'IntervalReading.value' is multiplied by 'scalarNumerator' and divided
+    by this value, it causes a unit of measure conversion to occur, resulting in the 'ReadingType.unit'.
+- name: scalarFloat
+  type: Float
+  description: (if scalar is floating number) When multiplied with 'IntervalReading.value', it causes a unit of measure conversion
+    to occur, according to the 'ReadingType.unit'.
+- name: scalarNumerator
+  type: Integer
+  description: (if scalar is integer or rational number)  When the scalar is a simple integer, and this attribute is presented
+    alone and multiplied with 'IntervalReading.value', it causes a unit of measure conversion to occur, resulting in the 'ReadingType.unit'.
+    It is never used in conjunction with 'scalarFloat', only with 'scalarDenominator'.
+associations:
+- source: PendingCalculation
+  target: ReadingType
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: PendingCalculation
+  sourceDescription: Pending calculation that produced this reading type.
+  targetName: ReadingType
+  targetDescription: Reading type resulting from this pending conversion.
+- source: IntervalBlock
+  target: PendingCalculation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: IntervalBlocks
+  sourceDescription: All blocks of interval reading values to which this pending conversion applies.
+  targetName: PendingCalculation
+  targetDescription: Pending calculation to apply to interval reading values contained by this block (after which the resulting
+    reading type is different than the original because it reflects the conversion result).

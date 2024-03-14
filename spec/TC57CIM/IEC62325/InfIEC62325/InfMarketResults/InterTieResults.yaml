@@ -1,0 +1,23 @@
+name: InterTieResults
+description: Provides the tie point specific output from the market applications. Currently, this is defined as the loop flow
+  compensation MW value.
+attributes:
+- name: baseMW
+  type: Float
+  description: Net Actual MW Flow
+- name: clearedValue
+  type: Float
+  description: Net Dispatched MW
+associations:
+- source: InterTieClearing
+  target: InterTieResults
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: InterTieClearing
+  targetName: InterTieResults
+- source: Flowgate
+  target: InterTieResults
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: Flowgate
+  targetName: InterTieResults

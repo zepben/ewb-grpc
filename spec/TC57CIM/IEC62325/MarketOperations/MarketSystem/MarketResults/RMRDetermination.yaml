@@ -1,0 +1,16 @@
+name: RMRDetermination
+description: 'Indicates whether unit is a reliablity must run unit: required to be on to satisfy Grid Code Reliablitiy criteria,
+  load demand, or voltage support.'
+associations:
+- source: RMRDetermination
+  target: MitigatedBidClearing
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: RMRDetermination
+  targetName: MitigatedBidClearing
+- source: RMRDetermination
+  target: Bid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RMRDetermination
+  targetName: Bid

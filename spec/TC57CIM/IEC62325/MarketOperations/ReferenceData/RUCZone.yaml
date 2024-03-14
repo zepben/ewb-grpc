@@ -1,0 +1,14 @@
+name: RUCZone
+description: A specialized class of type AggregatedNode type. Defines RUC Zones. A forecast region represents a collection
+  of Nodes for which the Market operator has developed sufficient historical demand and relevant weather data to perform a
+  demand forecast for such area. The Market Operator may further adjust this forecast to ensure that the Reliability Unit
+  Commitment produces adequate local capacity procurement.
+ancestors:
+- AggregateNode
+associations:
+- source: RUCZone
+  target: LossClearingResults
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RUCZone
+  targetName: LossClearingResults

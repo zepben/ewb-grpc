@@ -1,0 +1,27 @@
+name: Asset
+description: Tangible resource of the utility, including power system equipment, various end devices, cabinets, buildings,
+  etc. For electrical network equipment, the role of the asset is defined through PowerSystemResource and its subclasses,
+  defined mainly in the Wires model (refer to IEC61970-301 and model package IEC61970::Wires). Asset description places emphasis
+  on the physical characteristics of the equipment fulfilling that role.
+ancestors:
+- IdentifiedObject
+descendents:
+- Streetlight
+- AssetContainer
+associations:
+- source: Asset
+  target: AssetOrganisationRole
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Assets
+  sourceDescription: All assets for this organisation role.
+  targetName: OrganisationRoles
+  targetDescription: All roles an organisation plays for this asset.
+- source: Asset
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Assets
+  sourceDescription: All assets at this location.
+  targetName: Location
+  targetDescription: Location of this asset.

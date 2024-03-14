@@ -1,0 +1,26 @@
+name: Accumulator
+description: Accumulator represents an accumulated (counted) Measurement, e.g. an energy value.
+attributes:
+- name: maxValue
+  type: Integer
+  description: Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or
+    of telemetered raw values.
+ancestors:
+- Measurement
+associations:
+- source: Accumulator
+  target: AccumulatorValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Accumulator
+  sourceDescription: Measurement to which this value is connected.
+  targetName: AccumulatorValues
+  targetDescription: The values connected to this measurement.
+- source: Accumulator
+  target: AccumulatorLimitSet
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Measurements
+  sourceDescription: The Measurements using the LimitSet.
+  targetName: LimitSets
+  targetDescription: A measurement may have zero or more limit ranges defined for it.

@@ -1,0 +1,170 @@
+name: Location
+description: The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment
+  in time. It can be defined with one or more position points (coordinates) in a given coordinate system.
+attributes:
+- name: direction
+  type: String
+  description: (if applicable) Direction that allows field crews to quickly find a given asset. For a given location, such
+    as a street address, this is the relative direction in which to find the asset. For example, a streetlight may be located
+    at the 'NW' (northwest) corner of the customer's site, or a usage point may be located on the second floor of an apartment
+    building.
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+- name: geoInfoReference
+  type: String
+  description: (if applicable) Reference to geographical information source, often external to the utility.
+- name: mainAddress
+  type: StreetAddress
+  description: Main address of the location.
+- name: phone1
+  type: TelephoneNumber
+  description: Phone number.
+- name: phone2
+  type: TelephoneNumber
+  description: Additional phone number.
+- name: secondaryAddress
+  type: StreetAddress
+  description: Secondary address of the location. For example, PO Box address may have different ZIP code than that in the
+    'mainAddress'.
+- name: status
+  type: Status
+  description: Status of this location.
+- name: type
+  type: String
+  description: Classification by utility's corporate standards and practices, relative to the location itself (e.g., geographical,
+    functional accounting, etc., not a given property that happens to exist at that location).
+ancestors:
+- IdentifiedObject
+descendents:
+- Zone
+- UsagePointLocation
+- WorkLocation
+associations:
+- source: Location
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedLocation
+  sourceDescription: Location whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this location.
+- source: Location
+  target: Measurement
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Locations
+  targetName: Measurements
+- source: Location
+  target: PositionPoint
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Location
+  sourceDescription: Location described by this position point.
+  targetName: PositionPoints
+  targetDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+- source: Location
+  target: PowerSystemResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Location
+  sourceDescription: Location of this power system resource.
+  targetName: PowerSystemResources
+  targetDescription: All power system resources at this location.
+- source: Location
+  target: SwitchingOrder
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Location
+  targetName: SwitchingOrder
+- source: Location
+  target: Crew
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Location
+  targetName: Crew
+- source: Location
+  target: CoordinateSystem
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Locations
+  sourceDescription: All locations described with position points in this coordinate system.
+  targetName: CoordinateSystem
+  targetDescription: Coordinate system used to describe position points of this location.
+- source: Route
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Routes
+  targetName: Locations
+- source: LandProperty
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: LandProperties
+  targetName: Locations
+  targetDescription: The spatail description of a piece of property.
+- source: AssetLocationHazard
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Hazards
+  sourceDescription: All asset hazards at this location.
+  targetName: Locations
+  targetDescription: The location of this hazard.
+- source: OldCrew
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Crews
+  targetName: Locations
+- source: Incident
+  target: Location
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: Incident
+  sourceDescription: Incident at this location.
+  targetName: Location
+  targetDescription: Location of this incident.
+- source: Fault
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Fault
+  targetName: Location
+- source: OutageOrder
+  target: Location
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: OutageOrder
+  targetName: Location
+- source: TroubleOrder
+  target: Location
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TroubleOrder
+  targetName: Location
+- source: Asset
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Assets
+  sourceDescription: All assets at this location.
+  targetName: Location
+  targetDescription: Location of this asset.
+- source: EnvironmentalLocationType
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalLocationKind
+  sourceDescription: Kind of environmental location which this location is.
+  targetName: Location
+  targetDescription: Location of this instance of ths kind of environmental location.
+- source: EnvironmentalMonitoringStation
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalMonitoringStation
+  sourceDescription: Monitoring station located at this location.
+  targetName: Location
+  targetDescription: Location of this monitoring station.

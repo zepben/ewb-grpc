@@ -1,0 +1,38 @@
+name: LaborItem
+description: Labor used for work order.
+attributes:
+- name: activityCode
+  type: String
+  description: ' Activity code identifies a specific and distinguishable unit of work.'
+- name: cost
+  type: Money
+  description: Total cost for labor. Note that this may not be able to be derived from labor rate and time charged.
+- name: laborDuration
+  type: Hours
+  description: Time required to perform work.
+- name: laborRate
+  type: CostRate
+  description: ' The labor rate applied for work.'
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: LaborItem
+  target: WorkCostDetail
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LaborItems
+  targetName: WorkCostDetail
+- source: OldWorkTask
+  target: LaborItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WorkTask
+  targetName: LaborItems
+- source: OldPerson
+  target: LaborItem
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ErpPersons
+  targetName: LaborItems

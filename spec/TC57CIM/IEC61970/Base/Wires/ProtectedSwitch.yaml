@@ -1,0 +1,29 @@
+name: ProtectedSwitch
+description: A ProtectedSwitch is a switching device that can be operated by ProtectionEquipment.
+attributes:
+- name: breakingCapacity
+  type: CurrentFlow
+  description: The maximum fault current a breaking device can break safely under prescribed conditions of use.
+ancestors:
+- Switch
+descendents:
+- LoadBreakSwitch
+- Recloser
+- Breaker
+associations:
+- source: ProtectionEquipment
+  target: ProtectedSwitch
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: OperatedByProtectionEquipment
+  sourceDescription: Protection equipments that operate this ProtectedSwitch.
+  targetName: ProtectedSwitches
+  targetDescription: Protected switches operated by this ProtectionEquipment.
+- source: RecloseSequence
+  target: ProtectedSwitch
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: RecloseSequences
+  sourceDescription: A breaker may have zero or more automatic reclosures after a trip occurs.
+  targetName: ProtectedSwitch
+  targetDescription: A breaker may have zero or more automatic reclosures after a trip occurs.

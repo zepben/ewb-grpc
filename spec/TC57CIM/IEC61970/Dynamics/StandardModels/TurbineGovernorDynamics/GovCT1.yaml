@@ -1,0 +1,130 @@
+name: GovCT1
+description: "General model for any prime mover with a PID governor, used primarily for combustion turbine and combined cycle\
+  \ units.\nThis model can be used to represent a variety of prime movers controlled by PID governors.  It is suitable, for\
+  \ example, for the representation of: \n<ul>\n\t<li>gas turbine and single shaft combined cycle turbines</li>\n</ul>\n<ul>\n\
+  \t<li>diesel engines with modern electronic or digital governors  </li>\n</ul>\n<ul>\n\t<li>steam turbines where steam is\
+  \ supplied from a large boiler drum or a large header whose pressure is substantially constant over the period under study</li>\n\
+  \t<li>simple hydro turbines in dam configurations where the water column length is short and water inertia effects are minimal.</li>\n\
+  </ul>\nAdditional information on this model is available in the 2012 IEEE report, <i><u>Dynamic Models for Turbine-Governors\
+  \ in Power System Studies</u></i>, 3.1.2.3 pages 3-4 (GGOV1)."
+attributes:
+- name: aset
+  type: Float
+  description: Acceleration limiter setpoint (<i>Aset</i>).  Unit = PU / s.  Typical value = 0,01.
+- name: db
+  type: PU
+  description: Speed governor deadband in PU speed (<i>db</i>).  In the majority of applications, it is recommended that this
+    value be set to zero.  Typical value = 0.
+- name: dm
+  type: PU
+  description: Speed sensitivity coefficient (<i>Dm</i>).  <i>Dm</i> can represent either the variation of the engine power
+    with the shaft speed or the variation of maximum power capability with shaft speed.  If it is positive it describes the
+    falling slope of the engine speed verses power characteristic as speed increases. A slightly falling characteristic is
+    typical for reciprocating engines and some aero-derivative turbines.  If it is negative the engine power is assumed to
+    be unaffected by the shaft speed, but the maximum permissible fuel flow is taken to fall with falling shaft speed. This
+    is characteristic of single-shaft industrial turbines due to exhaust temperature limits.  Typical value = 0.
+- name: ka
+  type: PU
+  description: Acceleration limiter gain (<i>Ka</i>).  Typical value = 10.
+- name: kdgov
+  type: PU
+  description: Governor derivative gain (<i>Kdgov</i>).  Typical value = 0.
+- name: kigov
+  type: PU
+  description: Governor integral gain (<i>Kigov</i>).  Typical value = 2.
+- name: kiload
+  type: PU
+  description: Load limiter integral gain for PI controller (<i>Kiload</i>).  Typical value = 0,67.
+- name: kimw
+  type: PU
+  description: Power controller (reset) gain (<i>Kimw</i>).  The default value of 0,01 corresponds to a reset time of 100
+    s.  A value of 0,001 corresponds to a relatively slow-acting load controller.  Typical value = 0,01.
+- name: kpgov
+  type: PU
+  description: Governor proportional gain (<i>Kpgov</i>).  Typical value = 10.
+- name: kpload
+  type: PU
+  description: Load limiter proportional gain for PI controller (<i>Kpload</i>).  Typical value = 2.
+- name: kturb
+  type: PU
+  description: Turbine gain (<i>Kturb</i>) (&gt; 0).  Typical value = 1,5.
+- name: ldref
+  type: PU
+  description: Load limiter reference value (<i>Ldref</i>).  Typical value = 1.
+- name: maxerr
+  type: PU
+  description: Maximum value for speed error signal (<i>maxerr</i>) (&gt; GovCT1.minerr).  Typical value = 0,05.
+- name: minerr
+  type: PU
+  description: Minimum value for speed error signal (<i>minerr</i>) (&lt; GovCT1.maxerr).  Typical value = -0,05.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: r
+  type: PU
+  description: Permanent droop (<i>R</i>).  Typical value = 0,04.
+- name: rclose
+  type: Float
+  description: Minimum valve closing rate (<i>Rclose</i>).  Unit = PU / s.  Typical value = -0,1.
+- name: rdown
+  type: PU
+  description: Maximum rate of load limit decrease (<i>Rdown</i>).  Typical value = -99.
+- name: ropen
+  type: Float
+  description: Maximum valve opening rate (<i>Ropen</i>).  Unit = PU / s.  Typical value = 0.10.
+- name: rselect
+  type: DroopSignalFeedbackKind
+  description: Feedback signal for droop (<i>Rselect</i>).  Typical value = electricalPower.
+- name: rup
+  type: PU
+  description: Maximum rate of load limit increase (<i>Rup</i>).  Typical value = 99.
+- name: ta
+  type: Seconds
+  description: Acceleration limiter time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,1.
+- name: tact
+  type: Seconds
+  description: Actuator time constant (<i>Tact</i>) (&gt;= 0).  Typical value = 0,5.
+- name: tb
+  type: Seconds
+  description: Turbine lag time constant (<i>Tb</i>) (&gt; 0).  Typical value = 0,5.
+- name: tc
+  type: Seconds
+  description: Turbine lead time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
+- name: tdgov
+  type: Seconds
+  description: Governor derivative controller time constant (<i>Tdgov</i>) (&gt;= 0).  Typical value = 1.
+- name: teng
+  type: Seconds
+  description: Transport time delay for diesel engine used in representing diesel engines where there is a small but measurable
+    transport delay between a change in fuel flow setting and the development of torque (<i>Teng</i>) (&gt;= 0).  <i>Teng</i>
+    should be zero in all but special cases where this transport delay is of particular concern.  Typical value = 0.
+- name: tfload
+  type: Seconds
+  description: Load-limiter time constant (<i>Tfload</i>) (&gt; 0).  Typical value = 3.
+- name: tpelec
+  type: Seconds
+  description: Electrical power transducer time constant (<i>Tpelec</i>) (&gt; 0).  Typical value = 1.
+- name: tsa
+  type: Seconds
+  description: Temperature detection lead time constant (<i>Tsa</i>) (&gt;= 0).  Typical value = 4.
+- name: tsb
+  type: Seconds
+  description: Temperature detection lag time constant (<i>Tsb</i>) (&gt;= 0).  Typical value = 5.
+- name: vmax
+  type: PU
+  description: Maximum valve position limit (<i>Vmax</i>) (&gt; GovCT1.vmin).  Typical value = 1.
+- name: vmin
+  type: PU
+  description: Minimum valve position limit (<i>Vmin</i>) (&lt; GovCT1.vmax).  Typical value = 0,15.
+- name: wfnl
+  type: PU
+  description: No load fuel flow (<i>Wfnl</i>).  Typical value = 0,2.
+- name: wfspd
+  type: Boolean
+  description: |-
+    Switch for fuel source characteristic to recognize that fuel flow, for a given fuel valve stroke, can be proportional to engine speed (<i>Wfspd</i>).
+    true = fuel flow proportional to speed (for some gas turbines and diesel engines with positive displacement fuel injectors)
+    false = fuel control system keeps fuel flow independent of engine speed.
+    Typical value = true.
+ancestors:
+- TurbineGovernorDynamics

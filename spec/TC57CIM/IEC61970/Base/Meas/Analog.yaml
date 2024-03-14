@@ -1,0 +1,40 @@
+name: Analog
+description: Analog represents an analog Measurement.
+attributes:
+- name: maxValue
+  type: Float
+  description: Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or
+    of telemetered raw values.
+- name: minValue
+  type: Float
+  description: Normal value range minimum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or
+    of telemetered raw values.
+- name: normalValue
+  type: Float
+  description: Normal measurement value, e.g., used for percentage calculations.
+- name: positiveFlowIn
+  type: Boolean
+  description: If true then this measurement is an active power, reactive power or current with the convention that a positive
+    value measured at the Terminal means power is flowing into the related PowerSystemResource.
+ancestors:
+- Measurement
+descendents:
+- AssetAnalog
+- EnvironmentalAnalog
+associations:
+- source: Analog
+  target: AnalogValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Analog
+  sourceDescription: Measurement to which this value is connected.
+  targetName: AnalogValues
+  targetDescription: The values connected to this measurement.
+- source: Analog
+  target: AnalogLimitSet
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Measurements
+  sourceDescription: The Measurements using the LimitSet.
+  targetName: LimitSets
+  targetDescription: A measurement may have zero or more limit ranges defined for it.

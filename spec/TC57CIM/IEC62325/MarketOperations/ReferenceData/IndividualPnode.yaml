@@ -1,0 +1,35 @@
+name: IndividualPnode
+description: Individual pricing node based on Pnode.
+ancestors:
+- Pnode
+associations:
+- source: IndividualPnode
+  target: PnodeDistributionFactor
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: IndividualPnode
+  targetName: PnodeDistributionFactor
+- source: IndividualPnode
+  target: GenDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: IndividualPnode
+  targetName: GenDistributionFactor
+- source: IndividualPnode
+  target: LoadDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: IndividualPnode
+  targetName: LoadDistributionFactor
+- source: IndividualPnode
+  target: MktConnectivityNode
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: IndividualPnode
+  targetName: MktConnectivityNode
+- source: CongestionArea
+  target: IndividualPnode
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CongestionArea
+  targetName: IndividualPnode

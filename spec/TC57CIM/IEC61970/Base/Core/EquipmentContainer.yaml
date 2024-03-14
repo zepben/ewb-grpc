@@ -1,0 +1,33 @@
+name: EquipmentContainer
+description: A modelling construct to provide a root class for containing equipment.
+ancestors:
+- ConnectivityNodeContainer
+descendents:
+- Line
+- Plant
+- Substation
+- VoltageLevel
+- Bay
+- DCEquipmentContainer
+- Feeder
+associations:
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EquipmentContainer
+  sourceDescription: Container of this equipment.
+  targetName: Equipments
+  targetDescription: Contained equipment.
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AdditionalEquipmentContainer
+  sourceDescription: Additional equipment container beyond the primary equipment container.  The equipment is contained in
+    another equipment container, but also grouped with this equipment container.
+  targetName: AdditionalGroupedEquipment
+  targetDescription: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is
+    contained in another equipment container, but also grouped with this equipment container.  Examples include when a switch
+    contained in a substation is also desired to be grouped with a line contianer or when a switch is included in a secondary
+    substation and also grouped in a feeder.

@@ -1,0 +1,135 @@
+name: Document
+description: Parent class for different groupings of information collected and managed as a part of a business process. It
+  will frequently contain references to other objects, such as assets, people and power system resources.
+attributes:
+- name: authorName
+  type: String
+  description: Name of the author of this document.
+- name: comment
+  type: String
+  description: Free text comment.
+- name: createdDateTime
+  type: DateTime
+  description: Date and time that this document was created.
+- name: docStatus
+  type: Status
+  description: |-
+    Status of this document. For status of subject matter this document represents (e.g., Agreement, Work), use 'status' attribute.
+    Example values for 'docStatus.status' are draft, approved, cancelled, etc.
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+- name: lastModifiedDateTime
+  type: DateTime
+  description: Date and time this document was last modified. Documents may potentially be modified many times during their
+    lifetime.
+- name: revisionNumber
+  type: String
+  description: Revision number for this document.
+- name: status
+  type: Status
+  description: Status of subject matter (e.g., Agreement, Work) this document represents. For status of the document itself,
+    use 'docStatus' attribute.
+- name: subject
+  type: String
+  description: Document subject.
+- name: title
+  type: String
+  description: Document title.
+- name: type
+  type: String
+  description: Utility-specific classification of this document, according to its corporate standards, practices, and existing
+    IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
+ancestors:
+- IdentifiedObject
+descendents:
+- AssetModelCatalogueItem
+- ErpDocument
+- WorkBillingInfo
+- StandardIndustryCode
+- ServiceGuarantee
+- PowerQualityPricing
+- CustomerBillingInfo
+- WorkDocument
+- Specification
+- Skill
+- BusinessPlan
+- BankAccount
+- TariffProfile
+- MerchantAccount
+- AuxiliaryAccount
+- TroubleTicket
+- Tariff
+- PricingStructure
+- CustomerAccount
+- Agreement
+- BaseWork
+- ProcedureDataSet
+- Procedure
+- AssetGroup
+- Analytic
+- SwitchingPlan
+- SafetyDocument
+- OutagePlan
+- OperationalRestriction
+- OperationalTag
+- Incident
+- TroubleOrder
+- SwitchingPlanRequest
+- SwitchingOrder
+- PlannedOutageNotification
+- OutageOrder
+- Outage
+- TimeSchedule
+- MarketSkill
+- MarketStatement
+- Bid
+- ChargeType
+- BillDeterminant
+- PassThroughBill
+- Settlement
+- EnergyTransaction
+- CongestionRevenueRight
+- MarketFactors
+- MarketDocument
+associations:
+- source: Document
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedDocument
+  sourceDescription: Document whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this document.
+- source: Author
+  target: Document
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Author
+  sourceDescription: Author of this document.
+  targetName: Documents
+  targetDescription: All documents of this this author.
+- source: Approver
+  target: Document
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Approver
+  sourceDescription: Approver of this document.
+  targetName: Documents
+  targetDescription: All documents for this approver.
+- source: Issuer
+  target: Document
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Issuer
+  sourceDescription: Issuer of this document.
+  targetName: Documents
+  targetDescription: All documents for this issuer.
+- source: Editor
+  target: Document
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Editor
+  sourceDescription: Editor of this document.
+  targetName: Documents
+  targetDescription: All documents for this editor.

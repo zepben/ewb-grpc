@@ -1,0 +1,15 @@
+name: ErpPersonnel
+description: Information that applies to the basic data about a utility person, used by ERP applications to transfer Personnel
+  data for a worker.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: OldPerson
+  target: ErpPersonnel
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpPersons
+  targetName: ErpPersonnel

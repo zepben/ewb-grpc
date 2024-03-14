@@ -1,0 +1,21 @@
+name: ConnectivityNode
+description: Connectivity nodes are points where terminals of AC conducting equipment are connected together with zero impedance.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ConnectivityNode
+  target: ConnectivityNodeContainer
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ConnectivityNodes
+  sourceDescription: Connectivity nodes which belong to this connectivity node container.
+  targetName: ConnectivityNodeContainer
+  targetDescription: Container of this connectivity node.
+- source: Terminal
+  target: ConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Terminals
+  sourceDescription: Terminals interconnected with zero impedance at a this connectivity node.
+  targetName: ConnectivityNode
+  targetDescription: The connectivity node to which this terminal connects with zero impedance.

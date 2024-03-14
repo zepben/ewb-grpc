@@ -1,0 +1,19 @@
+name: LoadRatio
+description: Representing the ratio of the load share for the associated SC.
+attributes:
+- name: intervalEndTime
+  type: DateTime
+  description: Interval End Time
+- name: intervalStartTime
+  type: DateTime
+  description: Interval Start Time
+- name: share
+  type: PerCent
+  description: Share in percentage of total Market load for the selected time interval.
+associations:
+- source: LoadRatio
+  target: SchedulingCoordinator
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: LoadRatio
+  targetName: SchedulingCoordinator

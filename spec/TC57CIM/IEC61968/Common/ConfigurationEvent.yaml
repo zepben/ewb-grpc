@@ -1,0 +1,83 @@
+name: ConfigurationEvent
+description: Used to report details on creation, change or deletion of an entity or its configuration.
+attributes:
+- name: effectiveDateTime
+  type: DateTime
+  description: Date and time this event has or will become effective.
+- name: modifiedBy
+  type: String
+  description: Source/initiator of modification.
+- name: remark
+  type: String
+  description: Free text remarks.
+ancestors:
+- ActivityRecord
+associations:
+- source: ConfigurationEvent
+  target: FaultCauseType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ConfigurationEvent
+  targetName: FaultCauseType
+- source: Document
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedDocument
+  sourceDescription: Document whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this document.
+- source: UsagePoint
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedUsagePoint
+  sourceDescription: Usage point whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this usage point.
+- source: OrganisationRole
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedOrganisationRole
+  sourceDescription: Organisation role whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this organisation role.
+- source: Asset
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedAsset
+  sourceDescription: Asset whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this asset.
+- source: Location
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedLocation
+  sourceDescription: Location whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this location.
+- source: PersonRole
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedPersonRole
+  sourceDescription: Person role whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this person role.
+- source: ServiceCategory
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedServiceCategory
+  sourceDescription: Service category whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this service category.
+- source: PowerSystemResource
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PowerSystemResource
+  targetName: ConfigurationEvent

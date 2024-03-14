@@ -1,0 +1,21 @@
+name: Bank
+description: Organisation that is a commercial bank, agency, or other institution that offers a similar service.
+attributes:
+- name: bic
+  type: String
+  description: Bank identifier code as defined in ISO 9362; for use in countries wher IBAN is not yet in operation.
+- name: iban
+  type: String
+  description: International bank account number defined in ISO 13616; for countries where IBAN is not in operation, the existing
+    BIC or SWIFT codes may be used instead (see ISO 9362).
+ancestors:
+- OrganisationRole
+associations:
+- source: BankAccount
+  target: Bank
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BankAccounts
+  sourceDescription: All BankAccounts this Bank provides.
+  targetName: Bank
+  targetDescription: Bank that provides this BankAccount.

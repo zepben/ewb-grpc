@@ -1,0 +1,14 @@
+name: NetworkModelProjectState
+description: A network model project version state.  States are agreed upon by the exchange community.  Examples are "approved",
+  "proposed", "withdrawn", "committed" etc.
+ancestors:
+- IdentifiedObject
+associations:
+- source: NetworkModelProjectChangeVersion
+  target: NetworkModelProjectState
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: NetworkModelProjectChangeVersion
+  sourceDescription: The change versions that are at this state.
+  targetName: NetworkModelProjectState
+  targetDescription: The state of this network model project version.

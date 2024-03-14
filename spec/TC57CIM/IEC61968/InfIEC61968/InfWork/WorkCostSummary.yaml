@@ -1,0 +1,11 @@
+name: WorkCostSummary
+description: A roll up by cost type for the entire cost of a work order. For example, total labor.
+ancestors:
+- WorkDocument
+associations:
+- source: WorkCostDetail
+  target: WorkCostSummary
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: WorkCostDetail
+  targetName: WorkCostSummary

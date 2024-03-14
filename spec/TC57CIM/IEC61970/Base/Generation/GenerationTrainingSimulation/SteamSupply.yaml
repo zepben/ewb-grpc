@@ -1,0 +1,21 @@
+name: SteamSupply
+description: Steam supply for steam turbine.
+attributes:
+- name: steamSupplyRating
+  type: Float
+  description: Rating of steam supply.
+ancestors:
+- PowerSystemResource
+descendents:
+- FossilSteamSupply
+- BWRSteamSupply
+- PWRSteamSupply
+associations:
+- source: SteamSupply
+  target: SteamTurbine
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: SteamSupplys
+  sourceDescription: Steam turbines may have steam supplied by a steam supply.
+  targetName: SteamTurbines
+  targetDescription: Steam turbines may have steam supplied by a steam supply.

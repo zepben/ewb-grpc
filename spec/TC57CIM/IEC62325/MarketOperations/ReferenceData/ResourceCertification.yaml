@@ -1,0 +1,23 @@
+name: ResourceCertification
+description: Specifies certification for a resource to participate in a specific markets.
+attributes:
+- name: market
+  type: MarketType
+  description: market type
+- name: qualificationFlag
+  type: YesNo
+  description: Status of the qualification ('Y' = Active, 'N' = Inactive)
+- name: type
+  type: ResourceCertificationKind
+  description: Type of service based on ResourceAncillaryServiceType enumeration
+associations:
+- source: RegisteredResource
+  target: ResourceCertification
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  sourceDescription: RegisteredResources are qualified for resource ancillary service types (which include market product
+    types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
+  targetName: ResourceAncillaryServiceQualification
+  targetDescription: RegisteredResources are qualified for resource ancillary service types (which include market product
+    types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.

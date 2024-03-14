@@ -1,0 +1,17 @@
+name: ClearanceAction
+description: Action on clearance document as a switching step.
+attributes:
+- name: kind
+  type: ClearanceActionKind
+  description: Clearance action to perform.
+ancestors:
+- SwitchingAction
+associations:
+- source: ClearanceAction
+  target: ClearanceDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ClearanceAction
+  sourceDescription: Clearance action associated with this clearance.
+  targetName: Clearance
+  targetDescription: Clearance associated with this clearance action.

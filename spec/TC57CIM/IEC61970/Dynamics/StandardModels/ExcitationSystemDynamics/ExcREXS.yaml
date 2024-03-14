@@ -1,0 +1,115 @@
+name: ExcREXS
+description: General purpose rotating excitation system.  This model can be used to represent a wide range of excitation systems
+  whose DC power source is an AC or DC generator. It encompasses IEEE type AC1, AC2, DC1, and DC2 excitation system models.
+attributes:
+- name: e1
+  type: PU
+  description: Field voltage value 1 (<i>E</i><i><sub>1</sub></i>).  Typical value = 3.
+- name: e2
+  type: PU
+  description: Field voltage value 2 (<i>E</i><i><sub>2</sub></i>).  Typical value = 4.
+- name: fbf
+  type: ExcREXSFeedbackSignalKind
+  description: Rate feedback signal flag (<i>fbf</i>). Typical value = fieldCurrent.
+- name: flimf
+  type: PU
+  description: Limit type flag (<i>Flimf</i>).  Typical value = 0.
+- name: kc
+  type: PU
+  description: Rectifier regulation factor (<i>Kc</i>).  Typical value = 0,05.
+- name: kd
+  type: PU
+  description: Exciter regulation factor (<i>Kd</i>).  Typical value = 2.
+- name: ke
+  type: PU
+  description: Exciter field proportional constant (<i>Ke</i>).  Typical value = 1.
+- name: kefd
+  type: PU
+  description: Field voltage feedback gain (<i>Kefd</i>).  Typical value = 0.
+- name: kf
+  type: Seconds
+  description: Rate feedback gain (<i>Kf</i>) (&gt;= 0).  Typical value = 0,05.
+- name: kh
+  type: PU
+  description: Field voltage controller feedback gain (<i>Kh</i>).  Typical value = 0.
+- name: kii
+  type: PU
+  description: Field current regulator integral gain (<i>Kii</i>).  Typical value = 0.
+- name: kip
+  type: PU
+  description: Field current regulator proportional gain (<i>Kip</i>).  Typical value = 1.
+- name: ks
+  type: PU
+  description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
+- name: kvi
+  type: PU
+  description: Voltage regulator integral gain (<i>Kvi</i>).  Typical value = 0.
+- name: kvp
+  type: PU
+  description: Voltage regulator proportional gain (<i>Kvp</i>).  Typical value = 2800.
+- name: kvphz
+  type: PU
+  description: V/Hz limiter gain (<i>Kvphz</i>).  Typical value = 0.
+- name: nvphz
+  type: PU
+  description: Pickup speed of V/Hz limiter (<i>Nvphz</i>).  Typical value = 0.
+- name: se1
+  type: PU
+  description: Saturation factor at <i>E</i><i><sub>1</sub></i><i> </i>(<i>Se</i><i><sub>1</sub></i>).  Typical value = 0,0001.
+- name: se2
+  type: PU
+  description: Saturation factor at <i>E</i><i><sub>2</sub></i> (<i>Se</i><i><sub>2</sub></i>).  Typical value = 0,001.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0,01.
+- name: tb1
+  type: Seconds
+  description: Lag time constant (<i>Tb1</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0.
+- name: tb2
+  type: Seconds
+  description: Lag time constant (<i>Tb2</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0.
+- name: tc1
+  type: Seconds
+  description: Lead time constant (<i>Tc1</i>) (&gt;= 0).  Typical value = 0.
+- name: tc2
+  type: Seconds
+  description: Lead time constant (<i>Tc2</i>) (&gt;= 0).  Typical value = 0.
+- name: te
+  type: Seconds
+  description: Exciter field time constant (<i>Te</i>) (&gt; 0).  Typical value = 1,2.
+- name: tf
+  type: Seconds
+  description: Rate feedback time constant (<i>Tf</i>) (&gt;= 0).  If = 0, the feedback path is not used.  Typical value =
+    1.
+- name: tf1
+  type: Seconds
+  description: Feedback lead time constant (<i>Tf1</i>) (&gt;= 0).  Typical value = 0.
+- name: tf2
+  type: Seconds
+  description: Feedback lag time constant (<i>Tf2</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0.
+- name: tp
+  type: Seconds
+  description: Field current bridge time constant (<i>Tp</i>) (&gt;= 0).  Typical value = 0.
+- name: vcmax
+  type: PU
+  description: Maximum compounding voltage (<i>Vcmax</i>).  Typical value = 0.
+- name: vfmax
+  type: PU
+  description: Maximum exciter field current (<i>Vfmax</i>) (&gt; ExcREXS.vfmin).  Typical value = 47.
+- name: vfmin
+  type: PU
+  description: Minimum exciter field current (<i>Vfmin</i>) (&lt; ExcREXS.vfmax).  Typical value = -20.
+- name: vimax
+  type: PU
+  description: Voltage regulator input limit (<i>Vimax</i>).  Typical value = 0,1.
+- name: vrmax
+  type: PU
+  description: Maximum controller output (V<i>rmax</i>) (&gt; ExcREXS.vrmin).  Typical value = 47.
+- name: vrmin
+  type: PU
+  description: Minimum controller output (<i>Vrmin</i>) (&lt; ExcREXS.vrmax).  Typical value = -20.
+- name: xc
+  type: PU
+  description: Exciter compounding reactance (<i>Xc</i>).  Typical value = 0.
+ancestors:
+- ExcitationSystemDynamics

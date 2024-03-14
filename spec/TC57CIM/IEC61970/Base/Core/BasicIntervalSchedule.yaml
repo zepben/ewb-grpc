@@ -1,0 +1,24 @@
+name: BasicIntervalSchedule
+description: Schedule of values at points in time.
+attributes:
+- name: startTime
+  type: DateTime
+  description: The time for the first time point.  The value can be a time of day, not a specific date.
+- name: value1Multiplier
+  type: UnitMultiplier
+  description: Multiplier for value1.
+- name: value1Unit
+  type: UnitSymbol
+  description: Value1 units of measure.
+- name: value2Multiplier
+  type: UnitMultiplier
+  description: Multiplier for value2.
+- name: value2Unit
+  type: UnitSymbol
+  description: Value2 units of measure.
+ancestors:
+- IdentifiedObject
+descendents:
+- RegularIntervalSchedule
+- IrregularIntervalSchedule
+- DynamicSchedule

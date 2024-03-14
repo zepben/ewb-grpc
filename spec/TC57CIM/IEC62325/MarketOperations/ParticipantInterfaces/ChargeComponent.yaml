@@ -1,0 +1,39 @@
+name: ChargeComponent
+description: A Charge Component is a list of configurable charge quality items to feed into settlement calculation and/or
+  bill determinants.
+attributes:
+- name: deleteStatus
+  type: String
+- name: effectiveDate
+  type: DateTime
+- name: equation
+  type: String
+- name: message
+  type: String
+- name: roundOff
+  type: String
+- name: sum
+  type: String
+- name: terminationDate
+  type: DateTime
+- name: type
+  type: String
+ancestors:
+- IdentifiedObject
+associations:
+- source: ChargeComponent
+  target: BillDeterminant
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ChargeComponents
+  sourceDescription: A BillDeterminant can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n BillDeterminant.
+  targetName: BillDeterminants
+  targetDescription: A BillDeterminant can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n BillDeterminant.
+- source: ChargeType
+  target: ChargeComponent
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ChargeTypes
+  sourceDescription: A ChargeType can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n ChargeType
+  targetName: ChargeComponents
+  targetDescription: A ChargeType can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n ChargeType

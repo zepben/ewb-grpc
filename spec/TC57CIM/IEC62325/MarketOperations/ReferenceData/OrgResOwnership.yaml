@@ -1,0 +1,21 @@
+name: OrgResOwnership
+description: This class model the ownership percent and type of ownership between resource and organisation.
+attributes:
+- name: asscType
+  type: ResourceAssnType
+  description: 'association type for the association between Organisation and Resource:'
+- name: masterSchedulingCoordinatorFlag
+  type: YesNo
+  description: Flag to indicate that the SC representing the Resource is the Master SC.
+- name: ownershipPercent
+  type: PerCent
+  description: ownership percentage for each resource
+ancestors:
+- IdentifiedObject
+associations:
+- source: RegisteredResource
+  target: OrgResOwnership
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: OrgResOwnership

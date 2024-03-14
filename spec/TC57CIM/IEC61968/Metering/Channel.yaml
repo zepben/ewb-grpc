@@ -1,0 +1,27 @@
+name: Channel
+description: A single path for the collection or reporting of register values over a period of time. For example, a register
+  which measures forward energy can have two channels, one providing bulk quantity readings and the other providing interval
+  readings of a fixed interval size.
+attributes:
+- name: isVirtual
+  type: Boolean
+  description: If true, the data is being calculated by an enterprise system rather than metered directly.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ReadingType
+  target: Channel
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ReadingType
+  sourceDescription: Reading type for register values reported/collected by this channel.
+  targetName: Channel
+  targetDescription: Channel reporting/collecting register values with this type information.
+- source: Register
+  target: Channel
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Register
+  sourceDescription: Register whose values are collected/reported by this channel.
+  targetName: Channels
+  targetDescription: All channels that collect/report values from this register.

@@ -1,0 +1,38 @@
+name: BilateralTransaction
+description: Bilateral transaction
+attributes:
+- name: curtailTimeMax
+  type: Integer
+  description: Maximum curtailment time in number of trading intervals
+- name: curtailTimeMin
+  type: Integer
+  description: Minimum curtailment time in number of trading intervals
+- name: marketType
+  type: String
+  description: |-
+    Market type (default=DA)
+    DA - Day Ahead
+    RT - Real Time
+    HA - Hour Ahead
+- name: purchaseTimeMax
+  type: Integer
+  description: Maximum purchase time in number of trading intervals
+- name: purchaseTimeMin
+  type: Integer
+  description: Minimum purchase time in number of trading intervals
+- name: scope
+  type: String
+  description: |-
+    Transaction scope:
+    'Internal' (default)
+    'External'
+- name: totalTranChargeMax
+  type: Money
+  description: Maximum total transmission (congestion) charges in monetary units
+- name: transactionType
+  type: String
+  description: |-
+    Transaction type (default 1)
+    1 - Fixed
+    2 - Dispatchable continuous
+    3 - Dispatchable block-loading

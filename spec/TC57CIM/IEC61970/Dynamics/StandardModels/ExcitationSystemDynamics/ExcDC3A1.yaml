@@ -1,0 +1,53 @@
+name: ExcDC3A1
+description: Modified old IEEE type 3 excitation system.
+attributes:
+- name: exclim
+  type: Boolean
+  description: |-
+    (<i>exclim</i>).
+    true = lower limit of zero is applied to integrator output
+    false = lower limit of zero not applied to integrator output.
+    Typical value = true.
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 300.
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>Ke</i>).  Typical value = 1.
+- name: kf
+  type: PU
+  description: Excitation control system stabilizer gain (<i>Kf</i>) (&gt;= 0).  Typical value = 0,1.
+- name: ki
+  type: PU
+  description: Potential circuit gain coefficient (<i>Ki</i>) (&gt;= 0).  Typical value = 4,83.
+- name: kp
+  type: PU
+  description: Potential circuit gain coefficient (<i>Kp</i>) (&gt;= 0).  Typical value = 4,37.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,01.
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value
+    = 1,83.
+- name: tf
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt;= 0).  Typical value = 0,675.
+- name: vb1max
+  type: PU
+  description: Available exciter voltage limiter (<i>Vb1max</i>) (&gt; 0).  Typical value = 11,63.
+- name: vblim
+  type: Boolean
+  description: "Vb limiter indicator.\ntrue = exciter <i>Vbmax</i> limiter is active\nfalse = <i>Vb1max</i> is active. \n\
+    Typical value = true."
+- name: vbmax
+  type: PU
+  description: Available exciter voltage limiter (<i>Vbmax</i>) (&gt; 0).  Typical value = 11,63.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vrmax</i>) (&gt; ExcDC3A1.vrmin).  Typical value = 5.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vrmin</i>) (&lt; 0 and &lt; ExcDC3A1.vrmax).  Typical value = 0.
+ancestors:
+- ExcitationSystemDynamics

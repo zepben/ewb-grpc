@@ -1,0 +1,15 @@
+name: MerchantAgreement
+description: A formal controlling contractual agreement between supplier and merchant, in terms of which the merchant is authorised
+  to vend tokens and receipt payments on behalf of the supplier. The merchant is accountable to the supplier for revenue collected
+  at point of sale.
+ancestors:
+- Agreement
+associations:
+- source: MerchantAgreement
+  target: MerchantAccount
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MerchantAgreement
+  sourceDescription: Merchant agreement that instantiated this merchant account.
+  targetName: MerchantAccounts
+  targetDescription: All merchant accounts instantiated as a result of this merchant agreement.

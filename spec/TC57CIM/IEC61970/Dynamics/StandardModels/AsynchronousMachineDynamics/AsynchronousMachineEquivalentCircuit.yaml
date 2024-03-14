@@ -1,0 +1,31 @@
+name: AsynchronousMachineEquivalentCircuit
+description: "The electrical equations of all variations of the asynchronous model are based on the AsynchronousEquivalentCircuit\
+  \ diagram for the direct- and quadrature- axes, with two equivalent rotor windings in each axis.  \nEquations for conversion\
+  \ between equivalent circuit and time constant reactance forms:\n<i>Xs</i> = <i>Xm</i> + <i>Xl</i>\n<i>X'</i> = <i>Xl</i>\
+  \ + <i>Xm</i> x <i>Xlr1 </i>/ (<i>Xm </i>+ <i>Xlr1</i>)\n<i>X''</i> = <i>Xl</i> + <i>Xm</i> x <i>Xlr1</i> x <i>Xlr2</i>\
+  \ / (<i>Xm</i> x <i>Xlr1</i> + <i>Xm</i> x <i>Xlr2</i> + <i>Xlr1</i> x <i>Xlr2</i>)\n<i>T'o</i> = (<i>Xm</i> + <i>Xlr1</i>)\
+  \ / (<i>omega</i><i><sub>0</sub></i> x <i>Rr1</i>)\n<i>T''o</i> = (<i>Xm</i> x <i>Xlr1</i> + <i>Xm</i> x <i>Xlr2</i> + <i>Xlr1</i>\
+  \ x <i>Xlr2</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>Rr2</i> x (<i>Xm</i> + <i>Xlr1</i>)\nSame equations using CIM attributes\
+  \ from AsynchronousMachineTimeConstantReactance class on left of \"=\" and AsynchronousMachineEquivalentCircuit class on\
+  \ right (except as noted):\nxs = xm + RotatingMachineDynamics.statorLeakageReactance\nxp = RotatingMachineDynamics.statorLeakageReactance\
+  \ + xm x xlr1 / (xm + xlr1)\nxpp = RotatingMachineDynamics.statorLeakageReactance + xm x xlr1 x xlr2 / (xm x xlr1 + xm x\
+  \ xlr2 + xlr1 x xlr2)\ntpo = (xm + xlr1) / (2 x pi x nominal frequency x rr1)\ntppo = (xm x xlr1 + xm x xlr2 + xlr1 x xlr2)\
+  \ / (2 x pi x nominal frequency x rr2 x (xm + xlr1)."
+attributes:
+- name: rr1
+  type: PU
+  description: Damper 1 winding resistance.
+- name: rr2
+  type: PU
+  description: Damper 2 winding resistance.
+- name: xlr1
+  type: PU
+  description: Damper 1 winding leakage reactance.
+- name: xlr2
+  type: PU
+  description: Damper 2 winding leakage reactance.
+- name: xm
+  type: PU
+  description: Magnetizing reactance.
+ancestors:
+- AsynchronousMachineDynamics

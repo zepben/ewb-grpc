@@ -1,0 +1,35 @@
+name: DefaultBid
+description: "DefaultBid is a generic class to hold Default Energy Bid, Default Startup Bid, and Default Minimum Load Bid:\n\
+  \nDefault Energy Bid\nA Default Energy Bid is a monotonically increasing staircase function consisting at maximum 10 economic\
+  \ bid segments, or 10 ($/MW, MW) pairs. There are three methods for determining the Default Energy Bid:\n<ul>\n\t<li>Cost\
+  \ Based: derived from the Heat Rate or Average Cost multiplied by the Gas Price Index plus 10%.</li>\n\t<li>LMP Based: a\
+  \ weighted average of LMPs in the preceding 90 days.</li>\n\t<li>Negotiated: an amount negotiated with the designated Independent\
+  \ Entity.</li>\n</ul>\n\nDefault Startup Bid\nA Default Startup Bid (DSUB) shall be calculated for each RMR unit based on\
+  \ the Startup Cost stored in the Master File and the applicable GPI and EPI.\n\nDefault Minimum Load Bid\nA Default Minimum\
+  \ Load Bid (DMLB) shall be calculated for each RMR unit based on the Minimum Load Cost stored in the Master File and the\
+  \ applicable GPI."
+attributes:
+- name: bidType
+  type: BidType
+  description: Default bid type such as Default Energy Bid, Default Minimum Load Bid, and Default Startup Bid
+- name: minLoadCost
+  type: CostRate
+  description: Minimum load cost in $/hr
+- name: peakFlag
+  type: OnOff
+  description: on-peak, off-peak, or all
+ancestors:
+- Bid
+associations:
+- source: DefaultBid
+  target: DefaultBidCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: DefaultBid
+  targetName: DefaultBidCurve
+- source: DefaultBid
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: DefaultBid
+  targetName: RegisteredResource

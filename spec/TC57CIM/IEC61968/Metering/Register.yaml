@@ -1,0 +1,46 @@
+name: Register
+description: A device that indicates or records units of the commodity or other quantity measured.
+attributes:
+- name: isVirtual
+  type: Boolean
+  description: If true, the data it produces is  calculated or measured by a device other than a physical end device/meter.
+    Otherwise, any data streams it produces are measured by the hardware of the end device/meter itself.
+- name: leftDigitCount
+  type: Integer
+  description: Number of digits (dials on a mechanical meter) to the left of the decimal place; default is normally 5.
+- name: rightDigitCount
+  type: Integer
+  description: Number of digits (dials on a mechanical meter) to the right of the decimal place.
+- name: touTier
+  type: TimeInterval
+  description: Clock time interval for register to beging/cease accumulating time of usage (e.g., start at 8:00 am, stop at
+    5:00 pm).
+- name: touTierName
+  type: String
+  description: Name used for the time of use tier (also known as bin or bucket).  For example, "peak", "off-peak", "TOU Category
+    A", etc.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Register
+  target: EndDeviceFunction
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Registers
+  sourceDescription: All registers for quantities metered by this end device function.
+  targetName: EndDeviceFunction
+  targetDescription: End device function metering quantities displayed by this register.
+- source: Register
+  target: Channel
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Register
+  sourceDescription: Register whose values are collected/reported by this channel.
+  targetName: Channels
+  targetDescription: All channels that collect/report values from this register.
+- source: UsagePoint
+  target: Register
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Usage Point
+  targetName: Register

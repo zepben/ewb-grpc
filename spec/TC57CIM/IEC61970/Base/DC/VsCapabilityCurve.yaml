@@ -1,0 +1,13 @@
+name: VsCapabilityCurve
+description: The P-Q capability curve for a voltage source converter, with P on X-axis and Qmin and Qmax on Y1-axis and Y2-axis.
+ancestors:
+- Curve
+associations:
+- source: VsConverter
+  target: VsCapabilityCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: VsConverterDCSides
+  sourceDescription: All converters with this capability curve.
+  targetName: CapabilityCurve
+  targetDescription: Capability curve of this converter.

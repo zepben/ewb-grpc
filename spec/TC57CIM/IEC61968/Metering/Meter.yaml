@@ -1,0 +1,54 @@
+name: Meter
+description: Physical asset that performs the metering role of the usage point. Used for measuring consumption and detection
+  of events.
+attributes:
+- name: connectionCategory
+  type: String
+  description: A code used to specify the connection category, e.g. low voltage, where the meter operates.
+- name: formNumber
+  type: String
+  description: Meter form designation per ANSI C12.10 or other applicable standard. An alphanumeric designation denoting the
+    circuit arrangement for which the meter is applicable and its specific terminal arrangement.
+ancestors:
+- EndDevice
+associations:
+- source: Meter
+  target: MeterReading
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Meter
+  sourceDescription: Meter providing this reading.
+  targetName: MeterReadings
+  targetDescription: All meter readings provided by this meter.
+- source: Meter
+  target: MeterMultiplier
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Meter
+  sourceDescription: Meter applying this multiplier.
+  targetName: MeterMultipliers
+  targetDescription: All multipliers applied at this meter.
+- source: MeterWorkTask
+  target: Meter
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MeterServiceWorkTask
+  sourceDescription: All non-replacement work tasks on this meter.
+  targetName: Meter
+  targetDescription: Meter on which this non-replacement work task is performed.
+- source: Transaction
+  target: Meter
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: VendingTransactions
+  sourceDescription: All vending transactions on this meter.
+  targetName: Meter
+  targetDescription: Meter for this vending transaction.
+- source: MeterWorkTask
+  target: Meter
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MeterReplacementWorkTasks
+  sourceDescription: All work tasks on replacement of this old meter.
+  targetName: OldMeter
+  targetDescription: Old meter replaced by this work task.

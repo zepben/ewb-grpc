@@ -1,0 +1,35 @@
+name: ExcSEXS
+description: Simplified excitation system.
+attributes:
+- name: efdmax
+  type: PU
+  description: Field voltage clipping maximum limit (<i>Efdmax</i>) (&gt; ExcSEXS.efdmin).  Typical value = 5.
+- name: efdmin
+  type: PU
+  description: Field voltage clipping minimum limit (<i>Efdmin</i>) (&lt; ExcSEXS.efdmax).  Typical value = -5.
+- name: emax
+  type: PU
+  description: Maximum field voltage output (<i>Emax</i>) (&gt; ExcSEXS.emin).  Typical value = 5.
+- name: emin
+  type: PU
+  description: Minimum field voltage output (<i>Emin</i>) (&lt; ExcSEXS.emax).  Typical value = -5.
+- name: k
+  type: PU
+  description: Gain (<i>K</i>) (&gt; 0).  Typical value = 100.
+- name: kc
+  type: PU
+  description: PI controller gain (<i>Kc</i>) (&gt; 0 if ExcSEXS.tc &gt; 0).  Typical value = 0,08.
+- name: tatb
+  type: Float
+  description: Gain reduction ratio of lag-lead element (<i>[Ta / Tb]</i>).  Typical value = 0,1.
+- name: tb
+  type: Seconds
+  description: Denominator time constant of lag-lead block (<i>Tb</i>) (&gt;= 0).  Typical value = 10.
+- name: tc
+  type: Seconds
+  description: PI controller phase lead time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
+- name: te
+  type: Seconds
+  description: Time constant of gain block (<i>Te</i>) (&gt; 0).  Typical value = 0,05.
+ancestors:
+- ExcitationSystemDynamics

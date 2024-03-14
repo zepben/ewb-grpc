@@ -1,0 +1,13 @@
+name: AssemblyManifest
+description: A collection of model parts when combined form a case or part of a case.
+ancestors:
+- IdentifiedObject
+associations:
+- source: AssemblyManifest
+  target: ModelPartVersion
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+- source: AssemblyManifest
+  target: CompleteModelToBeDeleted
+  sourceCardinality: 0..*
+  targetCardinality: 0..1

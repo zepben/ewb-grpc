@@ -1,0 +1,13 @@
+name: SwitchSchedule
+description: A schedule of switch positions.  If RegularTimePoint.value1 is 0, the switch is open.  If 1, the switch is closed.
+ancestors:
+- SeasonDayTypeSchedule
+associations:
+- source: Switch
+  target: SwitchSchedule
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Switch
+  sourceDescription: A SwitchSchedule is associated with a Switch.
+  targetName: SwitchSchedules
+  targetDescription: A Switch can be associated with SwitchSchedules.

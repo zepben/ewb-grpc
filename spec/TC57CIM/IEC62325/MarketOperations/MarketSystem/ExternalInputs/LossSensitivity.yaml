@@ -1,0 +1,17 @@
+name: LossSensitivity
+description: Loss sensitivity applied to a ConnectivityNode for a given time interval.
+attributes:
+- name: lossFactor
+  type: Float
+  description: |-
+    Loss penalty factor.
+    Defined as: 1 / ( 1 - Incremental Transmission Loss); with the Incremental Transmission Loss expressed as a plus or minus value. The typical range of penalty factors is (0,9 to 1,1).
+ancestors:
+- MarketFactors
+associations:
+- source: LossSensitivity
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LossPenaltyFactor
+  targetName: MktConnectivityNode

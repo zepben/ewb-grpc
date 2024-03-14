@@ -1,0 +1,74 @@
+name: ResourceBid
+description: Energy bid for generation, load, or virtual type for the whole of the market-trading period (i.e., one day in
+  day ahead market or one hour in the real time market).
+attributes:
+- name: aggregationFlag
+  type: Integer
+  description: "Aggregation flag \n0: individual resource level\n1: Aggregated node location\n2: Aggregated price location)"
+- name: bidStatus
+  type: String
+- name: commodityType
+  type: String
+  description: |-
+    Energy product (commodity) type:
+    'En' - Energy
+    'Ru' - Regulation Up
+    'Rd' - Regulation Dn
+    'Sr' - Spinning Reserve
+    'Nr' - Non-Spinning Reserve
+    'Or' - Operating Reserve
+- name: contingencyAvailFlag
+  type: YesNo
+  description: contingent operating reserve availiability (Yes/No). Resource is availiable to participate with capacity only
+    in contingency dispatch.
+- name: createdISO
+  type: YesNo
+  description: A Yes indicates that this bid was created by the ISO.
+- name: energyMaxDay
+  type: Float
+  description: Maximum amount of energy per day which can be produced during the trading period in MWh
+- name: energyMinDay
+  type: Float
+  description: Minimum amount of energy per day which has to be produced during the trading period in MWh
+- name: marketSepFlag
+  type: String
+  description: "Market Separation Flag\n\n'Y' - Enforce market separation constraints for this bid \n'N' - Don't enforce market\
+    \ separation constraints for this bid."
+- name: minDispatchTime
+  type: Integer
+  description: minimum number of consecutive hours a resource shall be dispatched if bid is accepted
+- name: resourceLoadingType
+  type: Integer
+  description: |-
+    Resource loading curve type
+    1 - step-wise continuous loading
+    2 - piece-wise linear continuous loading
+    3 - block loading
+- name: shutDownsMaxDay
+  type: Integer
+  description: Maximum number of shutdowns per day.
+- name: shutDownsMaxWeek
+  type: Integer
+  description: Maximum number of shutdowns per week.
+- name: startUpsMaxDay
+  type: Integer
+  description: Maximum number of startups per day.
+- name: startUpsMaxWeek
+  type: Integer
+  description: Maximum number of startups per week.
+- name: virtual
+  type: Boolean
+  description: True if bid is virtual.  Bid is assumed to be non-virtual if attribute is absent
+ancestors:
+- Bid
+descendents:
+- GeneratingBid
+- InterTieBid
+- LoadBid
+associations:
+- source: ResourceBid
+  target: BidError
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ResourceBid
+  targetName: BidError

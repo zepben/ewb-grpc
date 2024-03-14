@@ -1,0 +1,43 @@
+name: EnvironmentalAlert
+description: An environmental alert issued by a provider or system.
+attributes:
+- name: alertType
+  type: String
+  description: The type of the issued alert which is drawn from the specified alert type list.
+- name: cancelledDateTime
+  type: DateTime
+  description: Time and date alert cancelled. Used only if alert is cancelled before it expires.
+- name: headline
+  type: String
+  description: "An abbreviated textual description of the alert issued. \nNote: the full text of the alert appears in the\
+    \ .description attribute (inherited from IdentifiedObject)."
+- name: inEffect
+  type: DateTimeInterval
+  description: The interval for which this weather alert is in effect.
+ancestors:
+- ActivityRecord
+associations:
+- source: EnvironmentalAlert
+  target: EnvironmentalDataProvider
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalAlert
+  sourceDescription: Alert issued by this environmental data provider.
+  targetName: EnvironmentalDataProvider
+  targetDescription: Environmental data provider for this alert.
+- source: EnvironmentalAlert
+  target: EnvironmentalLocationType
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: EnvironmentalAlert
+  sourceDescription: Environmental alert applying to location of this type.
+  targetName: EnvironmentalLocationKind
+  targetDescription: Type of location to which this environmental alert applies.
+- source: EnvironmentalAlert
+  target: AlertTypeList
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EnvironmentalAlert
+  sourceDescription: An alert whose type is drawn from this alert type list.
+  targetName: AlertTypeList
+  targetDescription: The list of alert types from which the type of this alert is drawn.

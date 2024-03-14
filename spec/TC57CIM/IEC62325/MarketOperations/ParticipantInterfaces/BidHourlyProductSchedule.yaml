@@ -1,0 +1,15 @@
+name: BidHourlyProductSchedule
+description: Containment for bid parameters that are dependent on a market product type.
+ancestors:
+- RegularIntervalSchedule
+descendents:
+- PumpingCostSchedule
+- PumpingLevelSchedule
+- PumpingShutDownCostSchedule
+associations:
+- source: BidHourlyProductSchedule
+  target: ProductBid
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: BidHourlyProductSchedule
+  targetName: ProductBid

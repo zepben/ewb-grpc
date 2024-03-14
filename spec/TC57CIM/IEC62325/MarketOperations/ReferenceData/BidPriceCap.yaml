@@ -1,0 +1,28 @@
+name: BidPriceCap
+description: This class represent the bid price cap.
+attributes:
+- name: bidCeiling
+  type: CostPerEnergyUnit
+  description: Bid Ceiling ($/MWH)
+- name: bidCeilingAS
+  type: CostPerEnergyUnit
+  description: Bid Ceiling ($/MWH) for generic AS versus a specific market product
+- name: bidFloor
+  type: CostPerEnergyUnit
+  description: Bid Floor, ($/MWH)
+- name: bidFloorAS
+  type: CostPerEnergyUnit
+  description: Bid Floor ($/MWH) for generic AS versus a specific market product
+- name: defaultPrice
+  type: CostPerEnergyUnit
+  description: Bid Default Price($/MWH)
+- name: marketType
+  type: MarketType
+  description: Market Type of the cap (DAM or RTM)
+associations:
+- source: MarketProduct
+  target: BidPriceCap
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MarketProduct
+  targetName: BidPriceCap

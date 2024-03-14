@@ -1,0 +1,43 @@
+name: Diagram
+description: The diagram being exchanged. The coordinate system is a standard Cartesian coordinate system and the orientation
+  attribute defines the orientation. The initial view related attributes can be used to specify an initial view with the x,y
+  coordinates of the diagonal points.
+attributes:
+- name: orientation
+  type: OrientationKind
+  description: Coordinate system orientation of the diagram. A positive orientation gives standard “right-hand” orientation,
+    with negative orientation indicating a “left-hand” orientation. For 2D diagrams, a positive orientation will result in
+    X values increasing from left to right and Y values increasing from bottom to top. A negative orientation gives the “left-hand”
+    orientation (favoured by computer graphics displays) with X values increasing from left to right and Y values increasing
+    from top to bottom.
+- name: x1InitialView
+  type: Float
+  description: X coordinate of the first corner of the initial view.
+- name: x2InitialView
+  type: Float
+  description: X coordinate of the second corner of the initial view.
+- name: y1InitialView
+  type: Float
+  description: Y coordinate of the first corner of the initial view.
+- name: y2InitialView
+  type: Float
+  description: Y coordinate of the second corner of the initial view.
+ancestors:
+- IdentifiedObject
+associations:
+- source: DiagramObject
+  target: Diagram
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DiagramElements
+  sourceDescription: A diagram is made up of multiple diagram objects.
+  targetName: Diagram
+  targetDescription: A diagram object is part of a diagram.
+- source: DiagramStyle
+  target: Diagram
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DiagramStyle
+  sourceDescription: A Diagram may have a DiagramStyle.
+  targetName: Diagram
+  targetDescription: A DiagramStyle can be used by many Diagrams.

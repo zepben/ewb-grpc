@@ -1,0 +1,16 @@
+name: TenMinAuxiliaryData
+description: Models 10-Minutes Auxiliary Data.
+attributes:
+- name: intervalStartTime
+  type: DateTime
+- name: updateTimeStamp
+  type: DateTime
+- name: updateUser
+  type: String
+associations:
+- source: TenMinAuxiliaryData
+  target: AuxiliaryValues
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: TenMinAuxillaryData
+  targetName: AuxillaryData

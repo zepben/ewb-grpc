@@ -1,0 +1,12 @@
+name: VsQpccControlKind
+description: Kind of reactive power control at point of common coupling for a voltage source converter.
+attributes:
+- name: reactivePcc
+  description: Control is reactive power at point of common coupling. Target is provided by VsConverter.targetQpcc.
+- name: voltagePcc
+  description: Control is voltage at point of common coupling. Target is provided by VsConverter.targetUpcc.
+- name: powerFactorPcc
+  description: Control is power factor at point of common coupling. Target is provided by VsConverter.targetPowerFactorPcc.
+- name: pulseWidthModulation
+  description: No explicit control. Pulse-modulation factor is directly set in magnitude (VsConverter.targetPWMfactor) and
+    phase (VsConverter.targetPhasePcc).

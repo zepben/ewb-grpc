@@ -1,0 +1,41 @@
+name: UsagePoint
+description: Logical or physical point in the network to which readings or events may be attributed. Used at the place where
+  a physical or virtual meter may be located; however, it is not required that a meter be present.
+attributes:
+- name: isVirtual
+  type: Boolean
+  description: If true, this usage point is virtual, i.e., no physical location exists in the network where a meter could
+    be located to collect the meter readings. For example, one may define a virtual usage point to serve as an aggregation
+    of usage for all of a company's premises distributed widely across the distribution territory. Otherwise, the usage point
+    is physical, i.e., there is a logical point in the network where a meter could be located to collect meter readings.
+- name: connectionCategory
+  type: String
+  description: A code used to specify the connection category, e.g., low voltage or low pressure, where the usage point is
+    defined.
+ancestors:
+- IdentifiedObject
+associations:
+- source: UsagePoint
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: UsagePoints
+  sourceDescription: All usage points connected to the electrical grid through this equipment.
+  targetName: Equipments
+  targetDescription: All equipment connecting this usage point to the electrical grid.
+- source: UsagePoint
+  target: EndDevice
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UsagePoint
+  sourceDescription: Usage point to which this end device belongs.
+  targetName: EndDevices
+  targetDescription: All end devices at this usage point.
+- source: UsagePointLocation
+  target: UsagePoint
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UsagePointLocation
+  sourceDescription: Location of this usage point.
+  targetName: UsagePoints
+  targetDescription: All usage points at this location.

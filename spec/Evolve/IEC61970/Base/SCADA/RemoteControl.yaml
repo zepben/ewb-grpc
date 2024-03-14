@@ -1,0 +1,13 @@
+name: RemoteControl
+description: Remote controls are outputs that are sent by the remote unit to actuators in the process.
+ancestors:
+- RemotePoint
+associations:
+- source: RemoteControl
+  target: Control
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: RemoteControl
+  sourceDescription: The remote point controlling the physical actuator.
+  targetName: Control
+  targetDescription: The Control for the RemoteControl point.

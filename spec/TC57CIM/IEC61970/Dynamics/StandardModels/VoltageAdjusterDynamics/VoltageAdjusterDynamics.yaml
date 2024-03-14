@@ -1,0 +1,17 @@
+name: VoltageAdjusterDynamics
+description: Voltage adjuster function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
+  by definition of a user-defined model.</font>
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- VoltageAdjusterUserDefined
+- VAdjIEEE
+associations:
+- source: VoltageAdjusterDynamics
+  target: PFVArControllerType1Dynamics
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: VoltageAdjusterDynamics
+  sourceDescription: Voltage adjuster model associated with this power factor or VAr controller type 1 model.
+  targetName: PFVArControllerType1Dynamics
+  targetDescription: Power factor or VAr controller type 1 model with which this voltage adjuster is associated.

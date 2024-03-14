@@ -1,0 +1,13 @@
+name: Issuer
+description: ' Person who issued the document and is responsible for its content.'
+ancestors:
+- DocumentPersonRole
+associations:
+- source: Issuer
+  target: Document
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Issuer
+  sourceDescription: Issuer of this document.
+  targetName: Documents
+  targetDescription: All documents for this issuer.

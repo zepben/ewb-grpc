@@ -1,0 +1,41 @@
+name: MarketActualEvent
+description: This class represents the actual instance of an event.
+attributes:
+- name: eventComments
+  type: String
+  description: Free format comments for the event, for any purpose needed.
+- name: eventEndTime
+  type: DateTime
+  description: End time of the event.
+- name: eventStartTime
+  type: DateTime
+  description: Start time of the event.
+- name: eventStatus
+  type: MarketEventStatusKind
+  description: Event status, e.g. active, canceled, expired, etc.
+- name: eventType
+  type: String
+  description: Actual event type.
+ancestors:
+- IdentifiedObject
+descendents:
+- DistributedResourceActualEvent
+associations:
+- source: MarketActualEvent
+  target: MarketRun
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: MarketActualEvent
+  sourceDescription: All actual events that trigger this market run.
+  targetName: MarketRun
+  targetDescription: Market run triggered by this actual event. For example, the DA market run is triggered by the actual
+    open bid submission event and terminated by the actual execution and completion of the DA market run captured by the runState
+    of the MarketRun.
+- source: MarketActualEvent
+  target: PlannedMarketEvent
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: MarketActualEvent
+  sourceDescription: All actual events that execute this planned event.
+  targetName: PlannedMarketEvent
+  targetDescription: Planned event executed by this actual event.

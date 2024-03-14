@@ -1,0 +1,12 @@
+name: ErpReceiveDelivery
+description: Transaction for an Organisation receiving goods or services that may be used to indicate receipt of goods in
+  conjunction with a purchase order. A receivable is an open (unpaid) item in the Accounts Receivable ledger.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpRecDelvLineItem
+  target: ErpReceiveDelivery
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpRecDelvLineItems
+  targetName: ErpReceiveDelivery

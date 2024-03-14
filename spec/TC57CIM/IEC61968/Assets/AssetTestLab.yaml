@@ -1,0 +1,13 @@
+name: AssetTestLab
+description: Test lab that performs various types of testing related to assets.
+ancestors:
+- AssetOrganisationRole
+associations:
+- source: LabTestDataSet
+  target: AssetTestLab
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LabTestDataSet
+  sourceDescription: A set of lab test results produced by this test lab.
+  targetName: AssetTestLab
+  targetDescription: Test lab which produced this set of lab test results.

@@ -1,0 +1,25 @@
+name: MetrologyRequirement
+description: A specification of the metering requirements for a particular point within a network.
+attributes:
+- name: reason
+  type: ReadingReasonKind
+  description: Reason for this metrology requirement being specified.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MetrologyRequirement
+  target: ReadingType
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: MetrologyRequirements
+  sourceDescription: All metrology requirements that require this reading type to be collected.
+  targetName: ReadingTypes
+  targetDescription: All reading types required to be collected by this metrology requirement.
+- source: MetrologyRequirement
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MetrologyRequirements
+  sourceDescription: All metrology requirements for this usage point.
+  targetName: UsagePoints
+  targetDescription: All usage points having this metrology requirement.

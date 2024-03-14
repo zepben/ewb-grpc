@@ -1,0 +1,21 @@
+name: TargetLevelSchedule
+description: Reservoir water level targets from advanced studies or "rule curves". Typically in one hour increments for up
+  to 10 days.
+attributes:
+- name: highLevelLimit
+  type: WaterLevel
+  description: High target level limit, above which the reservoir operation will be penalized.
+- name: lowLevelLimit
+  type: WaterLevel
+  description: Low target level limit, below which the reservoir operation will be penalized.
+ancestors:
+- Curve
+associations:
+- source: TargetLevelSchedule
+  target: Reservoir
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: TargetLevelSchedule
+  sourceDescription: A reservoir may have a water level target schedule.
+  targetName: Reservoir
+  targetDescription: A reservoir may have a water level target schedule.

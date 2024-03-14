@@ -1,0 +1,19 @@
+name: PhaseConnectedFaultKind
+description: The type of fault connection among phases.
+attributes:
+- name: lineToGround
+  description: The fault connects the indicated phases to ground. The line to line fault impedance is not used and assumed
+    infinite. The full ground impedance is connected between each phase specified in the fault and ground, but not between
+    the phases.
+- name: lineToLine
+  description: The fault connects the specified phases together without a connection to ground. The ground impedance of this
+    fault is ignored. The line to line impedance is connected between each of the phases specified in the fault. For example
+    three times for a three phase fault, one time for a two phase fault.  A single phase fault should not be specified.
+- name: lineToLineToGround
+  description: The fault connects the indicated phases to ground and to each other. The line to line impedance is connected
+    between each of the phases specified in the fault in a full mesh. For example three times for a three phase fault, one
+    time for a two phase fault. A single phase fault should not be specified. The full ground impedance is connected between
+    each phase specified in the fault and ground.
+- name: lineOpen
+  description: The fault is when the conductor path is broken between two terminals. Additional coexisting faults may be required
+    if the broken conductor also causes connections to grounds or other lines or phases.

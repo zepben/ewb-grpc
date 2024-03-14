@@ -1,0 +1,94 @@
+name: ConductingEquipment
+description: The parts of the AC power system that are designed to carry current or that are conductively connected through
+  terminals.
+ancestors:
+- Equipment
+descendents:
+- PowerTransformer
+- Switch
+- Clamp
+- Conductor
+- EquivalentEquipment
+- SeriesCompensator
+- Ground
+- Connector
+- EarthFaultCompensator
+- ACDCConverter
+- EnergyConnection
+- MktConductingEquipment
+associations:
+- source: ConductingEquipment
+  target: ProtectiveActionAdjustment
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ConductingEquipment
+  sourceDescription: ConductingEquipment whose operating condition is changed when this protective action adjustment gets
+    activated.
+  targetName: ProtectiveActionAdjustment
+  targetDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+    For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float
+    will be rounded.
+- source: SvStatus
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: SvStatus
+  sourceDescription: The status state variable associated with this conducting equipment.
+  targetName: ConductingEquipment
+  targetDescription: The conducting equipment associated with the status state variable.
+- source: ProtectionEquipment
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ProtectionEquipments
+  sourceDescription: Protection equipment  used to protect specific conducting equipment.
+  targetName: ConductingEquipments
+  targetDescription: Protection equipment may be used to protect specific conducting equipment.
+- source: BaseVoltage
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: BaseVoltage
+  sourceDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and
+    only one base voltage applies.  For example, not used for transformers.
+  targetName: ConductingEquipment
+  targetDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used
+    and only one base voltage applies.  For example, not used for transformers.
+- source: Terminal
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Terminals
+  sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
+    connectivity nodes or topological nodes.
+  targetName: ConductingEquipment
+  targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
+    to other conducting equipment terminals via connectivity nodes or topological nodes.
+- source: JumperAction
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: JumpingAction
+  sourceDescription: Jumper action involving jumping operation on this conducting equipment.
+  targetName: JumpedEquipments
+  targetDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the
+    conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment,
+    you must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of
+    placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is sufficient.
+- source: GroundAction
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: GroundingAction
+  sourceDescription: Action involving grounding operation on this conducting equipment.
+  targetName: GroundedEquipment
+  targetDescription: Equipment being grounded with this operation. In case of placing a ground anywhere along a line segment,
+    you must use the clamp (to get the distance from one terminal), so use the explicit relation with line segment. In all
+    other cases (including placing the ground at a line segment terminal), reference to one or more conducting equipment is
+    sufficient.
+- source: Outage
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Outage
+  targetName: OutageIsolationEquipment

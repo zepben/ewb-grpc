@@ -1,0 +1,31 @@
+name: ContractDistributionFactor
+description: Distribution among resources at the sink point or source point.
+attributes:
+- name: factor
+  type: Float
+  description: MW value that this resource provides to the overall contract.
+- name: sinkFlag
+  type: YesNo
+  description: This value will be set to YES if the referenced Cnode is defined as the sink point in the contract.
+- name: sourceFlag
+  type: YesNo
+  description: This value will be set to YES if the referenced Cnode is defined as the source point in the contract.
+associations:
+- source: ContractRight
+  target: ContractDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TransmissionContractRight
+  targetName: ContractDistributionFactor
+- source: Flowgate
+  target: ContractDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Flowgate
+  targetName: ContractDistributionFactor
+- source: RegisteredResource
+  target: ContractDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: ContractDistributionFactor

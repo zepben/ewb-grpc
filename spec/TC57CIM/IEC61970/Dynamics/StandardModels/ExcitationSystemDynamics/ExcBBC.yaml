@@ -1,0 +1,44 @@
+name: ExcBBC
+description: Transformer fed static excitation system (static with ABB regulator). This model represents a static excitation
+  system in which a gated thyristor bridge fed by a transformer at the main generator terminals feeds the main generator directly.
+attributes:
+- name: efdmax
+  type: PU
+  description: Maximum open circuit exciter voltage (<i>Efdmax</i>) (&gt; ExcBBC.efdmin).  Typical value = 5.
+- name: efdmin
+  type: PU
+  description: Minimum open circuit exciter voltage (<i>Efdmin</i>) (&lt; ExcBBC.efdmax).  Typical value = -5.
+- name: k
+  type: PU
+  description: Steady state gain (<i>K</i>) (not = 0).  Typical value = 300.
+- name: switch
+  type: Boolean
+  description: |-
+    Supplementary signal routing selector (<i>switch</i>).
+    true = <i>Vs</i> connected to 3rd summing point
+    false =  <i>Vs</i> connected to 1st summing point (see diagram).
+    Typical value = false.
+- name: t1
+  type: Seconds
+  description: Controller time constant (<i>T1</i>) (&gt;= 0).  Typical value = 6.
+- name: t2
+  type: Seconds
+  description: Controller time constant (<i>T2</i>) (&gt;= 0).  Typical value = 1.
+- name: t3
+  type: Seconds
+  description: Lead/lag time constant (<i>T3</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0,05.
+- name: t4
+  type: Seconds
+  description: Lead/lag time constant (<i>T4</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0,01.
+- name: vrmax
+  type: PU
+  description: Maximum control element output (<i>Vrmax</i>) (&gt; ExcBBC.vrmin).  Typical value = 5.
+- name: vrmin
+  type: PU
+  description: Minimum control element output (<i>Vrmin</i>) (&lt; ExcBBC.vrmax).  Typical value = -5.
+- name: xe
+  type: PU
+  description: Effective excitation transformer reactance (<i>Xe</i>) (&gt;= 0).  <i>Xe</i> models the regulation of the transformer/rectifier
+    unit.  Typical value = 0,05.
+ancestors:
+- ExcitationSystemDynamics

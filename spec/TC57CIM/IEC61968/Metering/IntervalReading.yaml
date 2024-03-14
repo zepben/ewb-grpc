@@ -1,0 +1,15 @@
+name: IntervalReading
+description: |-
+  Data captured at regular intervals of time. Interval data could be captured as incremental data, absolute data, or relative data. The source for the data is usually a tariff quantity or an engineering quantity. Data is typically captured in time-tagged, uniform, fixed-length intervals of 5 min, 10 min, 15 min, 30 min, or 60 min.
+  Note: Interval Data is sometimes also called "Interval Data Readings" (IDR).
+ancestors:
+- BaseReading
+associations:
+- source: IntervalBlock
+  target: IntervalReading
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: IntervalBlocks
+  sourceDescription: All blocks containing this interval reading.
+  targetName: IntervalReadings
+  targetDescription: Interval reading contained in this block.

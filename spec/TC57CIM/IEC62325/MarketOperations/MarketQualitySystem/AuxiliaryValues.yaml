@@ -1,0 +1,40 @@
+name: AuxiliaryValues
+description: Models Auxiliary Values.
+attributes:
+- name: availUndispatchedQ
+  type: Float
+- name: incrementalORAvail
+  type: Float
+- name: maxExpostCapacity
+  type: Float
+- name: minExpostCapacity
+  type: Float
+- name: noLoadCost
+  type: Float
+- name: noLoadCostEligibilityFlag
+  type: YesNo
+- name: startUpCost
+  type: Float
+- name: startUpCostEligibilityFlag
+  type: YesNo
+ancestors:
+- AuxiliaryObject
+associations:
+- source: TenMinAuxiliaryData
+  target: AuxiliaryValues
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: TenMinAuxillaryData
+  targetName: AuxillaryData
+- source: FiveMinAuxiliaryData
+  target: AuxiliaryValues
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: FiveMinAuxillaryData
+  targetName: AuxillaryValues
+- source: AuxiliaryCost
+  target: AuxiliaryValues
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: AuxillaryCost
+  targetName: AuxillaryValues

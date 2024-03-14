@@ -1,0 +1,47 @@
+name: DispatchInstReply
+description: Response from registered resource acknowledging receipt of dispatch instructions.
+attributes:
+- name: acceptMW
+  type: ActivePower
+  description: The accepted mw amount by the responder. aka response mw.
+- name: acceptStatus
+  type: DispatchResponseType
+  description: The accept status submitted by the responder. enumeration type needs to be defined
+- name: certificationName
+  type: String
+  description: |-
+    The Subject DN is the X509 Certificate Subject DN. This is the essentially the certificate name presented by the client. In the case of ADS Certificates, this will be the user name. It may be from an API Client or the MP Client (GUI).
+
+    The Subject ID normally includes more than just the user name (Common Name), it can also contain information such as City, Company ID, etc.
+- name: clearedMW
+  type: ActivePower
+  description: MW amount associated with instruction.  For 5 minute binding dispatches, this is the Goto MW or DOT
+- name: instructionTime
+  type: DateTime
+  description: The target date/time for the received instruction.
+- name: instructionType
+  type: String
+  description: |-
+    instruction type:
+
+    commitment
+    out of sequence
+    dispatch
+- name: passIndicator
+  type: PassIndicatorType
+  description: The type of run for the market clearing.
+- name: receivedTime
+  type: DateTime
+  description: Timestamp indicating the time at which the instruction was received.
+- name: startTime
+  type: DateTime
+  description: start time
+ancestors:
+- IdentifiedObject
+associations:
+- source: RegisteredResource
+  target: DispatchInstReply
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: DispatchInstReply

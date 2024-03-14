@@ -1,0 +1,58 @@
+name: Point
+description: An identification of a set of values beeing adressed within a specific interval of time.
+attributes:
+- name: position
+  type: Integer
+  description: A sequential value representing the relative position within a given time interval.
+- name: quality
+  type: String
+  description: The quality of the information being provided. This quality may be estimated, not available, as provided, etc.
+- name: quantity
+  type: Decimal
+  description: Principal quantity identified for a point.
+- name: secondaryQuantity
+  type: Decimal
+  description: Secondary quantity identified for a point.
+associations:
+- source: Point
+  target: AceTariffType
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Point
+  targetName: AceTariffType
+- source: Point
+  target: Period
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Point
+  targetName: Period
+- source: Point
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Point
+  targetName: TimeSeries
+- source: FlowDirection
+  target: Point
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: FlowDirection
+  targetName: Point
+- source: Price
+  target: Point
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Price
+  targetName: Point
+- source: Quantity
+  target: Point
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Quantity
+  targetName: Point
+- source: Reason
+  target: Point
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Reason
+  targetName: Point

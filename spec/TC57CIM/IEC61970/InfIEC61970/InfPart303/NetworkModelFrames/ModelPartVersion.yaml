@@ -1,0 +1,27 @@
+name: ModelPartVersion
+description: This is a version of a part of a model.  New instances of this class with new identity are instantiated upon
+  changes to the content of this class or changes to the associated data set.  Instances of this class are considered immutable.  The
+  case audit trail can reference this immutable data to exactly reproduce a case.
+ancestors:
+- ModelToBeDeleted
+associations:
+- source: ModelPartVersion
+  target: ModelPartSpecification
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Model
+  sourceDescription: Modle parts conforming to the model part specification.
+  targetName: ModelSpecification
+  targetDescription: Model specification of the modelt.
+- source: ModelPartVersion
+  target: DataSet
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+- source: ModelPartVersion
+  target: CompleteModelToBeDeleted
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+- source: AssemblyManifest
+  target: ModelPartVersion
+  sourceCardinality: 0..*
+  targetCardinality: 0..*

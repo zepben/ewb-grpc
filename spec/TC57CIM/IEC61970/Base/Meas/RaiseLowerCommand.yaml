@@ -1,0 +1,14 @@
+name: RaiseLowerCommand
+description: An analog control that increases or decreases a set point value with pulses. Unless otherwise specified, one
+  pulse moves the set point by one.
+ancestors:
+- AnalogControl
+associations:
+- source: RaiseLowerCommand
+  target: ValueAliasSet
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RaiseLowerCommands
+  sourceDescription: The Commands using the set for translation.
+  targetName: ValueAliasSet
+  targetDescription: The ValueAliasSet used for translation of a Control value to a name.

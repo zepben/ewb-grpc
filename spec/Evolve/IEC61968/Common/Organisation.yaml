@@ -1,0 +1,13 @@
+name: Organisation
+description: Organisation that might have roles as utility, contractor, supplier, manufacturer, customer, etc.
+ancestors:
+- IdentifiedObject
+associations:
+- source: OrganisationRole
+  target: Organisation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Roles
+  sourceDescription: All roles of this organisation.
+  targetName: Organisation
+  targetDescription: Organisation having this role.

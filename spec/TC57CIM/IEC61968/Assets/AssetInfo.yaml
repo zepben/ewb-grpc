@@ -1,0 +1,62 @@
+name: AssetInfo
+description: |-
+  Set of attributes of an asset, representing typical datasheet information of a physical device that can be instantiated and shared in different data exchange contexts:
+  - as attributes of an asset instance (installed or in stock)
+  - as attributes of an asset model (product by a manufacturer)
+  - as attributes of a type asset (generic type of an asset as used in designs/extension planning).
+ancestors:
+- IdentifiedObject
+descendents:
+- FaultIndicatorInfo
+- CurrentTransformerInfo
+- CompositeSwitchInfo
+- SurgeArresterInfo
+- ProtectionEquipmentInfo
+- PotentialTransformerInfo
+- EndDeviceInfo
+- WireSpacingInfo
+- WireInfo
+- TransformerTankInfo
+- TransformerEndInfo
+- TapChangerInfo
+- SwitchInfo
+- ShuntCompensatorInfo
+- PowerTransformerInfo
+- OperatingMechanismInfo
+- InterrupterUnitInfo
+- BushingInfo
+- BusbarSectionInfo
+- WireAssemblyInfo
+associations:
+- source: AssetInfo
+  target: CatalogAssetType
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: AssetInfo
+  sourceDescription: Generic nameplate information associated with this catalog asset type.
+  targetName: CatalogAssetType
+  targetDescription: Asset information (nameplate) for this catalog asset type.
+- source: AssetInfo
+  target: PowerSystemResource
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetDatasheet
+  sourceDescription: Datasheet information for this power system resource.
+  targetName: PowerSystemResources
+  targetDescription: All power system resources with this datasheet information.
+- source: ProductAssetModel
+  target: AssetInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ProductAssetModel
+  sourceDescription: Product asset model which conforms to this catalog asset type.
+  targetName: AssetInfo
+  targetDescription: Asset information (nameplate) for this product asset model.
+- source: Asset
+  target: AssetInfo
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Assets
+  sourceDescription: All assets described by this data.
+  targetName: AssetInfo
+  targetDescription: Data applicable to this asset.

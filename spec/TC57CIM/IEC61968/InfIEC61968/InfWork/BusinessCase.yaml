@@ -1,0 +1,22 @@
+name: BusinessCase
+description: Business justification for capital expenditures, usually addressing operations and maintenance costs as well.
+attributes:
+- name: corporateCode
+  type: String
+  description: A codified representation of the business case (i.e., codes for highway relocation, replace substation transformers,
+    etc.).
+ancestors:
+- WorkDocument
+associations:
+- source: BusinessCase
+  target: Project
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: BusinessCase
+  targetName: Projects
+- source: BusinessCase
+  target: Work
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: BusinessCase
+  targetName: Works

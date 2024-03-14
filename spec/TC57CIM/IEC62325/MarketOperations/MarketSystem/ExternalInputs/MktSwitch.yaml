@@ -1,0 +1,11 @@
+name: MktSwitch
+description: Subclass of IEC 61970:Wires:Switch.
+ancestors:
+- Switch
+associations:
+- source: SwitchStatus
+  target: MktSwitch
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: SwitchStatus
+  targetName: MktSwitch

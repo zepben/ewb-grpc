@@ -1,0 +1,41 @@
+name: GovSteamSGO
+description: Simplified steam turbine governor.
+attributes:
+- name: k1
+  type: PU
+  description: One / PU regulation (<i>K1</i>).
+- name: k2
+  type: PU
+  description: Fraction (<i>K2</i>).
+- name: k3
+  type: PU
+  description: Fraction (<i>K3</i>).
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pmax
+  type: PU
+  description: Upper power limit (<i>Pmax</i>) (&gt; GovSteamSGO.pmin).
+- name: pmin
+  type: Seconds
+  description: Lower power limit (<i>Pmin</i>) (&gt;= 0 and &lt; GovSteamSGO.pmax).
+- name: t1
+  type: Seconds
+  description: Controller lag (<i>T1</i>) (&gt;= 0).
+- name: t2
+  type: Seconds
+  description: Controller lead compensation (<i>T2</i>) (&gt;= 0).
+- name: t3
+  type: Seconds
+  description: Governor lag (<i>T3</i>) (&gt; 0).
+- name: t4
+  type: Seconds
+  description: Delay due to steam inlet volumes associated with steam chest and inlet piping (<i>T4</i>) (&gt;= 0).
+- name: t5
+  type: Seconds
+  description: Reheater delay including hot and cold leads (<i>T5</i>) (&gt;= 0).
+- name: t6
+  type: Seconds
+  description: Delay due to IP-LP turbine, crossover pipes and LP end hoods (<i>T6</i>) (&gt;= 0).
+ancestors:
+- TurbineGovernorDynamics

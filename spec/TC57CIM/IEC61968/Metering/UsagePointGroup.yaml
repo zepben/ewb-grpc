@@ -1,0 +1,35 @@
+name: UsagePointGroup
+description: Abstraction for management of group communications within a two-way AMR system or the data for a group of related
+  usage points. Commands can be issued to all of the usage points that belong to a usage point group using a defined group
+  address and the underlying AMR communication infrastructure.
+attributes:
+- name: type
+  type: String
+  description: Type of this group.
+ancestors:
+- IdentifiedObject
+associations:
+- source: UsagePointGroup
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: UsagePointGroups
+  sourceDescription: All groups to which this usage point belongs.
+  targetName: UsagePoints
+  targetDescription: All usage points in this group.
+- source: EndDeviceControl
+  target: UsagePointGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceControls
+  sourceDescription: All end device controls sending commands to this usage point group.
+  targetName: UsagePointGroups
+  targetDescription: All usage point groups receiving commands from this end device control.
+- source: DemandResponseProgram
+  target: UsagePointGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DemandResponsePrograms
+  sourceDescription: All demand response programs this usage point group is enrolled in.
+  targetName: UsagePointGroups
+  targetDescription: All usage point groups enrolled in this demand response program.

@@ -1,0 +1,14 @@
+name: BlockingFunction
+associations:
+- source: BlockingFunction
+  target: VSCtype1
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: BlockingFunction
+  targetName: VSCtype1
+- source: Delay
+  target: BlockingFunction
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: Delay
+  targetName: BlockingFunction

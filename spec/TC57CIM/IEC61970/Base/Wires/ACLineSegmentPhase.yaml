@@ -1,0 +1,29 @@
+name: ACLineSegmentPhase
+description: Represents a single wire of an alternating current line segment.
+attributes:
+- name: phase
+  type: SinglePhaseKind
+  description: The phase connection of the wire at both ends.
+- name: sequenceNumber
+  type: Integer
+  description: Number designation for this line segment phase. Each line segment phase within a line segment should have a
+    unique sequence number. This is useful for unbalanced modelling to bind the mathematical model (PhaseImpedanceData of
+    PerLengthPhaseImpedance) with the connectivity model (this class) and the physical model (WirePosition) without tight
+    coupling.
+ancestors:
+- PowerSystemResource
+associations:
+- source: ACLineSegmentPhase
+  target: ACLineSegment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ACLineSegmentPhases
+  sourceDescription: The line segment phases which belong to the line segment.
+  targetName: ACLineSegment
+  targetDescription: The line segment to which the phase belongs.
+- source: ACLineSegmentPhase
+  target: WireInfo
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ACLineSegmentPhase
+  targetName: WireInfo

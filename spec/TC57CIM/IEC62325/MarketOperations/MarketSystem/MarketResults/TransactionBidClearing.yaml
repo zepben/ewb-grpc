@@ -1,0 +1,12 @@
+name: TransactionBidClearing
+description: Contains the intervals relavent for the associated TransactionBidResults. For example, Day Ahead cleared results
+  for the transaction bids for each interval of the market day.
+ancestors:
+- MarketFactors
+associations:
+- source: TransactionBidResults
+  target: TransactionBidClearing
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TransactionBidResults
+  targetName: TransactionBidClearing

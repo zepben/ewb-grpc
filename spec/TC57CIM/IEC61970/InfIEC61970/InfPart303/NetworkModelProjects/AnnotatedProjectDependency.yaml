@@ -1,0 +1,19 @@
+name: AnnotatedProjectDependency
+attributes:
+- name: dependencyType
+  type: DependencyKind
+ancestors:
+- IdentifiedObject
+associations:
+- source: AnnotatedProjectDependency
+  target: NetworkModelProjectStage
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: DependencyDependentOnStage
+  targetName: DependentOnStage
+- source: AnnotatedProjectDependency
+  target: NetworkModelProjectStage
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: DenpendecyDependingStage
+  targetName: DependingStage

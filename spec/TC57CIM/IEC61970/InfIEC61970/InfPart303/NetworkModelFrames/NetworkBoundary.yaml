@@ -1,0 +1,13 @@
+name: NetworkBoundary
+description: A framework part that is a boundary between 2 frames.
+ancestors:
+- FrameworkPart
+associations:
+- source: NetworkBoundary
+  target: NetworkFrame
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: NetworkBoundary
+  target: NetworkFrame
+  sourceCardinality: 0..*
+  targetCardinality: 0..1

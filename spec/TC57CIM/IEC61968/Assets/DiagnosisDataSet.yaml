@@ -1,0 +1,46 @@
+name: DiagnosisDataSet
+description: The result of a problem (typically an asset failure) diagnosis. Contains complete information like what might
+  be received from a lab doing forensic analysis of a failed asset.
+attributes:
+- name: effect
+  type: String
+  description: Effect of problem.
+- name: failureMode
+  type: String
+  description: 'Failuer mode, for example: Failure to Insulate; Failure to conduct; Failure to contain oil; Failure to provide
+    ground plane; Other.'
+- name: finalCause
+  type: String
+  description: Cause of problem determined during diagnosis.
+- name: finalCode
+  type: String
+  description: Code for diagnosed probem type.
+- name: finalOrigin
+  type: String
+  description: Origin of problem determined during diagnosis.
+- name: finalRemark
+  type: String
+  description: Remarks pertaining to findings during problem diagnosis.
+- name: phaseCode
+  type: PhaseCode
+  description: Phase(s) diagnosed.
+- name: preliminaryCode
+  type: String
+  description: Code for problem type determined during preliminary assessment.
+- name: preliminaryDateTime
+  type: DateTime
+  description: Date and time preliminary assessment of problem was performed.
+- name: preliminaryRemark
+  type: String
+  description: Remarks pertaining to preliminary assessment of problem.
+- name: rootCause
+  type: String
+  description: Root cause of problem determined during diagnosis.
+- name: rootOrigin
+  type: String
+  description: Root origin of problem determined during diagnosis.
+- name: rootRemark
+  type: String
+  description: Remarks pertaining to root cause findings during problem diagnosis.
+ancestors:
+- ProcedureDataSet

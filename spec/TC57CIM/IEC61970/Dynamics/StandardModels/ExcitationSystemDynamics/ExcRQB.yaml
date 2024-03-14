@@ -1,0 +1,46 @@
+name: ExcRQB
+description: Excitation system type RQB (four-loop regulator, r?gulateur quatre boucles, developed in France) primarily used
+  in nuclear or thermal generating units. This excitation system shall be always used together with power system stabilizer
+  type PssRQB.
+attributes:
+- name: ki0
+  type: Float
+  description: Voltage reference input gain (<i>Ki0</i>).  Typical value = 12,7.
+- name: ki1
+  type: Float
+  description: Voltage input gain (<i>Ki1</i>).  Typical value = -16,8.
+- name: klir
+  type: Float
+  description: OEL input gain (<i>KLIR</i>).  Typical value = 12,13.
+- name: klus
+  type: Float
+  description: Limiter gain (<i>KLUS</i>).  Typical value = 50.
+- name: lsat
+  type: PU
+  description: Integrator limiter (<i>LSAT</i>).  Typical value = 5,73.
+- name: lus
+  type: PU
+  description: Setpoint (<i>LUS</i>).  Typical value = 0,12.
+- name: mesu
+  type: Seconds
+  description: Voltage input time constant (<i>MESU</i>) (&gt;= 0).  Typical value = 0,02.
+- name: t4m
+  type: Seconds
+  description: Input time constant (<i>T4M</i>) (&gt;= 0).  Typical value = 5.
+- name: tc
+  type: Seconds
+  description: Lead lag time constant (<i>TC</i>) (&gt;= 0).  Typical value = 0,02.
+- name: te
+  type: Seconds
+  description: Lead lag time constant (<i>TE</i>) (&gt;= 0).  Typical value = 0,22.
+- name: tf
+  type: Seconds
+  description: Exciter time constant (<i>TF</i>) (&gt;= 0).  Typical value = 0,01.
+- name: ucmax
+  type: PU
+  description: Maximum voltage reference limit (<i>UCMAX</i>) (&gt; ExcRQB.ucmin).  Typical value = 1,1.
+- name: ucmin
+  type: PU
+  description: Minimum voltage reference limit (<i>UCMIN</i>) (&lt; ExcRQB.ucmax).  Typical value = 0,9.
+ancestors:
+- ExcitationSystemDynamics

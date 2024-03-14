@@ -1,0 +1,38 @@
+name: GroundAction
+description: Action on ground as a switching step.
+attributes:
+- name: kind
+  type: TempEquipActionKind
+  description: Switching action to perform.
+ancestors:
+- SwitchingAction
+associations:
+- source: GroundAction
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: GroundingAction
+  sourceDescription: Action involving grounding operation on this conducting equipment.
+  targetName: GroundedEquipment
+  targetDescription: Equipment being grounded with this operation. In case of placing a ground anywhere along a line segment,
+    you must use the clamp (to get the distance from one terminal), so use the explicit relation with line segment. In all
+    other cases (including placing the ground at a line segment terminal), reference to one or more conducting equipment is
+    sufficient.
+- source: GroundAction
+  target: Ground
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: GroundAction
+  sourceDescription: Action taken with this ground.
+  targetName: Ground
+  targetDescription: Ground on which this action is taken.
+- source: GroundAction
+  target: ACLineSegment
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: LineGroundingAction
+  sourceDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead
+    of at its terminals).
+  targetName: AlongACLineSegment
+  targetDescription: The line segment that this ground action will affect. This is the only way to access relationship to
+    clamp in case the ground needs to be placed along the line segment.

@@ -1,0 +1,31 @@
+name: DCNode
+description: DC nodes are points where terminals of DC conducting equipment are connected together with zero impedance.
+ancestors:
+- IdentifiedObject
+associations:
+- source: DCNode
+  target: DCBaseTerminal
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DCNode
+  sourceDescription: The DC connectivity node to which this DC base terminal connects with zero impedance.
+  targetName: DCTerminals
+  targetDescription: DC base terminals interconnected with zero impedance at a this DC connectivity node.
+- source: DCNode
+  target: DCTopologicalNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DCNodes
+  sourceDescription: The DC connectivity nodes combined together to form this DC topological node.  May depend on the current
+    state of switches in the network.
+  targetName: DCTopologicalNode
+  targetDescription: The DC topological node to which this DC connectivity node is assigned.  May depend on the current state
+    of switches in the network.
+- source: DCNode
+  target: DCEquipmentContainer
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: DCNodes
+  sourceDescription: The DC nodes contained in the DC equipment container.
+  targetName: DCEquipmentContainer
+  targetDescription: The DC container for the DC nodes.

@@ -1,0 +1,14 @@
+name: CurtailmentProfile
+description: Curtailing entity must be providing at least one service to the EnergyTransaction. The CurtailmentProfile must
+  be completely contained within the EnergyProfile timeframe for this EnergyTransaction.
+ancestors:
+- Profile
+associations:
+- source: CurtailmentProfile
+  target: EnergyTransaction
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CurtailmentProfiles
+  sourceDescription: An EnergyTransaction may be curtailed by any of the participating entities.
+  targetName: EnergyTransaction
+  targetDescription: An EnergyTransaction may be curtailed by any of the participating entities.

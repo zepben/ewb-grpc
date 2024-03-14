@@ -1,0 +1,18 @@
+name: CurrentScheduledInterchange
+description: Control area current net tie (scheduled interchange) sent to real time dispatch.
+attributes:
+- name: currentNetTieMW
+  type: Float
+  description: Current control area net tie MW (the sum of the tie line flows, i.e the sum of flows into and out of the control
+    area), the current instantaneous scheduled interchange.
+- name: useEmergencySchedule
+  type: Boolean
+  description: "Use Emergency Schedule \nAttribute Usage: Emergency use indicator, false = Emergency Schedular OFF, true =\
+    \ Emergency Schedular ON."
+associations:
+- source: CurrentScheduledInterchange
+  target: InternalControlArea
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: CurrentScheduledInterchange
+  targetName: InternalControlArea

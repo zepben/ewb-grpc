@@ -1,0 +1,24 @@
+name: Card
+description: Documentation of the tender when it is a type of card (credit, debit, etc).
+attributes:
+- name: accountHolderName
+  type: String
+  description: Name of account holder.
+- name: cvNumber
+  type: String
+  description: The card verification number.
+- name: expiryDate
+  type: Date
+  description: The date when this card expires.
+- name: pan
+  type: String
+  description: The primary account number.
+associations:
+- source: Card
+  target: Tender
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: Card
+  sourceDescription: Card used to tender payment.
+  targetName: Tender
+  targetDescription: Payment tender this card is being used for.

@@ -1,0 +1,99 @@
+name: GovSteamFV3
+description: Simplified GovSteamIEEE1 steam turbine governor with Prmax limit and fast valving.
+attributes:
+- name: gv1
+  type: PU
+  description: Nonlinear gain valve position point 1 (<i>GV1</i>).  Typical value = 0.
+- name: gv2
+  type: PU
+  description: Nonlinear gain valve position point 2 (<i>GV2</i>).  Typical value = 0,4.
+- name: gv3
+  type: PU
+  description: Nonlinear gain valve position point 3 (<i>GV3</i>).  Typical value = 0,5.
+- name: gv4
+  type: PU
+  description: Nonlinear gain valve position point 4 (<i>GV4</i>).  Typical value = 0,6.
+- name: gv5
+  type: PU
+  description: Nonlinear gain valve position point 5 (<i>GV5</i>).  Typical value = 1.
+- name: gv6
+  type: PU
+  description: Nonlinear gain valve position point 6 (<i>GV6</i>).  Typical value = 0.
+- name: k
+  type: PU
+  description: Governor gain, (reciprocal of droop) (<i>K</i>).  Typical value = 20.
+- name: k1
+  type: PU
+  description: Fraction of turbine power developed after first boiler pass (<i>K1</i>).  Typical value = 0,2.
+- name: k2
+  type: PU
+  description: Fraction of turbine power developed after second boiler pass (<i>K2</i>).  Typical value = 0,2.
+- name: k3
+  type: PU
+  description: Fraction of hp turbine power developed after crossover or third boiler pass (<i>K3</i>). Typical value = 0,6.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pgv1
+  type: PU
+  description: Nonlinear gain power value point 1 (<i>Pgv1</i>).  Typical value = 0.
+- name: pgv2
+  type: PU
+  description: Nonlinear gain power value point 2 (<i>Pgv2</i>).  Typical value = 0,75.
+- name: pgv3
+  type: PU
+  description: Nonlinear gain power value point 3 (<i>Pgv3</i>).  Typical value = 0,91.
+- name: pgv4
+  type: PU
+  description: Nonlinear gain power value point 4 (<i>Pgv4</i>).  Typical value = 0,98.
+- name: pgv5
+  type: PU
+  description: Nonlinear gain power value point 5 (<i>Pgv5</i>).  Typical value = 1.
+- name: pgv6
+  type: PU
+  description: Nonlinear gain power value point 6 (<i>Pgv6</i>).  Typical value = 0.
+- name: pmax
+  type: PU
+  description: Maximum valve opening, PU of <i>MWbase</i> (<i>Pmax</i>) (&gt; GovSteamFV3.pmin).  Typical value = 1.
+- name: pmin
+  type: PU
+  description: Minimum valve opening, PU of <i>MWbase</i> (<i>Pmin</i>) (&lt; GovSteamFV3.pmax).  Typical value = 0.
+- name: prmax
+  type: PU
+  description: Max. pressure in reheater (<i>Prmax</i>).  Typical value = 1.
+- name: t1
+  type: Seconds
+  description: Governor lead time constant (<i>T1</i>) (&gt;= 0).  Typical value = 0.
+- name: t2
+  type: Seconds
+  description: Governor lag time constant (<i>T2</i>) (&gt;= 0).  Typical value = 0.
+- name: t3
+  type: Seconds
+  description: Valve positioner time constant (<i>T3</i>) (&gt; 0).  Typical value = 0.
+- name: t4
+  type: Seconds
+  description: Inlet piping/steam bowl time constant (<i>T4</i>) (&gt;= 0).  Typical value = 0,2.
+- name: t5
+  type: Seconds
+  description: Time constant of second boiler pass (i.e. reheater) (<i>T5</i>) (&gt; 0 if fast valving is used, otherwise
+    &gt;= 0).  Typical value = 0,5.
+- name: t6
+  type: Seconds
+  description: Time constant of crossover or third boiler pass (<i>T6</i>) (&gt;= 0).  Typical value = 10.
+- name: ta
+  type: Seconds
+  description: Time to close intercept valve (IV) (<i>Ta</i>) (&gt;= 0).  Typical value = 0,97.
+- name: tb
+  type: Seconds
+  description: Time until IV starts to reopen (<i>Tb</i>) (&gt;= 0).  Typical value = 0,98.
+- name: tc
+  type: Seconds
+  description: Time until IV is fully open (<i>Tc</i>) (&gt;= 0).  Typical value = 0,99.
+- name: uc
+  type: Float
+  description: Maximum valve closing velocity (<i>Uc</i>).  Unit = PU / s.  Typical value = -1.
+- name: uo
+  type: Float
+  description: Maximum valve opening velocity (<i>Uo</i>).  Unit = PU / s.  Typical value = 0,1.
+ancestors:
+- TurbineGovernorDynamics

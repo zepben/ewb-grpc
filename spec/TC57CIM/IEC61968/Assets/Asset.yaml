@@ -1,0 +1,306 @@
+name: Asset
+description: Tangible resource of the utility, including power system equipment, various end devices, cabinets, buildings,
+  etc. For electrical network equipment, the role of the asset is defined through PowerSystemResource and its subclasses,
+  defined mainly in the Wires model (refer to IEC61970-301 and model package IEC61970::Wires). Asset description places emphasis
+  on the physical characteristics of the equipment fulfilling that role.
+attributes:
+- name: acceptanceTest
+  type: AcceptanceTest
+  description: Information on acceptance test.
+- name: baselineCondition
+  type: String
+  description: Condition of asset at last baseline. Examples include new, rebuilt, overhaul required, other. Refer to inspection
+    data for information on the most current condition of the asset.
+- name: baselineLossOfLife
+  type: PerCent
+  description: "Percentage of initial life expectancy that has been lost as of the last life expectancy baseline. Represents\
+    \ \n(initial life expectancy - current life expectancy) / initial life expectancy."
+- name: critical
+  type: Boolean
+  description: True if asset is considered critical for some reason (for example, a pole with critical attachments).
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+- name: inUseDate
+  type: InUseDate
+  description: In use dates for this asset.
+- name: inUseState
+  type: InUseStateKind
+  description: Indication of whether asset is currently deployed (in use), ready to be put into use or not available for use.
+- name: kind
+  type: AssetKind
+  description: Kind of asset. Used in description of asset components in asset instance templates.
+- name: lifecycleDate
+  type: LifecycleDate
+  description: |-
+    <was lifecycle>
+    Lifecycle dates for this asset.
+- name: lifecycleState
+  type: AssetLifecycleStateKind
+  description: Current lifecycle state of asset.
+- name: lotNumber
+  type: String
+  description: Lot number for this asset. Even for the same model and version number, many assets are manufactured in lots.
+- name: position
+  type: String
+  description: Position of asset or asset component. May often be in relation to other assets or components.
+- name: purchasePrice
+  type: Money
+  description: Purchase price of asset.
+- name: retiredReason
+  type: RetiredReasonKind
+  description: Reason asset retired.
+- name: serialNumber
+  type: String
+  description: Serial number of this asset.
+- name: status
+  type: Status
+  description: Status of this asset.
+- name: type
+  type: String
+  description: Utility-specific classification of Asset and its subtypes, according to their corporate standards, practices,
+    and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
+- name: utcNumber
+  type: String
+  description: Uniquely tracked commodity (UTC) number.
+ancestors:
+- IdentifiedObject
+descendents:
+- ComModule
+- WorkAsset
+- StructureSupport
+- Streetlight
+- OperatingMechanism
+- InterrupterUnit
+- Joint
+- Bushing
+- ComMedia
+- FACTSDevice
+- AssetContainer
+associations:
+- source: Asset
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedAsset
+  sourceDescription: Asset whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this asset.
+- source: Asset
+  target: ActivityRecord
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Assets
+  sourceDescription: All assets for which this activity record has been created.
+  targetName: ActivityRecords
+  targetDescription: All activity records created for this asset.
+- source: Asset
+  target: ErpInventory
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: Asset
+  targetName: ErpInventory
+- source: Asset
+  target: AssetOrganisationRole
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Assets
+  sourceDescription: All assets for this organisation role.
+  targetName: OrganisationRoles
+  targetDescription: All roles an organisation plays for this asset.
+- source: Asset
+  target: AssetFunction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Asset
+  targetName: AssetFunction
+- source: Asset
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Assets
+  sourceDescription: All assets represented by this power system resource. For example, multiple conductor assets are electrically
+    modelled as a single AC line segment.
+  targetName: PowerSystemResources
+  targetDescription: All power system resources used to electrically model this asset. For example, transformer asset is electrically
+    modelled with a transformer and its windings and tap changer.
+- source: Asset
+  target: AssetContainer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Assets
+  sourceDescription: All assets within this container asset.
+  targetName: AssetContainer
+  targetDescription: Container of this asset.
+- source: Asset
+  target: AssetPropertyCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Assets
+  targetName: AssetPropertyCurves
+- source: Asset
+  target: ErpRecDelvLineItem
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Assets
+  targetName: ErpRecDeliveryItems
+- source: Asset
+  target: AssetDeployment
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: Asset
+  sourceDescription: Asset in this deployment.
+  targetName: AssetDeployment
+  targetDescription: This asset's deployment.
+- source: Asset
+  target: ProductAssetModel
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Asset
+  sourceDescription: An asset of this model.
+  targetName: ProductAssetModel
+  targetDescription: The model of this asset.
+- source: Asset
+  target: Reconditioning
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Asset
+  targetName: Reconditionings
+- source: Asset
+  target: AssetInfo
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Assets
+  sourceDescription: All assets described by this data.
+  targetName: AssetInfo
+  targetDescription: Data applicable to this asset.
+- source: Asset
+  target: Measurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Asset
+  targetName: Measurements
+  targetDescription: Measurement related to this asset.
+- source: Asset
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Assets
+  sourceDescription: All assets at this location.
+  targetName: Location
+  targetDescription: Location of this asset.
+- source: ProcedureDataSet
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ProcedureDataSet
+  sourceDescription: Procedure data set that applies to this asset.
+  targetName: Asset
+  targetDescription: Asset to which this procedure data set applies.
+- source: WorkTask
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ReplacementWorkTasks
+  sourceDescription: All work tasks on replacement of this old asset.
+  targetName: OldAsset
+  targetDescription: Old asset replaced by this work task.
+- source: AssetGroup
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AssetGroup
+  sourceDescription: Asset group of which this asset is a part.
+  targetName: Asset
+  targetDescription: Asset which is a part of this asset group.
+- source: SwitchOperationSummary
+  target: Asset
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: BreakerOperation
+  sourceDescription: Breaker operation information for this breaker.
+  targetName: Breaker
+  targetDescription: Breaker asset to which this operation information applies.
+- source: Medium
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Medium
+  sourceDescription: Medium with which this asset is filled.
+  targetName: Asset
+  targetDescription: Medium with which this asset is filled.
+- source: ErpItemMaster
+  target: Asset
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpItemMaster
+  targetName: Asset
+- source: WorkTask
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WorkTasks
+  sourceDescription: All non-replacement work tasks performed on this asset.
+  targetName: Assets
+  targetDescription: All assets on which this non-replacement work task is performed.
+- source: Procedure
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Procedures
+  sourceDescription: All procedures applicable to this asset.
+  targetName: Assets
+  targetDescription: All assets to which this procedure applies.
+- source: ReliabilityInfo
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ReliabilityInfos
+  targetName: Assets
+- source: FinancialInfo
+  target: Asset
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: FinancialInfo
+  sourceDescription: Financial information related to this asset.
+  targetName: Asset
+  targetDescription: The asset to which this financial information relates.
+- source: AnalyticScore
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AnalyticScore
+  sourceDescription: Analytic result related to this asset.
+  targetName: Asset
+  targetDescription: Asset to which this analytic score applies.
+- source: Analytic
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Analytic
+  sourceDescription: Analytic performed on this asset.
+  targetName: Asset
+  targetDescription: Asset on which this analytic can be performed.
+- source: OperationalTag
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: OperationalTags
+  sourceDescription: All operational tags placed on this asset.
+  targetName: Asset
+  targetDescription: Asset on which this tag has been placed.
+- source: ScheduledEvent
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ScheduledEvents
+  sourceDescription: Scheduled event related to this asset.
+  targetName: Assets
+- source: Ownership
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Ownerships
+  sourceDescription: All ownerships of this asset.
+  targetName: Asset
+  targetDescription: Asset that is object of this ownership.

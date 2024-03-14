@@ -1,0 +1,27 @@
+name: DCLineSegment
+description: A wire or combination of wires not insulated from one another, with consistent electrical characteristics, used
+  to carry direct current between points in the DC region of the power system.
+attributes:
+- name: resistance
+  type: Resistance
+  description: Resistance of the DC line segment.
+- name: capacitance
+  type: Capacitance
+  description: Capacitance of the DC line segment. Significant for cables only.
+- name: inductance
+  type: Inductance
+  description: Inductance of the DC line segment. Negligible compared with DCSeriesDevice used for smoothing.
+- name: length
+  type: Length
+  description: Segment length for calculating line section capabilities.
+ancestors:
+- DCConductingEquipment
+associations:
+- source: PerLengthDCLineParameter
+  target: DCLineSegment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PerLengthParameter
+  sourceDescription: Set of per-length parameters for this line segment.
+  targetName: DCLineSegments
+  targetDescription: All line segments described by this set of per-length parameters.

@@ -1,0 +1,40 @@
+name: ErpQuoteLineItem
+description: Of an ErpQuote, the item or product quoted along with quantity, price and other descriptive information.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpQuoteLineItem
+  target: ErpReqLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpQuoteLineItem
+  targetName: ErpReqLineItem
+- source: ErpQuoteLineItem
+  target: ErpQuote
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpQuoteLineItems
+  targetName: ErpQuote
+- source: ErpQuoteLineItem
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpQuoteLineItem
+  targetName: ErpInvoiceLineItem
+  targetDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
+    a payment. An invoice is required for this to occur.
+- source: ErpQuoteLineItem
+  target: Design
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpQuoteLineItem
+  targetName: Design
+- source: AssetModelCatalogueItem
+  target: ErpQuoteLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetModelCatalogueItem
+  targetName: ErpQuoteLineItems

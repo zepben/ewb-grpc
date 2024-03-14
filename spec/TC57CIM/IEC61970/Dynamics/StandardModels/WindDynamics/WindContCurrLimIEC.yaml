@@ -1,0 +1,56 @@
+name: WindContCurrLimIEC
+description: |-
+  Current limitation model.  The current limitation model combines the physical limits and the control limits.
+  Reference: IEC 61400-27-1:2015, 5.6.5.8.
+attributes:
+- name: imax
+  type: PU
+  description: Maximum continuous current at the wind turbine terminals (<i>i</i><i><sub>max</sub></i>). It is a type-dependent
+    parameter.
+- name: imaxdip
+  type: PU
+  description: Maximum current during voltage dip at the wind turbine terminals (<i>i</i><i><sub>maxdip</sub></i>). It is
+    a project-dependent parameter.
+- name: kpqu
+  type: PU
+  description: Partial derivative of reactive current limit (<i>K</i><i><sub>pqu</sub></i>) versus voltage. It is a type-dependent
+    parameter.
+- name: mdfslim
+  type: Boolean
+  description: |-
+    Limitation of type 3 stator current (<i>M</i><i><sub>DFSLim</sub></i>). <i>M</i><i><sub>DFSLim</sub></i><sub> </sub>= 1 for wind turbines type 4. It is a type-dependent parameter.
+    false= total current limitation (0 in the IEC model)
+    true=stator current limitation (1 in the IEC model).
+- name: mqpri
+  type: Boolean
+  description: |-
+    Prioritisation of Q control during UVRT (<i>M</i><i><sub>qpri</sub></i>). It is a project-dependent parameter.
+    true = reactive power priority (1 in the IEC model)
+    false = active power priority (0 in the IEC model).
+- name: tufiltcl
+  type: Seconds
+  description: Voltage measurement filter time constant (<i>T</i><i><sub>ufiltcl</sub></i>) (&gt;= 0). It is a type-dependent
+    parameter.
+- name: upqumax
+  type: PU
+  description: Wind turbine voltage in the operation point where zero reactive current can be delivered (<i>u</i><i><sub>pqumax</sub></i>).
+    It is a type-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindContCurrLimIEC
+  target: WindTurbineType3or4IEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindContCurrLimIEC
+  sourceDescription: Wind control current limitation model associated with this wind turbine type 3 or type 4 model.
+  targetName: WindTurbineType3or4IEC
+  targetDescription: Wind turbine type 3 or type 4 model with which this wind control current limitation model is associated.
+- source: WindDynamicsLookupTable
+  target: WindContCurrLimIEC
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: WindDynamicsLookupTable
+  sourceDescription: The wind dynamics lookup table associated with this current control limitation model.
+  targetName: WindContCurrLimIEC
+  targetDescription: The current control limitation model with which this wind dynamics lookup table is associated.

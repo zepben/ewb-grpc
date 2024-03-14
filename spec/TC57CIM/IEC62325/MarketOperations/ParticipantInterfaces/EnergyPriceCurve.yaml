@@ -1,0 +1,15 @@
+name: EnergyPriceCurve
+description: Relationship between a price in $(or other monetary unit) /hour (Y-axis) and a MW value (X-axis).
+associations:
+- source: EnergyPriceCurve
+  target: FTR
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnergyPriceCurve
+  targetName: FTRs
+- source: EnergyTransaction
+  target: EnergyPriceCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EnergyTransactions
+  targetName: EnergyPriceCurves

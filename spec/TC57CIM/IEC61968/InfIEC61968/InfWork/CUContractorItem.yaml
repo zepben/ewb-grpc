@@ -1,0 +1,20 @@
+name: CUContractorItem
+description: Compatible unit contractor item.
+attributes:
+- name: activityCode
+  type: String
+  description: ' Activity code identifies a specific and distinguishable unit of work.'
+- name: bidAmount
+  type: Money
+  description: ' The amount that a given contractor will charge for performing this unit of work.'
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: CUContractorItem
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CUContractorItems
+  targetName: CompatibleUnits

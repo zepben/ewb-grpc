@@ -1,0 +1,74 @@
+name: EndDeviceGroup
+description: Abstraction for management of group communications within a two-way AMR system or the data for a group of related
+  end devices. Commands can be issued to all of the end devices that belong to the group using a defined group address and
+  the underlying AMR communication infrastructure. A DERGroup and a PANDeviceGroup is an EndDeviceGroup.
+attributes:
+- name: status
+  type: Status
+- name: type
+  type: String
+  description: Type of this group.
+- name: version
+  type: Version
+ancestors:
+- IdentifiedObject
+associations:
+- source: EndDeviceGroup
+  target: EndDeviceControl
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceGroups
+  sourceDescription: All end device groups receiving commands from this end device control.
+  targetName: EndDeviceControls
+  targetDescription: All end device controls sending commands to this end device group.
+- source: EndDeviceGroup
+  target: EndDevice
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceGroups
+  sourceDescription: All end device groups referring to this end device.
+  targetName: EndDevices
+  targetDescription: All end devices this end device group refers to.
+- source: EndDeviceGroup
+  target: DispatchablePowerCapability
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: EndDeviceGroup
+  sourceDescription: EndDeviceGroup is used in metering to group end devices, this same class is used to group DER
+  targetName: DispatchablePowerCapability
+- source: EndDeviceGroup
+  target: DERMonitorableParameter
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceGroup
+  targetName: DERMonitorableParameter
+- source: EndDeviceGroup
+  target: DERGroupDispatch
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EndDeviceGroup
+  sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+    EndDevices with a single command
+  targetName: DERGroupDispatch
+- source: DemandResponseProgram
+  target: EndDeviceGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DemandResponsePrograms
+  sourceDescription: All demand response programs this group of end devices is enrolled in.
+  targetName: EndDeviceGroups
+  targetDescription: All groups of end devices enrolled in this demand response program.
+- source: DERGroupForecast
+  target: EndDeviceGroup
+  sourceCardinality: 1..*
+  targetCardinality: 1..*
+  sourceName: DERGroupForecast
+  targetName: EndDeviceGroup
+  targetDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+    EndDevices with a single command
+- source: DERFunction
+  target: EndDeviceGroup
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DERFunction
+  targetName: EndDeviceGroup

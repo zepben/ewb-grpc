@@ -1,0 +1,47 @@
+name: ErpLedgerEntry
+description: Details of an individual entry in a ledger, which was posted from a journal on the posted date.
+attributes:
+- name: accountID
+  type: String
+  description: Account identifier for this entry.
+- name: accountKind
+  type: ErpAccountKind
+  description: Kind of account for this entry.
+- name: amount
+  type: Money
+  description: The amount of the debit or credit for this account.
+- name: postedDateTime
+  type: DateTime
+  description: Date and time this entry was posted to the ledger.
+- name: status
+  type: Status
+- name: transactionDateTime
+  type: DateTime
+  description: Date and time journal entry was recorded.
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpLedgerEntry
+  target: ErpLedBudLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpLedBudLineItem
+  targetName: ErpLedgerEntry
+- source: ErpLedgerEntry
+  target: ErpJournalEntry
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpLedgerEntry
+  targetName: ErpJounalEntry
+- source: ErpLedgerEntry
+  target: UserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ErpLedgerEntries
+  targetName: UserAttributes
+- source: ErpLedger
+  target: ErpLedgerEntry
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpLedger
+  targetName: ErpLedgerEntries

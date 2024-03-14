@@ -1,0 +1,20 @@
+name: RecloserInfo
+description: Properties of recloser assets.
+attributes:
+- name: groundTripCapable
+  type: Boolean
+  description: True if device has ground trip capability.
+- name: groundTripNormalEnabled
+  type: Boolean
+  description: True if normal status of ground trip is enabled.
+- name: groundTripRating
+  type: CurrentFlow
+  description: Ground trip rating.
+- name: phaseTripRating
+  type: CurrentFlow
+  description: Phase trip rating.
+- name: recloseLockoutCount
+  type: Integer
+  description: Total number of phase reclose operations.
+ancestors:
+- OldSwitchInfo

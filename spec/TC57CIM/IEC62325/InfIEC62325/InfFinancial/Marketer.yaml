@@ -1,0 +1,22 @@
+name: Marketer
+description: Matches buyers and sellers, and secures transmission (and other ancillary services) needed to complete the energy
+  transaction.
+ancestors:
+- Organisation
+associations:
+- source: EnergyProduct
+  target: Marketer
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Resells_EnergyProduct
+  sourceDescription: A Marketer may resell an EnergyProduct.
+  targetName: ResoldBy_Marketer
+  targetDescription: A Marketer may resell an EnergyProduct.
+- source: EnergyProduct
+  target: Marketer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: HoldsTitleTo_EnergyProducts
+  sourceDescription: A Marketer holds title to an EnergyProduct.
+  targetName: TitleHeldBy_Marketer
+  targetDescription: A Marketer holds title to an EnergyProduct.

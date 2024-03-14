@@ -1,0 +1,77 @@
+name: TroubleTicket
+attributes:
+- name: comment
+  type: String
+  description: Free-form comment associated with the trouble call for example, "customer reported a large flash", etc.
+- name: dateTimeOfReport
+  type: DateTime
+  description: Date and time the trouble has been reported.
+- name: firstResponderStatus
+  type: String
+  description: Indicates whether the first responder such as police, fire department etc.has been notified and whether they
+    are on site or en route.
+- name: multiplePremises
+  type: Boolean
+  description: Set to true if the outage report indicated that other neighbors are also out of power.
+- name: reportingKind
+  type: TroubleReportingKind
+  description: Indicates how the customer reported trouble.
+- name: resolvedDateTime
+  type: DateTime
+  description: Date and time this trouble ticket has been resolved.
+- name: troubleCode
+  type: String
+  description: Trouble code (e.g., power down, flickering lights, partial power, etc).
+ancestors:
+- Document
+associations:
+- source: TroubleTicket
+  target: IncidentHazard
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TroubleTicket
+  sourceDescription: Trouble ticket associated with this hazard.
+  targetName: IncidentHazard
+  targetDescription: All hazards reported with this trouble ticket.
+- source: TroubleTicket
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TroubleTickets
+  sourceDescription: All trouble tickets for this customer.
+  targetName: Customer
+  targetDescription: Customer for whom this trouble ticket is relevant.
+- source: TroubleTicket
+  target: Incident
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TroubleTickets
+  sourceDescription: All trouble tickets reporting this incident.
+  targetName: Incident
+  targetDescription: Incident reported in this trouble ticket
+- source: ServiceLocation
+  target: TroubleTicket
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ServiceLocation
+  targetName: TroubleTicket
+- source: CustomerNotification
+  target: TroubleTicket
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Notification
+  sourceDescription: Notification for this trouble ticket.
+  targetName: TroubleTickets
+  targetDescription: All trouble tickets with this notification.
+- source: UnplannedOutage
+  target: TroubleTicket
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UnplannedOutage
+  targetName: TroubleTicket
+- source: TroubleOrder
+  target: TroubleTicket
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TroubleOrder
+  targetName: TroubleTicket

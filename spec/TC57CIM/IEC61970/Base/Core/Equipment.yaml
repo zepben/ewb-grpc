@@ -1,0 +1,148 @@
+name: Equipment
+description: The parts of a power system that are physical devices, electronic or mechanical.
+attributes:
+- name: inService
+  type: Boolean
+  description: Specifies the availability of the equipment. True means the equipment is available for topology processing,
+    which determines if the equipment is energized or not. False means that the equipment is treated by network applications
+    as if it is not in the model.
+- name: normallyInService
+  type: Boolean
+  description: Specifies the availability of the equipment under normal operating conditions. True means the equipment is
+    available for topology processing, which determines if the equipment is energized or not. False means that the equipment
+    is treated by network applications as if it is not in the model.
+- name: aggregate
+  type: Boolean
+  description: "The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable\
+    \ in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent\
+    \ the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple\
+    \ pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure.\
+    \ Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power\
+    \ transformer or aggregate synchronous machine.  \nThe attribute is not used for EquivalentBranch, EquivalentShunt and\
+    \ EquivalentInjection."
+- name: networkAnalysisEnabled
+  type: Boolean
+  description: The equipment is enabled to participate in network analysis.  If unspecified, the value is assumed to be true.
+ancestors:
+- PowerSystemResource
+descendents:
+- ProtectionEquipment
+- TransformerTank
+- CompositeSwitch
+- GeneratingUnit
+- AuxiliaryEquipment
+- ConductingEquipment
+- HydroPump
+- DCConductingEquipment
+- PowerElectronicsUnit
+associations:
+- source: Equipment
+  target: WeatherStation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Equipment
+  targetName: WeatherStation
+- source: OperationalLimitSet
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: OperationalLimitSet
+  sourceDescription: The operational limit sets associated with this equipment.
+  targetName: Equipment
+  targetDescription: The equipment to which the limit set applies.
+- source: ContingencyEquipment
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ContingencyEquipment
+  sourceDescription: The contingency equipments in which this equipment participates.
+  targetName: Equipment
+  targetDescription: The single piece of equipment to which to apply the contingency.
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EquipmentContainer
+  sourceDescription: Container of this equipment.
+  targetName: Equipments
+  targetDescription: Contained equipment.
+- source: Fault
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Faults
+  sourceDescription: All faults on this equipment.
+  targetName: FaultyEquipment
+  targetDescription: Equipment carrying this fault.
+- source: LimitDependency
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: LimitDependencyModel
+  sourceDescription: Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.
+  targetName: Equipment
+  targetDescription: The equipment for which this limit dependency model is organized under.
+- source: EquipmentLimitSeriesComponent
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EqiupmentLimitSeriesComponent
+  sourceDescription: Equipment limit series calculation component to which this equipment contributes.
+  targetName: Equipment
+  targetDescription: Equipment contributing toward the series limit.   The reference here is to Equipment rather than a specific
+    limit on the equipment so the grouiping can be reused for multiple limits of different types on the same instance of equipment.
+- source: ProtectiveActionEquipment
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ProtectiveActionEquipment
+  sourceDescription: Protective action is controlling equipment. This can be direct signals from the control center, or emulation
+    of action done by protection equipment.
+  targetName: Equipment
+- source: PinEquipment
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: PinEquipment
+  targetName: Equipment
+  targetDescription: The Equipment that should be used in compare.
+- source: EquipmentUnavailabilitySchedule
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AdditionalEquipmentContainer
+  sourceDescription: Additional equipment container beyond the primary equipment container.  The equipment is contained in
+    another equipment container, but also grouped with this equipment container.
+  targetName: AdditionalGroupedEquipment
+  targetDescription: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is
+    contained in another equipment container, but also grouped with this equipment container.  Examples include when a switch
+    contained in a substation is also desired to be grouped with a line contianer or when a switch is included in a secondary
+    substation and also grouped in a feeder.
+- source: UsagePoint
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: UsagePoints
+  sourceDescription: All usage points connected to the electrical grid through this equipment.
+  targetName: Equipments
+  targetDescription: All equipment connecting this usage point to the electrical grid.
+- source: OperationalRestriction
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: OperationalRestrictions
+  sourceDescription: All operational restrictions for this equipment.
+  targetName: Equipments
+  targetDescription: All equipments to which this restriction applies.
+- source: Outage
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Outages
+  sourceDescription: All outages in which this equipment is involved.
+  targetName: Equipments
+  targetDescription: All equipments associated with this outage.

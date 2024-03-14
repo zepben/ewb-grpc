@@ -1,0 +1,31 @@
+name: NoLoadTest
+description: No-load test results determine core admittance parameters. They include exciting current and core loss measurements
+  from applying voltage to one winding. The excitation may be positive sequence or zero sequence. The test may be repeated
+  at different voltages to measure saturation.
+attributes:
+- name: excitingCurrent
+  type: PerCent
+  description: Exciting current measured from a positive-sequence or single-phase excitation test.
+- name: excitingCurrentZero
+  type: PerCent
+  description: Exciting current measured from a zero-sequence open-circuit excitation test.
+- name: loss
+  type: ActivePower
+  description: Losses measured from a positive-sequence or single-phase excitation test.
+- name: lossZero
+  type: ActivePower
+  description: Losses measured from a zero-sequence excitation test.
+- name: energisedEndVoltage
+  type: Voltage
+  description: Voltage applied to the winding (end) during test.
+ancestors:
+- TransformerTest
+associations:
+- source: NoLoadTest
+  target: TransformerEndInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: EnergisedEndNoLoadTests
+  sourceDescription: All no-load test measurements in which this transformer end was energised.
+  targetName: EnergisedEnd
+  targetDescription: Transformer end that current is applied to in this no-load test.

@@ -1,0 +1,48 @@
+name: Measurement
+description: "A Measurement represents any measured, calculated or non-measured non-calculated quantity. Any piece of equipment\
+  \ may contain Measurements, e.g. a substation may have temperature measurements and door open indications, a transformer\
+  \ may have oil temperature and tank pressure measurements, a bay may contain a number of power flow measurements and a Breaker\
+  \ may contain a switch status measurement. \nThe PSR - Measurement association is intended to capture this use of Measurement\
+  \ and is included in the naming hierarchy based on EquipmentContainer. The naming hierarchy typically has Measurements as\
+  \ leaves, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.\nSome Measurements represent quantities related to a particular\
+  \ sensor location in the network, e.g. a voltage transformer (VT) or potential transformer (PT) at a busbar or a current\
+  \ transformer (CT) at the bar between a breaker and an isolator. The sensing position is not captured in the PSR - Measurement\
+  \ association. Instead it is captured by the Measurement - Terminal association that is used to define the sensing location\
+  \ in the network topology. The location is defined by the connection of the Terminal to ConductingEquipment. \nIf both a\
+  \ Terminal and PSR are associated, and the PSR is of type ConductingEquipment, the associated Terminal should belong to\
+  \ that ConductingEquipment instance.\nWhen the sensor location is needed both Measurement-PSR and Measurement-Terminal are\
+  \ used. The Measurement-Terminal association is never used alone."
+attributes:
+- name: phases
+  type: PhaseCode
+  description: |-
+    Indicates to which phases the measurement applies and avoids the need to use 'measurementType' to also encode phase information (which would explode the types). The phase information in Measurement, along with 'measurementType' and 'phases' uniquely defines a Measurement for a device, based on normal network phase. Their meaning will not change when the computed energizing phasing is changed due to jumpers or other reasons.
+    If the attribute is missing three phases (ABC) shall be assumed.
+- name: unitSymbol
+  type: UnitSymbol
+  description: The unit of measure of the measured quantity.
+ancestors:
+- IdentifiedObject
+descendents:
+- Analog
+- Discrete
+- Accumulator
+associations:
+- source: Measurement
+  target: ACDCTerminal
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Measurements
+  sourceDescription: Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It
+    may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current
+    transformer (CT) at the bar between a breaker and an isolator.
+  targetName: Terminal
+  targetDescription: One or more measurements may be associated with a terminal in the network.
+- source: PowerSystemResource
+  target: Measurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PowerSystemResource
+  sourceDescription: The power system resource that contains the measurement.
+  targetName: Measurements
+  targetDescription: The measurements associated with this power system resource.

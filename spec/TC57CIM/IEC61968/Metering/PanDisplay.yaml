@@ -1,0 +1,18 @@
+name: PanDisplay
+description: PAN action/command used to issue the displaying of text messages on PAN devices.
+attributes:
+- name: confirmationRequired
+  type: Boolean
+  description: If true, the requesting entity (e.g. retail electric provider) requires confirmation of the successful display
+    of the text message.
+- name: priority
+  type: String
+  description: Priority associated with the text message to be displayed.
+- name: textMessage
+  type: String
+  description: Text to be displayed by a PAN device.
+- name: transmissionMode
+  type: TransmissionModeKind
+  description: Transmission mode to be used for this PAN display control.
+ancestors:
+- EndDeviceAction

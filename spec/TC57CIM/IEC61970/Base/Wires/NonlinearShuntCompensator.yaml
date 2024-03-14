@@ -1,0 +1,15 @@
+name: NonlinearShuntCompensator
+description: A non linear shunt compensator has bank or section admittance values that differ. The attributes g, b, g0 and
+  b0 of the associated NonlinearShuntCompensatorPoint describe the total conductance and admittance of a NonlinearShuntCompensatorPoint
+  at a section number specified by NonlinearShuntCompensatorPoint.sectionNumber.
+ancestors:
+- ShuntCompensator
+associations:
+- source: NonlinearShuntCompensatorPoint
+  target: NonlinearShuntCompensator
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: NonlinearShuntCompensatorPoints
+  sourceDescription: All points of the non-linear shunt compensator.
+  targetName: NonlinearShuntCompensator
+  targetDescription: Non-linear shunt compensator owning this point.

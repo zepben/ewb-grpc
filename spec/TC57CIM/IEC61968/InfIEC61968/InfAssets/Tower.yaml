@@ -1,0 +1,10 @@
+name: Tower
+description: |-
+  Tower asset. Dimensions of the Tower are specified in associated DimensionsInfo class.
+  When used for planning purposes, a transmission tower carrying two 3-phase circuits will have 2 instances of Connection, each of which will have 3 MountingPoint instances, one for each phase all with coordinates relative to a common origin on the tower. (It may also have a 3rd Connection with a single MountingPoint for the Neutral line).
+attributes:
+- name: constructionKind
+  type: TowerConstructionKind
+  description: Construction structure on the tower.
+ancestors:
+- Structure

@@ -1,0 +1,48 @@
+name: ErpReqLineItem
+description: Information that describes a requested item and its attributes.
+attributes:
+- name: code
+  type: String
+- name: cost
+  type: Money
+  description: Cost of material.
+- name: deliveryDate
+  type: Date
+- name: quantity
+  type: Integer
+  description: ' Quantity of item requisitioned.'
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpReqLineItem
+  target: ErpRequisition
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpReqLineItems
+  targetName: ErpRequisition
+- source: ErpReqLineItem
+  target: ErpPOLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpReqLineItem
+  targetName: ErpPOLineItem
+- source: ErpQuoteLineItem
+  target: ErpReqLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpQuoteLineItem
+  targetName: ErpReqLineItem
+- source: TypeMaterial
+  target: ErpReqLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TypeMaterial
+  targetName: ErpReqLineItems
+- source: CatalogAssetType
+  target: ErpReqLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TypeAsset
+  targetName: ErpReqLineItems

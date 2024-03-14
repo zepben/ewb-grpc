@@ -1,0 +1,105 @@
+name: EnergyTransaction
+description: Specifies the schedule for energy transfers between interchange areas that are necessary to satisfy the associated
+  interchange transaction.
+attributes:
+- name: capacityBacked
+  type: Boolean
+  description: Interchange capacity flag. When the flag is set to true, it indicates a transaction is capacity backed.
+- name: congestChargeMax
+  type: Money
+  description: Maximum congestion charges in monetary units.
+- name: deliveryPointP
+  type: ActivePower
+  description: Delivery point active power.
+- name: energyMin
+  type: ActivePower
+  description: Transaction minimum active power if dispatchable.
+- name: firmInterchangeFlag
+  type: Boolean
+  description: Firm interchange flag indicates whether or not this energy transaction can be changed without potential financial
+    consequences.
+- name: payCongestion
+  type: Boolean
+  description: Willing to Pay congestion flag
+- name: reason
+  type: String
+  description: Reason for energy transaction.
+- name: receiptPointP
+  type: ActivePower
+  description: Receipt point active power.
+- name: state
+  type: EnergyTransactionType
+  description: '{ Approve | Deny | Study }'
+ancestors:
+- Document
+associations:
+- source: EnergyTransaction
+  target: TieLine
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnergyTransaction
+  sourceDescription: A dynamic energy transaction can act as a pseudo tie line.
+  targetName: TieLines
+  targetDescription: A dynamic energy transaction can act as a pseudo tie line.
+- source: EnergyTransaction
+  target: EnergyPriceCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EnergyTransactions
+  targetName: EnergyPriceCurves
+- source: EnergyTransaction
+  target: EnergyProduct
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: EnergyTransactions
+  sourceDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
+    this is a ServicePoint.
+  targetName: EnergyProduct
+  targetDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
+    this is a ServicePoint.
+- source: SubControlArea
+  target: EnergyTransaction
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Export_SubControlArea
+  sourceDescription: Energy is transferred between interchange areas
+  targetName: Export_EnergyTransactions
+  targetDescription: Energy is transferred between interchange areas
+- source: EnergyProfile
+  target: EnergyTransaction
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: EnergyProfiles
+  sourceDescription: An EnergyTransaction shall have at least one EnergyProfile.
+  targetName: EnergyTransaction
+  targetDescription: An EnergyTransaction shall have at least one EnergyProfile.
+- source: CurtailmentProfile
+  target: EnergyTransaction
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CurtailmentProfiles
+  sourceDescription: An EnergyTransaction may be curtailed by any of the participating entities.
+  targetName: EnergyTransaction
+  targetDescription: An EnergyTransaction may be curtailed by any of the participating entities.
+- source: SubControlArea
+  target: EnergyTransaction
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Import_SubControlArea
+  sourceDescription: Energy is transferred between interchange areas
+  targetName: Import_EnergyTransactions
+  targetDescription: Energy is transferred between interchange areas
+- source: LossProfile
+  target: EnergyTransaction
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LossProfiles
+  sourceDescription: An EnergyTransaction may have a LossProfile.
+  targetName: EnergyTransaction
+  targetDescription: An EnergyTransaction may have a LossProfile.
+- source: TransmissionReservation
+  target: EnergyTransaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TransmissionReservation
+  targetName: EnergyTransaction

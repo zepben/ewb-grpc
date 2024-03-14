@@ -1,0 +1,42 @@
+name: TroubleOrder
+description: Trouble order sends an incident to a crew to initiate a response to an unplanned outage.
+attributes:
+- name: comment
+  type: String
+  description: Free-form comment associated with the trouble order.
+- name: plannedExecutionInterval
+  type: DateTimeInterval
+  description: The planned start and end time for the trouble order.
+ancestors:
+- Document
+associations:
+- source: TroubleOrder
+  target: TroubleTicket
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TroubleOrder
+  targetName: TroubleTicket
+- source: TroubleOrder
+  target: Incident
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TroubleOrder
+  targetName: Incident
+- source: TroubleOrder
+  target: Location
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TroubleOrder
+  targetName: Location
+- source: UnplannedOutage
+  target: TroubleOrder
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UnplannedOutage
+  targetName: TroubleOrder
+- source: WorkTask
+  target: TroubleOrder
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkTask
+  targetName: TroubleOrder

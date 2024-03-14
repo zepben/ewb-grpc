@@ -1,0 +1,44 @@
+name: BilateralExchangeActor
+description: BilateralExchangeActor describes an actor that provides ICCP data, consumes ICCP data or both. The ICCP data
+  provider lists the data it makes available to an ICCP data consumer.  This data is described by ProvidedBilateralPoints.
+  The relation between an ICCP data provider and a consumer is established by a BilateralExchangeAgreement.  It is up to the
+  ICCP data consumer to select what ProvidedBilateralPoints to use.  The selection made is not described in this information
+  model.
+ancestors:
+- IdentifiedObject
+descendents:
+- ICCPVirtualControlCentre
+- ICCPVCC
+associations:
+- source: BilateralExchangeActor
+  target: BilateralExchangeAgreement
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Provider
+  sourceDescription: Provider of information to a remote peer.
+  targetName: ProviderBilateralExchange
+  targetDescription: Agreement to information provider.
+- source: CommunicationLink
+  target: BilateralExchangeActor
+  sourceCardinality: 0..n
+  targetCardinality: 0..1
+  sourceName: CommunicationLink
+  sourceDescription: Communication addressing for a Bilateral Table used by a ICCP data provider or consumer.
+  targetName: BilateralExchangeActor
+  targetDescription: ICCP data provider or consumer using communication addressing for a Bilateral table.
+- source: BilateralExchangeAgreement
+  target: BilateralExchangeActor
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ConsumerBilateralExchange
+  sourceDescription: Agreement to information subscriber.
+  targetName: Consumer
+  targetDescription: Subscriber of information from a remote peer.
+- source: ProvidedBilateralPoint
+  target: BilateralExchangeActor
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ProvidedBilateralIOPoint
+  sourceDescription: ICCP information in a Bilateral table that will be exposed to a remote peer.
+  targetName: BilateralExchangeActor
+  targetDescription: Remote peer that will receive ICCP information in a Bilateral table.

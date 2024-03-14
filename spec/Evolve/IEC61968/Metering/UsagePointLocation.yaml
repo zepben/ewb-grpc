@@ -1,0 +1,13 @@
+name: UsagePointLocation
+description: Location of an individual usage point.
+ancestors:
+- Location
+associations:
+- source: UsagePointLocation
+  target: UsagePoint
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UsagePointLocation
+  sourceDescription: Location of this usage point.
+  targetName: UsagePoints
+  targetDescription: All usage points at this location.

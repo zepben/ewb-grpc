@@ -1,0 +1,15 @@
+name: IntermittentResourceEligibility
+description: Indicates whether unit is eligible for treatment as a intermittent variable renewable resource.
+attributes:
+- name: eligibilityStatus
+  type: String
+  description: Indicates whether a resource is eligible for PIRP program for a given hour
+ancestors:
+- MarketFactors
+associations:
+- source: RegisteredResource
+  target: IntermittentResourceEligibility
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredResource
+  targetName: IntermittentResourceEligibility

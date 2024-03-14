@@ -1,0 +1,17 @@
+name: BlockDispatchOrder
+attributes:
+- name: p
+  type: ActivePower
+- name: sequence
+  type: Integer
+ancestors:
+- IdentifiedObject
+associations:
+- source: BlockDispatchOrder
+  target: BlockDispatchComponent
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+- source: BlockDispatchOrder
+  target: BlockDispatchInstruction
+  sourceCardinality: 1..*
+  targetCardinality: "1"

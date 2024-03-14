@@ -1,0 +1,15 @@
+name: LimitScalingLimit
+description: Specifies an operational  limit is calculated by scaling another operational limit.
+attributes:
+- name: limitScalingPercent
+  type: PerCent
+  description: The associated source limit is scaled by this value to compute the limit of the dependency model.
+ancestors:
+- LimitDependency
+associations:
+- source: LimitScalingLimit
+  target: OperationalLimit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LimitScalingLimit
+  targetName: SourceOperationalLimit

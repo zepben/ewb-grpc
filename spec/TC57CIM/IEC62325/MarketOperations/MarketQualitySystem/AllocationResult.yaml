@@ -1,0 +1,17 @@
+name: AllocationResult
+description: Models Market clearing results.  Indicates market horizon, interval based. Used by a market quality system for
+  billing and settlement purposes.
+attributes:
+- name: intervalStartTime
+  type: DateTime
+- name: updateTimeStamp
+  type: DateTime
+- name: updateUser
+  type: String
+associations:
+- source: AllocationResult
+  target: AllocationResultValues
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: AllocationResult
+  targetName: AllocationResultValues

@@ -1,0 +1,20 @@
+name: IPAccessPoint
+description: Internet Protocol Access Point – used to represent an addressing structure is based upon an Internet Protocol
+  (IP) address.
+attributes:
+- name: address
+  type: String
+  description: Is the dotted decimal IP Address resolve the IP address. The format is controlled by the value of the addressType.
+- name: addressType
+  type: IPAddressKind
+  description: IP address type.
+- name: gateway
+  type: String
+  description: Is the dotted decimal IPAddress of the first hop router.  Format is controlled by the addressType.
+- name: subnet
+  type: String
+  description: This is the IP subnet mask which controls the local vs non-local routing.
+ancestors:
+- CommunicationLink
+descendents:
+- TCPAccessPoint

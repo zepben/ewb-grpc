@@ -1,0 +1,45 @@
+name: EnergyConsumer
+description: |-
+  Generic user of energy - a  point of consumption on the power system model.
+  EnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.
+attributes:
+- name: customerCount
+  type: Integer
+  description: Number of individual customers represented by this demand.
+- name: grounded
+  type: Boolean
+  description: Used for Yn and Zn connections. True if the neutral is solidly grounded.
+- name: p
+  type: ActivePower
+  description: |-
+    Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+- name: pfixed
+  type: ActivePower
+  description: Active power of the load that is a fixed quantity and does not vary as load group value varies. Load sign convention
+    is used, i.e. positive sign means flow out from a node.
+- name: phaseConnection
+  type: PhaseShuntConnectionKind
+  description: The type of phase connection, such as wye or delta.
+- name: qfixed
+  type: ReactivePower
+  description: Reactive power of the load that is a fixed quantity and does not vary as load group value varies. Load sign
+    convention is used, i.e. positive sign means flow out from a node.
+ancestors:
+- EnergyConnection
+associations:
+- source: EnergyConsumer
+  target: EnergyConsumerPhase
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EnergyConsumer
+  sourceDescription: The energy consumer to which this phase belongs.
+  targetName: EnergyConsumerPhase
+  targetDescription: The individual phase models for this energy consumer.

@@ -1,0 +1,13 @@
+name: DatasetArgDescription
+ancestors:
+- ModelOperationArgDescription
+associations:
+- source: DatasetArg
+  target: DatasetArgDescription
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: OperationDatasetArg
+  sourceDescription: The operation dataset roles conforming to this role type.
+  targetName: OperationDatasetArgDescription
+  targetDescription: The type of role for this dataset role.   Should only reference role types that belong to the operation
+    type of the associated operation.

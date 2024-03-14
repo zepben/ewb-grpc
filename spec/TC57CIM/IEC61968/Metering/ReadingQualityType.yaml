@@ -1,0 +1,24 @@
+name: ReadingQualityType
+description: 'Detailed description for a quality of a reading value, produced by an end device or a system. Values in attributes
+  allow for creation of the recommended codes to be used for identifying reading value quality codes as follows: <systemId>.<category>.<subCategory>.'
+attributes:
+- name: category
+  type: String
+  description: High-level nature of the reading value quality.
+- name: subCategory
+  type: String
+  description: More specific nature of the reading value quality, as a further sub-categorisation of 'category'.
+- name: systemId
+  type: String
+  description: Identification of the system which has declared the issue with the data or provided commentary on the data.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ReadingQuality
+  target: ReadingQualityType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ReadingQualities
+  sourceDescription: All reading qualities of this type.
+  targetName: ReadingQualityType
+  targetDescription: Type of this reading quality.

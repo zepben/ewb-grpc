@@ -1,0 +1,29 @@
+name: DimensionsInfo
+description: As applicable, the basic linear, area, or volume dimensions of an asset, asset type (AssetModel) or other type
+  of object (such as land area). Units and multipliers are specified per dimension.
+attributes:
+- name: orientation
+  type: String
+  description: A description of the orientation of the object relative to the dimensions. As an example, a vault may have
+    north-south orientation for the sizeLength measurement and sizeDepth may be the height of the vault.
+- name: sizeDepth
+  type: Length
+  description: ' Depth measurement.'
+- name: sizeDiameter
+  type: Length
+  description: ' Diameter measurement.'
+- name: sizeLength
+  type: Length
+  description: ' Length measurement.'
+- name: sizeWidth
+  type: Length
+  description: ' Width measurement.'
+ancestors:
+- IdentifiedObject
+associations:
+- source: DimensionsInfo
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DimensionsInfos
+  targetName: Specifications

@@ -1,0 +1,25 @@
+name: ResourceGroup
+description: A logical grouping of resources that are used to model location of types of requirements for ancillary services
+  such as spinning reserve zones, regulation zones, etc.
+attributes:
+- name: status
+  type: Status
+  description: Status of this group.
+- name: type
+  type: String
+  description: Type of this group.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ResourceGroup
+  target: ResourceGroupReq
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ResourceGroup
+  targetName: ResourceGroupReqs
+- source: RegisteredResource
+  target: ResourceGroup
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: RegisteredResources
+  targetName: ResourceGroups

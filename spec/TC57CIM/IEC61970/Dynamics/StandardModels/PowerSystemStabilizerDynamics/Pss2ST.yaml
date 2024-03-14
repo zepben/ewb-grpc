@@ -1,0 +1,63 @@
+name: Pss2ST
+description: PTI microprocessor-based stabilizer type 1.
+attributes:
+- name: t6
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>6</sub></i>) (&gt;= 0).
+- name: t7
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>7</sub></i>) (&gt;= 0).
+- name: t8
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>8</sub></i>) (&gt;= 0).
+- name: t9
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>9</sub></i>) (&gt;= 0).
+- name: vcl
+  type: PU
+  description: Cutoff limiter (<i>V</i><i><sub>CL</sub></i>).
+- name: vcu
+  type: PU
+  description: Cutoff limiter (<i>V</i><i><sub>CU</sub></i>).
+- name: inputSignal1Type
+  type: InputSignalKind
+  description: 'Type of input signal #1 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower,
+    generatorAcceleratingPower, busVoltage, or busVoltageDerivative - shall be different than Pss2ST.inputSignal2Type).  Typical
+    value = rotorAngularFrequencyDeviation.'
+- name: inputSignal2Type
+  type: InputSignalKind
+  description: 'Type of input signal #2 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower,
+    generatorAcceleratingPower, busVoltage, or busVoltageDerivative - shall be different than Pss2ST.inputSignal1Type).  Typical
+    value = busVoltageDerivative.'
+- name: k1
+  type: PU
+  description: Gain (<i>K</i><i><sub>1</sub></i>).
+- name: k2
+  type: PU
+  description: Gain (<i>K</i><i><sub>2</sub></i>).
+- name: lsmax
+  type: PU
+  description: Limiter (<i>L</i><i><sub>SMAX</sub></i>) (&gt; Pss2ST.lsmin).
+- name: lsmin
+  type: PU
+  description: Limiter (<i>L</i><i><sub>SMIN</sub></i>) (&lt; Pss2ST.lsmax).
+- name: t1
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).
+- name: t10
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>10</sub></i>) (&gt;= 0).
+- name: t2
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).
+- name: t3
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).
+- name: t4
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>4</sub></i>) (&gt;= 0).
+- name: t5
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>5</sub></i>) (&gt;= 0).
+ancestors:
+- PowerSystemStabilizerDynamics

@@ -1,0 +1,32 @@
+name: WirePosition
+description: Identification, spacing and configuration of the wires of a conductor with respect to a structure.
+attributes:
+- name: sequenceNumber
+  type: Integer
+  description: Numbering for wires on a WireSpacingInfo. Neutrals should be numbered last.
+- name: xCoord
+  type: Displacement
+  description: Signed horizontal distance from the wire at this position to a common reference point.
+- name: yCoord
+  type: Displacement
+  description: 'Signed vertical distance from the wire at this position: above ground (positive value) or burial depth below
+    ground (negative value).'
+ancestors:
+- IdentifiedObject
+associations:
+- source: WirePosition
+  target: WirePhaseInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WirePosition
+  sourceDescription: Wire position with this wire phase information.
+  targetName: WirePhaseInfo
+  targetDescription: Wire phase information for this wire position.
+- source: WireSpacingInfo
+  target: WirePosition
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: WireSpacingInfo
+  sourceDescription: Wire spacing data this wire position belongs to.
+  targetName: WirePositions
+  targetDescription: All positions of single wires (phase or neutral) making the conductor.

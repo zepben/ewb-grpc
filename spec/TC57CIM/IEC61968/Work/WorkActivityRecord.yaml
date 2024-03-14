@@ -1,0 +1,17 @@
+name: WorkActivityRecord
+description: Records information about the status of work or work task at a point in time.
+attributes:
+- name: percentComplete
+  type: PerCent
+  description: Estimated percentage of completion of this individual work task or overall work order.
+ancestors:
+- ActivityRecord
+associations:
+- source: BaseWork
+  target: WorkActivityRecord
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: BaseWork
+  sourceDescription: Base work that this activity record tracks.
+  targetName: WorkActivityRecords
+  targetDescription: All activity records for this work or work task.

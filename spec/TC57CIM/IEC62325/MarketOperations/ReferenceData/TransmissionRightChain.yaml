@@ -1,0 +1,24 @@
+name: TransmissionRightChain
+description: Allows chaining of TransmissionContractRights. Many individual contract rights can be included in the definition
+  of a TransmissionRightChain. A TransmissionRightChain is also defined as a TransmissionContractRight itself.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TransmissionRightChain
+  target: ContractRight
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: Ind_TransmissionRightChain
+  targetName: Ind_ContractRight
+- source: TransmissionRightChain
+  target: ContractRight
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: Chain_TransmissionRightChain
+  targetName: Chain_ContractRight
+- source: RTO
+  target: TransmissionRightChain
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: TransmissionRightChain

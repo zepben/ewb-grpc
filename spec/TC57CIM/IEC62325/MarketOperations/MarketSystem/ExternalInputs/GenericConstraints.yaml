@@ -1,0 +1,32 @@
+name: GenericConstraints
+description: "Generic constraints can represent secure areas, voltage profile, transient stability and voltage collapse limits.\n\
+  \nThe generic constraints can be one of the following forms:\na)\tThermal MW limit constraints type\nb)\tGroup line flow\
+  \ constraint type"
+attributes:
+- name: intervalEndTime
+  type: DateTime
+  description: Interval End Time
+- name: intervalStartTime
+  type: DateTime
+  description: Interval Start Time
+- name: maxLimit
+  type: Float
+  description: Maximum Limit (MW)
+- name: minLimit
+  type: Float
+  description: Minimum Limit (MW)
+ancestors:
+- IdentifiedObject
+associations:
+- source: GenericConstraints
+  target: Flowgate
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GenericConstraints
+  targetName: Flowgate
+- source: GenericConstraints
+  target: TransmissionCapacity
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GenericConstraints
+  targetName: TransmissionCapacity

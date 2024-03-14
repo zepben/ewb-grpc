@@ -1,0 +1,52 @@
+name: InterchangeSchedule
+description: Interchange schedule class to hold information for interchange schedules such as import export type, energy type,
+  and etc.
+attributes:
+- name: checkOutType
+  type: CheckOutType
+  description: To indicate a check out type such as adjusted capacity or dispatch capacity.
+- name: directionType
+  type: InterTieDirection
+  description: Import or export.
+- name: energyType
+  type: MarketProductType
+  description: Energy product type.
+- name: intervalLength
+  type: Integer
+  description: Interval length.
+- name: marketType
+  type: MarketType
+  description: Market type.
+- name: operatingDate
+  type: DateTime
+  description: Operating date, hour.
+- name: outOfMarketType
+  type: Boolean
+  description: To indicate an out-of-market (OOM) schedule.
+- name: scheduleType
+  type: EnergyProductType
+  description: Schedule type.
+- name: wcrID
+  type: String
+  description: Wheeling Counter-Resource ID (required when Schedule Type=Wheel).
+ancestors:
+- Curve
+associations:
+- source: InterchangeSchedule
+  target: SchedulingPoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: InterchangeSchedule
+  targetName: InterTie
+- source: InterchangeSchedule
+  target: RegisteredInterTie
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: InterchangeSchedule
+  targetName: RegisteredInterTie
+- source: InterchangeSchedule
+  target: InterchangeETCData
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: InterchangeSchedule
+  targetName: InterchangeETCData

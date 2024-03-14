@@ -1,0 +1,21 @@
+name: EnvironmentalStringMeasurement
+description: String measurement of relevance in the environmental domain.
+ancestors:
+- StringMeasurement
+associations:
+- source: EnvironmentalStringMeasurement
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalStringMeasurement
+  sourceDescription: Environmental string measurement associated with this forecast or observation.
+  targetName: EnvironmentalInformation
+  targetDescription: Observation or forecast with which this environmental string is associated.
+- source: EnvironmentalStringMeasurement
+  target: ClassificationCondition
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalStringMeasurement
+  sourceDescription: String measurement which contributes to the definition of this classification condition.
+  targetName: ClassificationCondition
+  targetDescription: Classification condition which this string measurement helps define.

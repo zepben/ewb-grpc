@@ -1,0 +1,29 @@
+name: AtmosphericPhenomenon
+description: An atmospheric phenomenon with a base and altitude providing the vertical coverage (combined with the Location
+  to provide three dimensional space).
+attributes:
+- name: altitude
+  type: RelativeDisplacement
+  description: The maximum altitude of the phenomenon.
+- name: base
+  type: RelativeDisplacement
+  description: The base altitude of the phenomenon.
+- name: direction
+  type: Bearing
+  description: The direction the phenomenon is moving.
+- name: maxCoverage
+  type: PerCent
+  description: The maximum percentage coverage
+- name: minCoverage
+  type: PerCent
+  description: The minimum percentage coverage
+- name: speed
+  type: Speed
+  description: The speed of the phenomenon
+ancestors:
+- EnvironmentalPhenomenon
+descendents:
+- Cyclone
+- CloudCondition
+- Tornado
+- VolcanicAshCloud

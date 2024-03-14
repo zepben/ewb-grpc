@@ -1,0 +1,26 @@
+name: GenDistributionFactor
+description: This class models the generation distribution factors. This class needs to be used along with the AggregatedPnode
+  and the IndividualPnode to show the distribution of each individual party.
+attributes:
+- name: factor
+  type: Float
+  description: Used to calculate generation "participation" of an individual pnond in an AggregatePnode.
+associations:
+- source: DistributionFactorSet
+  target: GenDistributionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DistributionFactorSet
+  targetName: GenDistributionFactor
+- source: AggregatedPnode
+  target: GenDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: AggregatedPnode
+  targetName: GenDistributionFactor
+- source: IndividualPnode
+  target: GenDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: IndividualPnode
+  targetName: GenDistributionFactor

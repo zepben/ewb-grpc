@@ -1,0 +1,107 @@
+name: WorkTask
+description: A task within a set of work.
+attributes:
+- name: completedDateTime
+  type: DateTime
+  description: Date and time work task was completed.
+- name: contractorCost
+  type: Money
+  description: Total contractor costs associated with the work task.
+- name: crewETA
+  type: DateTime
+  description: Estimated time of arrival, so that customer or police/fire department can be informed when the crew will arrive.
+- name: estimatedCompletionTime
+  type: DateTime
+  description: Time and Date when the work task will be completed.
+- name: instruction
+  type: String
+  description: Instructions for performing this task.
+- name: laborCost
+  type: Money
+  description: Total labor costs associated with the work task.
+- name: laborHours
+  type: Hours
+  description: Hours of labor expended under work task.
+- name: materiallCost
+  type: Money
+  description: Total material costs associated with the work task.
+- name: schedOverride
+  type: String
+  description: If specified, override schedule and perform this task in accordance with instructions specified here.
+- name: startedDateTime
+  type: DateTime
+  description: Date and time work task was started.
+- name: taskKind
+  type: WorkTaskKind
+  description: Kind of work.
+- name: toolCost
+  type: Money
+  description: Total tool costs associated with the work task.
+ancestors:
+- BaseWork
+descendents:
+- OldWorkTask
+- MeterWorkTask
+- RepairWorkTask
+- MaintenanceWorkTask
+associations:
+- source: WorkTask
+  target: MaterialItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WorkTask
+  targetName: MaterialItems
+- source: WorkTask
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ReplacementWorkTasks
+  sourceDescription: All work tasks on replacement of this old asset.
+  targetName: OldAsset
+  targetDescription: Old asset replaced by this work task.
+- source: WorkTask
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WorkTasks
+  sourceDescription: All non-replacement work tasks performed on this asset.
+  targetName: Assets
+  targetDescription: All assets on which this non-replacement work task is performed.
+- source: WorkTask
+  target: TroubleOrder
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkTask
+  targetName: TroubleOrder
+- source: WorkTask
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WorkTasks
+  sourceDescription: All work tasks this crew participates in.
+  targetName: Crews
+  targetDescription: All crews participating in this work task.
+- source: Work
+  target: WorkTask
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Work
+  sourceDescription: Work this task belongs to.
+  targetName: WorkTasks
+  targetDescription: All tasks in this work.
+- source: ProcedureDataSet
+  target: WorkTask
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ProcedureDataSet
+  sourceDescription: Procedure data set associated with this work task.
+  targetName: WorkTask
+  targetDescription: Work task that created this procedure data set.
+- source: SwitchingPlan
+  target: WorkTask
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SwitchingPlan
+  sourceDescription: Switching plan executed by this work task.
+  targetName: WorkTasks
+  targetDescription: All work tasks to execute this switching plan.

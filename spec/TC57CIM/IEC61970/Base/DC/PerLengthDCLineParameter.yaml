@@ -1,0 +1,23 @@
+name: PerLengthDCLineParameter
+description: Common type for per-length electrical catalogues describing DC line parameters.
+attributes:
+- name: capacitance
+  type: CapacitancePerLength
+  description: Capacitance per unit of length of the DC line segment; significant for cables only.
+- name: inductance
+  type: InductancePerLength
+  description: Inductance per unit of length of the DC line segment.
+- name: resistance
+  type: ResistancePerLength
+  description: Resistance per length of the DC line segment.
+ancestors:
+- PerLengthLineParameter
+associations:
+- source: PerLengthDCLineParameter
+  target: DCLineSegment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PerLengthParameter
+  sourceDescription: Set of per-length parameters for this line segment.
+  targetName: DCLineSegments
+  targetDescription: All line segments described by this set of per-length parameters.

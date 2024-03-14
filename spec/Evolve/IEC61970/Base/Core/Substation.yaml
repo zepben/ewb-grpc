@@ -1,0 +1,46 @@
+name: Substation
+description: A collection of equipment for purposes other than generation or utilization, through which electric energy in
+  bulk is passed for the purposes of switching or modifying its characteristics.
+ancestors:
+- EquipmentContainer
+associations:
+- source: Feeder
+  target: Substation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: NormalEnergizingFeeder
+  sourceDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
+    that describe the naming hierarchy.
+  targetName: NormalEnergizingSubstation
+  targetDescription: The substations that are normally energized by the feeder.
+- source: SubGeographicalRegion
+  target: Substation
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Region
+  sourceDescription: The SubGeographicalRegion containing the substation.
+  targetName: Substations
+  targetDescription: The substations in this sub-geographical region.
+- source: Circuit
+  target: Substation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: circuits
+  sourceDescription: Simplification of the CIM association via Bay to Substation
+  targetName: endSubstations
+  targetDescription: Simplification of the CIM association via Bay to Circuit
+- source: Loop
+  target: Substation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: loops
+  sourceDescription: The loops that are energizing this substation.
+  targetName: substations
+  targetDescription: Substations that are energized by this loop.
+- source: Loop
+  target: Substation
+  targetCardinality: 0..*
+  sourceName: normalEnergizedLoops
+  sourceDescription: The loops that are energized by this substation.
+  targetName: normalEnergizingSubstations
+  targetDescription: The substations that normally energize this loop.

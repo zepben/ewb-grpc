@@ -1,0 +1,17 @@
+name: AnalogValue
+description: AnalogValue represents an analog MeasurementValue.
+attributes:
+- name: value
+  type: Float
+  description: The value to supervise.
+ancestors:
+- MeasurementValue
+associations:
+- source: Analog
+  target: AnalogValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Analog
+  sourceDescription: Measurement to which this value is connected.
+  targetName: AnalogValues
+  targetDescription: The values connected to this measurement.

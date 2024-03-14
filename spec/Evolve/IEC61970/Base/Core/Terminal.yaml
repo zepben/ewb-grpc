@@ -1,0 +1,59 @@
+name: Terminal
+description: An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection
+  points called connectivity nodes.
+attributes:
+- name: phases
+  type: PhaseCode
+ancestors:
+- ACDCTerminal
+associations:
+- source: Terminal
+  target: ConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Terminals
+  sourceDescription: Terminals interconnected with zero impedance at a this connectivity node.
+  targetName: ConnectivityNode
+  targetDescription: The connectivity node to which this terminal connects with zero impedance.
+- source: Terminal
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Terminals
+  sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
+    connectivity nodes or topological nodes.
+  targetName: ConductingEquipment
+  targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
+    to other conducting equipment terminals via connectivity nodes or topological nodes.
+- source: Feeder
+  target: Terminal
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: NormalHeadFeeder
+  sourceDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
+  targetName: NormalHeadTerminal
+  targetDescription: The normal head terminal or terminals of the feeder.
+- source: TransformerEnd
+  target: Terminal
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransformerEnd
+  sourceDescription: All transformer ends connected at this terminal.
+  targetName: Terminal
+  targetDescription: Terminal of the power transformer to which this transformer end belongs.
+- source: Circuit
+  target: Terminal
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Circuit
+  targetName: EndTerminal
+- source: LvFeeder
+  target: Terminal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: normalHeadLvFeeder
+  sourceDescription: The LV feeder that this terminal normally feeds.
+  targetName: normalHeadTerminal
+  targetDescription: |2-
+
+    The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.

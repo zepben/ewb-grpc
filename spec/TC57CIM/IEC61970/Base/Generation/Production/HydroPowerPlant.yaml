@@ -1,0 +1,72 @@
+name: HydroPowerPlant
+description: A hydro power station which can generate or pump. When generating, the generator turbines receive water from
+  an upper reservoir. When pumping, the pumps receive their water from a lower reservoir.
+attributes:
+- name: dischargeTravelDelay
+  type: Seconds
+  description: Water travel delay from tailbay to next downstream hydro power station.
+- name: genRatedP
+  type: ActivePower
+  description: |-
+    The hydro plant's generating rating active power for rated head conditions.
+    The attribute shall be a positive value.
+- name: hydroPlantStorageType
+  type: HydroPlantStorageKind
+  description: The type of hydro power plant water storage.
+- name: penstockType
+  type: String
+  description: Type and configuration of hydro plant penstock(s).
+- name: plantDischargeCapacity
+  type: VolumeFlowRate
+  description: Total plant discharge capacity.
+- name: plantRatedHead
+  type: Length
+  description: |-
+    The plant's rated gross head.
+    The attribute shall be a positive value.
+- name: pumpRatedP
+  type: ActivePower
+  description: |-
+    The hydro plant's pumping rating active power for rated head conditions.
+    The attribute shall be a positive value.
+- name: surgeTankCode
+  type: String
+  description: A code describing the type (or absence) of surge tank that is associated with the hydro power plant.
+- name: surgeTankCrestLevel
+  type: WaterLevel
+  description: The level at which the surge tank spills.
+ancestors:
+- PowerSystemResource
+associations:
+- source: HydroPowerPlant
+  target: HydroPump
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: HydroPowerPlant
+  sourceDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+  targetName: HydroPumps
+  targetDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+- source: HydroPowerPlant
+  target: Reservoir
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: HydroPowerPlants
+  sourceDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
+  targetName: Reservoir
+  targetDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
+- source: HydroPowerPlant
+  target: Reservoir
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: UpstreamFromHydroPowerPlants
+  sourceDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
+  targetName: GenSourcePumpDischargeReservoir
+  targetDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
+- source: HydroPowerPlant
+  target: HydroGeneratingUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: HydroPowerPlant
+  sourceDescription: The hydro generating unit belongs to a hydro power plant.
+  targetName: HydroGeneratingUnits
+  targetDescription: The hydro generating unit belongs to a hydro power plant.

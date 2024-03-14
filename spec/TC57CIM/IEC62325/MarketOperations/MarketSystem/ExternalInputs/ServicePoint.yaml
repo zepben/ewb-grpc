@@ -1,0 +1,35 @@
+name: ServicePoint
+description: The defined termination points of a transmission path. Service points are defined from the viewpoint of the transmission
+  service. Each service point is contained within (or on the boundary of) an interchange area. A service point is source or
+  destination of a transaction.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ServicePoint
+  target: TransmissionPath
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: PointOfReceipt
+  sourceDescription: A transmission path has a "point-of-receipt" service point
+  targetName: PORTransmissionPath
+  targetDescription: A transmission path has a "point-of-receipt" service point
+- source: ServicePoint
+  target: TransmissionPath
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: DeliveryPoint
+  sourceDescription: A transmission path has a "point-of-delivery" service point
+  targetName: PODTransmissionPath
+  targetDescription: A transmission path has a "point-of-delivery" service point
+- source: ServicePoint
+  target: TransmissionReservation
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Source
+  targetName: SourceReservation
+- source: ServicePoint
+  target: TransmissionReservation
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Sink
+  targetName: SinkReservation

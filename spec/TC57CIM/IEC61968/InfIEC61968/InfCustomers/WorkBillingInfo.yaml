@@ -1,0 +1,46 @@
+name: WorkBillingInfo
+description: Billing information for work performed for the customer. The history of Work Billing Info, Invoices, and Payments
+  is to be maintained in associated ActivityRecords.
+attributes:
+- name: costEstimate
+  type: Money
+  description: Estimated cost for work.
+- name: deposit
+  type: Money
+  description: Amount of price on deposit.
+- name: discount
+  type: Float
+  description: Discount from standard price.
+- name: dueDateTime
+  type: DateTime
+  description: Date and time by which payment for bill is expected from client.
+- name: issueDateTime
+  type: DateTime
+  description: Date and time bill was issued to client.
+- name: receivedDateTime
+  type: DateTime
+  description: Date payment was received from client.
+- name: workPrice
+  type: Money
+  description: Amount of bill.
+ancestors:
+- Document
+associations:
+- source: WorkBillingInfo
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WorkBillingInfos
+  targetName: ErpLineItems
+- source: WorkBillingInfo
+  target: Work
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WorkBillingInfo
+  targetName: Works
+- source: CustomerAccount
+  target: WorkBillingInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerAccount
+  targetName: WorkBillingInfos

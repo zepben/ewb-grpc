@@ -1,0 +1,56 @@
+name: ExcIEEEST7B
+description: |-
+  IEEE 421.5-2005 type ST7B model. This model is representative of static potential-source excitation systems. In this system, the AVR consists of a PI voltage regulator. A phase lead-lag filter in series allows the introduction of a derivative function, typically used with brushless excitation systems. In that case, the regulator is of the PID type. In addition, the terminal voltage channel includes a phase lead-lag filter.  The AVR includes the appropriate inputs on its reference for overexcitation limiter (OEL1), underexcitation limiter (UEL), stator current limiter (SCL), and current compensator (DROOP). All these limitations, when they work at voltage reference level, keep the PSS (VS signal from PSS) in operation. However, the UEL limitation can also be transferred to the high value (HV) gate acting on the output signal. In addition, the output signal passes through a low value (LV) gate for a ceiling overexcitation limiter (OEL2).
+  Reference: IEEE 421.5-2005, 7.7.
+attributes:
+- name: kh
+  type: PU
+  description: High-value gate feedback gain (<i>K</i><i><sub>H</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: kia
+  type: PU
+  description: Voltage regulator integral gain (<i>K</i><i><sub>IA</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: kl
+  type: PU
+  description: Low-value gate feedback gain (<i>K</i><i><sub>L</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: kpa
+  type: PU
+  description: Voltage regulator proportional gain (<i>K</i><i><sub>PA</sub></i>) (&gt; 0).  Typical value = 40.
+- name: oelin
+  type: ExcST7BOELselectorKind
+  description: OEL input selector (<i>OELin</i>).  Typical value = noOELinput.
+- name: tb
+  type: Seconds
+  description: Regulator lag time constant (<i>T</i><i><sub>B</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: tc
+  type: Seconds
+  description: Regulator lead time constant (<i>T</i><i><sub>C</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: tf
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>T</i><i><sub>F</sub></i>) (&gt;= 0).  Typical value
+    = 1.
+- name: tg
+  type: Seconds
+  description: Feedback time constant of inner loop field voltage regulator (<i>T</i><i><sub>G</sub></i>) (&gt;= 0). Typical
+    value = 1.
+- name: tia
+  type: Seconds
+  description: Feedback time constant (<i>T</i><i><sub>IA</sub></i>) (&gt;= 0).  Typical value = 3.
+- name: uelin
+  type: ExcST7BUELselectorKind
+  description: UEL input selector (<i>UELin</i>). Typical value = noUELinput.
+- name: vmax
+  type: PU
+  description: Maximum voltage reference signal (<i>V</i><i><sub>MAX</sub></i>) (&gt; 0 and &gt; ExcIEEEST7B.vmin).  Typical
+    value = 1,1.
+- name: vmin
+  type: PU
+  description: Minimum voltage reference signal (<i>V</i><i><sub>MIN</sub></i>) (&gt; 0 and &lt; ExcIEEEST7B.vmax).  Typical
+    value = 0,9.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>V</i><i><sub>RMAX</sub></i>) (&gt; 0).  Typical value = 5.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>V</i><i><sub>RMIN</sub></i>) (&lt; 0).  Typical value = -4,5.
+ancestors:
+- ExcitationSystemDynamics

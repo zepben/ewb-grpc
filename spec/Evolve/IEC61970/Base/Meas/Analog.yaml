@@ -1,0 +1,18 @@
+name: Analog
+description: Analog represents an analog Measurement.
+attributes:
+- name: positiveFlowIn
+  type: Boolean
+  description: If true then this measurement is an active power, reactive power or current with the convention that a positive
+    value measured at the Terminal means power is flowing into the related PowerSystemResource.
+ancestors:
+- Measurement
+associations:
+- source: Analog
+  target: AnalogValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Analog
+  sourceDescription: Measurement to which this value is connected.
+  targetName: AnalogValues
+  targetDescription: The values connected to this measurement.

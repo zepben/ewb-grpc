@@ -1,0 +1,29 @@
+name: RemoteUnit
+description: A remote unit can be an RTU, IED, substation control system, control centre, etc. The communication with the
+  remote unit can be through various standard protocols (e.g. IEC 61870, IEC 61850) or non standard protocols (e.g. DNP, RP570,
+  etc.). A remote unit contains remote data points that might be telemetered, collected or calculated. The RemoteUnit class
+  inherits PowerSystemResource. The intention is to allow RemoteUnits to have Measurements. These Measurements can be used
+  to model unit status as operational, out of service, unit failure, etc.
+attributes:
+- name: remoteUnitType
+  type: RemoteUnitType
+  description: Type of remote unit.
+ancestors:
+- PowerSystemResource
+associations:
+- source: CommunicationLink
+  target: RemoteUnit
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: CommunicationLinks
+  sourceDescription: RTUs may be attached to communication links.
+  targetName: RemoteUnits
+  targetDescription: RTUs may be attached to communication links.
+- source: RemotePoint
+  target: RemoteUnit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: RemotePoints
+  sourceDescription: Remote points this Remote unit contains.
+  targetName: RemoteUnit
+  targetDescription: Remote unit this point belongs to.

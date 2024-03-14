@@ -1,0 +1,37 @@
+name: ReportingGroup
+description: A reporting group is used for various ad-hoc groupings used for reporting.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ReportingGroup
+  target: ReportingSuperGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ReportingGroup
+  sourceDescription: Reporting groups that are grouped under this super group.
+  targetName: ReportingSuperGroup
+  targetDescription: Reporting super group to which this reporting group belongs.
+- source: ReportingGroup
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ReportingGroup
+  sourceDescription: Reporting groups to which this power system resource belongs.
+  targetName: PowerSystemResource
+  targetDescription: Power system resources which belong to this reporting group.
+- source: BusNameMarker
+  target: ReportingGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BusNameMarker
+  sourceDescription: The bus name markers that belong to this reporting group.
+  targetName: ReportingGroup
+  targetDescription: The reporting group to which this bus name marker belongs.
+- source: TopologicalNode
+  target: ReportingGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TopologicalNode
+  sourceDescription: The topological nodes that belong to the reporting group.
+  targetName: ReportingGroup
+  targetDescription: The reporting group to which the topological node belongs.

@@ -1,0 +1,25 @@
+name: AttributeInstanceComponent
+description: A class used to provide information about an attribute.
+attributes:
+- name: attribute
+  type: String
+  description: The identification of the formal name of an attribute.
+- name: attributeValue
+  type: String
+  description: The instance value of the attribute.
+- name: position
+  type: Integer
+  description: A sequential value representing a relative sequence number.
+associations:
+- source: AttributeInstanceComponent
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AttributeInstanceComponent
+  targetName: TimeSeries
+- source: MarketDocument
+  target: AttributeInstanceComponent
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketDocument
+  targetName: AttributeInstanceComponent

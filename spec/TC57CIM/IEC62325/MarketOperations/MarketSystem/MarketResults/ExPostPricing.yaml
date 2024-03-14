@@ -1,0 +1,15 @@
+name: ExPostPricing
+description: Model of ex-post pricing of nodes.
+attributes:
+- name: energyPrice
+  type: Float
+  description: market energy price
+ancestors:
+- MarketFactors
+associations:
+- source: ExPostPricingResults
+  target: ExPostPricing
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ExPostResults
+  targetName: ExPostPricing

@@ -1,0 +1,46 @@
+name: TransactionBid
+description: Bilateral or scheduled transactions for energy and ancillary services considered by market clearing process.
+attributes:
+- name: demandTransaction
+  type: Boolean
+  description: Set true if this is a demand transaction.
+- name: dispatchable
+  type: Boolean
+  description: Set true if this is a dispatchable transaction.
+- name: payCongestion
+  type: Boolean
+  description: Set true if this is a willing to pay transaction. This flag is used to determine whether a schedule is willing-to-pay-congestion
+    or not.
+ancestors:
+- Bid
+associations:
+- source: TransactionBidResults
+  target: TransactionBid
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransactionBidResults
+  targetName: TransactionBid
+- source: Pnode
+  target: TransactionBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Receipt_Pnode
+  targetName: ReceiptTransactionBids
+- source: Pnode
+  target: TransactionBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Delivery_Pnode
+  targetName: DeliveryTransactionBids
+- source: EnergyProfile
+  target: TransactionBid
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: EnergyProfiles
+  targetName: TransactionBid
+- source: TransmissionReservation
+  target: TransactionBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TransmissionReservation
+  targetName: TransactionBid

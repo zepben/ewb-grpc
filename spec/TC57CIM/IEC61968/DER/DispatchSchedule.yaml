@@ -1,0 +1,33 @@
+name: DispatchSchedule
+attributes:
+- name: timeIntervalUnit
+  type: TimeIntervalKind
+  description: The unit of measure for the time axis of the dispatch schedule.
+- name: confidence
+  type: PerCent
+- name: curveStyleKind
+  type: CurveStyle
+  description: Used to specify whether the values over an interval are constant (constantYValue) or linearly interpolated
+    (straightLineYValues)
+- name: numberOfIntervals
+  type: Integer
+  description: Used to specify the number of intervals when requesting a forecast or a dispatch.
+- name: startTime
+  type: DateTime
+  description: The start time of the first interval in the dispatch schedule
+- name: timeIntervalDuration
+  type: Integer
+  description: The length of time for each interval in the dispatch schedule.
+associations:
+- source: DispatchSchedule
+  target: DERMonitorableParameter
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: DispatchSchedule
+  targetName: DERMonitorableParameter
+- source: DERCurveData
+  target: DispatchSchedule
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DERCurveData
+  targetName: DispatchSchedule

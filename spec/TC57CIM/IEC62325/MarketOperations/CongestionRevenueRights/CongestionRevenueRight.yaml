@@ -1,0 +1,53 @@
+name: CongestionRevenueRight
+description: |-
+  Congestion Revenue Rights (CRR) class that is inherited from a Document class.
+
+  A CRR is a financial concept that is used to hedge congestion charges.
+
+  The CRR is usually settled based on the Locational Marginal Prices (LMPs) that are calculated in the day-ahead market. These LMPs are determined by the Day-ahead resource schedules/bids. CRRs will not hedge against marginal losses. If the congestion component of LMP at the sink is greater than at the source, then the CRR owner is entitled to receive a portion of congestion revenues. If the congestion component at the sink is less than at the source, then an obligation-type CRR owner will be charged, but an option-type CRR owner will not.
+attributes:
+- name: cRRcategory
+  type: CRRCategoryType
+  description: CRR category represents 'PTP' for a point-to-point CRR, or 'NSR' for a Network Service Right. If CRR category
+    is 'PTP', both Source ID and Sink ID fields are required. If CRR category is 'NSR' only one field, either Source ID or
+    Sink ID, shall be not null and the other shall be null. However, the 'NSR' category will include at least three records.
+- name: cRRtype
+  type: CRRSegmentType
+  description: Type of the CRR, from the possible type definitions in the CRR System (e.g. 'LSE', 'ETC').
+- name: hedgeType
+  type: CRRHedgeType
+  description: Hedge type Obligation or Option. An obligation type requires the holder to receive or pay the congestion rent.
+    An option type gives the holder the option of receiving or paying the congestion rent.
+- name: timeOfUse
+  type: TimeOfUse
+  description: Time of Use flag of the CRR - Peak (ON), Offpeak (OFF) or all 24 hours (24HR).
+- name: tradeSliceID
+  type: String
+  description: Segment of the CRR described in the current record.
+ancestors:
+- Document
+associations:
+- source: CongestionRevenueRight
+  target: Flowgate
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: CongestionRevenueRight
+  targetName: Flowgate
+- source: CongestionRevenueRight
+  target: CRRMarket
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: CongestionRevenueRight
+  targetName: CRRMarket
+- source: CongestionRevenueRight
+  target: CRRSegment
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: CongestionRevenueRight
+  targetName: CRRSegment
+- source: CRROrgRole
+  target: CongestionRevenueRight
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: CRROrgRole
+  targetName: CongestionRevenueRight

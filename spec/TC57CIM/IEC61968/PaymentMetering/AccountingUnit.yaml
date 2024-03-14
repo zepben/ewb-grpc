@@ -1,0 +1,15 @@
+name: AccountingUnit
+description: Unit for accounting; use either 'energyUnit' or 'currencyUnit' to specify the unit for 'value'.
+attributes:
+- name: energyUnit
+  type: RealEnergy
+  description: Unit of service.
+- name: monetaryUnit
+  type: Currency
+  description: Unit of currency.
+- name: multiplier
+  type: UnitMultiplier
+  description: Multiplier for the 'energyUnit' or 'monetaryUnit'.
+- name: value
+  type: Float
+  description: Value expressed in applicable units.

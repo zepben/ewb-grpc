@@ -1,0 +1,17 @@
+name: ResourceClearing
+description: Model of market results, including cleaing result of resources. Associated with ResourceDispatchResults.
+ancestors:
+- MarketFactors
+associations:
+- source: ResourceClearing
+  target: ResourceDispatchResults
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: ResourceClearing
+  targetName: ResourceDispatchResults
+- source: ResourceClearing
+  target: ResourceLoadFollowingInst
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ResourceClearing
+  targetName: ResourceLoadFollowingInst

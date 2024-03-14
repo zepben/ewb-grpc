@@ -1,0 +1,55 @@
+name: TurbLCFB1
+description: Turbine load controller model developed by WECC.  This model represents a supervisory turbine load controller
+  that acts to maintain turbine power at a set value by continuous adjustment of the turbine governor speed-load reference.
+  This model is intended to represent slow reset 'outer loop' controllers managing the action of the turbine governor.
+attributes:
+- name: db
+  type: PU
+  description: Controller deadband (<i>db</i>).  Typical value = 0.
+- name: emax
+  type: PU
+  description: Maximum control error (<i>Emax</i>) (see parameter detail 4).  Typical value = 0,02.
+- name: fb
+  type: PU
+  description: Frequency bias gain (<i>Fb</i>).  Typical value = 0.
+- name: fbf
+  type: Boolean
+  description: |-
+    Frequency bias flag (<i>Fbf</i>).
+    true = enable frequency bias
+    false = disable frequency bias.
+    Typical value = false.
+- name: irmax
+  type: PU
+  description: Maximum turbine speed/load reference bias (<i>Irmax</i>) (see parameter detail 3).  Typical value = 0.
+- name: ki
+  type: PU
+  description: Integral gain (<i>Ki</i>).  Typical value = 0.
+- name: kp
+  type: PU
+  description: Proportional gain (<i>Kp</i>).  Typical value = 0.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pbf
+  type: Boolean
+  description: |-
+    Power controller flag (<i>Pbf</i>).
+    true = enable load controller
+    false = disable load controller.
+    Typical value = false.
+- name: pmwset
+  type: ActivePower
+  description: Power controller setpoint (<i>Pmwset</i>) (see parameter detail 1).  Unit = MW. Typical value = 0.
+- name: speedReferenceGovernor
+  type: Boolean
+  description: |-
+    Type of turbine governor reference (<i>Type</i>).
+    true = speed reference governor
+    false = load reference governor.
+    Typical value = true.
+- name: tpelec
+  type: Seconds
+  description: Power transducer time constant (<i>Tpelec</i>) (&gt;= 0).  Typical value = 0.
+ancestors:
+- TurbineLoadControllerDynamics

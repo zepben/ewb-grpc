@@ -1,0 +1,36 @@
+name: Discrete
+description: Discrete represents a discrete Measurement, i.e. a Measurement representing discrete values, e.g. a Breaker position.
+attributes:
+- name: maxValue
+  type: Integer
+  description: Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or
+    of telemetered raw values.
+- name: minValue
+  type: Integer
+  description: Normal value range minimum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or
+    of telemetered raw values.
+- name: normalValue
+  type: Integer
+  description: Normal measurement value, e.g., used for percentage calculations.
+ancestors:
+- Measurement
+descendents:
+- AssetDiscrete
+- EnvironmentalDiscrete
+associations:
+- source: Discrete
+  target: DiscreteValue
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Discrete
+  sourceDescription: Measurement to which this value is connected.
+  targetName: DiscreteValues
+  targetDescription: The values connected to this measurement.
+- source: ValueAliasSet
+  target: Discrete
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ValueAliasSet
+  sourceDescription: The ValueAliasSet used for translation of a MeasurementValue.value to a name.
+  targetName: Discretes
+  targetDescription: The Measurements using the set for translation.

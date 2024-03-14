@@ -1,0 +1,51 @@
+name: RegisteredInterTie
+description: This class represents the inter tie resource.
+attributes:
+- name: direction
+  type: InterTieDirection
+  description: Indicates the direction (export/import) of an InterTie resource.
+- name: energyProductType
+  type: EnergyProductType
+  description: Under each major product type, the commodity type can be applied to further specify the type.
+- name: isDCTie
+  type: YesNo
+  description: Flag to indicated whether this Inter-tie is a DC Tie.
+- name: isDynamicInterchange
+  type: YesNo
+  description: Specifies whether the inter-tie resource is registered for the dynamic interchange.
+- name: minHourlyBlockLimit
+  type: Integer
+  description: The registered upper bound of minimum hourly block for an Inter-Tie Resource.
+ancestors:
+- RegisteredResource
+associations:
+- source: RegisteredInterTie
+  target: InterTieDispatchResponse
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RegisteredInterTie
+  targetName: InterTieDispatchResponse
+- source: Flowgate
+  target: RegisteredInterTie
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Flowgate
+  targetName: RegisteredInterTie
+- source: WheelingCounterParty
+  target: RegisteredInterTie
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WheelingCounterParty
+  targetName: RegisteredInterTie
+- source: InterTieBid
+  target: RegisteredInterTie
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: InterTieBid
+  targetName: RegisteredInterTie
+- source: InterchangeSchedule
+  target: RegisteredInterTie
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: InterchangeSchedule
+  targetName: RegisteredInterTie

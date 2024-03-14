@@ -1,0 +1,16 @@
+name: PerLengthImpedance
+description: Common type for per-length impedance electrical catalogues.
+ancestors:
+- PerLengthLineParameter
+descendents:
+- PerLengthPhaseImpedance
+- PerLengthSequenceImpedance
+associations:
+- source: PerLengthImpedance
+  target: ACLineSegment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PerLengthImpedance
+  sourceDescription: Per-length impedance of this line segment.
+  targetName: ACLineSegments
+  targetDescription: All line segments described by this per-length impedance.

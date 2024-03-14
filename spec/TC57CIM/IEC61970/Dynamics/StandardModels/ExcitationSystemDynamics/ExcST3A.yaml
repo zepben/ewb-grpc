@@ -1,0 +1,65 @@
+name: ExcST3A
+description: Modified IEEE ST3A static excitation system with added speed multiplier.
+attributes:
+- name: efdmax
+  type: PU
+  description: Maximum AVR output (<i>Efdmax</i>) (&gt;= 0).  Typical value = 6,9.
+- name: kc
+  type: PU
+  description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 1,1.
+- name: kg
+  type: PU
+  description: Feedback gain constant of the inner loop field regulator (<i>Kg</i>) (&gt;= 0).  Typical value = 1.
+- name: ki
+  type: PU
+  description: Potential circuit gain coefficient (<i>K</i><i><sub>i</sub></i>) (&gt;= 0).  Typical value = 4,83.
+- name: kj
+  type: PU
+  description: AVR gain (<i>Kj</i>) (&gt; 0).  Typical value = 200.
+- name: km
+  type: PU
+  description: Forward gain constant of the inner loop field regulator (<i>Km</i>) (&gt; 0).  Typical value = 7,04.
+- name: kp
+  type: PU
+  description: Potential source gain (<i>K</i><i><sub>p</sub></i>) (&gt; 0).  Typical value = 4,37.
+- name: ks
+  type: PU
+  description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
+- name: ks1
+  type: PU
+  description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks1</i>).  Typical value = 0.
+- name: tb
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 6,67.
+- name: tc
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 1.
+- name: thetap
+  type: AngleDegrees
+  description: Potential circuit phase angle (<i>theta</i><i><sub>p</sub></i>).  Typical value = 20.
+- name: tm
+  type: Seconds
+  description: Forward time constant of inner loop field regulator (<i>Tm</i>) (&gt; 0).  Typical value = 1.
+- name: vbmax
+  type: PU
+  description: Maximum excitation voltage (<i>Vbmax</i>) (&gt; 0).  Typical value = 8,63.
+- name: vgmax
+  type: PU
+  description: Maximum inner loop feedback voltage (<i>Vgmax</i>) (&gt;= 0).  Typical value = 6,53.
+- name: vimax
+  type: PU
+  description: Maximum voltage regulator input limit (<i>Vimax</i>) (&gt; 0).  Typical value = 0,2.
+- name: vimin
+  type: PU
+  description: Minimum voltage regulator input limit (<i>Vimin</i>) (&lt; 0).  Typical value = -0,2.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vrmax</i>) (&gt; 0).  Typical value = 1.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vrmin</i>) (&lt; 0).  Typical value = -1.
+- name: xl
+  type: PU
+  description: Reactance associated with potential source (<i>Xl</i>) (&gt;= 0).  Typical value = 0,09.
+ancestors:
+- ExcitationSystemDynamics

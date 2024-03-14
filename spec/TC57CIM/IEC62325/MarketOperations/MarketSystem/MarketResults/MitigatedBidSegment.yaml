@@ -1,0 +1,20 @@
+name: MitigatedBidSegment
+description: Model of mitigated bid. Indicates segment of piece-wise linear bid, that has been mitigated.
+attributes:
+- name: intervalStartTime
+  type: DateTime
+- name: segmentMW
+  type: Float
+  description: Mitigated bid segment MW value
+- name: segmentNumber
+  type: Integer
+  description: Mitigated Bid Segment Number
+- name: thresholdType
+  type: String
+associations:
+- source: Bid
+  target: MitigatedBidSegment
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Bid
+  targetName: MitigatedBidSegment

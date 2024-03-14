@@ -1,0 +1,28 @@
+name: WindRefFrameRotIEC
+description: |-
+  Reference frame rotation model.
+  Reference: IEC 61400-27-1:2015, 5.6.3.5.
+attributes:
+- name: tpll
+  type: Seconds
+  description: Time constant for PLL first order filter model (<i>T</i><i><sub>PLL</sub></i>) (&gt;= 0). It is a type-dependent
+    parameter.
+- name: upll1
+  type: PU
+  description: Voltage below which the angle of the voltage is filtered and possibly also frozen (<i>u</i><i><sub>PLL1</sub></i>).
+    It is a type-dependent parameter.
+- name: upll2
+  type: PU
+  description: Voltage (<i>u</i><i><sub>PLL2</sub></i>) below which the angle of the voltage is frozen if <i>u</i><i><sub>PLL2</sub></i><sub>
+    </sub>is smaller or equal to <i>u</i><i><sub>PLL1</sub></i> . It is a type-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindRefFrameRotIEC
+  target: WindTurbineType3or4IEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindRefFrameRotIEC
+  sourceDescription: Reference frame rotation model associated with this wind turbine type 3 or type 4 model.
+  targetName: WindTurbineType3or4IEC
+  targetDescription: Wind turbine type 3 or type 4 model with which this reference frame rotation model is associated.

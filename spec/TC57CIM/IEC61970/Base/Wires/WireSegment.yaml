@@ -1,0 +1,14 @@
+name: WireSegment
+description: A two terminal and power conducting device of negligible impedance and length represented as zero impedance device
+  that can be used to connect auxiliary equipment to its terminals.
+ancestors:
+- Conductor
+associations:
+- source: WireSegmentPhase
+  target: WireSegment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: WireSegmentPhases
+  sourceDescription: The wire segment phases which belong to the wire segment.
+  targetName: WireSegment
+  targetDescription: The wire segment to which the phase belongs.

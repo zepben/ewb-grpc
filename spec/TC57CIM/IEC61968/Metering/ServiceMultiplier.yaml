@@ -1,0 +1,20 @@
+name: ServiceMultiplier
+description: Multiplier applied at the usage point.
+attributes:
+- name: kind
+  type: ServiceMultiplierKind
+  description: Kind of multiplier.
+- name: value
+  type: Float
+  description: Multiplier value.
+ancestors:
+- IdentifiedObject
+associations:
+- source: UsagePoint
+  target: ServiceMultiplier
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UsagePoint
+  sourceDescription: Usage point applying this multiplier.
+  targetName: ServiceMultipliers
+  targetDescription: All multipliers applied at this usage point.

@@ -1,0 +1,28 @@
+name: WindTurbineType1or2IEC
+description: |-
+  Parent class supporting relationships to IEC wind turbines type 1 and type 2 including their control models.
+  Generator model for wind turbine of IEC type 1 or type 2 is a standard asynchronous generator model.
+  Reference: IEC 61400-27-1:2015, 5.5.2 and 5.5.3.
+ancestors:
+- WindTurbineType1or2Dynamics
+descendents:
+- WindGenTurbineType2IEC
+- WindGenTurbineType1bIEC
+- WindGenTurbineType1aIEC
+associations:
+- source: WindProtectionIEC
+  target: WindTurbineType1or2IEC
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: WindProtectionIEC
+  sourceDescription: Wind turbune protection model associated with this wind generator type 1 or type 2 model.
+  targetName: WindTurbineType1or2IEC
+  targetDescription: Wind generator type 1 or type 2 model with which this wind turbine protection model is associated.
+- source: WindMechIEC
+  target: WindTurbineType1or2IEC
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: WindMechIEC
+  sourceDescription: Wind mechanical model associated with this wind generator type 1 or type 2 model.
+  targetName: WindTurbineType1or2IEC
+  targetDescription: Wind generator type 1 or type 2 model with which this wind mechanical model is associated.

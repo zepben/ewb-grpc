@@ -1,0 +1,50 @@
+name: OverexcLimX2
+description: Field voltage or current overexcitation limiter designed to protect the generator field of an AC machine with
+  automatic excitation control from overheating due to prolonged overexcitation.
+attributes:
+- name: efd1
+  type: PU
+  description: Low voltage or current point on the inverse time characteristic (<i>EFD</i><i><sub>1</sub></i>).  Typical value
+    = 1,1.
+- name: efd2
+  type: PU
+  description: Mid voltage or current point on the inverse time characteristic (<i>EFD</i><i><sub>2</sub></i>).  Typical value
+    = 1,2.
+- name: efd3
+  type: PU
+  description: High voltage or current point on the inverse time characteristic (<i>EFD</i><i><sub>3</sub></i>).  Typical
+    value = 1,5.
+- name: efddes
+  type: PU
+  description: Desired field voltage if <i>m</i> = false or desired field current if <i>m </i>= true (<i>EFD</i><i><sub>DES</sub></i>).  Typical
+    value = 1.
+- name: efdrated
+  type: PU
+  description: Rated field voltage if m = false or rated field current if m = true (<i>EFD</i><i><sub>RATED</sub></i>).  Typical
+    value = 1,05.
+- name: kmx
+  type: PU
+  description: Gain (<i>K</i><i><sub>MX</sub></i>).  Typical value = 0,002.
+- name: m
+  type: Boolean
+  description: |-
+    (<i>m</i>).
+    true = IFD limiting
+    false = EFD limiting.
+- name: t1
+  type: Seconds
+  description: Time to trip the exciter at the low voltage or current point on the inverse time characteristic (<i>TIME</i><i><sub>1</sub></i>)
+    (&gt;= 0).  Typical value = 120.
+- name: t2
+  type: Seconds
+  description: Time to trip the exciter at the mid voltage or current point on the inverse time characteristic (<i>TIME</i><i><sub>2</sub></i>)
+    (&gt;= 0).  Typical value = 40.
+- name: t3
+  type: Seconds
+  description: Time to trip the exciter at the high voltage or current point on the inverse time characteristic (<i>TIME</i><i><sub>3</sub></i>)
+    (&gt;= 0).  Typical value = 15.
+- name: vlow
+  type: PU
+  description: Low voltage limit (<i>V</i><i><sub>LOW</sub></i>) (&gt; 0).
+ancestors:
+- OverexcitationLimiterDynamics

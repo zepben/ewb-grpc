@@ -1,0 +1,16 @@
+name: RegulatingLimit
+description: This class represents the physical characteristic of a generator regarding the regulating limit.
+attributes:
+- name: highLimit
+  type: ActivePower
+- name: lowLimit
+  type: ActivePower
+ancestors:
+- IdentifiedObject
+associations:
+- source: RegisteredGenerator
+  target: RegulatingLimit
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetName: RegulatingLimit

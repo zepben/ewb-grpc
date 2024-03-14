@@ -1,0 +1,32 @@
+name: DistributionFactorSet
+description: "A containing class that groups all the distribution factors within a market.   \nThis is calculated daily for\
+  \ DA factors and hourly for RT factors."
+attributes:
+- name: intervalEndTime
+  type: DateTime
+  description: The end of the time interval for which requirement is defined.
+- name: intervalStartTime
+  type: DateTime
+  description: The start of the time interval for which requirement is defined.
+- name: marketType
+  type: MarketType
+  description: Market type.
+associations:
+- source: DistributionFactorSet
+  target: GenDistributionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DistributionFactorSet
+  targetName: GenDistributionFactor
+- source: DistributionFactorSet
+  target: SysLoadDistributionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DistributionFactorSet
+  targetName: SysLoadDistribuFactor
+- source: DistributionFactorSet
+  target: LoadDistributionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DistributionFactorSet
+  targetName: LoadDistributionFactor

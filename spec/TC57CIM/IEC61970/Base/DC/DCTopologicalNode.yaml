@@ -1,0 +1,39 @@
+name: DCTopologicalNode
+description: DC bus.
+ancestors:
+- IdentifiedObject
+associations:
+- source: DCTopologicalNode
+  target: DCTopologicalIsland
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: DCTopologicalNodes
+  sourceDescription: The DC topological nodes in a DC topological island.
+  targetName: DCTopologicalIsland
+  targetDescription: A DC topological node belongs to a DC topological island.
+- source: DCBaseTerminal
+  target: DCTopologicalNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DCTerminals
+  sourceDescription: See association end TopologicalNode.Terminal.
+  targetName: DCTopologicalNode
+  targetDescription: See association end Terminal.TopologicalNode.
+- source: DCNode
+  target: DCTopologicalNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DCNodes
+  sourceDescription: The DC connectivity nodes combined together to form this DC topological node.  May depend on the current
+    state of switches in the network.
+  targetName: DCTopologicalNode
+  targetDescription: The DC topological node to which this DC connectivity node is assigned.  May depend on the current state
+    of switches in the network.
+- source: DCEquipmentContainer
+  target: DCTopologicalNode
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DCEquipmentContainer
+  sourceDescription: The connectivity node container to which the topological node belongs.
+  targetName: DCTopologicalNode
+  targetDescription: The topological nodes which belong to this connectivity node container.

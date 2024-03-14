@@ -1,0 +1,36 @@
+name: FuelRegion
+description: Indication of region for fuel inventory purposes.
+attributes:
+- name: fuelRegionType
+  type: String
+  description: The type of fuel region
+- name: lastModified
+  type: DateTime
+  description: Time of last update
+ancestors:
+- IdentifiedObject
+associations:
+- source: FuelRegion
+  target: RegisteredGenerator
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: FuelRegion
+  targetName: RegisteredGenerator
+- source: GasPrice
+  target: FuelRegion
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: GasPrice
+  targetName: FuelRegion
+- source: OilPrice
+  target: FuelRegion
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: OilPrice
+  targetName: FuelRegion
+- source: RTO
+  target: FuelRegion
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: FuelRegion

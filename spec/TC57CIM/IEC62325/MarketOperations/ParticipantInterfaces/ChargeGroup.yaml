@@ -1,0 +1,35 @@
+name: ChargeGroup
+description: Charge Group is the grouping of Charge Types for settlement invoicing purpose.  Examples such as Ancillary Services,
+  Interests, etc.
+attributes:
+- name: effectiveDate
+  type: DateTime
+- name: marketCode
+  type: String
+- name: terminationDate
+  type: DateTime
+ancestors:
+- IdentifiedObject
+associations:
+- source: ChargeGroup
+  target: ChargeGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ChargeGroupChild
+  sourceDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
+  targetName: ChargeGroupParent
+  targetDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
+- source: ChargeGroup
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ChargeGroup
+  targetName: MktUserAttribute
+- source: ChargeType
+  target: ChargeGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ChargeType
+  sourceDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
+  targetName: ChargeGroup
+  targetDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.

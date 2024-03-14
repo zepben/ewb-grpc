@@ -1,0 +1,47 @@
+name: Equipment
+description: The parts of a power system that are physical devices, electronic or mechanical.
+attributes:
+- name: inService
+  type: Boolean
+  description: Specifies the availability of the equipment. True means the equipment is available for topology processing,
+    which determines if the equipment is energized or not. False means that the equipment is treated by network applications
+    as if it is not in the model.
+- name: normallyInService
+  type: Boolean
+ancestors:
+- PowerSystemResource
+descendents:
+- ConductingEquipment
+- PowerElectronicsUnit
+- AuxiliaryEquipment
+associations:
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EquipmentContainer
+  sourceDescription: Container of this equipment.
+  targetName: Equipments
+  targetDescription: Contained equipment.
+- source: UsagePoint
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: UsagePoints
+  sourceDescription: All usage points connected to the electrical grid through this equipment.
+  targetName: Equipments
+  targetDescription: All equipment connecting this usage point to the electrical grid.
+- source: OperationalRestriction
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: OperationalRestrictions
+  sourceDescription: All operational restrictions for this equipment.
+  targetName: Equipments
+  targetDescription: All equipments to which this restriction applies.
+- source: LvFeeder
+  target: Equipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  targetName: currentEquipment
+  targetDescription: Contained equipment using the current state of the network.

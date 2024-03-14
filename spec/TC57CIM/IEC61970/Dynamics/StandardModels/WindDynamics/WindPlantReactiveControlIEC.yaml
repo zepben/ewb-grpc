@@ -1,0 +1,94 @@
+name: WindPlantReactiveControlIEC
+description: |-
+  Simplified plant voltage and reactive power control model for use with type 3 and type 4 wind turbine models.
+  Reference: IEC 61400-27-1:2015, Annex D.
+attributes:
+- name: dxrefmax
+  type: PU
+  description: Maximum positive ramp rate for wind turbine reactive power/voltage reference (<i>dx</i><i><sub>refmax</sub></i>)
+    (&gt; WindPlantReactiveControlIEC.dxrefmin). It is a project-dependent parameter.
+- name: dxrefmin
+  type: PU
+  description: Maximum negative ramp rate for wind turbine reactive power/voltage reference (<i>dx</i><i><sub>refmin</sub></i>)
+    (&lt; WindPlantReactiveControlIEC.dxrefmax). It is a project-dependent parameter.
+- name: kiwpx
+  type: Float
+  description: Plant Q controller integral gain (<i>K</i><i><sub>IWPx</sub></i>). It is a project-dependent parameter.
+- name: kiwpxmax
+  type: PU
+  description: Maximum reactive power/voltage reference from integration (<i>K</i><i><sub>IWPxmax</sub></i>) (&gt; WindPlantReactiveControlIEC.kiwpxmin).
+    It is a project-dependent parameter.
+- name: kiwpxmin
+  type: PU
+  description: Minimum reactive power/voltage reference from integration (<i>K</i><i><sub>IWPxmin</sub></i>) (&lt; WindPlantReactiveControlIEC.kiwpxmax).
+    It is a project-dependent parameter.
+- name: kpwpx
+  type: Float
+  description: Plant Q controller proportional gain (<i>K</i><i><sub>PWPx</sub></i>). It is a project-dependent parameter.
+- name: kwpqref
+  type: PU
+  description: Reactive power reference gain (<i>K</i><i><sub>WPqref</sub></i>). It is a project-dependent parameter.
+- name: kwpqu
+  type: PU
+  description: Plant voltage control droop (<i>K</i><i><sub>WPqu</sub></i>). It is a project-dependent parameter.
+- name: tuqfilt
+  type: Seconds
+  description: Filter time constant for voltage-dependent reactive power (<i>T</i><i><sub>uqfilt</sub></i>) (&gt;= 0). It
+    is a project-dependent parameter.
+- name: twppfiltq
+  type: Seconds
+  description: Filter time constant for active power measurement (<i>T</i><i><sub>WPpfiltq</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+- name: twpqfiltq
+  type: Seconds
+  description: Filter time constant for reactive power measurement (<i>T</i><i><sub>WPqfiltq</sub></i>) (&gt;= 0). It is a
+    project-dependent parameter.
+- name: twpufiltq
+  type: Seconds
+  description: Filter time constant for voltage measurement (<i>T</i><i><sub>WPufiltq</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+- name: txft
+  type: Seconds
+  description: Lead time constant in reference value transfer function (<i>T</i><i><sub>xft</sub></i>) (&gt;= 0). It is a
+    project-dependent parameter.
+- name: txfv
+  type: Seconds
+  description: Lag time constant in reference value transfer function (<i>T</i><i><sub>xfv</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+- name: uwpqdip
+  type: PU
+  description: Voltage threshold for UVRT detection in Q control (<i>u</i><i><sub>WPqdip</sub></i>). It is a project-dependent
+    parameter.
+- name: windPlantQcontrolModesType
+  type: WindPlantQcontrolModeKind
+  description: Reactive power/voltage controller mode (<i>M</i><i><sub>WPqmode</sub></i>). It is a case-dependent parameter.
+- name: xrefmax
+  type: PU
+  description: Maximum <i>x</i><sub>WTref</sub> (<i>q</i><i><sub>WTref</sub></i> or delta<i> u</i><i><sub>WTref</sub></i>)
+    request from the plant controller (<i>x</i><i><sub>refmax</sub></i>) (&gt; WindPlantReactiveControlIEC.xrefmin). It is
+    a case-dependent parameter.
+- name: xrefmin
+  type: PU
+  description: Minimum <i>x</i><i><sub>WTref</sub></i> (<i>q</i><i><sub>WTref</sub></i> or delta <i>u</i><i><sub>WTref</sub></i>)
+    request from the plant controller (<i>x</i><i><sub>refmin</sub></i>) (&lt; WindPlantReactiveControlIEC.xrefmax). It is
+    a project-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindDynamicsLookupTable
+  target: WindPlantReactiveControlIEC
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: WindDynamicsLookupTable
+  sourceDescription: The wind dynamics lookup table associated with this voltage and reactive power wind plant model.
+  targetName: WindPlantReactiveControlIEC
+  targetDescription: The voltage and reactive power wind plant control model with which this wind dynamics lookup table is
+    associated.
+- source: WindPlantIEC
+  target: WindPlantReactiveControlIEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindPlantIEC
+  sourceDescription: Wind plant reactive control model associated with this wind plant.
+  targetName: WindPlantReactiveControlIEC
+  targetDescription: Wind plant model with which this wind reactive control is associated.

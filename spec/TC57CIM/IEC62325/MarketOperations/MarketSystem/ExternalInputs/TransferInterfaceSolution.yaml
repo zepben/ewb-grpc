@@ -1,0 +1,32 @@
+name: TransferInterfaceSolution
+description: TNA Interface Definitions from OPF for VSA.
+attributes:
+- name: interfaceMargin
+  type: Float
+  description: The margin for the interface
+- name: postTransferMW
+  type: Float
+  description: Post Transfer MW for step
+- name: transferLimit
+  type: Float
+  description: "Transfer Interface + Limit \nAttribute Usage: The absoloute of the maximum flow on the transfer interface.\
+    \ This is a positive MW value."
+associations:
+- source: TransferInterfaceSolution
+  target: MktContingency
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TransferInterfaceSolutionA
+  targetName: ' MktContingencyA'
+- source: TransferInterfaceSolution
+  target: TransferInterface
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: TransferInterfaceSolution
+  targetName: TransferInterface
+- source: TransferInterfaceSolution
+  target: MktContingency
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TransferInterfaceSolutionB
+  targetName: MktContingencyB

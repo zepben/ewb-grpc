@@ -1,0 +1,18 @@
+name: AuxiliaryCost
+description: Models Market clearing results for Auxiliary costs.
+attributes:
+- name: intervalStartTime
+  type: DateTime
+- name: marketType
+  type: MarketType
+- name: updateTimeStamp
+  type: DateTime
+- name: updateUser
+  type: String
+associations:
+- source: AuxiliaryCost
+  target: AuxiliaryValues
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: AuxillaryCost
+  targetName: AuxillaryValues

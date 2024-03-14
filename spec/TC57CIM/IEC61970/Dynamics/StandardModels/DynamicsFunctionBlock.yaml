@@ -1,0 +1,31 @@
+name: DynamicsFunctionBlock
+description: Abstract parent class for all Dynamics function blocks.
+attributes:
+- name: enabled
+  type: Boolean
+  description: |-
+    Function block used indicator.
+    true = use of function block is enabled
+    false = use of function block is disabled.
+ancestors:
+- IdentifiedObject
+descendents:
+- HVDCDynamics
+- StaticVarCompensatorDynamics
+- WindTurbineType3or4Dynamics
+- WindTurbineType1or2Dynamics
+- WindPlantDynamics
+- VoltageCompensatorDynamics
+- PFVArControllerType2Dynamics
+- VoltageAdjusterDynamics
+- PFVArControllerType1Dynamics
+- DiscontinuousExcitationControlDynamics
+- PowerSystemStabilizerDynamics
+- UnderexcitationLimiterDynamics
+- OverexcitationLimiterDynamics
+- ExcitationSystemDynamics
+- MechanicalLoadDynamics
+- TurbineLoadControllerDynamics
+- TurbineGovernorDynamics
+- CrossCompoundTurbineGovernorDynamics
+- RotatingMachineDynamics

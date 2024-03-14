@@ -1,0 +1,25 @@
+name: AltTieMeas
+description: A prioritized measurement to be used for the tie flow as part of the control area specification.
+attributes:
+- name: priority
+  type: Integer
+  description: Priority of a measurement usage.   Lower numbers have first priority.
+ancestors:
+- IdentifiedObject
+associations:
+- source: AltTieMeas
+  target: TieFlow
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AltTieMeas
+  sourceDescription: The primary and alternate tie flow measurements associated with the tie flow.
+  targetName: TieFlow
+  targetDescription: The tie flow of the alternate measurements.
+- source: AltTieMeas
+  target: AnalogValue
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AltTieMeas
+  sourceDescription: The usage of the measurement within the control area specification.
+  targetName: AnalogValue
+  targetDescription: The specific analog value used as a source.

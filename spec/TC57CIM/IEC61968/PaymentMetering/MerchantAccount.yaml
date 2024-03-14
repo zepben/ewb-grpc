@@ -1,0 +1,39 @@
+name: MerchantAccount
+description: The operating account controlled by merchant agreement, against which the vendor may vend tokens or receipt payments.
+  Transactions via vendor shift debit the account and bank deposits via bank statement credit the account.
+attributes:
+- name: currentBalance
+  type: Money
+  description: The current operating balance of this account.
+- name: provisionalBalance
+  type: Money
+  description: The balance of this account after taking into account any pending debits from VendorShift.merchantDebitAmount
+    and pending credits from BankStatement.merchantCreditAmount or credits (see also BankStatement attributes and VendorShift
+    attributes).
+ancestors:
+- Document
+associations:
+- source: MerchantAccount
+  target: Transactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MerchantAccounts
+  sourceDescription: All merchant accounts registered with this transactor.
+  targetName: Transactors
+  targetDescription: All transactors this merchant account is registered with.
+- source: MerchantAccount
+  target: VendorShift
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MerchantAccount
+  sourceDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).
+  targetName: VendorShifts
+  targetDescription: All vendor shifts that operate on this merchant account.
+- source: MerchantAgreement
+  target: MerchantAccount
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MerchantAgreement
+  sourceDescription: Merchant agreement that instantiated this merchant account.
+  targetName: MerchantAccounts
+  targetDescription: All merchant accounts instantiated as a result of this merchant agreement.

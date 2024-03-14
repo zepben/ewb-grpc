@@ -1,0 +1,28 @@
+name: DCvoltageControl
+description: DC voltage control used for voltage regulation.
+attributes:
+- name: kivdc
+  type: PU
+  description: Integral gain of the DC voltage regulator (Kivdc).
+- name: kpvdc
+  type: PU
+  description: Proportional gain of the DC voltage regulator (Kpvdc).
+- name: vdcmax
+  type: PU
+  description: Maximum DC voltage (Vdcmax).
+- name: vdcmin
+  type: PU
+  description: Minimum DC voltage (Vdcmin).
+associations:
+- source: VSCtype1
+  target: DCvoltageControl
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: VSCtype1
+  targetName: DCvoltageControl
+- source: Delay
+  target: DCvoltageControl
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: Delay
+  targetName: DCvoltageControl

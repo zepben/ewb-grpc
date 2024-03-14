@@ -1,0 +1,57 @@
+name: GovSteamBB
+description: European governor model.
+attributes:
+- name: fcut
+  type: PU
+  description: Frequency deadband (<i>f</i><i><sub>cut</sub></i>) (&gt;= 0).  Typical value = 0,002.
+- name: k2
+  type: PU
+  description: Gain (<i>K2</i>).  Typical value = 0,75.
+- name: k3
+  type: PU
+  description: Gain (<i>K3</i>).  Typical value = 0,5.
+- name: kd
+  type: PU
+  description: Gain (<i>Kd</i>).  Typical value = 1,0.
+- name: kg
+  type: PU
+  description: Gain (<i>Kg</i>).  Typical value = 1,0.
+- name: kls
+  type: PU
+  description: Gain (<i>Kls</i>) (&gt; 0).  Typical value = 0,1.
+- name: kp
+  type: PU
+  description: Gain (<i>Kp</i>).  Typical value = 1,0.
+- name: ks
+  type: PU
+  description: Gain (<i>Ks</i>).  Typical value = 21,0.
+- name: peflag
+  type: Boolean
+  description: "Electric power input selection (Peflag).  \ntrue = electric power input\nfalse = feedback signal.\nTypical\
+    \ value = false."
+- name: pmax
+  type: PU
+  description: High power limit (<i>Pmax</i>) (&gt; GovSteamBB.pmin).  Typical value = 1,0.
+- name: pmin
+  type: PU
+  description: Low power limit (<i>Pmin</i>) (&lt; GovSteamBB.pmax).  Typical value = 0.
+- name: t1
+  type: Seconds
+  description: Time constant (<i>T1</i>).  Typical value = 0,05.
+- name: t4
+  type: Seconds
+  description: Time constant (<i>T4</i>).  Typical value = 0,15.
+- name: t5
+  type: Seconds
+  description: Time constant (<i>T5</i>).  Typical value = 12,0.
+- name: t6
+  type: Seconds
+  description: Time constant (<i>T6</i>).  Typical value = 0,75.
+- name: td
+  type: Seconds
+  description: Time constant (<i>Td</i>) (&gt; 0).  Typical value = 1,0.
+- name: tn
+  type: Seconds
+  description: Time constant (<i>Tn</i>) (&gt; 0).  Typical value = 1,0.
+ancestors:
+- TurbineGovernorDynamics

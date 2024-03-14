@@ -1,0 +1,14 @@
+name: CompleteModelToBeDeleted
+description: A complete model can be used in applications to perform meaningful calculations, e.g. a study case in offline
+  tools or a real time model in a SCADA/EMS.
+ancestors:
+- ModelToBeDeleted
+associations:
+- source: ModelPartVersion
+  target: CompleteModelToBeDeleted
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+- source: AssemblyManifest
+  target: CompleteModelToBeDeleted
+  sourceCardinality: 0..*
+  targetCardinality: 0..1

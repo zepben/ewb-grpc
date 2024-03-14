@@ -1,0 +1,50 @@
+name: ExcANS
+description: Italian excitation system. It represents static field voltage or excitation current feedback excitation system.
+attributes:
+- name: blint
+  type: Integer
+  description: "Governor control flag (<i>BLINT</i>). \n0 = lead-lag regulator\n1 = proportional integral regulator.\nTypical\
+    \ value = 0."
+- name: ifmn
+  type: PU
+  description: Minimum exciter current (<i>I</i><i><sub>FMN</sub></i>).  Typical value = -5,2.
+- name: ifmx
+  type: PU
+  description: Maximum exciter current (<i>I</i><i><sub>FMX</sub></i>).  Typical value = 6,5.
+- name: k2
+  type: Float
+  description: Exciter gain (<i>K</i><i><sub>2</sub></i>).  Typical value = 20.
+- name: k3
+  type: Float
+  description: AVR gain (<i>K</i><i><sub>3</sub></i>).  Typical value = 1000.
+- name: kce
+  type: Float
+  description: Ceiling factor (<i>K</i><i><sub>CE</sub></i>).  Typical value = 1.
+- name: krvecc
+  type: Integer
+  description: "Feedback enabling (<i>K</i><i><sub>RVECC</sub></i>). \n0 = open loop control\n1 = closed loop control.\nTypical\
+    \ value = 1."
+- name: kvfif
+  type: Integer
+  description: "Rate feedback signal flag (<i>K</i><i><sub>VFIF</sub></i>). \n0 = output voltage of the exciter\n1 = exciter\
+    \ field current.\nTypical value = 0."
+- name: t1
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).  Typical value = 20.
+- name: t2
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).  Typical value = 0,05.
+- name: t3
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).  Typical value = 1,6.
+- name: tb
+  type: Seconds
+  description: Exciter time constant (<i>T</i><i><sub>B</sub></i>) (&gt;= 0).  Typical value = 0,04.
+- name: vrmn
+  type: PU
+  description: Minimum AVR output (<i>V</i><i><sub>RMN</sub></i>).  Typical value = -5,2.
+- name: vrmx
+  type: PU
+  description: Maximum AVR output (<i>V</i><i><sub>RMX</sub></i>).  Typical value = 6,5.
+ancestors:
+- ExcitationSystemDynamics

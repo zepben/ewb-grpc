@@ -1,0 +1,13 @@
+name: Editor
+description: Person who modified the document.
+ancestors:
+- DocumentPersonRole
+associations:
+- source: Editor
+  target: Document
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Editor
+  sourceDescription: Editor of this document.
+  targetName: Documents
+  targetDescription: All documents for this editor.

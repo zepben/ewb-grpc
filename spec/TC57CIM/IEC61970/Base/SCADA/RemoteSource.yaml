@@ -1,0 +1,26 @@
+name: RemoteSource
+description: Remote sources are state variables that are telemetered or calculated within the remote unit.
+attributes:
+- name: deadband
+  type: Float
+  description: The smallest change in value to be reported.
+- name: scanInterval
+  type: Seconds
+  description: The time interval between scans.
+- name: sensorMaximum
+  type: Float
+  description: The maximum value the telemetry item can return.
+- name: sensorMinimum
+  type: Float
+  description: The minimum value the telemetry item can return.
+ancestors:
+- RemotePoint
+associations:
+- source: MeasurementValue
+  target: RemoteSource
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: MeasurementValue
+  sourceDescription: Link to the physical telemetered point associated with this measurement.
+  targetName: RemoteSource
+  targetDescription: Link to the physical telemetered point associated with this measurement.

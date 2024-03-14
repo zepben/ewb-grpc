@@ -1,0 +1,19 @@
+name: LocationGrant
+description: A grant provides a right, as defined by type, for a parcel of land. Note that the association to Location, Asset,
+  Organisation, etc. for the Grant is inherited from Agreement, a type of Document.
+attributes:
+- name: propertyData
+  type: String
+  description: Property related information that describes the Grant's land parcel. For example, it may be a deed book number,
+    deed book page number, and parcel number.
+ancestors:
+- Agreement
+associations:
+- source: LandProperty
+  target: LocationGrant
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: LandProperty
+  sourceDescription: Land property this location grant applies to.
+  targetName: LocationGrants
+  targetDescription: All location grants this land property has.

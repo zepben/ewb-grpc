@@ -1,0 +1,34 @@
+name: MarketLedgerEntry
+description: Details of an individual entry in a ledger, which was posted from a journal on the posted date.
+attributes:
+- name: accountID
+  type: String
+  description: Account identifier for this entry.
+- name: accountKind
+  type: MktAccountKind
+  description: Kind of account for this entry.
+- name: amount
+  type: Money
+  description: The amount of the debit or credit for this account.
+- name: postedDateTime
+  type: DateTime
+  description: Date and time this entry was posted to the ledger.
+- name: status
+  type: Status
+  description: Status of ledger entry.
+- name: transactionDateTime
+  type: DateTime
+  description: Date and time journal entry was recorded.
+associations:
+- source: MarketLedgerEntry
+  target: Settlement
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketLedgerEntry
+  targetName: Settlement
+- source: MarketLedger
+  target: MarketLedgerEntry
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: MarketLedger
+  targetName: MarketLedgerEntries

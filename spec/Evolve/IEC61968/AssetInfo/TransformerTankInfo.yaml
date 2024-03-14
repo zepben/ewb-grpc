@@ -1,0 +1,21 @@
+name: TransformerTankInfo
+description: Set of transformer tank data, from an equipment library.
+ancestors:
+- AssetInfo
+associations:
+- source: TransformerTankInfo
+  target: TransformerEndInfo
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: TransformerTankInfo
+  sourceDescription: Transformer tank data that this end description is part of.
+  targetName: TransformerEndInfos
+  targetDescription: Data for all the ends described by this transformer tank data.
+- source: TransformerTankInfo
+  target: PowerTransformerInfo
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: TransformerTankInfos
+  sourceDescription: Data for all the tanks described by this power transformer data.
+  targetName: PowerTransformerInfo
+  targetDescription: Power transformer data that this tank description is part of.

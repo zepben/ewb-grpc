@@ -1,0 +1,97 @@
+name: Transaction
+description: The record of details of payment for service or token sale.
+attributes:
+- name: diverseReference
+  type: String
+  description: Formal reference for use with diverse payment (traffic fine for example).
+- name: donorReference
+  type: String
+  description: 'Reference to the entity that is the source of ''amount'' (for example: customer for token purchase; or supplier
+    for free issue token).'
+- name: kind
+  type: TransactionKind
+  description: Kind of transaction.
+- name: line
+  type: LineDetail
+  description: Transaction amount, rounding, date and note for this transaction line.
+- name: receiverReference
+  type: String
+  description: Reference to the entity that is the recipient of 'amount' (for example, supplier for service charge payment;
+    or tax receiver for VAT).
+- name: reversedId
+  type: String
+  description: (if 'kind' is transactionReversal) Reference to the original transaction that is being reversed by this transaction.
+- name: serviceUnitsEnergy
+  type: RealEnergy
+  description: Actual amount of service units that is being paid for.
+- name: serviceUnitsError
+  type: RealEnergy
+  description: Number of service units not reflected in 'serviceUnitsEnergy' due to process rounding or truncating errors.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Transaction
+  target: Meter
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: VendingTransactions
+  sourceDescription: All vending transactions on this meter.
+  targetName: Meter
+  targetDescription: Meter for this vending transaction.
+- source: VendorShift
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: VendorShift
+  sourceDescription: Vendor shift during which this transaction was recorded.
+  targetName: Transactions
+  targetDescription: All transactions recorded during this vendor shift.
+- source: Receipt
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: Receipt
+  sourceDescription: The receipted payment for which this transaction has been recorded.
+  targetName: Transactions
+  targetDescription: All transactions recorded for this receipted payment.
+- source: CashierShift
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CashierShift
+  sourceDescription: Cashier shift during which this transaction was recorded.
+  targetName: Transactions
+  targetDescription: All transactions recorded during this cashier shift.
+- source: AuxiliaryAccount
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AuxiliaryAccount
+  sourceDescription: Auxiliary account for this payment transaction.
+  targetName: PaymentTransactions
+  targetDescription: All payments against this account.
+- source: PricingStructure
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PricingStructure
+  sourceDescription: Pricing structure applicable for this transaction.
+  targetName: Transactions
+  targetDescription: All transactions applying this pricing structure.
+- source: CustomerAccount
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerAccount
+  sourceDescription: Customer account for this payment transaction.
+  targetName: PaymentTransactions
+  targetDescription: All payment transactions for this customer account.
+- source: UserAttribute
+  target: Transaction
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: UserAttributes
+  sourceDescription: All snapshots of meter parameters recorded at the time of this transaction. Use 'name' and 'value.value'
+    attributes to specify name and value of a parameter from meter.
+  targetName: Transaction
+  targetDescription: Transaction for which this snapshot has been recorded.

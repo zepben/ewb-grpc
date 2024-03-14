@@ -1,0 +1,14 @@
+name: Ground
+description: A point where the system is grounded used for connecting conducting equipment to ground. The power system model
+  can have any number of grounds.
+ancestors:
+- ConductingEquipment
+associations:
+- source: GroundAction
+  target: Ground
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: GroundAction
+  sourceDescription: Action taken with this ground.
+  targetName: Ground
+  targetDescription: Ground on which this action is taken.

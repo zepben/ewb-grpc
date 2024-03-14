@@ -1,0 +1,21 @@
+name: TransmissionCorridor
+description: A corridor containing one or more rights of way
+ancestors:
+- PowerSystemResource
+associations:
+- source: TransmissionCorridor
+  target: TransmissionRightOfWay
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: TransmissionCorridor
+  sourceDescription: A transmission right-of-way is a member of a transmission corridor
+  targetName: TransmissionRightOfWays
+  targetDescription: A transmission right-of-way is a member of a transmission corridor
+- source: TransmissionPath
+  target: TransmissionCorridor
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ContainedIn
+  sourceDescription: A TransmissionPath is contained in a TransmissionCorridor.
+  targetName: For
+  targetDescription: A TransmissionPath is contained in a TransmissionCorridor.

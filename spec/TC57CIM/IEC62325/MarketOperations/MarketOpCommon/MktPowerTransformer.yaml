@@ -1,0 +1,23 @@
+name: MktPowerTransformer
+description: Subclass of IEC61970:Wires:PowerTransformer.
+ancestors:
+- PowerTransformer
+associations:
+- source: Flowgate
+  target: MktPowerTransformer
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Flowgate
+  targetName: MktPowerTransformer
+- source: BranchEndFlow
+  target: MktPowerTransformer
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EndBFlow
+  targetName: MktPowerTransformerEndBFlow
+- source: BranchEndFlow
+  target: MktPowerTransformer
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EndAFlow
+  targetName: MktPowerTransformerEndAFlow

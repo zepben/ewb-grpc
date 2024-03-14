@@ -1,0 +1,35 @@
+name: GeneratingUnitDynamicValues
+description: Optimal Power Flow or State Estimator Unit Data for Operator Training Simulator. This is used for RealTime, Study
+  and Maintenance Users.
+attributes:
+- name: lossFactor
+  type: Float
+  description: Loss Factor
+- name: maximumMW
+  type: Float
+  description: The maximum active power generation of the unit in MW
+- name: minimumMW
+  type: Float
+  description: The minimum active power generation of the unit in MW
+- name: mVAR
+  type: Float
+  description: Unit reactive power generation in MVAR
+- name: mw
+  type: Float
+  description: Unit active power generation in MW
+- name: sensitivity
+  type: Float
+  description: Unit sencivity factor. The distribution factors (DFAX) for the unit
+associations:
+- source: GeneratingUnitDynamicValues
+  target: Flowgate
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneratingUnitDynamicValues
+  targetName: Flowgate
+- source: GeneratingUnitDynamicValues
+  target: MktGeneratingUnit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: GeneratingUnitDynamicValues
+  targetName: MktGeneratingUnit

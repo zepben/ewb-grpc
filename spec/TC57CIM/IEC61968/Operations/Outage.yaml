@@ -1,0 +1,139 @@
+name: Outage
+description: |-
+  Document describing details of an active or planned outage in a part of the electrical network.
+  A non-planned outage may be created upon:
+  - a breaker trip,
+  - a fault indicator status change,
+  - a meter event indicating customer outage,
+  - a reception of one or more customer trouble calls, or
+  - an operator command, reflecting information obtained from the field crew.
+  Outage restoration may be performed using a switching plan which complements the outage information with detailed switching activities, including the relationship to the crew and work.
+  A planned outage may be created upon:
+  - a request for service, maintenance or construction work in the field, or
+  - an operator-defined outage for what-if/contingency network analysis.
+attributes:
+- name: actualPeriod
+  type: DateTimeInterval
+  description: Actual outage period; end of the period corresponds to the actual restoration time.
+- name: communityDescriptor
+  type: String
+  description: a name to denote the community - this could be a name or a code of some kind.
+- name: customersRestored
+  type: Integer
+  description: number of customers that have been restored in the area.
+- name: estimatedPeriod
+  type: DateTimeInterval
+  description: Estimated outage period for a planned outage. The start of the period is the start of the planned outage and
+    the end of the period corresponds to the end of the planned outage.
+- name: metersAffected
+  type: Integer
+  description: The updated number of meters affected by the outage as reported by the OMS within the utility.  It is assumed
+    this number will be updated repeatedly until the full outage is resolved.
+- name: originalCustomersServed
+  type: Integer
+  description: the total number of customers that are served in the area (both outaged and not outaged).
+- name: originalMetersAffected
+  type: Integer
+  description: The original number of meters that were affected as reported by the OMS within the utility. That is, this is
+    the total number of meters that were out at the beginning of the outage.
+- name: outageKind
+  type: OutageStatusKind
+  description: Defines if the outage has been verified or is only estimated
+- name: statusKind
+  type: CrewStatusKind
+  description: defines the status of the crew as in dispatched or arrived, etc.
+- name: summary
+  type: ServicePointOutageSummary
+  description: Summary counts of service points (customers) affected by this outage.
+- name: utilityDisclaimer
+  type: String
+  description: This contains an disclaimers the utility would like to place on the data provided to any stakeholder.  This
+    may be different for different stakeholders.  This should possibly be an attribute under the Organization class but it
+    is placed here for now.
+ancestors:
+- Document
+descendents:
+- UnplannedOutage
+- PlannedOutage
+associations:
+- source: Outage
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Outage
+  targetName: OutageIsolationEquipment
+- source: Outage
+  target: Fault
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Outage
+  sourceDescription: Outage associated with this fault.
+  targetName: Faults
+  targetDescription: All faults involved in this outage.
+- source: Outage
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Outage
+  targetName: DeEnergizedUsagePoint
+  targetDescription: all deenergized useage points associated with the outage.
+- source: Outage
+  target: SwitchAction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PlannedOutage
+  sourceDescription: Planned outage for whose scope this switch action applies.
+  targetName: PlannedSwitchActions
+  targetDescription: All switch actions to apply within the scope of this planned outage. Each such action groups switches
+    to which the action is to apply in order to produce the desired network state considered as outage.
+- source: Outage
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Outages
+  sourceDescription: All outages in which this equipment is involved.
+  targetName: Equipments
+  targetDescription: All equipments associated with this outage.
+- source: Outage
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Outage
+  sourceDescription: All outages at this usage point.
+  targetName: EnergizedUsagePoint
+  targetDescription: All energized usage points associated with this outage.
+- source: Outage
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Outage
+  targetName: Crew
+- source: OutageArea
+  target: Outage
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: OutageArea
+  targetName: Outage
+- source: SwitchingPlan
+  target: Outage
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SwitchingPlans
+  sourceDescription: All switching plans that lead to supply restoration due to this outage. Only one will be retained for
+    execution.
+  targetName: Outage
+  targetDescription: Outage that will be activated or eliminated when this switching plan gets executed.
+- source: Incident
+  target: Outage
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Incident
+  sourceDescription: Incident reported in trouble call that results in this outage.
+  targetName: Outage
+  targetDescription: Outage for this incident.
+- source: EstimatedRestorationTime
+  target: Outage
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EstimatedRestorationTime
+  targetName: Outage

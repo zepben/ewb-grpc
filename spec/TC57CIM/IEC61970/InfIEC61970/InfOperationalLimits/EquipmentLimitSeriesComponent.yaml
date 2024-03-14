@@ -1,0 +1,22 @@
+name: EquipmentLimitSeriesComponent
+description: This represents one instance of an equipment that contributes to the calculation of an operational limit.
+ancestors:
+- IdentifiedObject
+associations:
+- source: EquipmentLimitSeriesComponent
+  target: SeriesEquipmentDependentLimit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EquipmentLimitSeriesComponent
+  sourceDescription: Equipment linkages that participates in the limit calculation.
+  targetName: SeriesEquipmentDependentLimit
+  targetDescription: Calculation in which the refernce to equipment applies.
+- source: EquipmentLimitSeriesComponent
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EqiupmentLimitSeriesComponent
+  sourceDescription: Equipment limit series calculation component to which this equipment contributes.
+  targetName: Equipment
+  targetDescription: Equipment contributing toward the series limit.   The reference here is to Equipment rather than a specific
+    limit on the equipment so the grouiping can be reused for multiple limits of different types on the same instance of equipment.

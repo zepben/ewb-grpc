@@ -1,0 +1,64 @@
+name: ExcST4B
+description: Modified IEEE ST4B static excitation system with maximum inner loop feedback gain <i>Vgmax</i>.
+attributes:
+- name: kc
+  type: PU
+  description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,113.
+- name: kg
+  type: PU
+  description: Feedback gain constant of the inner loop field regulator (<i>Kg</i>) (&gt;= 0). Typical value = 0.
+- name: ki
+  type: PU
+  description: Potential circuit gain coefficient (<i>Ki</i>) (&gt;= 0).  Typical value = 0.
+- name: kim
+  type: PU
+  description: Voltage regulator integral gain output (<i>Kim</i>).  Typical value = 0.
+- name: kir
+  type: PU
+  description: Voltage regulator integral gain (<i>Kir</i>).  Typical value = 10,75.
+- name: kp
+  type: PU
+  description: Potential circuit gain coefficient (<i>Kp</i>) (&gt; 0).  Typical value = 9,3.
+- name: kpm
+  type: PU
+  description: Voltage regulator proportional gain output (<i>Kpm</i>).  Typical value = 1.
+- name: kpr
+  type: PU
+  description: Voltage regulator proportional gain (<i>Kpr</i>).  Typical value = 10,75.
+- name: lvgate
+  type: Boolean
+  description: "Selector (<i>LVGate</i>).\ntrue = <i>LVGate</i> is part of the block diagram\nfalse = <i>LVGate</i> is not\
+    \ part of the block diagram. \nTypical value = false."
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0,02.
+- name: thetap
+  type: AngleDegrees
+  description: Potential circuit phase angle (<i>theta</i><i><sub>p</sub></i>).  Typical value = 0.
+- name: uel
+  type: Boolean
+  description: "Selector (<i>UEL</i>).\ntrue = <i>UEL</i> is part of block diagram\nfalse = <i>UEL</i> is not part of block\
+    \ diagram. \nTypical value = false."
+- name: vbmax
+  type: PU
+  description: Maximum excitation voltage (<i>Vbmax</i>) (&gt; 0).  Typical value = 11,63.
+- name: vgmax
+  type: PU
+  description: Maximum inner loop feedback voltage (<i>Vgmax</i>) (&gt;= 0).  Typical value = 5,8.
+- name: vmmax
+  type: PU
+  description: Maximum inner loop output (<i>Vmmax</i>) (&gt; ExcST4B.vmmin).  Typical value = 99.
+- name: vmmin
+  type: PU
+  description: Minimum inner loop output (<i>Vmmin</i>) (&lt; ExcST4B.vmmax).  Typical value = -99.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vrmax</i>) (&gt; 0).  Typical value = 1.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vrmin</i>) (&lt; 0).  Typical value = -0,87.
+- name: xl
+  type: PU
+  description: Reactance associated with potential source (<i>Xl</i>) (&gt;= 0).  Typical value = 0,124.
+ancestors:
+- ExcitationSystemDynamics

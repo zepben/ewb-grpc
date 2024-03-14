@@ -1,0 +1,39 @@
+name: EnergyConsumerPhase
+description: A single phase of an energy consumer.
+attributes:
+- name: p
+  type: ActivePower
+  description: |-
+    Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+- name: qfixed
+  type: ReactivePower
+  description: Reactive power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means
+    flow out from a node.
+- name: phase
+  type: SinglePhaseKind
+  description: Phase of this energy consumer component.   If the energy consumer is wye connected, the connection is from
+    the indicated phase to the central ground or neutral point.  If the energy consumer is delta connected, the phase indicates
+    an energy consumer connected from the indicated phase to the next logical non-neutral phase.
+- name: pfixed
+  type: ActivePower
+  description: Active power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means flow
+    out from a node.
+ancestors:
+- PowerSystemResource
+associations:
+- source: EnergyConsumer
+  target: EnergyConsumerPhase
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: EnergyConsumer
+  sourceDescription: The energy consumer to which this phase belongs.
+  targetName: EnergyConsumerPhase
+  targetDescription: The individual phase models for this energy consumer.

@@ -1,0 +1,34 @@
+name: TapChangerControl
+description: Describes behaviour specific to tap changers, e.g. how the voltage at the end of a line varies with the load
+  level and compensation of the voltage drop by tap adjustment.
+attributes:
+- name: limitVoltage
+  type: Voltage
+  description: Maximum allowed regulated voltage on the PT secondary, regardless of line drop compensation. Sometimes referred
+    to as first-house protection.
+- name: lineDropCompensation
+  type: Boolean
+  description: If true, the line drop compensation is to be applied.
+- name: lineDropR
+  type: Resistance
+  description: Line drop compensator resistance setting for normal (forward) power flow.
+- name: lineDropX
+  type: Reactance
+  description: Line drop compensator reactance setting for normal (forward) power flow.
+- name: reverseLineDropR
+  type: Resistance
+  description: Line drop compensator resistance setting for reverse power flow.
+- name: reverseLineDropX
+  type: Reactance
+  description: Line drop compensator reactance setting for reverse power flow.
+ancestors:
+- RegulatingControl
+associations:
+- source: TapChanger
+  target: TapChangerControl
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: TapChanger
+  sourceDescription: The tap changers that participates in this regulating tap control scheme.
+  targetName: TapChangerControl
+  targetDescription: The regulating control scheme in which this tap changer participates.

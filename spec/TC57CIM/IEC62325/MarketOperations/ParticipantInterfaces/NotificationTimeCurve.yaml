@@ -1,0 +1,12 @@
+name: NotificationTimeCurve
+description: Notification time curve as a function of down time.  Relationship between crew notification time (Y1-axis) and
+  unit startup time (Y2-axis) vs. unit elapsed down time (X-axis).
+ancestors:
+- Curve
+associations:
+- source: GeneratingBid
+  target: NotificationTimeCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneratingBids
+  targetName: NotificationTimeCurve

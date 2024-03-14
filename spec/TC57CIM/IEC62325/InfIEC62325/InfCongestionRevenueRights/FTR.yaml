@@ -1,0 +1,40 @@
+name: FTR
+description: Financial Transmission Rights (FTR) regarding transmission capacity at a flowgate.
+attributes:
+- name: action
+  type: String
+  description: Buy, Sell
+- name: baseEnergy
+  type: ActivePower
+  description: Quantity, typically MWs - Seller owns all rights being offered, MWs over time on same Point of Receipt, Point
+    of Delivery, or Resource.
+- name: class
+  type: String
+  description: Peak, Off-peak, 24-hour
+- name: ftrType
+  type: String
+  description: Type of rights being offered (product) allowed to be auctioned (option, obligation).
+- name: optimized
+  type: String
+  description: Fixed (covers re-configuration, grandfathering) or Optimized (up for sale/purchase
+ancestors:
+- Agreement
+associations:
+- source: FTR
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: FTRs
+  targetName: Pnodes
+- source: Flowgate
+  target: FTR
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Flowgate
+  targetName: FTRs
+- source: EnergyPriceCurve
+  target: FTR
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EnergyPriceCurve
+  targetName: FTRs

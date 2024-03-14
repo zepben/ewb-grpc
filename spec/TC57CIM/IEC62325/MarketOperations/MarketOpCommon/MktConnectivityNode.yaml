@@ -1,0 +1,47 @@
+name: MktConnectivityNode
+description: Subclass of IEC61970:Topology:ConnectivityNode.
+ancestors:
+- ConnectivityNode
+associations:
+- source: NodeConstraintTerm
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: NodeConstraintTerm
+  targetName: MktConnectivityNode
+- source: RTO
+  target: MktConnectivityNode
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: MktConnectivityNode
+- source: SysLoadDistributionFactor
+  target: MktConnectivityNode
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: SysLoadDistribuFactor
+  targetName: MktConnectivityNode
+- source: LossSensitivity
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LossPenaltyFactor
+  targetName: MktConnectivityNode
+- source: CnodeDistributionFactor
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CnodeDistributionFactor
+  targetName: MktConnectivityNode
+- source: IndividualPnode
+  target: MktConnectivityNode
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: IndividualPnode
+  targetName: MktConnectivityNode
+- source: RegisteredResource
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RegisteredResource
+  targetName: MktConnectivityNode

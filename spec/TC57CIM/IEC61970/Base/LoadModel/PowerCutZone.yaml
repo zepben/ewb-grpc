@@ -1,0 +1,20 @@
+name: PowerCutZone
+description: An area or zone of the power system which is used for load shedding purposes.
+attributes:
+- name: cutLevel1
+  type: PerCent
+  description: First level (amount) of load to cut as a percentage of total zone load.
+- name: cutLevel2
+  type: PerCent
+  description: Second level (amount) of load to cut as a percentage of total zone load.
+ancestors:
+- PowerSystemResource
+associations:
+- source: PowerCutZone
+  target: EnergyConsumer
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: PowerCutZone
+  sourceDescription: The  energy consumer is assigned to this power cut zone.
+  targetName: EnergyConsumers
+  targetDescription: Energy consumer is assigned to the power cut zone.

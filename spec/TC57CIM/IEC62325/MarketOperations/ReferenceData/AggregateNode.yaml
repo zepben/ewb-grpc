@@ -1,0 +1,63 @@
+name: AggregateNode
+description: An aggregated node can define a typed grouping further defined by the AnodeType enumeratuion. Types range from
+  System Zone/Regions to Market Energy Regions to Aggregated Loads and Aggregated Generators.
+attributes:
+- name: anodeType
+  type: AnodeType
+  description: Type of aggregated node
+- name: qualifASOrder
+  type: Integer
+  description: Processing Order for AS self-provisions for this region. The priority of this attribute directs the awards
+    of any resource that resides in overlapping regions. The regions are processed in priority manner.
+ancestors:
+- IdentifiedObject
+descendents:
+- LoadAggregationPoint
+- MSSZone
+- MarketRegion
+- RUCZone
+associations:
+- source: AggregateNode
+  target: CnodeDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AggregateNode
+  targetName: CnodeDistributionFactor
+- source: AggregateNode
+  target: Pnode
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AggregateNode
+  targetName: Pnode
+- source: AggregateNode
+  target: SubControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AggregateNode
+  targetName: SubControlArea
+- source: RTO
+  target: AggregateNode
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: RTO
+  targetName: AggregateNode
+- source: Instructions
+  target: AggregateNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Instruction
+  targetName: AggregateNode
+- source: AreaLoadCurve
+  target: AggregateNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AreaLoadCurve
+  targetName: AggregateNode
+- source: RegisteredResource
+  target: AggregateNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: RegisteredResource
+  sourceDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.
+  targetName: AggregateNode
+  targetDescription: An AggregateNode may be associated with up to many RegisteredResources.

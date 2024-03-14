@@ -1,0 +1,16 @@
+name: Circuit
+ancestors:
+- Line
+associations:
+- source: Circuit
+  target: Terminal
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Circuit
+  targetName: EndTerminal
+- source: Circuit
+  target: Bay
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Circuit
+  targetName: EndBay

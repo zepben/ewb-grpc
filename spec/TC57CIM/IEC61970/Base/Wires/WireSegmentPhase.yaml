@@ -1,0 +1,21 @@
+name: WireSegmentPhase
+description: Represents a single wire of an alternating current wire segment.
+attributes:
+- name: phase
+  type: SinglePhaseKind
+  description: The phase connection of the wire at both ends.
+- name: sequenceNumber
+  type: Integer
+  description: Number designation for this wire segment phase. Each wire segment phase within a wire segment should have a
+    unique sequence number.
+ancestors:
+- PowerSystemResource
+associations:
+- source: WireSegmentPhase
+  target: WireSegment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: WireSegmentPhases
+  sourceDescription: The wire segment phases which belong to the wire segment.
+  targetName: WireSegment
+  targetDescription: The wire segment to which the phase belongs.

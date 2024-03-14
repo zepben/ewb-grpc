@@ -1,0 +1,103 @@
+name: Trade
+description: Inter Scheduling Coordinator Trades to model financial trades which may impact settlement.
+attributes:
+- name: adjustedTradeQuantity
+  type: Float
+  description: The validated and current market accepted trade amount of a physical energy trade.
+- name: counterTradeQuantity
+  type: Float
+  description: MW quantity submitted by counter SC for the same trade
+- name: dependOnTradeName
+  type: String
+  description: The Depend On IST Name points to the unique IST Name in the chain of physical energy trades.
+- name: lastModified
+  type: DateTime
+  description: Time and date the trade was last modified.
+- name: marketType
+  type: MarketType
+- name: startTime
+  type: DateTime
+  description: Start time and date for which trade applies.
+- name: stopTime
+  type: DateTime
+  description: Stop time and date for which trade is applicable.
+- name: submitFromTimeStamp
+  type: DateTime
+  description: Timestamp of submittal of submit From Scheduling Coordinator Trade to Market Participant Bid Submittal
+- name: submitFromUser
+  type: String
+  description: Userid of the submit From Scheduling Coordinator trade
+- name: submitToTimeStamp
+  type: DateTime
+  description: Timestamp of submittal of submit To Scheduling Coordinator Trade to Market Participant Bid Submittal
+- name: 'submitToUser '
+  type: String
+  description: Userid of the submit To Scheduling Coordinator trade
+- name: tradeQuantity
+  type: Float
+  description: "tradeQuantity: \nIf tradeType = IST, The amount of an Energy Trade.  \nIf tradeType = AST, The amount of an\
+    \ Ancillary Service Obligation Trade.  \nIf tradeType = UCT, The amount of a Unit Commitment Obligation Trade."
+- name: tradeStatus
+  type: String
+  description: Resulting status of the trade following the rule engine processing.
+- name: updateTimeStamp
+  type: DateTime
+- name: updateUser
+  type: String
+ancestors:
+- IdentifiedObject
+associations:
+- source: Trade
+  target: TradeError
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Trade
+  targetName: TradeError
+- source: Pnode
+  target: Trade
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Pnode
+  targetName: Trade
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: submitToSchedulingCoordinator
+  targetName: SubmitToSCTrade
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: To_SC
+  targetName: ToSCTrade
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: From_SC
+  targetName: FromSCTrade
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: submitFromSchedulingCoordinator
+  targetName: SubmitFromSCTrade
+- source: ActionRequest
+  target: Trade
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ActionRequest
+  targetName: Trade
+- source: RegisteredGenerator
+  target: Trade
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredGenerator
+  targetName: Trade
+- source: TradeProduct
+  target: Trade
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TradeProduct
+  targetName: Trade

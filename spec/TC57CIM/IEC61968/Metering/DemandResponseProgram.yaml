@@ -1,0 +1,38 @@
+name: DemandResponseProgram
+description: Demand response program.
+attributes:
+- name: type
+  type: String
+  description: Type of demand response program; examples are CPP (critical-peak pricing), RTP (real-time pricing), DLC (direct
+    load control), DBP (demand bidding program), BIP (base interruptible program). Note that possible types change a lot and
+    it would be impossible to enumerate them all.
+- name: validityInterval
+  type: DateTimeInterval
+  description: Interval within which the program is valid.
+ancestors:
+- IdentifiedObject
+associations:
+- source: DemandResponseProgram
+  target: UsagePointGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DemandResponsePrograms
+  sourceDescription: All demand response programs this usage point group is enrolled in.
+  targetName: UsagePointGroups
+  targetDescription: All usage point groups enrolled in this demand response program.
+- source: DemandResponseProgram
+  target: EndDeviceGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DemandResponsePrograms
+  sourceDescription: All demand response programs this group of end devices is enrolled in.
+  targetName: EndDeviceGroups
+  targetDescription: All groups of end devices enrolled in this demand response program.
+- source: DemandResponseProgram
+  target: CustomerAgreement
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DemandResponsePrograms
+  sourceDescription: All demand response programs the customer is enrolled in through this customer agreement.
+  targetName: CustomerAgreements
+  targetDescription: All customer agreements through which the customer is enrolled in this demand response program.

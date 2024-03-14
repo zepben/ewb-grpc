@@ -1,0 +1,30 @@
+name: UnderexcLim2Simplified
+description: Simplified type UEL2 underexcitation limiter.  This model can be derived from UnderexcLimIEEE2.  The limit characteristic
+  (look –up table) is a single straight-line, the same as UnderexcLimIEEE2 (see Figure 10.4 (p 32), IEEE 421.5-2005 Section
+  10.2).
+attributes:
+- name: kui
+  type: PU
+  description: Gain Under excitation limiter (<i>K</i><i><sub>UI</sub></i>).  Typical value = 0,1.
+- name: p0
+  type: PU
+  description: Segment P initial point (<i>P</i><i><sub>0</sub></i>).  Typical value = 0.
+- name: p1
+  type: PU
+  description: Segment P end point (<i>P</i><i><sub>1</sub></i>).  Typical value = 1.
+- name: q0
+  type: PU
+  description: Segment Q initial point (<i>Q</i><i><sub>0</sub></i>).  Typical value = -0,31.
+- name: q1
+  type: PU
+  description: Segment Q end point (<i>Q</i><i><sub>1</sub></i>).  Typical value = -0,1.
+- name: vuimax
+  type: PU
+  description: Maximum error signal (<i>V</i><i><sub>UIMAX</sub></i>) (&gt; UnderexcLim2Simplified.vuimin).  Typical value
+    = 1.
+- name: vuimin
+  type: PU
+  description: Minimum error signal (<i>V</i><i><sub>UIMIN</sub></i>) (&lt; UnderexcLim2Simplified.vuimax).  Typical value
+    = 0.
+ancestors:
+- UnderexcitationLimiterDynamics

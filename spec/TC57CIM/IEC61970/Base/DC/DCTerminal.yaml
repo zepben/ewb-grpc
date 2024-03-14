@@ -1,0 +1,13 @@
+name: DCTerminal
+description: An electrical connection point to generic DC conducting equipment.
+ancestors:
+- DCBaseTerminal
+associations:
+- source: DCConductingEquipment
+  target: DCTerminal
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: DCConductingEquipment
+  sourceDescription: An DC  terminal belong to a DC conducting equipment.
+  targetName: DCTerminals
+  targetDescription: A DC conducting equipment has DC terminals.

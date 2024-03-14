@@ -1,0 +1,19 @@
+name: PFVArControllerType2Dynamics
+description: Power factor or VAr controller type 2 function block whose behaviour is described by reference to a standard
+  model <font color="#0f0f0f">or by definition of a user-defined model.</font>
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- PFVArControllerType2UserDefined
+- PFVArType2Common1
+- PFVArType2IEEEVArController
+- PFVArType2IEEEPFController
+associations:
+- source: PFVArControllerType2Dynamics
+  target: ExcitationSystemDynamics
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: PFVArControllerType2Dynamics
+  sourceDescription: Power factor or VAr controller type 2 model associated with this excitation system model.
+  targetName: ExcitationSystemDynamics
+  targetDescription: Excitation system model with which this power factor or VAr controller type 2 is associated.

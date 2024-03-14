@@ -1,0 +1,84 @@
+name: DotInstruction
+description: Provides the necessary information (on a resource basis) to capture the Dispatch Operating Target (DOT) results
+  on a Dispatch interval. This information is only relevant to the RT interval market.
+attributes:
+- name: actualRampRate
+  type: Float
+  description: Actual ramp rate.
+- name: compliantIndicator
+  type: YesNo
+  description: |-
+    Flag indicating whether or not the resource was in compliance with the instruction (plus/minus 10%).
+
+    Directs if a unit is allowed to set the price (ex-post pricing).
+- name: DOT
+  type: Float
+  description: Dispatch operating target value.
+- name: economicMaxOverride
+  type: Float
+  description: "Economic Max Limit override for unit, this value is null, if it is not, this value overrides the Energy column\
+    \ value.  \nAllows dispatcher to override the unit's energy value."
+- name: expectedEnergy
+  type: Float
+  description: Expected energy.
+- name: generatorPerformanceDegree
+  type: Float
+  description: The Degree of Generator Performance (DGP) used for the unit. Measure of how a generator responds to raise /lower
+    signals.  Calculated every five minutes.
+- name: hourAheadSchedEnergy
+  type: Float
+  description: HASP results.
+- name: hourlySchedule
+  type: Float
+  description: Hourly Schedule (DA Energy Schedule).
+- name: instructionTime
+  type: DateTime
+  description: The date/time for the instruction.
+- name: maximumEmergencyInd
+  type: Boolean
+  description: True if maximum emergency limit activated; false otherwise. If unit is requested  to move up to its max emergency
+    limit., this flag is set to true.
+- name: meterLoadFollowing
+  type: Float
+  description: Meter Sub System Load Following.
+- name: nonRampRestrictedMW
+  type: Float
+  description: Desired MW that is not ramp restricted. If no ramp rate limit existed for the unit, this is the MW value tha
+    t the unit was requested to move to.
+- name: nonSpinReserve
+  type: Float
+  description: Non Spin Reserve used to procure energy.
+- name: previousDOTTimeStamp
+  type: DateTime
+  description: Timestamp when the previous DOT value was issued.
+- name: rampRateLimit
+  type: Float
+  description: The ramp rate limit for the unit in MWs per minute. Participant bidding data.
+- name: regulationStatus
+  type: YesNo
+  description: Regulation Status (Yes/No).
+- name: spinReserve
+  type: Float
+  description: Spin Reserve used to procure energy.
+- name: standardRampEnergy
+  type: Float
+  description: Standard ramping energy (MWH).
+- name: supplementalEnergy
+  type: Float
+  description: Supplemental Energy procure by Real Time Dispatch.
+- name: unitStatus
+  type: Integer
+  description: Output results from the case identifying the reason the unit was committed by the software.
+associations:
+- source: DotInstruction
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: DotInstruction
+  targetName: RegisteredResource
+- source: InstructionClearingDOT
+  target: DotInstruction
+  sourceCardinality: 1..*
+  targetCardinality: 1..*
+  sourceName: InstructionClearingDOT
+  targetName: DotInstruction

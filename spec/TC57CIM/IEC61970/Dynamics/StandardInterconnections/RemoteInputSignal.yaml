@@ -1,0 +1,82 @@
+name: RemoteInputSignal
+description: Supports connection to a terminal associated with a remote bus from which an input signal of a specific type
+  is coming.
+attributes:
+- name: remoteSignalType
+  type: RemoteSignalKind
+  description: Type of input signal.
+ancestors:
+- IdentifiedObject
+associations:
+- source: RemoteInputSignal
+  target: Terminal
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: RemoteInputSignal
+  sourceDescription: Input signal coming from this terminal.
+  targetName: Terminal
+  targetDescription: Remote terminal with which this input signal is associated.
+- source: VoltageCompensatorDynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: VoltageCompensatorDynamics
+  sourceDescription: Voltage compensator model using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this voltage compensator model.
+- source: WindPlantDynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: WindPlantDynamics
+  sourceDescription: The wind plant using the remote signal.
+  targetName: RemoteInputSignal
+  targetDescription: The remote signal with which this power plant is associated.
+- source: UnderexcitationLimiterDynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: UnderexcitationLimiterDynamics
+  sourceDescription: Underexcitation limiter model using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this underexcitation limiter model.
+- source: DiscontinuousExcitationControlDynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: DiscontinuousExcitationControlDynamics
+  sourceDescription: Discontinuous excitation control model using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this discontinuous excitation control system model.
+- source: WindTurbineType1or2Dynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: WindTurbineType1or2Dynamics
+  sourceDescription: Wind generator type 1 or type 2 model using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this wind generator type 1 or type 2 model.
+- source: WindTurbineType3or4Dynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: WindTurbineType3or4Dynamics
+  sourceDescription: Wind turbine type 3 or type 4 models using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by these wind turbine type 3 or type 4 models.
+- source: PowerSystemStabilizerDynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PowerSystemStabilizerDynamics
+  sourceDescription: Power system stabilizer model using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this power system stabilizer model.
+- source: PFVArControllerType1Dynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: PFVArControllerType1Dynamics
+  sourceDescription: Power factor or VAr controller type 1 model using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this power factor or VAr controller type 1 model.

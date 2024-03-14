@@ -1,0 +1,57 @@
+name: SynchronousMachineEquivalentCircuit
+description: "The electrical equations for all variations of the synchronous models are based on the SynchronousEquivalentCircuit\
+  \ diagram for the direct- and quadrature- axes.\nEquations for conversion between equivalent circuit and time constant reactance\
+  \ forms:\n<i>Xd</i> = <i>Xad </i>+<i> Xl</i>\n<i>X’d</i> = <i>Xl</i> + <i>Xad</i> x <i>Xfd</i> / (<i>Xad</i> + <i>Xfd</i>)\n\
+  <i>X”d</i> = <i>Xl</i> + <i>Xad</i> x <i>Xfd</i> x <i>X1d</i> / (<i>Xad</i> x <i>Xfd</i> + <i>Xad</i> x <i>X1d</i> + <i>Xfd</i>\
+  \ x <i>X1d</i>)\n<i>Xq</i> = <i>Xaq</i> + <i>Xl</i>\n<i>X’q</i> = <i>Xl</i> + <i>Xaq</i> x <i>X1q</i> / (<i>Xaq</i> + <i>X1q</i>)\n\
+  <i>X”q</i> = <i>Xl</i> + <i>Xaq</i> x <i>X1q</i> x <i>X2q</i> / (<i>Xaq</i> x <i>X1q</i> + <i>Xaq</i> x <i>X2q</i> + <i>X1q</i>\
+  \ x <i>X2q</i>)\n<i>T’do</i> = (<i>Xad</i> + <i>Xfd</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>Rfd</i>)\n<i>T”do</i> =\
+  \ (<i>Xad</i> x <i>Xfd</i> + <i>Xad</i> x <i>X1d</i> + <i>Xfd</i> x <i>X1d</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>R1d</i>\
+  \ x (<i>Xad</i> + <i>Xfd</i>)\n<i>T’qo</i> = (<i>Xaq</i> + <i>X1q</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>R1q</i>)\n\
+  <i>T”qo</i> = (<i>Xaq</i> x <i>X1q</i> + <i>Xaq</i> x <i>X2q</i> + <i>X1q</i> x <i>X2q</i>) / (<i>omega</i><i><sub>0</sub></i>\
+  \ x <i>R2q</i> x (<i>Xaq</i> + <i>X1q</i>)\nSame equations using CIM attributes from SynchronousMachineTimeConstantReactance\
+  \ class on left of \"=\" and SynchronousMachineEquivalentCircuit class on right (except as noted):\nxDirectSync = xad +\
+  \ RotatingMachineDynamics.statorLeakageReactance\nxDirectTrans = RotatingMachineDynamics.statorLeakageReactance + xad x\
+  \ xfd / (xad + xfd)\nxDirectSubtrans = RotatingMachineDynamics.statorLeakageReactance + xad x xfd x x1d / (xad x xfd + xad\
+  \ x x1d + xfd x x1d)\nxQuadSync = xaq + RotatingMachineDynamics.statorLeakageReactance\nxQuadTrans = RotatingMachineDynamics.statorLeakageReactance\
+  \ + xaq x x1q / (xaq+ x1q)\nxQuadSubtrans = RotatingMachineDynamics.statorLeakageReactance + xaq x x1q x x2q / (xaq x x1q\
+  \ + xaq x x2q + x1q x x2q) \ntpdo = (xad + xfd) / (2 x pi x nominal frequency x rfd)\ntppdo = (xad x xfd + xad x x1d + xfd\
+  \ x x1d) / (2 x pi x nominal frequency x r1d x (xad + xfd)\ntpqo = (xaq + x1q) / (2 x pi x nominal frequency x r1q)\ntppqo\
+  \ = (xaq x x1q + xaq x x2q + x1q x x2q) / (2 x pi x nominal frequency x r2q x (xaq + x1q)\nThese are only valid for a simplified\
+  \ model where \"Canay\" reactance is zero."
+attributes:
+- name: r1d
+  type: PU
+  description: Direct-axis damper 1 winding resistance.
+- name: r1q
+  type: PU
+  description: Quadrature-axis damper 1 winding resistance.
+- name: r2q
+  type: PU
+  description: Quadrature-axis damper 2 winding resistance.
+- name: rfd
+  type: PU
+  description: Field winding resistance.
+- name: x1d
+  type: PU
+  description: Direct-axis damper 1 winding leakage reactance.
+- name: x1q
+  type: PU
+  description: Quadrature-axis damper 1 winding leakage reactance.
+- name: x2q
+  type: PU
+  description: Quadrature-axis damper 2 winding leakage reactance.
+- name: xad
+  type: PU
+  description: Direct-axis mutual reactance.
+- name: xaq
+  type: PU
+  description: Quadrature-axis mutual reactance.
+- name: xf1d
+  type: PU
+  description: Differential mutual (“Canay”) reactance.
+- name: xfd
+  type: PU
+  description: Field winding leakage reactance.
+ancestors:
+- SynchronousMachineDetailed

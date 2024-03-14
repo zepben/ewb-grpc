@@ -1,0 +1,28 @@
+name: CalculationMethodHierarchy
+description: The hierarchy of calculation methods used to derive this measurement.
+ancestors:
+- IdentifiedObject
+associations:
+- source: CalculationMethodHierarchy
+  target: MeasurementValue
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: CalculationMethodHierarchy
+  targetName: MeasurementValue
+  targetDescription: Measurement value to which this calculation method hierarchy applies.
+- source: Measurement
+  target: CalculationMethodHierarchy
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Measurement
+  sourceDescription: Measurement to which this calculation method hierarchy applies.
+  targetName: CalculationMethodHierarchy
+  targetDescription: Calculation method hierarchy which applies to this analog.
+- source: CalculationMethodOrder
+  target: CalculationMethodHierarchy
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CalculationMethodOrder
+  sourceDescription: Order of a statistical calculation associated with this calculation method hierarchy.
+  targetName: CalculationMethodHierarchy
+  targetDescription: The calculation method hierarchy of which this order of statistical calculation is a member.

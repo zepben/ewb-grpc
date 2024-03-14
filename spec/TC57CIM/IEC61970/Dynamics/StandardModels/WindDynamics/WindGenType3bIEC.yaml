@@ -1,0 +1,28 @@
+name: WindGenType3bIEC
+description: |-
+  IEC type 3B generator set model.
+  Reference: IEC 61400-27-1:2015, 5.6.3.3.
+attributes:
+- name: mwtcwp
+  type: Boolean
+  description: |-
+    Crowbar control mode (<i>M</i><i><sub>WTcwp</sub></i>). It is a case-dependent parameter.
+    true = 1 in the IEC model
+    false = 0 in the IEC model.
+- name: tg
+  type: Seconds
+  description: Current generation time constant (<i>T</i><i><sub>g</sub></i>) (&gt;= 0). It is a type-dependent parameter.
+- name: two
+  type: Seconds
+  description: Time constant for crowbar washout filter (<i>T</i><i><sub>wo</sub></i>) (&gt;= 0). It is a case-dependent parameter.
+ancestors:
+- WindGenType3IEC
+associations:
+- source: WindDynamicsLookupTable
+  target: WindGenType3bIEC
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: WindDynamicsLookupTable
+  sourceDescription: The wind dynamics lookup table associated with this generator type 3B model.
+  targetName: WindGenType3bIEC
+  targetDescription: The generator type 3B model with which this wind dynamics lookup table is associated.

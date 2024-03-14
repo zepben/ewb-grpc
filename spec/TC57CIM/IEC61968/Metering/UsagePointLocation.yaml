@@ -1,0 +1,25 @@
+name: UsagePointLocation
+description: Location of an individual usage point.
+attributes:
+- name: accessMethod
+  type: String
+  description: Method for the service person to access this usage point location. For example, a description of where to obtain
+    a key if the facility is unmanned and secured.
+- name: remark
+  type: String
+  description: Remarks about this location.
+- name: siteAccessProblem
+  type: String
+  description: 'Problems previously encountered when visiting or performing work at this location. Examples include: bad dog,
+    violent customer, verbally abusive occupant, obstructions, safety hazards, etc.'
+ancestors:
+- Location
+associations:
+- source: UsagePointLocation
+  target: UsagePoint
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: UsagePointLocation
+  sourceDescription: Location of this usage point.
+  targetName: UsagePoints
+  targetDescription: All usage points at this location.

@@ -1,0 +1,76 @@
+name: LoadStatic
+description: General static load. This model represents the sensitivity of the real and reactive power consumed by the load
+  to the amplitude and frequency of the bus voltage.
+attributes:
+- name: ep1
+  type: Float
+  description: First term voltage exponent for active power (<i>Ep1</i>).  Used only when .staticLoadModelType = exponential.
+- name: ep2
+  type: Float
+  description: Second term voltage exponent for active power (<i>Ep2</i>).  Used only when .staticLoadModelType = exponential.
+- name: ep3
+  type: Float
+  description: Third term voltage exponent for active power (<i>Ep3</i>).  Used only when .staticLoadModelType = exponential.
+- name: eq1
+  type: Float
+  description: First term voltage exponent for reactive power (<i>Eq1</i>).  Used only when .staticLoadModelType = exponential.
+- name: eq2
+  type: Float
+  description: Second term voltage exponent for reactive power (<i>Eq2</i>).  Used only when .staticLoadModelType = exponential.
+- name: eq3
+  type: Float
+  description: Third term voltage exponent for reactive power (<i>Eq3</i>).  Used only when .staticLoadModelType = exponential.
+- name: kp1
+  type: Float
+  description: First term voltage coefficient for active power (<i>K</i><i><sub>p1</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: kp2
+  type: Float
+  description: Second term voltage coefficient for active power (<i>K</i><i><sub>p2</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: kp3
+  type: Float
+  description: Third term voltage coefficient for active power (<i>K</i><i><sub>p3</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: kp4
+  type: Float
+  description: Frequency coefficient for active power (<i>K</i><i><sub>p4</sub></i>)  (not = 0 if .staticLoadModelType = zIP2).  Used
+    only when .staticLoadModelType = zIP2.
+- name: kpf
+  type: Float
+  description: Frequency deviation coefficient for active power (<i>K</i><i><sub>pf</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: kq1
+  type: Float
+  description: First term voltage coefficient for reactive power (<i>K</i><i><sub>q1</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: kq2
+  type: Float
+  description: Second term voltage coefficient for reactive power (<i>K</i><i><sub>q2</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: kq3
+  type: Float
+  description: Third term voltage coefficient for reactive power (<i>K</i><i><sub>q3</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: kq4
+  type: Float
+  description: Frequency coefficient for reactive power (<i>K</i><i><sub>q4</sub></i>)  (not = 0 when .staticLoadModelType
+    = zIP2).  Used only when .staticLoadModelType - zIP2.
+- name: kqf
+  type: Float
+  description: Frequency deviation coefficient for reactive power (<i>K</i><i><sub>qf</sub></i>).  Not used when .staticLoadModelType
+    = constantZ.
+- name: staticLoadModelType
+  type: StaticLoadModelKind
+  description: Type of static load model.  Typical value = constantZ.
+ancestors:
+- IdentifiedObject
+associations:
+- source: LoadStatic
+  target: LoadAggregate
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: LoadStatic
+  sourceDescription: Aggregate static load associated with this aggregate load.
+  targetName: LoadAggregate
+  targetDescription: Aggregate load to which this aggregate static load belongs.

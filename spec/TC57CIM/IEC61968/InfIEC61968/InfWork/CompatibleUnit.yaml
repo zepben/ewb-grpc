@@ -1,0 +1,78 @@
+name: CompatibleUnit
+description: A pre-planned job model containing labor, material, and accounting requirements for standardized job planning.
+attributes:
+- name: estCost
+  type: Money
+  description: Estimated total cost for perfoming CU.
+- name: quantity
+  type: String
+  description: The quantity, unit of measure, and multiplier at the CU level that applies to the materials.
+ancestors:
+- WorkDocument
+associations:
+- source: CompatibleUnit
+  target: DesignLocationCU
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetName: DesignLocationCUs
+- source: CompatibleUnit
+  target: CUGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CompatibleUnits
+  targetName: CUGroup
+- source: CompatibleUnit
+  target: CatalogAssetType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CompatibleUnits
+  targetName: GenericAssetModel
+- source: CompatibleUnit
+  target: Procedure
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetName: Procedures
+- source: PropertyUnit
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PropertyUnit
+  targetName: CompatibleUnits
+- source: CostType
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CostType
+  targetName: CompatibleUnits
+- source: CUWorkEquipmentItem
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CUWorkEquipmentItems
+  targetName: CompatibleUnits
+- source: CUMaterialItem
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CUMaterialItems
+  targetName: CompatibleUnits
+- source: CULaborItem
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CULaborItems
+  targetName: CompatibleUnits
+- source: CUContractorItem
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CUContractorItems
+  targetName: CompatibleUnits
+- source: CUAllowableAction
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CUAllowableAction
+  targetName: CompatibleUnits

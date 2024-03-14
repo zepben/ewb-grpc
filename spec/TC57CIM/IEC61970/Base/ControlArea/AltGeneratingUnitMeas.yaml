@@ -1,0 +1,25 @@
+name: AltGeneratingUnitMeas
+description: A prioritized measurement to be used for the generating unit in the control area specification.
+attributes:
+- name: priority
+  type: Integer
+  description: Priority of a measurement usage.   Lower numbers have first priority.
+ancestors:
+- IdentifiedObject
+associations:
+- source: AltGeneratingUnitMeas
+  target: ControlAreaGeneratingUnit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AltGeneratingUnitMeas
+  sourceDescription: The link to prioritized measurements for this GeneratingUnit.
+  targetName: ControlAreaGeneratingUnit
+  targetDescription: The control area generating unit to which the prioritized measurement assignment is applied.
+- source: AltGeneratingUnitMeas
+  target: AnalogValue
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AltGeneratingUnit
+  sourceDescription: The alternate generating unit for which this measurement value applies.
+  targetName: AnalogValue
+  targetDescription: The specific analog value used as a source.

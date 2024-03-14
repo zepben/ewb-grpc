@@ -1,0 +1,38 @@
+name: GovGAST4
+description: Generic turbogas.
+attributes:
+- name: bp
+  type: PU
+  description: Droop (<i>b</i><i><sub>p</sub></i>).  Typical value = 0,05.
+- name: ktm
+  type: PU
+  description: Compressor gain (<i>Ktm</i>).  Typical value = 0.
+- name: mnef
+  type: PU
+  description: Fuel flow maximum negative error value (<i>MNef</i>).  Typical value = -0,05.
+- name: mxef
+  type: PU
+  description: Fuel flow maximum positive error value (<i>MXef</i>).  Typical value = 0,05.
+- name: rymn
+  type: PU
+  description: Minimum valve opening (<i>RYMN</i>).  Typical value = 0.
+- name: rymx
+  type: PU
+  description: Maximum valve opening (<i>RYMX</i>).  Typical value = 1,1.
+- name: ta
+  type: Seconds
+  description: Maximum gate opening velocity (<i>TA</i>) (&gt;= 0).  Typical value = 3.
+- name: tc
+  type: Seconds
+  description: Maximum gate closing velocity (<i>TC</i>) (&gt;= 0).  Typical value = 0,5.
+- name: tcm
+  type: Seconds
+  description: Fuel control time constant (<i>Tcm</i>) (&gt;= 0).  Typical value = 0,1.
+- name: tm
+  type: Seconds
+  description: Compressor discharge volume time constant (<i>Tm</i>) (&gt;= 0).  Typical value = 0,2.
+- name: ty
+  type: Seconds
+  description: Time constant of fuel valve positioner (<i>Ty</i>) (&gt;= 0).  Typical value = 0,1.
+ancestors:
+- TurbineGovernorDynamics

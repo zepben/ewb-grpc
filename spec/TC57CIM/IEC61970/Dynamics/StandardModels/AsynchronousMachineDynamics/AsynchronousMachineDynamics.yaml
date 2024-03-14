@@ -1,0 +1,47 @@
+name: AsynchronousMachineDynamics
+description: "Asynchronous machine whose behaviour is described by reference to a standard model expressed in either time\
+  \ constant reactance form or equivalent circuit form <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>\n\
+  Parameter details:\n<ol>\n\t<li>Asynchronous machine parameters such as <i>Xl, Xs,</i> etc. are actually used as inductances\
+  \ in the model, but are commonly referred to as reactances since, at nominal frequency, the PU values are the same. However,\
+  \ some references use the symbol <i>L</i> instead of <i>X</i>.</li>\n</ol>"
+ancestors:
+- RotatingMachineDynamics
+descendents:
+- AsynchronousMachineUserDefined
+- AsynchronousMachineEquivalentCircuit
+- AsynchronousMachineTimeConstantReactance
+associations:
+- source: AsynchronousMachineDynamics
+  target: AsynchronousMachine
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: AsynchronousMachineDynamics
+  sourceDescription: Asynchronous machine dynamics model used to describe dynamic behaviour of this asynchronous machine.
+  targetName: AsynchronousMachine
+  targetDescription: Asynchronous machine to which this asynchronous machine dynamics model applies.
+- source: TurbineGovernorDynamics
+  target: AsynchronousMachineDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TurbineGovernorDynamics
+  sourceDescription: Turbine-governor model associated with this asynchronous machine model.
+  targetName: AsynchronousMachineDynamics
+  targetDescription: Asynchronous machine model with which this turbine-governor model is associated. TurbineGovernorDynamics
+    shall have either an association to SynchronousMachineDynamics or to AsynchronousMachineDynamics.
+- source: MechanicalLoadDynamics
+  target: AsynchronousMachineDynamics
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: MechanicalLoadDynamics
+  sourceDescription: Mechanical load model associated with this asynchronous machine model.
+  targetName: AsynchronousMachineDynamics
+  targetDescription: Asynchronous machine model with which this mechanical load model is associated. MechanicalLoadDynamics
+    shall have either an association to SynchronousMachineDynamics or to AsynchronousMachineDynamics.
+- source: WindTurbineType1or2Dynamics
+  target: AsynchronousMachineDynamics
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: WindTurbineType1or2Dynamics
+  sourceDescription: Wind generator type 1 or type 2 model associated with this asynchronous machine model.
+  targetName: AsynchronousMachineDynamics
+  targetDescription: Asynchronous machine model with which this wind generator type 1 or type 2 model is associated.

@@ -1,0 +1,33 @@
+name: CommodityPrice
+description: The CommodityPrice class is used to define the price of a commodity during a given time interval.  The interval
+  may be long, e.g. a year, or very short, e.g. 5 minutes.  There will be many instances of the CommodityPrice class for each
+  instance of the CommodityDefinition to which it is associated.  Note that there may be more than once price associated with
+  a given interval and these variances are described by the association (or associations) with the PriceDescriptor class.
+attributes:
+- name: timeIntervalPeriod
+  type: DateTimeInterval
+  description: The time interval over which the CommodityPrice is valid, using the standard conventions associated with the
+    DateTimeInterval class.
+- name: value
+  type: Float
+  description: The price of the Commodity, expressed as a floating point value with the currency and unit of measure defined
+    in the associated CommodityDefinition class.
+associations:
+- source: CommodityPrice
+  target: PriceDescriptor
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: CommodityPrice
+  targetName: PriceDescriptor
+- source: CommodityPrice
+  target: CommodityDefinition
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: CommodityPrice
+  targetName: CommodityDefinition
+- source: PnodeClearing
+  target: CommodityPrice
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PnodeClearing
+  targetName: CommodityPrice

@@ -1,0 +1,69 @@
+name: Pss5
+description: Detailed Italian PSS.
+attributes:
+- name: ctw2
+  type: Boolean
+  description: |-
+    Selector for second washout enabling (<i>C</i><i><sub>TW2</sub></i>).
+    true = second washout filter is bypassed
+    false = second washout filter in use.
+    Typical value = true.
+- name: deadband
+  type: PU
+  description: Stabilizer output deadband (<i>DEADBAND</i>).  Typical value = 0.
+- name: isfreq
+  type: Boolean
+  description: |-
+    Selector for frequency/shaft speed input (<i>isFreq</i>).
+    true = speed (same meaning as InputSignaKind.rotorSpeed)
+    false = frequency (same meaning as InputSignalKind.busFrequency).
+    Typical value = true (same meaning as InputSignalKind.rotorSpeed).
+- name: kf
+  type: Float
+  description: Frequency/shaft speed input gain (<i>K</i><i><sub>F</sub></i>).  Typical value = 5.
+- name: kpe
+  type: Float
+  description: Electric power input gain (<i>K</i><i><sub>PE</sub></i>).  Typical value = 0,3.
+- name: kpss
+  type: Float
+  description: PSS gain (<i>K</i><i><sub>PSS</sub></i>).  Typical value = 1.
+- name: pmin
+  type: PU
+  description: Minimum power PSS enabling (<i>Pmin</i>).  Typical value = 0,25.
+- name: tl1
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>L1</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl2
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>L2</sub></i>) (&gt;= 0).  If = 0, both blocks are bypassed.  Typical
+    value = 0.
+- name: tl3
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>L3</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl4
+  type: Seconds
+  description: Lead/lag time constant (T<sub>L4</sub>) (&gt;= 0).  If = 0, both blocks are bypassed.  Typical value = 0.
+- name: tpe
+  type: Seconds
+  description: Electric power filter time constant (<i>T</i><i><sub>PE</sub></i>) (&gt;= 0).  Typical value = 0,05.
+- name: tw1
+  type: Seconds
+  description: First washout (<i>T</i><i><sub>W1</sub></i>) (&gt;= 0).  Typical value = 3,5.
+- name: tw2
+  type: Seconds
+  description: Second washout (<i>T</i><i><sub>W2</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: vadat
+  type: Boolean
+  description: |-
+    <font color="#0f0f0f">Signal selector (<i>V</i><i><sub>adAtt</sub></i>).</font>
+    <font color="#0f0f0f">true = closed (generator power is greater than <i>Pmin</i>)</font>
+    <font color="#0f0f0f">false = open (<i>Pe</i> is smaller than <i>Pmin</i>).</font>
+    <font color="#0f0f0f">Typical value = true.</font>
+- name: vsmn
+  type: PU
+  description: Stabilizer output maximum limit (<i>V</i><i><sub>SMN</sub></i>).  Typical value = -0,1.
+- name: vsmx
+  type: PU
+  description: Stabilizer output minimum limit (<i>V</i><i><sub>SMX</sub></i>).  Typical value = 0,1.
+ancestors:
+- PowerSystemStabilizerDynamics

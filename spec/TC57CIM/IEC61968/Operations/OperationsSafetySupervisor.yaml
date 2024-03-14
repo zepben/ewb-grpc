@@ -1,0 +1,22 @@
+name: OperationsSafetySupervisor
+description: Operator with responsibility that the work in high voltage installation is executed in a safe manner and according
+  to safety regulation.
+ancestors:
+- Operator
+associations:
+- source: OperationsSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReleasedToSupervisor
+  sourceDescription: Supervisor to which this safety document is released.
+  targetName: ReleasedSafetyDocuments
+  targetDescription: All safety documents released to this supervisor.
+- source: OperationsSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: IssuedBySupervisor
+  sourceDescription: Supervisor that issued this safety document.
+  targetName: IssuedSafetyDocuments
+  targetDescription: All safety documents issued by this supervisor.

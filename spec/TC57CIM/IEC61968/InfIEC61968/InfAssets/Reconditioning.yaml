@@ -1,0 +1,27 @@
+name: Reconditioning
+description: Reconditioning information for an asset.
+attributes:
+- name: dateTime
+  type: DateTime
+  description: Date and time this reconditioning (or a major overhaul) has been performed.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Reconditioning
+  target: TransformerObservation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Reconditioning
+  targetName: TransformerObservations
+- source: CoolingPowerRating
+  target: Reconditioning
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: PowerRatings
+  targetName: Reconditionings
+- source: Asset
+  target: Reconditioning
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Asset
+  targetName: Reconditionings

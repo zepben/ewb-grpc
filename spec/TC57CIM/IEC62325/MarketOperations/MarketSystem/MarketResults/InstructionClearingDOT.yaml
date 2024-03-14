@@ -1,0 +1,23 @@
+name: InstructionClearingDOT
+description: Model of market clearing, related to Dispatch Operating Target (model of anticipatory dispatch). Identifies interval.
+attributes:
+- name: contingencyActive
+  type: YesNo
+  description: Indication that the system is currently operating in a contingency mode.
+- name: dispatchMode
+  type: AutomaticDispatchMode
+ancestors:
+- MarketFactors
+associations:
+- source: InstructionClearingDOT
+  target: DotInstruction
+  sourceCardinality: 1..*
+  targetCardinality: 1..*
+  sourceName: InstructionClearingDOT
+  targetName: DotInstruction
+- source: DistributedResourceActualEvent
+  target: InstructionClearingDOT
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DemandResponseActualEvent
+  targetName: InstructionClearingDOT

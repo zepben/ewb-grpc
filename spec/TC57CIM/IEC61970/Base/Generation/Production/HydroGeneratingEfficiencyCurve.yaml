@@ -1,0 +1,16 @@
+name: HydroGeneratingEfficiencyCurve
+description: |-
+  Relationship between unit efficiency as percentage and unit output active power for a given net head in meters. The relationship between efficiency, discharge, head, and power output is expressed as follows:   E =KP/HQ
+  where:  E is the efficiency, as a percentage; P is the active power; H is the height; Q is the discharge, volume/time unit; K is a constant.
+  For example, a curve instance for a given net head could show efficiency (Y-axis) versus active power output (X-axis) or versus discharge on the X-axis.
+ancestors:
+- Curve
+associations:
+- source: HydroGeneratingEfficiencyCurve
+  target: HydroGeneratingUnit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: HydroGeneratingEfficiencyCurves
+  sourceDescription: A hydro generating unit has an efficiency curve.
+  targetName: HydroGeneratingUnit
+  targetDescription: A hydro generating unit has an efficiency curve.

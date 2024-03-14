@@ -1,0 +1,57 @@
+name: EndDeviceEvent
+description: Event detected by a device function associated with the end device.
+attributes:
+- name: issuerID
+  type: String
+  description: Unique identifier of the business entity originating an end device control.
+- name: issuerTrackingID
+  type: String
+  description: Identifier assigned by the initiator (e.g. retail electric provider) of an end device control action to uniquely
+    identify the demand response event, text message, or other subject of the control action. Can be used when cancelling
+    an event or text message request or to identify the originating event or text message in a consequential end device event.
+- name: userID
+  type: String
+  description: (if user initiated) ID of user who initiated this end device event.
+ancestors:
+- ActivityRecord
+associations:
+- source: EndDeviceEvent
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDeviceEvents
+  sourceDescription: All end device events reported for this usage point.
+  targetName: UsagePoint
+  targetDescription: Usage point for which this end device event is reported.
+- source: EndDeviceEvent
+  target: EndDeviceEventType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EndDeviceEvents
+  sourceDescription: All end device events of this type.
+  targetName: EndDeviceEventType
+  targetDescription: Type of this end device event.
+- source: EndDeviceEvent
+  target: EndDeviceEventDetail
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: EndDeviceEvent
+  sourceDescription: End device owning this detail.
+  targetName: EndDeviceEventDetails
+  targetDescription: All details of this end device event.
+- source: EndDeviceEvent
+  target: EndDevice
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EndDeviceEvents
+  sourceDescription: All events reported by this end device.
+  targetName: EndDevice
+  targetDescription: End device that reported this end device event.
+- source: MeterReading
+  target: EndDeviceEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MeterReading
+  sourceDescription: Set of measured values to which this event applies.
+  targetName: EndDeviceEvents
+  targetDescription: All end device events associated with this set of measured values.

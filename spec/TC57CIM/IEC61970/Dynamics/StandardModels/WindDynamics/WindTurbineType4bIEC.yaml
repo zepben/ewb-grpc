@@ -1,0 +1,31 @@
+name: WindTurbineType4bIEC
+description: |-
+  Wind turbine IEC type 4B.
+  Reference: IEC 61400-27-1:2015, 5.5.5.3.
+ancestors:
+- WindTurbineType4IEC
+associations:
+- source: WindGenType4IEC
+  target: WindTurbineType4bIEC
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: WindGenType4IEC
+  sourceDescription: Wind generator type 4 model associated with this wind turbine type 4B model.
+  targetName: WindTurbineType4bIEC
+  targetDescription: Wind turbine type 4B model with which this wind generator type 4 model is associated.
+- source: WindMechIEC
+  target: WindTurbineType4bIEC
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: WindMechIEC
+  sourceDescription: Wind mechanical model associated with this wind turbine type 4B model.
+  targetName: WindTurbineType4bIEC
+  targetDescription: Wind turbine type 4B model with which this wind mechanical model is associated.
+- source: WindContPType4bIEC
+  target: WindTurbineType4bIEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindContPType4bIEC
+  sourceDescription: Wind control P type 4B model associated with this wind turbine type 4B model.
+  targetName: WindTurbineType4bIEC
+  targetDescription: Wind turbine type 4B model with which this wind control P type 4B model is associated.

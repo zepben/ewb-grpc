@@ -1,0 +1,15 @@
+name: VerificationAction
+description: Verification of a switch position or other condition as a switching step
+attributes:
+- name: verificationCondition
+  type: String
+  description: freeform description of the condition to be verified
+ancestors:
+- SwitchingAction
+associations:
+- source: VerificationAction
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: VerificationAction
+  targetName: PowerSystemResource

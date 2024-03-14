@@ -1,0 +1,40 @@
+name: AssetDeployment
+description: Deployment of asset deployment in a power system resource role.
+attributes:
+- name: breakerApplication
+  type: BreakerApplicationKind
+  description: Type of network role breaker is playing in this deployment (applies to breaker assets only).
+- name: deploymentDate
+  type: DeploymentDate
+  description: Dates of asset deployment.
+- name: deploymentState
+  type: DeploymentStateKind
+  description: Current deployment state of asset.
+- name: facilityKind
+  type: FacilityKind
+  description: Kind of facility (like substation or pole or building or plant or service center) at which asset deployed.
+- name: likelihoodOfFailure
+  type: Integer
+  description: Likelihood of asset failure on a scale of 1(low) to 100 (high).
+- name: transformerApplication
+  type: TransformerApplicationKind
+  description: Type of network role transformer is playing in this deployment (applies to transformer assets only).
+ancestors:
+- IdentifiedObject
+associations:
+- source: AssetDeployment
+  target: BaseVoltage
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: NetworkAssetDeployment
+  sourceDescription: A network asset deployment at this base voltage level.
+  targetName: BaseVoltage
+  targetDescription: Base voltage of this network asset deployment.
+- source: Asset
+  target: AssetDeployment
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: Asset
+  sourceDescription: Asset in this deployment.
+  targetName: AssetDeployment
+  targetDescription: This asset's deployment.

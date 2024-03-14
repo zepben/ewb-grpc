@@ -1,0 +1,32 @@
+name: ConditionFactor
+description: This is to specify the various condition factors for a design that may alter the cost estimate or the allocation.
+attributes:
+- name: cfValue
+  type: String
+  description: The actual value of the condition factor, such as labor flat fee or percentage.
+- name: kind
+  type: ConditionFactorKind
+  description: Kind of this condition factor.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: Design
+  target: ConditionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Designs
+  targetName: ConditionFactors
+- source: DesignLocationCU
+  target: ConditionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DesignLocationCUs
+  targetName: ConditionFactors
+- source: DesignLocation
+  target: ConditionFactor
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DesignLocations
+  targetName: ConditionFactors

@@ -1,0 +1,12 @@
+name: ModelOperationSequence
+description: A concrete sequence of operations.    For example, this may be used to describe a specific audit trail, a script
+  or other specific set of actions on specific datasets.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ModelOperationSequence
+  target: ModelOperation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: OperationSequence
+  targetName: ModelOperation

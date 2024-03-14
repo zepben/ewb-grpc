@@ -1,0 +1,75 @@
+name: ExcPIC
+description: Proportional/integral regulator excitation system.  This model can be used to represent excitation systems with
+  a proportional-integral (PI) voltage regulator controller.
+attributes:
+- name: e1
+  type: PU
+  description: Field voltage value 1 (<i>E</i><i><sub>1</sub></i>).  Typical value = 0.
+- name: e2
+  type: PU
+  description: Field voltage value 2 (<i>E</i><i><sub>2</sub></i>).  Typical value = 0.
+- name: efdmax
+  type: PU
+  description: Exciter maximum limit (<i>E</i><i><sub>fdmax</sub></i>) (&gt; ExcPIC.efdmin).  Typical value = 8.
+- name: efdmin
+  type: PU
+  description: Exciter minimum limit (<i>E</i><i><sub>fdmin</sub></i>) (&lt; ExcPIC.efdmax).  Typical value = -0,87.
+- name: ka
+  type: PU
+  description: PI controller gain (<i>K</i><i><sub>a</sub></i>).  Typical value = 3,15.
+- name: kc
+  type: PU
+  description: Exciter regulation factor (<i>K</i><i><sub>c</sub></i>).  Typical value = 0,08.
+- name: ke
+  type: PU
+  description: Exciter constant (<i>K</i><i><sub>e</sub></i>).  Typical value = 0.
+- name: kf
+  type: PU
+  description: Rate feedback gain (<i>K</i><i><sub>f</sub></i>).  Typical value = 0.
+- name: ki
+  type: PU
+  description: Current source gain (<i>K</i><i><sub>i</sub></i>).  Typical value = 0.
+- name: kp
+  type: PU
+  description: Potential source gain (<i>K</i><i><sub>p</sub></i>).  Typical value = 6,5.
+- name: se1
+  type: PU
+  description: Saturation factor at <i>E</i><i><sub>1</sub></i> (<i>Se</i><i><sub>1</sub></i>).  Typical value = 0.
+- name: se2
+  type: PU
+  description: Saturation factor at <i>E</i><i><sub>2</sub></i> (<i>Se</i><i><sub>2</sub></i>).  Typical value = 0.
+- name: ta1
+  type: Seconds
+  description: PI controller time constant (<i>T</i><i><sub>a1</sub></i>) (&gt;= 0).  Typical value = 1.
+- name: ta2
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>a2</sub></i>) (&gt;= 0).  Typical value = 0,01.
+- name: ta3
+  type: Seconds
+  description: Lead time constant (<i>T</i><i><sub>a3</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ta4
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>a4</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: te
+  type: Seconds
+  description: Exciter time constant (<i>T</i><i><sub>e</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tf1
+  type: Seconds
+  description: Rate feedback time constant (<i>T</i><i><sub>f1</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tf2
+  type: Seconds
+  description: Rate feedback lag time constant (<i>T</i><i><sub>f2</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: vr1
+  type: PU
+  description: PI maximum limit (<i>V</i><i><sub>r1</sub></i>).  Typical value = 1.
+- name: vr2
+  type: PU
+  description: PI minimum limit (<i>V</i><i><sub>r2</sub></i>).  Typical value = -0,87.
+- name: vrmax
+  type: PU
+  description: Voltage regulator maximum limit (<i>V</i><i><sub>rmax</sub></i>) (&gt; ExcPIC.vrmin).  Typical value = 1.
+- name: vrmin
+  type: PU
+  description: Voltage regulator minimum limit (<i>V</i><i><sub>rmin</sub></i>) (&lt; ExcPIC.vrmax).  Typical value = -0,87.
+ancestors:
+- ExcitationSystemDynamics

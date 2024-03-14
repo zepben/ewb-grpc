@@ -1,0 +1,29 @@
+name: InstructionClearing
+description: Model of market clearing, relating to commitment instructions. Identifies interval.
+ancestors:
+- MarketFactors
+associations:
+- source: InstructionClearing
+  target: ResourceDeploymentStatus
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: InstructionClearing
+  targetName: ResourceDeploymentStatus
+- source: Instructions
+  target: InstructionClearing
+  sourceCardinality: 1..*
+  targetCardinality: 1..*
+  sourceName: Instructions
+  targetName: InstructionClearing
+- source: DistributedResourceActualEvent
+  target: InstructionClearing
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ActualDemandResponseEvent
+  sourceDescription: ActualDemandResponseEvents may exist that are not part of a cordinated MarketActualEvent associated to
+    a Market. These ActualDemandResponseEvents can have many InstructionClearing Instructions for specified RegisteredResources
+    or Distributed Energy Resource type of AggregateNodes.
+  targetName: InstructionClearing
+  targetDescription: ActualDemandResponseEvents may exist that are not part of a coordinated MarketActualEvent associated
+    to a Market. These ActualDemandResponseEvents can have many InstructionClearing Instructions for specified RegisteredResources
+    or DemandResponse AggregateNodes.

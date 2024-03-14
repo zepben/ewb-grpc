@@ -1,0 +1,38 @@
+name: PssSB4
+description: Power sensitive stabilizer model.
+attributes:
+- name: kx
+  type: PU
+  description: Gain (<i>Kx</i>).  Typical value = 2,7.
+- name: ta
+  type: Seconds
+  description: Time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0,37.
+- name: tb
+  type: Seconds
+  description: Time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 0,37.
+- name: tc
+  type: Seconds
+  description: Time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0,035.
+- name: td
+  type: Seconds
+  description: Time constant (<i>Td</i>) (&gt;= 0).  Typical value = 0,0.
+- name: te
+  type: Seconds
+  description: Time constant (<i>Te</i>) (&gt;= 0).  Typical value = 0,0169.
+- name: tt
+  type: Seconds
+  description: Time constant (<i>Tt</i>) (&gt;= 0).  Typical value = 0,18.
+- name: tx1
+  type: Seconds
+  description: Reset time constant (<i>Tx1</i>) (&gt;= 0).  Typical value = 0,035.
+- name: tx2
+  type: Seconds
+  description: Time constant (<i>Tx2</i>) (&gt;= 0).  Typical value = 5,0.
+- name: vsmax
+  type: PU
+  description: Limiter (<i>Vsmax</i>) (&gt; PssSB4.vsmin).  Typical value = 0,062.
+- name: vsmin
+  type: PU
+  description: Limiter (<i>Vsmin</i>) (&lt; PssSB4.vsmax).  Typical value = -0,062.
+ancestors:
+- PowerSystemStabilizerDynamics

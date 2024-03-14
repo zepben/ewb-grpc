@@ -1,0 +1,19 @@
+name: PinMeasurement
+description: Gate input pin that is associated with a Measurement or a calculation of Measurement.
+ancestors:
+- GateInputPin
+associations:
+- source: PinMeasurement
+  target: Measurement
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PinMeasurement
+  targetName: Measurement
+  targetDescription: The Measurement that should be used in compare.
+- source: MeasurementCalculator
+  target: PinMeasurement
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: MeasurementCalculator
+  sourceDescription: Result of the calculation used as input to a gate.
+  targetName: PinMeasurement

@@ -1,0 +1,32 @@
+name: Price
+description: The cost corresponding to a specific measure and expressed in a currency.
+attributes:
+- name: amount
+  type: Decimal
+  description: A number of monetary units specified in a unit of currency.
+- name: category
+  type: String
+  description: The category of a price to be used in a price calculation. The price category is mutually agreed between System
+    Operators.
+- name: direction
+  type: String
+  description: The direction indicates whether a System Operator pays the Market Parties or inverse.
+associations:
+- source: Price
+  target: Point
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Price
+  targetName: Point
+- source: Price
+  target: Domain
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Price
+  targetName: Domain
+- source: Price
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Price
+  targetName: TimeSeries

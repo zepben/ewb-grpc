@@ -1,0 +1,41 @@
+name: Tender
+description: |-
+  Tender is what is "offered" by the customer towards making a payment and is often more than the required payment (hence the need for 'change'). The payment is thus that part of the Tender that goes towards settlement of a particular transaction.
+  Tender is modelled as an aggregation of Cheque and Card. Both these tender types can exist in a single tender bid thus 'accountHolderName' has to exist separately in each of Cheque and Card as each could have a different account holder name.
+attributes:
+- name: amount
+  type: Money
+  description: Amount tendered by customer.
+- name: change
+  type: Money
+  description: Difference between amount tendered by customer and the amount charged by point of sale.
+- name: kind
+  type: TenderKind
+  description: Kind of tender from customer.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Tender
+  target: Receipt
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: Tenders
+  sourceDescription: All payments received in the form of tenders recorded by this receipt.
+  targetName: Receipt
+  targetDescription: Receipt that recorded this receiving of a payment in the form of tenders.
+- source: Cheque
+  target: Tender
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: Cheque
+  sourceDescription: Cheque used to tender payment.
+  targetName: Tender
+  targetDescription: Payment tender the cheque is being used for.
+- source: Card
+  target: Tender
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: Card
+  sourceDescription: Card used to tender payment.
+  targetName: Tender
+  targetDescription: Payment tender this card is being used for.

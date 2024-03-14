@@ -1,0 +1,19 @@
+name: Assignment
+description: An assignment is given to an ErpPerson, Crew, Organisation, Equipment Item, Tool, etc. and may be used to perform
+  Work, WorkTasks, Procedures, etc. TimeSchedules may be set up directly for Assignments or indirectly via the associated
+  WorkTask. Note that these associations are all inherited through the recursive relationship on Document.
+attributes:
+- name: effectivePeriod
+  type: DateTimeInterval
+  description: Period between the assignment becoming effective and its expiration.
+ancestors:
+- WorkDocument
+associations:
+- source: OldCrew
+  target: Assignment
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Crews
+  sourceDescription: All Crews having this Assignment.
+  targetName: Assignments
+  targetDescription: All Assignments for this Crew.

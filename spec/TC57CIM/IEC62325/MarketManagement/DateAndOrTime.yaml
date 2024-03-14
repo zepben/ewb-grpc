@@ -1,0 +1,22 @@
+name: DateAndOrTime
+description: The date and/or the time.
+attributes:
+- name: date
+  type: Date
+  description: Date as "yyyy-mm-dd", which conforms with ISO 8601
+- name: time
+  type: Time
+  description: Time as "hh:mm:ss.sssZ", which conforms with ISO 8601.
+associations:
+- source: DateAndOrTime
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DateAndOrTime
+  targetName: MarketDocument
+- source: TimeSeries
+  target: DateAndOrTime
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: DateAndOrTime

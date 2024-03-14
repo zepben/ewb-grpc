@@ -1,0 +1,43 @@
+name: PssIEEE1A
+description: "IEEE 421.5-2005 type PSS1A power system stabilizer model. PSS1A is the generalized form of a PSS with a single\
+  \ input signal. \nReference: IEEE 1A 421.5-2005, 8.1."
+attributes:
+- name: a1
+  type: PU
+  description: PSS signal conditioning frequency filter constant (<i>A1</i>).  Typical value = 0,061.
+- name: a2
+  type: PU
+  description: PSS signal conditioning frequency filter constant (<i>A2</i>).  Typical value = 0,0017.
+- name: inputSignalType
+  type: InputSignalKind
+  description: Type of input signal (rotorAngularFrequencyDeviation, generatorElectricalPower, or busFrequencyDeviation).  Typical
+    value = rotorAngularFrequencyDeviation.
+- name: ks
+  type: PU
+  description: Stabilizer gain (<i>Ks</i>).  Typical value = 5.
+- name: t1
+  type: Seconds
+  description: Lead/lag time constant (<i>T1</i>) (&gt;= 0).  Typical value = 0,3.
+- name: t2
+  type: Seconds
+  description: Lead/lag time constant (<i>T2</i>) (&gt;= 0).  Typical value = 0,03.
+- name: t3
+  type: Seconds
+  description: Lead/lag time constant (<i>T3</i>) (&gt;= 0).  Typical value = 0,3.
+- name: t4
+  type: Seconds
+  description: Lead/lag time constant (<i>T4</i>) (&gt;= 0).  Typical value = 0,03.
+- name: t5
+  type: Seconds
+  description: Washout time constant (<i>T5</i>) (&gt;= 0).  Typical value = 10.
+- name: t6
+  type: Seconds
+  description: Transducer time constant (<i>T6</i>) (&gt;= 0).  Typical value = 0,01.
+- name: vrmax
+  type: PU
+  description: Maximum stabilizer output (<i>Vrmax</i>) (&gt; PssIEEE1A.vrmin).  Typical value = 0,05.
+- name: vrmin
+  type: PU
+  description: Minimum stabilizer output (<i>Vrmin</i>) (&lt; PssIEEE1A.vrmax).  Typical value = -0,05.
+ancestors:
+- PowerSystemStabilizerDynamics

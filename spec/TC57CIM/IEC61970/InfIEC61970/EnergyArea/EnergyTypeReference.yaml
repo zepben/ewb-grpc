@@ -1,0 +1,11 @@
+name: EnergyTypeReference
+attributes:
+- name: kind
+  type: EnergyTypeKind
+ancestors:
+- IdentifiedObject
+associations:
+- source: EnergyGroup
+  target: EnergyTypeReference
+  sourceCardinality: 0..*
+  targetCardinality: "1"

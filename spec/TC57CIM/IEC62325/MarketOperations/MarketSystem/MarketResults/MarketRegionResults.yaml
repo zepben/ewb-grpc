@@ -1,0 +1,71 @@
+name: MarketRegionResults
+description: Provides all Region Ancillary Service results for the DA and RT markets. The specific data is commodity type
+  (Regulation Up, Regulation Down, Spinning Reserve, Non-spinning Reserve, or Total Up reserves) based for the cleared MW,
+  cleared price, and total capacity required for the region.
+attributes:
+- name: clearedMW
+  type: Float
+  description: Cleared generation Value in MW.  For AS, this value is clearedMW = AS Total.  For AS, clearedMW - selfScheduleMW
+    = AS Procured
+- name: clearedPrice
+  type: Float
+  description: Marginal Price ($/MW) for the commodity (Energy, Regulation Up, Regulation Down, Spinning Reserve, or Non-spinning
+    reserve) based on the pricing run.
+- name: dispatchCtMW
+  type: Float
+  description: Dispatchable MW for Combustion units.
+- name: dispatchHydroMW
+  type: Float
+  description: Dispatchable MW for Hydro units.
+- name: dispatchRate
+  type: Float
+  description: Dispatch rate in MW/minutes.
+- name: dispatchSteamMW
+  type: Float
+  description: Dispatchable MW for Steam units.
+- name: imbalanceEnergyBias
+  type: Float
+  description: Imbalance Energy Bias (MW) by Time Period (5' only)
+- name: limitFlag
+  type: ResourceLimitIndicator
+  description: Locational AS Flags indicating whether the Upper or Lower Bound limit of the AS regional procurment is binding
+- name: lumpyIndicator
+  type: YesNo
+  description: |-
+    The "Lumpy Flag"(Y/N)  indicates whether the resource that sets the price is a lumpy generator by hour over the time horizon.
+
+    Only applicable for the Day Ahead Market
+- name: maxSufficiencyIndex
+  type: Float
+  description: Region requirement maximum limit
+- name: minSufficiencyIndex
+  type: Float
+  description: Region requirement minimum limit
+- name: reqMaxMW
+  type: Float
+  description: Region requirement maximum limit
+- name: reqMinMW
+  type: Float
+  description: Region requirement minimum limit
+- name: selfScheduleMW
+  type: Float
+  description: Aof AS, selfScheduleMW = AS Self-Provided
+associations:
+- source: AncillaryServiceClearing
+  target: MarketRegionResults
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: AncillaryServiceClearing
+  targetName: MarketRegionResults
+- source: MarketRegion
+  target: MarketRegionResults
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: MarketRegion
+  targetName: MarketRegionResults
+- source: MarketProduct
+  target: MarketRegionResults
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: MarketProduct
+  targetName: MarketRegionResults

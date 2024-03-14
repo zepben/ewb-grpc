@@ -1,0 +1,24 @@
+name: WorkFlowStep
+description: A pre-defined set of work steps for a given type of work.
+attributes:
+- name: sequenceNumber
+  type: Integer
+  description: Used to define dependencies of each work flow step, which is for the instance of WorkTask associated with a
+    given instance of WorkFlow.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: WorkFlowStep
+  target: OldWorkTask
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WorkFlowStep
+  targetName: WorkTasks
+- source: WorkFlowStep
+  target: Work
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkFlowSteps
+  targetName: Work

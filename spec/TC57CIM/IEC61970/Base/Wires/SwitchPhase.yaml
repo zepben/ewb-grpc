@@ -1,0 +1,34 @@
+name: SwitchPhase
+description: Single phase of a multi-phase switch when its attributes might be different per phase.
+attributes:
+- name: normalOpen
+  type: Boolean
+  description: Used in cases when no Measurement for the status value is present. If the SwitchPhase has a status measurement
+    the Discrete.normalValue is expected to match with this value.
+- name: phaseSide1
+  type: SinglePhaseKind
+  description: Phase of this SwitchPhase on the side with terminal sequence number equal to 1. Should be a phase contained
+    in that terminal’s phases attribute.
+- name: phaseSide2
+  type: SinglePhaseKind
+  description: Phase of this SwitchPhase on the side with terminal sequence number equal to 2.  Should be a phase contained
+    in that terminal’s Terminal.phases attribute.
+- name: closed
+  type: Boolean
+  description: The attribute tells if the switch is considered closed when used as input to topology processing.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: |-
+    The maximum continuous current carrying capacity in amps governed by the device material and construction.
+    The attribute shall be a positive value.
+ancestors:
+- PowerSystemResource
+associations:
+- source: Switch
+  target: SwitchPhase
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Switch
+  sourceDescription: The switch of the switch phase.
+  targetName: SwitchPhase
+  targetDescription: The individual switch phases for the switch.

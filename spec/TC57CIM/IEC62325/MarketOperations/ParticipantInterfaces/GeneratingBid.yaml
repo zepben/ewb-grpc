@@ -1,0 +1,104 @@
+name: GeneratingBid
+description: Offer to supply energy/ancillary services from a generating unit or resource.
+attributes:
+- name: combinedCycleUnitOffer
+  type: String
+  description: Will indicate if the unit is part of a CC offer or not
+- name: downTimeMax
+  type: Float
+  description: Maximum down time.
+- name: installedCapacity
+  type: Float
+  description: Installed Capacity value
+- name: lowerRampRate
+  type: ActivePowerChangeRate
+  description: Maximum Dn ramp rate in MW/min
+- name: maxEmergencyMW
+  type: ActivePower
+  description: Power rating available for unit under emergency conditions greater than or equal to maximum economic limit.
+- name: maximumEconomicMW
+  type: Float
+  description: Maximum high economic MW limit, that should not exceed the maximum operating MW limit
+- name: minEmergencyMW
+  type: ActivePower
+  description: Minimum power rating for unit under emergency conditions, which is less than or equal to the economic minimum.
+- name: minimumEconomicMW
+  type: Float
+  description: Low economic MW limit that shall be greater than or equal to the minimum operating MW limit
+- name: noLoadCost
+  type: Float
+  description: Resource fixed no load cost.
+- name: notificationTime
+  type: Float
+  description: Time required for crew notification prior to start up of the unit.
+- name: operatingMode
+  type: String
+  description: Bid operating mode ('C' - cycling, 'F' - fixed, 'M' - must run, 'U' - unavailable)
+- name: raiseRampRate
+  type: ActivePowerChangeRate
+  description: Maximum Up ramp rate in MW/min
+- name: rampCurveType
+  type: Integer
+  description: "Ramp curve type:\n0 - Fixed ramp rate independent of rate function unit MW output\n1 - Static ramp rates as\
+    \ a function of unit MW output only \n2 - Dynamic ramp rates as a function of unit MW output and ramping time"
+- name: startupCost
+  type: Float
+  description: Startup cost/price
+- name: startUpRampRate
+  type: ActivePowerChangeRate
+  description: Resource startup ramp rate (MW/minute)
+- name: startUpType
+  type: Integer
+  description: |-
+    Resource startup type:
+    1 - Fixed startup time and fixed startup cost
+    2 - Startup time as a function of down time and fixed startup cost
+    3 - Startup cost as a function of down time
+- name: upTimeMax
+  type: Float
+  description: Maximum up time.
+ancestors:
+- ResourceBid
+associations:
+- source: GeneratingBid
+  target: BidSet
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: GeneratingBids
+  targetName: BidSet
+- source: GeneratingBid
+  target: NotificationTimeCurve
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: GeneratingBids
+  targetName: NotificationTimeCurve
+- source: GeneratingBid
+  target: RampRateCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GeneratingBid
+  targetName: RampRateCurve
+- source: GeneratingBid
+  target: SecurityConstraints
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: GeneratingBid
+  targetName: SecurityConstraints
+- source: RegisteredGenerator
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: RegisteredGenerator
+  targetName: GeneratingBids
+- source: StartUpCostCurve
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: StartUpCostCurve
+  targetName: GeneratingBid
+- source: StartUpTimeCurve
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: StartUpTimeCurve
+  targetName: GeneratingBid

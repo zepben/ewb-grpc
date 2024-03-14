@@ -1,0 +1,107 @@
+name: WindContPType3IEC
+description: |-
+  P control model type 3.
+  Reference: IEC 61400-27-1:2015, 5.6.5.4.
+attributes:
+- name: dpmax
+  type: PU
+  description: Maximum wind turbine power ramp rate (<i>dp</i><i><sub>max</sub></i>). It is a type-dependent parameter.
+- name: dprefmax
+  type: PU
+  description: Maximum ramp rate of wind turbine reference power (<i>dp</i><i><sub>refmax</sub></i>). It is a project-dependent
+    parameter.
+- name: dprefmin
+  type: PU
+  description: Minimum ramp rate of wind turbine reference power (<i>dp</i><i><sub>refmin</sub></i>). It is a project-dependent
+    parameter.
+- name: dthetamax
+  type: PU
+  description: Ramp limitation of torque, required in some grid codes (<i>dt</i><i><sub>max</sub></i>). It is a project-dependent
+    parameter.
+- name: dthetamaxuvrt
+  type: PU
+  description: Limitation of torque rise rate during UVRT (<i>dtheta</i><i><sub>maxUVRT</sub></i>). It is a project-dependent
+    parameter.
+- name: kdtd
+  type: PU
+  description: Gain for active drive train damping (<i>K</i><i><sub>DTD</sub></i>). It is a type-dependent parameter.
+- name: kip
+  type: PU
+  description: PI controller integration parameter (<i>K</i><sub>Ip</sub>). It is a type-dependent parameter.
+- name: kpp
+  type: PU
+  description: PI controller proportional gain (<i>K</i><sub>Pp</sub>). It is a type-dependent parameter.
+- name: mpuvrt
+  type: Boolean
+  description: |-
+    Enable UVRT power control mode (<i>M</i><i><sub>pUVRT</sub></i><sub>)</sub>.  It is a project-dependent parameter.
+    true = voltage control (1 in the IEC model)
+    false = reactive power control (0 in the IEC model).
+- name: omegadtd
+  type: PU
+  description: Active drive train damping frequency (<i>omega</i><i><sub>DTD</sub></i>). It can be calculated from two mass
+    model parameters. It is a type-dependent parameter.
+- name: omegaoffset
+  type: PU
+  description: Offset to reference value that limits controller action during rotor speed changes (<i>omega</i><i><sub>offset</sub></i>).
+    It is a case-dependent parameter.
+- name: pdtdmax
+  type: PU
+  description: Maximum active drive train damping power (<i>p</i><sub>DTDmax</sub>). It is a type-dependent parameter.
+- name: tdvs
+  type: Seconds
+  description: Time<sub> </sub>delay after deep voltage sags (<i>T</i><i><sub>DVS</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+- name: thetaemin
+  type: PU
+  description: Minimum electrical generator torque (<i>t</i><sub>emin</sub>). It is a type-dependent parameter.
+- name: thetauscale
+  type: PU
+  description: Voltage scaling factor of reset-torque (<i>t</i><sub>uscale</sub>). It is a project-dependent parameter.
+- name: tomegafiltp3
+  type: Seconds
+  description: Filter time constant for generator speed measurement (<i>T</i><sub>omegafiltp3</sub>) (&gt;= 0). It is a type-dependent
+    parameter.
+- name: tomegaref
+  type: Seconds
+  description: Time constant in speed reference filter (<i>T</i><sub>omega,ref</sub>) (&gt;= 0). It is a type-dependent parameter.
+- name: tpfiltp3
+  type: Seconds
+  description: Filter time constant for power measurement (<i>T</i><sub>pfiltp3</sub>) (&gt;= 0). It is a type-dependent parameter.
+- name: tpord
+  type: PU
+  description: Time constant in power order lag (<i>T</i><sub>pord</sub>). It is a type-dependent parameter.
+- name: tufiltp3
+  type: Seconds
+  description: Filter time constant for voltage measurement (<i>T</i><sub>ufiltp3</sub>) (&gt;= 0). It is a type-dependent
+    parameter.
+- name: udvs
+  type: PU
+  description: Voltage limit for hold UVRT status after deep voltage sags (<i>u</i><i><sub>DVS</sub></i>). It is a project-dependent
+    parameter.
+- name: updip
+  type: PU
+  description: Voltage dip threshold for P-control (<i>u</i><sub>Pdip</sub>).  Part of turbine control, often different (e.g
+    0.8) from converter thresholds. It is a project-dependent parameter.
+- name: zeta
+  type: Float
+  description: Coefficient for active drive train damping (<i>zeta</i>). It is a type-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindContPType3IEC
+  target: WindTurbineType3IEC
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: WindContPType3IEC
+  sourceDescription: Wind control P type 3 model associated with this wind turbine type 3 model.
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind control P type 3 model is associated.
+- source: WindDynamicsLookupTable
+  target: WindContPType3IEC
+  sourceCardinality: 1..*
+  targetCardinality: 0..1
+  sourceName: WindDynamicsLookupTable
+  sourceDescription: The wind dynamics lookup table associated with this P control type 3 model.
+  targetName: WindContPType3IEC
+  targetDescription: The P control type 3 model with which this wind dynamics lookup table is associated.

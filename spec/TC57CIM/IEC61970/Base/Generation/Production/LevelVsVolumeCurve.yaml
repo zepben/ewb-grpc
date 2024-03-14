@@ -1,0 +1,14 @@
+name: LevelVsVolumeCurve
+description: Relationship between reservoir volume and reservoir level. The  volume is at the Y-axis and the reservoir level
+  at the X-axis.
+ancestors:
+- Curve
+associations:
+- source: LevelVsVolumeCurve
+  target: Reservoir
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LevelVsVolumeCurves
+  sourceDescription: A reservoir may have a level versus volume relationship.
+  targetName: Reservoir
+  targetDescription: A reservoir may have a level versus volume relationship.

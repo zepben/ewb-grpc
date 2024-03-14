@@ -1,0 +1,28 @@
+name: EndDeviceAction
+description: Action/command performed by an end device on a device other than the end device.
+attributes:
+- name: command
+  type: String
+  description: Command text.
+- name: duration
+  type: Minutes
+  description: Amount of time the action of this control is to remain active.
+- name: durationIndefinite
+  type: Boolean
+  description: True if the action of this control is indefinite.
+- name: startDateTime
+  type: DateTime
+  description: Start date and time for action of this control.
+descendents:
+- PanPricing
+- PanDisplay
+- PanDemandResponse
+associations:
+- source: EndDeviceControl
+  target: EndDeviceAction
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: EndDeviceControl
+  sourceDescription: End device control issuing this end device action.
+  targetName: EndDeviceAction
+  targetDescription: End device action issued by this end device control.

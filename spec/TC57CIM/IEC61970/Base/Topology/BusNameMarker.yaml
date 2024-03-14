@@ -1,0 +1,40 @@
+name: BusNameMarker
+description: Used to apply user standard names to TopologicalNodes. Associated with one or more terminals that are normally
+  connected with the bus name.    The associated terminals are normally connected by non-retained switches. For a ring bus
+  station configuration, all BusbarSection terminals in the ring are typically associated.   For a breaker and a half scheme,
+  both BusbarSections would normally be associated.  For a ring bus, all BusbarSections would normally be associated.  For
+  a "straight" busbar configuration, normally only the main terminal at the BusbarSection would be associated.
+attributes:
+- name: priority
+  type: Integer
+  description: Priority of bus name marker for use as topology bus name.  Use 0 for do not care.  Use 1 for highest priority.  Use
+    2 as priority is less than 1 and so on.
+ancestors:
+- IdentifiedObject
+associations:
+- source: BusNameMarker
+  target: ReportingGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BusNameMarker
+  sourceDescription: The bus name markers that belong to this reporting group.
+  targetName: ReportingGroup
+  targetDescription: The reporting group to which this bus name marker belongs.
+- source: BusNameMarker
+  target: ACDCTerminal
+  sourceCardinality: 0..1
+  targetCardinality: 1..*
+  sourceName: BusNameMarker
+  sourceDescription: The bus name marker used to name the bus (topological node).
+  targetName: Terminal
+  targetDescription: The terminals associated with this bus name marker.
+- source: BusNameMarker
+  target: TopologicalNode
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BusNameMarker
+  sourceDescription: BusnameMarkers that may refer to a pre defined TopologicalNode.
+  targetName: TopologicalNode
+  targetDescription: A user defined topological node that was originally defined in a planning model not yet having topology
+    described by ConnectivityNodes. Once ConnectivityNodes has been created they may linked to user defined ToplogicalNdes
+    using BusNameMarkers.

@@ -1,0 +1,41 @@
+name: ServiceCategory
+description: Category of service provided to the customer.
+attributes:
+- name: kind
+  type: ServiceKind
+  description: Kind of service.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ServiceCategory
+  target: PricingStructure
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ServiceCategory
+  sourceDescription: Service category to which this pricing structure applies.
+  targetName: PricingStructures
+  targetDescription: All pricing structures applicable to this service category.
+- source: ServiceCategory
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedServiceCategory
+  sourceDescription: Service category whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this service category.
+- source: UsagePoint
+  target: ServiceCategory
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: UsagePoints
+  sourceDescription: All usage points that deliver this category of service.
+  targetName: ServiceCategory
+  targetDescription: Service category delivered by this usage point.
+- source: CustomerAgreement
+  target: ServiceCategory
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements with this service category.
+  targetName: ServiceCategory
+  targetDescription: Service category for this agreement.

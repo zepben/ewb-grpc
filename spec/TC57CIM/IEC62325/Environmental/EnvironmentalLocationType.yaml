@@ -1,0 +1,32 @@
+name: EnvironmentalLocationType
+description: Type of environmental location. Used when an environmental alert or phenomenon has multiple locations associated
+  with it.
+attributes:
+- name: kind
+  type: LocationKind
+  description: The kind of location. Typical values might be center, extent, primary, secondary, etc.
+associations:
+- source: EnvironmentalLocationType
+  target: Location
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalLocationKind
+  sourceDescription: Kind of environmental location which this location is.
+  targetName: Location
+  targetDescription: Location of this instance of ths kind of environmental location.
+- source: EnvironmentalAlert
+  target: EnvironmentalLocationType
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: EnvironmentalAlert
+  sourceDescription: Environmental alert applying to location of this type.
+  targetName: EnvironmentalLocationKind
+  targetDescription: Type of location to which this environmental alert applies.
+- source: EnvironmentalPhenomenon
+  target: EnvironmentalLocationType
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EnvironmentalPhenomenon
+  sourceDescription: Environmental phenomenon for which this location is of relevance.
+  targetName: EnvironmentalLocationKind
+  targetDescription: Location of relevance to this environmental phenomenon.

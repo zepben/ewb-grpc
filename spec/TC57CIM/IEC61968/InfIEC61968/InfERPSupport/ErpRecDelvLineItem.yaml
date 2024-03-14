@@ -1,0 +1,33 @@
+name: ErpRecDelvLineItem
+description: Of an ErpReceiveDelivery, this is an individually received good or service by the Organisation receiving goods
+  or services. It may be used to indicate receipt of goods in conjunction with a purchase order line item.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpRecDelvLineItem
+  target: ErpReceiveDelivery
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpRecDelvLineItems
+  targetName: ErpReceiveDelivery
+- source: ErpRecDelvLineItem
+  target: ErpPOLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpRecDelLineItem
+  targetName: ErpPOLineItem
+- source: ErpRecDelvLineItem
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpRecDelvLineItem
+  targetName: ErpInvoiceLineItem
+- source: Asset
+  target: ErpRecDelvLineItem
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Assets
+  targetName: ErpRecDeliveryItems

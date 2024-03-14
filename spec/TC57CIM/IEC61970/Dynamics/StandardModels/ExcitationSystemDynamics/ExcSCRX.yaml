@@ -1,0 +1,34 @@
+name: ExcSCRX
+description: Simple excitation system with generic characteristics typical of many excitation systems; intended for use where
+  negative field current could be a problem.
+attributes:
+- name: cswitch
+  type: Boolean
+  description: |-
+    Power source switch (<i>Cswitch</i>).
+    true = fixed voltage of 1.0 PU
+    false = generator terminal voltage.
+- name: emax
+  type: PU
+  description: Maximum field voltage output (<i>Emax</i>) (&gt; ExcSCRX.emin).  Typical value = 5.
+- name: emin
+  type: PU
+  description: Minimum field voltage output (<i>Emin</i>) (&lt; ExcSCRX.emax).  Typical value = 0.
+- name: k
+  type: PU
+  description: Gain (<i>K</i>) (&gt; 0).  Typical value = 200.
+- name: rcrfd
+  type: Float
+  description: Ratio of field discharge resistance to field winding resistance ([<i>rc / rfd]</i>).  Typical value = 0.
+- name: tatb
+  type: Float
+  description: Gain reduction ratio of lag-lead element ([<i>Ta</i> / <i>Tb</i>]). The parameter <i>Ta</i> is not defined
+    explicitly.  Typical value = 0.1.
+- name: tb
+  type: Seconds
+  description: Denominator time constant of lag-lead block (<i>Tb</i>) (&gt;= 0).  Typical value = 10.
+- name: te
+  type: Seconds
+  description: Time constant of gain block (<i>Te</i>) (&gt; 0).  Typical value = 0,02.
+ancestors:
+- ExcitationSystemDynamics

@@ -1,0 +1,66 @@
+name: SwitchingAction
+description: Atomic switching action.
+attributes:
+- name: executedDateTime
+  type: DateTime
+  description: Actual date and time of this switching step.
+- name: issuedDateTime
+  type: DateTime
+  description: Date and time when the crew was given the instruction to execute the action; not applicable if the action is
+    performed by operator remote control.
+- name: phases
+  type: PhaseCode
+  description: Phases of the Switching Action
+- name: plannedDateTime
+  type: DateTime
+  description: Planned date and time of this switching step.
+ancestors:
+- IdentifiedObject
+descendents:
+- TagAction
+- SwitchAction
+- JumperAction
+- GenericAction
+- GroundAction
+- EnergySourceAction
+- CutAction
+- ClearanceAction
+- VerificationAction
+- ShuntCompensatorAction
+- MeasurementAction
+- EnergyConsumerAction
+- ControlAction
+- ClampAction
+associations:
+- source: SwitchingAction
+  target: SwitchingPlan
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SwitchingAction
+  targetName: SwitchingPlan
+- source: SwitchingAction
+  target: SwitchingEvent
+  sourceCardinality: "1"
+  targetCardinality: 0..1
+  sourceName: SwitchingAction
+  targetName: SwitchingEvent
+- source: SwitchingAction
+  target: Operator
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SwitchingSteps
+  sourceDescription: All switching steps this operator is responsible for.
+  targetName: Operator
+  targetDescription: Operator responsible for this switching step.
+- source: SwitchingAction
+  target: Crew
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: SwitchingAction
+  targetName: Crew
+- source: SwitchingStep
+  target: SwitchingAction
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: SwitchingStep
+  targetName: SwitchingAction

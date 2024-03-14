@@ -1,0 +1,37 @@
+name: OrganisationRole
+description: Identifies a way in which an organisation may participate in the utility enterprise (e.g., customer, manufacturer,
+  etc).
+ancestors:
+- IdentifiedObject
+descendents:
+- PropertyOrganisationRole
+- PersonOrganisationRole
+- OrgOrgRole
+- DocumentOrganisationRole
+- BusinessRole
+- Bank
+- ServiceSupplier
+- Customer
+- Manufacturer
+- AssetOrganisationRole
+- EnvironmentalDataAuthority
+- EnvironmentalDataProvider
+- CRROrgRole
+- MarketRole
+associations:
+- source: OrganisationRole
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ChangedOrganisationRole
+  sourceDescription: Organisation role whose change resulted in this configuration event.
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this organisation role.
+- source: OrganisationRole
+  target: Organisation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Roles
+  sourceDescription: All roles of this organisation.
+  targetName: Organisation
+  targetDescription: Organisation having this role.

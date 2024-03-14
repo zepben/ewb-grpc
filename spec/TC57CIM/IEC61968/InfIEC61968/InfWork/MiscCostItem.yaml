@@ -1,0 +1,42 @@
+name: MiscCostItem
+description: Various cost items that are not associated with compatible units. Examples include rental equipment, labor, materials,
+  contractor costs, permits - anything not covered in a CU.
+attributes:
+- name: account
+  type: String
+  description: This drives the accounting treatment for this misc. item.
+- name: costPerUnit
+  type: Money
+  description: The cost per unit for this misc. item.
+- name: costType
+  type: String
+  description: The cost type for accounting, such as material, labor, vehicle, contractor, equipment, overhead.
+- name: externalRefID
+  type: String
+  description: External reference identifier (e.g. purchase order number, serial number) .
+- name: quantity
+  type: IntegerQuantity
+  description: The quantity of the misc. item being assigned to this location.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: MiscCostItem
+  target: WorkCostDetail
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: MiscCostItems
+  targetName: WorkCostDetail
+- source: OldWorkTask
+  target: MiscCostItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WorkTask
+  targetName: MiscCostItems
+- source: DesignLocation
+  target: MiscCostItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: DesignLocation
+  targetName: MiscCostItems

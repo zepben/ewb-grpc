@@ -1,0 +1,70 @@
+name: WireInfo
+description: Wire data that can be specified per line segment phase, or for the line segment as a whole in case its phases
+  all have the same wire characteristics.
+attributes:
+- name: coreRadius
+  type: Length
+  description: (if there is a different core material) Radius of the central core.
+- name: coreStrandCount
+  type: Integer
+  description: (if used) Number of strands in the steel core.
+- name: gmr
+  type: Length
+  description: Geometric mean radius. If we replace the conductor by a thin walled tube of radius GMR, then its reactance
+    is identical to the reactance of the actual conductor.
+- name: insulated
+  type: Boolean
+  description: True if conductor is insulated.
+- name: insulationMaterial
+  type: WireInsulationKind
+  description: (if insulated conductor) Material used for insulation.
+- name: insulationThickness
+  type: Length
+  description: (if insulated conductor) Thickness of the insulation.
+- name: material
+  type: WireMaterialKind
+  description: Conductor material.
+- name: rAC25
+  type: ResistancePerLength
+  description: AC resistance per unit length of the conductor at 25 °C.
+- name: rAC50
+  type: ResistancePerLength
+  description: AC resistance per unit length of the conductor at 50 °C.
+- name: rAC75
+  type: ResistancePerLength
+  description: AC resistance per unit length of the conductor at 75 °C.
+- name: radius
+  type: Length
+  description: Outside radius of the wire.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: Current carrying capacity of the wire under stated thermal conditions.
+- name: rDC20
+  type: ResistancePerLength
+  description: DC resistance per unit length of the conductor at 20 °C.
+- name: sizeDescription
+  type: String
+  description: 'Describes the wire gauge or cross section (e.g., 4/0, #2, 336.5).'
+- name: strandCount
+  type: Integer
+  description: Number of strands in the conductor.
+ancestors:
+- AssetInfo
+descendents:
+- OverheadWireInfo
+- CableInfo
+associations:
+- source: WireInfo
+  target: WirePhaseInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: WireInfo
+  sourceDescription: Wire information contributing to this wire phase information.
+  targetName: WirePhaseInfo
+  targetDescription: Wire phase information associated with this wire information.
+- source: ACLineSegmentPhase
+  target: WireInfo
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ACLineSegmentPhase
+  targetName: WireInfo

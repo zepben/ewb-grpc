@@ -1,0 +1,30 @@
+name: SvPowerFlow
+description: State variable for power flow. Load convention is used for flow direction. This means flow out from the TopologicalNode
+  into the equipment is positive.
+attributes:
+- name: phase
+  type: SinglePhaseKind
+  description: The individual phase of the flow.   If unspecified, then assumed to be balanced among phases.
+- name: p
+  type: ActivePower
+  description: The active power flow. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode
+    (bus) into the conducting equipment.
+- name: q
+  type: ReactivePower
+  description: The reactive power flow. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode
+    (bus) into the conducting equipment.
+ancestors:
+- StateVariable
+associations:
+- source: SvPowerFlow
+  target: Terminal
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: SvPowerFlow
+  sourceDescription: The power flow state variable associated with the terminal.
+  targetName: Terminal
+  targetDescription: The terminal associated with the power flow state variable.
+- source: SvPowerFlow
+  target: EnergyGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1

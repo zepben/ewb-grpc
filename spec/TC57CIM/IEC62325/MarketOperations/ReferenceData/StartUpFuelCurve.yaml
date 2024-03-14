@@ -1,0 +1,12 @@
+name: StartUpFuelCurve
+description: The fuel consumption of a Generating Resource to complete a Start-Up.(x=cooling time) Form Startup Fuel Curve.
+  xAxisData -&gt; cooling time, y1AxisData -&gt; MBtu.
+ancestors:
+- Curve
+associations:
+- source: RegisteredGenerator
+  target: StartUpFuelCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetName: StartUpFuelCurve

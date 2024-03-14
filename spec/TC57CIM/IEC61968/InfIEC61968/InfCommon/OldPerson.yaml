@@ -1,0 +1,67 @@
+name: OldPerson
+description: General purpose information for name and other information to contact people.
+attributes:
+- name: status
+  type: Status
+- name: type
+  type: String
+  description: |-
+    Utility-specific classification for this person, according to the utility's corporate standards and practices. Examples include employee, contractor, agent, not affiliated, etc.
+    Note that this field is not used to indicate whether this person is a customer of the utility. Often an employee or contractor is also a customer. Customer information is gained with relationship to Organisation and CustomerData. In similar fashion, this field does not indicate the various roles this person may fill as part of utility operations.
+ancestors:
+- Person
+associations:
+- source: OldPerson
+  target: MeasurementValue
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ErpPerson
+  targetName: MeasurementValues
+- source: OldPerson
+  target: PersonPropertyRole
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Person
+  targetName: LandPropertyRoles
+- source: OldPerson
+  target: ErpCompetency
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpPersons
+  targetName: ErpCompetency
+- source: OldPerson
+  target: LaborItem
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ErpPersons
+  targetName: LaborItems
+- source: OldPerson
+  target: Skill
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ErpPerson
+  targetName: Skills
+- source: OldPerson
+  target: PersonOrganisationRole
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpPerson
+  targetName: OrganisationRoles
+- source: OldPerson
+  target: ErpPersonnel
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ErpPersons
+  targetName: ErpPersonnel
+- source: Craft
+  target: OldPerson
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Crafts
+  targetName: ErpPersons
+- source: Customer
+  target: OldPerson
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerData
+  targetName: ErpPersons

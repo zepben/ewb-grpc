@@ -1,0 +1,82 @@
+name: BidSelfSched
+description: Defines self schedule values to be used for specified time intervals.
+attributes:
+- name: balancingFlag
+  type: YesNo
+  description: This is a Y/N flag for a self-schedule of a resource per market per date and hour, using a specific TR ID.
+    It indicates whether a self-schedule using a TR is balanced with another self-schedule using the same TR ID.
+- name: bidType
+  type: BidTypeRMR
+  description: bidType has two types as the required output of requirements and qualified pre-dispatch.
+- name: priorityFlag
+  type: YesNo
+  description: This is a Y/N flag for a self-schedule of a resource per market per date and hour, using a specific TR ID.
+    It indicates whether a self-schedule using a TR has scheduling priority in DAM/RTM.
+- name: pumpSelfSchedMw
+  type: Float
+  description: Contains the PriceTaker, ExistingTransmissionContract, TransmissionOwnershipRights pumping self schedule quantity.
+    If this value is not null, then the unit is in pumping mode.
+- name: referenceType
+  type: SelfSchedReferenceType
+  description: Indication of which type of self schedule is being referenced.
+- name: selfSchedMw
+  type: Float
+  description: Self scheduled value
+- name: selfSchedSptResource
+  type: String
+  description: Price Taker Export Self Sched Support Resource
+- name: selfSchedType
+  type: MarketProductSelfSchedType
+  description: |-
+    This attribute is used to specify if a bid includes a self sched bid. If so what self sched type is it. The possible values are shown as follow but not limited to:
+
+    'ETC' - Existing transmission contract
+    'TOR' - Transmission ownership right
+    'RMR' - Reliability must run
+    'RGMR' - Regulatory must run
+    "RMT" - Relaiability must take
+    "PT" - Price taker
+    "LPT" - Low price taker
+    "SP" - Self provision
+    "RA" - Resource adequacy
+
+    This attribute is originally defined in the BidSelfSched class
+- name: updateType
+  type: MQSCHGType
+- name: wheelingTransactionReference
+  type: String
+  description: A unique identifier of a wheeling transaction. A wheeling transaction is a balanced Energy exchange among Supply
+    and Demand Resources.
+ancestors:
+- RegularIntervalSchedule
+associations:
+- source: ContractRight
+  target: BidSelfSched
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TransmissionContractRight
+  targetName: BidSelfSched
+- source: AdjacentCASet
+  target: BidSelfSched
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AdjacentCASet
+  targetName: BidSelfSched
+- source: HostControlArea
+  target: BidSelfSched
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: HostControlArea
+  targetName: BidSelfSched
+- source: SubControlArea
+  target: BidSelfSched
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SubControlArea
+  targetName: BidSelfSched
+- source: ProductBid
+  target: BidSelfSched
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ProductBid
+  targetName: BidSelfSched

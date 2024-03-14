@@ -1,0 +1,25 @@
+name: WindTurbineType1or2Dynamics
+description: Parent class supporting relationships to wind turbines type 1 and type 2 and their control models.  Generator
+  model for wind turbine of type 1 or type 2 is a standard asynchronous generator model.
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- WindType1or2UserDefined
+- WindTurbineType1or2IEC
+associations:
+- source: WindTurbineType1or2Dynamics
+  target: AsynchronousMachineDynamics
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: WindTurbineType1or2Dynamics
+  sourceDescription: Wind generator type 1 or type 2 model associated with this asynchronous machine model.
+  targetName: AsynchronousMachineDynamics
+  targetDescription: Asynchronous machine model with which this wind generator type 1 or type 2 model is associated.
+- source: WindTurbineType1or2Dynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: WindTurbineType1or2Dynamics
+  sourceDescription: Wind generator type 1 or type 2 model using this remote input signal.
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this wind generator type 1 or type 2 model.

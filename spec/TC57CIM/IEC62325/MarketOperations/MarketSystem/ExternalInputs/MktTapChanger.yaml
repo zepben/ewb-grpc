@@ -1,0 +1,11 @@
+name: MktTapChanger
+description: Subclass of IEC 61970:Wires:TapChanger.
+ancestors:
+- TapChanger
+associations:
+- source: TapChangerDynamicData
+  target: MktTapChanger
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TapChangerDynamicData
+  targetName: MktTapChanger

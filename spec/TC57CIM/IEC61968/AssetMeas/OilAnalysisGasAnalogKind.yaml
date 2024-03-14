@@ -1,0 +1,75 @@
+name: OilAnalysisGasAnalogKind
+description: Analogs representing oil dissolved gas analysis result.
+attributes:
+- name: hydrogen
+  description: H2 concentration (in ppm, specifically in microlitre/litre).
+- name: methane
+  description: CH4 concentration (in ppm, specifically in microlitre/litre).
+- name: ethane
+  description: C2H6 concentration (in ppm, specifically in microlitre/litre).
+- name: ethylene
+  description: C2H4 concentration (in ppm, specifically in microlitre/litre).
+- name: acetylene
+  description: C2H2 concentration (in ppm, specifically in microlitre/litre).
+- name: carbonMonoxide
+  description: CO concentration (in ppm, specifically in microlitre/litre).
+- name: propane
+  description: C3H8 concentration (in ppm, specifically in microlitre/litre).
+- name: propene
+  description: C3H6 concentration (in ppm, specifically in microlitre/litre).
+- name: carbonDioxide
+  description: CO2 concentration (in ppm, specifically in microlitre/litre).
+- name: oxygen
+  description: O2 concentration (in ppm, specifically in microlitre/litre).
+- name: nitrogen
+  description: N2 concentration (in ppm, specifically in microlitre/litre).
+- name: totalDissolvedGasPercent
+  description: Total dissolved gas in oil (in percent by volume). Derived from the total area of all the gas peaks in the
+    chromatogram.
+- name: totalCombustibleGasPercent
+  description: Total Combustible Gas (TCG) measured in headspace (in percent by volume).
+- name: butane
+  description: C4H10 concentration (in ppm, specifically in microlitre/litre).
+- name: carbon
+  description: C? concentration (in ppm, specifically in microlitre/litre).
+- name: carbon3
+  description: C3 concentration (in ppm, specifically in microlitre/litre).
+- name: carbon4
+  description: C4 concentration (in ppm, specifically in microlitre/litre).
+- name: isobutane
+  description: isoC4 (C4H10) concentration (in ppm, specifically in microlitre/litre). Isobutane is also known as methylpropane.
+- name: equivalentTCGPercent
+  description: |-
+    Equivalent Total Combustible Gas (ETCG) percent.
+    An estimate, calculated from the dissolved-gas concentrations and the oil sample temperature, of what the TCG would be in a gas space in equilibrium with the oil. ETCG reflects what the TCG would be in air spaces near the oil.
+- name: totalHeatGas
+  description: Sum of concentrations of methane, ethane, and ethylene (in ppm, specifically in microlitre/litre). Used in
+    some diagnostic gas ratios, especially THG/acetylene, which compares “heat gas” to “arcing gas.”
+- name: totalDissolvedCombustibleGas
+  description: 'Total dissolved combustible gas concentration (in ppm, specifically in microlitre/litre). Calculated by adding
+    the ppm of combustible gasses: hydrogen (H2), methane (CH4), ethane (C2H6), ethylene (C2H4), acetylene (C2H2), and carbon
+    monoxide (CO).'
+- name: totalPartialPressure
+  description: |-
+    Total partial pressure (in Pa).
+    Calculated value reflecting total of partial pressures of all combustible gasses.
+- name: estimatedSafeHandlingLimit
+  description: "Estimated Safe Handling Limit (ESHL) (in percent). Estimated safe handling limit is an estimate of the lower\
+    \ flammability limit (LFL) of the combustible gas mixture which the dissolved gas in the oil would give off by the oil\
+    \ if exposed to air. \nExpressed in percent like the equivalent total combustible gas percent, it is calculated from the\
+    \ dissolved-gas concentrations, the oil sample temperature, and the lower flammability limits of the individual combustible\
+    \ gases."
+- name: hydran
+  description: |-
+    Measured composite of dissolved fault gas concentrations (in ppm, specifically in microlitre/litre). Relative sensitivity
+    - H2: 100 % of concentration
+    - CO: 15 ± 4 % of concentration
+    - C2H2: 8 ± 2 % of concentration
+    - C2H4: 1.5 ± 0.5 % of concentration.
+- name: hydranPredicted
+  description: |-
+    Predicted hydran value (in ppm, specifically in microlitre/litre), calculated based on individual measured dissolved gas concentrations.
+    - H2: 100 % of concentration
+    - CO: 15 ± 4 % of concentration
+    - C2H2: 8 ± 2 % of concentration
+    - C2H4: 1.5 ± 0.5 % of concentration

@@ -1,0 +1,81 @@
+name: TransformerObservation
+description: Common information captured during transformer inspections and/or diagnostics. Note that some properties may
+  be measured through other means and therefore have measurement values in addition to the observed values recorded here.
+attributes:
+- name: bushingTemp
+  type: Temperature
+  description: Bushing temperature.
+- name: dga
+  type: String
+  description: 'Dissolved Gas Analysis. Typical values are: Acceptable, Overheating, Corona, Sparking, Arcing.'
+- name: freqResp
+  type: String
+  description: 'Frequency Response Analysis. Typical values are: acceptable, slight movement, significant movement, failed,
+    near failure. A graphic of the response diagram, which is a type of document, may be associated with this analysis through
+    the recursive document relationship of the ProcedureDataSet.'
+- name: furfuralDP
+  type: String
+  description: Overall measure of furfural in oil and mechanical strength of paper. DP, the degree of polymerization, is the
+    strength of the paper. Furfural is a measure of furfural compounds, often expressed in parts per million.
+- name: hotSpotTemp
+  type: Temperature
+  description: Hotspot oil temperature.
+- name: oilColor
+  type: String
+  description: Oil Quality Analysis-Color.
+- name: oilDielectricStrength
+  type: Voltage
+  description: Oil Quality Analysis-Dielectric Strength.
+- name: oilIFT
+  type: String
+  description: Oil Quality Analysis- inter facial tension (IFT) - number-Dynes/CM.
+- name: oilLevel
+  type: String
+  description: The level of oil in the transformer.
+- name: oilNeutralizationNumber
+  type: String
+  description: Oil Quality Analysis-Neutralization Number - Number - Mg KOH.
+- name: pumpVibration
+  type: String
+  description: 'Pump vibration, with typical values being: nominal, high.'
+- name: status
+  type: Status
+- name: topOilTemp
+  type: Temperature
+  description: Top oil temperature.
+- name: waterContent
+  type: String
+  description: Water Content expressed in parts per million.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TransformerObservation
+  target: TransformerTank
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TransformerObservations
+  targetName: Transformer
+- source: TransformerObservation
+  target: WindingInsulation
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TransformerObservation
+  targetName: WindingInsulationPFs
+- source: BushingInsulationPF
+  target: TransformerObservation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: BushingInsultationPFs
+  targetName: TransformerObservation
+- source: Reconditioning
+  target: TransformerObservation
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Reconditioning
+  targetName: TransformerObservations
+- source: ProcedureDataSet
+  target: TransformerObservation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ProcedureDataSets
+  targetName: TransformerObservations

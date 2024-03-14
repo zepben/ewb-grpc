@@ -1,0 +1,44 @@
+name: ConnectDisconnectFunction
+description: A function that will disconnect and reconnect the customer's load under defined conditions.
+attributes:
+- name: eventCount
+  type: Integer
+  description: Running cumulative count of connect or disconnect events, for the lifetime of this function or until the value
+    is cleared.
+- name: isConnected
+  type: Boolean
+  description: True if this function is in the connected state.
+- name: isDelayedDiscon
+  type: Boolean
+  description: If set true, the switch may disconnect the service at the end of a specified time delay after the disconnect
+    signal has been given. If set false, the switch may disconnect the service immediately after the disconnect signal has
+    been given. This is typically the case for over current circuit-breakers which are classified as either instantaneous
+    or slow acting.
+- name: isLocalAutoDisconOp
+  type: Boolean
+  description: If set true and if disconnection can be operated locally, the operation happens automatically. Otherwise it
+    happens manually.
+- name: isLocalAutoReconOp
+  type: Boolean
+  description: If set true and if reconnection can be operated locally, then the operation happens automatically. Otherwise,
+    it happens manually.
+- name: isRemoteAutoDisconOp
+  type: Boolean
+  description: If set true and if disconnection can be operated remotely, then the operation happens automatically. If set
+    false and if disconnection can be operated remotely, then the operation happens manually.
+- name: isRemoteAutoReconOp
+  type: Boolean
+  description: If set true and if reconnection can be operated remotely, then the operation happens automatically. If set
+    false and if reconnection can be operated remotely, then the operation happens manually.
+- name: rcdInfo
+  type: RemoteConnectDisconnectInfo
+  description: Information on remote connect disconnect switch.
+ancestors:
+- EndDeviceFunction
+associations:
+- source: ConnectDisconnectFunction
+  target: Switch
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ConnectDisconnectFunctions
+  targetName: Switches

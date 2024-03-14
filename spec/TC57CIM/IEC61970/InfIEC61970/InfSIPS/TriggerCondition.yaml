@@ -1,0 +1,19 @@
+name: TriggerCondition
+description: A conditions that can trigger remedial actions.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TriggerCondition
+  target: RemedialActionScheme
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TriggerCondition
+  sourceDescription: Triggering of the Remedial Action Schemes (RAS).
+  targetName: RemedialActionScheme
+- source: TriggerCondition
+  target: Gate
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: TriggerCondition
+  targetName: GateTrigger
+  targetDescription: The resulting Gate that is the condition for the Trigger.

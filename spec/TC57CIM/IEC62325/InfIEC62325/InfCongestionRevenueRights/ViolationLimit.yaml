@@ -1,0 +1,22 @@
+name: ViolationLimit
+description: A type of limit that indicates if it is enforced and, through association, the organisation responsible for setting
+  the limit.
+attributes:
+- name: enforced
+  type: Boolean
+  description: True if limit is enforced.
+ancestors:
+- Limit
+associations:
+- source: ViolationLimit
+  target: Flowgate
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ViolationLimits
+  targetName: Flowgate
+- source: ViolationLimit
+  target: MktMeasurement
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ViolationLimit
+  targetName: MktMeasurement

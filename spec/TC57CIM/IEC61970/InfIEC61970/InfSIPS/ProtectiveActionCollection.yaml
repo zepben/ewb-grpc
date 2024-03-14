@@ -1,0 +1,19 @@
+name: ProtectiveActionCollection
+description: A collection of protective actions to protect the integrity of the power system.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ProtectiveActionCollection
+  target: StageTrigger
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ProtectiveActionCollection
+  targetName: StageTrigger
+  targetDescription: When condition to the StageTrigger is met, the actions in the ProtectiveActionCollection are activated/triggered.
+- source: ProtectiveActionCollection
+  target: ProtectiveAction
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: ProtectiveActionCollection
+  targetName: ProtectiveAction
+  targetDescription: Set of ProtectiveAction belonging to a ProtectiveActionCollection.

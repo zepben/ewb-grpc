@@ -1,0 +1,47 @@
+name: ProtectiveActionAdjustment
+description: Protective actions on non-switching equipment. The operating condition is adjusted.
+attributes:
+- name: byPercentage
+  type: PerCent
+  description: The adjustment is given in percent of the active value.
+- name: byValue
+  type: Float
+  description: The adjustment is given in value of the active value.
+- name: kind
+  type: ProtectiveActionAdjustmentKind
+  description: Defines the kind of adjustment that should be done. With this value the correct attribute containing the value
+    needs to be used.
+- name: reduce
+  type: Boolean
+  description: If true, the adjusted value is an reduction. Other wise it is an increase in the value.
+- name: setValue
+  type: Float
+  description: The adjustment is given by a new active value.
+ancestors:
+- ProtectiveAction
+associations:
+- source: ProtectiveActionAdjustment
+  target: DCConductingEquipment
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ProtectiveActionAdjustment
+  targetName: DCConductingEquipment
+  targetDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+- source: Measurement
+  target: ProtectiveActionAdjustment
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Measurement
+  sourceDescription: The measurement is used to control the operation of an equipment.
+  targetName: ProtectiveActionAdjustment
+- source: ConductingEquipment
+  target: ProtectiveActionAdjustment
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ConductingEquipment
+  sourceDescription: ConductingEquipment whose operating condition is changed when this protective action adjustment gets
+    activated.
+  targetName: ProtectiveActionAdjustment
+  targetDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+    For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float
+    will be rounded.

@@ -1,0 +1,30 @@
+name: ErpPOLineItem
+description: Of an ErpPurchaseOrder, this is an individually ordered item or product along with the quantity, price and other
+  descriptive information.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpPOLineItem
+  target: ErpPurchaseOrder
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpPOLineItems
+  targetName: ErpPurchaseOrder
+- source: AssetModelCatalogueItem
+  target: ErpPOLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetModelCatalogueItem
+  targetName: ErpPOLineItems
+- source: ErpReqLineItem
+  target: ErpPOLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpReqLineItem
+  targetName: ErpPOLineItem
+- source: ErpRecDelvLineItem
+  target: ErpPOLineItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ErpRecDelLineItem
+  targetName: ErpPOLineItem

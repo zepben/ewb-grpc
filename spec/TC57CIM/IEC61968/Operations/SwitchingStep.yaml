@@ -1,0 +1,30 @@
+name: SwitchingStep
+description: Atomic switching step; can be part of a switching step group, or part of a switching plan.
+attributes:
+- name: isFreeSequence
+  type: Boolean
+  description: For a step, if isFreeSequence is set to false or is not specified, all of the steps in the group must be executed
+    in the order defined by the sequenceNumber attribute. The sequenceNumber for a step has a different meaning when there
+    are two or more sequential steps that have the isFreeSequence attribute set to true. Execution must still be performed
+    in sequenceNumber order until a set of two or more steps that have isFreeSequence set to true is encountered. In this
+    case, these steps can be executed in any sequence, until a step is encountered that has isFreeSequence set to false. All
+    of the steps preceding this step must be executed before the step can be executed.
+- name: sequenceNumber
+  type: Integer
+  description: Order of this activity in the sequence of activities within the switching plan.
+- name: subStepSequenceNumber
+  type: Integer
+  description: Supports compound switching steps that are made up of several sub steps.
+associations:
+- source: SwitchingStep
+  target: SwitchingAction
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: SwitchingStep
+  targetName: SwitchingAction
+- source: SwitchingStep
+  target: SwitchingStepGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: SwitchingStep
+  targetName: SwitchingStepGroup

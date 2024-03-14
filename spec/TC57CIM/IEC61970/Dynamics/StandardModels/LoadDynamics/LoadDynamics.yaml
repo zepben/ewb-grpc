@@ -1,0 +1,20 @@
+name: LoadDynamics
+description: |-
+  Load whose behaviour is described by reference to a standard model <font color="#0f0f0f">or by definition of a user-defined model.</font>
+  A standard feature of dynamic load behaviour modelling is the ability to associate the same behaviour to multiple energy consumers by means of a single load definition.  The load model is always applied to individual bus loads (energy consumers).
+ancestors:
+- IdentifiedObject
+descendents:
+- LoadAggregate
+- LoadGenericNonLinear
+- LoadComposite
+- LoadUserDefined
+associations:
+- source: LoadDynamics
+  target: EnergyConsumer
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: LoadDynamics
+  sourceDescription: Load dynamics model used to describe dynamic behaviour of this energy consumer.
+  targetName: EnergyConsumer
+  targetDescription: Energy consumer to which this dynamics load model applies.

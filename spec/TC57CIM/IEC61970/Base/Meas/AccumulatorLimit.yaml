@@ -1,0 +1,17 @@
+name: AccumulatorLimit
+description: Limit values for Accumulator measurements.
+attributes:
+- name: value
+  type: Integer
+  description: The value to supervise against. The value is positive.
+ancestors:
+- Limit
+associations:
+- source: AccumulatorLimitSet
+  target: AccumulatorLimit
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: LimitSet
+  sourceDescription: The set of limits.
+  targetName: Limits
+  targetDescription: The limit values used for supervision of Measurements.

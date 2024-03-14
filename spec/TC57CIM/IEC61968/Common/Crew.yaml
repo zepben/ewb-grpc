@@ -1,0 +1,67 @@
+name: Crew
+description: Group of people with specific skills, tools, and vehicles.
+attributes:
+- name: status
+  type: Status
+  description: Status of this crew.
+ancestors:
+- IdentifiedObject
+descendents:
+- OldCrew
+associations:
+- source: Crew
+  target: CrewMember
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Crew
+  sourceDescription: Crew to which this crew member belongs.
+  targetName: CrewMembers
+  targetDescription: All members of this crew.
+- source: Crew
+  target: CrewType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Crews
+  sourceDescription: All crews of this type.
+  targetName: CrewType
+  targetDescription: Type of this crew.
+- source: FieldDispatchHistory
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: FieldDispatchHistory
+  targetName: Crew
+- source: WorkTask
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: WorkTasks
+  sourceDescription: All work tasks this crew participates in.
+  targetName: Crews
+  targetDescription: All crews participating in this work task.
+- source: Outage
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Outage
+  targetName: Crew
+- source: SwitchingAction
+  target: Crew
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: SwitchingAction
+  targetName: Crew
+- source: WorkAsset
+  target: Crew
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: WorkAssets
+  sourceDescription: All work assets used by this crew.
+  targetName: Crew
+  targetDescription: Crew using this work asset.
+- source: Location
+  target: Crew
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Location
+  targetName: Crew

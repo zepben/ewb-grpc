@@ -1,0 +1,29 @@
+name: EnergyGroup
+attributes:
+- name: p
+  type: ActivePower
+- name: isSlack
+  type: Boolean
+ancestors:
+- PowerSystemResource
+associations:
+- source: EnergyGroup
+  target: EnergyTypeReference
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: EnergyGroup
+  target: ControlArea
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: SvPowerFlow
+  target: EnergyGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+- source: BlockDispatchInstruction
+  target: EnergyGroup
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: EnergyComponent
+  target: EnergyGroup
+  sourceCardinality: 0..*
+  targetCardinality: "1"

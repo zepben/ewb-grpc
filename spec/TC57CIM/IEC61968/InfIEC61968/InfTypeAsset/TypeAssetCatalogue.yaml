@@ -1,0 +1,15 @@
+name: TypeAssetCatalogue
+description: Catalogue of generic types of assets (TypeAsset) that may be used for design purposes. It is not associated with
+  a particular manufacturer.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- IdentifiedObject
+associations:
+- source: CatalogAssetType
+  target: TypeAssetCatalogue
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TypeAssets
+  targetName: TypeAssetCatalogue

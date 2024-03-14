@@ -1,0 +1,16 @@
+name: PSRType
+description: Classifying instances of the same class, e.g. overhead and underground ACLineSegments. This classification mechanism
+  is intended to provide flexibility outside the scope of this document, i.e. provide customisation that is non standard.
+ancestors:
+- IdentifiedObject
+descendents:
+- MktPSRType
+associations:
+- source: PowerSystemResource
+  target: PSRType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: PowerSystemResources
+  sourceDescription: Power system resources classified with this power system resource type.
+  targetName: PSRType
+  targetDescription: Custom classification for this power system resource.

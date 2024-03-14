@@ -1,0 +1,15 @@
+name: CRRMarket
+description: Model that describes the Congestion Revenue Rights Auction Market.
+attributes:
+- name: labelID
+  type: String
+  description: labelID - an ID for a set of apnodes/pnodes used in a CRR market
+ancestors:
+- Market
+associations:
+- source: CongestionRevenueRight
+  target: CRRMarket
+  sourceCardinality: 1..*
+  targetCardinality: "1"
+  sourceName: CongestionRevenueRight
+  targetName: CRRMarket

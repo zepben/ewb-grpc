@@ -1,0 +1,19 @@
+name: EnergyArea
+description: Describes an area having energy production or consumption.  Specializations are intended to support the load
+  allocation function as typically required in energy management systems or planning studies to allocate hypothesized load
+  levels to individual load points for power flow analysis.  Often the energy area can be linked to both measured and forecast
+  load levels.
+ancestors:
+- IdentifiedObject
+descendents:
+- SubLoadArea
+- LoadArea
+associations:
+- source: ControlArea
+  target: EnergyArea
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ControlArea
+  sourceDescription: The control area specification that is used for the load forecast.
+  targetName: EnergyArea
+  targetDescription: The energy area that is forecast from this control area specification.

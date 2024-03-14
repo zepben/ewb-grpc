@@ -1,0 +1,60 @@
+name: EnvironmentalInformation
+description: Abstract class (with concrete child classes of Observation and Forecast) that groups phenomenon and/or environmental
+  value sets.
+attributes:
+- name: created
+  type: DateTime
+  description: The timestamp of when the forecast was created
+ancestors:
+- IdentifiedObject
+descendents:
+- Forecast
+- Observation
+associations:
+- source: EnvironmentalInformation
+  target: EnvironmentalDataProvider
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalInformation
+  sourceDescription: Environmental information provided by this environmental data provider.
+  targetName: EnvironmentalDataProvider
+  targetDescription: Environmental data provider supplying this environmental information.
+- source: EnvironmentalDiscrete
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalDiscrete
+  sourceDescription: Environmental discrete (integer) associated with this observation or forecast.
+  targetName: EnvironmentalInformation
+  targetDescription: Observation or forecast with which this environmental discrete (integer) is associated.
+- source: EnvironmentalEvent
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EnvironmentalEvent
+  sourceDescription: Environmental event to which this forecast or observation relates.
+  targetName: EnvironmentalInformation
+  targetDescription: Forecast or observation related to this environmental event.
+- source: EnvironmentalAnalog
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalAnalog
+  sourceDescription: Environmental analog associated with this observation or forecast.
+  targetName: EnvironmentalInformation
+  targetDescription: Observation or forecast with which this environmental analog measurement is associated.
+- source: EnvironmentalPhenomenon
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalPhenomenon
+  targetName: EnvironmentalInformation
+  targetDescription: The forecast or observation of which this phenomenon description is a part.
+- source: EnvironmentalStringMeasurement
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalStringMeasurement
+  sourceDescription: Environmental string measurement associated with this forecast or observation.
+  targetName: EnvironmentalInformation
+  targetDescription: Observation or forecast with which this environmental string is associated.

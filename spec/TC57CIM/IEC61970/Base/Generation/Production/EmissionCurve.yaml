@@ -1,0 +1,25 @@
+name: EmissionCurve
+description: Relationship between the unit's emission rate in units of mass per hour (Y-axis) and output active power (X-axis)
+  for a given type of emission. This curve applies when only one type of fuel is being burned.
+attributes:
+- name: emissionContent
+  type: Emission
+  description: The emission content per quantity of fuel burned.
+- name: emissionType
+  type: EmissionType
+  description: The type of emission, which also gives the production rate measurement unit. The y1AxisUnits of the curve contains
+    the unit of measure (e.g. kg) and the emissionType is the type of emission (e.g. sulfur dioxide).
+- name: isNetGrossP
+  type: Boolean
+  description: Flag is set to true when output is expressed in net active power.
+ancestors:
+- Curve
+associations:
+- source: EmissionCurve
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EmissionCurves
+  sourceDescription: A thermal generating unit may have  one or more emission curves.
+  targetName: ThermalGeneratingUnit
+  targetDescription: A thermal generating unit may have  one or more emission curves.

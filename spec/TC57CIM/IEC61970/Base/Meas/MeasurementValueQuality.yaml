@@ -1,0 +1,17 @@
+name: MeasurementValueQuality
+description: Measurement quality flags. Bits 0-10 are defined for substation automation in IEC 61850-7-3. Bits 11-15 are reserved
+  for future expansion by that document. Bits 16-31 are reserved for EMS applications.
+ancestors:
+- Quality61850
+descendents:
+- AnalogMeasurementValueQuality
+- DiscreteMeasurementValueQuality
+associations:
+- source: MeasurementValueQuality
+  target: MeasurementValue
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: MeasurementValueQuality
+  sourceDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
+  targetName: MeasurementValue
+  targetDescription: A MeasurementValue has a MeasurementValueQuality associated with it.

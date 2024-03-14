@@ -1,0 +1,17 @@
+name: AuxiliaryObject
+description: Models Auxiliary Values.
+descendents:
+- AuxiliaryValues
+associations:
+- source: AuxiliaryObject
+  target: RegisteredLoad
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AuxillaryObject
+  targetName: RegisteredLoad
+- source: AuxiliaryObject
+  target: RegisteredGenerator
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: AuxillaryObject
+  targetName: RegisteredGenerator

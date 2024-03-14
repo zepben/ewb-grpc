@@ -1,0 +1,52 @@
+name: RegisteredControllableLoad
+description: Temporary holding for load reduction attributes removed from RegisteredLoad. Use for future use case when developing
+  the RegisteredDistributedResource specialized classes.
+attributes:
+- name: maxReductionTime
+  type: Float
+  description: Maxiimum Load Reduction Time (min), per Participating Load Resource
+- name: maxWeeklyDeployment
+  type: Integer
+  description: Maximum weekly deployments
+- name: minLoadReduction
+  type: ActivePower
+  description: |-
+    Minimum MW for a load reduction (e.g., MW rating of a discrete pump.
+
+    This attribute may be used also in the LoadBid class. The reason that the attribute is also modeled in this class is that it is resource attribute and needs to be persistently stored.
+- name: minLoadReductionCost
+  type: CostPerEnergyUnit
+  description: minimum load reduction cost. Single number for the load
+- name: minLoadReductionInterval
+  type: Float
+  description: |-
+    Shortest period load reduction shall be maintained before load can be restored to normal levels.
+
+    This attribute may be used also in the LoadBid class. The reason that the attribute is also modeled in this class is that it is resource attribute and needs to be persistently stored.
+- name: minReductionTime
+  type: Float
+  description: Minimum Load Reduction Time (min), per Participating Load Resource
+- name: minTimeBetLoadRed
+  type: Float
+  description: |-
+    Shortest time that load shall be left at normal levels before a new load reduction.
+
+    This attribute may be used also in the LoadBid class. The reason that the attribute is also modeled in this class is that it is resource attribute and needs to be persistently stored.
+- name: reqNoticeTime
+  type: Float
+  description: |-
+    Time period that is required from an order to reduce a load to the time that it takes to get to the minimum load reduction.
+
+    This attribute may be used also in the LoadBid class. The reason that the attribute is also modeled in this class is that it is resource attribute and needs to be persistently stored.
+- name: maxBaseLoad
+  type: ActivePower
+  description: Maximum Base Load (MW), per Participating Load Resource
+- name: maxDeploymentTime
+  type: Float
+  description: Maximum Deployment time (seconds)
+- name: maxLoadRedTimesPerDay
+  type: Integer
+  description: Maximum Number of Daily Load Curtailments
+- name: maxLoadReduction
+  type: ActivePower
+  description: maximum load reduction

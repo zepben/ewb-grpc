@@ -1,0 +1,72 @@
+name: PricingStructure
+description: Grouping of pricing components and prices used in the creation of customer charges and the eligibility criteria
+  under which these terms may be offered to a customer. The reasons for grouping include state, customer classification, site
+  characteristics, classification (i.e. fee price structure, deposit price structure, electric service price structure, etc.)
+  and accounting requirements.
+attributes:
+- name: code
+  type: String
+  description: Unique user-allocated key for this pricing structure, used by company representatives to identify the correct
+    price structure for allocating to a customer. For rate schedules it is often prefixed by a state code.
+- name: dailyCeilingUsage
+  type: Integer
+  description: Absolute maximum valid non-demand usage quantity used in validating a customer's billed non-demand usage.
+- name: dailyEstimatedUsage
+  type: Integer
+  description: Used in place of actual computed estimated average when history of usage is not available, and typically manually
+    entered by customer accounting.
+- name: dailyFloorUsage
+  type: Integer
+  description: Absolute minimum valid non-demand usage quantity used in validating a customer's billed non-demand usage.
+- name: revenueKind
+  type: RevenueKind
+  description: (accounting) Kind of revenue, often used to determine the grace period allowed, before collection actions are
+    taken on a customer (grace periods vary between revenue classes).
+- name: taxExemption
+  type: Boolean
+  description: True if this pricing structure is not taxable.
+ancestors:
+- Document
+associations:
+- source: PricingStructure
+  target: UsagePoint
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: PricingStructures
+  sourceDescription: All pricing structures applicable to this service delivery point (with prepayment meter running as a
+    stand-alone device, with no CustomerAgreement or Customer).
+  targetName: UsagePoints
+  targetDescription: All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement
+    or Customer) to which this pricing structure applies.
+- source: PricingStructure
+  target: Tariff
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: PricingStructures
+  sourceDescription: All pricing structures using this tariff.
+  targetName: Tariffs
+  targetDescription: All tariffs used by this pricing structure.
+- source: PricingStructure
+  target: Transaction
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: PricingStructure
+  sourceDescription: Pricing structure applicable for this transaction.
+  targetName: Transactions
+  targetDescription: All transactions applying this pricing structure.
+- source: ServiceCategory
+  target: PricingStructure
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ServiceCategory
+  sourceDescription: Service category to which this pricing structure applies.
+  targetName: PricingStructures
+  targetDescription: All pricing structures applicable to this service category.
+- source: CustomerAgreement
+  target: PricingStructure
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements with this pricing structure.
+  targetName: PricingStructures
+  targetDescription: All pricing structures applicable to this customer agreement.

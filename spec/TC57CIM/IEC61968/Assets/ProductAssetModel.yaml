@@ -1,0 +1,82 @@
+name: ProductAssetModel
+description: Asset model by a specific manufacturer.
+attributes:
+- name: catalogueNumber
+  type: String
+  description: Catalogue number for asset model.
+- name: corporateStandardKind
+  type: CorporateStandardKind
+  description: Kind of corporate standard for this asset model.
+- name: drawingNumber
+  type: String
+  description: Drawing number for asset model.
+- name: instructionManual
+  type: String
+  description: Reference manual or instruction book for this asset model.
+- name: modelNumber
+  type: String
+  description: Manufacturer's model number.
+- name: modelVersion
+  type: String
+  description: Version number for product model, which indicates vintage of the product.
+- name: overallLength
+  type: Length
+  description: Overall length of this asset model.
+- name: styleNumber
+  type: String
+  description: Style number of asset model.
+- name: usageKind
+  type: AssetModelUsageKind
+  description: Intended usage for this asset model.
+- name: weightTotal
+  type: Mass
+  description: Total manufactured weight of asset.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ProductAssetModel
+  target: AssetModelCatalogueItem
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AssetModel
+  targetName: AssetModelCatalogueItems
+- source: ProductAssetModel
+  target: CatalogAssetType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ProductAssetModel
+  sourceDescription: Product asset model conforming to this catalog asset type.
+  targetName: CatalogAssetType
+  targetDescription: Catalog asset type to which this product asset model conforms.
+- source: ProductAssetModel
+  target: Manufacturer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ProductAssetModels
+  sourceDescription: All asset models by this manufacturer.
+  targetName: Manufacturer
+  targetDescription: Manufacturer of this asset model.
+- source: ProductAssetModel
+  target: AssetInfo
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: ProductAssetModel
+  sourceDescription: Product asset model which conforms to this catalog asset type.
+  targetName: AssetInfo
+  targetDescription: Asset information (nameplate) for this product asset model.
+- source: Asset
+  target: ProductAssetModel
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Asset
+  sourceDescription: An asset of this model.
+  targetName: ProductAssetModel
+  targetDescription: The model of this asset.
+- source: OperationalRestriction
+  target: ProductAssetModel
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: OperationalRestrictions
+  sourceDescription: All operational restrictions applying to this asset model.
+  targetName: ProductAssetModel
+  targetDescription: Asset model to which this restriction applies.

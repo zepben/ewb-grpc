@@ -1,0 +1,22 @@
+name: EmissionAccount
+description: Accounts for tracking emissions usage and credits for thermal generating units. A unit may have zero or more
+  emission accounts, and will typically have one for tracking usage and one for tracking credits.
+attributes:
+- name: emissionType
+  type: EmissionType
+  description: The type of emission, for example sulfur dioxide (SO2). The y1AxisUnits of the curve contains the unit of measure
+    (e.g. kg) and the emissionType is the type of emission (e.g. sulfur dioxide).
+- name: emissionValueSource
+  type: EmissionValueSource
+  description: The source of the emission value.
+ancestors:
+- Curve
+associations:
+- source: EmissionAccount
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: EmmissionAccounts
+  sourceDescription: A thermal generating unit may have one or more emission allowance accounts.
+  targetName: ThermalGeneratingUnit
+  targetDescription: A thermal generating unit may have one or more emission allowance accounts.

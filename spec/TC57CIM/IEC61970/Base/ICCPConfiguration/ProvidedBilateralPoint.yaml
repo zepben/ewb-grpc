@@ -1,0 +1,23 @@
+name: ProvidedBilateralPoint
+description: Allows declaration of ICCP points to be provided through a Bilateral Table agreement.
+ancestors:
+- IdentifiedObject
+descendents:
+- ICCPProvidedPoint
+associations:
+- source: ProvidedBilateralPoint
+  target: BilateralExchangeActor
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ProvidedBilateralIOPoint
+  sourceDescription: ICCP information in a Bilateral table that will be exposed to a remote peer.
+  targetName: BilateralExchangeActor
+  targetDescription: Remote peer that will receive ICCP information in a Bilateral table.
+- source: IOPoint
+  target: ProvidedBilateralPoint
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: IOPoint
+  sourceDescription: Measurement or control for the bilateral ICCP point.
+  targetName: BilateralToIOPoint
+  targetDescription: Bilateral ICCP point for the measurement or control.

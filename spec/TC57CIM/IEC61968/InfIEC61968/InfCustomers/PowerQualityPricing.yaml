@@ -1,0 +1,33 @@
+name: PowerQualityPricing
+description: Pricing can be based on power quality.
+attributes:
+- name: emergencyHighVoltLimit
+  type: Voltage
+  description: ' Emergency high voltage limit.'
+- name: emergencyLowVoltLimit
+  type: Voltage
+  description: ' Emergency low voltage limit.'
+- name: normalHighVoltLimit
+  type: Voltage
+  description: ' Normal high voltage limit.'
+- name: normalLowVoltLimit
+  type: Voltage
+  description: ' Normal low voltage limit.'
+- name: powerFactorMin
+  type: Float
+  description: Threshold minimum power factor for this PricingStructure, specified in instances where a special charge is
+    levied if the actual power factor for a Service falls below the value specified here.
+- name: valueUninterruptedServiceEnergy
+  type: CostPerEnergyUnit
+  description: Value of uninterrupted service (Cost per energy).
+- name: valueUninterruptedServiceP
+  type: Float
+  description: Value of uninterrupted service (Cost per active power).
+- name: voltImbalanceViolCost
+  type: Float
+  description: ' Voltage imbalance violation cost (Cost per unit Voltage).'
+- name: voltLimitViolCost
+  type: Float
+  description: ' Voltage limit violation cost (Cost per unit Voltage).'
+ancestors:
+- Document

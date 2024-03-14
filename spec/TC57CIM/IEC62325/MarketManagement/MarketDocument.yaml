@@ -1,0 +1,67 @@
+name: MarketDocument
+description: Electronic document containing the information necessary to satisfy a given business process set of requirements.
+ancestors:
+- Document
+descendents:
+- MarketAgreement
+associations:
+- source: MarketDocument
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketDocument
+  targetName: SelfMarketDocument
+- source: MarketDocument
+  target: Domain
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketDocument
+  targetName: Domain
+- source: MarketDocument
+  target: AttributeInstanceComponent
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketDocument
+  targetName: AttributeInstanceComponent
+- source: MarketDocument
+  target: Period
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketDocument
+  targetName: Period
+- source: DateAndOrTime
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: DateAndOrTime
+  targetName: MarketDocument
+- source: AceTariffType
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AceTariffType
+  targetName: MarketDocument
+- source: Process
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Process
+  targetName: MarketDocument
+- source: Reason
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Reason
+  targetName: MarketDocument
+- source: TimeSeries
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: MarketDocument
+- source: MarketParticipant
+  target: MarketDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketParticipant
+  targetName: MarketDocument

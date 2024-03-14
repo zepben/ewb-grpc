@@ -1,0 +1,12 @@
+name: PropertyOrganisationRole
+description: Role an organisation plays with respect to property (for example, the organisation may be the owner, renter,
+  occupier, taxiing authority, etc.).
+ancestors:
+- OrganisationRole
+associations:
+- source: LandProperty
+  target: PropertyOrganisationRole
+  sourceCardinality: 1..
+  targetCardinality: 0..*
+  sourceName: LandProperty
+  targetName: ErpOrganisationRoles

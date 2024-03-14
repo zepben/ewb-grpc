@@ -1,0 +1,32 @@
+name: Reading
+description: Specific value measured by a meter or other asset, or calculated by a system. Each Reading is associated with
+  a specific ReadingType.
+attributes:
+- name: position
+  type: Integer
+  description: A sequential value representing the relative position within a given time interval.
+- name: reason
+  type: ReadingReasonKind
+  description: Reason for this reading being taken.
+- name: valueMissing
+  type: Boolean
+  description: The indication of whether or not the quantity of this reading is missing.
+ancestors:
+- BaseReading
+associations:
+- source: Reading
+  target: ReadingType
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: Readings
+  sourceDescription: All reading values with this type information.
+  targetName: ReadingType
+  targetDescription: Type information for this reading value.
+- source: Reading
+  target: MeterReading
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Readings
+  sourceDescription: All reading values contained within this meter reading.
+  targetName: MeterReadings
+  targetDescription: All meter readings (sets of values) containing this reading value.

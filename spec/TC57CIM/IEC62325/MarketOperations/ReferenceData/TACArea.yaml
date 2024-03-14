@@ -1,0 +1,18 @@
+name: TACArea
+description: Transmission Access Charge Area. Charges assessed, on behalf of the Participating Transmission Owner, to parties
+  who require access to the controlled grid.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TACArea
+  target: AreaLoadCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: TACArea
+  targetName: AreaLoadCurve
+- source: AggregatedPnode
+  target: TACArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AggregatedPnode
+  targetName: TACArea

@@ -1,0 +1,79 @@
+name: AsynchronousMachine
+description: A rotating machine whose shaft rotates asynchronously with the electrical field.  Also known as an induction
+  machine with no external connection to the rotor windings, e.g. squirrel-cage induction machine.
+attributes:
+- name: converterFedDrive
+  type: Boolean
+  description: Indicates whether the machine is a converter fed drive. Used for short circuit data exchange according to IEC
+    60909.
+- name: efficiency
+  type: PerCent
+  description: Efficiency of the asynchronous machine at nominal operation as a percentage. Indicator for converter drive
+    motors. Used for short circuit data exchange according to IEC 60909.
+- name: iaIrRatio
+  type: Float
+  description: Ratio of locked-rotor current to the rated current of the motor (Ia/Ir). Used for short circuit data exchange
+    according to IEC 60909.
+- name: nominalFrequency
+  type: Frequency
+  description: Nameplate data indicates if the machine is 50 Hz or 60 Hz.
+- name: nominalSpeed
+  type: RotationSpeed
+  description: Nameplate data.  Depends on the slip and number of pole pairs.
+- name: polePairNumber
+  type: Integer
+  description: Number of pole pairs of stator. Used for short circuit data exchange according to IEC 60909.
+- name: ratedMechanicalPower
+  type: ActivePower
+  description: Rated mechanical power (Pr in IEC 60909-0). Used for short circuit data exchange according to IEC 60909.
+- name: reversible
+  type: Boolean
+  description: Indicates for converter drive motors if the power can be reversible. Used for short circuit data exchange according
+    to IEC 60909.
+- name: rr1
+  type: Resistance
+  description: Damper 1 winding resistance.
+- name: rr2
+  type: Resistance
+  description: Damper 2 winding resistance.
+- name: rxLockedRotorRatio
+  type: Float
+  description: Locked rotor ratio (R/X). Used for short circuit data exchange according to IEC 60909.
+- name: tpo
+  type: Seconds
+  description: Transient rotor time constant (greater than tppo).
+- name: tppo
+  type: Seconds
+  description: Sub-transient rotor time constant (greater than 0).
+- name: xlr1
+  type: Reactance
+  description: Damper 1 winding leakage reactance.
+- name: xlr2
+  type: Reactance
+  description: Damper 2 winding leakage reactance.
+- name: xm
+  type: Reactance
+  description: Magnetizing reactance.
+- name: xp
+  type: Reactance
+  description: Transient reactance (unsaturated) (greater than or equal to xpp).
+- name: xpp
+  type: Reactance
+  description: Sub-transient reactance (unsaturated).
+- name: xs
+  type: Reactance
+  description: Synchronous reactance (greater than xp).
+- name: asynchronousMachineType
+  type: AsynchronousMachineKind
+  description: Indicates the type of Asynchronous Machine (motor or generator).
+ancestors:
+- RotatingMachine
+associations:
+- source: AsynchronousMachineDynamics
+  target: AsynchronousMachine
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: AsynchronousMachineDynamics
+  sourceDescription: Asynchronous machine dynamics model used to describe dynamic behaviour of this asynchronous machine.
+  targetName: AsynchronousMachine
+  targetDescription: Asynchronous machine to which this asynchronous machine dynamics model applies.

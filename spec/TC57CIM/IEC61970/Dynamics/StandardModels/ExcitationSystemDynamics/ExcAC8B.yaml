@@ -1,0 +1,102 @@
+name: ExcAC8B
+description: Modified IEEE AC8B alternator-supplied rectifier excitation system with speed input and input limiter.
+attributes:
+- name: inlim
+  type: Boolean
+  description: |-
+    Input limiter indicator.
+    true = input limiter <i>Vimax</i> and <i>Vimin</i> is considered
+    false = input limiter <i>Vimax </i>and <i>Vimin</i> is not considered.
+    Typical value = true.
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 1.
+- name: kc
+  type: PU
+  description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,55.
+- name: kd
+  type: PU
+  description: Demagnetizing factor, a function of exciter alternator reactances (<i>Kd</i>) (&gt;= 0).  Typical value = 1,1.
+- name: kdr
+  type: PU
+  description: Voltage regulator derivative gain (<i>Kdr</i>) (&gt;= 0).  Typical value = 10.
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>Ke</i>).  Typical value = 1.
+- name: kir
+  type: PU
+  description: Voltage regulator integral gain (<i>Kir</i>) (&gt;= 0).  Typical value = 5.
+- name: kpr
+  type: PU
+  description: Voltage regulator proportional gain (<i>Kpr</i>) (&gt; 0 if ExcAC8B.kir = 0).  Typical value = 80.
+- name: ks
+  type: PU
+  description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
+- name: pidlim
+  type: Boolean
+  description: |-
+    PID limiter indicator.
+    true = input limiter <i>Vpidmax</i> and <i>Vpidmin</i> is considered
+    false = input limiter <i>Vpidmax</i> and <i>Vpidmin</i> is not considered.
+    Typical value = true.
+- name: seve1
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,3.
+- name: seve2
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 3.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0.
+- name: tdr
+  type: Seconds
+  description: Lag time constant (<i>Tdr</i>) (&gt; 0 if ExcAC8B.kdr &gt; 0).  Typical value = 0,1.
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value
+    = 1,2.
+- name: telim
+  type: Boolean
+  description: "Selector for the limiter on the block (<i>1/sTe</i>). \nSee diagram for meaning of true and false.\nTypical\
+    \ value = false."
+- name: ve1
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>1</sub></i>)
+    (&gt; 0).  Typical value = 6,5.
+- name: ve2
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>2</sub></i>)
+    (&gt; 0).  Typical value = 9.
+- name: vemin
+  type: PU
+  description: Minimum exciter voltage output (<i>Vemin</i>) (&lt;= 0).  Typical value = 0.
+- name: vfemax
+  type: PU
+  description: Exciter field current limit reference (<i>Vfemax</i>).  Typical value = 6.
+- name: vimax
+  type: PU
+  description: Input signal maximum (<i>Vimax</i>) (&gt; ExcAC8B.vimin).  Typical value = 35.
+- name: vimin
+  type: PU
+  description: Input signal minimum (<i>Vimin</i>) (&lt; ExcAC8B.vimax).  Typical value = -10.
+- name: vpidmax
+  type: PU
+  description: PID maximum controller output (<i>Vpidmax</i>) (&gt; ExcAC8B.vpidmin).  Typical value = 35.
+- name: vpidmin
+  type: PU
+  description: PID minimum controller output (<i>Vpidmin</i>) (&lt; ExcAC8B.vpidmax).  Typical value = -10.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>Vrmax</i>) (&gt; 0). Typical value = 35.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>Vrmin</i>) (&lt; 0).  Typical value = 0.
+- name: vtmult
+  type: Boolean
+  description: "Multiply by generator's terminal voltage indicator.\ntrue =the limits <i>Vrmax</i> and <i>Vrmin</i> are multiplied\
+    \ by the generator’s terminal voltage to represent a thyristor power stage fed from the generator terminals\nfalse = limits\
+    \ are not multiplied by generator's terminal voltage. \nTypical value = false."
+ancestors:
+- ExcitationSystemDynamics

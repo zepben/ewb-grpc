@@ -1,0 +1,30 @@
+name: PlannedOutage
+attributes:
+- name: reason
+  type: String
+  description: The reason for the planned outage.
+ancestors:
+- Outage
+associations:
+- source: FieldDispatchHistory
+  target: PlannedOutage
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: FieldDispatchHistory
+  targetName: PlannedOutage
+- source: OutagePlan
+  target: PlannedOutage
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: OutagePlan
+  sourceDescription: Outage plan for executing a planned outage.
+  targetName: PlannedOutage
+  targetDescription: The outage resulting from the execution of the outage plan.
+- source: OperationalUpdatedRating
+  target: PlannedOutage
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: UpdatedRatings
+  sourceDescription: All updated ratings for this planned equipment outage.
+  targetName: PlannedOutage
+  targetDescription: Planned equipment outage with this updated rating.

@@ -1,0 +1,19 @@
+name: Switch
+description: A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal
+  devices including grounding switches. The ACDCTerminal.connected at the two sides of the switch shall not be considered
+  for assessing switch connectivity, i.e. only Switch.open, .normalOpen and .locked are relevant.
+attributes:
+- name: normalOpen
+  type: Boolean
+  description: The attribute is used in cases when no Measurement for the status value is present. If the Switch has a status
+    measurement the Discrete.normalValue is expected to match with the Switch.normalOpen.
+- name: open
+  type: Boolean
+  description: The attribute tells if the switch is considered open when used as input to topology processing.
+ancestors:
+- ConductingEquipment
+descendents:
+- Disconnector
+- Fuse
+- Jumper
+- ProtectedSwitch

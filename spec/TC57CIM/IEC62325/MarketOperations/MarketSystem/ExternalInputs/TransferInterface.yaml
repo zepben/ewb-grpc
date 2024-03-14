@@ -1,0 +1,17 @@
+name: TransferInterface
+description: A Transfer Interface is made up of branches such as transmission lines and transformers.
+ancestors:
+- IdentifiedObject
+associations:
+- source: HostControlArea
+  target: TransferInterface
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: HostControlArea
+  targetName: TransferInterface
+- source: TransferInterfaceSolution
+  target: TransferInterface
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: TransferInterfaceSolution
+  targetName: TransferInterface

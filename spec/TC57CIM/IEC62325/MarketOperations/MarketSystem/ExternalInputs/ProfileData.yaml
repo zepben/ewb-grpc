@@ -1,0 +1,33 @@
+name: ProfileData
+description: Data for profile.
+attributes:
+- name: bidPrice
+  type: Float
+  description: Bid price associated with contract
+- name: capacityLevel
+  type: ActivePower
+  description: Capacity level for the profile, in MW.
+- name: energyLevel
+  type: RealEnergy
+  description: Energy level for the profile, in MWH.
+- name: minimumLevel
+  type: Float
+  description: Minimum MW value of contract
+- name: sequenceNumber
+  type: Integer
+  description: Sequence to provide item numbering for the profile. { greater than or equal to 1 }
+- name: startDateTime
+  type: DateTime
+  description: Start date/time for this profile.
+- name: stopDateTime
+  type: DateTime
+  description: Stop date/time for this profile.
+associations:
+- source: ProfileData
+  target: Profile
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ProfileDatas
+  sourceDescription: A profile has profile data associated with it.
+  targetName: Profile
+  targetDescription: A profile has profile data associated with it.

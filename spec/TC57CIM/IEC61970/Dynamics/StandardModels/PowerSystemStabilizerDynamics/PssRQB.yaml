@@ -1,0 +1,36 @@
+name: PssRQB
+description: Power system stabilizer type RQB. This power system stabilizer is intended to be used together with excitation
+  system type ExcRQB, which is primarily used in nuclear or thermal generating units.
+attributes:
+- name: kdpm
+  type: Float
+  description: Lead lag gain (<i>KDPM</i>). Typical value = 0,185.
+- name: ki2
+  type: Float
+  description: Speed input gain (<i>Ki2</i>). Typical value = 3,43.
+- name: ki3
+  type: Float
+  description: Electrical power input gain (<i>Ki3</i>). Typical value = -11,45.
+- name: ki4
+  type: Float
+  description: Mechanical power input gain (<i>Ki4</i>). Typical value = 11,86.
+- name: sibv
+  type: PU
+  description: Speed deadband (<i>SIBV</i>). Typical value = 0,006.
+- name: t4f
+  type: Seconds
+  description: Lead lag time constant (<i>T4F</i>) (&gt;= 0). Typical value = 0,045.
+- name: t4m
+  type: Seconds
+  description: Input time constant (<i>T4M</i>) (&gt;= 0). Typical value = 5.
+- name: t4mom
+  type: Seconds
+  description: Speed time constant (<i>T4MOM</i>) (&gt;= 0). Typical value = 1,27.
+- name: tomd
+  type: Seconds
+  description: Speed delay (<i>TOMD</i>) (&gt;= 0). Typical value = 0,02.
+- name: tomsl
+  type: Seconds
+  description: Speed time constant (<i>TOMSL</i>) (&gt;= 0). Typical value = 0,04.
+ancestors:
+- PowerSystemStabilizerDynamics

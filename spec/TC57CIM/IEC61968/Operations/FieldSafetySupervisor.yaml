@@ -1,0 +1,22 @@
+name: FieldSafetySupervisor
+description: Crew member on work site responsible for all local safety measures for the work crew doing maintenance, construction
+  and repair in a substation or on a power line/cable.
+ancestors:
+- CrewMember
+associations:
+- source: FieldSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: ReleasedBySupervisor
+  sourceDescription: Supervisor that released this safety document.
+  targetName: ReleasedSafetyDocuments
+  targetDescription: All safety documents released by this supervisor.
+- source: FieldSafetySupervisor
+  target: SafetyDocument
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: IssuedToSupervisor
+  sourceDescription: Supervisor to whom this safety document is issued.
+  targetName: IssuedSafetyDocuments
+  targetDescription: All safety documents issued to this supervisor.

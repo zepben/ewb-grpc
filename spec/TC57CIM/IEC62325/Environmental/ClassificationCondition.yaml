@@ -1,0 +1,36 @@
+name: ClassificationCondition
+description: A classification condition used to define preconditions that must be met by a phenomena classification.
+attributes:
+- name: duration
+  type: Seconds
+  description: The duration of the of the condition in seconds
+- name: test
+  type: TestKind
+  description: The test applied to the value.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ClassificationCondition
+  target: PhenomenonClassification
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ClassificationCondition
+  sourceDescription: Condition contributing to the classification of this phenomenon.
+  targetName: PhenomenonClassification
+  targetDescription: Phenomenon classification to which this condition relates.
+- source: EnvironmentalAnalog
+  target: ClassificationCondition
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalAnalog
+  sourceDescription: Analog which contributes to the definition of this classification condition.
+  targetName: ClassificationCondition
+  targetDescription: Classification condition which this analog helps define.
+- source: EnvironmentalStringMeasurement
+  target: ClassificationCondition
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalStringMeasurement
+  sourceDescription: String measurement which contributes to the definition of this classification condition.
+  targetName: ClassificationCondition
+  targetDescription: Classification condition which this string measurement helps define.

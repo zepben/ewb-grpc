@@ -1,0 +1,61 @@
+name: DiscExcContIEEEDEC1A
+description: |-
+  IEEE type DEC1A discontinuous excitation control model that boosts generator excitation to a level higher than that demanded by the voltage regulator and stabilizer immediately following a system fault.
+  Reference: IEEE 421.5-2005, 12.2.
+attributes:
+- name: esc
+  type: PU
+  description: Speed change reference (<i>E</i><i><sub>SC</sub></i>).  Typical value = 0,0015.
+- name: kan
+  type: PU
+  description: Discontinuous controller gain (<i>K</i><i><sub>AN</sub></i>).  Typical value = 400.
+- name: ketl
+  type: PU
+  description: Terminal voltage limiter gain (<i>K</i><i><sub>ETL</sub></i>).  Typical value = 47.
+- name: tan
+  type: Seconds
+  description: Discontinuous controller time constant (<i>T</i><i><sub>AN</sub></i>) (&gt;= 0).  Typical value = 0,08.
+- name: td
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>D</sub></i>) (&gt;= 0).  Typical value = 0,03.
+- name: tl1
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>L</sub></i><sub>1</sub>) (&gt;= 0).  Typical value = 0,025.
+- name: tl2
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>L</sub></i><sub>2</sub>) (&gt;= 0).  Typical value = 1,25.
+- name: tw5
+  type: Seconds
+  description: DEC washout time constant (<i>T</i><i><sub>W</sub></i><sub>5</sub>) (&gt;= 0).  Typical value = 5.
+- name: val
+  type: PU
+  description: Regulator voltage reference (<i>V</i><i><sub>AL</sub></i>).  Typical value = 5,5.
+- name: vanmax
+  type: PU
+  description: Limiter for Van (<i>V</i><i><sub>ANMAX</sub></i>).
+- name: vomax
+  type: PU
+  description: Limiter (<i>V</i><i><sub>OMAX</sub></i>) (&gt; DiscExcContIEEEDEC1A.vomin).  Typical value = 0,3.
+- name: vomin
+  type: PU
+  description: Limiter (<i>V</i><i><sub>OMIN</sub></i>) (&lt; DiscExcContIEEEDEC1A.vomax).  Typical value = 0,1.
+- name: vsmax
+  type: PU
+  description: Limiter (<i>V</i><i><sub>SMAX</sub></i>)(&gt; DiscExcContIEEEDEC1A.vsmin).  Typical value = 0,2.
+- name: vsmin
+  type: PU
+  description: Limiter (<i>V</i><i><sub>SMIN</sub></i>) (&lt; DiscExcContIEEEDEC1A.vsmax).  Typical value = -0,066.
+- name: vtc
+  type: PU
+  description: Terminal voltage level reference (<i>V</i><i><sub>TC</sub></i>).  Typical value = 0,95.
+- name: vtlmt
+  type: PU
+  description: Voltage reference (<i>V</i><i><sub>TLMT</sub></i>).  Typical value = 1,1.
+- name: vtm
+  type: PU
+  description: Voltage limits (<i>V</i><i><sub>TM</sub></i>).  Typical value = 1,13.
+- name: vtn
+  type: PU
+  description: Voltage limits (<i>V</i><i><sub>TN</sub></i>).  Typical value = 1,12.
+ancestors:
+- DiscontinuousExcitationControlDynamics

@@ -1,0 +1,27 @@
+name: TradeProduct
+description: |-
+  <b>TradeType</b>                                        <b>TradeProduct</b>
+  IST  (InterSC Trade)                          PHY (Physical Energy Trade)
+  IST                                                  APN (Energy Trades at Aggregated Pricing Nodes)
+  IST                                                  CPT (Converted Physical Energy Trade)
+  AST (Ancilliary Services Trade)             RUT (Regulation Up Trade)
+  AST                                                 RDT (Regulation Down Trade)
+  AST                                                 SRT (Spinning Reserve Trade)
+  AST                                                 NRT (Non-Spinning Reserve Trade)
+  UCT (Unit Commitment Trade)            null
+attributes:
+- name: tradeProductType
+  type: String
+  description: "PHY (Physical Energy Trade);  \nAPN (Energy Trades at Aggregated Pricing Nodes);  \nCPT (Converted Physical\
+    \ Energy Trade);  \nRUT (Regulation Up Trade);  \nRDT (Regulation Down Trade);  \nSRT (Spinning Reserve Trade);  \nNRT\
+    \ (Non-Spinning Reserve Trade)"
+- name: tradeType
+  type: TradeType
+  description: "IST  - InterSC Trade;  \nAST - Ancilliary Services Trade;  \nUCT - Unit Commitment Trade"
+associations:
+- source: TradeProduct
+  target: Trade
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: TradeProduct
+  targetName: Trade

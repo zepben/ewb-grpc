@@ -1,0 +1,23 @@
+name: MitigatedBidClearing
+description: Model of market power mitigation through reference or mitigated bids. Interval based.
+ancestors:
+- MarketFactors
+associations:
+- source: MitigatedBidClearing
+  target: MPMResourceStatus
+  sourceCardinality: 1..*
+  targetCardinality: 0..*
+  sourceName: MitigatedBidClearing
+  targetName: MPMResourceStatus
+- source: MitigatedBid
+  target: MitigatedBidClearing
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: MitigatedBid
+  targetName: MitigatedBidClearing
+- source: RMRDetermination
+  target: MitigatedBidClearing
+  sourceCardinality: 0..*
+  targetCardinality: 1..*
+  sourceName: RMRDetermination
+  targetName: MitigatedBidClearing

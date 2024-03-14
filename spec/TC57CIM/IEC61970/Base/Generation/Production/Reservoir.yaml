@@ -1,0 +1,89 @@
+name: Reservoir
+description: 'A water storage facility within a hydro system, including: ponds, lakes, lagoons, and rivers. The storage is
+  usually behind some type of dam.'
+attributes:
+- name: activeStorageCapacity
+  type: Volume
+  description: Storage volume between the full supply level and the normal minimum operating level.
+- name: energyStorageRating
+  type: Float
+  description: The reservoir's energy storage rating in energy for given head conditions.
+- name: fullSupplyLevel
+  type: WaterLevel
+  description: Full supply level, above which water will spill. This can be the spillway crest level or the top of closed
+    gates.
+- name: grossCapacity
+  type: Volume
+  description: Total capacity of reservoir.
+- name: normalMinOperateLevel
+  type: WaterLevel
+  description: Normal minimum operating level below which the penstocks will draw air.
+- name: riverOutletWorks
+  type: String
+  description: River outlet works for riparian right releases or other purposes.
+- name: spillTravelDelay
+  type: Seconds
+  description: The spillway water travel delay to the next downstream reservoir.
+- name: spillwayCapacity
+  type: Float
+  description: The flow capacity of the spillway in cubic meters per second.
+- name: spillwayCrestLength
+  type: Length
+  description: The length of the spillway crest.
+- name: spillwayCrestLevel
+  type: WaterLevel
+  description: Spillway crest level above which water will spill.
+- name: spillWayGateType
+  type: String
+  description: Type of spillway gate, including parameters.
+ancestors:
+- PowerSystemResource
+associations:
+- source: Reservoir
+  target: Reservoir
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: SpillsFromReservoir
+  sourceDescription: A reservoir may spill into a downstream reservoir.
+  targetName: SpillsIntoReservoirs
+  targetDescription: A reservoir may spill into a downstream reservoir.
+- source: LevelVsVolumeCurve
+  target: Reservoir
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LevelVsVolumeCurves
+  sourceDescription: A reservoir may have a level versus volume relationship.
+  targetName: Reservoir
+  targetDescription: A reservoir may have a level versus volume relationship.
+- source: InflowForecast
+  target: Reservoir
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: InflowForecasts
+  sourceDescription: A reservoir may have a "natural" inflow forecast.
+  targetName: Reservoir
+  targetDescription: A reservoir may have a "natural" inflow forecast.
+- source: HydroPowerPlant
+  target: Reservoir
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: HydroPowerPlants
+  sourceDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
+  targetName: Reservoir
+  targetDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
+- source: HydroPowerPlant
+  target: Reservoir
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: UpstreamFromHydroPowerPlants
+  sourceDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
+  targetName: GenSourcePumpDischargeReservoir
+  targetDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
+- source: TargetLevelSchedule
+  target: Reservoir
+  sourceCardinality: 0..1
+  targetCardinality: "1"
+  sourceName: TargetLevelSchedule
+  sourceDescription: A reservoir may have a water level target schedule.
+  targetName: Reservoir
+  targetDescription: A reservoir may have a water level target schedule.

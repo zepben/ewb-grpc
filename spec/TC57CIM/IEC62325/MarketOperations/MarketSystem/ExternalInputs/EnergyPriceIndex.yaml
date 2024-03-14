@@ -1,0 +1,25 @@
+name: EnergyPriceIndex
+description: An Energy Price Index for each Resource is valid for a period (e.g. daily) that is identified by a Valid Period
+  Start Time and a Valid Period End Time. An Energy Price Index is in $/MWh.
+attributes:
+- name: energyPriceIndex
+  type: Float
+  description: Energy price index
+- name: energyPriceIndexType
+  type: EnergyPriceIndexType
+  description: EPI type such as wholesale or retail
+- name: lastModified
+  type: DateTime
+  description: Time updated
+- name: validPeriod
+  type: DateTimeInterval
+  description: Valid period for which the energy price index is valid.
+ancestors:
+- IdentifiedObject
+associations:
+- source: EnergyPriceIndex
+  target: RegisteredGenerator
+  sourceCardinality: "1"
+  targetCardinality: "1"
+  sourceName: EnergyPriceIndex
+  targetName: RegisteredGenerator

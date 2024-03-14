@@ -1,0 +1,11 @@
+name: RMRStartUpCostCurve
+description: Model to support processing of reliability must run units.
+ancestors:
+- Curve
+associations:
+- source: RegisteredGenerator
+  target: RMRStartUpCostCurve
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetName: RMRStartUpCostCurve

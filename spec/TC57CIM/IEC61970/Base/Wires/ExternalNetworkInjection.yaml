@@ -1,0 +1,77 @@
+name: ExternalNetworkInjection
+description: This class represents the external network and it is used for IEC 60909 calculations.
+attributes:
+- name: governorSCD
+  type: ActivePowerPerFrequency
+  description: Power Frequency Bias. This is the change in power injection divided by the change in frequency and negated.  A
+    positive value of the power frequency bias provides additional power injection upon a drop in frequency.
+- name: ikSecond
+  type: Boolean
+  description: Indicates whether initial symmetrical short-circuit current and power have been calculated according to IEC
+    (Ik").  Used only if short circuit calculations are done according to superposition method.
+- name: maxInitialSymShCCurrent
+  type: CurrentFlow
+  description: '  Maximum initial symmetrical short-circuit currents (Ik" max) in A (Ik" = Sk"/(SQRT(3) Un)). Used for short
+    circuit data exchange according to IEC 60909.'
+- name: maxP
+  type: ActivePower
+  description: Maximum active power of the injection.
+- name: maxQ
+  type: ReactivePower
+  description: Maximum reactive power limit. It is used for modelling of infeed for load flow exchange and not for short circuit
+    modelling.
+- name: maxR0ToX0Ratio
+  type: Float
+  description: Maximum ratio of zero sequence resistance of Network Feeder to its zero sequence reactance (R(0)/X(0) max).
+    Used for short circuit data exchange according to IEC 60909.
+- name: maxR1ToX1Ratio
+  type: Float
+  description: Maximum ratio of positive sequence resistance of Network Feeder to its positive sequence reactance (R(1)/X(1)
+    max). Used for short circuit data exchange according to IEC 60909.
+- name: maxZ0ToZ1Ratio
+  type: Float
+  description: Maximum ratio of zero sequence impedance to its positive sequence impedance (Z(0)/Z(1) max). Used for short
+    circuit data exchange according to IEC 60909.
+- name: minInitialSymShCCurrent
+  type: CurrentFlow
+  description: Minimum initial symmetrical short-circuit currents (Ik" min) in A (Ik" = Sk"/(SQRT(3) Un)). Used for short
+    circuit data exchange according to IEC 60909.
+- name: minP
+  type: ActivePower
+  description: Minimum active power of the injection.
+- name: minQ
+  type: ReactivePower
+  description: Minimum reactive power limit. It is used for modelling of infeed for load flow exchange and not for short circuit
+    modelling.
+- name: minR0ToX0Ratio
+  type: Float
+  description: Indicates whether initial symmetrical short-circuit current and power have been calculated according to IEC
+    (Ik"). Used for short circuit data exchange according to IEC 6090.
+- name: minR1ToX1Ratio
+  type: Float
+  description: Minimum ratio of positive sequence resistance of Network Feeder to its positive sequence reactance (R(1)/X(1)
+    min). Used for short circuit data exchange according to IEC 60909.
+- name: minZ0ToZ1Ratio
+  type: Float
+  description: Minimum ratio of zero sequence impedance to its positive sequence impedance (Z(0)/Z(1) min). Used for short
+    circuit data exchange according to IEC 60909.
+- name: referencePriority
+  type: Integer
+  description: Priority of unit for use as powerflow voltage phase angle reference bus selection. 0 = don t care (default)
+    1 = highest priority. 2 is less than 1 and so on.
+- name: voltageFactor
+  type: PU
+  description: Voltage factor in pu, which was used to calculate short-circuit current Ik" and power Sk".  Used only if short
+    circuit calculations are done according to superposition method.
+- name: p
+  type: ActivePower
+  description: |-
+    Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
+ancestors:
+- RegulatingCondEq

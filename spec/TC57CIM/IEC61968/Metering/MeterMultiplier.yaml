@@ -1,0 +1,20 @@
+name: MeterMultiplier
+description: Multiplier applied at the meter.
+attributes:
+- name: kind
+  type: MeterMultiplierKind
+  description: Kind of multiplier.
+- name: value
+  type: Float
+  description: Multiplier value.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Meter
+  target: MeterMultiplier
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Meter
+  sourceDescription: Meter applying this multiplier.
+  targetName: MeterMultipliers
+  targetDescription: All multipliers applied at this meter.

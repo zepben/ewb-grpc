@@ -1,0 +1,17 @@
+name: TagAction
+description: Action on operation tag as a switching step.
+attributes:
+- name: kind
+  type: TagActionKind
+  description: Kind of tag action.
+ancestors:
+- SwitchingAction
+associations:
+- source: TagAction
+  target: OperationalTag
+  sourceCardinality: 0..1
+  targetCardinality: 0..1
+  sourceName: TagAction
+  sourceDescription: Tag action associated with this tag.
+  targetName: OperationalTag
+  targetDescription: Tag associated with this tag action.

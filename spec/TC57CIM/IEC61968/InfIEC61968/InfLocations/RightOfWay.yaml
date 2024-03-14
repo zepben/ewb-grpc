@@ -1,0 +1,19 @@
+name: RightOfWay
+description: ' A right-of-way (ROW) is for land where it is lawful to use for a public road, an electric power line, etc.
+  Note that the association to Location, Asset, Organisation, etc. for the Grant is inherited from Agreement, a type of Document.'
+attributes:
+- name: propertyData
+  type: String
+  description: Property related information that describes the ROW's land parcel. For example, it may be a deed book number,
+    deed book page number, and parcel number.
+ancestors:
+- Agreement
+associations:
+- source: RightOfWay
+  target: LandProperty
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: RightOfWays
+  sourceDescription: All rights of way this land property has.
+  targetName: LandProperties
+  targetDescription: All land properties this right of way applies to.

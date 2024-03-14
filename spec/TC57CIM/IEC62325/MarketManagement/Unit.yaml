@@ -1,0 +1,19 @@
+name: Unit
+description: The identification of the unit name for the time series quantities.
+attributes:
+- name: name
+  type: String
+  description: The coded representation of the unit.
+associations:
+- source: Unit
+  target: TimeSeries
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Unit
+  targetName: TimeSeries
+- source: AceTariffType
+  target: Unit
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: AceTariffType
+  targetName: Unit

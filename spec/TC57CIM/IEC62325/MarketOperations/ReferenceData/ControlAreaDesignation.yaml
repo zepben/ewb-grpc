@@ -1,0 +1,22 @@
+name: ControlAreaDesignation
+description: Indicates Control Area associated with self-schedule.
+attributes:
+- name: attained
+  type: YesNo
+  description: Attained.
+- name: native
+  type: YesNo
+  description: Native.
+associations:
+- source: ControlAreaDesignation
+  target: SubControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ControlAreaDesignation
+  targetName: SubControlArea
+- source: ControlAreaDesignation
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ControlAreaDesignation
+  targetName: RegisteredResource

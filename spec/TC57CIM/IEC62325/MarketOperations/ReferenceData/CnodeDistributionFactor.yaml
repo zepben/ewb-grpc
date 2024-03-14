@@ -1,0 +1,37 @@
+name: CnodeDistributionFactor
+description: Participation factors per Cnode.  Used to calculate "participation" of Cnode in an AggregateNode. Each Cnode
+  associated to an AggregateNode would be assigned a participation factor for its participation within the AggregateNode.
+attributes:
+- name: factor
+  type: Float
+  description: Used to calculate "participation" of Cnode in an AggregateNode
+- name: podLossFactor
+  type: Float
+  description: Point of delivery loss factor
+ancestors:
+- IdentifiedObject
+associations:
+- source: CnodeDistributionFactor
+  target: SubControlArea
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CnodeDistributionFactor
+  targetName: SubControlArea
+- source: CnodeDistributionFactor
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: CnodeDistributionFactor
+  targetName: MktConnectivityNode
+- source: HostControlArea
+  target: CnodeDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: HostControlArea
+  targetName: CnodeDistributionFactor
+- source: AggregateNode
+  target: CnodeDistributionFactor
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: AggregateNode
+  targetName: CnodeDistributionFactor

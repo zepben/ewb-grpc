@@ -1,0 +1,27 @@
+name: TiePoint
+description: Site of an interface between interchange areas. The tie point can be a network branch (e.g., transmission line
+  or transformer) or a switching device. For transmission lines, the interchange area boundary is usually at a designated
+  point such as the middle of the line. Line end metering is then corrected for line losses.
+attributes:
+- name: tiePointMWRating
+  type: ActivePower
+  description: The MW rating of the tie point.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TiePoint
+  target: MktMeasurement
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: ForTiePoint
+  sourceDescription: A measurement is made on the A side of a tie point
+  targetName: ForMktMeasurement
+  targetDescription: A measurement is made on the A side of a tie point
+- source: TiePoint
+  target: MktMeasurement
+  sourceCardinality: "1"
+  targetCardinality: 1..*
+  sourceName: ByTiePoint
+  sourceDescription: A measurement is made on the B side of a tie point
+  targetName: ByMktMeasurement
+  targetDescription: A measurement is made on the B side of a tie point

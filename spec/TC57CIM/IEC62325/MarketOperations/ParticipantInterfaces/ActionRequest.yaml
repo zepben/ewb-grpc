@@ -1,0 +1,19 @@
+name: ActionRequest
+description: Action request against an existing Trade.
+attributes:
+- name: actionName
+  type: ActionType
+  description: Action name type for the action request.
+associations:
+- source: ActionRequest
+  target: Bid
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ActionRequest
+  targetName: Bid
+- source: ActionRequest
+  target: Trade
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ActionRequest
+  targetName: Trade

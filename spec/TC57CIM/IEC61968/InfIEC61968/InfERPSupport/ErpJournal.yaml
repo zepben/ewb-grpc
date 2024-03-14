@@ -1,0 +1,13 @@
+name: ErpJournal
+description: |-
+  Book for recording accounting transactions as they occur. Transactions and adjustments are first recorded in a journal, which is like a diary of instructions, advising which account to be charged and by how much.
+  A journal represents a change in the balances of a business's financial accounts. Many tasks or transactions throughout an enterprise will result in the creation of a journal. Some examples are creating a customer invoice, paying a vendor, transferring inventory, or paying employees.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpJournal
+  target: ErpJournalEntry
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: ErpJournal
+  targetName: ErpJournalEntries

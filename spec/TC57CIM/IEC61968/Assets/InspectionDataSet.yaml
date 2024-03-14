@@ -1,0 +1,15 @@
+name: InspectionDataSet
+description: Documents the result of one inspection, for a given attribute of an asset.
+attributes:
+- name: locationCondition
+  type: String
+  description: Description of the conditions of the location where the asset resides.
+ancestors:
+- ProcedureDataSet
+associations:
+- source: ScheduledEventData
+  target: InspectionDataSet
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: AccordingToSchedules
+  targetName: InspectionDataSet

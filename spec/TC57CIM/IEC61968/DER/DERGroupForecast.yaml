@@ -1,0 +1,16 @@
+name: DERGroupForecast
+attributes:
+- name: predictionCreationDate
+  type: DateTime
+  description: The timestamp for when a prediction was created
+ancestors:
+- IdentifiedObject
+associations:
+- source: DERGroupForecast
+  target: EndDeviceGroup
+  sourceCardinality: 1..*
+  targetCardinality: 1..*
+  sourceName: DERGroupForecast
+  targetName: EndDeviceGroup
+  targetDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+    EndDevices with a single command

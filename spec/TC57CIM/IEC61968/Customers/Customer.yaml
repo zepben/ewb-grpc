@@ -1,0 +1,101 @@
+name: Customer
+description: Organisation receiving services from service supplier.
+attributes:
+- name: kind
+  type: CustomerKind
+  description: Kind of customer.
+- name: locale
+  type: String
+  description: Locale designating language to use in communications with this customer.
+- name: priority
+  type: Priority
+  description: Priority of the customer.
+- name: pucNumber
+  type: String
+  description: (if applicable) Public utilities commission (PUC) identification number.
+- name: specialNeed
+  type: String
+  description: True if customer organisation has special service needs such as life support, hospitals, etc.
+- name: status
+  type: Status
+  description: Status of this customer.
+- name: vip
+  type: Boolean
+  description: (deprecated) (use 'priority' instead) True if this is an important customer. Importance is for matters different
+    than those in 'specialNeed' attribute.
+ancestors:
+- OrganisationRole
+associations:
+- source: Customer
+  target: EndDevice
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Customer
+  sourceDescription: Customer owning this end device.
+  targetName: EndDevices
+  targetDescription: All end devices of this customer.
+- source: Customer
+  target: Customer
+  targetCardinality: 0..*
+  sourceName: Customer
+  targetName: Customer
+- source: Customer
+  target: CustomerAccount
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Customer
+  sourceDescription: Customer owning this account.
+  targetName: CustomerAccounts
+  targetDescription: All accounts of this customer.
+- source: Customer
+  target: CustomerAgreement
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Customer
+  sourceDescription: Customer for this agreement.
+  targetName: CustomerAgreements
+  targetDescription: All agreements of this customer.
+- source: Customer
+  target: OldPerson
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: CustomerData
+  targetName: ErpPersons
+- source: Customer
+  target: Work
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Customers
+  sourceDescription: All the customers for which this work is performed.
+  targetName: Works
+  targetDescription: All the works performed for this customer.
+- source: Customer
+  target: OutagePlan
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: Customer
+  sourceDescription: The customers that are affected by this planned outage.
+  targetName: OutagePlan
+  targetDescription: The outage plan that identifies the customers that are affected.
+- source: TroubleTicket
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: TroubleTickets
+  sourceDescription: All trouble tickets for this customer.
+  targetName: Customer
+  targetDescription: Customer for whom this trouble ticket is relevant.
+- source: CustomerNotification
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: CustomerNotifications
+  sourceDescription: All notifications required by this customer.
+  targetName: Customer
+  targetDescription: Customer requiring this notification.
+- source: PlannedOutageNotification
+  target: Customer
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: PlannedOutageNotification
+  targetName: Customer

@@ -1,0 +1,13 @@
+name: Approver
+description: Person who accepted/signed or rejected the document.
+ancestors:
+- DocumentPersonRole
+associations:
+- source: Approver
+  target: Document
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Approver
+  sourceDescription: Approver of this document.
+  targetName: Documents
+  targetDescription: All documents for this approver.

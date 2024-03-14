@@ -1,0 +1,13 @@
+name: ReportingSuperGroup
+description: A reporting super group, groups reporting groups for a higher level report.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ReportingGroup
+  target: ReportingSuperGroup
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ReportingGroup
+  sourceDescription: Reporting groups that are grouped under this super group.
+  targetName: ReportingSuperGroup
+  targetDescription: Reporting super group to which this reporting group belongs.

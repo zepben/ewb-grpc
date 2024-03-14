@@ -1,0 +1,62 @@
+name: ExcOEX3T
+description: Modified IEEE type ST1 excitation system with semi-continuous and acting terminal voltage limiter.
+attributes:
+- name: e1
+  type: PU
+  description: Saturation parameter (<i>E</i><i><sub>1</sub></i>).
+- name: e2
+  type: PU
+  description: Saturation parameter (<i>E</i><i><sub>2</sub></i>).
+- name: ka
+  type: PU
+  description: Gain (<i>K</i><i><sub>A</sub></i>).
+- name: kc
+  type: PU
+  description: Gain (<i>K</i><i><sub>C</sub></i>).
+- name: kd
+  type: PU
+  description: Gain (<i>K</i><i><sub>D</sub></i>).
+- name: ke
+  type: PU
+  description: Gain (<i>K</i><i><sub>E</sub></i>).
+- name: kf
+  type: PU
+  description: Gain (<i>K</i><i><sub>F</sub></i>).
+- name: see1
+  type: PU
+  description: Saturation parameter (<i>S</i><i><sub>E</sub></i><i>[E</i><i><sub>1</sub></i><i>]</i>).
+- name: see2
+  type: PU
+  description: Saturation parameter (<i>S</i><i><sub>E</sub></i><i>[E</i><i><sub>2</sub></i><i>]</i>).
+- name: t1
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).
+- name: t2
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).
+- name: t3
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).
+- name: t4
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>4</sub></i>) (&gt;= 0).
+- name: t5
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>5</sub></i>) (&gt;= 0).
+- name: t6
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>6</sub></i>) (&gt;= 0).
+- name: te
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>E</sub></i>) (&gt;= 0).
+- name: tf
+  type: Seconds
+  description: Time constant (<i>T</i><i><sub>F</sub></i>) (&gt;= 0).
+- name: vrmax
+  type: PU
+  description: Limiter (<i>V</i><i><sub>RMAX</sub></i>) (&gt; ExcOEX3T.vrmin).
+- name: vrmin
+  type: PU
+  description: Limiter (<i>V</i><i><sub>RMIN</sub></i>) (&lt; ExcOEX3T.vrmax).
+ancestors:
+- ExcitationSystemDynamics

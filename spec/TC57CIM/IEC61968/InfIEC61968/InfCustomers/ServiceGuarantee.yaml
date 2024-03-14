@@ -1,0 +1,22 @@
+name: ServiceGuarantee
+description: |-
+  A service guarantee, often imposed by a regulator, defines conditions that, if not satisfied, will result in the utility making a monetary payment to the customer. Note that guarantee's identifier is in the 'name' attribute and the status of the guarantee is in the 'Status.status' attribute.
+  Example service requirements include:
+  1) If power is not restored within 24 hours, customers can claim $50 for residential customers or $100 for commercial and industrial customers. In addition for each extra period of 12 hours the customer's supply has not been activated, the customer can claim $25.
+  2) If a customer has a question about their electricity bill, the utility will investigate and respond to the inquiry within 15 working days. If utility fails to meet its guarantee, utility will automatically pay the customer $50.
+attributes:
+- name: applicationPeriod
+  type: DateTimeInterval
+  description: Period in which this service guantee applies.
+- name: automaticPay
+  type: Boolean
+  description: True if utility must autmatically pay the specified amount whenever the condition is not satisified, otherwise
+    customer must make a claim to receive payment.
+- name: payAmount
+  type: Money
+  description: Amount to be paid by the service provider to the customer for each violation of the 'serviceRequirement'.
+- name: serviceRequirement
+  type: String
+  description: Explanation of the requirement and conditions for satisfying it.
+ancestors:
+- Document

@@ -1,0 +1,20 @@
+name: FlowgateRelief
+description: IDC (Interchange Distribution Calulator) sends data for a TLR (Transmission Loading Relief).
+attributes:
+- name: effectiveDate
+  type: DateTime
+  description: "Date/Time when record becomes effective \nUsed to determine when a record becomes effective."
+- name: idcTargetMktFlow
+  type: Integer
+  description: "Energy Flow level that should be maintained according to the TLR rules as specified by the IDC. \nFor Realtime\
+    \ Markets use in dispatch to control constraints under TLR and calculate unconstrained market flows"
+- name: terminateDate
+  type: DateTime
+  description: "Date/Time when record is no longer effective \nUsed to determine when a record is no longer effective"
+associations:
+- source: Flowgate
+  target: FlowgateRelief
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+  sourceName: Flowgate
+  targetName: FlowgateRelief

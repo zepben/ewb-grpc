@@ -1,0 +1,24 @@
+name: ReliabilityInfo
+description: Information regarding the experienced and expected reliability of a specific asset, type of asset, or asset model.
+attributes:
+- name: momFailureRate
+  type: PerCent
+  description: Momentary failure rate (temporary failures/kft-year).
+- name: mTTR
+  type: Hours
+  description: Mean time to repair (MTTR - hours).
+ancestors:
+- IdentifiedObject
+associations:
+- source: ReliabilityInfo
+  target: Specification
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: ReliabilityInfos
+  targetName: Specification
+- source: ReliabilityInfo
+  target: Asset
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: ReliabilityInfos
+  targetName: Assets

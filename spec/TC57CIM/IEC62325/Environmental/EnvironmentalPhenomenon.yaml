@@ -1,0 +1,35 @@
+name: EnvironmentalPhenomenon
+description: The actual or forecast characteristics of an environmental phenomenon at a specific point in time (or during
+  a specific time interval) that may have both a center and area/line location.
+attributes:
+- name: timeInterval
+  type: DateTimeInterval
+  description: The timestamp of the phenomenon as a single point or time interval.
+descendents:
+- AtmosphericPhenomenon
+- GeosphericPhenomenon
+- HydrosphericPhenomenon
+- SpacePhenomenon
+associations:
+- source: EnvironmentalPhenomenon
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalPhenomenon
+  targetName: EnvironmentalInformation
+  targetDescription: The forecast or observation of which this phenomenon description is a part.
+- source: EnvironmentalPhenomenon
+  target: EnvironmentalLocationType
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: EnvironmentalPhenomenon
+  sourceDescription: Environmental phenomenon for which this location is of relevance.
+  targetName: EnvironmentalLocationKind
+  targetDescription: Location of relevance to this environmental phenomenon.
+- source: EnvironmentalPhenomenon
+  target: PhenomenonClassification
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: EnvironmentalPhenomenon
+  targetName: PhenomenonClassification
+  targetDescription: The classification of this phenomenon.

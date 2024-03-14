@@ -1,0 +1,18 @@
+name: Cashier
+description: The operator of the point of sale for the duration of CashierShift. Cashier is under the exclusive management
+  control of Vendor.
+attributes:
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Cashier
+  target: CashierShift
+  sourceCardinality: 0..1
+  targetCardinality: 0..*
+  sourceName: Cashier
+  sourceDescription: Cashier operating this shift.
+  targetName: CashierShifts
+  targetDescription: All shifts operated by this cashier.

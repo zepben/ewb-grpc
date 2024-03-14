@@ -1,0 +1,35 @@
+name: Domain
+description: An area of activity defined within the energy market.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Domain
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Domain
+  targetName: RegisteredResource
+- source: MarketDocument
+  target: Domain
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: MarketDocument
+  targetName: Domain
+- source: Price
+  target: Domain
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Price
+  targetName: Domain
+- source: Quantity
+  target: Domain
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: Quantity
+  targetName: Domain
+- source: TimeSeries
+  target: Domain
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: TimeSeries
+  targetName: Domain

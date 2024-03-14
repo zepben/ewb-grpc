@@ -1,0 +1,46 @@
+name: OperationalLimit
+description: "A value and normal value associated with a specific kind of limit. \nThe sub class value and normalValue attributes\
+  \ vary inversely to the associated OperationalLimitType.acceptableDuration (acceptableDuration for short).  \nIf a particular\
+  \ piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.), the limit with the\
+  \ greatest acceptableDuration shall have the smallest limit value and the limit with the smallest acceptableDuration shall\
+  \ have the largest limit value.  Note: A large current can only be allowed to flow through a piece of equipment for a short\
+  \ duration without causing damage, but a lesser current can be allowed to flow for a longer duration."
+ancestors:
+- IdentifiedObject
+descendents:
+- CurrentLimit
+- ActivePowerLimit
+- ApparentPowerLimit
+- VoltageLimit
+associations:
+- source: OperationalLimit
+  target: OperationalLimitType
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+  sourceName: OperationalLimit
+  sourceDescription: The operational limits associated with this type of limit.
+  targetName: OperationalLimitType
+  targetDescription: The limit type associated with this limit.
+- source: OperationalLimit
+  target: OperationalLimitSet
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: OperationalLimitValue
+  sourceDescription: Values of equipment limits.
+  targetName: OperationalLimitSet
+  targetDescription: The limit set to which the limit values belong.
+- source: OperationalLimit
+  target: LimitDependency
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+  sourceName: OperationalLimit
+  sourceDescription: The operational limits to which this limit dependency model applies.
+  targetName: LimitDependencyModel
+  targetDescription: The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified
+    then the native limit value is used.
+- source: LimitScalingLimit
+  target: OperationalLimit
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: LimitScalingLimit
+  targetName: SourceOperationalLimit

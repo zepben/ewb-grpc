@@ -1,0 +1,12 @@
+name: ErpRequisition
+description: General information that applies to a utility requisition that is a request for the purchase of goods or services.
+  Typically, a requisition leads to the creation of a purchase order to a specific supplier.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpReqLineItem
+  target: ErpRequisition
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+  sourceName: ErpReqLineItems
+  targetName: ErpRequisition

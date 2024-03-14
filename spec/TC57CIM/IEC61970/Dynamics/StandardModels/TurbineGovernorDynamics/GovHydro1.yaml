@@ -1,0 +1,47 @@
+name: GovHydro1
+description: Basic hydro turbine governor.
+attributes:
+- name: at
+  type: PU
+  description: Turbine gain (<i>At</i>) (&gt; 0).  Typical value = 1,2.
+- name: dturb
+  type: PU
+  description: Turbine damping factor (<i>Dturb</i>) (&gt;= 0).  Typical value = 0,5.
+- name: gmax
+  type: PU
+  description: Maximum gate opening (<i>Gmax</i>) (&gt; 0 and &gt; GovHydro.gmin).  Typical value = 1.
+- name: gmin
+  type: PU
+  description: Minimum gate opening (<i>Gmin</i>) (&gt;= 0 and &lt; GovHydro1.gmax).  Typical value = 0.
+- name: hdam
+  type: PU
+  description: Turbine nominal head (<i>hdam</i>).  Typical value = 1.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: qnl
+  type: PU
+  description: No-load flow at nominal head (<i>qnl</i>) (&gt;= 0).  Typical value = 0,08.
+- name: rperm
+  type: PU
+  description: Permanent droop (<i>R</i>) (&gt; 0).  Typical value = 0,04.
+- name: rtemp
+  type: PU
+  description: Temporary droop (<i>r</i>) (&gt; GovHydro1.rperm).  Typical value = 0,3.
+- name: tf
+  type: Seconds
+  description: Filter time constant (<i>Tf</i>) (&gt; 0).  Typical value = 0,05.
+- name: tg
+  type: Seconds
+  description: Gate servo time constant (<i>Tg</i>) (&gt; 0).  Typical value = 0,5.
+- name: tr
+  type: Seconds
+  description: Washout time constant (<i>Tr</i>) (&gt; 0).  Typical value = 5.
+- name: tw
+  type: Seconds
+  description: Water inertia time constant (<i>Tw</i>) (&gt; 0).  Typical value = 1.
+- name: velm
+  type: Float
+  description: Maximum gate velocity (<i>Vlem</i>) (&gt; 0).  Typical value = 0,2.
+ancestors:
+- TurbineGovernorDynamics
