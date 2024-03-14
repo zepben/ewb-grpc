@@ -4,6 +4,9 @@ attributes:
 - name: kind
   type: CustomerKind
   description: Kind of customer.
+- name: numEndDevices
+  type: Integer
+  description: Count of the EndDevice's that are associated with this Customer.
 ancestors:
 - OrganisationRole
 associations:
@@ -15,11 +18,3 @@ associations:
   targetCardinality: 0..*
   targetName: CustomerAgreements
   targetDescription: All agreements of this customer.
-- source: Customer
-  target: EndDevice
-  sourceCardinality: 0..1
-  sourceName: Customer
-  sourceDescription: Customer owning this end device.
-  targetCardinality: 0..*
-  targetName: EndDevices
-  targetDescription: All end devices of this customer.
