@@ -12,25 +12,6 @@ descendents:
 associations:
 - source: Location
   target: PositionPoint
-  sourceCardinality: "1"
-  sourceName: Location
-  sourceDescription: Location described by this position point.
   targetCardinality: 0..*
-  targetName: PositionPoints
+  targetName: Points
   targetDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
-- source: Location
-  target: PowerSystemResource
-  sourceCardinality: 0..1
-  sourceName: Location
-  sourceDescription: Location of this power system resource.
-  targetCardinality: 0..*
-  targetName: PowerSystemResources
-  targetDescription: All power system resources at this location.
-- source: Location
-  target: Asset
-  sourceCardinality: 0..1
-  sourceName: Location
-  sourceDescription: Location of this asset.
-  targetCardinality: 0..*
-  targetName: Assets
-  targetDescription: All assets at this location.
