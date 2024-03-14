@@ -10,50 +10,50 @@ associations:
 - source: Terminal
   target: ConnectivityNode
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Terminals
   sourceDescription: Terminals interconnected with zero impedance at a this connectivity node.
+  targetCardinality: 0..1
   targetName: ConnectivityNode
   targetDescription: The connectivity node to which this terminal connects with zero impedance.
 - source: Terminal
   target: ConductingEquipment
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: Terminals
   sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
     connectivity nodes or topological nodes.
+  targetCardinality: "1"
   targetName: ConductingEquipment
   targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
     to other conducting equipment terminals via connectivity nodes or topological nodes.
 - source: Terminal
   target: Feeder
   sourceCardinality: 1..*
-  targetCardinality: 0..1
   sourceName: NormalHeadTerminal
   sourceDescription: The normal head terminal or terminals of the feeder.
+  targetCardinality: 0..1
   targetName: NormalHeadFeeder
   targetDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
 - source: Terminal
   target: TransformerEnd
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Terminal
   sourceDescription: Terminal of the power transformer to which this transformer end belongs.
+  targetCardinality: 0..*
   targetName: TransformerEnd
   targetDescription: All transformer ends connected at this terminal.
 - source: Terminal
   target: Circuit
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: EndTerminal
+  targetCardinality: 0..1
   targetName: Circuit
 - source: Terminal
   target: LvFeeder
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: normalHeadTerminal
   sourceDescription: |2-
 
     The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
+  targetCardinality: 0..1
   targetName: normalHeadLvFeeder
   targetDescription: The LV feeder that this terminal normally feeds.

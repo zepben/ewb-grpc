@@ -14,20 +14,20 @@ associations:
 - source: ConductingEquipment
   target: Terminal
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ConductingEquipment
   sourceDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
     to other conducting equipment terminals via connectivity nodes or topological nodes.
+  targetCardinality: 0..*
   targetName: Terminals
   targetDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
     connectivity nodes or topological nodes.
 - source: ConductingEquipment
   target: BaseVoltage
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ConductingEquipment
   sourceDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used
     and only one base voltage applies.  For example, not used for transformers.
+  targetCardinality: 0..1
   targetName: BaseVoltage
   targetDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and
     only one base voltage applies.  For example, not used for transformers.

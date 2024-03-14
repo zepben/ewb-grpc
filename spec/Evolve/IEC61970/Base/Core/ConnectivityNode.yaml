@@ -6,16 +6,16 @@ associations:
 - source: ConnectivityNode
   target: ConnectivityNodeContainer
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ConnectivityNodes
   sourceDescription: Connectivity nodes which belong to this connectivity node container.
+  targetCardinality: "1"
   targetName: ConnectivityNodeContainer
   targetDescription: Container of this connectivity node.
 - source: ConnectivityNode
   target: Terminal
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ConnectivityNode
   sourceDescription: The connectivity node to which this terminal connects with zero impedance.
+  targetCardinality: 0..*
   targetName: Terminals
   targetDescription: Terminals interconnected with zero impedance at a this connectivity node.

@@ -8,18 +8,18 @@ associations:
 - source: Feeder
   target: Terminal
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: NormalHeadFeeder
   sourceDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
+  targetCardinality: 1..*
   targetName: NormalHeadTerminal
   targetDescription: The normal head terminal or terminals of the feeder.
 - source: Feeder
   target: Substation
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: NormalEnergizingFeeder
   sourceDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
     that describe the naming hierarchy.
+  targetCardinality: 0..*
   targetName: NormalEnergizingSubstation
   targetDescription: The substations that are normally energized by the feeder.
 - source: Feeder
@@ -30,5 +30,5 @@ associations:
 - source: Feeder
   target: LvFeeder
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: normalEnergizingFeeders
+  targetCardinality: 0..1

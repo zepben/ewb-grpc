@@ -31,18 +31,18 @@ associations:
 - source: Measurement
   target: ACDCTerminal
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Measurements
   sourceDescription: Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It
     may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current
     transformer (CT) at the bar between a breaker and an isolator.
+  targetCardinality: 0..1
   targetName: Terminal
   targetDescription: One or more measurements may be associated with a terminal in the network.
 - source: Measurement
   target: PowerSystemResource
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Measurements
   sourceDescription: The measurements associated with this power system resource.
+  targetCardinality: 0..1
   targetName: PowerSystemResource
   targetDescription: The power system resource that contains the measurement.

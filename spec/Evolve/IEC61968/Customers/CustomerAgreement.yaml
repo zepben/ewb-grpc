@@ -8,16 +8,16 @@ associations:
 - source: CustomerAgreement
   target: PricingStructure
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: CustomerAgreements
   sourceDescription: All customer agreements with this pricing structure.
+  targetCardinality: 0..*
   targetName: PricingStructures
   targetDescription: All pricing structures applicable to this customer agreement.
 - source: CustomerAgreement
   target: Customer
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: CustomerAgreements
   sourceDescription: All agreements of this customer.
+  targetCardinality: "1"
   targetName: Customer
   targetDescription: Customer for this agreement.

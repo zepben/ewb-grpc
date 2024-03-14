@@ -18,24 +18,24 @@ associations:
 - source: UsagePoint
   target: Equipment
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: UsagePoints
   sourceDescription: All usage points connected to the electrical grid through this equipment.
+  targetCardinality: 0..*
   targetName: Equipments
   targetDescription: All equipment connecting this usage point to the electrical grid.
 - source: UsagePoint
   target: EndDevice
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: UsagePoint
   sourceDescription: Usage point to which this end device belongs.
+  targetCardinality: 0..*
   targetName: EndDevices
   targetDescription: All end devices at this usage point.
 - source: UsagePoint
   target: UsagePointLocation
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: UsagePoints
   sourceDescription: All usage points at this location.
+  targetCardinality: 0..1
   targetName: UsagePointLocation
   targetDescription: Location of this usage point.

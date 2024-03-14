@@ -5,23 +5,23 @@ associations:
 - source: Loop
   target: Substation
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: loops
   sourceDescription: The loops that are energizing this substation.
+  targetCardinality: 0..*
   targetName: substations
   targetDescription: Substations that are energized by this loop.
 - source: Loop
   target: Substation
-  targetCardinality: 0..*
   sourceName: normalEnergizedLoops
   sourceDescription: The loops that are energized by this substation.
+  targetCardinality: 0..*
   targetName: normalEnergizingSubstations
   targetDescription: The substations that normally energize this loop.
 - source: Loop
   target: Circuit
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: loop
   sourceDescription: The loop containing this circuit.
+  targetCardinality: 0..*
   targetName: circuits
   targetDescription: Sub-transmission circuits that form part of this loop.
