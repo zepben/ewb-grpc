@@ -12,6 +12,12 @@ attributes:
   type: String
   description: A code used to specify the connection category, e.g., low voltage or low pressure, where the usage point is
     defined.
+- name: ratedPower
+  type: Integer
+  description: Active power that this usage point is configured to deliver in watts.
+- name: approvedInverterCapacity
+  type: Integer
+  description: The approved inverter capacity at this UsagePoint in volt-amperes.
 ancestors:
 - IdentifiedObject
 associations:
@@ -25,8 +31,8 @@ associations:
   targetDescription: All equipment connecting this usage point to the electrical grid.
 - source: UsagePoint
   target: EndDevice
-  sourceCardinality: 0..1
-  sourceName: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: UsagePoints
   sourceDescription: Usage point to which this end device belongs.
   targetCardinality: 0..*
   targetName: EndDevices
