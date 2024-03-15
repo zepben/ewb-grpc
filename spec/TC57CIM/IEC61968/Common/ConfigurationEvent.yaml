@@ -16,68 +16,68 @@ associations:
 - source: ConfigurationEvent
   target: FaultCauseType
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ConfigurationEvent
+  targetCardinality: "1"
   targetName: FaultCauseType
 - source: ConfigurationEvent
   target: Document
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvents
-  sourceDescription: All configuration events created for this document.
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvents
+  targetCardinality: All configuration events created for this document.
   targetName: ChangedDocument
   targetDescription: Document whose change resulted in this configuration event.
 - source: ConfigurationEvent
   target: UsagePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvents
-  sourceDescription: All configuration events created for this usage point.
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvents
+  targetCardinality: All configuration events created for this usage point.
   targetName: ChangedUsagePoint
   targetDescription: Usage point whose change resulted in this configuration event.
 - source: ConfigurationEvent
   target: OrganisationRole
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvents
-  sourceDescription: All configuration events created for this organisation role.
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvents
+  targetCardinality: All configuration events created for this organisation role.
   targetName: ChangedOrganisationRole
   targetDescription: Organisation role whose change resulted in this configuration event.
 - source: ConfigurationEvent
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvents
-  sourceDescription: All configuration events created for this asset.
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvents
+  targetCardinality: All configuration events created for this asset.
   targetName: ChangedAsset
   targetDescription: Asset whose change resulted in this configuration event.
 - source: ConfigurationEvent
   target: Location
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvents
-  sourceDescription: All configuration events created for this location.
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvents
+  targetCardinality: All configuration events created for this location.
   targetName: ChangedLocation
   targetDescription: Location whose change resulted in this configuration event.
 - source: ConfigurationEvent
   target: PersonRole
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvents
-  sourceDescription: All configuration events created for this person role.
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvents
+  targetCardinality: All configuration events created for this person role.
   targetName: ChangedPersonRole
   targetDescription: Person role whose change resulted in this configuration event.
 - source: ConfigurationEvent
   target: ServiceCategory
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvents
-  sourceDescription: All configuration events created for this service category.
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvents
+  targetCardinality: All configuration events created for this service category.
   targetName: ChangedServiceCategory
   targetDescription: Service category whose change resulted in this configuration event.
 - source: ConfigurationEvent
   target: PowerSystemResource
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConfigurationEvent
+  sourceName: 0..1
+  sourceDescription: ConfigurationEvent
   targetName: PowerSystemResource

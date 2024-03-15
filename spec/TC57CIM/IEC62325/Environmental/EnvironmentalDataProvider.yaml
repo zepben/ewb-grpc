@@ -7,16 +7,16 @@ associations:
 - source: EnvironmentalDataProvider
   target: EnvironmentalAlert
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EnvironmentalDataProvider
-  sourceDescription: Environmental data provider for this alert.
+  sourceName: 0..*
+  sourceDescription: EnvironmentalDataProvider
+  targetCardinality: Environmental data provider for this alert.
   targetName: EnvironmentalAlert
   targetDescription: Alert issued by this environmental data provider.
 - source: EnvironmentalDataProvider
   target: EnvironmentalInformation
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EnvironmentalDataProvider
-  sourceDescription: Environmental data provider supplying this environmental information.
+  sourceName: 0..*
+  sourceDescription: EnvironmentalDataProvider
+  targetCardinality: Environmental data provider supplying this environmental information.
   targetName: EnvironmentalInformation
   targetDescription: Environmental information provided by this environmental data provider.

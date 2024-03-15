@@ -25,22 +25,22 @@ associations:
 - source: Register
   target: EndDeviceFunction
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Registers
   sourceDescription: All registers for quantities metered by this end device function.
+  targetCardinality: 0..1
   targetName: EndDeviceFunction
   targetDescription: End device function metering quantities displayed by this register.
 - source: Register
   target: Channel
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Register
   sourceDescription: Register whose values are collected/reported by this channel.
+  targetCardinality: 0..*
   targetName: Channels
   targetDescription: All channels that collect/report values from this register.
 - source: Register
   target: UsagePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Register
+  sourceName: 0..1
+  sourceDescription: Register
   targetName: Usage Point

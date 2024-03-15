@@ -50,54 +50,54 @@ associations:
 - source: Trade
   target: TradeError
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Trade
+  targetCardinality: 0..*
   targetName: TradeError
 - source: Trade
   target: Pnode
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Trade
+  sourceName: 0..1
+  sourceDescription: Trade
   targetName: Pnode
 - source: Trade
   target: SchedulingCoordinator
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SubmitToSCTrade
+  sourceName: 0..1
+  sourceDescription: SubmitToSCTrade
   targetName: submitToSchedulingCoordinator
 - source: Trade
   target: SchedulingCoordinator
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ToSCTrade
+  sourceName: "1"
+  sourceDescription: ToSCTrade
   targetName: To_SC
 - source: Trade
   target: SchedulingCoordinator
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: FromSCTrade
+  sourceName: "1"
+  sourceDescription: FromSCTrade
   targetName: From_SC
 - source: Trade
   target: SchedulingCoordinator
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SubmitFromSCTrade
+  sourceName: 0..1
+  sourceDescription: SubmitFromSCTrade
   targetName: submitFromSchedulingCoordinator
 - source: Trade
   target: ActionRequest
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Trade
+  sourceName: "1"
+  sourceDescription: Trade
   targetName: ActionRequest
 - source: Trade
   target: RegisteredGenerator
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Trade
+  sourceName: 0..1
+  sourceDescription: Trade
   targetName: RegisteredGenerator
 - source: Trade
   target: TradeProduct
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Trade
+  sourceName: "1"
+  sourceDescription: Trade
   targetName: TradeProduct

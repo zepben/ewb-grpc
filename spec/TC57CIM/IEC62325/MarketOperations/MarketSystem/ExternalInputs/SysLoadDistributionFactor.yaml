@@ -9,18 +9,18 @@ associations:
 - source: SysLoadDistributionFactor
   target: MktConnectivityNode
   sourceCardinality: 0..1
-  targetCardinality: "1"
   sourceName: SysLoadDistribuFactor
+  targetCardinality: "1"
   targetName: MktConnectivityNode
 - source: SysLoadDistributionFactor
   target: DistributionFactorSet
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: SysLoadDistribuFactor
+  sourceName: 0..*
+  sourceDescription: SysLoadDistribuFactor
   targetName: DistributionFactorSet
 - source: SysLoadDistributionFactor
   target: HostControlArea
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: SysLoadDistribuFactor
+  sourceName: "1"
+  sourceDescription: SysLoadDistribuFactor
   targetName: HostControlArea

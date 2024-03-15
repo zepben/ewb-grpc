@@ -55,24 +55,24 @@ associations:
 - source: LoadBid
   target: LoadReductionPriceCurve
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: LoadBid
+  targetCardinality: 0..*
   targetName: LoadReductionPriceCurve
 - source: LoadBid
   target: RampRateCurve
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: LoadBid
+  targetCardinality: 0..*
   targetName: RampRateCurve
 - source: LoadBid
   target: AreaLoadBid
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: LoadBid
+  sourceName: 0..1
+  sourceDescription: LoadBid
   targetName: AreaLoadBid
 - source: LoadBid
   target: RegisteredLoad
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: LoadBids
+  sourceName: 0..1
+  sourceDescription: LoadBids
   targetName: RegisteredLoad

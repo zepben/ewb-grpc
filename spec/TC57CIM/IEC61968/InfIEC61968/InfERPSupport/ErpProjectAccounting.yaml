@@ -8,24 +8,24 @@ associations:
 - source: ErpProjectAccounting
   target: Project
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ErpProjectAccounting
+  targetCardinality: 0..*
   targetName: Projects
 - source: ErpProjectAccounting
   target: ErpTimeEntry
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ErpProjectAccounting
+  sourceName: 0..*
+  sourceDescription: ErpProjectAccounting
   targetName: ErpTimeEntries
 - source: ErpProjectAccounting
   target: WorkCostDetail
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ErpProjectAccounting
+  sourceName: 0..*
+  sourceDescription: ErpProjectAccounting
   targetName: WorkCostDetails
 - source: ErpProjectAccounting
   target: Work
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ErpProjectAccounting
+  sourceName: 0..*
+  sourceDescription: ErpProjectAccounting
   targetName: Works

@@ -18,40 +18,40 @@ associations:
 - source: EndDeviceEvent
   target: UsagePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: EndDeviceEvents
   sourceDescription: All end device events reported for this usage point.
+  targetCardinality: 0..1
   targetName: UsagePoint
   targetDescription: Usage point for which this end device event is reported.
 - source: EndDeviceEvent
   target: EndDeviceEventType
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: EndDeviceEvents
   sourceDescription: All end device events of this type.
+  targetCardinality: "1"
   targetName: EndDeviceEventType
   targetDescription: Type of this end device event.
 - source: EndDeviceEvent
   target: EndDeviceEventDetail
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: EndDeviceEvent
   sourceDescription: End device owning this detail.
+  targetCardinality: 0..*
   targetName: EndDeviceEventDetails
   targetDescription: All details of this end device event.
 - source: EndDeviceEvent
   target: EndDevice
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: EndDeviceEvents
   sourceDescription: All events reported by this end device.
+  targetCardinality: 0..1
   targetName: EndDevice
   targetDescription: End device that reported this end device event.
 - source: EndDeviceEvent
   target: MeterReading
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EndDeviceEvents
-  sourceDescription: All end device events associated with this set of measured values.
+  sourceName: 0..1
+  sourceDescription: EndDeviceEvents
+  targetCardinality: All end device events associated with this set of measured values.
   targetName: MeterReading
   targetDescription: Set of measured values to which this event applies.

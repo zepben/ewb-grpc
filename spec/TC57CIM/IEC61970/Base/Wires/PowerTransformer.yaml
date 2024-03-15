@@ -53,16 +53,16 @@ associations:
 - source: PowerTransformer
   target: PowerTransformerEnd
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: PowerTransformer
   sourceDescription: The power transformer of this power transformer end.
+  targetCardinality: 0..*
   targetName: PowerTransformerEnd
   targetDescription: The ends of this power transformer.
 - source: PowerTransformer
   target: TransformerTank
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PowerTransformer
-  sourceDescription: Bank this transformer belongs to.
+  sourceName: 0..*
+  sourceDescription: PowerTransformer
+  targetCardinality: Bank this transformer belongs to.
   targetName: TransformerTanks
   targetDescription: All transformers that belong to this bank.

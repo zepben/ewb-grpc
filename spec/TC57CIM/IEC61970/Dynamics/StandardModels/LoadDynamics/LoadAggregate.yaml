@@ -8,16 +8,16 @@ associations:
 - source: LoadAggregate
   target: LoadStatic
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: LoadAggregate
-  sourceDescription: Aggregate load to which this aggregate static load belongs.
+  sourceName: 0..1
+  sourceDescription: LoadAggregate
+  targetCardinality: Aggregate load to which this aggregate static load belongs.
   targetName: LoadStatic
   targetDescription: Aggregate static load associated with this aggregate load.
 - source: LoadAggregate
   target: LoadMotor
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: LoadAggregate
-  sourceDescription: Aggregate load to which this aggregate motor (dynamic) load belongs.
+  sourceName: 0..1
+  sourceDescription: LoadAggregate
+  targetCardinality: Aggregate load to which this aggregate motor (dynamic) load belongs.
   targetName: LoadMotor
   targetDescription: Aggregate motor (dynamic) load associated with this aggregate load.

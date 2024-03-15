@@ -30,22 +30,22 @@ associations:
 - source: Organisation
   target: ParentOrganization
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Organisation
   sourceDescription: Organisation that is part of this parent organisation.
+  targetCardinality: 0..1
   targetName: ParentOrganisation
   targetDescription: Parent organisation of this organisation.
 - source: Organisation
   target: SwitchingPlanRequest
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RequestingOrganization
+  sourceName: 0..*
+  sourceDescription: RequestingOrganization
   targetName: SwitchingPlanRequest
 - source: Organisation
   target: OrganisationRole
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Organisation
-  sourceDescription: Organisation having this role.
+  sourceName: 0..*
+  sourceDescription: Organisation
+  targetCardinality: Organisation having this role.
   targetName: Roles
   targetDescription: All roles of this organisation.

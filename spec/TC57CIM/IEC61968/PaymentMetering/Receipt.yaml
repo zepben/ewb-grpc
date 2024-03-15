@@ -13,32 +13,32 @@ associations:
 - source: Receipt
   target: Transaction
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: Receipt
   sourceDescription: The receipted payment for which this transaction has been recorded.
+  targetCardinality: 1..*
   targetName: Transactions
   targetDescription: All transactions recorded for this receipted payment.
 - source: Receipt
   target: VendorShift
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Receipts
-  sourceDescription: All receipts recorded during this vendor shift.
+  sourceName: 0..1
+  sourceDescription: Receipts
+  targetCardinality: All receipts recorded during this vendor shift.
   targetName: VendorShift
   targetDescription: Vendor shift during which this receipt was recorded.
 - source: Receipt
   target: Tender
   sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: Receipt
-  sourceDescription: Receipt that recorded this receiving of a payment in the form of tenders.
+  sourceName: 1..*
+  sourceDescription: Receipt
+  targetCardinality: Receipt that recorded this receiving of a payment in the form of tenders.
   targetName: Tenders
   targetDescription: All payments received in the form of tenders recorded by this receipt.
 - source: Receipt
   target: CashierShift
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Receipts
-  sourceDescription: All Receipts recorded for this Shift.
+  sourceName: 0..1
+  sourceDescription: Receipts
+  targetCardinality: All Receipts recorded for this Shift.
   targetName: CashierShift
   targetDescription: Cashier shift during which this receipt was recorded.

@@ -15,25 +15,25 @@ associations:
 - source: BusNameMarker
   target: ReportingGroup
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: BusNameMarker
   sourceDescription: The bus name markers that belong to this reporting group.
+  targetCardinality: 0..1
   targetName: ReportingGroup
   targetDescription: The reporting group to which this bus name marker belongs.
 - source: BusNameMarker
   target: ACDCTerminal
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: BusNameMarker
   sourceDescription: The bus name marker used to name the bus (topological node).
+  targetCardinality: 1..*
   targetName: Terminal
   targetDescription: The terminals associated with this bus name marker.
 - source: BusNameMarker
   target: TopologicalNode
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: BusNameMarker
   sourceDescription: BusnameMarkers that may refer to a pre defined TopologicalNode.
+  targetCardinality: 0..1
   targetName: TopologicalNode
   targetDescription: A user defined topological node that was originally defined in a planning model not yet having topology
     described by ConnectivityNodes. Once ConnectivityNodes has been created they may linked to user defined ToplogicalNdes

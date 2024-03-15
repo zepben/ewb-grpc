@@ -96,40 +96,40 @@ associations:
 - source: Document
   target: ConfigurationEvent
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ChangedDocument
   sourceDescription: Document whose change resulted in this configuration event.
+  targetCardinality: 0..*
   targetName: ConfigurationEvents
   targetDescription: All configuration events created for this document.
 - source: Document
   target: Author
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Documents
-  sourceDescription: All documents of this this author.
+  sourceName: 0..1
+  sourceDescription: Documents
+  targetCardinality: All documents of this this author.
   targetName: Author
   targetDescription: Author of this document.
 - source: Document
   target: Approver
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Documents
-  sourceDescription: All documents for this approver.
+  sourceName: 0..1
+  sourceDescription: Documents
+  targetCardinality: All documents for this approver.
   targetName: Approver
   targetDescription: Approver of this document.
 - source: Document
   target: Issuer
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Documents
-  sourceDescription: All documents for this issuer.
+  sourceName: 0..1
+  sourceDescription: Documents
+  targetCardinality: All documents for this issuer.
   targetName: Issuer
   targetDescription: Issuer of this document.
 - source: Document
   target: Editor
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Documents
-  sourceDescription: All documents for this editor.
+  sourceName: 0..1
+  sourceDescription: Documents
+  targetCardinality: All documents for this editor.
   targetName: Editor
   targetDescription: Editor of this document.

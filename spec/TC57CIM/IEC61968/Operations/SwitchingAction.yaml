@@ -35,32 +35,32 @@ associations:
 - source: SwitchingAction
   target: SwitchingPlan
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: SwitchingAction
+  targetCardinality: 0..1
   targetName: SwitchingPlan
 - source: SwitchingAction
   target: SwitchingEvent
   sourceCardinality: "1"
-  targetCardinality: 0..1
   sourceName: SwitchingAction
+  targetCardinality: 0..1
   targetName: SwitchingEvent
 - source: SwitchingAction
   target: Operator
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: SwitchingSteps
   sourceDescription: All switching steps this operator is responsible for.
+  targetCardinality: 0..1
   targetName: Operator
   targetDescription: Operator responsible for this switching step.
 - source: SwitchingAction
   target: Crew
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: SwitchingAction
+  targetCardinality: 0..*
   targetName: Crew
 - source: SwitchingAction
   target: SwitchingStep
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: SwitchingAction
+  sourceName: 0..1
+  sourceDescription: SwitchingAction
   targetName: SwitchingStep

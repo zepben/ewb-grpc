@@ -63,42 +63,42 @@ associations:
 - source: GeneratingBid
   target: BidSet
   sourceCardinality: 1..*
-  targetCardinality: 0..1
   sourceName: GeneratingBids
+  targetCardinality: 0..1
   targetName: BidSet
 - source: GeneratingBid
   target: NotificationTimeCurve
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: GeneratingBids
+  targetCardinality: 0..1
   targetName: NotificationTimeCurve
 - source: GeneratingBid
   target: RampRateCurve
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: GeneratingBid
+  targetCardinality: 0..*
   targetName: RampRateCurve
 - source: GeneratingBid
   target: SecurityConstraints
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: GeneratingBid
+  targetCardinality: 0..*
   targetName: SecurityConstraints
 - source: GeneratingBid
   target: RegisteredGenerator
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: GeneratingBids
+  sourceName: 0..1
+  sourceDescription: GeneratingBids
   targetName: RegisteredGenerator
 - source: GeneratingBid
   target: StartUpCostCurve
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: GeneratingBid
+  sourceName: 0..1
+  sourceDescription: GeneratingBid
   targetName: StartUpCostCurve
 - source: GeneratingBid
   target: StartUpTimeCurve
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: GeneratingBid
+  sourceName: 0..1
+  sourceDescription: GeneratingBid
   targetName: StartUpTimeCurve

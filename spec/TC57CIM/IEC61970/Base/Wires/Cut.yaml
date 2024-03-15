@@ -14,16 +14,16 @@ associations:
 - source: Cut
   target: ACLineSegment
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: Cut
   sourceDescription: Cuts applied to the line segment.
+  targetCardinality: "1"
   targetName: ACLineSegment
   targetDescription: The line segment to which the cut is applied.
 - source: Cut
   target: CutAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: Cut
-  sourceDescription: Cut on which this action is taken.
+  sourceName: 0..1
+  sourceDescription: Cut
+  targetCardinality: Cut on which this action is taken.
   targetName: CutAction
   targetDescription: Action taken with this cut.

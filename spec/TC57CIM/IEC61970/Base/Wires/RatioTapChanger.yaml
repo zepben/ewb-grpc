@@ -18,16 +18,16 @@ associations:
 - source: RatioTapChanger
   target: RatioTapChangerTable
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: RatioTapChanger
   sourceDescription: The ratio tap changer of this tap ratio table.
+  targetCardinality: 0..1
   targetName: RatioTapChangerTable
   targetDescription: The tap ratio table for this ratio  tap changer.
 - source: RatioTapChanger
   target: TransformerEnd
   sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: RatioTapChanger
-  sourceDescription: Ratio tap changer associated with this transformer end.
+  sourceName: "1"
+  sourceDescription: RatioTapChanger
+  targetCardinality: Ratio tap changer associated with this transformer end.
   targetName: TransformerEnd
   targetDescription: Transformer end to which this ratio tap changer belongs.

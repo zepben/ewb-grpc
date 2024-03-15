@@ -20,18 +20,18 @@ associations:
 - source: ResourcePerformanceEvaluation
   target: ResourcePerformanceTimeSeriesFactor
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ResourcePerformanceEvaluation
+  targetCardinality: 0..*
   targetName: ResourcePerformanceTimeSeriesFactors
 - source: ResourcePerformanceEvaluation
   target: ResourcePerformanceGlobalFactor
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ResourcePerformanceEvaluation
+  sourceName: 0..*
+  sourceDescription: ResourcePerformanceEvaluation
   targetName: ResorcePerformanceGlobalFactor
 - source: ResourcePerformanceEvaluation
   target: DistributedResourceActualEvent
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ResourcePerformanceEvaluations
+  sourceName: "1"
+  sourceDescription: ResourcePerformanceEvaluations
   targetName: DemandResponseActualEvent

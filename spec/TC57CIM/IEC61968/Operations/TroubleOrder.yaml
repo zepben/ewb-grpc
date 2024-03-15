@@ -13,30 +13,30 @@ associations:
 - source: TroubleOrder
   target: TroubleTicket
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: TroubleOrder
+  targetCardinality: 0..*
   targetName: TroubleTicket
 - source: TroubleOrder
   target: Incident
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: TroubleOrder
+  targetCardinality: 0..1
   targetName: Incident
 - source: TroubleOrder
   target: Location
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: TroubleOrder
+  targetCardinality: 0..1
   targetName: Location
 - source: TroubleOrder
   target: UnplannedOutage
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TroubleOrder
+  sourceName: 0..1
+  sourceDescription: TroubleOrder
   targetName: UnplannedOutage
 - source: TroubleOrder
   target: WorkTask
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TroubleOrder
+  sourceName: 0..*
+  sourceDescription: TroubleOrder
   targetName: WorkTask

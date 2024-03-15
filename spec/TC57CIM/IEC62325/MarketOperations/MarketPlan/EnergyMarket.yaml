@@ -7,30 +7,30 @@ associations:
 - source: EnergyMarket
   target: RTO
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: EnergyMarkets
+  targetCardinality: 0..1
   targetName: RTO
 - source: EnergyMarket
   target: Settlement
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: EnergyMarket
+  targetCardinality: 0..*
   targetName: Settlements
 - source: EnergyMarket
   target: MarketResults
   sourceCardinality: "1"
-  targetCardinality: 0..1
   sourceName: EnergyMarket
+  targetCardinality: 0..1
   targetName: MarketResults
 - source: EnergyMarket
   target: RegisteredResource
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EnergyMarkets
+  targetCardinality: 0..*
   targetName: RegisteredResources
 - source: EnergyMarket
   target: Bid
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: EnergyMarket
+  sourceName: 0..*
+  sourceDescription: EnergyMarket
   targetName: Bids

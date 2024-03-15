@@ -24,50 +24,50 @@ associations:
 - source: MarketProduct
   target: ProductBid
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: MarketProduct
+  targetCardinality: 0..*
   targetName: ProductBids
 - source: MarketProduct
   target: ResourceAwardInstruction
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: MarketProduct
+  targetCardinality: 0..*
   targetName: ResourceAwardInstruction
 - source: MarketProduct
   target: BidError
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: MarketProduct
+  targetCardinality: 0..*
   targetName: BidError
 - source: MarketProduct
   target: BidPriceCap
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: MarketProduct
+  targetCardinality: 0..*
   targetName: BidPriceCap
 - source: MarketProduct
   target: MarketRegionResults
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: MarketProduct
+  targetCardinality: 0..1
   targetName: MarketRegionResults
 - source: MarketProduct
   target: Market
   sourceCardinality: 1..*
-  targetCardinality: 0..1
   sourceName: MarketProducts
+  targetCardinality: 0..1
   targetName: Market
 - source: MarketProduct
   target: ReserveReq
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MarketProduct
-  sourceDescription: Market product associated with reserve requirement must be a reserve or regulation product.
+  sourceName: 0..*
+  sourceDescription: MarketProduct
+  targetCardinality: Market product associated with reserve requirement must be a reserve or regulation product.
   targetName: ReserveReqs
   targetDescription: Market product associated with reserve requirement must be a reserve or regulation product.
 - source: MarketProduct
   target: CommodityDefinition
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MarketProduct
+  sourceName: 0..*
+  sourceDescription: MarketProduct
   targetName: CommodityDefinition

@@ -10,24 +10,24 @@ associations:
 - source: AssetGroup
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: AssetGroup
   sourceDescription: Asset group of which this asset is a part.
+  targetCardinality: 0..*
   targetName: Asset
   targetDescription: Asset which is a part of this asset group.
 - source: AssetGroup
   target: AnalyticScore
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: AssetGroup
   sourceDescription: Asset group to which this analytic score applies..
+  targetCardinality: 0..*
   targetName: AnalyticScore
   targetDescription: Analytic score for this asset group.
 - source: AssetGroup
   target: Analytic
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: AssetGroup
-  sourceDescription: Asset group on which this analytic can be performed.
+  sourceName: 0..*
+  sourceDescription: AssetGroup
+  targetCardinality: Asset group on which this analytic can be performed.
   targetName: Analytic
   targetDescription: Analytic which can be performed on this asset group.

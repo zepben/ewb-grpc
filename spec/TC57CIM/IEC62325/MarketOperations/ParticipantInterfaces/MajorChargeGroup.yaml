@@ -25,26 +25,26 @@ associations:
 - source: MajorChargeGroup
   target: ChargeType
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: MajorChargeGroup
   sourceDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
+  targetCardinality: 0..*
   targetName: ChargeType
   targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
 - source: MajorChargeGroup
   target: MarketScheduledEvent
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: MajorChargeGroup
+  targetCardinality: 0..*
   targetName: MktScheduledEvent
 - source: MajorChargeGroup
   target: Settlement
   sourceCardinality: 1..*
-  targetCardinality: 0..*
   sourceName: MajorChargeGroup
+  targetCardinality: 0..*
   targetName: Settlement
 - source: MajorChargeGroup
   target: MarketInvoice
   sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: MajorChargeGroup
+  sourceName: 0..*
+  sourceDescription: MajorChargeGroup
   targetName: MarketInvoice

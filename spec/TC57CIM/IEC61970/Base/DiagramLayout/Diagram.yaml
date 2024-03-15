@@ -28,16 +28,16 @@ associations:
 - source: Diagram
   target: DiagramObject
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Diagram
-  sourceDescription: A diagram object is part of a diagram.
+  sourceName: 0..*
+  sourceDescription: Diagram
+  targetCardinality: A diagram object is part of a diagram.
   targetName: DiagramElements
   targetDescription: A diagram is made up of multiple diagram objects.
 - source: Diagram
   target: DiagramStyle
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Diagram
-  sourceDescription: A DiagramStyle can be used by many Diagrams.
+  sourceName: 0..1
+  sourceDescription: Diagram
+  targetCardinality: A DiagramStyle can be used by many Diagrams.
   targetName: DiagramStyle
   targetDescription: A Diagram may have a DiagramStyle.

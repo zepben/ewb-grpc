@@ -11,15 +11,15 @@ associations:
 - source: ScheduledLimitValue
   target: Season
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ScheduledLimits
   sourceDescription: The scheduled limits associated with the season.
+  targetCardinality: 0..1
   targetName: Season
   targetDescription: The season for which the scheduled limits applies.    If not specified, then applicable ot any season.
 - source: ScheduledLimitValue
   target: ScheduledLimitDependency
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ScheduledLimitValues
   sourceDescription: The scheduled limit values for this limit dependency.
+  targetCardinality: "1"
   targetName: ScheduledLimitDependency

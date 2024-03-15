@@ -6,21 +6,21 @@ associations:
 - source: InstructionClearing
   target: ResourceDeploymentStatus
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: InstructionClearing
+  targetCardinality: 0..*
   targetName: ResourceDeploymentStatus
 - source: InstructionClearing
   target: Instructions
   sourceCardinality: 1..*
-  targetCardinality: 1..*
-  sourceName: InstructionClearing
+  sourceName: 1..*
+  sourceDescription: InstructionClearing
   targetName: Instructions
 - source: InstructionClearing
   target: DistributedResourceActualEvent
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: InstructionClearing
-  sourceDescription: ActualDemandResponseEvents may exist that are not part of a coordinated MarketActualEvent associated
+  sourceName: 0..1
+  sourceDescription: InstructionClearing
+  targetCardinality: ActualDemandResponseEvents may exist that are not part of a coordinated MarketActualEvent associated
     to a Market. These ActualDemandResponseEvents can have many InstructionClearing Instructions for specified RegisteredResources
     or DemandResponse AggregateNodes.
   targetName: ActualDemandResponseEvent

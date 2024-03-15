@@ -13,74 +13,74 @@ associations:
 - source: Work
   target: Project
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Works
+  targetCardinality: 0..1
   targetName: Project
 - source: Work
   target: WorkTask
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: Work
   sourceDescription: Work this task belongs to.
+  targetCardinality: 0..*
   targetName: WorkTasks
   targetDescription: All tasks in this work.
 - source: Work
   target: ErpProjectAccounting
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Works
+  targetCardinality: 0..1
   targetName: ErpProjectAccounting
 - source: Work
   target: Appointment
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Works
-  sourceDescription: All works for this appointment.
+  sourceName: 0..*
+  sourceDescription: Works
+  targetCardinality: All works for this appointment.
   targetName: Appointments
   targetDescription: All appointments for this work.
 - source: Work
   target: WorkCostDetail
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Works
+  sourceName: 0..*
+  sourceDescription: Works
   targetName: WorkCostDetails
 - source: Work
   target: WorkBillingInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Works
+  sourceName: 0..1
+  sourceDescription: Works
   targetName: WorkBillingInfo
 - source: Work
   target: Design
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Work
+  sourceName: 0..*
+  sourceDescription: Work
   targetName: Designs
 - source: Work
   target: BusinessCase
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Works
+  sourceName: 0..1
+  sourceDescription: Works
   targetName: BusinessCase
 - source: Work
   target: WorkFlowStep
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Work
+  sourceName: 0..*
+  sourceDescription: Work
   targetName: WorkFlowSteps
 - source: Work
   target: Customer
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Works
-  sourceDescription: All the works performed for this customer.
+  sourceName: 0..*
+  sourceDescription: Works
+  targetCardinality: All the works performed for this customer.
   targetName: Customers
   targetDescription: All the customers for which this work is performed.
 - source: Work
   target: Incident
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Works
-  sourceDescription: All works addressing this incident.
+  sourceName: 0..*
+  sourceDescription: Works
+  targetCardinality: All works addressing this incident.
   targetName: Incidents
   targetDescription: All incidents being addressed by this work.

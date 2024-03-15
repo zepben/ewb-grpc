@@ -13,16 +13,16 @@ associations:
 - source: Season
   target: SeasonDayTypeSchedule
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Season
   sourceDescription: Season for the Schedule.
+  targetCardinality: 0..*
   targetName: SeasonDayTypeSchedules
   targetDescription: Schedules that use this Season.
 - source: Season
   target: ScheduledLimitValue
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Season
-  sourceDescription: The season for which the scheduled limits applies.    If not specified, then applicable ot any season.
+  sourceName: 0..*
+  sourceDescription: Season
+  targetCardinality: The season for which the scheduled limits applies.    If not specified, then applicable ot any season.
   targetName: ScheduledLimits
   targetDescription: The scheduled limits associated with the season.

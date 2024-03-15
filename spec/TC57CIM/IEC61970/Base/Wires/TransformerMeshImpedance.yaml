@@ -21,33 +21,33 @@ associations:
 - source: TransformerMeshImpedance
   target: TransformerEnd
   sourceCardinality: 0..*
-  targetCardinality: 1..*
   sourceName: ToMeshImpedance
   sourceDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
+  targetCardinality: 1..*
   targetName: ToTransformerEnd
   targetDescription: All transformer ends this mesh impedance is connected to.
 - source: TransformerMeshImpedance
   target: TransformerEnd
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: FromMeshImpedance
   sourceDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
+  targetCardinality: "1"
   targetName: FromTransformerEnd
   targetDescription: From end this mesh impedance is connected to. It determines the voltage reference.
 - source: TransformerMeshImpedance
   target: TransformerEndInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: FromMeshImpedances
-  sourceDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
+  sourceName: 0..1
+  sourceDescription: FromMeshImpedances
+  targetCardinality: All mesh impedances between this 'to' and other 'from' transformer ends.
   targetName: FromTransformerEndInfo
   targetDescription: '''from'' transformer end datasheet this mesh impedance is calculated from. It determines the voltage
     reference.'
 - source: TransformerMeshImpedance
   target: TransformerEndInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ToMeshImpedances
-  sourceDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
+  sourceName: 0..*
+  sourceDescription: ToMeshImpedances
+  targetCardinality: All mesh impedances between this 'from' and other 'to' transformer ends.
   targetName: ToTransformerEndInfos
   targetDescription: All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.

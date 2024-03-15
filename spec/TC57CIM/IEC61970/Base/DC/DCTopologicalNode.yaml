@@ -6,25 +6,25 @@ associations:
 - source: DCTopologicalNode
   target: DCTopologicalIsland
   sourceCardinality: 1..*
-  targetCardinality: 0..1
   sourceName: DCTopologicalNodes
   sourceDescription: The DC topological nodes in a DC topological island.
+  targetCardinality: 0..1
   targetName: DCTopologicalIsland
   targetDescription: A DC topological node belongs to a DC topological island.
 - source: DCTopologicalNode
   target: DCBaseTerminal
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DCTopologicalNode
-  sourceDescription: See association end Terminal.TopologicalNode.
+  sourceName: 0..*
+  sourceDescription: DCTopologicalNode
+  targetCardinality: See association end Terminal.TopologicalNode.
   targetName: DCTerminals
   targetDescription: See association end TopologicalNode.Terminal.
 - source: DCTopologicalNode
   target: DCNode
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: DCTopologicalNode
-  sourceDescription: The DC topological node to which this DC connectivity node is assigned.  May depend on the current state
+  sourceName: 0..*
+  sourceDescription: DCTopologicalNode
+  targetCardinality: The DC topological node to which this DC connectivity node is assigned.  May depend on the current state
     of switches in the network.
   targetName: DCNodes
   targetDescription: The DC connectivity nodes combined together to form this DC topological node.  May depend on the current
@@ -32,8 +32,8 @@ associations:
 - source: DCTopologicalNode
   target: DCEquipmentContainer
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: DCTopologicalNode
-  sourceDescription: The topological nodes which belong to this connectivity node container.
+  sourceName: 0..1
+  sourceDescription: DCTopologicalNode
+  targetCardinality: The topological nodes which belong to this connectivity node container.
   targetName: DCEquipmentContainer
   targetDescription: The connectivity node container to which the topological node belongs.

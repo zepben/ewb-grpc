@@ -25,46 +25,46 @@ associations:
 - source: CatalogAssetType
   target: TypeAssetCatalogue
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: TypeAssets
+  targetCardinality: 0..1
   targetName: TypeAssetCatalogue
 - source: CatalogAssetType
   target: ErpReqLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: TypeAsset
+  targetCardinality: 0..*
   targetName: ErpReqLineItems
 - source: CatalogAssetType
   target: ErpBomItemData
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: TypeAsset
+  targetCardinality: 0..*
   targetName: ErpBomItemDatas
 - source: CatalogAssetType
   target: ErpIssueInventory
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: TypeAsset
+  sourceName: 0..*
+  sourceDescription: TypeAsset
   targetName: ErpInventoryIssues
 - source: CatalogAssetType
   target: CompatibleUnit
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: GenericAssetModel
+  sourceName: 0..*
+  sourceDescription: GenericAssetModel
   targetName: CompatibleUnits
 - source: CatalogAssetType
   target: ProductAssetModel
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CatalogAssetType
-  sourceDescription: Catalog asset type to which this product asset model conforms.
+  sourceName: 0..*
+  sourceDescription: CatalogAssetType
+  targetCardinality: Catalog asset type to which this product asset model conforms.
   targetName: ProductAssetModel
   targetDescription: Product asset model conforming to this catalog asset type.
 - source: CatalogAssetType
   target: AssetInfo
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: CatalogAssetType
-  sourceDescription: Asset information (nameplate) for this catalog asset type.
+  sourceName: 0..1
+  sourceDescription: CatalogAssetType
+  targetCardinality: Asset information (nameplate) for this catalog asset type.
   targetName: AssetInfo
   targetDescription: Generic nameplate information associated with this catalog asset type.

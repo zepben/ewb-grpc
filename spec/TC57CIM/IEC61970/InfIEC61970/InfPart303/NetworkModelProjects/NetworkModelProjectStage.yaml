@@ -12,18 +12,18 @@ associations:
 - source: NetworkModelProjectStage
   target: ChangeSet
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: NMProjectStage
+  targetCardinality: 1..*
   targetName: ChangeSets
 - source: NetworkModelProjectStage
   target: AnnotatedProjectDependency
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: DependentOnStage
+  sourceName: 0..1
+  sourceDescription: DependentOnStage
   targetName: DependencyDependentOnStage
 - source: NetworkModelProjectStage
   target: AnnotatedProjectDependency
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: DependingStage
+  sourceName: 0..*
+  sourceDescription: DependingStage
   targetName: DenpendecyDependingStage

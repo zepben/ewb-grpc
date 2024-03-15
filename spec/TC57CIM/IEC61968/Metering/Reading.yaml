@@ -17,16 +17,16 @@ associations:
 - source: Reading
   target: ReadingType
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: Readings
   sourceDescription: All reading values with this type information.
+  targetCardinality: "1"
   targetName: ReadingType
   targetDescription: Type information for this reading value.
 - source: Reading
   target: MeterReading
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Readings
   sourceDescription: All reading values contained within this meter reading.
+  targetCardinality: 0..*
   targetName: MeterReadings
   targetDescription: All meter readings (sets of values) containing this reading value.

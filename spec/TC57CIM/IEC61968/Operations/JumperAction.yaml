@@ -10,27 +10,27 @@ associations:
 - source: JumperAction
   target: Jumper
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: JumperAction
   sourceDescription: Action taken with this jumper.
+  targetCardinality: 0..1
   targetName: Jumper
   targetDescription: Jumper on which this action is taken.
 - source: JumperAction
   target: ACLineSegment
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: LineJumpingAction
   sourceDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
     of at its terminals).
+  targetCardinality: 0..*
   targetName: ACLineSegments
   targetDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
     clamp in case the jumper needs to connect along the line segment.
 - source: JumperAction
   target: ConductingEquipment
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: JumpingAction
   sourceDescription: Jumper action involving jumping operation on this conducting equipment.
+  targetCardinality: 0..*
   targetName: JumpedEquipments
   targetDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the
     conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment,
@@ -39,6 +39,6 @@ associations:
 - source: JumperAction
   target: Clamp
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: JumperAction
+  sourceName: 0..1
+  sourceDescription: JumperAction
   targetName: Clamp

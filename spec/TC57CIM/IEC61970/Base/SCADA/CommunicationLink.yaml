@@ -10,16 +10,16 @@ associations:
 - source: CommunicationLink
   target: RemoteUnit
   sourceCardinality: 1..*
-  targetCardinality: 0..*
   sourceName: CommunicationLinks
   sourceDescription: RTUs may be attached to communication links.
+  targetCardinality: 0..*
   targetName: RemoteUnits
   targetDescription: RTUs may be attached to communication links.
 - source: CommunicationLink
   target: BilateralExchangeActor
   sourceCardinality: 0..n
-  targetCardinality: 0..1
   sourceName: CommunicationLink
   sourceDescription: Communication addressing for a Bilateral Table used by a ICCP data provider or consumer.
+  targetCardinality: 0..1
   targetName: BilateralExchangeActor
   targetDescription: ICCP data provider or consumer using communication addressing for a Bilateral table.

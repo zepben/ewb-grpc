@@ -15,94 +15,94 @@ associations:
 - source: Pnode
   target: SubControlArea
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Pnode
+  targetCardinality: 0..1
   targetName: SubControlArea
 - source: Pnode
   target: Trade
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Pnode
+  targetCardinality: 0..*
   targetName: Trade
 - source: Pnode
   target: TransactionBid
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Receipt_Pnode
+  targetCardinality: 0..*
   targetName: ReceiptTransactionBids
 - source: Pnode
   target: TransactionBid
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Delivery_Pnode
+  targetCardinality: 0..*
   targetName: DeliveryTransactionBids
 - source: Pnode
   target: ExPostPricingResults
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: Pnode
+  targetCardinality: 0..*
   targetName: ExPostResults
 - source: Pnode
   target: PnodeResults
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: Pnode
+  targetCardinality: 1..*
   targetName: PnodeResults
 - source: Pnode
   target: CRRSegment
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Source
+  targetCardinality: 0..*
   targetName: SourceCRRSegment
 - source: Pnode
   target: CRRSegment
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Sink
+  targetCardinality: 0..*
   targetName: SinkCRRSegment
 - source: Pnode
   target: MktMeasurement
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Pnode
   sourceDescription: Allows Pnode an association to aggregated resources external DC ties or psuedo tie measurements.
+  targetCardinality: 0..*
   targetName: MktMeasurement
   targetDescription: Allows Measurements to be associated to Pnodes.
 - source: Pnode
   target: RegisteredResource
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Pnode
   sourceDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
+  targetCardinality: 0..*
   targetName: RegisteredResources
   targetDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
 - source: Pnode
   target: AggregateNode
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Pnode
+  sourceName: 0..*
+  sourceDescription: Pnode
   targetName: AggregateNode
 - source: Pnode
   target: FTR
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Pnodes
+  sourceName: 0..*
+  sourceDescription: Pnodes
   targetName: FTRs
 - source: Pnode
   target: OrgPnodeAllocation
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Pnode
+  sourceName: 0..*
+  sourceDescription: Pnode
   targetName: OrgPnodeAllocation
 - source: Pnode
   target: RTO
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Pnodes
+  sourceName: 0..1
+  sourceDescription: Pnodes
   targetName: RTO
 - source: Pnode
   target: CommodityDefinition
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Pnode
+  sourceName: 0..*
+  sourceDescription: Pnode
   targetName: CommodityDefinition

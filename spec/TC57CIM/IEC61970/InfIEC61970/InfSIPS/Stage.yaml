@@ -11,14 +11,14 @@ associations:
 - source: Stage
   target: RemedialActionScheme
   sourceCardinality: 1..*
-  targetCardinality: "1"
   sourceName: Stage
   sourceDescription: A Remedial Action Scheme (RAS) consist of one or more stage that are trigger and execute protection action.
+  targetCardinality: "1"
   targetName: RemedialActionScheme
 - source: Stage
   target: StageTrigger
   sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: Stage
+  sourceName: 1..*
+  sourceDescription: Stage
   targetName: StageTrigger
   targetDescription: A Stage consist of one or more StageTrigger.

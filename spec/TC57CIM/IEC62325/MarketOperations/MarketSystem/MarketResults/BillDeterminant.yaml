@@ -46,26 +46,26 @@ associations:
 - source: BillDeterminant
   target: ChargeProfileData
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: BillDeterminant
+  targetCardinality: 0..*
   targetName: ChargeProfileData
 - source: BillDeterminant
   target: MktUserAttribute
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: BillDeterminant
+  targetCardinality: 0..*
   targetName: MktUserAttribute
 - source: BillDeterminant
   target: ChargeComponent
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: BillDeterminants
-  sourceDescription: A BillDeterminant can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n BillDeterminant.
+  sourceName: 0..*
+  sourceDescription: BillDeterminants
+  targetCardinality: A BillDeterminant can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n BillDeterminant.
   targetName: ChargeComponents
   targetDescription: A BillDeterminant can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n BillDeterminant.
 - source: BillDeterminant
   target: ChargeProfile
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: BillDeterminant
+  sourceName: 0..1
+  sourceDescription: BillDeterminant
   targetName: ChargeProfile

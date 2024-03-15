@@ -33,65 +33,65 @@ associations:
 - source: Transaction
   target: Meter
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: VendingTransactions
   sourceDescription: All vending transactions on this meter.
+  targetCardinality: 0..1
   targetName: Meter
   targetDescription: Meter for this vending transaction.
 - source: Transaction
   target: VendorShift
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Transactions
-  sourceDescription: All transactions recorded during this vendor shift.
+  sourceName: 0..1
+  sourceDescription: Transactions
+  targetCardinality: All transactions recorded during this vendor shift.
   targetName: VendorShift
   targetDescription: Vendor shift during which this transaction was recorded.
 - source: Transaction
   target: Receipt
   sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: Transactions
-  sourceDescription: All transactions recorded for this receipted payment.
+  sourceName: 0..1
+  sourceDescription: Transactions
+  targetCardinality: All transactions recorded for this receipted payment.
   targetName: Receipt
   targetDescription: The receipted payment for which this transaction has been recorded.
 - source: Transaction
   target: CashierShift
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Transactions
-  sourceDescription: All transactions recorded during this cashier shift.
+  sourceName: 0..1
+  sourceDescription: Transactions
+  targetCardinality: All transactions recorded during this cashier shift.
   targetName: CashierShift
   targetDescription: Cashier shift during which this transaction was recorded.
 - source: Transaction
   target: AuxiliaryAccount
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: PaymentTransactions
-  sourceDescription: All payments against this account.
+  sourceName: 0..1
+  sourceDescription: PaymentTransactions
+  targetCardinality: All payments against this account.
   targetName: AuxiliaryAccount
   targetDescription: Auxiliary account for this payment transaction.
 - source: Transaction
   target: PricingStructure
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Transactions
-  sourceDescription: All transactions applying this pricing structure.
+  sourceName: 0..1
+  sourceDescription: Transactions
+  targetCardinality: All transactions applying this pricing structure.
   targetName: PricingStructure
   targetDescription: Pricing structure applicable for this transaction.
 - source: Transaction
   target: CustomerAccount
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: PaymentTransactions
-  sourceDescription: All payment transactions for this customer account.
+  sourceName: 0..1
+  sourceDescription: PaymentTransactions
+  targetCardinality: All payment transactions for this customer account.
   targetName: CustomerAccount
   targetDescription: Customer account for this payment transaction.
 - source: Transaction
   target: UserAttribute
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Transaction
-  sourceDescription: Transaction for which this snapshot has been recorded.
+  sourceName: 0..*
+  sourceDescription: Transaction
+  targetCardinality: Transaction for which this snapshot has been recorded.
   targetName: UserAttributes
   targetDescription: All snapshots of meter parameters recorded at the time of this transaction. Use 'name' and 'value.value'
     attributes to specify name and value of a parameter from meter.

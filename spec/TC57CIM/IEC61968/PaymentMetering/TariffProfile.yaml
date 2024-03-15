@@ -14,24 +14,24 @@ associations:
 - source: TariffProfile
   target: TimeTariffInterval
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: TariffProfiles
   sourceDescription: All tariff profiles defined by this time tariff interval.
+  targetCardinality: 0..*
   targetName: TimeTariffIntervals
   targetDescription: All time tariff intervals used to define this tariff profile.
 - source: TariffProfile
   target: ConsumptionTariffInterval
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: TariffProfiles
   sourceDescription: All tariff profiles defined by this consumption tariff interval.
+  targetCardinality: 0..*
   targetName: ConsumptionTariffIntervals
   targetDescription: All consumption tariff intervals used to define this tariff profile.
 - source: TariffProfile
   target: Tariff
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: TariffProfiles
-  sourceDescription: All tariff profiles using this tariff.
+  sourceName: 0..*
+  sourceDescription: TariffProfiles
+  targetCardinality: All tariff profiles using this tariff.
   targetName: Tariffs
   targetDescription: All tariffs defined by this tariff profile.

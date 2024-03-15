@@ -9,16 +9,16 @@ associations:
 - source: ConnectivityNodeContainer
   target: TopologicalNode
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ConnectivityNodeContainer
-  sourceDescription: The connectivity node container to which the topological node belongs.
+  sourceName: 0..*
+  sourceDescription: ConnectivityNodeContainer
+  targetCardinality: The connectivity node container to which the topological node belongs.
   targetName: TopologicalNode
   targetDescription: The topological nodes which belong to this connectivity node container.
 - source: ConnectivityNodeContainer
   target: ConnectivityNode
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ConnectivityNodeContainer
-  sourceDescription: Container of this connectivity node.
+  sourceName: 0..*
+  sourceDescription: ConnectivityNodeContainer
+  targetCardinality: Container of this connectivity node.
   targetName: ConnectivityNodes
   targetDescription: Connectivity nodes which belong to this connectivity node container.

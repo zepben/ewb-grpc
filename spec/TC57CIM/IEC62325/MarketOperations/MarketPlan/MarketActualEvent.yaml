@@ -24,9 +24,9 @@ associations:
 - source: MarketActualEvent
   target: MarketRun
   sourceCardinality: 1..*
-  targetCardinality: 0..1
   sourceName: MarketActualEvent
   sourceDescription: All actual events that trigger this market run.
+  targetCardinality: 0..1
   targetName: MarketRun
   targetDescription: Market run triggered by this actual event. For example, the DA market run is triggered by the actual
     open bid submission event and terminated by the actual execution and completion of the DA market run captured by the runState
@@ -34,8 +34,8 @@ associations:
 - source: MarketActualEvent
   target: PlannedMarketEvent
   sourceCardinality: 1..*
-  targetCardinality: 0..1
   sourceName: MarketActualEvent
   sourceDescription: All actual events that execute this planned event.
+  targetCardinality: 0..1
   targetName: PlannedMarketEvent
   targetDescription: Planned event executed by this actual event.

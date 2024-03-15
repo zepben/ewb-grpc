@@ -47,16 +47,16 @@ associations:
 - source: AuxiliaryAgreement
   target: AuxiliaryAccount
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: AuxiliaryAgreement
   sourceDescription: Auxiliary agreement regulating this account.
+  targetCardinality: 1..*
   targetName: AuxiliaryAccounts
   targetDescription: All auxiliary accounts regulated by this agreement.
 - source: AuxiliaryAgreement
   target: CustomerAgreement
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AuxiliaryAgreements
-  sourceDescription: All (non-service related) auxiliary agreements that refer to this customer agreement.
+  sourceName: 0..1
+  sourceDescription: AuxiliaryAgreements
+  targetCardinality: All (non-service related) auxiliary agreements that refer to this customer agreement.
   targetName: CustomerAgreement
   targetDescription: Customer agreement this (non-service related) auxiliary agreement refers to.

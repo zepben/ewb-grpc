@@ -53,22 +53,22 @@ associations:
 - source: ShuntCompensator
   target: ShuntCompensatorPhase
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ShuntCompensator
   sourceDescription: Shunt compensator of this shunt compensator phase.
+  targetCardinality: 0..*
   targetName: ShuntCompensatorPhase
   targetDescription: The individual phases models for the shunt compensator.
 - source: ShuntCompensator
   target: ShuntCompensatorAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ShuntCompensator
+  targetCardinality: 0..1
   targetName: ShuntCompensatorAction
 - source: ShuntCompensator
   target: SvShuntCompensatorSections
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ShuntCompensator
-  sourceDescription: The shunt compensator for which the state applies.
+  sourceName: 0..*
+  sourceDescription: ShuntCompensator
+  targetCardinality: The shunt compensator for which the state applies.
   targetName: SvShuntCompensatorSections
   targetDescription: The state for the number of shunt compensator sections in service.

@@ -17,29 +17,29 @@ associations:
 - source: ProtectiveAction
   target: Gate
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ProtectiveActionCom
   sourceDescription: For the ProtectiveAction to be activated the condition for communication needs to be met (true).
+  targetCardinality: 0..1
   targetName: GateComCondition
 - source: ProtectiveAction
   target: Gate
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ProtectiveActionEnabled
+  targetCardinality: 0..1
   targetName: GateEnabledCondition
   targetDescription: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
 - source: ProtectiveAction
   target: ProtectionEquipment
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ProtectiveAction
-  sourceDescription: Protective action can emulate the action done by one or more protection equipment. In a node breaker
+  sourceName: 0..1
+  sourceDescription: ProtectiveAction
+  targetCardinality: Protective action can emulate the action done by one or more protection equipment. In a node breaker
     model were protective equipment is model this association will be used.
   targetName: ProtectionEquipment
 - source: ProtectiveAction
   target: ProtectiveActionCollection
   sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: ProtectiveAction
-  sourceDescription: Set of ProtectiveAction belonging to a ProtectiveActionCollection.
+  sourceName: "1"
+  sourceDescription: ProtectiveAction
+  targetCardinality: Set of ProtectiveAction belonging to a ProtectiveActionCollection.
   targetName: ProtectiveActionCollection

@@ -25,28 +25,28 @@ associations:
 - source: ControlArea
   target: EnergyArea
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ControlArea
   sourceDescription: The control area specification that is used for the load forecast.
+  targetCardinality: 0..1
   targetName: EnergyArea
   targetDescription: The energy area that is forecast from this control area specification.
 - source: ControlArea
   target: ControlAreaGeneratingUnit
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ControlArea
-  sourceDescription: The parent control area for the generating unit specifications.
+  sourceName: 0..*
+  sourceDescription: ControlArea
+  targetCardinality: The parent control area for the generating unit specifications.
   targetName: ControlAreaGeneratingUnit
   targetDescription: The generating unit specifications for the control area.
 - source: ControlArea
   target: TieFlow
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ControlArea
-  sourceDescription: The control area of the tie flows.
+  sourceName: 0..*
+  sourceDescription: ControlArea
+  targetCardinality: The control area of the tie flows.
   targetName: TieFlow
   targetDescription: The tie flows associated with the control area.
 - source: ControlArea
   target: EnergyGroup
   sourceCardinality: "1"
-  targetCardinality: 0..*
+  sourceName: 0..*

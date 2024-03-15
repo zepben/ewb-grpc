@@ -31,32 +31,32 @@ associations:
 - source: AssetInfo
   target: CatalogAssetType
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: AssetInfo
   sourceDescription: Generic nameplate information associated with this catalog asset type.
+  targetCardinality: 0..1
   targetName: CatalogAssetType
   targetDescription: Asset information (nameplate) for this catalog asset type.
 - source: AssetInfo
   target: PowerSystemResource
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: AssetDatasheet
   sourceDescription: Datasheet information for this power system resource.
+  targetCardinality: 0..*
   targetName: PowerSystemResources
   targetDescription: All power system resources with this datasheet information.
 - source: AssetInfo
   target: ProductAssetModel
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: AssetInfo
-  sourceDescription: Asset information (nameplate) for this product asset model.
+  sourceName: 0..1
+  sourceDescription: AssetInfo
+  targetCardinality: Asset information (nameplate) for this product asset model.
   targetName: ProductAssetModel
   targetDescription: Product asset model which conforms to this catalog asset type.
 - source: AssetInfo
   target: Asset
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AssetInfo
-  sourceDescription: Data applicable to this asset.
+  sourceName: 0..*
+  sourceDescription: AssetInfo
+  targetCardinality: Data applicable to this asset.
   targetName: Assets
   targetDescription: All assets described by this data.

@@ -16,24 +16,24 @@ associations:
 - source: MerchantAccount
   target: Transactor
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: MerchantAccounts
   sourceDescription: All merchant accounts registered with this transactor.
+  targetCardinality: 0..*
   targetName: Transactors
   targetDescription: All transactors this merchant account is registered with.
 - source: MerchantAccount
   target: VendorShift
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: MerchantAccount
   sourceDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).
+  targetCardinality: 0..*
   targetName: VendorShifts
   targetDescription: All vendor shifts that operate on this merchant account.
 - source: MerchantAccount
   target: MerchantAgreement
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: MerchantAccounts
-  sourceDescription: All merchant accounts instantiated as a result of this merchant agreement.
+  sourceName: 0..1
+  sourceDescription: MerchantAccounts
+  targetCardinality: All merchant accounts instantiated as a result of this merchant agreement.
   targetName: MerchantAgreement
   targetDescription: Merchant agreement that instantiated this merchant account.

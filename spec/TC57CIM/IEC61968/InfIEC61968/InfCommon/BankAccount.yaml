@@ -12,16 +12,16 @@ associations:
 - source: BankAccount
   target: Bank
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: BankAccounts
   sourceDescription: All BankAccounts this Bank provides.
+  targetCardinality: 0..1
   targetName: Bank
   targetDescription: Bank that provides this BankAccount.
 - source: BankAccount
   target: ServiceSupplier
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: BankAccounts
-  sourceDescription: All BackAccounts this ServiceSupplier owns.
+  sourceName: 0..1
+  sourceDescription: BankAccounts
+  targetCardinality: All BackAccounts this ServiceSupplier owns.
   targetName: ServiceSupplier
   targetDescription: ServiceSupplier that is owner of this BankAccount.

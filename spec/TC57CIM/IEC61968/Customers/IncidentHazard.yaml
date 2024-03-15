@@ -6,16 +6,16 @@ associations:
 - source: IncidentHazard
   target: TroubleTicket
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: IncidentHazard
-  sourceDescription: All hazards reported with this trouble ticket.
+  sourceName: 0..1
+  sourceDescription: IncidentHazard
+  targetCardinality: All hazards reported with this trouble ticket.
   targetName: TroubleTicket
   targetDescription: Trouble ticket associated with this hazard.
 - source: IncidentHazard
   target: Incident
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: IncidentHazard
-  sourceDescription: All hazards associated with this incident.
+  sourceName: 0..1
+  sourceDescription: IncidentHazard
+  targetCardinality: All hazards associated with this incident.
   targetName: Incident
   targetDescription: Incident associated with this hazard.

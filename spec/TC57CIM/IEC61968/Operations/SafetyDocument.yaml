@@ -16,40 +16,40 @@ associations:
 - source: SafetyDocument
   target: SwitchingPlan
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SafetyDocuments
-  sourceDescription: All safety documents applicable to this swtiching plan.
+  sourceName: 0..1
+  sourceDescription: SafetyDocuments
+  targetCardinality: All safety documents applicable to this swtiching plan.
   targetName: SwitchingPlan
   targetDescription: Switching plan to which this safety document applies.
 - source: SafetyDocument
   target: OperationsSafetySupervisor
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ReleasedSafetyDocuments
-  sourceDescription: All safety documents released to this supervisor.
+  sourceName: 0..1
+  sourceDescription: ReleasedSafetyDocuments
+  targetCardinality: All safety documents released to this supervisor.
   targetName: ReleasedToSupervisor
   targetDescription: Supervisor to which this safety document is released.
 - source: SafetyDocument
   target: OperationsSafetySupervisor
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: IssuedSafetyDocuments
-  sourceDescription: All safety documents issued by this supervisor.
+  sourceName: 0..1
+  sourceDescription: IssuedSafetyDocuments
+  targetCardinality: All safety documents issued by this supervisor.
   targetName: IssuedBySupervisor
   targetDescription: Supervisor that issued this safety document.
 - source: SafetyDocument
   target: FieldSafetySupervisor
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ReleasedSafetyDocuments
-  sourceDescription: All safety documents released by this supervisor.
+  sourceName: 0..1
+  sourceDescription: ReleasedSafetyDocuments
+  targetCardinality: All safety documents released by this supervisor.
   targetName: ReleasedBySupervisor
   targetDescription: Supervisor that released this safety document.
 - source: SafetyDocument
   target: FieldSafetySupervisor
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: IssuedSafetyDocuments
-  sourceDescription: All safety documents issued to this supervisor.
+  sourceName: 0..1
+  sourceDescription: IssuedSafetyDocuments
+  targetCardinality: All safety documents issued to this supervisor.
   targetName: IssuedToSupervisor
   targetDescription: Supervisor to whom this safety document is issued.

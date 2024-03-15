@@ -16,59 +16,59 @@ associations:
 - source: EndDeviceGroup
   target: EndDeviceControl
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EndDeviceGroups
   sourceDescription: All end device groups receiving commands from this end device control.
+  targetCardinality: 0..*
   targetName: EndDeviceControls
   targetDescription: All end device controls sending commands to this end device group.
 - source: EndDeviceGroup
   target: EndDevice
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EndDeviceGroups
   sourceDescription: All end device groups referring to this end device.
+  targetCardinality: 0..*
   targetName: EndDevices
   targetDescription: All end devices this end device group refers to.
 - source: EndDeviceGroup
   target: DispatchablePowerCapability
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: EndDeviceGroup
   sourceDescription: EndDeviceGroup is used in metering to group end devices, this same class is used to group DER
+  targetCardinality: 0..1
   targetName: DispatchablePowerCapability
 - source: EndDeviceGroup
   target: DERMonitorableParameter
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EndDeviceGroup
+  targetCardinality: 0..*
   targetName: DERMonitorableParameter
 - source: EndDeviceGroup
   target: DERGroupDispatch
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EndDeviceGroup
   sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
     EndDevices with a single command
+  targetCardinality: 0..*
   targetName: DERGroupDispatch
 - source: EndDeviceGroup
   target: DemandResponseProgram
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: EndDeviceGroups
-  sourceDescription: All groups of end devices enrolled in this demand response program.
+  sourceName: 0..*
+  sourceDescription: EndDeviceGroups
+  targetCardinality: All groups of end devices enrolled in this demand response program.
   targetName: DemandResponsePrograms
   targetDescription: All demand response programs this group of end devices is enrolled in.
 - source: EndDeviceGroup
   target: DERGroupForecast
   sourceCardinality: 1..*
-  targetCardinality: 1..*
-  sourceName: EndDeviceGroup
-  sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+  sourceName: 1..*
+  sourceDescription: EndDeviceGroup
+  targetCardinality: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
     EndDevices with a single command
   targetName: DERGroupForecast
 - source: EndDeviceGroup
   target: DERFunction
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EndDeviceGroup
+  sourceName: 0..1
+  sourceDescription: EndDeviceGroup
   targetName: DERFunction

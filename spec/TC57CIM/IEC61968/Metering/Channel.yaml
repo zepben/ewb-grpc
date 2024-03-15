@@ -12,16 +12,16 @@ associations:
 - source: Channel
   target: ReadingType
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: Channel
-  sourceDescription: Channel reporting/collecting register values with this type information.
+  sourceName: 0..1
+  sourceDescription: Channel
+  targetCardinality: Channel reporting/collecting register values with this type information.
   targetName: ReadingType
   targetDescription: Reading type for register values reported/collected by this channel.
 - source: Channel
   target: Register
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Channels
-  sourceDescription: All channels that collect/report values from this register.
+  sourceName: 0..1
+  sourceDescription: Channels
+  targetCardinality: All channels that collect/report values from this register.
   targetName: Register
   targetDescription: Register whose values are collected/reported by this channel.

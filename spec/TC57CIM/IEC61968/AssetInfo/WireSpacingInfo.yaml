@@ -20,26 +20,26 @@ associations:
 - source: WireSpacingInfo
   target: WirePosition
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: WireSpacingInfo
   sourceDescription: Wire spacing data this wire position belongs to.
+  targetCardinality: 1..*
   targetName: WirePositions
   targetDescription: All positions of single wires (phase or neutral) making the conductor.
 - source: WireSpacingInfo
   target: Structure
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: WireSpacingInfos
+  targetCardinality: 0..*
   targetName: Structures
 - source: WireSpacingInfo
   target: DuctBank
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: WireSpacingInfos
+  targetCardinality: 0..1
   targetName: DuctBank
 - source: WireSpacingInfo
   target: ACLineSegment
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WireSpacingInfo
+  sourceName: 0..*
+  sourceDescription: WireSpacingInfo
   targetName: ACLineSegment

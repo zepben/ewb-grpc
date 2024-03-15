@@ -26,46 +26,46 @@ associations:
 - source: SchedulingCoordinator
   target: ContractRight
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: SchedulingCoordinator
+  targetCardinality: 0..*
   targetName: TransmissionContractRight
 - source: SchedulingCoordinator
   target: Trade
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: submitToSchedulingCoordinator
+  targetCardinality: 0..*
   targetName: SubmitToSCTrade
 - source: SchedulingCoordinator
   target: Trade
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: To_SC
+  targetCardinality: 0..*
   targetName: ToSCTrade
 - source: SchedulingCoordinator
   target: Trade
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: From_SC
+  targetCardinality: 0..*
   targetName: FromSCTrade
 - source: SchedulingCoordinator
   target: Trade
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: submitFromSchedulingCoordinator
+  targetCardinality: 0..*
   targetName: SubmitFromSCTrade
 - source: SchedulingCoordinator
   target: MarketParticipant
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: SchedulingCoordinator
+  targetCardinality: 0..1
   targetName: MarketParticipant
 - source: SchedulingCoordinator
   target: LoadRatio
   sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: SchedulingCoordinator
+  sourceName: "1"
+  sourceDescription: SchedulingCoordinator
   targetName: LoadRatio
 - source: SchedulingCoordinator
   target: SchedulingCoordinatorUser
   sourceCardinality: "1"
-  targetCardinality: 0..*
+  sourceName: 0..*

@@ -13,30 +13,30 @@ associations:
 - source: SecurityConstraintSum
   target: ConstraintTerm
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: SecurityConstraintSum
+  targetCardinality: 0..*
   targetName: ConstraintTerms
 - source: SecurityConstraintSum
   target: RTO
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: SecurityConstraintsLinear
+  targetCardinality: 0..1
   targetName: RTO
 - source: SecurityConstraintSum
   target: ContingencyConstraintLimit
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: SecurityConstraintSum
+  sourceName: 0..*
+  sourceDescription: SecurityConstraintSum
   targetName: ContingencyConstraintLimits
 - source: SecurityConstraintSum
   target: BaseCaseConstraintLimit
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: SecurityConstraintSum
+  sourceName: 0..1
+  sourceDescription: SecurityConstraintSum
   targetName: BaseCaseConstraintLimit
 - source: SecurityConstraintSum
   target: DefaultConstraintLimit
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: SecurityConstraintSum
+  sourceName: 0..1
+  sourceDescription: SecurityConstraintSum
   targetName: DefaultConstraintLimit

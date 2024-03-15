@@ -20,24 +20,24 @@ associations:
 - source: EnvironmentalAlert
   target: EnvironmentalDataProvider
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: EnvironmentalAlert
   sourceDescription: Alert issued by this environmental data provider.
+  targetCardinality: 0..1
   targetName: EnvironmentalDataProvider
   targetDescription: Environmental data provider for this alert.
 - source: EnvironmentalAlert
   target: EnvironmentalLocationType
   sourceCardinality: 0..*
-  targetCardinality: 1..*
   sourceName: EnvironmentalAlert
   sourceDescription: Environmental alert applying to location of this type.
+  targetCardinality: 1..*
   targetName: EnvironmentalLocationKind
   targetDescription: Type of location to which this environmental alert applies.
 - source: EnvironmentalAlert
   target: AlertTypeList
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: EnvironmentalAlert
   sourceDescription: An alert whose type is drawn from this alert type list.
+  targetCardinality: "1"
   targetName: AlertTypeList
   targetDescription: The list of alert types from which the type of this alert is drawn.

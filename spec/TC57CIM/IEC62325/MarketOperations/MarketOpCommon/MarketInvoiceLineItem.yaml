@@ -32,18 +32,18 @@ associations:
 - source: MarketInvoiceLineItem
   target: MarketInvoiceLineItem
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ComponentMarketInvoiceLineItems
+  targetCardinality: 0..1
   targetName: ContainerMarketInvoiceLineItem
 - source: MarketInvoiceLineItem
   target: MarketInvoice
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: MarketInvoiceLineItems
+  targetCardinality: "1"
   targetName: MarketInvoice
 - source: MarketInvoiceLineItem
   target: Settlement
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: MarketInvoiceLineItem
+  targetCardinality: 0..*
   targetName: Settlement

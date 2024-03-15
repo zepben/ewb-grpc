@@ -6,38 +6,38 @@ associations:
 - source: ProductBid
   target: BidPriceSchedule
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ProductBid
+  targetCardinality: 0..*
   targetName: BidSchedule
 - source: ProductBid
   target: Bid
   sourceCardinality: 1..*
-  targetCardinality: "1"
   sourceName: ProductBids
   sourceDescription: A bid comprises one or more product bids of market products
+  targetCardinality: "1"
   targetName: Bid
   targetDescription: A bid comprises one or more product bids of market products
 - source: ProductBid
   target: BidSelfSched
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ProductBid
+  targetCardinality: 0..*
   targetName: BidSelfSched
 - source: ProductBid
   target: BidDistributionFactor
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ProductBid
+  targetCardinality: 0..*
   targetName: BidDistributionFactor
 - source: ProductBid
   target: BidHourlyProductSchedule
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ProductBid
+  sourceName: 0..*
+  sourceDescription: ProductBid
   targetName: BidHourlyProductSchedule
 - source: ProductBid
   target: MarketProduct
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ProductBids
+  sourceName: "1"
+  sourceDescription: ProductBids
   targetName: MarketProduct

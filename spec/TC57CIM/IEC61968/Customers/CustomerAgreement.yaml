@@ -18,86 +18,86 @@ associations:
 - source: CustomerAgreement
   target: ServiceLocation
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: CustomerAgreements
   sourceDescription: All customer agreements regulating this service location.
+  targetCardinality: 0..*
   targetName: ServiceLocations
   targetDescription: All service locations regulated by this customer agreement.
 - source: CustomerAgreement
   target: StandardIndustryCode
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: CustomerAgreements
+  targetCardinality: 0..1
   targetName: StandardIndustryCode
 - source: CustomerAgreement
   target: AuxiliaryAgreement
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: CustomerAgreement
   sourceDescription: Customer agreement this (non-service related) auxiliary agreement refers to.
+  targetCardinality: 0..*
   targetName: AuxiliaryAgreements
   targetDescription: All (non-service related) auxiliary agreements that refer to this customer agreement.
 - source: CustomerAgreement
   target: PricingStructure
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: CustomerAgreements
   sourceDescription: All customer agreements with this pricing structure.
+  targetCardinality: 0..*
   targetName: PricingStructures
   targetDescription: All pricing structures applicable to this customer agreement.
 - source: CustomerAgreement
   target: ServiceCategory
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: CustomerAgreements
   sourceDescription: All customer agreements with this service category.
+  targetCardinality: 0..1
   targetName: ServiceCategory
   targetDescription: Service category for this agreement.
 - source: CustomerAgreement
   target: UsagePoint
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: CustomerAgreement
   sourceDescription: Customer agreement regulating this service delivery point.
+  targetCardinality: 0..*
   targetName: UsagePoints
   targetDescription: All service delivery points regulated by this customer agreement.
 - source: CustomerAgreement
   target: DemandResponseProgram
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: CustomerAgreements
-  sourceDescription: All customer agreements through which the customer is enrolled in this demand response program.
+  sourceName: 0..*
+  sourceDescription: CustomerAgreements
+  targetCardinality: All customer agreements through which the customer is enrolled in this demand response program.
   targetName: DemandResponsePrograms
   targetDescription: All demand response programs the customer is enrolled in through this customer agreement.
 - source: CustomerAgreement
   target: MeterReading
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CustomerAgreement
-  sourceDescription: (could be deprecated in the future) Customer agreement for this meter reading.
+  sourceName: 0..*
+  sourceDescription: CustomerAgreement
+  targetCardinality: (could be deprecated in the future) Customer agreement for this meter reading.
   targetName: MeterReadings
   targetDescription: (could be deprecated in the future) All meter readings for this customer agreement.
 - source: CustomerAgreement
   target: ServiceSupplier
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CustomerAgreements
-  sourceDescription: All customer agreements of this service supplier.
+  sourceName: "1"
+  sourceDescription: CustomerAgreements
+  targetCardinality: All customer agreements of this service supplier.
   targetName: ServiceSupplier
   targetDescription: Service supplier for this customer agreement.
 - source: CustomerAgreement
   target: CustomerAccount
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CustomerAgreements
-  sourceDescription: All agreements for this customer account.
+  sourceName: "1"
+  sourceDescription: CustomerAgreements
+  targetCardinality: All agreements for this customer account.
   targetName: CustomerAccount
   targetDescription: Customer account owning this agreement.
 - source: CustomerAgreement
   target: Customer
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: CustomerAgreements
-  sourceDescription: All agreements of this customer.
+  sourceName: "1"
+  sourceDescription: CustomerAgreements
+  targetCardinality: All agreements of this customer.
   targetName: Customer
   targetDescription: Customer for this agreement.

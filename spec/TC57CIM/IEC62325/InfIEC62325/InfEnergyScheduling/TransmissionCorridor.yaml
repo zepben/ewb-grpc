@@ -6,16 +6,16 @@ associations:
 - source: TransmissionCorridor
   target: TransmissionRightOfWay
   sourceCardinality: "1"
-  targetCardinality: 1..*
   sourceName: TransmissionCorridor
   sourceDescription: A transmission right-of-way is a member of a transmission corridor
+  targetCardinality: 1..*
   targetName: TransmissionRightOfWays
   targetDescription: A transmission right-of-way is a member of a transmission corridor
 - source: TransmissionCorridor
   target: TransmissionPath
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: For
-  sourceDescription: A TransmissionPath is contained in a TransmissionCorridor.
+  sourceName: 0..*
+  sourceDescription: For
+  targetCardinality: A TransmissionPath is contained in a TransmissionCorridor.
   targetName: ContainedIn
   targetDescription: A TransmissionPath is contained in a TransmissionCorridor.

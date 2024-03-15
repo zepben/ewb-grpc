@@ -10,22 +10,22 @@ associations:
 - source: ModelOperation
   target: ModelOperationDescription
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ModelOperation
   sourceDescription: The instances of operations that conform to this operation type.
+  targetCardinality: "1"
   targetName: ModelOperationDescription
   targetDescription: The type of the model operation.
 - source: ModelOperation
   target: ModelOperationArg
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ModelOperation
-  sourceDescription: The opeation for the operation argument.
+  sourceName: 0..*
+  sourceDescription: ModelOperation
+  targetCardinality: The opeation for the operation argument.
   targetName: ModelOperationArg
   targetDescription: Arguments of the operation.
 - source: ModelOperation
   target: ModelOperationSequence
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ModelOperation
+  sourceName: "1"
+  sourceDescription: ModelOperation
   targetName: OperationSequence

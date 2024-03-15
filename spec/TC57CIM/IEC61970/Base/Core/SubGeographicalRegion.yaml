@@ -6,32 +6,32 @@ associations:
 - source: SubGeographicalRegion
   target: Line
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Region
   sourceDescription: The sub-geographical region of the line.
+  targetCardinality: 0..*
   targetName: Lines
   targetDescription: The lines within the sub-geographical region.
 - source: SubGeographicalRegion
   target: Substation
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Region
   sourceDescription: The SubGeographicalRegion containing the substation.
+  targetCardinality: 0..*
   targetName: Substations
   targetDescription: The substations in this sub-geographical region.
 - source: SubGeographicalRegion
   target: GeographicalRegion
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Regions
-  sourceDescription: All sub-geographical regions within this geographical region.
+  sourceName: 0..1
+  sourceDescription: Regions
+  targetCardinality: All sub-geographical regions within this geographical region.
   targetName: Region
   targetDescription: The geographical region which this sub-geographical region is within.
 - source: SubGeographicalRegion
   target: DCLine
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Region
-  sourceDescription: The SubGeographicalRegion containing the DC line.
+  sourceName: 0..*
+  sourceDescription: Region
+  targetCardinality: The SubGeographicalRegion containing the DC line.
   targetName: DCLines
   targetDescription: The DC lines in this sub-geographical region.

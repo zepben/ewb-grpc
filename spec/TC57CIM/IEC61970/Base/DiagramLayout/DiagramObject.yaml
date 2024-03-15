@@ -36,42 +36,42 @@ associations:
 - source: DiagramObject
   target: Diagram
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: DiagramElements
   sourceDescription: A diagram is made up of multiple diagram objects.
+  targetCardinality: 0..1
   targetName: Diagram
   targetDescription: A diagram object is part of a diagram.
 - source: DiagramObject
   target: VisibilityLayer
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: VisibleObjects
   sourceDescription: A visibility layer can contain one or more diagram objects.
+  targetCardinality: 0..*
   targetName: VisibilityLayers
   targetDescription: A diagram object can be part of multiple visibility layers.
 - source: DiagramObject
   target: DiagramObjectPoint
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: DiagramObject
   sourceDescription: The diagram object with which the points are associated.
+  targetCardinality: 0..*
   targetName: DiagramObjectPoints
   targetDescription: A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or
     boundary (for polygons).
 - source: DiagramObject
   target: DiagramObjectStyle
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: StyledObjects
   sourceDescription: A style can be assigned to multiple diagram objects.
+  targetCardinality: 0..1
   targetName: DiagramObjectStyle
   targetDescription: A diagram object has a style associated that provides a reference for the style used in the originating
     system.
 - source: DiagramObject
   target: IdentifiedObject
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: DiagramObjects
-  sourceDescription: The diagram objects that are associated with the domain object.
+  sourceName: 0..1
+  sourceDescription: DiagramObjects
+  targetCardinality: The diagram objects that are associated with the domain object.
   targetName: IdentifiedObject
   targetDescription: The domain object to which this diagram object is associated.

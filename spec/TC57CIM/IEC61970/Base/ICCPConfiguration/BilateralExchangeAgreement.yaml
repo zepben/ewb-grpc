@@ -8,16 +8,16 @@ associations:
 - source: BilateralExchangeAgreement
   target: BilateralExchangeActor
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ConsumerBilateralExchange
   sourceDescription: Agreement to information subscriber.
+  targetCardinality: 0..1
   targetName: Consumer
   targetDescription: Subscriber of information from a remote peer.
 - source: BilateralExchangeAgreement
   target: BilateralExchangeActor
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ProviderBilateralExchange
-  sourceDescription: Agreement to information provider.
+  sourceName: "1"
+  sourceDescription: ProviderBilateralExchange
+  targetCardinality: Agreement to information provider.
   targetName: Provider
   targetDescription: Provider of information to a remote peer.

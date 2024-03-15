@@ -48,60 +48,60 @@ associations:
 - source: WorkTask
   target: MaterialItem
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: WorkTask
+  targetCardinality: 0..*
   targetName: MaterialItems
 - source: WorkTask
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ReplacementWorkTasks
   sourceDescription: All work tasks on replacement of this old asset.
+  targetCardinality: 0..*
   targetName: OldAsset
   targetDescription: Old asset replaced by this work task.
 - source: WorkTask
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: WorkTasks
   sourceDescription: All non-replacement work tasks performed on this asset.
+  targetCardinality: 0..*
   targetName: Assets
   targetDescription: All assets on which this non-replacement work task is performed.
 - source: WorkTask
   target: TroubleOrder
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: WorkTask
+  targetCardinality: 0..1
   targetName: TroubleOrder
 - source: WorkTask
   target: Crew
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: WorkTasks
   sourceDescription: All work tasks this crew participates in.
+  targetCardinality: 0..*
   targetName: Crews
   targetDescription: All crews participating in this work task.
 - source: WorkTask
   target: Work
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: WorkTasks
-  sourceDescription: All tasks in this work.
+  sourceName: "1"
+  sourceDescription: WorkTasks
+  targetCardinality: All tasks in this work.
   targetName: Work
   targetDescription: Work this task belongs to.
 - source: WorkTask
   target: ProcedureDataSet
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkTask
-  sourceDescription: Work task that created this procedure data set.
+  sourceName: 0..*
+  sourceDescription: WorkTask
+  targetCardinality: Work task that created this procedure data set.
   targetName: ProcedureDataSet
   targetDescription: Procedure data set associated with this work task.
 - source: WorkTask
   target: SwitchingPlan
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WorkTasks
-  sourceDescription: All work tasks to execute this switching plan.
+  sourceName: 0..1
+  sourceDescription: WorkTasks
+  targetCardinality: All work tasks to execute this switching plan.
   targetName: SwitchingPlan
   targetDescription: Switching plan executed by this work task.

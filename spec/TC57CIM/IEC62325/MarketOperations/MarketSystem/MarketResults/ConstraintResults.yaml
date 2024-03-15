@@ -56,18 +56,18 @@ associations:
 - source: ConstraintResults
   target: MktContingency
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ConstraintResults
+  targetCardinality: "1"
   targetName: MktContingency
 - source: ConstraintResults
   target: ConstraintClearing
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ConstraintResults
+  sourceName: 0..1
+  sourceDescription: ConstraintResults
   targetName: ConstraintClearing
 - source: ConstraintResults
   target: Flowgate
   sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: ConstraintResults
+  sourceName: "1"
+  sourceDescription: ConstraintResults
   targetName: Flowgate

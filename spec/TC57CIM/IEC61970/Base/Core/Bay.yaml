@@ -20,22 +20,22 @@ associations:
 - source: Bay
   target: Substation
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Bays
   sourceDescription: Bays contained in the substation.
+  targetCardinality: 0..1
   targetName: Substation
   targetDescription: Substation containing the bay.
 - source: Bay
   target: VoltageLevel
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Bays
-  sourceDescription: The bays within this voltage level.
+  sourceName: 0..1
+  sourceDescription: Bays
+  targetCardinality: The bays within this voltage level.
   targetName: VoltageLevel
   targetDescription: The voltage level containing this bay.
 - source: Bay
   target: Circuit
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EndBay
+  sourceName: 0..1
+  sourceDescription: EndBay
   targetName: Circuit

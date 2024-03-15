@@ -24,24 +24,24 @@ associations:
 - source: ErpLedgerEntry
   target: ErpLedBudLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ErpLedBudLineItem
+  targetCardinality: 0..1
   targetName: ErpLedgerEntry
 - source: ErpLedgerEntry
   target: ErpJournalEntry
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ErpLedgerEntry
+  targetCardinality: 0..1
   targetName: ErpJounalEntry
 - source: ErpLedgerEntry
   target: UserAttribute
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ErpLedgerEntries
+  targetCardinality: 0..*
   targetName: UserAttributes
 - source: ErpLedgerEntry
   target: ErpLedger
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ErpLedgerEntries
+  sourceName: "1"
+  sourceDescription: ErpLedgerEntries
   targetName: ErpLedger

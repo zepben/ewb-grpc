@@ -30,24 +30,24 @@ associations:
 - source: ProtectionEquipment
   target: ProtectedSwitch
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: OperatedByProtectionEquipment
   sourceDescription: Protection equipments that operate this ProtectedSwitch.
+  targetCardinality: 0..*
   targetName: ProtectedSwitches
   targetDescription: Protected switches operated by this ProtectionEquipment.
 - source: ProtectionEquipment
   target: ConductingEquipment
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ProtectionEquipments
   sourceDescription: Protection equipment  used to protect specific conducting equipment.
+  targetCardinality: 0..*
   targetName: ConductingEquipments
   targetDescription: Protection equipment may be used to protect specific conducting equipment.
 - source: ProtectionEquipment
   target: ProtectiveAction
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ProtectionEquipment
+  targetCardinality: 0..*
   targetName: ProtectiveAction
   targetDescription: Protective action can emulate the action done by one or more protection equipment. In a node breaker
     model were protective equipment is model this association will be used.

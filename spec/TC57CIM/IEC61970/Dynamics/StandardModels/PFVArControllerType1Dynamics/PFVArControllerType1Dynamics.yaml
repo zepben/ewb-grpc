@@ -11,24 +11,24 @@ associations:
 - source: PFVArControllerType1Dynamics
   target: ExcitationSystemDynamics
   sourceCardinality: 0..1
-  targetCardinality: "1"
   sourceName: PFVArControllerType1Dynamics
   sourceDescription: Power factor or VAr controller type 1 model associated with this excitation system model.
+  targetCardinality: "1"
   targetName: ExcitationSystemDynamics
   targetDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
 - source: PFVArControllerType1Dynamics
   target: RemoteInputSignal
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: PFVArControllerType1Dynamics
   sourceDescription: Power factor or VAr controller type 1 model using this remote input signal.
+  targetCardinality: 0..1
   targetName: RemoteInputSignal
   targetDescription: Remote input signal used by this power factor or VAr controller type 1 model.
 - source: PFVArControllerType1Dynamics
   target: VoltageAdjusterDynamics
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: PFVArControllerType1Dynamics
-  sourceDescription: Power factor or VAr controller type 1 model with which this voltage adjuster is associated.
+  sourceName: 0..1
+  sourceDescription: PFVArControllerType1Dynamics
+  targetCardinality: Power factor or VAr controller type 1 model with which this voltage adjuster is associated.
   targetName: VoltageAdjusterDynamics
   targetDescription: Voltage adjuster model associated with this power factor or VAr controller type 1 model.

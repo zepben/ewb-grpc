@@ -24,25 +24,25 @@ associations:
 - source: ACDCTerminal
   target: BusNameMarker
   sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: Terminal
-  sourceDescription: The terminals associated with this bus name marker.
+  sourceName: 0..1
+  sourceDescription: Terminal
+  targetCardinality: The terminals associated with this bus name marker.
   targetName: BusNameMarker
   targetDescription: The bus name marker used to name the bus (topological node).
 - source: ACDCTerminal
   target: OperationalLimitSet
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Terminal
-  sourceDescription: The terminal where the operational limit set apply.
+  sourceName: 0..*
+  sourceDescription: Terminal
+  targetCardinality: The terminal where the operational limit set apply.
   targetName: OperationalLimitSet
   targetDescription: The operational limit sets at the terminal.
 - source: ACDCTerminal
   target: Measurement
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Terminal
-  sourceDescription: One or more measurements may be associated with a terminal in the network.
+  sourceName: 0..*
+  sourceDescription: Terminal
+  targetCardinality: One or more measurements may be associated with a terminal in the network.
   targetName: Measurements
   targetDescription: Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It
     may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current

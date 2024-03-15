@@ -12,16 +12,16 @@ associations:
 - source: AlertTypeList
   target: EnvironmentalDataAuthority
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: AlertTypeList
   sourceDescription: A specific version of a list of alerts published by this environmental data authority.
+  targetCardinality: 0..1
   targetName: EnvironmentalDataAuthority
   targetDescription: The environmental data authority responsible for publishing this list of alert types.
 - source: AlertTypeList
   target: EnvironmentalAlert
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: AlertTypeList
-  sourceDescription: The list of alert types from which the type of this alert is drawn.
+  sourceName: 0..*
+  sourceDescription: AlertTypeList
+  targetCardinality: The list of alert types from which the type of this alert is drawn.
   targetName: EnvironmentalAlert
   targetDescription: An alert whose type is drawn from this alert type list.

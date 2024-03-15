@@ -19,24 +19,24 @@ associations:
 - source: ChargeProfile
   target: BillDeterminant
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ChargeProfile
+  targetCardinality: 0..1
   targetName: BillDeterminant
 - source: ChargeProfile
   target: ChargeProfileData
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ChargeProfile
+  targetCardinality: 0..*
   targetName: ChargeProfileData
 - source: ChargeProfile
   target: PassThroughBill
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ChargeProfiles
+  targetCardinality: 0..1
   targetName: PassTroughBill
 - source: ChargeProfile
   target: Bid
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ChargeProfiles
+  sourceName: 0..1
+  sourceDescription: ChargeProfiles
   targetName: Bid

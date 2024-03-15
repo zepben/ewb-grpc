@@ -42,48 +42,48 @@ associations:
 - source: Reservoir
   target: Reservoir
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: SpillsFromReservoir
   sourceDescription: A reservoir may spill into a downstream reservoir.
+  targetCardinality: 0..*
   targetName: SpillsIntoReservoirs
   targetDescription: A reservoir may spill into a downstream reservoir.
 - source: Reservoir
   target: LevelVsVolumeCurve
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Reservoir
-  sourceDescription: A reservoir may have a level versus volume relationship.
+  sourceName: 0..*
+  sourceDescription: Reservoir
+  targetCardinality: A reservoir may have a level versus volume relationship.
   targetName: LevelVsVolumeCurves
   targetDescription: A reservoir may have a level versus volume relationship.
 - source: Reservoir
   target: InflowForecast
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Reservoir
-  sourceDescription: A reservoir may have a "natural" inflow forecast.
+  sourceName: 0..*
+  sourceDescription: Reservoir
+  targetCardinality: A reservoir may have a "natural" inflow forecast.
   targetName: InflowForecasts
   targetDescription: A reservoir may have a "natural" inflow forecast.
 - source: Reservoir
   target: HydroPowerPlant
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Reservoir
-  sourceDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
+  sourceName: 0..*
+  sourceDescription: Reservoir
+  targetCardinality: Generators discharge water to or pumps are supplied water from a downstream reservoir.
   targetName: HydroPowerPlants
   targetDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
 - source: Reservoir
   target: HydroPowerPlant
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: GenSourcePumpDischargeReservoir
-  sourceDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
+  sourceName: 0..*
+  sourceDescription: GenSourcePumpDischargeReservoir
+  targetCardinality: Generators are supplied water from or pumps discharge water to an upstream reservoir.
   targetName: UpstreamFromHydroPowerPlants
   targetDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
 - source: Reservoir
   target: TargetLevelSchedule
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: Reservoir
-  sourceDescription: A reservoir may have a water level target schedule.
+  sourceName: 0..1
+  sourceDescription: Reservoir
+  targetCardinality: A reservoir may have a water level target schedule.
   targetName: TargetLevelSchedule
   targetDescription: A reservoir may have a water level target schedule.

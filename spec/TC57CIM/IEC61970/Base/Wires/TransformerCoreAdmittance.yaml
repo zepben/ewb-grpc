@@ -20,18 +20,18 @@ associations:
 - source: TransformerCoreAdmittance
   target: TransformerEnd
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: CoreAdmittance
   sourceDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values
     of the transformer should be supplied for one transformer end only.
+  targetCardinality: 0..*
   targetName: TransformerEnd
   targetDescription: All transformer ends having this core admittance.
 - source: TransformerCoreAdmittance
   target: TransformerEndInfo
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: CoreAdmittance
-  sourceDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and
+  sourceName: 0..1
+  sourceDescription: CoreAdmittance
+  targetCardinality: Core admittance calculated from this transformer end datasheet, representing magnetising current and
     core losses. The full values of the transformer should be supplied for one transformer end info only.
   targetName: TransformerEndInfo
   targetDescription: Transformer end datasheet used to calculate this core admittance.

@@ -21,16 +21,16 @@ associations:
 - source: Discrete
   target: DiscreteValue
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: Discrete
   sourceDescription: Measurement to which this value is connected.
+  targetCardinality: 0..*
   targetName: DiscreteValues
   targetDescription: The values connected to this measurement.
 - source: Discrete
   target: ValueAliasSet
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Discretes
-  sourceDescription: The Measurements using the set for translation.
+  sourceName: 0..1
+  sourceDescription: Discretes
+  targetCardinality: The Measurements using the set for translation.
   targetName: ValueAliasSet
   targetDescription: The ValueAliasSet used for translation of a MeasurementValue.value to a name.

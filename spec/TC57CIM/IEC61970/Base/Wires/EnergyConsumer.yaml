@@ -50,38 +50,38 @@ associations:
 - source: EnergyConsumer
   target: LoadResponseCharacteristic
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: EnergyConsumer
   sourceDescription: The set of loads that have the response characteristics.
+  targetCardinality: 0..1
   targetName: LoadResponse
   targetDescription: The load response characteristic of this load.  If missing, this load is assumed to be constant power.
 - source: EnergyConsumer
   target: EnergyConsumerPhase
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: EnergyConsumer
   sourceDescription: The energy consumer to which this phase belongs.
+  targetCardinality: 0..*
   targetName: EnergyConsumerPhase
   targetDescription: The individual phase models for this energy consumer.
 - source: EnergyConsumer
   target: EnergyConsumerAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: EnergyConsumer
+  targetCardinality: 0..1
   targetName: EnergyConsumerAction
 - source: EnergyConsumer
   target: PowerCutZone
   sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: EnergyConsumers
-  sourceDescription: Energy consumer is assigned to the power cut zone.
+  sourceName: 0..1
+  sourceDescription: EnergyConsumers
+  targetCardinality: Energy consumer is assigned to the power cut zone.
   targetName: PowerCutZone
   targetDescription: The  energy consumer is assigned to this power cut zone.
 - source: EnergyConsumer
   target: LoadDynamics
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EnergyConsumer
-  sourceDescription: Energy consumer to which this dynamics load model applies.
+  sourceName: 0..1
+  sourceDescription: EnergyConsumer
+  targetCardinality: Energy consumer to which this dynamics load model applies.
   targetName: LoadDynamics
   targetDescription: Load dynamics model used to describe dynamic behaviour of this energy consumer.

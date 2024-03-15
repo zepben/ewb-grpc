@@ -16,15 +16,15 @@ associations:
 - source: ScheduledEvent
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ScheduledEvents
   sourceDescription: Scheduled event related to this asset.
+  targetCardinality: 0..*
   targetName: Assets
 - source: ScheduledEvent
   target: ScheduledEventData
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ScheduledEvents
-  sourceDescription: All scheduled events with this specification.
+  sourceName: 0..1
+  sourceDescription: ScheduledEvents
+  targetCardinality: All scheduled events with this specification.
   targetName: ScheduledEventData
   targetDescription: Specification for this scheduled event.

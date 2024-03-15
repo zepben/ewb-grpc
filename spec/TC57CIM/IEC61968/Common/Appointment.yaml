@@ -13,16 +13,16 @@ associations:
 - source: Appointment
   target: Work
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Appointments
   sourceDescription: All appointments for this work.
+  targetCardinality: 0..*
   targetName: Works
   targetDescription: All works for this appointment.
 - source: Appointment
   target: PersonRole
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Appointments
-  sourceDescription: All appointments for this person.
+  sourceName: 0..*
+  sourceDescription: Appointments
+  targetCardinality: All appointments for this person.
   targetName: Persons
   targetDescription: All persons for this appointment.

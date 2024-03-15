@@ -6,14 +6,14 @@ associations:
 - source: PinMeasurement
   target: Measurement
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: PinMeasurement
+  targetCardinality: 0..1
   targetName: Measurement
   targetDescription: The Measurement that should be used in compare.
 - source: PinMeasurement
   target: MeasurementCalculator
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: PinMeasurement
+  sourceName: 0..1
+  sourceDescription: PinMeasurement
   targetName: MeasurementCalculator
   targetDescription: Result of the calculation used as input to a gate.

@@ -41,33 +41,33 @@ associations:
 - source: IntervalBlock
   target: PendingCalculation
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: IntervalBlocks
   sourceDescription: All blocks of interval reading values to which this pending conversion applies.
+  targetCardinality: 0..1
   targetName: PendingCalculation
   targetDescription: Pending calculation to apply to interval reading values contained by this block (after which the resulting
     reading type is different than the original because it reflects the conversion result).
 - source: IntervalBlock
   target: ReadingType
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: IntervalBlocks
   sourceDescription: All blocks containing interval reading values with this type information.
+  targetCardinality: 0..1
   targetName: ReadingType
   targetDescription: Type information for interval reading values contained in this block.
 - source: IntervalBlock
   target: MeterReading
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: IntervalBlocks
   sourceDescription: All interval blocks contained in this meter reading.
+  targetCardinality: 0..1
   targetName: MeterReading
   targetDescription: Meter reading containing this interval block.
 - source: IntervalBlock
   target: IntervalReading
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: IntervalBlocks
   sourceDescription: All blocks containing this interval reading.
+  targetCardinality: 0..*
   targetName: IntervalReadings
   targetDescription: Interval reading contained in this block.

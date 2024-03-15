@@ -31,42 +31,42 @@ associations:
 - source: PricingStructure
   target: UsagePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: PricingStructures
   sourceDescription: All pricing structures applicable to this service delivery point (with prepayment meter running as a
     stand-alone device, with no CustomerAgreement or Customer).
+  targetCardinality: 0..*
   targetName: UsagePoints
   targetDescription: All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement
     or Customer) to which this pricing structure applies.
 - source: PricingStructure
   target: Tariff
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: PricingStructures
   sourceDescription: All pricing structures using this tariff.
+  targetCardinality: 0..*
   targetName: Tariffs
   targetDescription: All tariffs used by this pricing structure.
 - source: PricingStructure
   target: Transaction
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: PricingStructure
   sourceDescription: Pricing structure applicable for this transaction.
+  targetCardinality: 0..*
   targetName: Transactions
   targetDescription: All transactions applying this pricing structure.
 - source: PricingStructure
   target: ServiceCategory
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: PricingStructures
-  sourceDescription: All pricing structures applicable to this service category.
+  sourceName: "1"
+  sourceDescription: PricingStructures
+  targetCardinality: All pricing structures applicable to this service category.
   targetName: ServiceCategory
   targetDescription: Service category to which this pricing structure applies.
 - source: PricingStructure
   target: CustomerAgreement
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: PricingStructures
-  sourceDescription: All pricing structures applicable to this customer agreement.
+  sourceName: 0..*
+  sourceDescription: PricingStructures
+  targetCardinality: All pricing structures applicable to this customer agreement.
   targetName: CustomerAgreements
   targetDescription: All customer agreements with this pricing structure.

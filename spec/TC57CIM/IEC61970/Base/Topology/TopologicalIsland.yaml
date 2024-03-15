@@ -8,18 +8,18 @@ associations:
 - source: TopologicalIsland
   target: TopologicalNode
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: AngleRefTopologicalIsland
   sourceDescription: The island for which the node is an angle reference.   Normally there is one angle reference node for
     each island.
+  targetCardinality: 0..1
   targetName: AngleRefTopologicalNode
   targetDescription: The angle reference for the island.   Normally there is one TopologicalNode that is selected as the angle
     reference for each island.   Other reference schemes exist, so the association is typically optional.
 - source: TopologicalIsland
   target: TopologicalNode
   sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: TopologicalIsland
-  sourceDescription: A topological node belongs to a topological island.
+  sourceName: 1..*
+  sourceDescription: TopologicalIsland
+  targetCardinality: A topological node belongs to a topological island.
   targetName: TopologicalNodes
   targetDescription: A topological node belongs to a topological island.

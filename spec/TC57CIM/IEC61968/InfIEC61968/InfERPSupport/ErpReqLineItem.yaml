@@ -19,30 +19,30 @@ associations:
 - source: ErpReqLineItem
   target: ErpRequisition
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ErpReqLineItems
+  targetCardinality: "1"
   targetName: ErpRequisition
 - source: ErpReqLineItem
   target: ErpPOLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ErpReqLineItem
+  targetCardinality: 0..1
   targetName: ErpPOLineItem
 - source: ErpReqLineItem
   target: ErpQuoteLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: ErpReqLineItem
+  sourceName: 0..1
+  sourceDescription: ErpReqLineItem
   targetName: ErpQuoteLineItem
 - source: ErpReqLineItem
   target: TypeMaterial
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpReqLineItems
+  sourceName: 0..1
+  sourceDescription: ErpReqLineItems
   targetName: TypeMaterial
 - source: ErpReqLineItem
   target: CatalogAssetType
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpReqLineItems
+  sourceName: 0..1
+  sourceDescription: ErpReqLineItems
   targetName: TypeAsset

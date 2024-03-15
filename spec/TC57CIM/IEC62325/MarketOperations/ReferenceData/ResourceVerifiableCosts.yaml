@@ -4,24 +4,24 @@ associations:
 - source: ResourceVerifiableCosts
   target: MktHeatRateCurve
   sourceCardinality: 0..1
-  targetCardinality: "1"
   sourceName: ResourceVerifiableCosts
+  targetCardinality: "1"
   targetName: MktHeatRateCurve
 - source: ResourceVerifiableCosts
   target: RegisteredResource
   sourceCardinality: 0..1
-  targetCardinality: "1"
   sourceName: ResourceVerifiableCosts
+  targetCardinality: "1"
   targetName: RegisteredResource
 - source: ResourceVerifiableCosts
   target: ResourceOperationMaintenanceCost
   sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: ResourceVerifiableCosts
+  sourceName: "1"
+  sourceDescription: ResourceVerifiableCosts
   targetName: ResourceOperationMaintenanceCost
 - source: ResourceVerifiableCosts
   target: ResourceStartupCost
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ResourceVerifiableCosts
+  sourceName: 0..*
+  sourceDescription: ResourceVerifiableCosts
   targetName: ResourceStartupCost

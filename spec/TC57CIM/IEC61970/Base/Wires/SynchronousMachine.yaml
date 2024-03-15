@@ -115,32 +115,32 @@ associations:
 - source: SynchronousMachine
   target: PrimeMover
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: SynchronousMachines
-  sourceDescription: Synchronous machines this Prime mover drives.
+  sourceName: 0..*
+  sourceDescription: SynchronousMachines
+  targetCardinality: Synchronous machines this Prime mover drives.
   targetName: PrimeMovers
   targetDescription: Prime movers that drive this SynchronousMachine.
 - source: SynchronousMachine
   target: ReactiveCapabilityCurve
   sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: InitiallyUsedBySynchronousMachines
-  sourceDescription: Synchronous machines using this curve as default.
+  sourceName: 0..1
+  sourceDescription: InitiallyUsedBySynchronousMachines
+  targetCardinality: Synchronous machines using this curve as default.
   targetName: InitialReactiveCapabilityCurve
   targetDescription: The default reactive capability curve for use by a synchronous machine.
 - source: SynchronousMachine
   target: ReactiveCapabilityCurve
   sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: SynchronousMachines
-  sourceDescription: Synchronous machines using this curve.
+  sourceName: 0..*
+  sourceDescription: SynchronousMachines
+  targetCardinality: Synchronous machines using this curve.
   targetName: ReactiveCapabilityCurves
   targetDescription: All available reactive capability curves for this synchronous machine.
 - source: SynchronousMachine
   target: SynchronousMachineDynamics
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: SynchronousMachine
-  sourceDescription: Synchronous machine to which synchronous machine dynamics model applies.
+  sourceName: 0..1
+  sourceDescription: SynchronousMachine
+  targetCardinality: Synchronous machine to which synchronous machine dynamics model applies.
   targetName: SynchronousMachineDynamics
   targetDescription: Synchronous machine dynamics model used to describe dynamic behaviour of this synchronous machine.

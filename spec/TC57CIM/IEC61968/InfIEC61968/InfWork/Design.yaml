@@ -18,48 +18,48 @@ associations:
 - source: Design
   target: OldWorkTask
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Design
+  targetCardinality: 0..*
   targetName: WorkTasks
 - source: Design
   target: WorkCostDetail
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Design
+  targetCardinality: 0..*
   targetName: WorkCostDetails
 - source: Design
   target: ErpBOM
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Design
+  targetCardinality: 0..*
   targetName: ErpBOMs
 - source: Design
   target: ConditionFactor
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Designs
+  targetCardinality: 0..*
   targetName: ConditionFactors
 - source: Design
   target: Work
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Designs
+  targetCardinality: 0..1
   targetName: Work
 - source: Design
   target: ErpQuoteLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: Design
+  sourceName: 0..1
+  sourceDescription: Design
   targetName: ErpQuoteLineItem
 - source: Design
   target: DesignLocation
   sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: Designs
+  sourceName: 0..*
+  sourceDescription: Designs
   targetName: DesignLocations
 - source: Design
   target: DesignLocationCU
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Designs
+  sourceName: 0..*
+  sourceDescription: Designs
   targetName: DesignLocationsCUs

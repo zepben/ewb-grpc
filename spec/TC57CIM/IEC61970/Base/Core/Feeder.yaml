@@ -8,35 +8,35 @@ associations:
 - source: Feeder
   target: Substation
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: NormalEnergizedFeeder
   sourceDescription: The normal energized feeders of the substation. Also used for naming purposes.
+  targetCardinality: 0..1
   targetName: NormalEnergizingSubstation
   targetDescription: The substation that nominally energizes the feeder.  Also used for naming purposes.
 - source: Feeder
   target: Substation
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: NamingFeeder
   sourceDescription: The primary feeder that normally energizes the secondary substation. Used for naming purposes.  Either
     this association or the substation to subgeographical region should be used for hierarchical containment specification.
+  targetCardinality: 0..*
   targetName: NamingSecondarySubstation
   targetDescription: The secondary substations that are normally energized from the feeder.  Used for naming purposes.   Should
     be consistent with the other associations for energizing terminal specification and the feeder energization specification.
 - source: Feeder
   target: Terminal
   sourceCardinality: 0..1
-  targetCardinality: 1..*
   sourceName: NormalHeadFeeder
   sourceDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
+  targetCardinality: 1..*
   targetName: NormalHeadTerminal
   targetDescription: The normal head terminal or terminals of the feeder.
 - source: Feeder
   target: Substation
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: NormalEnergizingFeeder
   sourceDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
     that describe the naming hierarchy.
+  targetCardinality: 0..*
   targetName: NormalEnergizedSubstation
   targetDescription: The substations that are normally energized by the feeder.

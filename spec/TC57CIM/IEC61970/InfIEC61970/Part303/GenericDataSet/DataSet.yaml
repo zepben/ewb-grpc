@@ -22,21 +22,21 @@ associations:
 - source: DataSet
   target: Profile
   sourceCardinality: 0..*
-  targetCardinality: 1..*
   sourceName: DataSet
   sourceDescription: The data sets that make use of the profile.
+  targetCardinality: 1..*
   targetName: Profile
   targetDescription: The profiles that describe the contents of the data set and the rules governing the contents of the data
     set.
 - source: DataSet
   target: AlternateModel
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: Dataset
-  sourceDescription: The data belonging to the alternate model.
+  sourceName: 0..1
+  sourceDescription: Dataset
+  targetCardinality: The data belonging to the alternate model.
   targetName: AlternateModel
   targetDescription: The alternate model using the data.
 - source: DataSet
   target: ModelPartVersion
   sourceCardinality: 0..*
-  targetCardinality: "1"
+  sourceName: "1"

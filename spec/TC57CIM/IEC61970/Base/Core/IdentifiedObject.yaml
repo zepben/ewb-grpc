@@ -313,41 +313,41 @@ associations:
 - source: IdentifiedObject
   target: DiagramObject
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: IdentifiedObject
   sourceDescription: The domain object to which this diagram object is associated.
+  targetCardinality: 0..*
   targetName: DiagramObjects
   targetDescription: The diagram objects that are associated with the domain object.
 - source: IdentifiedObject
   target: InstanceSet
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: InstanceSetMember
   sourceDescription: Data objects contained in the dataset.
+  targetCardinality: "1"
   targetName: InstanceSet
   targetDescription: Dataset containing the data objects.
 - source: IdentifiedObject
   target: Name
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: IdentifiedObject
-  sourceDescription: Identified object that this name designates.
+  sourceName: 0..*
+  sourceDescription: IdentifiedObject
+  targetCardinality: Identified object that this name designates.
   targetName: Names
   targetDescription: All names of this identified object.
 - source: IdentifiedObject
   target: ChangeSetMember
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: PropertiesObject
-  sourceDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
+  sourceName: 0..1
+  sourceDescription: PropertiesObject
+  targetCardinality: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
     and only the reference to the registered object is required.
   targetName: PropertiesCIMDataObject
   targetDescription: The single CIM data object in the appropriate dataset context.
 - source: IdentifiedObject
   target: ChangeSetMember
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: TargetObject
-  sourceDescription: The registered CIM object.
+  sourceName: 0..*
+  sourceDescription: TargetObject
+  targetCardinality: The registered CIM object.
   targetName: TargetingCIMDataObject
   targetDescription: Data objects registered.

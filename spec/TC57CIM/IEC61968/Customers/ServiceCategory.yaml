@@ -10,32 +10,32 @@ associations:
 - source: ServiceCategory
   target: PricingStructure
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ServiceCategory
   sourceDescription: Service category to which this pricing structure applies.
+  targetCardinality: 0..*
   targetName: PricingStructures
   targetDescription: All pricing structures applicable to this service category.
 - source: ServiceCategory
   target: ConfigurationEvent
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ChangedServiceCategory
   sourceDescription: Service category whose change resulted in this configuration event.
+  targetCardinality: 0..*
   targetName: ConfigurationEvents
   targetDescription: All configuration events created for this service category.
 - source: ServiceCategory
   target: UsagePoint
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ServiceCategory
-  sourceDescription: Service category delivered by this usage point.
+  sourceName: 0..*
+  sourceDescription: ServiceCategory
+  targetCardinality: Service category delivered by this usage point.
   targetName: UsagePoints
   targetDescription: All usage points that deliver this category of service.
 - source: ServiceCategory
   target: CustomerAgreement
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ServiceCategory
-  sourceDescription: Service category for this agreement.
+  sourceName: 0..*
+  sourceDescription: ServiceCategory
+  targetCardinality: Service category for this agreement.
   targetName: CustomerAgreements
   targetDescription: All customer agreements with this service category.

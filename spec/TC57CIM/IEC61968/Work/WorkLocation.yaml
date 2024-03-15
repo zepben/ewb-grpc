@@ -10,20 +10,20 @@ associations:
 - source: WorkLocation
   target: OneCallRequest
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: WorkLocations
+  targetCardinality: 0..1
   targetName: OneCallRequest
 - source: WorkLocation
   target: DesignLocation
   sourceCardinality: 1..*
-  targetCardinality: 0..*
-  sourceName: WorkLocations
+  sourceName: 0..*
+  sourceDescription: WorkLocations
   targetName: DesignLocations
 - source: WorkLocation
   target: BaseWork
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WorkLocation
-  sourceDescription: Location for this work/task.
+  sourceName: 0..*
+  sourceDescription: WorkLocation
+  targetCardinality: Location for this work/task.
   targetName: BaseWorks
   targetDescription: All works/tasks at this location.

@@ -5,30 +5,30 @@ associations:
 - source: TransmissionReservation
   target: TransactionBid
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: TransmissionReservation
+  targetCardinality: 0..1
   targetName: TransactionBid
 - source: TransmissionReservation
   target: EnergyTransaction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: TransmissionReservation
+  targetCardinality: 0..1
   targetName: EnergyTransaction
 - source: TransmissionReservation
   target: TransmissionPath
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TransmissionReservation
+  sourceName: "1"
+  sourceDescription: TransmissionReservation
   targetName: TransmissionPath
 - source: TransmissionReservation
   target: ServicePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SourceReservation
+  sourceName: 0..1
+  sourceDescription: SourceReservation
   targetName: Source
 - source: TransmissionReservation
   target: ServicePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SinkReservation
+  sourceName: 0..1
+  sourceDescription: SinkReservation
   targetName: Sink

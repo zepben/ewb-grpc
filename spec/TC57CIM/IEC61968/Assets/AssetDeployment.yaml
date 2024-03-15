@@ -25,16 +25,16 @@ associations:
 - source: AssetDeployment
   target: BaseVoltage
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: NetworkAssetDeployment
   sourceDescription: A network asset deployment at this base voltage level.
+  targetCardinality: "1"
   targetName: BaseVoltage
   targetDescription: Base voltage of this network asset deployment.
 - source: AssetDeployment
   target: Asset
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: AssetDeployment
-  sourceDescription: This asset's deployment.
+  sourceName: 0..1
+  sourceDescription: AssetDeployment
+  targetCardinality: This asset's deployment.
   targetName: Asset
   targetDescription: Asset in this deployment.

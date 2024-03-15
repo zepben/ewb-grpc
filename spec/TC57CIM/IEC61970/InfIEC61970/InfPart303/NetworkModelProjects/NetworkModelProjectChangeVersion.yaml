@@ -19,32 +19,32 @@ associations:
 - source: NetworkModelProjectChangeVersion
   target: ChangeSet
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: NetworkModelProjectChangeVersion
   sourceDescription: The project of the details of model changes.
+  targetCardinality: 0..1
   targetName: ChangeSet
   targetDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
 - source: NetworkModelProjectChangeVersion
   target: NetworkModelProjectChange
   sourceCardinality: 1..*
-  targetCardinality: "1"
   sourceName: NetworkModelProjectChangeVersion
   sourceDescription: A specific version of the network model project change.
+  targetCardinality: "1"
   targetName: NetworkModelProjectChange
   targetDescription: The persistent network model project change to which this version applies.
 - source: NetworkModelProjectChangeVersion
   target: NetworkModelProjectChangeVersion
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: Supercedes
   sourceDescription: Project version that is being superceded.
+  targetCardinality: 0..1
   targetName: SupercededBy
   targetDescription: The project version that will supercede this project version.
 - source: NetworkModelProjectChangeVersion
   target: NetworkModelProjectState
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: NetworkModelProjectChangeVersion
   sourceDescription: The change versions that are at this state.
+  targetCardinality: 0..1
   targetName: NetworkModelProjectState
   targetDescription: The state of this network model project version.

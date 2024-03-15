@@ -53,24 +53,24 @@ associations:
 - source: TapChanger
   target: TapChangerControl
   sourceCardinality: 1..*
-  targetCardinality: 0..1
   sourceName: TapChanger
   sourceDescription: The tap changers that participates in this regulating tap control scheme.
+  targetCardinality: 0..1
   targetName: TapChangerControl
   targetDescription: The regulating control scheme in which this tap changer participates.
 - source: TapChanger
   target: SvTapStep
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: TapChanger
-  sourceDescription: The tap changer associated with the tap step state.
+  sourceName: 0..1
+  sourceDescription: TapChanger
+  targetCardinality: The tap changer associated with the tap step state.
   targetName: SvTapStep
   targetDescription: The tap step state associated with the tap changer.
 - source: TapChanger
   target: TapSchedule
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: TapChanger
-  sourceDescription: A TapSchedule is associated with a TapChanger.
+  sourceName: 0..*
+  sourceDescription: TapChanger
+  targetCardinality: A TapSchedule is associated with a TapChanger.
   targetName: TapSchedules
   targetDescription: A TapChanger can have TapSchedules.

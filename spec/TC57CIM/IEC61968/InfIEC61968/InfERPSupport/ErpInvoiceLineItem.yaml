@@ -34,69 +34,69 @@ associations:
 - source: ErpInvoiceLineItem
   target: ErpJournalEntry
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..*
   targetName: ErpJournalEntries
 - source: ErpInvoiceLineItem
   target: ErpInvoiceLineItem
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ComponentErpInvoiceLineItems
+  targetCardinality: 0..1
   targetName: ContainerErpInvoiceLineItem
 - source: ErpInvoiceLineItem
   target: ErpRecLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..1
   targetName: ErpRecLineItem
 - source: ErpInvoiceLineItem
   target: ErpPayment
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ErpInvoiceLineItems
+  targetCardinality: 0..*
   targetName: ErpPayments
 - source: ErpInvoiceLineItem
   target: ErpPayableLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..1
   targetName: ErpPayableLineItem
 - source: ErpInvoiceLineItem
   target: ErpInvoice
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ErpInvoiceLineItems
+  targetCardinality: "1"
   targetName: ErpInvoice
 - source: ErpInvoiceLineItem
   target: UserAttribute
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ErpInvoiceLineItems
+  targetCardinality: 0..*
   targetName: UserAttributes
 - source: ErpInvoiceLineItem
   target: ErpRecDelvLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: ErpInvoiceLineItem
+  sourceName: 0..1
+  sourceDescription: ErpInvoiceLineItem
   targetName: ErpRecDelvLineItem
 - source: ErpInvoiceLineItem
   target: ErpQuoteLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: ErpInvoiceLineItem
-  sourceDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
+  sourceName: 0..1
+  sourceDescription: ErpInvoiceLineItem
+  targetCardinality: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
     a payment. An invoice is required for this to occur.
   targetName: ErpQuoteLineItem
 - source: ErpInvoiceLineItem
   target: WorkBillingInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ErpLineItems
+  sourceName: 0..*
+  sourceDescription: ErpLineItems
   targetName: WorkBillingInfos
 - source: ErpInvoiceLineItem
   target: CustomerBillingInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ErpInvoiceLineItems
+  sourceName: 0..*
+  sourceDescription: ErpInvoiceLineItems
   targetName: CustomerBillingInfos
   targetDescription: Customer billing for services rendered.

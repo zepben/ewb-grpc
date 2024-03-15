@@ -24,16 +24,16 @@ associations:
 - source: Specimen
   target: AssetTestSampleTaker
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Specimen
   sourceDescription: Specimen taken by this sample taker.
+  targetCardinality: 0..1
   targetName: AssetTestSampleTaker
   targetDescription: Test sampler taker who gathered this specimen.
 - source: Specimen
   target: LabTestDataSet
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Specimen
-  sourceDescription: Specimen on which lab testing done in determining results.
+  sourceName: 0..*
+  sourceDescription: Specimen
+  targetCardinality: Specimen on which lab testing done in determining results.
   targetName: LabTestDataSet
   targetDescription: Results from lab testing done on specimen.

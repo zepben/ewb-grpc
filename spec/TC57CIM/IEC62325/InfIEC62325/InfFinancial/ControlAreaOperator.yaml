@@ -7,16 +7,16 @@ associations:
 - source: ControlAreaOperator
   target: TieLine
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ParentOfA
   sourceDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
+  targetCardinality: 0..*
   targetName: CAChildOf
   targetDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
 - source: ControlAreaOperator
   target: HostControlArea
   sourceCardinality: "1"
-  targetCardinality: "1"
-  sourceName: Controls
-  sourceDescription: A ControlAreaCompany controls a ControlArea.
+  sourceName: "1"
+  sourceDescription: Controls
+  targetCardinality: A ControlAreaCompany controls a ControlArea.
   targetName: ControlledBy
   targetDescription: A ControlAreaCompany controls a ControlArea.

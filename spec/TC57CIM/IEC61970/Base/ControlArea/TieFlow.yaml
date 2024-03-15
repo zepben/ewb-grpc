@@ -13,24 +13,24 @@ associations:
 - source: TieFlow
   target: ControlArea
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: TieFlow
   sourceDescription: The tie flows associated with the control area.
+  targetCardinality: "1"
   targetName: ControlArea
   targetDescription: The control area of the tie flows.
 - source: TieFlow
   target: Terminal
   sourceCardinality: 0..2
-  targetCardinality: "1"
   sourceName: TieFlow
   sourceDescription: The control area tie flows to which this terminal associates.
+  targetCardinality: "1"
   targetName: Terminal
   targetDescription: The terminal to which this tie flow belongs.
 - source: TieFlow
   target: AltTieMeas
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: TieFlow
-  sourceDescription: The tie flow of the alternate measurements.
+  sourceName: 0..*
+  sourceDescription: TieFlow
+  targetCardinality: The tie flow of the alternate measurements.
   targetName: AltTieMeas
   targetDescription: The primary and alternate tie flow measurements associated with the tie flow.

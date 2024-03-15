@@ -13,16 +13,16 @@ associations:
 - source: Command
   target: ValueAliasSet
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Commands
   sourceDescription: The Commands using the set for translation.
+  targetCardinality: 0..1
   targetName: ValueAliasSet
   targetDescription: The ValueAliasSet used for translation of a Control value to a name.
 - source: Command
   target: DiscreteValue
   sourceCardinality: 0..1
-  targetCardinality: "1"
-  sourceName: Command
-  sourceDescription: The Control variable associated with the MeasurementValue.
+  sourceName: "1"
+  sourceDescription: Command
+  targetCardinality: The Control variable associated with the MeasurementValue.
   targetName: DiscreteValue
   targetDescription: The MeasurementValue that is controlled.

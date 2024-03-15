@@ -27,24 +27,24 @@ associations:
 - source: UnplannedOutage
   target: TroubleTicket
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: UnplannedOutage
+  targetCardinality: 0..*
   targetName: TroubleTicket
 - source: UnplannedOutage
   target: TroubleOrder
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: UnplannedOutage
+  targetCardinality: 0..*
   targetName: TroubleOrder
 - source: UnplannedOutage
   target: FieldDispatchHistory
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: UnplannedOutage
+  sourceName: 0..1
+  sourceDescription: UnplannedOutage
   targetName: FieldDispatchHistory
 - source: UnplannedOutage
   target: Incident
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: UnplannedOutage
+  sourceName: 0..*
+  sourceDescription: UnplannedOutage
   targetName: Incident

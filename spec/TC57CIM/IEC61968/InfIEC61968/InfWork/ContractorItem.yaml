@@ -18,18 +18,18 @@ associations:
 - source: ContractorItem
   target: ErpPayable
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ContractorItems
+  targetCardinality: 0..*
   targetName: ErpPayables
 - source: ContractorItem
   target: WorkCostDetail
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ContractorItems
+  sourceName: "1"
+  sourceDescription: ContractorItems
   targetName: WorkCostDetail
 - source: ContractorItem
   target: OldWorkTask
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ContractorItems
+  sourceName: 0..1
+  sourceDescription: ContractorItems
   targetName: WorkTask

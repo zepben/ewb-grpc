@@ -12,16 +12,16 @@ associations:
 - source: SeasonDayTypeSchedule
   target: DayType
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SeasonDayTypeSchedules
-  sourceDescription: Schedules that use this DayType.
+  sourceName: 0..1
+  sourceDescription: SeasonDayTypeSchedules
+  targetCardinality: Schedules that use this DayType.
   targetName: DayType
   targetDescription: DayType for the Schedule.
 - source: SeasonDayTypeSchedule
   target: Season
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SeasonDayTypeSchedules
-  sourceDescription: Schedules that use this Season.
+  sourceName: 0..1
+  sourceDescription: SeasonDayTypeSchedules
+  targetCardinality: Schedules that use this Season.
   targetName: Season
   targetDescription: Season for the Schedule.

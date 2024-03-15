@@ -7,28 +7,28 @@ associations:
 - source: ChangeSet
   target: IncrementalDatasetArg
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: IncrementalDataset
+  sourceName: 0..*
+  sourceDescription: IncrementalDataset
   targetName: IncrementalDatasetArg
 - source: ChangeSet
   target: ChangeSetMember
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Changeset
-  sourceDescription: Dataset containing the data objects.
+  sourceName: 0..*
+  sourceDescription: Changeset
+  targetCardinality: Dataset containing the data objects.
   targetName: ChangeSetMember
   targetDescription: Data objects contained in the dataset.
 - source: ChangeSet
   target: NetworkModelProjectChangeVersion
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ChangeSet
-  sourceDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
+  sourceName: 0..*
+  sourceDescription: ChangeSet
+  targetCardinality: The details of model changes for this project.   The change set should have a new identifier if it changes.
   targetName: NetworkModelProjectChangeVersion
   targetDescription: The project of the details of model changes.
 - source: ChangeSet
   target: NetworkModelProjectStage
   sourceCardinality: 1..*
-  targetCardinality: 0..1
-  sourceName: ChangeSets
+  sourceName: 0..1
+  sourceDescription: ChangeSets
   targetName: NMProjectStage

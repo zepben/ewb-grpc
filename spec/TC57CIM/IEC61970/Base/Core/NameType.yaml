@@ -13,16 +13,16 @@ associations:
 - source: NameType
   target: NameTypeAuthority
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: NameTypes
   sourceDescription: All name types managed by this authority.
+  targetCardinality: 0..1
   targetName: NameTypeAuthority
   targetDescription: Authority responsible for managing names of this type.
 - source: NameType
   target: Name
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: NameType
-  sourceDescription: Type of this name.
+  sourceName: 0..*
+  sourceDescription: NameType
+  targetCardinality: Type of this name.
   targetName: Names
   targetDescription: All names of this type.

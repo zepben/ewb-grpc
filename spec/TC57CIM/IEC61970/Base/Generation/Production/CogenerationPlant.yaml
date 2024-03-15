@@ -26,16 +26,16 @@ associations:
 - source: CogenerationPlant
   target: ThermalGeneratingUnit
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: CogenerationPlant
   sourceDescription: A thermal generating unit may be a member of a cogeneration plant.
+  targetCardinality: 0..*
   targetName: ThermalGeneratingUnits
   targetDescription: A thermal generating unit may be a member of a cogeneration plant.
 - source: CogenerationPlant
   target: SteamSendoutSchedule
   sourceCardinality: "1"
-  targetCardinality: "1"
-  sourceName: CogenerationPlant
-  sourceDescription: A cogeneration plant has a steam sendout schedule.
+  sourceName: "1"
+  sourceDescription: CogenerationPlant
+  targetCardinality: A cogeneration plant has a steam sendout schedule.
   targetName: SteamSendoutSchedule
   targetDescription: A cogeneration plant has a steam sendout schedule.

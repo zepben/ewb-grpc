@@ -29,18 +29,18 @@ associations:
 - source: WorkBillingInfo
   target: ErpInvoiceLineItem
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: WorkBillingInfos
+  targetCardinality: 0..*
   targetName: ErpLineItems
 - source: WorkBillingInfo
   target: Work
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: WorkBillingInfo
+  targetCardinality: 0..*
   targetName: Works
 - source: WorkBillingInfo
   target: CustomerAccount
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WorkBillingInfos
+  sourceName: 0..1
+  sourceDescription: WorkBillingInfos
   targetName: CustomerAccount

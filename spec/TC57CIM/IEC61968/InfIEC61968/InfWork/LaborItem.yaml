@@ -21,18 +21,18 @@ associations:
 - source: LaborItem
   target: WorkCostDetail
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: LaborItems
+  targetCardinality: "1"
   targetName: WorkCostDetail
 - source: LaborItem
   target: OldWorkTask
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: LaborItems
+  sourceName: 0..1
+  sourceDescription: LaborItems
   targetName: WorkTask
 - source: LaborItem
   target: OldPerson
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: LaborItems
+  sourceName: 0..*
+  sourceDescription: LaborItems
   targetName: ErpPersons

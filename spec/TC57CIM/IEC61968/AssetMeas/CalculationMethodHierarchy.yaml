@@ -6,23 +6,23 @@ associations:
 - source: CalculationMethodHierarchy
   target: MeasurementValue
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: CalculationMethodHierarchy
+  targetCardinality: 0..1
   targetName: MeasurementValue
   targetDescription: Measurement value to which this calculation method hierarchy applies.
 - source: CalculationMethodHierarchy
   target: Measurement
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CalculationMethodHierarchy
-  sourceDescription: Calculation method hierarchy which applies to this analog.
+  sourceName: 0..*
+  sourceDescription: CalculationMethodHierarchy
+  targetCardinality: Calculation method hierarchy which applies to this analog.
   targetName: Measurement
   targetDescription: Measurement to which this calculation method hierarchy applies.
 - source: CalculationMethodHierarchy
   target: CalculationMethodOrder
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: CalculationMethodHierarchy
-  sourceDescription: The calculation method hierarchy of which this order of statistical calculation is a member.
+  sourceName: 0..*
+  sourceDescription: CalculationMethodHierarchy
+  targetCardinality: The calculation method hierarchy of which this order of statistical calculation is a member.
   targetName: CalculationMethodOrder
   targetDescription: Order of a statistical calculation associated with this calculation method hierarchy.

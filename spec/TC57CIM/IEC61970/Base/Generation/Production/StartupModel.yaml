@@ -39,32 +39,32 @@ associations:
 - source: StartupModel
   target: ThermalGeneratingUnit
   sourceCardinality: 0..1
-  targetCardinality: "1"
   sourceName: StartupModel
   sourceDescription: A thermal generating unit may have a startup model.
+  targetCardinality: "1"
   targetName: ThermalGeneratingUnit
   targetDescription: A thermal generating unit may have a startup model.
 - source: StartupModel
   target: StartRampCurve
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: StartupModel
-  sourceDescription: The unit's startup model may have a startup ramp curve.
+  sourceName: 0..1
+  sourceDescription: StartupModel
+  targetCardinality: The unit's startup model may have a startup ramp curve.
   targetName: StartRampCurve
   targetDescription: The unit's startup model may have a startup ramp curve.
 - source: StartupModel
   target: StartIgnFuelCurve
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: StartupModel
-  sourceDescription: The unit's startup model may have a startup ignition fuel curve.
+  sourceName: 0..1
+  sourceDescription: StartupModel
+  targetCardinality: The unit's startup model may have a startup ignition fuel curve.
   targetName: StartIgnFuelCurve
   targetDescription: The unit's startup model may have a startup ignition fuel curve.
 - source: StartupModel
   target: StartMainFuelCurve
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: StartupModel
-  sourceDescription: The unit's startup model may have a startup main fuel curve.
+  sourceName: 0..1
+  sourceDescription: StartupModel
+  targetCardinality: The unit's startup model may have a startup main fuel curve.
   targetName: StartMainFuelCurve
   targetDescription: The unit's startup model may have a startup main fuel curve.

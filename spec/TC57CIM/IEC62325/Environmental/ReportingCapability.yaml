@@ -16,16 +16,16 @@ associations:
 - source: ReportingCapability
   target: EnvironmentalMonitoringStation
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ReportingCapability
   sourceDescription: One of the reporting capabilities of this monitoring station.
+  targetCardinality: "1"
   targetName: EnvironmentalMonitoringStation
   targetDescription: The environmental monitoring station to which this set of reporting capabilities belong.
 - source: ReportingCapability
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ReportingCapability
-  sourceDescription: The reporting capability this environmental value set helps define.
+  sourceName: 0..*
+  sourceDescription: ReportingCapability
+  targetCardinality: The reporting capability this environmental value set helps define.
   targetName: EnvironmentalAnalog
   targetDescription: One of the environmental value sets expressing one of the reporting capabilities.

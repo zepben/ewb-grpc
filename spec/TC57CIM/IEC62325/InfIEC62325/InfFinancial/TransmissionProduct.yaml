@@ -12,16 +12,16 @@ associations:
 - source: TransmissionProduct
   target: TransmissionProvider
   sourceCardinality: 1..*
-  targetCardinality: "1"
   sourceName: TransmissionProducts
   sourceDescription: A TransmissionProvider offers a TransmissionProduct.
+  targetCardinality: "1"
   targetName: TransmissionProvider
   targetDescription: A TransmissionProvider offers a TransmissionProduct.
 - source: TransmissionProduct
   target: TransmissionPath
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: LocatedOn
   sourceDescription: A transmission product is located on a transmission path.
+  targetCardinality: 0..*
   targetName: LocationFor
   targetDescription: A transmission product is located on a transmission path.

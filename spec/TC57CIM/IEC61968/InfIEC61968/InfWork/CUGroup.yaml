@@ -10,18 +10,18 @@ associations:
 - source: CUGroup
   target: CUGroup
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ParentCUGroups
+  targetCardinality: 0..*
   targetName: ChildCUGroups
 - source: CUGroup
   target: CompatibleUnit
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: CUGroup
+  sourceName: 0..*
+  sourceDescription: CUGroup
   targetName: CompatibleUnits
 - source: CUGroup
   target: DesignLocationCU
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: CUGroups
+  sourceName: 0..*
+  sourceDescription: CUGroups
   targetName: DesignLocationCUs

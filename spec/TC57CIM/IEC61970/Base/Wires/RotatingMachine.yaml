@@ -34,18 +34,18 @@ associations:
 - source: RotatingMachine
   target: HydroPump
   sourceCardinality: "1"
-  targetCardinality: 0..1
   sourceName: RotatingMachine
   sourceDescription: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
     The direction of machine rotation for pumping may or may not be the same as for generating.
+  targetCardinality: 0..1
   targetName: HydroPump
   targetDescription: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
     The direction of machine rotation for pumping may or may not be the same as for generating.
 - source: RotatingMachine
   target: GeneratingUnit
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: RotatingMachine
-  sourceDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
+  sourceName: 0..1
+  sourceDescription: RotatingMachine
+  targetCardinality: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
   targetName: GeneratingUnit
   targetDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.

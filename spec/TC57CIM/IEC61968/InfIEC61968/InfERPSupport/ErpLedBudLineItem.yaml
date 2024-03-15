@@ -10,12 +10,12 @@ associations:
 - source: ErpLedBudLineItem
   target: ErpLedgerBudget
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ErpLedBudLineItems
+  targetCardinality: "1"
   targetName: ErpLedgerBudget
 - source: ErpLedBudLineItem
   target: ErpLedgerEntry
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: ErpLedgerEntry
+  sourceName: 0..1
+  sourceDescription: ErpLedgerEntry
   targetName: ErpLedBudLineItem

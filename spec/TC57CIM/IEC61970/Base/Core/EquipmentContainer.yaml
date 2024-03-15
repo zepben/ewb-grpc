@@ -14,18 +14,18 @@ associations:
 - source: EquipmentContainer
   target: Equipment
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: EquipmentContainer
   sourceDescription: Container of this equipment.
+  targetCardinality: 0..*
   targetName: Equipments
   targetDescription: Contained equipment.
 - source: EquipmentContainer
   target: Equipment
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: AdditionalEquipmentContainer
   sourceDescription: Additional equipment container beyond the primary equipment container.  The equipment is contained in
     another equipment container, but also grouped with this equipment container.
+  targetCardinality: 0..*
   targetName: AdditionalGroupedEquipment
   targetDescription: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is
     contained in another equipment container, but also grouped with this equipment container.  Examples include when a switch

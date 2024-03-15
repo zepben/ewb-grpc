@@ -9,17 +9,17 @@ associations:
 - source: OperatingShare
   target: OperatingParticipant
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: OperatingShare
   sourceDescription: The operating shares of this operating participant.  An operating participant can be resused for any
     number of power system resources.
+  targetCardinality: "1"
   targetName: OperatingParticipant
   targetDescription: The operating participant having this share with the associated power system resource.
 - source: OperatingShare
   target: PowerSystemResource
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: OperatingShare
   sourceDescription: The operating shares of this power system resource.
+  targetCardinality: "1"
   targetName: PowerSystemResource
   targetDescription: The power system resource to which the share applies.

@@ -41,74 +41,74 @@ associations:
 - source: Measurement
   target: ACDCTerminal
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Measurements
   sourceDescription: Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It
     may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current
     transformer (CT) at the bar between a breaker and an isolator.
+  targetCardinality: 0..1
   targetName: Terminal
   targetDescription: One or more measurements may be associated with a terminal in the network.
 - source: Measurement
   target: ProtectiveActionAdjustment
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Measurement
   sourceDescription: The measurement is used to control the operation of an equipment.
+  targetCardinality: 0..*
   targetName: ProtectiveActionAdjustment
 - source: Measurement
   target: CalculationMethodHierarchy
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Measurement
   sourceDescription: Measurement to which this calculation method hierarchy applies.
+  targetCardinality: 0..1
   targetName: CalculationMethodHierarchy
   targetDescription: Calculation method hierarchy which applies to this analog.
 - source: Measurement
   target: PowerSystemResource
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Measurements
-  sourceDescription: The measurements associated with this power system resource.
+  sourceName: 0..1
+  sourceDescription: Measurements
+  targetCardinality: The measurements associated with this power system resource.
   targetName: PowerSystemResource
   targetDescription: The power system resource that contains the measurement.
 - source: Measurement
   target: PinMeasurement
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Measurement
-  sourceDescription: The Measurement that should be used in compare.
+  sourceName: 0..*
+  sourceDescription: Measurement
+  targetCardinality: The Measurement that should be used in compare.
   targetName: PinMeasurement
 - source: Measurement
   target: MeasurementCalculatorInput
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Measurement
-  sourceDescription: Measurement used as input to a calculation.
+  sourceName: 0..*
+  sourceDescription: Measurement
+  targetCardinality: Measurement used as input to a calculation.
   targetName: MeasurementCalculatorInput
 - source: Measurement
   target: Procedure
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Measurements
-  sourceDescription: Document containing this measurement.
+  sourceName: 0..*
+  sourceDescription: Measurements
+  targetCardinality: Document containing this measurement.
   targetName: Procedures
   targetDescription: Measurements are specified in types of documents, such as procedures.
 - source: Measurement
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Measurements
-  sourceDescription: Measurement related to this asset.
+  sourceName: 0..1
+  sourceDescription: Measurements
+  targetCardinality: Measurement related to this asset.
   targetName: Asset
 - source: Measurement
   target: MeasurementAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: Measurement
+  sourceName: 0..1
+  sourceDescription: Measurement
   targetName: MeasurementAction
 - source: Measurement
   target: Location
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Measurements
+  sourceName: 0..*
+  sourceDescription: Measurements
   targetName: Locations

@@ -14,16 +14,16 @@ associations:
 - source: ClearanceDocument
   target: PowerSystemResource
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Clearances
   sourceDescription: All clearances applicable to this power system resource.
+  targetCardinality: 0..*
   targetName: TaggedPSRs
   targetDescription: All power system resources tagged through this clearance.
 - source: ClearanceDocument
   target: ClearanceAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: Clearance
-  sourceDescription: Clearance associated with this clearance action.
+  sourceName: 0..1
+  sourceDescription: Clearance
+  targetCardinality: Clearance associated with this clearance action.
   targetName: ClearanceAction
   targetDescription: Clearance action associated with this clearance.

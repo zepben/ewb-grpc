@@ -4,12 +4,12 @@ associations:
 - source: EnergyPriceCurve
   target: FTR
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: EnergyPriceCurve
+  targetCardinality: 0..*
   targetName: FTRs
 - source: EnergyPriceCurve
   target: EnergyTransaction
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: EnergyPriceCurves
+  sourceName: 0..*
+  sourceDescription: EnergyPriceCurves
   targetName: EnergyTransactions

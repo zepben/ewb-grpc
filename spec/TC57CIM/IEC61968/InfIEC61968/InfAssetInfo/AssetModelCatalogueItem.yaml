@@ -13,24 +13,24 @@ associations:
 - source: AssetModelCatalogueItem
   target: ErpQuoteLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: AssetModelCatalogueItem
+  targetCardinality: 0..*
   targetName: ErpQuoteLineItems
 - source: AssetModelCatalogueItem
   target: ErpPOLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: AssetModelCatalogueItem
+  targetCardinality: 0..*
   targetName: ErpPOLineItems
 - source: AssetModelCatalogueItem
   target: AssetModelCatalogue
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: AssetModelCatalogueItems
+  targetCardinality: "1"
   targetName: AssetModelCatalogue
 - source: AssetModelCatalogueItem
   target: ProductAssetModel
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: AssetModelCatalogueItems
+  sourceName: 0..1
+  sourceDescription: AssetModelCatalogueItems
   targetName: AssetModel

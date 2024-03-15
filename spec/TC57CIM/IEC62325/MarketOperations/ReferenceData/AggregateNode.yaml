@@ -20,44 +20,44 @@ associations:
 - source: AggregateNode
   target: CnodeDistributionFactor
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: AggregateNode
+  targetCardinality: 0..*
   targetName: CnodeDistributionFactor
 - source: AggregateNode
   target: Pnode
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: AggregateNode
+  targetCardinality: 0..*
   targetName: Pnode
 - source: AggregateNode
   target: SubControlArea
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: AggregateNode
+  targetCardinality: 0..*
   targetName: SubControlArea
 - source: AggregateNode
   target: RTO
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AggregateNode
+  sourceName: "1"
+  sourceDescription: AggregateNode
   targetName: RTO
 - source: AggregateNode
   target: Instructions
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AggregateNode
+  sourceName: 0..*
+  sourceDescription: AggregateNode
   targetName: Instruction
 - source: AggregateNode
   target: AreaLoadCurve
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AggregateNode
+  sourceName: 0..*
+  sourceDescription: AggregateNode
   targetName: AreaLoadCurve
 - source: AggregateNode
   target: RegisteredResource
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: AggregateNode
-  sourceDescription: An AggregateNode may be associated with up to many RegisteredResources.
+  sourceName: 0..*
+  sourceDescription: AggregateNode
+  targetCardinality: An AggregateNode may be associated with up to many RegisteredResources.
   targetName: RegisteredResource
   targetDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.

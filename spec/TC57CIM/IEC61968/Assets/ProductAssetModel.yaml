@@ -37,46 +37,46 @@ associations:
 - source: ProductAssetModel
   target: AssetModelCatalogueItem
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: AssetModel
+  targetCardinality: 0..*
   targetName: AssetModelCatalogueItems
 - source: ProductAssetModel
   target: CatalogAssetType
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ProductAssetModel
   sourceDescription: Product asset model conforming to this catalog asset type.
+  targetCardinality: 0..1
   targetName: CatalogAssetType
   targetDescription: Catalog asset type to which this product asset model conforms.
 - source: ProductAssetModel
   target: Manufacturer
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ProductAssetModels
   sourceDescription: All asset models by this manufacturer.
+  targetCardinality: 0..1
   targetName: Manufacturer
   targetDescription: Manufacturer of this asset model.
 - source: ProductAssetModel
   target: AssetInfo
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ProductAssetModel
   sourceDescription: Product asset model which conforms to this catalog asset type.
+  targetCardinality: 0..1
   targetName: AssetInfo
   targetDescription: Asset information (nameplate) for this product asset model.
 - source: ProductAssetModel
   target: Asset
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ProductAssetModel
-  sourceDescription: The model of this asset.
+  sourceName: 0..*
+  sourceDescription: ProductAssetModel
+  targetCardinality: The model of this asset.
   targetName: Asset
   targetDescription: An asset of this model.
 - source: ProductAssetModel
   target: OperationalRestriction
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ProductAssetModel
-  sourceDescription: Asset model to which this restriction applies.
+  sourceName: 0..*
+  sourceDescription: ProductAssetModel
+  targetCardinality: Asset model to which this restriction applies.
   targetName: OperationalRestrictions
   targetDescription: All operational restrictions applying to this asset model.

@@ -10,16 +10,16 @@ associations:
 - source: AccumulatorValue
   target: Accumulator
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: AccumulatorValues
-  sourceDescription: The values connected to this measurement.
+  sourceName: "1"
+  sourceDescription: AccumulatorValues
+  targetCardinality: The values connected to this measurement.
   targetName: Accumulator
   targetDescription: Measurement to which this value is connected.
 - source: AccumulatorValue
   target: AccumulatorReset
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: AccumulatorValue
-  sourceDescription: The accumulator value that is reset by the command.
+  sourceName: 0..1
+  sourceDescription: AccumulatorValue
+  targetCardinality: The accumulator value that is reset by the command.
   targetName: AccumulatorReset
   targetDescription: The command that resets the accumulator value.

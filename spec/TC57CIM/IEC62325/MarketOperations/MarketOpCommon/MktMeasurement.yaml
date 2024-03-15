@@ -6,36 +6,36 @@ associations:
 - source: MktMeasurement
   target: TiePoint
   sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: ForMktMeasurement
-  sourceDescription: A measurement is made on the A side of a tie point
+  sourceName: "1"
+  sourceDescription: ForMktMeasurement
+  targetCardinality: A measurement is made on the A side of a tie point
   targetName: ForTiePoint
   targetDescription: A measurement is made on the A side of a tie point
 - source: MktMeasurement
   target: ViolationLimit
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: MktMeasurement
+  sourceName: 0..*
+  sourceDescription: MktMeasurement
   targetName: ViolationLimit
 - source: MktMeasurement
   target: Pnode
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: MktMeasurement
-  sourceDescription: Allows Measurements to be associated to Pnodes.
+  sourceName: 0..1
+  sourceDescription: MktMeasurement
+  targetCardinality: Allows Measurements to be associated to Pnodes.
   targetName: Pnode
   targetDescription: Allows Pnode an association to aggregated resources external DC ties or psuedo tie measurements.
 - source: MktMeasurement
   target: TiePoint
   sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: ByMktMeasurement
-  sourceDescription: A measurement is made on the B side of a tie point
+  sourceName: "1"
+  sourceDescription: ByMktMeasurement
+  targetCardinality: A measurement is made on the B side of a tie point
   targetName: ByTiePoint
   targetDescription: A measurement is made on the B side of a tie point
 - source: MktMeasurement
   target: DynamicSchedule
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MktMeasurement
+  sourceName: 0..*
+  sourceDescription: MktMeasurement
   targetName: DynamicSchedule

@@ -10,24 +10,24 @@ associations:
 - source: ErpRecDelvLineItem
   target: ErpReceiveDelivery
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ErpRecDelvLineItems
+  targetCardinality: "1"
   targetName: ErpReceiveDelivery
 - source: ErpRecDelvLineItem
   target: ErpPOLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ErpRecDelLineItem
+  targetCardinality: 0..1
   targetName: ErpPOLineItem
 - source: ErpRecDelvLineItem
   target: ErpInvoiceLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: ErpRecDelvLineItem
+  targetCardinality: 0..1
   targetName: ErpInvoiceLineItem
 - source: ErpRecDelvLineItem
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ErpRecDeliveryItems
+  sourceName: 0..*
+  sourceDescription: ErpRecDeliveryItems
   targetName: Assets

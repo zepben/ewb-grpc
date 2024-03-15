@@ -9,22 +9,22 @@ associations:
 - source: PlannedOutage
   target: FieldDispatchHistory
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: PlannedOutage
+  sourceName: 0..1
+  sourceDescription: PlannedOutage
   targetName: FieldDispatchHistory
 - source: PlannedOutage
   target: OutagePlan
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: PlannedOutage
-  sourceDescription: The outage resulting from the execution of the outage plan.
+  sourceName: 0..1
+  sourceDescription: PlannedOutage
+  targetCardinality: The outage resulting from the execution of the outage plan.
   targetName: OutagePlan
   targetDescription: Outage plan for executing a planned outage.
 - source: PlannedOutage
   target: OperationalUpdatedRating
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: PlannedOutage
-  sourceDescription: Planned equipment outage with this updated rating.
+  sourceName: 0..*
+  sourceDescription: PlannedOutage
+  targetCardinality: Planned equipment outage with this updated rating.
   targetName: UpdatedRatings
   targetDescription: All updated ratings for this planned equipment outage.

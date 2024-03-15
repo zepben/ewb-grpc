@@ -14,54 +14,54 @@ associations:
 - source: OldPerson
   target: MeasurementValue
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ErpPerson
+  targetCardinality: 0..*
   targetName: MeasurementValues
 - source: OldPerson
   target: PersonPropertyRole
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: Person
+  targetCardinality: 0..*
   targetName: LandPropertyRoles
 - source: OldPerson
   target: ErpCompetency
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ErpPersons
+  targetCardinality: 0..1
   targetName: ErpCompetency
 - source: OldPerson
   target: LaborItem
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ErpPersons
+  targetCardinality: 0..*
   targetName: LaborItems
 - source: OldPerson
   target: Skill
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ErpPerson
+  targetCardinality: 0..*
   targetName: Skills
 - source: OldPerson
   target: PersonOrganisationRole
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ErpPerson
+  targetCardinality: 0..*
   targetName: OrganisationRoles
 - source: OldPerson
   target: ErpPersonnel
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ErpPersons
+  targetCardinality: 0..1
   targetName: ErpPersonnel
 - source: OldPerson
   target: Craft
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ErpPersons
+  sourceName: 0..*
+  sourceDescription: ErpPersons
   targetName: Crafts
 - source: OldPerson
   target: Customer
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpPersons
+  sourceName: 0..1
+  sourceDescription: ErpPersons
   targetName: CustomerData

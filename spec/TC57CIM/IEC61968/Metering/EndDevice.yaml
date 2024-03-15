@@ -30,71 +30,71 @@ associations:
 - source: EndDevice
   target: EndDeviceFunction
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: EndDevice
   sourceDescription: End device that performs this function.
+  targetCardinality: 0..*
   targetName: EndDeviceFunctions
   targetDescription: All end device functions this end device performs.
 - source: EndDevice
   target: EndDeviceInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: EndDevices
   sourceDescription: All end devices described with this data.
+  targetCardinality: 0..1
   targetName: EndDeviceInfo
   targetDescription: End device data.
 - source: EndDevice
   target: DispatchablePowerCapability
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: EndDevice
   sourceDescription: The generic class to support all field end devices such as meters or smart inverters
+  targetCardinality: 0..*
   targetName: DispatchablePowerCapability
 - source: EndDevice
   target: EndDeviceGroup
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: EndDevices
-  sourceDescription: All end devices this end device group refers to.
+  sourceName: 0..*
+  sourceDescription: EndDevices
+  targetCardinality: All end devices this end device group refers to.
   targetName: EndDeviceGroups
   targetDescription: All end device groups referring to this end device.
 - source: EndDevice
   target: UsagePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EndDevices
-  sourceDescription: All end devices at this usage point.
+  sourceName: 0..1
+  sourceDescription: EndDevices
+  targetCardinality: All end devices at this usage point.
   targetName: UsagePoint
   targetDescription: Usage point to which this end device belongs.
 - source: EndDevice
   target: EndDeviceControl
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: EndDevices
-  sourceDescription: All end devices receiving commands from this end device control.
+  sourceName: 0..*
+  sourceDescription: EndDevices
+  targetCardinality: All end devices receiving commands from this end device control.
   targetName: EndDeviceControls
   targetDescription: All end device controls sending commands to this end device.
 - source: EndDevice
   target: EndDeviceEvent
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: EndDevice
-  sourceDescription: End device that reported this end device event.
+  sourceName: 0..*
+  sourceDescription: EndDevice
+  targetCardinality: End device that reported this end device event.
   targetName: EndDeviceEvents
   targetDescription: All events reported by this end device.
 - source: EndDevice
   target: ServiceLocation
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EndDevices
-  sourceDescription: All end devices that measure the service delivered to this service location.
+  sourceName: 0..1
+  sourceDescription: EndDevices
+  targetCardinality: All end devices that measure the service delivered to this service location.
   targetName: ServiceLocation
   targetDescription: Service location whose service delivery is measured by this end device.
 - source: EndDevice
   target: Customer
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: EndDevices
-  sourceDescription: All end devices of this customer.
+  sourceName: 0..1
+  sourceDescription: EndDevices
+  targetCardinality: All end devices of this customer.
   targetName: Customer
   targetDescription: Customer owning this end device.

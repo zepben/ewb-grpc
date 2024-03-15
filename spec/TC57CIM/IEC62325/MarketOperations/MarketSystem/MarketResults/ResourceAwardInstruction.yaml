@@ -93,24 +93,24 @@ associations:
 - source: ResourceAwardInstruction
   target: SelfScheduleBreakdown
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ResourceAwardInstruction
+  targetCardinality: 0..*
   targetName: SelfScheduleBreakdown
 - source: ResourceAwardInstruction
   target: RegisteredResource
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ResourceAwardInstruction
+  targetCardinality: 0..1
   targetName: RegisteredResource
 - source: ResourceAwardInstruction
   target: ResourceAwardClearing
   sourceCardinality: 1..*
-  targetCardinality: 1..*
-  sourceName: ResourceAwardInstruction
+  sourceName: 1..*
+  sourceDescription: ResourceAwardInstruction
   targetName: ClearingResourceAward
 - source: ResourceAwardInstruction
   target: MarketProduct
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: ResourceAwardInstruction
+  sourceName: "1"
+  sourceDescription: ResourceAwardInstruction
   targetName: MarketProduct

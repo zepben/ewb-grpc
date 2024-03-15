@@ -10,16 +10,16 @@ associations:
 - source: UnavailablitySchedule
   target: EquipmentUnavailabilitySchedule
   sourceCardinality: "1"
-  targetCardinality: 0..*
+  sourceName: 0..*
 - source: UnavailablitySchedule
   target: UnavailabilityScheduleDependency
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: UnavailabilityScheduleImpacts
+  sourceName: 0..*
+  sourceDescription: UnavailabilityScheduleImpacts
   targetName: DependsOn
 - source: UnavailablitySchedule
   target: UnavailabilityScheduleDependency
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: UnavailabilityScheduleDependsOn
+  sourceName: 0..*
+  sourceDescription: UnavailabilityScheduleDependsOn
   targetName: Impacts

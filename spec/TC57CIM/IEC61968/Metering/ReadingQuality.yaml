@@ -17,16 +17,16 @@ associations:
 - source: ReadingQuality
   target: ReadingQualityType
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ReadingQualities
   sourceDescription: All reading qualities of this type.
+  targetCardinality: "1"
   targetName: ReadingQualityType
   targetDescription: Type of this reading quality.
 - source: ReadingQuality
   target: BaseReading
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ReadingQualities
   sourceDescription: All qualities of this reading.
+  targetCardinality: 0..1
   targetName: Reading
   targetDescription: Reading value to which this quality applies.

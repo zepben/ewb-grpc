@@ -55,16 +55,16 @@ associations:
 - source: VsConverter
   target: VsCapabilityCurve
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: VsConverterDCSides
   sourceDescription: All converters with this capability curve.
+  targetCardinality: 0..1
   targetName: CapabilityCurve
   targetDescription: Capability curve of this converter.
 - source: VsConverter
   target: VSCDynamics
   sourceCardinality: "1"
-  targetCardinality: 0..1
-  sourceName: VsConverter
-  sourceDescription: Voltage source converter to which voltage source converter dynamics model applies.
+  sourceName: 0..1
+  sourceDescription: VsConverter
+  targetCardinality: Voltage source converter to which voltage source converter dynamics model applies.
   targetName: VSCDynamics
   targetDescription: Voltage source converter dynamics model used to describe dynamic behaviour of this converter.

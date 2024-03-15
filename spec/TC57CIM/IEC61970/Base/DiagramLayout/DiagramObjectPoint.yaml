@@ -19,18 +19,18 @@ associations:
 - source: DiagramObjectPoint
   target: DiagramObjectGluePoint
   sourceCardinality: 2..*
-  targetCardinality: 0..1
   sourceName: DiagramObjectPoints
   sourceDescription: A diagram object glue point is associated with 2 or more object points that are considered to be 'glued'
     together.
+  targetCardinality: 0..1
   targetName: DiagramObjectGluePoint
   targetDescription: The 'glue' point to which this point is associated.
 - source: DiagramObjectPoint
   target: DiagramObject
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: DiagramObjectPoints
-  sourceDescription: A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or
+  sourceName: "1"
+  sourceDescription: DiagramObjectPoints
+  targetCardinality: A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or
     boundary (for polygons).
   targetName: DiagramObject
   targetDescription: The diagram object with which the points are associated.

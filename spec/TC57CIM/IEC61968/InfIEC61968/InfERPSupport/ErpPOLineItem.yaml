@@ -7,24 +7,24 @@ associations:
 - source: ErpPOLineItem
   target: ErpPurchaseOrder
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ErpPOLineItems
+  targetCardinality: "1"
   targetName: ErpPurchaseOrder
 - source: ErpPOLineItem
   target: AssetModelCatalogueItem
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ErpPOLineItems
+  sourceName: 0..1
+  sourceDescription: ErpPOLineItems
   targetName: AssetModelCatalogueItem
 - source: ErpPOLineItem
   target: ErpReqLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: ErpPOLineItem
+  sourceName: 0..1
+  sourceDescription: ErpPOLineItem
   targetName: ErpReqLineItem
 - source: ErpPOLineItem
   target: ErpRecDelvLineItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: ErpPOLineItem
+  sourceName: 0..1
+  sourceDescription: ErpPOLineItem
   targetName: ErpRecDelLineItem

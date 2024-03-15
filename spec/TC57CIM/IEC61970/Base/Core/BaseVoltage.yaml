@@ -10,42 +10,42 @@ associations:
 - source: BaseVoltage
   target: ConductingEquipment
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: BaseVoltage
   sourceDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and
     only one base voltage applies.  For example, not used for transformers.
+  targetCardinality: 0..*
   targetName: ConductingEquipment
   targetDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used
     and only one base voltage applies.  For example, not used for transformers.
 - source: BaseVoltage
   target: VoltageLevel
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: BaseVoltage
-  sourceDescription: The base voltage used for all equipment within the voltage level.
+  sourceName: 0..*
+  sourceDescription: BaseVoltage
+  targetCardinality: The base voltage used for all equipment within the voltage level.
   targetName: VoltageLevel
   targetDescription: The voltage levels having this base voltage.
 - source: BaseVoltage
   target: TransformerEnd
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: BaseVoltage
-  sourceDescription: Base voltage of the transformer end.  This is essential for PU calculation.
+  sourceName: 0..*
+  sourceDescription: BaseVoltage
+  targetCardinality: Base voltage of the transformer end.  This is essential for PU calculation.
   targetName: TransformerEnds
   targetDescription: Transformer ends at the base voltage.  This is essential for PU calculation.
 - source: BaseVoltage
   target: TopologicalNode
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: BaseVoltage
-  sourceDescription: The base voltage of the topological node.
+  sourceName: 0..*
+  sourceDescription: BaseVoltage
+  targetCardinality: The base voltage of the topological node.
   targetName: TopologicalNode
   targetDescription: The topological nodes at the base voltage.
 - source: BaseVoltage
   target: AssetDeployment
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: BaseVoltage
-  sourceDescription: Base voltage of this network asset deployment.
+  sourceName: 0..*
+  sourceDescription: BaseVoltage
+  targetCardinality: Base voltage of this network asset deployment.
   targetName: NetworkAssetDeployment
   targetDescription: A network asset deployment at this base voltage level.

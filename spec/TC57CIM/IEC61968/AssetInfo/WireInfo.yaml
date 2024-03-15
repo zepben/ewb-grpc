@@ -57,14 +57,14 @@ associations:
 - source: WireInfo
   target: WirePhaseInfo
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: WireInfo
   sourceDescription: Wire information contributing to this wire phase information.
+  targetCardinality: 0..*
   targetName: WirePhaseInfo
   targetDescription: Wire phase information associated with this wire information.
 - source: WireInfo
   target: ACLineSegmentPhase
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: WireInfo
+  sourceName: 0..*
+  sourceDescription: WireInfo
   targetName: ACLineSegmentPhase

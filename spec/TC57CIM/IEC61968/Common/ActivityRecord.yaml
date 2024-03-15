@@ -36,16 +36,16 @@ associations:
 - source: ActivityRecord
   target: Asset
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ActivityRecords
-  sourceDescription: All activity records created for this asset.
+  sourceName: 0..*
+  sourceDescription: ActivityRecords
+  targetCardinality: All activity records created for this asset.
   targetName: Assets
   targetDescription: All assets for which this activity record has been created.
 - source: ActivityRecord
   target: Author
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ActivityRecords
-  sourceDescription: All activity records with this author.
+  sourceName: 0..1
+  sourceDescription: ActivityRecords
+  targetCardinality: All activity records with this author.
   targetName: Author
   targetDescription: Author of this activity record.

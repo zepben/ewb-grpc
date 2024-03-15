@@ -12,56 +12,56 @@ associations:
 - source: Crew
   target: CrewMember
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Crew
   sourceDescription: Crew to which this crew member belongs.
+  targetCardinality: 0..*
   targetName: CrewMembers
   targetDescription: All members of this crew.
 - source: Crew
   target: CrewType
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Crews
   sourceDescription: All crews of this type.
+  targetCardinality: 0..1
   targetName: CrewType
   targetDescription: Type of this crew.
 - source: Crew
   target: FieldDispatchHistory
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Crew
+  sourceName: 0..*
+  sourceDescription: Crew
   targetName: FieldDispatchHistory
 - source: Crew
   target: WorkTask
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Crews
-  sourceDescription: All crews participating in this work task.
+  sourceName: 0..*
+  sourceDescription: Crews
+  targetCardinality: All crews participating in this work task.
   targetName: WorkTasks
   targetDescription: All work tasks this crew participates in.
 - source: Crew
   target: Outage
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Crew
+  sourceName: 0..*
+  sourceDescription: Crew
   targetName: Outage
 - source: Crew
   target: SwitchingAction
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Crew
+  sourceName: "1"
+  sourceDescription: Crew
   targetName: SwitchingAction
 - source: Crew
   target: WorkAsset
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Crew
-  sourceDescription: Crew using this work asset.
+  sourceName: 0..*
+  sourceDescription: Crew
+  targetCardinality: Crew using this work asset.
   targetName: WorkAssets
   targetDescription: All work assets used by this crew.
 - source: Crew
   target: Location
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Crew
+  sourceName: 0..1
+  sourceDescription: Crew
   targetName: Location

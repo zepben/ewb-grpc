@@ -61,24 +61,24 @@ associations:
 - source: MarketStatementLineItem
   target: MarketStatement
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: MarketStatementLineItem
+  targetCardinality: "1"
   targetName: MarketStatement
 - source: MarketStatementLineItem
   target: MarketStatementLineItem
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ComponentMarketStatementLineItem
+  targetCardinality: 0..1
   targetName: ContainerMarketStatementLineItem
 - source: MarketStatementLineItem
   target: MktUserAttribute
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: MarketStatementLineItem
+  targetCardinality: 0..*
   targetName: MktUserAttribute
 - source: MarketStatementLineItem
   target: PassThroughBill
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: MarketStatementLineItem
+  sourceName: 0..1
+  sourceDescription: MarketStatementLineItem
   targetName: PassThroughBill

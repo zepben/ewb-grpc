@@ -8,38 +8,38 @@ associations:
 - source: Specification
   target: AssetPropertyCurve
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Specification
+  targetCardinality: 0..*
   targetName: AssetPropertyCurves
 - source: Specification
   target: Medium
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Specification
+  targetCardinality: 0..*
   targetName: Mediums
 - source: Specification
   target: QualificationRequirement
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Specifications
+  sourceName: 0..*
+  sourceDescription: Specifications
   targetName: QualificationRequirements
 - source: Specification
   target: ReliabilityInfo
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Specification
+  sourceName: 0..*
+  sourceDescription: Specification
   targetName: ReliabilityInfos
 - source: Specification
   target: DimensionsInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Specifications
+  sourceName: 0..*
+  sourceDescription: Specifications
   targetName: DimensionsInfos
 - source: Specification
   target: UserAttribute
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: RatingSpecification
+  sourceName: 0..*
+  sourceDescription: RatingSpecification
   targetName: Ratings
   targetDescription: UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be
     used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g.,
@@ -47,8 +47,8 @@ associations:
 - source: Specification
   target: UserAttribute
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: PropertySpecification
+  sourceName: 0..*
+  sourceDescription: PropertySpecification
   targetName: AssetProperites
   targetDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
     to specify what kind of property it is, and 'value.value' attribute for the actual value.

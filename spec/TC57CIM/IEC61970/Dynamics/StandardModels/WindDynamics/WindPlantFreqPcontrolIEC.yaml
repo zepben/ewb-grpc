@@ -66,17 +66,17 @@ associations:
 - source: WindPlantFreqPcontrolIEC
   target: WindPlantIEC
   sourceCardinality: "1"
-  targetCardinality: "1"
   sourceName: WindPlantFreqPcontrolIEC
   sourceDescription: Wind plant frequency and active power control model associated with this wind plant.
+  targetCardinality: "1"
   targetName: WindPlantIEC
   targetDescription: Wind plant model with which this wind plant frequency and active power control is associated.
 - source: WindPlantFreqPcontrolIEC
   target: WindDynamicsLookupTable
   sourceCardinality: 0..1
-  targetCardinality: 1..*
-  sourceName: WindPlantFreqPcontrolIEC
-  sourceDescription: The frequency and active power wind plant control model with which this wind dynamics lookup table is
+  sourceName: 1..*
+  sourceDescription: WindPlantFreqPcontrolIEC
+  targetCardinality: The frequency and active power wind plant control model with which this wind dynamics lookup table is
     associated.
   targetName: WindDynamicsLookupTable
   targetDescription: The wind dynamics lookup table associated with this frequency and active power wind plant model.

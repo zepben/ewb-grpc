@@ -14,16 +14,16 @@ associations:
 - source: RemoteUnit
   target: CommunicationLink
   sourceCardinality: 0..*
-  targetCardinality: 1..*
-  sourceName: RemoteUnits
-  sourceDescription: RTUs may be attached to communication links.
+  sourceName: 1..*
+  sourceDescription: RemoteUnits
+  targetCardinality: RTUs may be attached to communication links.
   targetName: CommunicationLinks
   targetDescription: RTUs may be attached to communication links.
 - source: RemoteUnit
   target: RemotePoint
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: RemoteUnit
-  sourceDescription: Remote unit this point belongs to.
+  sourceName: 0..*
+  sourceDescription: RemoteUnit
+  targetCardinality: Remote unit this point belongs to.
   targetName: RemotePoints
   targetDescription: Remote points this Remote unit contains.

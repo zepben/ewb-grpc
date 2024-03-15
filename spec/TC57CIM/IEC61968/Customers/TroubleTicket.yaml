@@ -28,50 +28,50 @@ associations:
 - source: TroubleTicket
   target: IncidentHazard
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: TroubleTicket
   sourceDescription: Trouble ticket associated with this hazard.
+  targetCardinality: 0..*
   targetName: IncidentHazard
   targetDescription: All hazards reported with this trouble ticket.
 - source: TroubleTicket
   target: Customer
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: TroubleTickets
   sourceDescription: All trouble tickets for this customer.
+  targetCardinality: 0..1
   targetName: Customer
   targetDescription: Customer for whom this trouble ticket is relevant.
 - source: TroubleTicket
   target: Incident
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: TroubleTickets
   sourceDescription: All trouble tickets reporting this incident.
+  targetCardinality: 0..1
   targetName: Incident
   targetDescription: Incident reported in this trouble ticket
 - source: TroubleTicket
   target: ServiceLocation
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: TroubleTicket
+  sourceName: "1"
+  sourceDescription: TroubleTicket
   targetName: ServiceLocation
 - source: TroubleTicket
   target: CustomerNotification
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: TroubleTickets
-  sourceDescription: All trouble tickets with this notification.
+  sourceName: 0..*
+  sourceDescription: TroubleTickets
+  targetCardinality: All trouble tickets with this notification.
   targetName: Notification
   targetDescription: Notification for this trouble ticket.
 - source: TroubleTicket
   target: UnplannedOutage
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TroubleTicket
+  sourceName: 0..1
+  sourceDescription: TroubleTicket
   targetName: UnplannedOutage
 - source: TroubleTicket
   target: TroubleOrder
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: TroubleTicket
+  sourceName: 0..1
+  sourceDescription: TroubleTicket
   targetName: TroubleOrder

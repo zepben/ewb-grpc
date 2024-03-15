@@ -21,56 +21,56 @@ associations:
 - source: Bid
   target: ChargeProfile
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: Bid
+  targetCardinality: 0..*
   targetName: ChargeProfiles
 - source: Bid
   target: MitigatedBidSegment
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: Bid
+  targetCardinality: 0..*
   targetName: MitigatedBidSegment
 - source: Bid
   target: EnergyMarket
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: Bids
+  targetCardinality: "1"
   targetName: EnergyMarket
 - source: Bid
   target: MarketParticipant
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Bid
+  targetCardinality: 0..1
   targetName: MarketParticipant
 - source: Bid
   target: MitigatedBid
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Bid
+  sourceName: 0..*
+  sourceDescription: Bid
   targetName: MitigatedBid
 - source: Bid
   target: ActionRequest
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: Bid
+  sourceName: "1"
+  sourceDescription: Bid
   targetName: ActionRequest
 - source: Bid
   target: BidHourlySchedule
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Bid
+  sourceName: 0..*
+  sourceDescription: Bid
   targetName: BidHourlySchedule
 - source: Bid
   target: ProductBid
   sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: Bid
-  sourceDescription: A bid comprises one or more product bids of market products
+  sourceName: 1..*
+  sourceDescription: Bid
+  targetCardinality: A bid comprises one or more product bids of market products
   targetName: ProductBids
   targetDescription: A bid comprises one or more product bids of market products
 - source: Bid
   target: RMRDetermination
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: Bid
+  sourceName: 0..*
+  sourceDescription: Bid
   targetName: RMRDetermination

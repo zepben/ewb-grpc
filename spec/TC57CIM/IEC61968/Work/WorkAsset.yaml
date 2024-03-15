@@ -9,14 +9,14 @@ associations:
 - source: WorkAsset
   target: Crew
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: WorkAssets
   sourceDescription: All work assets used by this crew.
+  targetCardinality: 0..1
   targetName: Crew
   targetDescription: Crew using this work asset.
 - source: WorkAsset
   target: CUWorkEquipmentItem
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: TypeAsset
+  sourceName: 0..1
+  sourceDescription: TypeAsset
   targetName: CUWorkEquipmentAsset

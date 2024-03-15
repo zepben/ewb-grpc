@@ -15,16 +15,16 @@ associations:
 - source: Tariff
   target: TariffProfile
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Tariffs
   sourceDescription: All tariffs defined by this tariff profile.
+  targetCardinality: 0..*
   targetName: TariffProfiles
   targetDescription: All tariff profiles using this tariff.
 - source: Tariff
   target: PricingStructure
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Tariffs
-  sourceDescription: All tariffs used by this pricing structure.
+  sourceName: 0..*
+  sourceDescription: Tariffs
+  targetCardinality: All tariffs used by this pricing structure.
   targetName: PricingStructures
   targetDescription: All pricing structures using this tariff.

@@ -6,31 +6,31 @@ associations:
 - source: EnergyProduct
   target: Marketer
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Resells_EnergyProduct
   sourceDescription: A Marketer may resell an EnergyProduct.
+  targetCardinality: 0..*
   targetName: ResoldBy_Marketer
   targetDescription: A Marketer may resell an EnergyProduct.
 - source: EnergyProduct
   target: GenerationProvider
   sourceCardinality: 1..*
-  targetCardinality: "1"
   sourceName: ProvidedBy
+  targetCardinality: "1"
   targetName: GenerationProvider
 - source: EnergyProduct
   target: Marketer
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: HoldsTitleTo_EnergyProducts
   sourceDescription: A Marketer holds title to an EnergyProduct.
+  targetCardinality: 0..1
   targetName: TitleHeldBy_Marketer
   targetDescription: A Marketer holds title to an EnergyProduct.
 - source: EnergyProduct
   target: EnergyTransaction
   sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: EnergyProduct
-  sourceDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
+  sourceName: 1..*
+  sourceDescription: EnergyProduct
+  targetCardinality: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
     this is a ServicePoint.
   targetName: EnergyTransactions
   targetDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically

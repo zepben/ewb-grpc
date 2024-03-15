@@ -6,16 +6,16 @@ associations:
 - source: PhaseTapChangerTable
   target: PhaseTapChangerTabular
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: PhaseTapChangerTable
   sourceDescription: The phase tap changer table for this phase tap changer.
+  targetCardinality: 0..*
   targetName: PhaseTapChangerTabular
   targetDescription: The phase tap changers to which this phase tap table applies.
 - source: PhaseTapChangerTable
   target: PhaseTapChangerTablePoint
   sourceCardinality: "1"
-  targetCardinality: 1..*
-  sourceName: PhaseTapChangerTable
-  sourceDescription: The table of this point.
+  sourceName: 1..*
+  sourceDescription: PhaseTapChangerTable
+  targetCardinality: The table of this point.
   targetName: PhaseTapChangerTablePoint
   targetDescription: The points of this table.

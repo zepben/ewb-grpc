@@ -8,24 +8,24 @@ associations:
 - source: WirePhaseInfo
   target: WireAssemblyInfo
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: WirePhaseInfo
   sourceDescription: Wire phase information associated with this wire assembly.
+  targetCardinality: "1"
   targetName: WireAssemblyInfo
   targetDescription: Wire assembly information using this wire phase information.
 - source: WirePhaseInfo
   target: WireInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WirePhaseInfo
-  sourceDescription: Wire phase information associated with this wire information.
+  sourceName: 0..1
+  sourceDescription: WirePhaseInfo
+  targetCardinality: Wire phase information associated with this wire information.
   targetName: WireInfo
   targetDescription: Wire information contributing to this wire phase information.
 - source: WirePhaseInfo
   target: WirePosition
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: WirePhaseInfo
-  sourceDescription: Wire phase information for this wire position.
+  sourceName: 0..1
+  sourceDescription: WirePhaseInfo
+  targetCardinality: Wire phase information for this wire position.
   targetName: WirePosition
   targetDescription: Wire position with this wire phase information.

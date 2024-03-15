@@ -22,16 +22,16 @@ associations:
 - source: OrganisationRole
   target: ConfigurationEvent
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: ChangedOrganisationRole
   sourceDescription: Organisation role whose change resulted in this configuration event.
+  targetCardinality: 0..*
   targetName: ConfigurationEvents
   targetDescription: All configuration events created for this organisation role.
 - source: OrganisationRole
   target: Organisation
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Roles
   sourceDescription: All roles of this organisation.
+  targetCardinality: 0..1
   targetName: Organisation
   targetDescription: Organisation having this role.

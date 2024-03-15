@@ -10,16 +10,16 @@ associations:
 - source: DiscreteValue
   target: Command
   sourceCardinality: "1"
-  targetCardinality: 0..1
   sourceName: DiscreteValue
   sourceDescription: The MeasurementValue that is controlled.
+  targetCardinality: 0..1
   targetName: Command
   targetDescription: The Control variable associated with the MeasurementValue.
 - source: DiscreteValue
   target: Discrete
   sourceCardinality: 0..*
-  targetCardinality: "1"
-  sourceName: DiscreteValues
-  sourceDescription: The values connected to this measurement.
+  sourceName: "1"
+  sourceDescription: DiscreteValues
+  targetCardinality: The values connected to this measurement.
   targetName: Discrete
   targetDescription: Measurement to which this value is connected.

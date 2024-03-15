@@ -7,18 +7,18 @@ associations:
 - source: MarketRegion
   target: MarketRegionResults
   sourceCardinality: "1"
-  targetCardinality: 1..*
   sourceName: MarketRegion
+  targetCardinality: 1..*
   targetName: MarketRegionResults
 - source: MarketRegion
   target: ReserveDemandCurve
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: MarketRegion
+  targetCardinality: 0..*
   targetName: ReserveDemandCurve
 - source: MarketRegion
   target: ExPostMarketRegionResults
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: MarketRegion
+  sourceName: 0..*
+  sourceDescription: MarketRegion
   targetName: ExPostMarketRegionResults

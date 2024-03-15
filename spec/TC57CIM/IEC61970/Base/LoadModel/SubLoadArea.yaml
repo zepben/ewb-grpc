@@ -7,16 +7,16 @@ associations:
 - source: SubLoadArea
   target: LoadGroup
   sourceCardinality: "1"
-  targetCardinality: 1..*
   sourceName: SubLoadArea
   sourceDescription: The SubLoadArea where the Loadgroup belongs.
+  targetCardinality: 1..*
   targetName: LoadGroups
   targetDescription: The Loadgroups in the SubLoadArea.
 - source: SubLoadArea
   target: LoadArea
   sourceCardinality: 1..*
-  targetCardinality: "1"
-  sourceName: SubLoadAreas
-  sourceDescription: The SubLoadAreas in the LoadArea.
+  sourceName: "1"
+  sourceDescription: SubLoadAreas
+  targetCardinality: The SubLoadAreas in the LoadArea.
   targetName: LoadArea
   targetDescription: The LoadArea where the SubLoadArea belongs.

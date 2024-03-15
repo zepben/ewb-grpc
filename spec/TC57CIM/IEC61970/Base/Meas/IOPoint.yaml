@@ -10,16 +10,16 @@ associations:
 - source: IOPoint
   target: ProvidedBilateralPoint
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: IOPoint
   sourceDescription: Measurement or control for the bilateral ICCP point.
+  targetCardinality: 0..*
   targetName: BilateralToIOPoint
   targetDescription: Bilateral ICCP point for the measurement or control.
 - source: IOPoint
   target: IOPointSource
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: IOPoint
-  sourceDescription: ICCP point for a local measurement value source.
+  sourceName: 0..1
+  sourceDescription: IOPoint
+  targetCardinality: ICCP point for a local measurement value source.
   targetName: IOPointSource
   targetDescription: Local merasurement value source for an ICCP point.

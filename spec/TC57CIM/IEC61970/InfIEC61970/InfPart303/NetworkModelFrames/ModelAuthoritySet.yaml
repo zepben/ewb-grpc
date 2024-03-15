@@ -10,16 +10,16 @@ associations:
 - source: ModelAuthoritySet
   target: ModelAuthority
   sourceCardinality: 1..*
-  targetCardinality: "1"
   sourceName: ModelingAuthoritySets
   sourceDescription: Modeling Authority Sets supplied and maintained by this Modeling Authority.
+  targetCardinality: "1"
   targetName: ModelingAuthority
   targetDescription: Modeling Authority suppliying and maintaining the data for the objects in this Modeling Authority Set.
 - source: ModelAuthoritySet
   target: ModelPartSpecification
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: FrameworkPart
-  sourceDescription: Model frame of the model part.
+  sourceName: 0..*
+  sourceDescription: FrameworkPart
+  targetCardinality: Model frame of the model part.
   targetName: ModelSpecification
   targetDescription: Models of the model frame.

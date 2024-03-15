@@ -22,30 +22,30 @@ associations:
 - source: ChargeType
   target: ChargeComponent
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ChargeTypes
   sourceDescription: A ChargeType can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n ChargeType
+  targetCardinality: 0..*
   targetName: ChargeComponents
   targetDescription: A ChargeType can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n ChargeType
 - source: ChargeType
   target: ChargeGroup
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ChargeType
   sourceDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
+  targetCardinality: 0..*
   targetName: ChargeGroup
   targetDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
 - source: ChargeType
   target: MktUserAttribute
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: ChargeType
+  targetCardinality: 0..*
   targetName: MktUserAttribute
 - source: ChargeType
   target: MajorChargeGroup
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: ChargeType
-  sourceDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
+  sourceName: 0..*
+  sourceDescription: ChargeType
+  targetCardinality: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
   targetName: MajorChargeGroup
   targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.

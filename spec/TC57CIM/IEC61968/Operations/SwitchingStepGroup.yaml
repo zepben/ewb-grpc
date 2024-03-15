@@ -19,14 +19,14 @@ associations:
 - source: SwitchingStepGroup
   target: SwitchingPlan
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SwitchingStepGroups
-  sourceDescription: All groups of switching steps within this switching plan.
+  sourceName: 0..1
+  sourceDescription: SwitchingStepGroups
+  targetCardinality: All groups of switching steps within this switching plan.
   targetName: SwitchingPlan
   targetDescription: Switching plan to which this group belongs.
 - source: SwitchingStepGroup
   target: SwitchingStep
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: SwitchingStepGroup
+  sourceName: 0..*
+  sourceDescription: SwitchingStepGroup
   targetName: SwitchingStep

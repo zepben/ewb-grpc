@@ -41,55 +41,55 @@ associations:
 - source: ACLineSegment
   target: Clamp
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: ACLineSegment
   sourceDescription: The line segment to which the clamp is connected.
+  targetCardinality: 0..*
   targetName: Clamp
   targetDescription: The clamps connected to the line segment.
 - source: ACLineSegment
   target: WireSpacingInfo
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: ACLineSegment
+  targetCardinality: 0..1
   targetName: WireSpacingInfo
 - source: ACLineSegment
   target: PerLengthImpedance
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ACLineSegments
-  sourceDescription: All line segments described by this per-length impedance.
+  sourceName: 0..1
+  sourceDescription: ACLineSegments
+  targetCardinality: All line segments described by this per-length impedance.
   targetName: PerLengthImpedance
   targetDescription: Per-length impedance of this line segment.
 - source: ACLineSegment
   target: Cut
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ACLineSegment
-  sourceDescription: The line segment to which the cut is applied.
+  sourceName: 0..*
+  sourceDescription: ACLineSegment
+  targetCardinality: The line segment to which the cut is applied.
   targetName: Cut
   targetDescription: Cuts applied to the line segment.
 - source: ACLineSegment
   target: LineFault
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: ACLineSegment
-  sourceDescription: The line segment of this line fault.
+  sourceName: 0..*
+  sourceDescription: ACLineSegment
+  targetCardinality: The line segment of this line fault.
   targetName: LineFaults
   targetDescription: The line faults of the line segment.
 - source: ACLineSegment
   target: ACLineSegmentPhase
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ACLineSegment
-  sourceDescription: The line segment to which the phase belongs.
+  sourceName: 0..*
+  sourceDescription: ACLineSegment
+  targetCardinality: The line segment to which the phase belongs.
   targetName: ACLineSegmentPhases
   targetDescription: The line segment phases which belong to the line segment.
 - source: ACLineSegment
   target: JumperAction
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: ACLineSegments
-  sourceDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
+  sourceName: 0..1
+  sourceDescription: ACLineSegments
+  targetCardinality: The line segment that this jumper action will affect. This is the only way to access relationship to
     clamp in case the jumper needs to connect along the line segment.
   targetName: LineJumpingAction
   targetDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
@@ -97,9 +97,9 @@ associations:
 - source: ACLineSegment
   target: GroundAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: AlongACLineSegment
-  sourceDescription: The line segment that this ground action will affect. This is the only way to access relationship to
+  sourceName: 0..1
+  sourceDescription: AlongACLineSegment
+  targetCardinality: The line segment that this ground action will affect. This is the only way to access relationship to
     clamp in case the ground needs to be placed along the line segment.
   targetName: LineGroundingAction
   targetDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead

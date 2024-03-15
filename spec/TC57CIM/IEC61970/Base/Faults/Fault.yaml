@@ -24,30 +24,30 @@ associations:
 - source: Fault
   target: Equipment
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Faults
   sourceDescription: All faults on this equipment.
+  targetCardinality: 0..1
   targetName: FaultyEquipment
   targetDescription: Equipment carrying this fault.
 - source: Fault
   target: FaultCauseType
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: Faults
   sourceDescription: All faults with this cause type.
+  targetCardinality: 0..*
   targetName: FaultCauseTypes
   targetDescription: All types of fault cause.
 - source: Fault
   target: Location
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: Fault
+  targetCardinality: 0..1
   targetName: Location
 - source: Fault
   target: Outage
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Faults
-  sourceDescription: All faults involved in this outage.
+  sourceName: 0..1
+  sourceDescription: Faults
+  targetCardinality: All faults involved in this outage.
   targetName: Outage
   targetDescription: Outage associated with this fault.

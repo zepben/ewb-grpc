@@ -6,24 +6,24 @@ associations:
 - source: MeterWorkTask
   target: UsagePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: MeterServiceWorkTasks
   sourceDescription: All meter service work tasks at this usage point.
+  targetCardinality: 0..1
   targetName: UsagePoint
   targetDescription: Usage point to which this meter service work task applies.
 - source: MeterWorkTask
   target: Meter
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: MeterServiceWorkTask
   sourceDescription: All non-replacement work tasks on this meter.
+  targetCardinality: 0..1
   targetName: Meter
   targetDescription: Meter on which this non-replacement work task is performed.
 - source: MeterWorkTask
   target: Meter
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: MeterReplacementWorkTasks
   sourceDescription: All work tasks on replacement of this old meter.
+  targetCardinality: 0..1
   targetName: OldMeter
   targetDescription: Old meter replaced by this work task.

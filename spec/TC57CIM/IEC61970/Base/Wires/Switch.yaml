@@ -46,50 +46,50 @@ associations:
 - source: Switch
   target: SwitchPhase
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: Switch
   sourceDescription: The switch of the switch phase.
+  targetCardinality: 0..*
   targetName: SwitchPhase
   targetDescription: The individual switch phases for the switch.
 - source: Switch
   target: SwitchSchedule
   sourceCardinality: "1"
-  targetCardinality: 0..*
   sourceName: Switch
   sourceDescription: A SwitchSchedule is associated with a Switch.
+  targetCardinality: 0..*
   targetName: SwitchSchedules
   targetDescription: A Switch can be associated with SwitchSchedules.
 - source: Switch
   target: CompositeSwitch
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: Switches
-  sourceDescription: Switches contained in this Composite switch.
+  sourceName: 0..1
+  sourceDescription: Switches
+  targetCardinality: Switches contained in this Composite switch.
   targetName: CompositeSwitch
   targetDescription: Composite switch to which this Switch belongs.
 - source: Switch
   target: UnavailabilitySwitchAction
   sourceCardinality: "1"
-  targetCardinality: 0..*
+  sourceName: 0..*
 - source: Switch
   target: SvSwitch
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: Switch
-  sourceDescription: The switch associated with the switch state.
+  sourceName: 0..*
+  sourceDescription: Switch
+  targetCardinality: The switch associated with the switch state.
   targetName: SvSwitch
   targetDescription: The switch state associated with the switch.
 - source: Switch
   target: ConnectDisconnectFunction
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: Switches
+  sourceName: 0..*
+  sourceDescription: Switches
   targetName: ConnectDisconnectFunctions
 - source: Switch
   target: SwitchAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: OperatedSwitch
-  sourceDescription: Switch that is the object of this switch action.
+  sourceName: 0..1
+  sourceDescription: OperatedSwitch
+  targetCardinality: Switch that is the object of this switch action.
   targetName: SwitchAction
   targetDescription: Action changing status of this switch.

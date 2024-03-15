@@ -27,65 +27,65 @@ associations:
 - source: SwitchingPlan
   target: SwitchingStepGroup
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: SwitchingPlan
   sourceDescription: Switching plan to which this group belongs.
+  targetCardinality: 0..*
   targetName: SwitchingStepGroups
   targetDescription: All groups of switching steps within this switching plan.
 - source: SwitchingPlan
   target: WorkTask
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: SwitchingPlan
   sourceDescription: Switching plan executed by this work task.
+  targetCardinality: 0..*
   targetName: WorkTasks
   targetDescription: All work tasks to execute this switching plan.
 - source: SwitchingPlan
   target: SafetyDocument
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: SwitchingPlan
   sourceDescription: Switching plan to which this safety document applies.
+  targetCardinality: 0..*
   targetName: SafetyDocuments
   targetDescription: All safety documents applicable to this swtiching plan.
 - source: SwitchingPlan
   target: OutagePlan
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: SwitchingPlan
   sourceDescription: The swiching plan that is associated with the outage plan.
+  targetCardinality: 0..1
   targetName: OutagePlan
   targetDescription: The outage plan for which the switching plan is defined.
 - source: SwitchingPlan
   target: Outage
   sourceCardinality: 0..*
-  targetCardinality: 0..1
   sourceName: SwitchingPlans
   sourceDescription: All switching plans that lead to supply restoration due to this outage. Only one will be retained for
     execution.
+  targetCardinality: 0..1
   targetName: Outage
   targetDescription: Outage that will be activated or eliminated when this switching plan gets executed.
 - source: SwitchingPlan
   target: SwitchingAction
   sourceCardinality: 0..1
-  targetCardinality: 0..*
-  sourceName: SwitchingPlan
+  sourceName: 0..*
+  sourceDescription: SwitchingPlan
   targetName: SwitchingAction
 - source: SwitchingPlan
   target: SwitchingPlanRequest
   sourceCardinality: 0..*
-  targetCardinality: 0..1
-  sourceName: SwitchingPlan
+  sourceName: 0..1
+  sourceDescription: SwitchingPlan
   targetName: SwitchingPlanRequest
 - source: SwitchingPlan
   target: SwitchingOrder
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: SwitchingPlan
+  sourceName: 0..1
+  sourceDescription: SwitchingPlan
   targetName: SwitchingOrder
 - source: SwitchingPlan
   target: PlannedOutageNotification
   sourceCardinality: 0..1
-  targetCardinality: 0..1
-  sourceName: SwitchingPlan
+  sourceName: 0..1
+  sourceDescription: SwitchingPlan
   targetName: PlannedOutageNotification

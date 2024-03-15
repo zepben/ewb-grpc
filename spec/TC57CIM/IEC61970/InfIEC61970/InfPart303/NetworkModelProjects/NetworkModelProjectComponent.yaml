@@ -13,20 +13,20 @@ associations:
 - source: NetworkModelProjectComponent
   target: NetworkModelProject
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: ContainedProject
   sourceDescription: Projects that are included in this parent project.
+  targetCardinality: "1"
   targetName: ContainingProject
   targetDescription: The parent project of this project.
 - source: NetworkModelProjectComponent
   target: NetworkModelProjectRelationship
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ProjectA
+  sourceName: 0..*
+  sourceDescription: ProjectA
   targetName: ProjectARelationships
 - source: NetworkModelProjectComponent
   target: NetworkModelProjectRelationship
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: ProjectB
+  sourceName: 0..*
+  sourceDescription: ProjectB
   targetName: ProjectBRelationships

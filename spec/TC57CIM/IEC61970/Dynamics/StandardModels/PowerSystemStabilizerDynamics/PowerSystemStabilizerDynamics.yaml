@@ -27,16 +27,16 @@ associations:
 - source: PowerSystemStabilizerDynamics
   target: ExcitationSystemDynamics
   sourceCardinality: 0..1
-  targetCardinality: "1"
   sourceName: PowerSystemStabilizerDynamics
   sourceDescription: Power system stabilizer model associated with this excitation system model.
+  targetCardinality: "1"
   targetName: ExcitationSystemDynamics
   targetDescription: Excitation system model with which this power system stabilizer model is associated.
 - source: PowerSystemStabilizerDynamics
   target: RemoteInputSignal
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: PowerSystemStabilizerDynamics
   sourceDescription: Power system stabilizer model using this remote input signal.
+  targetCardinality: 0..*
   targetName: RemoteInputSignal
   targetDescription: Remote input signal used by this power system stabilizer model.

@@ -42,48 +42,48 @@ associations:
 - source: EndDeviceControl
   target: EndDeviceControlType
   sourceCardinality: 0..*
-  targetCardinality: "1"
   sourceName: EndDeviceControls
   sourceDescription: All end device controls of this type.
+  targetCardinality: "1"
   targetName: EndDeviceControlType
   targetDescription: Type of this end device control.
 - source: EndDeviceControl
   target: UsagePointGroup
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EndDeviceControls
   sourceDescription: All end device controls sending commands to this usage point group.
+  targetCardinality: 0..*
   targetName: UsagePointGroups
   targetDescription: All usage point groups receiving commands from this end device control.
 - source: EndDeviceControl
   target: UsagePoint
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EndDeviceControls
   sourceDescription: All end device controls sending commands to this usage point.
+  targetCardinality: 0..*
   targetName: UsagePoints
   targetDescription: All usage points receiving commands from this end device control.
 - source: EndDeviceControl
   target: EndDeviceAction
   sourceCardinality: 0..1
-  targetCardinality: 0..1
   sourceName: EndDeviceControl
   sourceDescription: End device control issuing this end device action.
+  targetCardinality: 0..1
   targetName: EndDeviceAction
   targetDescription: End device action issued by this end device control.
 - source: EndDeviceControl
   target: EndDevice
   sourceCardinality: 0..*
-  targetCardinality: 0..*
   sourceName: EndDeviceControls
   sourceDescription: All end device controls sending commands to this end device.
+  targetCardinality: 0..*
   targetName: EndDevices
   targetDescription: All end devices receiving commands from this end device control.
 - source: EndDeviceControl
   target: EndDeviceGroup
   sourceCardinality: 0..*
-  targetCardinality: 0..*
-  sourceName: EndDeviceControls
-  sourceDescription: All end device controls sending commands to this end device group.
+  sourceName: 0..*
+  sourceDescription: EndDeviceControls
+  targetCardinality: All end device controls sending commands to this end device group.
   targetName: EndDeviceGroups
   targetDescription: All end device groups receiving commands from this end device control.

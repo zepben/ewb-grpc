@@ -6,15 +6,15 @@ associations:
 - source: WireAssemblyInfo
   target: PerLengthLineParameter
   sourceCardinality: 0..1
-  targetCardinality: 0..*
   sourceName: WireAssemblyInfo
+  targetCardinality: 0..*
   targetName: PerLengthLineParameter
   targetDescription: Per length line parameter associated with this wire assembly.
 - source: WireAssemblyInfo
   target: WirePhaseInfo
   sourceCardinality: "1"
-  targetCardinality: 0..*
-  sourceName: WireAssemblyInfo
-  sourceDescription: Wire assembly information using this wire phase information.
+  sourceName: 0..*
+  sourceDescription: WireAssemblyInfo
+  targetCardinality: Wire assembly information using this wire phase information.
   targetName: WirePhaseInfo
   targetDescription: Wire phase information associated with this wire assembly.
