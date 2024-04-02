@@ -2,3 +2,12 @@ name: RemoteSource
 description: Remote sources are state variables that are telemetered or calculated within the remote unit.
 ancestors:
 - RemotePoint
+associations:
+- source: RemoteSource
+  target: Measurement
+  sourceCardinality: 0..1
+  sourceName: RemoteSource
+  sourceDescription: The remote point taking the measurement.
+  targetCardinality: 0..1
+  targetName: Measurement
+  targetDescription: The Measurement for the RemoteSource point.
