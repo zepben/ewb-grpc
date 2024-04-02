@@ -4,6 +4,33 @@ description: An AC electrical connection point to a piece of conducting equipmen
 attributes:
 - name: phases
   type: PhaseCode
+  description: Represents the normal network phasing condition.
+- name: tracedPhases
+  type: Integer
+  description: >
+    The traced phase status:
+                    |      uint32      |
+                    | 16 bits |16 bits |
+    Network status: | current | normal |
+
+    Network state phase status:
+                   |              16 bits              |
+                   | 4 bits | 4 bits | 4 bits | 4 bits |
+    Nominal phase: |   N    |    C   | B/Y/s2 | A/X/s1 |
+
+    Each nominal phase (actual phase):
+                  |                 4 bits                |
+                  |  1 bit  |  1 bit  |  1 bit  |  1 bit  |
+    Actual Phase: |    N    |    C    |    B    |    A    |
+- name: sequenceNumber
+  type: Integer
+  description: This Terminal's sequence number.
+- name: normalFeederDirection
+  type: Integer
+  description: Stores the direction of the feeder head relative to this terminal in the normal state of the network.
+- name: currentFeederDirection
+  type: Integer
+  description: Stores the direction of the feeder head relative to this terminal in the current state of the network.
 ancestors:
 - ACDCTerminal
 associations:
@@ -25,35 +52,3 @@ associations:
   targetName: ConductingEquipment
   targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
     to other conducting equipment terminals via connectivity nodes or topological nodes.
-- source: Terminal
-  target: Feeder
-  sourceCardinality: 1..*
-  sourceName: NormalHeadTerminal
-  sourceDescription: The normal head terminal or terminals of the feeder.
-  targetCardinality: 0..1
-  targetName: NormalHeadFeeder
-  targetDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
-- source: Terminal
-  target: TransformerEnd
-  sourceCardinality: 0..1
-  sourceName: Terminal
-  sourceDescription: Terminal of the power transformer to which this transformer end belongs.
-  targetCardinality: 0..*
-  targetName: TransformerEnd
-  targetDescription: All transformer ends connected at this terminal.
-- source: Terminal
-  target: Circuit
-  sourceCardinality: 0..*
-  sourceName: EndTerminal
-  targetCardinality: 0..1
-  targetName: Circuit
-- source: Terminal
-  target: LvFeeder
-  sourceCardinality: 0..1
-  sourceName: normalHeadTerminal
-  sourceDescription: |2-
-
-    The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
-  targetCardinality: 0..1
-  targetName: normalHeadLvFeeder
-  targetDescription: The LV feeder that this terminal normally feeds.

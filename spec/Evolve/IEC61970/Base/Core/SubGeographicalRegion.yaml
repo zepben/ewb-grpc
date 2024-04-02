@@ -6,7 +6,7 @@ associations:
 - source: SubGeographicalRegion
   target: Substation
   sourceCardinality: 0..1
-  sourceName: Region
+  sourceName: SubGeographicalRegion
   sourceDescription: The SubGeographicalRegion containing the substation.
   targetCardinality: 0..*
   targetName: Substations
@@ -14,8 +14,8 @@ associations:
 - source: SubGeographicalRegion
   target: GeographicalRegion
   sourceCardinality: 0..*
-  sourceName: Regions
+  sourceName: SubGeographicalRegion
   sourceDescription: All sub-geographical regions within this geographical region.
   targetCardinality: 0..1
-  targetName: Region
+  targetName: GeographicalRegion
   targetDescription: The geographical region which this sub-geographical region is within.

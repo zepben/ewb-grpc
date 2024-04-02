@@ -6,11 +6,11 @@ ancestors:
 associations:
 - source: Substation
   target: Feeder
-  sourceCardinality: 0..*
+  sourceCardinality: 0..1
   sourceName: NormalEnergizingSubstation
   sourceDescription: The substations that are normally energized by the feeder.
   targetCardinality: 0..*
-  targetName: NormalEnergizingFeeder
+  targetName: Feeders
   targetDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
     that describe the naming hierarchy.
 - source: Substation
@@ -19,28 +19,27 @@ associations:
   sourceName: Substations
   sourceDescription: The substations in this sub-geographical region.
   targetCardinality: 0..1
-  targetName: Region
+  targetName: SubGeographicalRegion
   targetDescription: The SubGeographicalRegion containing the substation.
 - source: Substation
   target: Circuit
   sourceCardinality: 0..*
-  sourceName: endSubstations
+  sourceName: EndSubstations
   sourceDescription: Simplification of the CIM association via Bay to Circuit
   targetCardinality: 0..*
-  targetName: circuits
+  targetName: Circuits
   targetDescription: Simplification of the CIM association via Bay to Substation
 - source: Substation
   target: Loop
   sourceCardinality: 0..*
-  sourceName: substations
-  sourceDescription: Substations that are energized by this loop.
-  targetCardinality: 0..*
-  targetName: loops
-  targetDescription: The loops that are energizing this substation.
+  sourceName: Substations
+  sourceDescription:
+  targetName: Loops
+  targetDescription:
 - source: Substation
   target: Loop
   sourceCardinality: 0..*
-  sourceName: normalEnergizingSubstations
+  sourceName: NormalEnergizingSubstations
   sourceDescription: The substations that normally energize this loop.
-  targetName: normalEnergizedLoops
+  targetName: NormalEnergizedLoops
   targetDescription: The loops that are energized by this substation.

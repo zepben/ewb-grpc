@@ -11,37 +11,19 @@ descendents:
 - TapChanger
 - ConnectivityNodeContainer
 - PowerElectronicsConnectionPhase
+attributes:
+- name: numControls
+  type: Integer
+  description: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a
+    synchronous machine or capacitor bank breaker actuator.
 associations:
 - source: PowerSystemResource
-  target: Control
-  sourceCardinality: 0..1
-  sourceName: PowerSystemResource
-  sourceDescription: Regulating device governed by this control output.
-  targetCardinality: 0..*
-  targetName: Controls
-  targetDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
-    machine or capacitor bank breaker actuator.
-- source: PowerSystemResource
-  target: Measurement
-  sourceCardinality: 0..1
-  sourceName: PowerSystemResource
-  sourceDescription: The power system resource that contains the measurement.
-  targetCardinality: 0..*
-  targetName: Measurements
-  targetDescription: The measurements associated with this power system resource.
-- source: PowerSystemResource
   target: AssetInfo
-  sourceCardinality: 0..*
-  sourceName: PowerSystemResources
-  sourceDescription: All power system resources with this datasheet information.
   targetCardinality: 0..1
   targetName: AssetDatasheet
   targetDescription: Datasheet information for this power system resource.
 - source: PowerSystemResource
   target: Location
-  sourceCardinality: 0..*
-  sourceName: PowerSystemResources
-  sourceDescription: All power system resources at this location.
   targetCardinality: 0..1
   targetName: Location
   targetDescription: Location of this power system resource.

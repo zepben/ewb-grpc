@@ -8,6 +8,9 @@ attributes:
     as if it is not in the model.
 - name: normallyInService
   type: Boolean
+- name: commissionedDate
+  type: Datetime
+  description: The date this equipment was commissioned into service.
 ancestors:
 - PowerSystemResource
 descendents:
@@ -18,15 +21,23 @@ associations:
 - source: Equipment
   target: EquipmentContainer
   sourceCardinality: 0..*
-  sourceName: Equipments
+  sourceName: Equipment
   sourceDescription: Contained equipment.
   targetCardinality: 0..1
-  targetName: EquipmentContainer
+  targetName: Containers
   targetDescription: Container of this equipment.
+- source: Equipment
+  target: EquipmentContainer
+  sourceCardinality: 0..*
+  sourceName: Equipment
+  sourceDescription: Contained equipment.
+  targetCardinality: 0..1
+  targetName: CurrentContainers
+  targetDescription: Container of this equipment if the eqipment belongs to the current network state
 - source: Equipment
   target: UsagePoint
   sourceCardinality: 0..*
-  sourceName: Equipments
+  sourceName: Equipment
   sourceDescription: All equipment connecting this usage point to the electrical grid.
   targetCardinality: 0..*
   targetName: UsagePoints
@@ -34,14 +45,8 @@ associations:
 - source: Equipment
   target: OperationalRestriction
   sourceCardinality: 0..*
-  sourceName: Equipments
+  sourceName: Equipment
   sourceDescription: All equipments to which this restriction applies.
   targetCardinality: 0..*
   targetName: OperationalRestrictions
   targetDescription: All operational restrictions for this equipment.
-- source: Equipment
-  target: LvFeeder
-  sourceCardinality: 0..*
-  sourceName: currentEquipment
-  sourceDescription: Contained equipment using the current state of the network.
-  targetCardinality: 0..1

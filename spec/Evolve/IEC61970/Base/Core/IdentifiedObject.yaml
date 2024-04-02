@@ -13,6 +13,9 @@ attributes:
   type: String
   description: The description is a free human readable text describing or naming the object. It may be non unique and may
     not correlate to a naming hierarchy.
+- name: numDiagramObjects
+  type: Integer
+  description: Count of the DiagramObject's that are associated with this IdentifiedObject
 descendents:
 - Document
 - Location
@@ -40,18 +43,7 @@ descendents:
 - TransformerTest
 associations:
 - source: IdentifiedObject
-  target: DiagramObject
-  sourceCardinality: 0..1
-  sourceName: IdentifiedObject
-  sourceDescription: The domain object to which this diagram object is associated.
-  targetCardinality: 0..*
-  targetName: DiagramObjects
-  targetDescription: The diagram objects that are associated with the domain object.
-- source: IdentifiedObject
   target: Name
-  sourceCardinality: "1"
-  sourceName: IdentifiedObject
-  sourceDescription: Identified object that this name designates.
   targetCardinality: 0..*
   targetName: Names
   targetDescription: All names of this identified object.
