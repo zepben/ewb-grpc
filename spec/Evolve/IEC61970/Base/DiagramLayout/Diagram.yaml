@@ -10,22 +10,16 @@ attributes:
     X values increasing from left to right and Y values increasing from bottom to top. A negative orientation gives the “left-hand”
     orientation (favoured by computer graphics displays) with X values increasing from left to right and Y values increasing
     from top to bottom.
+- name: diagramStyle
+  type: DiagramStyle
+  description: A Diagram may have a DiagramStyle.
 ancestors:
 - IdentifiedObject
-associations:
-- source: Diagram
-  target: DiagramStyle
-  sourceCardinality: 0..*
-  sourceName: Diagram
-  sourceDescription: A DiagramStyle can be used by many Diagrams.
-  targetCardinality: 0..1
-  targetName: DiagramStyle
-  targetDescription: A Diagram may have a DiagramStyle.
 - source: Diagram
   target: DiagramObject
   sourceCardinality: 0..1
   sourceName: Diagram
   sourceDescription: A diagram object is part of a diagram.
   targetCardinality: 0..*
-  targetName: DiagramElements
+  targetName: DiagramObjects
   targetDescription: A diagram is made up of multiple diagram objects.
