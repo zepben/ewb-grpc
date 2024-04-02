@@ -46,3 +46,11 @@ associations:
   targetCardinality: 0..1
   targetName: PowerSystemResource
   targetDescription: The power system resource that contains the measurement.
+- source: Measurement
+  target: RemoteSource
+  sourceCardinality: 0..1
+  sourceName: Measurements
+  sourceDescription: The measurements associated with this remote source
+  targetCardinality: 0..1
+  targetName: RemoteSource
+  targetDescription: The remote point taking the measurement.
