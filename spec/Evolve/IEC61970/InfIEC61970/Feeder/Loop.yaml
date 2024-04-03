@@ -1,27 +1,30 @@
 name: Loop
 description: Sub-transmission circuits are usually arranged in loops so that a single line failure does not cut off service
   to many customers for more than a short time.
+ancestors:
+- IdentifiedObject
 associations:
 - source: Loop
   target: Substation
   sourceCardinality: 0..*
-  sourceName: loops
+  sourceName: EnergizedLoops
   sourceDescription: The loops that are energizing this substation.
   targetCardinality: 0..*
-  targetName: substations
+  targetName: EnergizingSubstations
   targetDescription: Substations that are energized by this loop.
 - source: Loop
   target: Substation
-  sourceName: normalEnergizedLoops
-  sourceDescription: The loops that are energized by this substation.
+  sourceCardinality: 0..*
+  sourceName: Loops
+  sourceDescription:
   targetCardinality: 0..*
-  targetName: normalEnergizingSubstations
+  targetName: Substations
   targetDescription: The substations that normally energize this loop.
 - source: Loop
   target: Circuit
   sourceCardinality: 0..1
-  sourceName: loop
+  sourceName: Loop
   sourceDescription: The loop containing this circuit.
   targetCardinality: 0..*
-  targetName: circuits
+  targetName: Circuits
   targetDescription: Sub-transmission circuits that form part of this loop.

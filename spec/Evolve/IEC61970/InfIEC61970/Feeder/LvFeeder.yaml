@@ -5,27 +5,22 @@ ancestors:
 associations:
 - source: LvFeeder
   target: Feeder
-  sourceCardinality: 0..1
+  sourceCardinality: 0..*
+  sourceName: NormalEnergizedLvFeeders
+  sourceDescription: The LV feeders that are normally energized by the feeder.
   targetCardinality: 0..*
-  targetName: normalEnergizingFeeders
+  targetName: NormalEnergizingFeeders
+  targetDescription: The HV/MV feeders that energize this LV feeder.
 - source: LvFeeder
   target: Equipment
-  sourceCardinality: 0..1
+  sourceCardinality: 0..*
+  sourceName: NormalLvFeeders
+  sourceDescription: The LV feeders that are normally energized by the feeder.
   targetCardinality: 0..*
-  targetName: currentEquipment
+  targetName: CurrentEquipment
   targetDescription: Contained equipment using the current state of the network.
 - source: LvFeeder
   target: Terminal
-  sourceCardinality: 0..1
-  sourceName: normalHeadLvFeeder
-  sourceDescription: The LV feeder that this terminal normally feeds.
   targetCardinality: 0..1
-  targetName: normalHeadTerminal
-  targetDescription: |2-
-
-    The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
-- source: LvFeeder
-  target: Feeder
-  sourceCardinality: 0..*
-  sourceName: normalEnergizedLvFeeders
-  targetCardinality: 0..1
+  targetName: NormalHeadTerminal
+  targetDescription: The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
