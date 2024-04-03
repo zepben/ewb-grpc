@@ -17,30 +17,30 @@ associations:
 - source: TransactionBid
   target: TransactionBidResults
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TransactionBid
+  sourceName: TransactionBid
+  targetCardinality: 0..*
   targetName: TransactionBidResults
 - source: TransactionBid
   target: Pnode
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: ReceiptTransactionBids
+  sourceName: ReceiptTransactionBids
+  targetCardinality: 0..1
   targetName: Receipt_Pnode
 - source: TransactionBid
   target: Pnode
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: DeliveryTransactionBids
+  sourceName: DeliveryTransactionBids
+  targetCardinality: 0..1
   targetName: Delivery_Pnode
 - source: TransactionBid
   target: EnergyProfile
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: TransactionBid
+  sourceName: TransactionBid
+  targetCardinality: 1..*
   targetName: EnergyProfiles
 - source: TransactionBid
   target: TransmissionReservation
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: TransactionBid
+  sourceName: TransactionBid
+  targetCardinality: 0..1
   targetName: TransmissionReservation

@@ -31,24 +31,24 @@ associations:
 - source: Meter
   target: MeterWorkTask
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Meter
-  targetCardinality: Meter on which this non-replacement work task is performed.
+  sourceName: Meter
+  sourceDescription: Meter on which this non-replacement work task is performed.
+  targetCardinality: 0..*
   targetName: MeterServiceWorkTask
   targetDescription: All non-replacement work tasks on this meter.
 - source: Meter
   target: Transaction
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Meter
-  targetCardinality: Meter for this vending transaction.
+  sourceName: Meter
+  sourceDescription: Meter for this vending transaction.
+  targetCardinality: 0..*
   targetName: VendingTransactions
   targetDescription: All vending transactions on this meter.
 - source: Meter
   target: MeterWorkTask
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: OldMeter
-  targetCardinality: Old meter replaced by this work task.
+  sourceName: OldMeter
+  sourceDescription: Old meter replaced by this work task.
+  targetCardinality: 0..*
   targetName: MeterReplacementWorkTasks
   targetDescription: All work tasks on replacement of this old meter.

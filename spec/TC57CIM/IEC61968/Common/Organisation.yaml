@@ -38,14 +38,14 @@ associations:
 - source: Organisation
   target: SwitchingPlanRequest
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: RequestingOrganization
+  sourceName: RequestingOrganization
+  targetCardinality: 0..*
   targetName: SwitchingPlanRequest
 - source: Organisation
   target: OrganisationRole
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Organisation
-  targetCardinality: Organisation having this role.
+  sourceName: Organisation
+  sourceDescription: Organisation having this role.
+  targetCardinality: 0..*
   targetName: Roles
   targetDescription: All roles of this organisation.

@@ -65,14 +65,14 @@ associations:
 - source: Incident
   target: TroubleTicket
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Incident
-  targetCardinality: Incident reported in this trouble ticket
+  sourceName: Incident
+  sourceDescription: Incident reported in this trouble ticket
+  targetCardinality: 0..*
   targetName: TroubleTickets
   targetDescription: All trouble tickets reporting this incident.
 - source: Incident
   target: TroubleOrder
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: Incident
+  sourceName: Incident
+  targetCardinality: 0..1
   targetName: TroubleOrder

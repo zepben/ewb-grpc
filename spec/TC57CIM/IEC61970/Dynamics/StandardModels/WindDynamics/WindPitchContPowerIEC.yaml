@@ -42,16 +42,16 @@ associations:
 - source: WindPitchContPowerIEC
   target: WindDynamicsLookupTable
   sourceCardinality: 0..1
-  sourceName: 1..*
-  sourceDescription: WindPitchContPowerIEC
-  targetCardinality: The pitch control power model with which this wind dynamics lookup table is associated.
+  sourceName: WindPitchContPowerIEC
+  sourceDescription: The pitch control power model with which this wind dynamics lookup table is associated.
+  targetCardinality: 1..*
   targetName: WindDynamicsLookupTable
   targetDescription: The wind dynamics lookup table associated with this pitch control power model.
 - source: WindPitchContPowerIEC
   target: WindGenTurbineType1bIEC
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: WindPitchContPowerIEC
-  targetCardinality: Pitch control power model associated with this wind turbine type 1B model.
+  sourceName: WindPitchContPowerIEC
+  sourceDescription: Pitch control power model associated with this wind turbine type 1B model.
+  targetCardinality: 0..1
   targetName: WindGenTurbineType1bIEC
   targetDescription: Wind turbine type 1B model with which this pitch control power model is associated.

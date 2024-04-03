@@ -18,24 +18,24 @@ associations:
 - source: AnalogValue
   target: AltTieMeas
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: AnalogValue
-  targetCardinality: The specific analog value used as a source.
+  sourceName: AnalogValue
+  sourceDescription: The specific analog value used as a source.
+  targetCardinality: 0..*
   targetName: AltTieMeas
   targetDescription: The usage of the measurement within the control area specification.
 - source: AnalogValue
   target: AltGeneratingUnitMeas
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: AnalogValue
-  targetCardinality: The specific analog value used as a source.
+  sourceName: AnalogValue
+  sourceDescription: The specific analog value used as a source.
+  targetCardinality: 0..*
   targetName: AltGeneratingUnit
   targetDescription: The alternate generating unit for which this measurement value applies.
 - source: AnalogValue
   target: Analog
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: AnalogValues
-  targetCardinality: The values connected to this measurement.
+  sourceName: AnalogValues
+  sourceDescription: The values connected to this measurement.
+  targetCardinality: "1"
   targetName: Analog
   targetDescription: Measurement to which this value is connected.

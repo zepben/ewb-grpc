@@ -16,18 +16,18 @@ associations:
 - source: Project
   target: ErpProjectAccounting
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: Projects
+  sourceName: Projects
+  targetCardinality: "1"
   targetName: ErpProjectAccounting
 - source: Project
   target: BusinessCase
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Projects
+  sourceName: Projects
+  targetCardinality: 0..1
   targetName: BusinessCase
 - source: Project
   target: Work
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Project
+  sourceName: Project
+  targetCardinality: 0..*
   targetName: Works

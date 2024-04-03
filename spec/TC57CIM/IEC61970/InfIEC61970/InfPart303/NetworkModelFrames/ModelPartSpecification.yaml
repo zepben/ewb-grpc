@@ -15,16 +15,16 @@ associations:
 - source: ModelPartSpecification
   target: ModelPartVersion
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ModelSpecification
-  targetCardinality: Model specification of the modelt.
+  sourceName: ModelSpecification
+  sourceDescription: Model specification of the modelt.
+  targetCardinality: 0..*
   targetName: Model
   targetDescription: Modle parts conforming to the model part specification.
 - source: ModelPartSpecification
   target: AssemblyDescription
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ModelSpecification
-  targetCardinality: The models that are part of the assembly descrption.
+  sourceName: ModelSpecification
+  sourceDescription: The models that are part of the assembly descrption.
+  targetCardinality: 0..*
   targetName: AssemblyDescription
   targetDescription: The assembly description into which model parts should be included.

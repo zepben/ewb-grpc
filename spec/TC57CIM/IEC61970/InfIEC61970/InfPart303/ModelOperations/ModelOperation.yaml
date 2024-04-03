@@ -18,14 +18,14 @@ associations:
 - source: ModelOperation
   target: ModelOperationArg
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ModelOperation
-  targetCardinality: The opeation for the operation argument.
+  sourceName: ModelOperation
+  sourceDescription: The opeation for the operation argument.
+  targetCardinality: 0..*
   targetName: ModelOperationArg
   targetDescription: Arguments of the operation.
 - source: ModelOperation
   target: ModelOperationSequence
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: ModelOperation
+  sourceName: ModelOperation
+  targetCardinality: "1"
   targetName: OperationSequence

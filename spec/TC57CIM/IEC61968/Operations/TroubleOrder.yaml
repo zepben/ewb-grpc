@@ -31,12 +31,12 @@ associations:
 - source: TroubleOrder
   target: UnplannedOutage
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: TroubleOrder
+  sourceName: TroubleOrder
+  targetCardinality: 0..1
   targetName: UnplannedOutage
 - source: TroubleOrder
   target: WorkTask
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TroubleOrder
+  sourceName: TroubleOrder
+  targetCardinality: 0..*
   targetName: WorkTask

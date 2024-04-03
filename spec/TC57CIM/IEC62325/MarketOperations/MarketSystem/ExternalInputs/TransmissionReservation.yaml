@@ -17,18 +17,18 @@ associations:
 - source: TransmissionReservation
   target: TransmissionPath
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: TransmissionReservation
+  sourceName: TransmissionReservation
+  targetCardinality: "1"
   targetName: TransmissionPath
 - source: TransmissionReservation
   target: ServicePoint
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: SourceReservation
+  sourceName: SourceReservation
+  targetCardinality: 0..1
   targetName: Source
 - source: TransmissionReservation
   target: ServicePoint
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: SinkReservation
+  sourceName: SinkReservation
+  targetCardinality: 0..1
   targetName: Sink

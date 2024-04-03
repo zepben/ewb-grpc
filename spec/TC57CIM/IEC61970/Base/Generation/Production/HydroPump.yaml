@@ -19,26 +19,26 @@ associations:
 - source: HydroPump
   target: HydroPumpOpSchedule
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: HydroPump
-  targetCardinality: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
+  sourceName: HydroPump
+  sourceDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
+  targetCardinality: 0..1
   targetName: HydroPumpOpSchedule
   targetDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
 - source: HydroPump
   target: HydroPowerPlant
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: HydroPumps
-  targetCardinality: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+  sourceName: HydroPumps
+  sourceDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+  targetCardinality: 0..1
   targetName: HydroPowerPlant
   targetDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
 - source: HydroPump
   target: RotatingMachine
   sourceCardinality: 0..1
-  sourceName: "1"
-  sourceDescription: HydroPump
-  targetCardinality: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
+  sourceName: HydroPump
+  sourceDescription: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
     The direction of machine rotation for pumping may or may not be the same as for generating.
+  targetCardinality: "1"
   targetName: RotatingMachine
   targetDescription: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
     The direction of machine rotation for pumping may or may not be the same as for generating.

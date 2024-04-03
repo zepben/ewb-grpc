@@ -37,8 +37,8 @@ associations:
 - source: CustomerNotification
   target: Incident
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: CustomerNotifications
-  targetCardinality: All notifications for a customer related to the status change of this incident.
+  sourceName: CustomerNotifications
+  sourceDescription: All notifications for a customer related to the status change of this incident.
+  targetCardinality: 0..1
   targetName: Incident
   targetDescription: Incident as a subject of this customer notification.

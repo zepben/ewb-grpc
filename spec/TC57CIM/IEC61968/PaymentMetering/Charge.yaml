@@ -25,24 +25,24 @@ associations:
 - source: Charge
   target: ConsumptionTariffInterval
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Charges
-  targetCardinality: All charges used to define this consumption tariff interval.
+  sourceName: Charges
+  sourceDescription: All charges used to define this consumption tariff interval.
+  targetCardinality: 0..*
   targetName: ConsumptionTariffIntervals
   targetDescription: Tariff intervals to which this consumption-based charge has to be levied.
 - source: Charge
   target: TimeTariffInterval
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Charges
-  targetCardinality: All charges used to define this time tariff interval.
+  sourceName: Charges
+  sourceDescription: All charges used to define this time tariff interval.
+  targetCardinality: 0..*
   targetName: TimeTariffIntervals
   targetDescription: Tariff intervals to which this time-based charge has to be levied.
 - source: Charge
   target: AuxiliaryAccount
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Charges
-  targetCardinality: All charges levied on this account.
+  sourceName: Charges
+  sourceDescription: All charges levied on this account.
+  targetCardinality: 0..*
   targetName: AuxiliaryAccounts
   targetDescription: All auxiliary accounts to which this charge has to be levied.

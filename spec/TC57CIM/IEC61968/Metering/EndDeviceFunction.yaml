@@ -14,16 +14,16 @@ associations:
 - source: EndDeviceFunction
   target: Register
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EndDeviceFunction
-  targetCardinality: End device function metering quantities displayed by this register.
+  sourceName: EndDeviceFunction
+  sourceDescription: End device function metering quantities displayed by this register.
+  targetCardinality: 0..*
   targetName: Registers
   targetDescription: All registers for quantities metered by this end device function.
 - source: EndDeviceFunction
   target: EndDevice
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: EndDeviceFunctions
-  targetCardinality: All end device functions this end device performs.
+  sourceName: EndDeviceFunctions
+  sourceDescription: All end device functions this end device performs.
+  targetCardinality: 0..1
   targetName: EndDevice
   targetDescription: End device that performs this function.

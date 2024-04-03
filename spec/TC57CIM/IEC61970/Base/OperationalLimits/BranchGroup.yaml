@@ -26,15 +26,15 @@ associations:
 - source: BranchGroup
   target: BranchGroupTerminal
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: BranchGroup
-  targetCardinality: The branch group to which the directed branch group terminals belong.
+  sourceName: BranchGroup
+  sourceDescription: The branch group to which the directed branch group terminals belong.
+  targetCardinality: 0..*
   targetName: BranchGroupTerminal
   targetDescription: The directed branch group terminals to be summed.
 - source: BranchGroup
   target: PinBranchGroup
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: BranchGroup
-  targetCardinality: The branch group that should be used in compare.
+  sourceName: BranchGroup
+  sourceDescription: The branch group that should be used in compare.
+  targetCardinality: 0..*
   targetName: PinBranchGroup

@@ -42,30 +42,30 @@ associations:
 - source: OldWorkTask
   target: WorkFlowStep
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: WorkTasks
+  sourceName: WorkTasks
+  targetCardinality: 0..1
   targetName: WorkFlowStep
 - source: OldWorkTask
   target: WorkCostDetail
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: WorkTask
+  sourceName: WorkTask
+  targetCardinality: 0..*
   targetName: WorkCostDetails
 - source: OldWorkTask
   target: DesignLocationCU
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: WorkTasks
+  sourceName: WorkTasks
+  targetCardinality: 0..*
   targetName: DesignLocationCUs
 - source: OldWorkTask
   target: Design
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: WorkTasks
+  sourceName: WorkTasks
+  targetCardinality: 0..1
   targetName: Design
 - source: OldWorkTask
   target: Capability
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: WorkTasks
+  sourceName: WorkTasks
+  targetCardinality: 0..*
   targetName: Capabilities

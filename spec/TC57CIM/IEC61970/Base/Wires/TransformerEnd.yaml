@@ -76,37 +76,37 @@ associations:
 - source: TransformerEnd
   target: TransformerMeshImpedance
   sourceCardinality: 1..*
-  sourceName: 0..*
-  sourceDescription: ToTransformerEnd
-  targetCardinality: All transformer ends this mesh impedance is connected to.
+  sourceName: ToTransformerEnd
+  sourceDescription: All transformer ends this mesh impedance is connected to.
+  targetCardinality: 0..*
   targetName: ToMeshImpedance
   targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
 - source: TransformerEnd
   target: TransformerMeshImpedance
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: FromTransformerEnd
-  targetCardinality: From end this mesh impedance is connected to. It determines the voltage reference.
+  sourceName: FromTransformerEnd
+  sourceDescription: From end this mesh impedance is connected to. It determines the voltage reference.
+  targetCardinality: 0..*
   targetName: FromMeshImpedance
   targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
 - source: TransformerEnd
   target: TransformerCoreAdmittance
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: TransformerEnd
-  targetCardinality: All transformer ends having this core admittance.
+  sourceName: TransformerEnd
+  sourceDescription: All transformer ends having this core admittance.
+  targetCardinality: 0..1
   targetName: CoreAdmittance
   targetDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values
     of the transformer should be supplied for one transformer end only.
 - source: TransformerEnd
   target: WindingInsulation
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ToWinding
+  sourceName: ToWinding
+  targetCardinality: 0..*
   targetName: ToWindingInsulations
 - source: TransformerEnd
   target: WindingInsulation
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: FromWinding
+  sourceName: FromWinding
+  targetCardinality: 0..*
   targetName: FromWindingInsulations

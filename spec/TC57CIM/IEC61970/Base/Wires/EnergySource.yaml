@@ -64,16 +64,16 @@ associations:
 - source: EnergySource
   target: EnergySourcePhase
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: EnergySource
-  targetCardinality: The energy sourceto which the phase belongs.
+  sourceName: EnergySource
+  sourceDescription: The energy sourceto which the phase belongs.
+  targetCardinality: 0..*
   targetName: EnergySourcePhase
   targetDescription: The individual phase information of the energy source.
 - source: EnergySource
   target: EnergySourceAction
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: EnergySource
-  targetCardinality: Energy source on which this action is taken.
+  sourceName: EnergySource
+  sourceDescription: Energy source on which this action is taken.
+  targetCardinality: 0..1
   targetName: EnergySourceAction
   targetDescription: Action taken with this energy source.

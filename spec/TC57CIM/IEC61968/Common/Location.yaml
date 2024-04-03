@@ -94,77 +94,77 @@ associations:
 - source: Location
   target: Route
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Locations
+  sourceName: Locations
+  targetCardinality: 0..*
   targetName: Routes
 - source: Location
   target: LandProperty
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Locations
-  targetCardinality: The spatail description of a piece of property.
+  sourceName: Locations
+  sourceDescription: The spatail description of a piece of property.
+  targetCardinality: 0..*
   targetName: LandProperties
 - source: Location
   target: AssetLocationHazard
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Locations
-  targetCardinality: The location of this hazard.
+  sourceName: Locations
+  sourceDescription: The location of this hazard.
+  targetCardinality: 0..*
   targetName: Hazards
   targetDescription: All asset hazards at this location.
 - source: Location
   target: OldCrew
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Locations
+  sourceName: Locations
+  targetCardinality: 0..*
   targetName: Crews
 - source: Location
   target: Incident
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: Location
-  targetCardinality: Location of this incident.
+  sourceName: Location
+  sourceDescription: Location of this incident.
+  targetCardinality: 0..1
   targetName: Incident
   targetDescription: Incident at this location.
 - source: Location
   target: Fault
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Location
+  sourceName: Location
+  targetCardinality: 0..*
   targetName: Fault
 - source: Location
   target: OutageOrder
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Location
+  sourceName: Location
+  targetCardinality: 0..1
   targetName: OutageOrder
 - source: Location
   target: TroubleOrder
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: Location
+  sourceName: Location
+  targetCardinality: 0..1
   targetName: TroubleOrder
 - source: Location
   target: Asset
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Location
-  targetCardinality: Location of this asset.
+  sourceName: Location
+  sourceDescription: Location of this asset.
+  targetCardinality: 0..*
   targetName: Assets
   targetDescription: All assets at this location.
 - source: Location
   target: EnvironmentalLocationType
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Location
-  targetCardinality: Location of this instance of ths kind of environmental location.
+  sourceName: Location
+  sourceDescription: Location of this instance of ths kind of environmental location.
+  targetCardinality: 0..*
   targetName: EnvironmentalLocationKind
   targetDescription: Kind of environmental location which this location is.
 - source: Location
   target: EnvironmentalMonitoringStation
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Location
-  targetCardinality: Location of this monitoring station.
+  sourceName: Location
+  sourceDescription: Location of this monitoring station.
+  targetCardinality: 0..*
   targetName: EnvironmentalMonitoringStation
   targetDescription: Monitoring station located at this location.

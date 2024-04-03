@@ -20,32 +20,32 @@ associations:
 - source: BaseVoltage
   target: VoltageLevel
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: BaseVoltage
-  targetCardinality: The base voltage used for all equipment within the voltage level.
+  sourceName: BaseVoltage
+  sourceDescription: The base voltage used for all equipment within the voltage level.
+  targetCardinality: 0..*
   targetName: VoltageLevel
   targetDescription: The voltage levels having this base voltage.
 - source: BaseVoltage
   target: TransformerEnd
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: BaseVoltage
-  targetCardinality: Base voltage of the transformer end.  This is essential for PU calculation.
+  sourceName: BaseVoltage
+  sourceDescription: Base voltage of the transformer end.  This is essential for PU calculation.
+  targetCardinality: 0..*
   targetName: TransformerEnds
   targetDescription: Transformer ends at the base voltage.  This is essential for PU calculation.
 - source: BaseVoltage
   target: TopologicalNode
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: BaseVoltage
-  targetCardinality: The base voltage of the topological node.
+  sourceName: BaseVoltage
+  sourceDescription: The base voltage of the topological node.
+  targetCardinality: 0..*
   targetName: TopologicalNode
   targetDescription: The topological nodes at the base voltage.
 - source: BaseVoltage
   target: AssetDeployment
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: BaseVoltage
-  targetCardinality: Base voltage of this network asset deployment.
+  sourceName: BaseVoltage
+  sourceDescription: Base voltage of this network asset deployment.
+  targetCardinality: 0..*
   targetName: NetworkAssetDeployment
   targetDescription: A network asset deployment at this base voltage level.

@@ -53,48 +53,48 @@ associations:
 - source: EndDevice
   target: EndDeviceGroup
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: EndDevices
-  targetCardinality: All end devices this end device group refers to.
+  sourceName: EndDevices
+  sourceDescription: All end devices this end device group refers to.
+  targetCardinality: 0..*
   targetName: EndDeviceGroups
   targetDescription: All end device groups referring to this end device.
 - source: EndDevice
   target: UsagePoint
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: EndDevices
-  targetCardinality: All end devices at this usage point.
+  sourceName: EndDevices
+  sourceDescription: All end devices at this usage point.
+  targetCardinality: 0..1
   targetName: UsagePoint
   targetDescription: Usage point to which this end device belongs.
 - source: EndDevice
   target: EndDeviceControl
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: EndDevices
-  targetCardinality: All end devices receiving commands from this end device control.
+  sourceName: EndDevices
+  sourceDescription: All end devices receiving commands from this end device control.
+  targetCardinality: 0..*
   targetName: EndDeviceControls
   targetDescription: All end device controls sending commands to this end device.
 - source: EndDevice
   target: EndDeviceEvent
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EndDevice
-  targetCardinality: End device that reported this end device event.
+  sourceName: EndDevice
+  sourceDescription: End device that reported this end device event.
+  targetCardinality: 0..*
   targetName: EndDeviceEvents
   targetDescription: All events reported by this end device.
 - source: EndDevice
   target: ServiceLocation
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: EndDevices
-  targetCardinality: All end devices that measure the service delivered to this service location.
+  sourceName: EndDevices
+  sourceDescription: All end devices that measure the service delivered to this service location.
+  targetCardinality: 0..1
   targetName: ServiceLocation
   targetDescription: Service location whose service delivery is measured by this end device.
 - source: EndDevice
   target: Customer
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: EndDevices
-  targetCardinality: All end devices of this customer.
+  sourceName: EndDevices
+  sourceDescription: All end devices of this customer.
+  targetCardinality: 0..1
   targetName: Customer
   targetDescription: Customer owning this end device.

@@ -108,30 +108,30 @@ associations:
 - source: ContractRight
   target: RTO
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: TransmissionContractRight
+  sourceName: TransmissionContractRight
+  targetCardinality: "1"
   targetName: RTO
 - source: ContractRight
   target: SchedulingCoordinator
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: TransmissionContractRight
+  sourceName: TransmissionContractRight
+  targetCardinality: "1"
   targetName: SchedulingCoordinator
 - source: ContractRight
   target: TransmissionRightChain
   sourceCardinality: 1..*
-  sourceName: 0..1
-  sourceDescription: Ind_ContractRight
+  sourceName: Ind_ContractRight
+  targetCardinality: 0..1
   targetName: Ind_TransmissionRightChain
 - source: ContractRight
   target: TransmissionRightChain
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: Chain_ContractRight
+  sourceName: Chain_ContractRight
+  targetCardinality: 0..1
   targetName: Chain_TransmissionRightChain
 - source: ContractRight
   target: TransmissionInterfaceRightEntitlement
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ContractRight
+  sourceName: ContractRight
+  targetCardinality: 0..*
   targetName: TransmissionInterfaceEntitlement

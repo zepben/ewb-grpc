@@ -73,78 +73,78 @@ associations:
 - source: PowerSystemResource
   target: ReportingGroup
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: PowerSystemResource
-  targetCardinality: Power system resources which belong to this reporting group.
+  sourceName: PowerSystemResource
+  sourceDescription: Power system resources which belong to this reporting group.
+  targetCardinality: 0..*
   targetName: ReportingGroup
   targetDescription: Reporting groups to which this power system resource belongs.
 - source: PowerSystemResource
   target: OperatingShare
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: PowerSystemResource
-  targetCardinality: The power system resource to which the share applies.
+  sourceName: PowerSystemResource
+  sourceDescription: The power system resource to which the share applies.
+  targetCardinality: 0..*
   targetName: OperatingShare
   targetDescription: The operating shares of this power system resource.
 - source: PowerSystemResource
   target: AssetInfo
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: PowerSystemResources
-  targetCardinality: All power system resources with this datasheet information.
+  sourceName: PowerSystemResources
+  sourceDescription: All power system resources with this datasheet information.
+  targetCardinality: 0..1
   targetName: AssetDatasheet
   targetDescription: Datasheet information for this power system resource.
 - source: PowerSystemResource
   target: Asset
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: PowerSystemResources
-  targetCardinality: All power system resources used to electrically model this asset. For example, transformer asset is electrically
+  sourceName: PowerSystemResources
+  sourceDescription: All power system resources used to electrically model this asset. For example, transformer asset is electrically
     modelled with a transformer and its windings and tap changer.
+  targetCardinality: 0..*
   targetName: Assets
   targetDescription: All assets represented by this power system resource. For example, multiple conductor assets are electrically
     modelled as a single AC line segment.
 - source: PowerSystemResource
   target: PSREvent
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: PowerSystemResource
-  targetCardinality: Power system resource that generated this event.
+  sourceName: PowerSystemResource
+  sourceDescription: Power system resource that generated this event.
+  targetCardinality: 0..*
   targetName: PSREvents
   targetDescription: All events associated with this power system resource.
 - source: PowerSystemResource
   target: OperationalTag
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: PowerSystemResource
-  targetCardinality: Power system resource on which this tag has been placed.
+  sourceName: PowerSystemResource
+  sourceDescription: Power system resource on which this tag has been placed.
+  targetCardinality: 0..*
   targetName: OperationalTags
   targetDescription: All operational tags placed on this power system resource.
 - source: PowerSystemResource
   target: GenericAction
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: PowerSystemResource
+  sourceName: PowerSystemResource
+  targetCardinality: 0..*
   targetName: GenericAction
 - source: PowerSystemResource
   target: ClearanceDocument
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: TaggedPSRs
-  targetCardinality: All power system resources tagged through this clearance.
+  sourceName: TaggedPSRs
+  sourceDescription: All power system resources tagged through this clearance.
+  targetCardinality: 0..*
   targetName: Clearances
   targetDescription: All clearances applicable to this power system resource.
 - source: PowerSystemResource
   target: VerificationAction
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: PowerSystemResource
+  sourceName: PowerSystemResource
+  targetCardinality: 0..*
   targetName: VerificationAction
 - source: PowerSystemResource
   target: Location
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: PowerSystemResources
-  targetCardinality: All power system resources at this location.
+  sourceName: PowerSystemResources
+  sourceDescription: All power system resources at this location.
+  targetCardinality: 0..1
   targetName: Location
   targetDescription: Location of this power system resource.

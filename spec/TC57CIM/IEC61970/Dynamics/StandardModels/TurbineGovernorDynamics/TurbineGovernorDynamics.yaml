@@ -50,18 +50,18 @@ associations:
 - source: TurbineGovernorDynamics
   target: TurbineLoadControllerDynamics
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: TurbineGovernorDynamics
-  targetCardinality: Turbine-governor controlled by this turbine load controller.
+  sourceName: TurbineGovernorDynamics
+  sourceDescription: Turbine-governor controlled by this turbine load controller.
+  targetCardinality: 0..1
   targetName: TurbineLoadControllerDynamics
   targetDescription: Turbine load controller providing input to this turbine-governor.
 - source: TurbineGovernorDynamics
   target: SynchronousMachineDynamics
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: TurbineGovernorDynamics
-  targetCardinality: Turbine-governor model associated with this synchronous machine model. Multiplicity of greater than one
+  sourceName: TurbineGovernorDynamics
+  sourceDescription: Turbine-governor model associated with this synchronous machine model. Multiplicity of greater than one
     is intended to support hydro units that have multiple turbines on one generator.
+  targetCardinality: 0..1
   targetName: SynchronousMachineDynamics
   targetDescription: Synchronous machine model with which this turbine-governor model is associated. TurbineGovernorDynamics
     shall have either an association to SynchronousMachineDynamics or to AsynchronousMachineDynamics.

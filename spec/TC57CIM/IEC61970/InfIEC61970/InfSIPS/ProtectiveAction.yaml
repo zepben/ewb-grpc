@@ -31,15 +31,15 @@ associations:
 - source: ProtectiveAction
   target: ProtectionEquipment
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: ProtectiveAction
-  targetCardinality: Protective action can emulate the action done by one or more protection equipment. In a node breaker
+  sourceName: ProtectiveAction
+  sourceDescription: Protective action can emulate the action done by one or more protection equipment. In a node breaker
     model were protective equipment is model this association will be used.
+  targetCardinality: 0..1
   targetName: ProtectionEquipment
 - source: ProtectiveAction
   target: ProtectiveActionCollection
   sourceCardinality: 1..*
-  sourceName: "1"
-  sourceDescription: ProtectiveAction
-  targetCardinality: Set of ProtectiveAction belonging to a ProtectiveActionCollection.
+  sourceName: ProtectiveAction
+  sourceDescription: Set of ProtectiveAction belonging to a ProtectiveActionCollection.
+  targetCardinality: "1"
   targetName: ProtectiveActionCollection

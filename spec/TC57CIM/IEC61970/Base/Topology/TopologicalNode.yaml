@@ -51,47 +51,47 @@ associations:
 - source: TopologicalNode
   target: SvInjection
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: TopologicalNode
-  targetCardinality: The topological node associated with the flow injection state variable.
+  sourceName: TopologicalNode
+  sourceDescription: The topological node associated with the flow injection state variable.
+  targetCardinality: 0..*
   targetName: SvInjection
   targetDescription: The injection flows state variables associated with the topological node.
 - source: TopologicalNode
   target: SvVoltage
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: TopologicalNode
-  targetCardinality: The topological node associated with the voltage state.
+  sourceName: TopologicalNode
+  sourceDescription: The topological node associated with the voltage state.
+  targetCardinality: 0..*
   targetName: SvVoltage
   targetDescription: The state voltage associated with the topological node.
 - source: TopologicalNode
   target: TopologicalIsland
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: AngleRefTopologicalNode
-  targetCardinality: The angle reference for the island.   Normally there is one TopologicalNode that is selected as the angle
+  sourceName: AngleRefTopologicalNode
+  sourceDescription: The angle reference for the island.   Normally there is one TopologicalNode that is selected as the angle
     reference for each island.   Other reference schemes exist, so the association is typically optional.
+  targetCardinality: 0..1
   targetName: AngleRefTopologicalIsland
   targetDescription: The island for which the node is an angle reference.   Normally there is one angle reference node for
     each island.
 - source: TopologicalNode
   target: ConnectivityNode
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TopologicalNode
-  targetCardinality: The topological node to which this connectivity node is assigned.  May depend on the current state of
+  sourceName: TopologicalNode
+  sourceDescription: The topological node to which this connectivity node is assigned.  May depend on the current state of
     switches in the network.
+  targetCardinality: 0..*
   targetName: ConnectivityNodes
   targetDescription: The connectivity nodes combine together to form this topological node.  May depend on the current state
     of switches in the network.
 - source: TopologicalNode
   target: Terminal
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TopologicalNode
-  targetCardinality: The topological node associated with the terminal.   This can be used as an alternative to the connectivity
+  sourceName: TopologicalNode
+  sourceDescription: The topological node associated with the terminal.   This can be used as an alternative to the connectivity
     node path to topological node, thus making it unnecessary to model connectivity nodes in some cases.   Note that the if
     connectivity nodes are in the model, this association would probably not be used as an input specification.
+  targetCardinality: 0..*
   targetName: Terminal
   targetDescription: The terminals associated with the topological node.   This can be used as an alternative to the connectivity
     node path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if connectivity
@@ -99,10 +99,10 @@ associations:
 - source: TopologicalNode
   target: BusNameMarker
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TopologicalNode
-  targetCardinality: A user defined topological node that was originally defined in a planning model not yet having topology
+  sourceName: TopologicalNode
+  sourceDescription: A user defined topological node that was originally defined in a planning model not yet having topology
     described by ConnectivityNodes. Once ConnectivityNodes has been created they may linked to user defined ToplogicalNdes
     using BusNameMarkers.
+  targetCardinality: 0..*
   targetName: BusNameMarker
   targetDescription: BusnameMarkers that may refer to a pre defined TopologicalNode.

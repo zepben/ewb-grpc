@@ -32,12 +32,12 @@ associations:
 - source: ProductBid
   target: BidHourlyProductSchedule
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ProductBid
+  sourceName: ProductBid
+  targetCardinality: 0..*
   targetName: BidHourlyProductSchedule
 - source: ProductBid
   target: MarketProduct
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: ProductBids
+  sourceName: ProductBids
+  targetCardinality: "1"
   targetName: MarketProduct

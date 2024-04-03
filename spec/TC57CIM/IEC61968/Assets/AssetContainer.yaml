@@ -21,14 +21,14 @@ associations:
 - source: AssetContainer
   target: LandProperty
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: AssetContainers
+  sourceName: AssetContainers
+  targetCardinality: 0..*
   targetName: LandProperties
 - source: AssetContainer
   target: Asset
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: AssetContainer
-  targetCardinality: Container of this asset.
+  sourceName: AssetContainer
+  sourceDescription: Container of this asset.
+  targetCardinality: 0..*
   targetName: Assets
   targetDescription: All assets within this container asset.

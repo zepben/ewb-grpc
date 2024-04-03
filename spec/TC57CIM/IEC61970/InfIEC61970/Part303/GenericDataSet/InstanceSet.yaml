@@ -6,16 +6,16 @@ associations:
 - source: InstanceSet
   target: DatasetArg
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Dataset
-  targetCardinality: Dataset referenced by this argument of a model operation..
+  sourceName: Dataset
+  sourceDescription: Dataset referenced by this argument of a model operation..
+  targetCardinality: 0..*
   targetName: DatasetArg
   targetDescription: The role of a dataset in the context of an operation.
 - source: InstanceSet
   target: IdentifiedObject
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: InstanceSet
-  targetCardinality: Dataset containing the data objects.
+  sourceName: InstanceSet
+  sourceDescription: Dataset containing the data objects.
+  targetCardinality: 0..*
   targetName: InstanceSetMember
   targetDescription: Data objects contained in the dataset.

@@ -67,16 +67,16 @@ associations:
 - source: ProductAssetModel
   target: Asset
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ProductAssetModel
-  targetCardinality: The model of this asset.
+  sourceName: ProductAssetModel
+  sourceDescription: The model of this asset.
+  targetCardinality: 0..*
   targetName: Asset
   targetDescription: An asset of this model.
 - source: ProductAssetModel
   target: OperationalRestriction
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ProductAssetModel
-  targetCardinality: Asset model to which this restriction applies.
+  sourceName: ProductAssetModel
+  sourceDescription: Asset model to which this restriction applies.
+  targetCardinality: 0..*
   targetName: OperationalRestrictions
   targetDescription: All operational restrictions applying to this asset model.

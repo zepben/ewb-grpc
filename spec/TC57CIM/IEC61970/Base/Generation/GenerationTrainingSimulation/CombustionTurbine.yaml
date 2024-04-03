@@ -42,16 +42,16 @@ associations:
 - source: CombustionTurbine
   target: HeatRecoveryBoiler
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: CombustionTurbines
-  targetCardinality: A combustion turbine may have a heat recovery boiler for making steam.
+  sourceName: CombustionTurbines
+  sourceDescription: A combustion turbine may have a heat recovery boiler for making steam.
+  targetCardinality: 0..1
   targetName: HeatRecoveryBoiler
   targetDescription: A combustion turbine may have a heat recovery boiler for making steam.
 - source: CombustionTurbine
   target: CTTempActivePowerCurve
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: CombustionTurbine
-  targetCardinality: A combustion turbine may have an active power versus ambient temperature relationship.
+  sourceName: CombustionTurbine
+  sourceDescription: A combustion turbine may have an active power versus ambient temperature relationship.
+  targetCardinality: 0..1
   targetName: CTTempActivePowerCurve
   targetDescription: A combustion turbine may have an active power versus ambient temperature relationship.

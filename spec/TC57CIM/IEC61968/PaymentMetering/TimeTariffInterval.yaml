@@ -23,17 +23,17 @@ associations:
 - source: TimeTariffInterval
   target: TariffProfile
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: TimeTariffIntervals
-  targetCardinality: All time tariff intervals used to define this tariff profile.
+  sourceName: TimeTariffIntervals
+  sourceDescription: All time tariff intervals used to define this tariff profile.
+  targetCardinality: 0..*
   targetName: TariffProfiles
   targetDescription: All tariff profiles defined by this time tariff interval.
 - source: TimeTariffInterval
   target: ConsumptionTariffInterval
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: TouTariffIntervals
-  targetCardinality: All time of use tariff intervals influenced by this consumption tariff interval.
+  sourceName: TouTariffIntervals
+  sourceDescription: All time of use tariff intervals influenced by this consumption tariff interval.
+  targetCardinality: 0..*
   targetName: ConsumptionTariffIntervals
   targetDescription: All consumption tariff intervals that introduce variation in this time of use tariff interval; allows
     to express e.g., peak hour prices that are different with different consumption blocks.

@@ -53,22 +53,22 @@ associations:
 - source: EndDeviceGroup
   target: DemandResponseProgram
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: EndDeviceGroups
-  targetCardinality: All groups of end devices enrolled in this demand response program.
+  sourceName: EndDeviceGroups
+  sourceDescription: All groups of end devices enrolled in this demand response program.
+  targetCardinality: 0..*
   targetName: DemandResponsePrograms
   targetDescription: All demand response programs this group of end devices is enrolled in.
 - source: EndDeviceGroup
   target: DERGroupForecast
   sourceCardinality: 1..*
-  sourceName: 1..*
-  sourceDescription: EndDeviceGroup
-  targetCardinality: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+  sourceName: EndDeviceGroup
+  sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
     EndDevices with a single command
+  targetCardinality: 1..*
   targetName: DERGroupForecast
 - source: EndDeviceGroup
   target: DERFunction
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: EndDeviceGroup
+  sourceName: EndDeviceGroup
+  targetCardinality: 0..1
   targetName: DERFunction

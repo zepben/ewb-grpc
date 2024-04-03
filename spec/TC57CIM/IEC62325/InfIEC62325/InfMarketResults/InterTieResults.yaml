@@ -12,12 +12,12 @@ associations:
 - source: InterTieResults
   target: InterTieClearing
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: InterTieResults
+  sourceName: InterTieResults
+  targetCardinality: 0..1
   targetName: InterTieClearing
 - source: InterTieResults
   target: Flowgate
   sourceCardinality: 1..*
-  sourceName: "1"
-  sourceDescription: InterTieResults
+  sourceName: InterTieResults
+  targetCardinality: "1"
   targetName: Flowgate

@@ -76,27 +76,27 @@ associations:
 - source: ErpInvoiceLineItem
   target: ErpRecDelvLineItem
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: ErpInvoiceLineItem
+  sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..1
   targetName: ErpRecDelvLineItem
 - source: ErpInvoiceLineItem
   target: ErpQuoteLineItem
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: ErpInvoiceLineItem
-  targetCardinality: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
+  sourceName: ErpInvoiceLineItem
+  sourceDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
     a payment. An invoice is required for this to occur.
+  targetCardinality: 0..1
   targetName: ErpQuoteLineItem
 - source: ErpInvoiceLineItem
   target: WorkBillingInfo
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ErpLineItems
+  sourceName: ErpLineItems
+  targetCardinality: 0..*
   targetName: WorkBillingInfos
 - source: ErpInvoiceLineItem
   target: CustomerBillingInfo
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ErpInvoiceLineItems
+  sourceName: ErpInvoiceLineItems
+  targetCardinality: 0..*
   targetName: CustomerBillingInfos
   targetDescription: Customer billing for services rendered.

@@ -6,14 +6,14 @@ associations:
 - source: TransmissionRightOfWay
   target: TransmissionCorridor
   sourceCardinality: 1..*
-  sourceName: "1"
-  sourceDescription: TransmissionRightOfWays
-  targetCardinality: A transmission right-of-way is a member of a transmission corridor
+  sourceName: TransmissionRightOfWays
+  sourceDescription: A transmission right-of-way is a member of a transmission corridor
+  targetCardinality: "1"
   targetName: TransmissionCorridor
   targetDescription: A transmission right-of-way is a member of a transmission corridor
 - source: TransmissionRightOfWay
   target: MktLine
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TransmissionRightOfWay
+  sourceName: TransmissionRightOfWay
+  targetCardinality: 0..*
   targetName: MktLine

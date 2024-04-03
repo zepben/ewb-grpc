@@ -61,16 +61,16 @@ associations:
 - source: TapChanger
   target: SvTapStep
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: TapChanger
-  targetCardinality: The tap changer associated with the tap step state.
+  sourceName: TapChanger
+  sourceDescription: The tap changer associated with the tap step state.
+  targetCardinality: 0..1
   targetName: SvTapStep
   targetDescription: The tap step state associated with the tap changer.
 - source: TapChanger
   target: TapSchedule
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: TapChanger
-  targetCardinality: A TapSchedule is associated with a TapChanger.
+  sourceName: TapChanger
+  sourceDescription: A TapSchedule is associated with a TapChanger.
+  targetCardinality: 0..*
   targetName: TapSchedules
   targetDescription: A TapChanger can have TapSchedules.

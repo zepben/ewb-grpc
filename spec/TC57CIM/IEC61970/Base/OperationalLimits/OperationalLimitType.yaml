@@ -20,20 +20,20 @@ associations:
 - source: OperationalLimitType
   target: OperationalLimit
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: OperationalLimitType
-  targetCardinality: The limit type associated with this limit.
+  sourceName: OperationalLimitType
+  sourceDescription: The limit type associated with this limit.
+  targetCardinality: 0..*
   targetName: OperationalLimit
   targetDescription: The operational limits associated with this type of limit.
 - source: OperationalLimitType
   target: OperatonalLimitTypeScaling
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: SourceOperationalLimitType
+  sourceName: SourceOperationalLimitType
+  targetCardinality: 0..*
   targetName: SourceOperationalLimitTypeScaling
 - source: OperationalLimitType
   target: OperatonalLimitTypeScaling
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: TargetOperationalLimit
+  sourceName: TargetOperationalLimit
+  targetCardinality: 0..1
   targetName: TargetOperationalLimitmTypeScaling

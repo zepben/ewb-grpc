@@ -62,34 +62,34 @@ associations:
 - source: Switch
   target: CompositeSwitch
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Switches
-  targetCardinality: Switches contained in this Composite switch.
+  sourceName: Switches
+  sourceDescription: Switches contained in this Composite switch.
+  targetCardinality: 0..1
   targetName: CompositeSwitch
   targetDescription: Composite switch to which this Switch belongs.
 - source: Switch
   target: UnavailabilitySwitchAction
   sourceCardinality: "1"
-  sourceName: 0..*
+  targetCardinality: 0..*
 - source: Switch
   target: SvSwitch
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Switch
-  targetCardinality: The switch associated with the switch state.
+  sourceName: Switch
+  sourceDescription: The switch associated with the switch state.
+  targetCardinality: 0..*
   targetName: SvSwitch
   targetDescription: The switch state associated with the switch.
 - source: Switch
   target: ConnectDisconnectFunction
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Switches
+  sourceName: Switches
+  targetCardinality: 0..*
   targetName: ConnectDisconnectFunctions
 - source: Switch
   target: SwitchAction
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: OperatedSwitch
-  targetCardinality: Switch that is the object of this switch action.
+  sourceName: OperatedSwitch
+  sourceDescription: Switch that is the object of this switch action.
+  targetCardinality: 0..1
   targetName: SwitchAction
   targetDescription: Action changing status of this switch.

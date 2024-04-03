@@ -14,18 +14,18 @@ associations:
 - source: MPMTestResults
   target: AggregatedPnode
   sourceCardinality: 1..*
-  sourceName: "1"
-  sourceDescription: MPMTestResults
+  sourceName: MPMTestResults
+  targetCardinality: "1"
   targetName: AggregatedPnode
 - source: MPMTestResults
   target: MPMTestCategory
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: MPMTestResults
+  sourceName: MPMTestResults
+  targetCardinality: "1"
   targetName: MPMTestCategory
 - source: MPMTestResults
   target: MPMClearing
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: MPMTestResults
+  sourceName: MPMTestResults
+  targetCardinality: 0..1
   targetName: MPMClearing

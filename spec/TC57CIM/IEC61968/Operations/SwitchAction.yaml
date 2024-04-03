@@ -18,9 +18,9 @@ associations:
 - source: SwitchAction
   target: Outage
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: PlannedSwitchActions
-  targetCardinality: All switch actions to apply within the scope of this planned outage. Each such action groups switches
+  sourceName: PlannedSwitchActions
+  sourceDescription: All switch actions to apply within the scope of this planned outage. Each such action groups switches
     to which the action is to apply in order to produce the desired network state considered as outage.
+  targetCardinality: 0..1
   targetName: PlannedOutage
   targetDescription: Planned outage for whose scope this switch action applies.

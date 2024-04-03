@@ -24,36 +24,36 @@ associations:
 - source: ErpJournalEntry
   target: ErpPayableLineItem
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ErpJournalEntries
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..*
   targetName: ErpPayableLineItems
 - source: ErpJournalEntry
   target: ErpLedgerEntry
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: ErpJounalEntry
+  sourceName: ErpJounalEntry
+  targetCardinality: 0..1
   targetName: ErpLedgerEntry
 - source: ErpJournalEntry
   target: ErpRecLineItem
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ErpJournalEntries
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..*
   targetName: ErpRecLineItems
 - source: ErpJournalEntry
   target: ErpJournal
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: ErpJournalEntries
+  sourceName: ErpJournalEntries
+  targetCardinality: "1"
   targetName: ErpJournal
 - source: ErpJournalEntry
   target: ErpInvoiceLineItem
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: ErpJournalEntries
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..1
   targetName: ErpInvoiceLineItem
 - source: ErpJournalEntry
   target: CostType
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ErpJournalEntries
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..*
   targetName: CostTypes

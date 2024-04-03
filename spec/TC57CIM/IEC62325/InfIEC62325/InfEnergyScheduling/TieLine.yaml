@@ -25,26 +25,26 @@ associations:
 - source: TieLine
   target: CustomerConsumer
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: CustChildOf
-  targetCardinality: A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a
+  sourceName: CustChildOf
+  sourceDescription: A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a
     unique SubControlArea at the collection of metering points, called a TieLine.
+  targetCardinality: 0..1
   targetName: ParentOfB
   targetDescription: A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at
     the collection of metering points, called a TieLine.
 - source: TieLine
   target: ControlAreaOperator
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: CAChildOf
-  targetCardinality: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
+  sourceName: CAChildOf
+  sourceDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
+  targetCardinality: 0..*
   targetName: ParentOfA
   targetDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
 - source: TieLine
   target: EnergyTransaction
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: TieLines
-  targetCardinality: A dynamic energy transaction can act as a pseudo tie line.
+  sourceName: TieLines
+  sourceDescription: A dynamic energy transaction can act as a pseudo tie line.
+  targetCardinality: 0..1
   targetName: EnergyTransaction
   targetDescription: A dynamic energy transaction can act as a pseudo tie line.

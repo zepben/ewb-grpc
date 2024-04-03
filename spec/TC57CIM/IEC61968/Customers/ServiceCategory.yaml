@@ -26,16 +26,16 @@ associations:
 - source: ServiceCategory
   target: UsagePoint
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ServiceCategory
-  targetCardinality: Service category delivered by this usage point.
+  sourceName: ServiceCategory
+  sourceDescription: Service category delivered by this usage point.
+  targetCardinality: 0..*
   targetName: UsagePoints
   targetDescription: All usage points that deliver this category of service.
 - source: ServiceCategory
   target: CustomerAgreement
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ServiceCategory
-  targetCardinality: Service category for this agreement.
+  sourceName: ServiceCategory
+  sourceDescription: Service category for this agreement.
+  targetCardinality: 0..*
   targetName: CustomerAgreements
   targetDescription: All customer agreements with this service category.

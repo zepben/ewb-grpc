@@ -57,25 +57,25 @@ associations:
 - source: RegulatingControl
   target: RegulatingCondEq
   sourceCardinality: 0..1
-  sourceName: 1..*
-  sourceDescription: RegulatingControl
-  targetCardinality: The regulating control scheme in which this equipment participates.
+  sourceName: RegulatingControl
+  sourceDescription: The regulating control scheme in which this equipment participates.
+  targetCardinality: 1..*
   targetName: RegulatingCondEq
   targetDescription: The equipment that participates in this regulating control scheme.
 - source: RegulatingControl
   target: RegulationSchedule
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: RegulatingControl
-  targetCardinality: Regulating controls that have this schedule.
+  sourceName: RegulatingControl
+  sourceDescription: Regulating controls that have this schedule.
+  targetCardinality: 0..*
   targetName: RegulationSchedule
   targetDescription: Schedule for this regulating control.
 - source: RegulatingControl
   target: Terminal
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: RegulatingControl
-  targetCardinality: The controls regulating this terminal.
+  sourceName: RegulatingControl
+  sourceDescription: The controls regulating this terminal.
+  targetCardinality: 0..1
   targetName: Terminal
   targetDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node,
     since the terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model
@@ -83,7 +83,7 @@ associations:
 - source: RegulatingControl
   target: ProtectiveActionRegulation
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: RegulatingControl
+  sourceName: RegulatingControl
+  targetCardinality: 0..*
   targetName: ProtectiveActionRegulation
   targetDescription: Enable/disable a regulating control or set new target value.

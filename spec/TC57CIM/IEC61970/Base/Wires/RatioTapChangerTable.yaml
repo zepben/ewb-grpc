@@ -6,16 +6,16 @@ associations:
 - source: RatioTapChangerTable
   target: RatioTapChangerTablePoint
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: RatioTapChangerTable
-  targetCardinality: Table of this point.
+  sourceName: RatioTapChangerTable
+  sourceDescription: Table of this point.
+  targetCardinality: 1..*
   targetName: RatioTapChangerTablePoint
   targetDescription: Points of this table.
 - source: RatioTapChangerTable
   target: RatioTapChanger
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: RatioTapChangerTable
-  targetCardinality: The tap ratio table for this ratio  tap changer.
+  sourceName: RatioTapChangerTable
+  sourceDescription: The tap ratio table for this ratio  tap changer.
+  targetCardinality: 0..*
   targetName: RatioTapChanger
   targetDescription: The ratio tap changer of this tap ratio table.

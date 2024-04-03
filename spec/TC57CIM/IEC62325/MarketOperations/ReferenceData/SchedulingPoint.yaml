@@ -6,18 +6,18 @@ associations:
 - source: SchedulingPoint
   target: Flowgate
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: InterTie
+  sourceName: InterTie
+  targetCardinality: 0..1
   targetName: Flowgate
 - source: SchedulingPoint
   target: InterchangeSchedule
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: InterTie
+  sourceName: InterTie
+  targetCardinality: 0..*
   targetName: InterchangeSchedule
 - source: SchedulingPoint
   target: RegisteredResource
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: InterTie
+  sourceName: InterTie
+  targetCardinality: 0..*
   targetName: RegisteredResource

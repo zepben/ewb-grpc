@@ -22,16 +22,16 @@ associations:
 - source: SubGeographicalRegion
   target: GeographicalRegion
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Regions
-  targetCardinality: All sub-geographical regions within this geographical region.
+  sourceName: Regions
+  sourceDescription: All sub-geographical regions within this geographical region.
+  targetCardinality: 0..1
   targetName: Region
   targetDescription: The geographical region which this sub-geographical region is within.
 - source: SubGeographicalRegion
   target: DCLine
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Region
-  targetCardinality: The SubGeographicalRegion containing the DC line.
+  sourceName: Region
+  sourceDescription: The SubGeographicalRegion containing the DC line.
+  targetCardinality: 0..*
   targetName: DCLines
   targetDescription: The DC lines in this sub-geographical region.

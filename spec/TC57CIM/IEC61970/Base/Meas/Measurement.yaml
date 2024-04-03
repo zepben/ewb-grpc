@@ -66,49 +66,49 @@ associations:
 - source: Measurement
   target: PowerSystemResource
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Measurements
-  targetCardinality: The measurements associated with this power system resource.
+  sourceName: Measurements
+  sourceDescription: The measurements associated with this power system resource.
+  targetCardinality: 0..1
   targetName: PowerSystemResource
   targetDescription: The power system resource that contains the measurement.
 - source: Measurement
   target: PinMeasurement
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Measurement
-  targetCardinality: The Measurement that should be used in compare.
+  sourceName: Measurement
+  sourceDescription: The Measurement that should be used in compare.
+  targetCardinality: 0..*
   targetName: PinMeasurement
 - source: Measurement
   target: MeasurementCalculatorInput
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Measurement
-  targetCardinality: Measurement used as input to a calculation.
+  sourceName: Measurement
+  sourceDescription: Measurement used as input to a calculation.
+  targetCardinality: 0..*
   targetName: MeasurementCalculatorInput
 - source: Measurement
   target: Procedure
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Measurements
-  targetCardinality: Document containing this measurement.
+  sourceName: Measurements
+  sourceDescription: Document containing this measurement.
+  targetCardinality: 0..*
   targetName: Procedures
   targetDescription: Measurements are specified in types of documents, such as procedures.
 - source: Measurement
   target: Asset
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Measurements
-  targetCardinality: Measurement related to this asset.
+  sourceName: Measurements
+  sourceDescription: Measurement related to this asset.
+  targetCardinality: 0..1
   targetName: Asset
 - source: Measurement
   target: MeasurementAction
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: Measurement
+  sourceName: Measurement
+  targetCardinality: 0..1
   targetName: MeasurementAction
 - source: Measurement
   target: Location
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Measurements
+  sourceName: Measurements
+  targetCardinality: 0..*
   targetName: Locations

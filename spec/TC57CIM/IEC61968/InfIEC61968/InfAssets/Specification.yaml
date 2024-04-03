@@ -20,26 +20,26 @@ associations:
 - source: Specification
   target: QualificationRequirement
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Specifications
+  sourceName: Specifications
+  targetCardinality: 0..*
   targetName: QualificationRequirements
 - source: Specification
   target: ReliabilityInfo
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Specification
+  sourceName: Specification
+  targetCardinality: 0..*
   targetName: ReliabilityInfos
 - source: Specification
   target: DimensionsInfo
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Specifications
+  sourceName: Specifications
+  targetCardinality: 0..*
   targetName: DimensionsInfos
 - source: Specification
   target: UserAttribute
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: RatingSpecification
+  sourceName: RatingSpecification
+  targetCardinality: 0..*
   targetName: Ratings
   targetDescription: UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be
     used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g.,
@@ -47,8 +47,8 @@ associations:
 - source: Specification
   target: UserAttribute
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: PropertySpecification
+  sourceName: PropertySpecification
+  targetCardinality: 0..*
   targetName: AssetProperites
   targetDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
     to specify what kind of property it is, and 'value.value' attribute for the actual value.

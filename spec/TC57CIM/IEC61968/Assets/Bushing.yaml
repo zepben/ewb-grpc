@@ -19,20 +19,20 @@ associations:
 - source: Bushing
   target: InterrupterUnit
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Bushing
-  targetCardinality: Bushing(s) to which the fixed contact(s) of this interrupter is(are) attached. Some interrupters have
+  sourceName: Bushing
+  sourceDescription: Bushing(s) to which the fixed contact(s) of this interrupter is(are) attached. Some interrupters have
     one fixed and one moving contact, some have 2 fixed contacts, some 2 moving contacts. An interrupter will have relationships
     with 2 bushings and those relationships may be any combination of the FixedContact and MovingContact associations.
+  targetCardinality: 0..1
   targetName: FixedContact
   targetDescription: Fixed contact of interrupter to which this bushing is attached.
 - source: Bushing
   target: InterrupterUnit
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Bushing
-  targetCardinality: Bushing(s) to which the moving contact(s) of this interrupter is(are) attached. Some interrupters have
+  sourceName: Bushing
+  sourceDescription: Bushing(s) to which the moving contact(s) of this interrupter is(are) attached. Some interrupters have
     one fixed and one moving contact, some have 2 fixed contacts, some 2 moving contacts. An interrupter will have relationships
     with 2 bushings and those relationships may be any combination of the FixedContact and MovingContact associations.
+  targetCardinality: 0..1
   targetName: MovingContact
   targetDescription: Moving contact of interrupter to which this bushing is attached.

@@ -16,14 +16,14 @@ associations:
 - source: TransformerTank
   target: TransformerTankEnd
   sourceCardinality: 0..1
-  sourceName: 1..*
-  sourceDescription: TransformerTank
-  targetCardinality: Transformer this winding belongs to.
+  sourceName: TransformerTank
+  sourceDescription: Transformer this winding belongs to.
+  targetCardinality: 1..*
   targetName: TransformerTankEnds
   targetDescription: All windings of this transformer.
 - source: TransformerTank
   target: TransformerObservation
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Transformer
+  sourceName: Transformer
+  targetCardinality: 0..*
   targetName: TransformerObservations

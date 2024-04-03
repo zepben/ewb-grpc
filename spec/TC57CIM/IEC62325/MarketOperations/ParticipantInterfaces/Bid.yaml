@@ -45,32 +45,32 @@ associations:
 - source: Bid
   target: MitigatedBid
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Bid
+  sourceName: Bid
+  targetCardinality: 0..*
   targetName: MitigatedBid
 - source: Bid
   target: ActionRequest
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: Bid
+  sourceName: Bid
+  targetCardinality: "1"
   targetName: ActionRequest
 - source: Bid
   target: BidHourlySchedule
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Bid
+  sourceName: Bid
+  targetCardinality: 0..*
   targetName: BidHourlySchedule
 - source: Bid
   target: ProductBid
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: Bid
-  targetCardinality: A bid comprises one or more product bids of market products
+  sourceName: Bid
+  sourceDescription: A bid comprises one or more product bids of market products
+  targetCardinality: 1..*
   targetName: ProductBids
   targetDescription: A bid comprises one or more product bids of market products
 - source: Bid
   target: RMRDetermination
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Bid
+  sourceName: Bid
+  targetCardinality: 0..*
   targetName: RMRDetermination

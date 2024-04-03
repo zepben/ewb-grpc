@@ -132,111 +132,111 @@ associations:
 - source: UsagePoint
   target: UsagePointLocation
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: UsagePoints
-  targetCardinality: All usage points at this location.
+  sourceName: UsagePoints
+  sourceDescription: All usage points at this location.
+  targetCardinality: 0..1
   targetName: UsagePointLocation
   targetDescription: Location of this usage point.
 - source: UsagePoint
   target: ServiceSupplier
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: UsagePoints
-  targetCardinality: All usage points this service supplier utilises to deliver a service.
+  sourceName: UsagePoints
+  sourceDescription: All usage points this service supplier utilises to deliver a service.
+  targetCardinality: 0..1
   targetName: ServiceSupplier
   targetDescription: ServiceSupplier (utility) utilising this usage point to deliver a service.
 - source: UsagePoint
   target: UsagePointGroup
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: UsagePoints
-  targetCardinality: All usage points in this group.
+  sourceName: UsagePoints
+  sourceDescription: All usage points in this group.
+  targetCardinality: 0..*
   targetName: UsagePointGroups
   targetDescription: All groups to which this usage point belongs.
 - source: UsagePoint
   target: MetrologyRequirement
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: UsagePoints
-  targetCardinality: All usage points having this metrology requirement.
+  sourceName: UsagePoints
+  sourceDescription: All usage points having this metrology requirement.
+  targetCardinality: 0..*
   targetName: MetrologyRequirements
   targetDescription: All metrology requirements for this usage point.
 - source: UsagePoint
   target: MeterWorkTask
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: UsagePoint
-  targetCardinality: Usage point to which this meter service work task applies.
+  sourceName: UsagePoint
+  sourceDescription: Usage point to which this meter service work task applies.
+  targetCardinality: 0..*
   targetName: MeterServiceWorkTasks
   targetDescription: All meter service work tasks at this usage point.
 - source: UsagePoint
   target: MeterReading
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: UsagePoint
-  targetCardinality: Usage point from which this meter reading (set of values) has been obtained.
+  sourceName: UsagePoint
+  sourceDescription: Usage point from which this meter reading (set of values) has been obtained.
+  targetCardinality: 0..*
   targetName: MeterReadings
   targetDescription: All meter readings obtained from this usage point.
 - source: UsagePoint
   target: EndDeviceEvent
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: UsagePoint
-  targetCardinality: Usage point for which this end device event is reported.
+  sourceName: UsagePoint
+  sourceDescription: Usage point for which this end device event is reported.
+  targetCardinality: 0..*
   targetName: EndDeviceEvents
   targetDescription: All end device events reported for this usage point.
 - source: UsagePoint
   target: EndDeviceControl
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: UsagePoints
-  targetCardinality: All usage points receiving commands from this end device control.
+  sourceName: UsagePoints
+  sourceDescription: All usage points receiving commands from this end device control.
+  targetCardinality: 0..*
   targetName: EndDeviceControls
   targetDescription: All end device controls sending commands to this usage point.
 - source: UsagePoint
   target: ServiceLocation
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: UsagePoints
-  targetCardinality: All usage points delivering service (of the same type) to this service location.
+  sourceName: UsagePoints
+  sourceDescription: All usage points delivering service (of the same type) to this service location.
+  targetCardinality: 0..1
   targetName: ServiceLocation
   targetDescription: Service location where the service delivered by this usage point is consumed.
 - source: UsagePoint
   target: PricingStructure
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: UsagePoints
-  targetCardinality: All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement
+  sourceName: UsagePoints
+  sourceDescription: All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement
     or Customer) to which this pricing structure applies.
+  targetCardinality: 0..*
   targetName: PricingStructures
   targetDescription: All pricing structures applicable to this service delivery point (with prepayment meter running as a
     stand-alone device, with no CustomerAgreement or Customer).
 - source: UsagePoint
   target: CustomerAgreement
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: UsagePoints
-  targetCardinality: All service delivery points regulated by this customer agreement.
+  sourceName: UsagePoints
+  sourceDescription: All service delivery points regulated by this customer agreement.
+  targetCardinality: 0..1
   targetName: CustomerAgreement
   targetDescription: Customer agreement regulating this service delivery point.
 - source: UsagePoint
   target: Outage
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: DeEnergizedUsagePoint
-  targetCardinality: all deenergized useage points associated with the outage.
+  sourceName: DeEnergizedUsagePoint
+  sourceDescription: all deenergized useage points associated with the outage.
+  targetCardinality: 0..*
   targetName: Outage
 - source: UsagePoint
   target: Outage
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: EnergizedUsagePoint
-  targetCardinality: All energized usage points associated with this outage.
+  sourceName: EnergizedUsagePoint
+  sourceDescription: All energized usage points associated with this outage.
+  targetCardinality: 0..*
   targetName: Outage
   targetDescription: All outages at this usage point.
 - source: UsagePoint
   target: EnvironmentalMonitoringStation
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: UsagePoint
+  sourceName: UsagePoint
+  targetCardinality: 0..1
   targetName: EnvironmentalMonitoringStation

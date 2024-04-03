@@ -22,39 +22,39 @@ associations:
 - source: EnvironmentalInformation
   target: EnvironmentalDiscrete
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EnvironmentalInformation
-  targetCardinality: Observation or forecast with which this environmental discrete (integer) is associated.
+  sourceName: EnvironmentalInformation
+  sourceDescription: Observation or forecast with which this environmental discrete (integer) is associated.
+  targetCardinality: 0..*
   targetName: EnvironmentalDiscrete
   targetDescription: Environmental discrete (integer) associated with this observation or forecast.
 - source: EnvironmentalInformation
   target: EnvironmentalEvent
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: EnvironmentalInformation
-  targetCardinality: Forecast or observation related to this environmental event.
+  sourceName: EnvironmentalInformation
+  sourceDescription: Forecast or observation related to this environmental event.
+  targetCardinality: 0..*
   targetName: EnvironmentalEvent
   targetDescription: Environmental event to which this forecast or observation relates.
 - source: EnvironmentalInformation
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EnvironmentalInformation
-  targetCardinality: Observation or forecast with which this environmental analog measurement is associated.
+  sourceName: EnvironmentalInformation
+  sourceDescription: Observation or forecast with which this environmental analog measurement is associated.
+  targetCardinality: 0..*
   targetName: EnvironmentalAnalog
   targetDescription: Environmental analog associated with this observation or forecast.
 - source: EnvironmentalInformation
   target: EnvironmentalPhenomenon
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EnvironmentalInformation
-  targetCardinality: The forecast or observation of which this phenomenon description is a part.
+  sourceName: EnvironmentalInformation
+  sourceDescription: The forecast or observation of which this phenomenon description is a part.
+  targetCardinality: 0..*
   targetName: EnvironmentalPhenomenon
 - source: EnvironmentalInformation
   target: EnvironmentalStringMeasurement
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EnvironmentalInformation
-  targetCardinality: Observation or forecast with which this environmental string is associated.
+  sourceName: EnvironmentalInformation
+  sourceDescription: Observation or forecast with which this environmental string is associated.
+  targetCardinality: 0..*
   targetName: EnvironmentalStringMeasurement
   targetDescription: Environmental string measurement associated with this forecast or observation.

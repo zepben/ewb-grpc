@@ -26,16 +26,16 @@ associations:
 - source: Tender
   target: Cheque
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: Tender
-  targetCardinality: Payment tender the cheque is being used for.
+  sourceName: Tender
+  sourceDescription: Payment tender the cheque is being used for.
+  targetCardinality: 0..1
   targetName: Cheque
   targetDescription: Cheque used to tender payment.
 - source: Tender
   target: Card
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: Tender
-  targetCardinality: Payment tender this card is being used for.
+  sourceName: Tender
+  sourceDescription: Payment tender this card is being used for.
+  targetCardinality: 0..1
   targetName: Card
   targetDescription: Card used to tender payment.

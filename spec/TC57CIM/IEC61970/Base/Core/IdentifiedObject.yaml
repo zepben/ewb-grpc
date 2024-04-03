@@ -329,25 +329,25 @@ associations:
 - source: IdentifiedObject
   target: Name
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: IdentifiedObject
-  targetCardinality: Identified object that this name designates.
+  sourceName: IdentifiedObject
+  sourceDescription: Identified object that this name designates.
+  targetCardinality: 0..*
   targetName: Names
   targetDescription: All names of this identified object.
 - source: IdentifiedObject
   target: ChangeSetMember
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: PropertiesObject
-  targetCardinality: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
+  sourceName: PropertiesObject
+  sourceDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
     and only the reference to the registered object is required.
+  targetCardinality: 0..1
   targetName: PropertiesCIMDataObject
   targetDescription: The single CIM data object in the appropriate dataset context.
 - source: IdentifiedObject
   target: ChangeSetMember
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: TargetObject
-  targetCardinality: The registered CIM object.
+  sourceName: TargetObject
+  sourceDescription: The registered CIM object.
+  targetCardinality: 0..*
   targetName: TargetingCIMDataObject
   targetDescription: Data objects registered.

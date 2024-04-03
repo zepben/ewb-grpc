@@ -28,40 +28,40 @@ associations:
 - source: Crew
   target: FieldDispatchHistory
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Crew
+  sourceName: Crew
+  targetCardinality: 0..*
   targetName: FieldDispatchHistory
 - source: Crew
   target: WorkTask
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Crews
-  targetCardinality: All crews participating in this work task.
+  sourceName: Crews
+  sourceDescription: All crews participating in this work task.
+  targetCardinality: 0..*
   targetName: WorkTasks
   targetDescription: All work tasks this crew participates in.
 - source: Crew
   target: Outage
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Crew
+  sourceName: Crew
+  targetCardinality: 0..*
   targetName: Outage
 - source: Crew
   target: SwitchingAction
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: Crew
+  sourceName: Crew
+  targetCardinality: "1"
   targetName: SwitchingAction
 - source: Crew
   target: WorkAsset
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Crew
-  targetCardinality: Crew using this work asset.
+  sourceName: Crew
+  sourceDescription: Crew using this work asset.
+  targetCardinality: 0..*
   targetName: WorkAssets
   targetDescription: All work assets used by this crew.
 - source: Crew
   target: Location
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Crew
+  sourceName: Crew
+  targetCardinality: 0..1
   targetName: Location

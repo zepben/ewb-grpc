@@ -84,24 +84,24 @@ associations:
 - source: WorkTask
   target: Work
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: WorkTasks
-  targetCardinality: All tasks in this work.
+  sourceName: WorkTasks
+  sourceDescription: All tasks in this work.
+  targetCardinality: "1"
   targetName: Work
   targetDescription: Work this task belongs to.
 - source: WorkTask
   target: ProcedureDataSet
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: WorkTask
-  targetCardinality: Work task that created this procedure data set.
+  sourceName: WorkTask
+  sourceDescription: Work task that created this procedure data set.
+  targetCardinality: 0..*
   targetName: ProcedureDataSet
   targetDescription: Procedure data set associated with this work task.
 - source: WorkTask
   target: SwitchingPlan
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: WorkTasks
-  targetCardinality: All work tasks to execute this switching plan.
+  sourceName: WorkTasks
+  sourceDescription: All work tasks to execute this switching plan.
+  targetCardinality: 0..1
   targetName: SwitchingPlan
   targetDescription: Switching plan executed by this work task.

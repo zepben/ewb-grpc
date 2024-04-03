@@ -192,115 +192,115 @@ associations:
 - source: Asset
   target: ProcedureDataSet
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Asset
-  targetCardinality: Asset to which this procedure data set applies.
+  sourceName: Asset
+  sourceDescription: Asset to which this procedure data set applies.
+  targetCardinality: 0..*
   targetName: ProcedureDataSet
   targetDescription: Procedure data set that applies to this asset.
 - source: Asset
   target: WorkTask
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: OldAsset
-  targetCardinality: Old asset replaced by this work task.
+  sourceName: OldAsset
+  sourceDescription: Old asset replaced by this work task.
+  targetCardinality: 0..*
   targetName: ReplacementWorkTasks
   targetDescription: All work tasks on replacement of this old asset.
 - source: Asset
   target: AssetGroup
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Asset
-  targetCardinality: Asset which is a part of this asset group.
+  sourceName: Asset
+  sourceDescription: Asset which is a part of this asset group.
+  targetCardinality: 0..*
   targetName: AssetGroup
   targetDescription: Asset group of which this asset is a part.
 - source: Asset
   target: SwitchOperationSummary
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: Breaker
-  targetCardinality: Breaker asset to which this operation information applies.
+  sourceName: Breaker
+  sourceDescription: Breaker asset to which this operation information applies.
+  targetCardinality: 0..1
   targetName: BreakerOperation
   targetDescription: Breaker operation information for this breaker.
 - source: Asset
   target: Medium
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Asset
-  targetCardinality: Medium with which this asset is filled.
+  sourceName: Asset
+  sourceDescription: Medium with which this asset is filled.
+  targetCardinality: 0..*
   targetName: Medium
   targetDescription: Medium with which this asset is filled.
 - source: Asset
   target: ErpItemMaster
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: Asset
+  sourceName: Asset
+  targetCardinality: 0..1
   targetName: ErpItemMaster
 - source: Asset
   target: WorkTask
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Assets
-  targetCardinality: All assets on which this non-replacement work task is performed.
+  sourceName: Assets
+  sourceDescription: All assets on which this non-replacement work task is performed.
+  targetCardinality: 0..*
   targetName: WorkTasks
   targetDescription: All non-replacement work tasks performed on this asset.
 - source: Asset
   target: Procedure
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Assets
-  targetCardinality: All assets to which this procedure applies.
+  sourceName: Assets
+  sourceDescription: All assets to which this procedure applies.
+  targetCardinality: 0..*
   targetName: Procedures
   targetDescription: All procedures applicable to this asset.
 - source: Asset
   target: ReliabilityInfo
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Assets
+  sourceName: Assets
+  targetCardinality: 0..*
   targetName: ReliabilityInfos
 - source: Asset
   target: FinancialInfo
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: Asset
-  targetCardinality: The asset to which this financial information relates.
+  sourceName: Asset
+  sourceDescription: The asset to which this financial information relates.
+  targetCardinality: 0..1
   targetName: FinancialInfo
   targetDescription: Financial information related to this asset.
 - source: Asset
   target: AnalyticScore
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Asset
-  targetCardinality: Asset to which this analytic score applies.
+  sourceName: Asset
+  sourceDescription: Asset to which this analytic score applies.
+  targetCardinality: 0..*
   targetName: AnalyticScore
   targetDescription: Analytic result related to this asset.
 - source: Asset
   target: Analytic
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Asset
-  targetCardinality: Asset on which this analytic can be performed.
+  sourceName: Asset
+  sourceDescription: Asset on which this analytic can be performed.
+  targetCardinality: 0..*
   targetName: Analytic
   targetDescription: Analytic performed on this asset.
 - source: Asset
   target: OperationalTag
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Asset
-  targetCardinality: Asset on which this tag has been placed.
+  sourceName: Asset
+  sourceDescription: Asset on which this tag has been placed.
+  targetCardinality: 0..*
   targetName: OperationalTags
   targetDescription: All operational tags placed on this asset.
 - source: Asset
   target: ScheduledEvent
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Assets
+  sourceName: Assets
+  targetCardinality: 0..*
   targetName: ScheduledEvents
   targetDescription: Scheduled event related to this asset.
 - source: Asset
   target: Ownership
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Asset
-  targetCardinality: Asset that is object of this ownership.
+  sourceName: Asset
+  sourceDescription: Asset that is object of this ownership.
+  targetCardinality: 0..*
   targetName: Ownerships
   targetDescription: All ownerships of this asset.

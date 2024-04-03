@@ -45,16 +45,16 @@ associations:
 - source: ProcedureDataSet
   target: Procedure
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: ProcedureDataSets
-  targetCardinality: All data sets captured by this procedure.
+  sourceName: ProcedureDataSets
+  sourceDescription: All data sets captured by this procedure.
+  targetCardinality: 0..1
   targetName: Procedure
   targetDescription: Procedure capturing this data set.
 - source: ProcedureDataSet
   target: UserAttribute
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ProcedureDataSets
+  sourceName: ProcedureDataSets
+  targetCardinality: 0..*
   targetName: Properties
   targetDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
     kind of property it is, and 'value.value' attribute for the actual value.

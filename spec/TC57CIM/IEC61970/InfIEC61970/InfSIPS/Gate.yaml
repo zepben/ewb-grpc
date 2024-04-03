@@ -23,50 +23,50 @@ associations:
 - source: Gate
   target: StageTrigger
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: GateArmed
-  targetCardinality: Association to a Gate that through a gate logic and input pin defines arming of the StageTrigger.
+  sourceName: GateArmed
+  sourceDescription: Association to a Gate that through a gate logic and input pin defines arming of the StageTrigger.
+  targetCardinality: 0..*
   targetName: StageTriggerArmed
 - source: Gate
   target: ProtectiveAction
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: GateComCondition
+  sourceName: GateComCondition
+  targetCardinality: 0..*
   targetName: ProtectiveActionCom
   targetDescription: For the ProtectiveAction to be activated the condition for communication needs to be met (true).
 - source: Gate
   target: StageTrigger
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: GateComCondition
-  targetCardinality: For the StageTrigger to active the set of protective actions the condition for communication needs to
+  sourceName: GateComCondition
+  sourceDescription: For the StageTrigger to active the set of protective actions the condition for communication needs to
     be met (true).
+  targetCardinality: 0..*
   targetName: StageTriggerCom
 - source: Gate
   target: StageTrigger
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: GateTrigger
-  targetCardinality: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
+  sourceName: GateTrigger
+  sourceDescription: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
+  targetCardinality: 0..*
   targetName: StageTrigger
 - source: Gate
   target: TriggerCondition
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: GateTrigger
-  targetCardinality: The resulting Gate that is the condition for the Trigger.
+  sourceName: GateTrigger
+  sourceDescription: The resulting Gate that is the condition for the Trigger.
+  targetCardinality: 0..*
   targetName: TriggerCondition
 - source: Gate
   target: ProtectiveAction
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: GateEnabledCondition
-  targetCardinality: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
+  sourceName: GateEnabledCondition
+  sourceDescription: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
+  targetCardinality: 0..*
   targetName: ProtectiveActionEnabled
 - source: Gate
   target: GateInputPin
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: Gate
+  sourceName: Gate
+  targetCardinality: 1..*
   targetName: GateInputPin
   targetDescription: Input to the gate.

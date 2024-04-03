@@ -22,16 +22,16 @@ associations:
 - source: ReportingGroup
   target: BusNameMarker
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ReportingGroup
-  targetCardinality: The reporting group to which this bus name marker belongs.
+  sourceName: ReportingGroup
+  sourceDescription: The reporting group to which this bus name marker belongs.
+  targetCardinality: 0..*
   targetName: BusNameMarker
   targetDescription: The bus name markers that belong to this reporting group.
 - source: ReportingGroup
   target: TopologicalNode
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ReportingGroup
-  targetCardinality: The reporting group to which the topological node belongs.
+  sourceName: ReportingGroup
+  sourceDescription: The reporting group to which the topological node belongs.
+  targetCardinality: 0..*
   targetName: TopologicalNode
   targetDescription: The topological nodes that belong to the reporting group.

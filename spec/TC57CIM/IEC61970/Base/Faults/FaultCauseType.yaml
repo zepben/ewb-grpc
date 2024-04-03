@@ -6,14 +6,14 @@ associations:
 - source: FaultCauseType
   target: Fault
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: FaultCauseTypes
-  targetCardinality: All types of fault cause.
+  sourceName: FaultCauseTypes
+  sourceDescription: All types of fault cause.
+  targetCardinality: 0..*
   targetName: Faults
   targetDescription: All faults with this cause type.
 - source: FaultCauseType
   target: ConfigurationEvent
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: FaultCauseType
+  sourceName: FaultCauseType
+  targetCardinality: 0..*
   targetName: ConfigurationEvent

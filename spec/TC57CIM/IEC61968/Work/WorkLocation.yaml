@@ -16,14 +16,14 @@ associations:
 - source: WorkLocation
   target: DesignLocation
   sourceCardinality: 1..*
-  sourceName: 0..*
-  sourceDescription: WorkLocations
+  sourceName: WorkLocations
+  targetCardinality: 0..*
   targetName: DesignLocations
 - source: WorkLocation
   target: BaseWork
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: WorkLocation
-  targetCardinality: Location for this work/task.
+  sourceName: WorkLocation
+  sourceDescription: Location for this work/task.
+  targetCardinality: 0..*
   targetName: BaseWorks
   targetDescription: All works/tasks at this location.

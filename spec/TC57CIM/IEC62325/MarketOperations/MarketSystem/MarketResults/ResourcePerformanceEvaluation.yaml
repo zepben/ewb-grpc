@@ -26,12 +26,12 @@ associations:
 - source: ResourcePerformanceEvaluation
   target: ResourcePerformanceGlobalFactor
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ResourcePerformanceEvaluation
+  sourceName: ResourcePerformanceEvaluation
+  targetCardinality: 0..*
   targetName: ResorcePerformanceGlobalFactor
 - source: ResourcePerformanceEvaluation
   target: DistributedResourceActualEvent
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: ResourcePerformanceEvaluations
+  sourceName: ResourcePerformanceEvaluations
+  targetCardinality: "1"
   targetName: DemandResponseActualEvent

@@ -13,16 +13,16 @@ associations:
 - source: CalculationMethodHierarchy
   target: Measurement
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: CalculationMethodHierarchy
-  targetCardinality: Calculation method hierarchy which applies to this analog.
+  sourceName: CalculationMethodHierarchy
+  sourceDescription: Calculation method hierarchy which applies to this analog.
+  targetCardinality: 0..*
   targetName: Measurement
   targetDescription: Measurement to which this calculation method hierarchy applies.
 - source: CalculationMethodHierarchy
   target: CalculationMethodOrder
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: CalculationMethodHierarchy
-  targetCardinality: The calculation method hierarchy of which this order of statistical calculation is a member.
+  sourceName: CalculationMethodHierarchy
+  sourceDescription: The calculation method hierarchy of which this order of statistical calculation is a member.
+  targetCardinality: 0..*
   targetName: CalculationMethodOrder
   targetDescription: Order of a statistical calculation associated with this calculation method hierarchy.

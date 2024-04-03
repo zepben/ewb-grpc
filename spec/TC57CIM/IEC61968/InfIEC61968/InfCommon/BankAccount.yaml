@@ -20,8 +20,8 @@ associations:
 - source: BankAccount
   target: ServiceSupplier
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: BankAccounts
-  targetCardinality: All BackAccounts this ServiceSupplier owns.
+  sourceName: BankAccounts
+  sourceDescription: All BackAccounts this ServiceSupplier owns.
+  targetCardinality: 0..1
   targetName: ServiceSupplier
   targetDescription: ServiceSupplier that is owner of this BankAccount.

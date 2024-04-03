@@ -111,29 +111,29 @@ associations:
 - source: Outage
   target: OutageArea
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Outage
+  sourceName: Outage
+  targetCardinality: 0..*
   targetName: OutageArea
 - source: Outage
   target: SwitchingPlan
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Outage
-  targetCardinality: Outage that will be activated or eliminated when this switching plan gets executed.
+  sourceName: Outage
+  sourceDescription: Outage that will be activated or eliminated when this switching plan gets executed.
+  targetCardinality: 0..*
   targetName: SwitchingPlans
   targetDescription: All switching plans that lead to supply restoration due to this outage. Only one will be retained for
     execution.
 - source: Outage
   target: Incident
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Outage
-  targetCardinality: Outage for this incident.
+  sourceName: Outage
+  sourceDescription: Outage for this incident.
+  targetCardinality: 0..*
   targetName: Incident
   targetDescription: Incident reported in trouble call that results in this outage.
 - source: Outage
   target: EstimatedRestorationTime
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Outage
+  sourceName: Outage
+  targetCardinality: 0..1
   targetName: EstimatedRestorationTime

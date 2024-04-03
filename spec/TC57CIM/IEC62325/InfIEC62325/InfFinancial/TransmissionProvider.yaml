@@ -8,18 +8,18 @@ associations:
 - source: TransmissionProvider
   target: TransmissionProduct
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: TransmissionProvider
-  targetCardinality: A TransmissionProvider offers a TransmissionProduct.
+  sourceName: TransmissionProvider
+  sourceDescription: A TransmissionProvider offers a TransmissionProduct.
+  targetCardinality: 1..*
   targetName: TransmissionProducts
   targetDescription: A TransmissionProvider offers a TransmissionProduct.
 - source: TransmissionProvider
   target: LossProfile
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: HasLoss_
-  targetCardinality: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
+  sourceName: HasLoss_
+  sourceDescription: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
     TransmissionProvider must be one of the participating entities in the EnergyTransaction.
+  targetCardinality: 0..*
   targetName: For
   targetDescription: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
     TransmissionProvider must be one of the participating entities in the EnergyTransaction.

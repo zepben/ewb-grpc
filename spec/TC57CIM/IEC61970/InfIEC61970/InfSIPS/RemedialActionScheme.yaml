@@ -17,21 +17,21 @@ associations:
 - source: RemedialActionScheme
   target: Stage
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: RemedialActionScheme
+  sourceName: RemedialActionScheme
+  targetCardinality: 1..*
   targetName: Stage
   targetDescription: A Remedial Action Scheme (RAS) consist of one or more stage that are trigger and execute protection action.
 - source: RemedialActionScheme
   target: TriggerCondition
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: RemedialActionScheme
+  sourceName: RemedialActionScheme
+  targetCardinality: 0..*
   targetName: TriggerCondition
   targetDescription: Triggering of the Remedial Action Schemes (RAS).
 - source: RemedialActionScheme
   target: Gate
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: RemedialActionScheme
+  sourceName: RemedialActionScheme
+  targetCardinality: 0..1
   targetName: GateArmed
   targetDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).

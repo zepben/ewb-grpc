@@ -33,54 +33,54 @@ associations:
 - source: Work
   target: Appointment
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Works
-  targetCardinality: All works for this appointment.
+  sourceName: Works
+  sourceDescription: All works for this appointment.
+  targetCardinality: 0..*
   targetName: Appointments
   targetDescription: All appointments for this work.
 - source: Work
   target: WorkCostDetail
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Works
+  sourceName: Works
+  targetCardinality: 0..*
   targetName: WorkCostDetails
 - source: Work
   target: WorkBillingInfo
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Works
+  sourceName: Works
+  targetCardinality: 0..1
   targetName: WorkBillingInfo
 - source: Work
   target: Design
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Work
+  sourceName: Work
+  targetCardinality: 0..*
   targetName: Designs
 - source: Work
   target: BusinessCase
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Works
+  sourceName: Works
+  targetCardinality: 0..1
   targetName: BusinessCase
 - source: Work
   target: WorkFlowStep
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Work
+  sourceName: Work
+  targetCardinality: 0..*
   targetName: WorkFlowSteps
 - source: Work
   target: Customer
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Works
-  targetCardinality: All the works performed for this customer.
+  sourceName: Works
+  sourceDescription: All the works performed for this customer.
+  targetCardinality: 0..*
   targetName: Customers
   targetDescription: All the customers for which this work is performed.
 - source: Work
   target: Incident
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Works
-  targetCardinality: All works addressing this incident.
+  sourceName: Works
+  sourceDescription: All works addressing this incident.
+  targetCardinality: 0..*
   targetName: Incidents
   targetDescription: All incidents being addressed by this work.

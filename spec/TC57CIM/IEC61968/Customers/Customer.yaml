@@ -80,22 +80,22 @@ associations:
 - source: Customer
   target: TroubleTicket
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Customer
-  targetCardinality: Customer for whom this trouble ticket is relevant.
+  sourceName: Customer
+  sourceDescription: Customer for whom this trouble ticket is relevant.
+  targetCardinality: 0..*
   targetName: TroubleTickets
   targetDescription: All trouble tickets for this customer.
 - source: Customer
   target: CustomerNotification
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Customer
-  targetCardinality: Customer requiring this notification.
+  sourceName: Customer
+  sourceDescription: Customer requiring this notification.
+  targetCardinality: 0..*
   targetName: CustomerNotifications
   targetDescription: All notifications required by this customer.
 - source: Customer
   target: PlannedOutageNotification
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Customer
+  sourceName: Customer
+  targetCardinality: 0..*
   targetName: PlannedOutageNotification

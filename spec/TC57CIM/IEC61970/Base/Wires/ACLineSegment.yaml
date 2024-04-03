@@ -55,52 +55,52 @@ associations:
 - source: ACLineSegment
   target: PerLengthImpedance
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: ACLineSegments
-  targetCardinality: All line segments described by this per-length impedance.
+  sourceName: ACLineSegments
+  sourceDescription: All line segments described by this per-length impedance.
+  targetCardinality: 0..1
   targetName: PerLengthImpedance
   targetDescription: Per-length impedance of this line segment.
 - source: ACLineSegment
   target: Cut
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ACLineSegment
-  targetCardinality: The line segment to which the cut is applied.
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the cut is applied.
+  targetCardinality: 0..*
   targetName: Cut
   targetDescription: Cuts applied to the line segment.
 - source: ACLineSegment
   target: LineFault
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ACLineSegment
-  targetCardinality: The line segment of this line fault.
+  sourceName: ACLineSegment
+  sourceDescription: The line segment of this line fault.
+  targetCardinality: 0..*
   targetName: LineFaults
   targetDescription: The line faults of the line segment.
 - source: ACLineSegment
   target: ACLineSegmentPhase
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ACLineSegment
-  targetCardinality: The line segment to which the phase belongs.
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the phase belongs.
+  targetCardinality: 0..*
   targetName: ACLineSegmentPhases
   targetDescription: The line segment phases which belong to the line segment.
 - source: ACLineSegment
   target: JumperAction
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: ACLineSegments
-  targetCardinality: The line segment that this jumper action will affect. This is the only way to access relationship to
+  sourceName: ACLineSegments
+  sourceDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
     clamp in case the jumper needs to connect along the line segment.
+  targetCardinality: 0..1
   targetName: LineJumpingAction
   targetDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
     of at its terminals).
 - source: ACLineSegment
   target: GroundAction
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: AlongACLineSegment
-  targetCardinality: The line segment that this ground action will affect. This is the only way to access relationship to
+  sourceName: AlongACLineSegment
+  sourceDescription: The line segment that this ground action will affect. This is the only way to access relationship to
     clamp in case the ground needs to be placed along the line segment.
+  targetCardinality: 0..1
   targetName: LineGroundingAction
   targetDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead
     of at its terminals).

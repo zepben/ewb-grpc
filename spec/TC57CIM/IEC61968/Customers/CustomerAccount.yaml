@@ -53,14 +53,14 @@ associations:
 - source: CustomerAccount
   target: CustomerBillingInfo
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: CustomerAccount
+  sourceName: CustomerAccount
+  targetCardinality: 0..*
   targetName: CustomerBillingInfos
 - source: CustomerAccount
   target: Customer
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: CustomerAccounts
-  targetCardinality: All accounts of this customer.
+  sourceName: CustomerAccounts
+  sourceDescription: All accounts of this customer.
+  targetCardinality: "1"
   targetName: Customer
   targetDescription: Customer owning this account.

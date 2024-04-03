@@ -10,24 +10,24 @@ associations:
 - source: Settlement
   target: MajorChargeGroup
   sourceCardinality: 0..*
-  sourceName: 1..*
-  sourceDescription: Settlement
+  sourceName: Settlement
+  targetCardinality: 1..*
   targetName: MajorChargeGroup
 - source: Settlement
   target: EnergyMarket
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Settlements
+  sourceName: Settlements
+  targetCardinality: 0..1
   targetName: EnergyMarket
 - source: Settlement
   target: MarketLedgerEntry
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Settlement
+  sourceName: Settlement
+  targetCardinality: 0..*
   targetName: MarketLedgerEntry
 - source: Settlement
   target: MarketInvoiceLineItem
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Settlement
+  sourceName: Settlement
+  targetCardinality: 0..*
   targetName: MarketInvoiceLineItem

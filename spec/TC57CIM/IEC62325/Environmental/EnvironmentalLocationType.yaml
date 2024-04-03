@@ -17,16 +17,16 @@ associations:
 - source: EnvironmentalLocationType
   target: EnvironmentalAlert
   sourceCardinality: 1..*
-  sourceName: 0..*
-  sourceDescription: EnvironmentalLocationKind
-  targetCardinality: Type of location to which this environmental alert applies.
+  sourceName: EnvironmentalLocationKind
+  sourceDescription: Type of location to which this environmental alert applies.
+  targetCardinality: 0..*
   targetName: EnvironmentalAlert
   targetDescription: Environmental alert applying to location of this type.
 - source: EnvironmentalLocationType
   target: EnvironmentalPhenomenon
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: EnvironmentalLocationKind
-  targetCardinality: Location of relevance to this environmental phenomenon.
+  sourceName: EnvironmentalLocationKind
+  sourceDescription: Location of relevance to this environmental phenomenon.
+  targetCardinality: 0..*
   targetName: EnvironmentalPhenomenon
   targetDescription: Environmental phenomenon for which this location is of relevance.

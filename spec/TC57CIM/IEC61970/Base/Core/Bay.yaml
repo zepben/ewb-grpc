@@ -28,14 +28,14 @@ associations:
 - source: Bay
   target: VoltageLevel
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Bays
-  targetCardinality: The bays within this voltage level.
+  sourceName: Bays
+  sourceDescription: The bays within this voltage level.
+  targetCardinality: 0..1
   targetName: VoltageLevel
   targetDescription: The voltage level containing this bay.
 - source: Bay
   target: Circuit
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: EndBay
+  sourceName: EndBay
+  targetCardinality: 0..1
   targetName: Circuit

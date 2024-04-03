@@ -38,12 +38,12 @@ associations:
 - source: ErpInvoice
   target: ErpInvoiceLineItem
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ErpInvoice
+  sourceName: ErpInvoice
+  targetCardinality: 0..*
   targetName: ErpInvoiceLineItems
 - source: ErpInvoice
   target: CustomerAccount
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: ErpInvoicees
+  sourceName: ErpInvoicees
+  targetCardinality: 0..1
   targetName: CustomerAccount

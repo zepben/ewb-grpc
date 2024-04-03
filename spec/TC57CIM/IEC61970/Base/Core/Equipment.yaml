@@ -45,104 +45,104 @@ associations:
 - source: Equipment
   target: OperationalLimitSet
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Equipment
-  targetCardinality: The equipment to which the limit set applies.
+  sourceName: Equipment
+  sourceDescription: The equipment to which the limit set applies.
+  targetCardinality: 0..*
   targetName: OperationalLimitSet
   targetDescription: The operational limit sets associated with this equipment.
 - source: Equipment
   target: ContingencyEquipment
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Equipment
-  targetCardinality: The single piece of equipment to which to apply the contingency.
+  sourceName: Equipment
+  sourceDescription: The single piece of equipment to which to apply the contingency.
+  targetCardinality: 0..*
   targetName: ContingencyEquipment
   targetDescription: The contingency equipments in which this equipment participates.
 - source: Equipment
   target: EquipmentContainer
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Equipments
-  targetCardinality: Contained equipment.
+  sourceName: Equipments
+  sourceDescription: Contained equipment.
+  targetCardinality: 0..1
   targetName: EquipmentContainer
   targetDescription: Container of this equipment.
 - source: Equipment
   target: Fault
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: FaultyEquipment
-  targetCardinality: Equipment carrying this fault.
+  sourceName: FaultyEquipment
+  sourceDescription: Equipment carrying this fault.
+  targetCardinality: 0..*
   targetName: Faults
   targetDescription: All faults on this equipment.
 - source: Equipment
   target: LimitDependency
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Equipment
-  targetCardinality: The equipment for which this limit dependency model is organized under.
+  sourceName: Equipment
+  sourceDescription: The equipment for which this limit dependency model is organized under.
+  targetCardinality: 0..*
   targetName: LimitDependencyModel
   targetDescription: Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.
 - source: Equipment
   target: EquipmentLimitSeriesComponent
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Equipment
-  targetCardinality: Equipment contributing toward the series limit.   The reference here is to Equipment rather than a specific
+  sourceName: Equipment
+  sourceDescription: Equipment contributing toward the series limit.   The reference here is to Equipment rather than a specific
     limit on the equipment so the grouiping can be reused for multiple limits of different types on the same instance of equipment.
+  targetCardinality: 0..*
   targetName: EqiupmentLimitSeriesComponent
   targetDescription: Equipment limit series calculation component to which this equipment contributes.
 - source: Equipment
   target: ProtectiveActionEquipment
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Equipment
+  sourceName: Equipment
+  targetCardinality: 0..*
   targetName: ProtectiveActionEquipment
   targetDescription: Protective action is controlling equipment. This can be direct signals from the control center, or emulation
     of action done by protection equipment.
 - source: Equipment
   target: PinEquipment
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Equipment
-  targetCardinality: The Equipment that should be used in compare.
+  sourceName: Equipment
+  sourceDescription: The Equipment that should be used in compare.
+  targetCardinality: 0..*
   targetName: PinEquipment
 - source: Equipment
   target: EquipmentUnavailabilitySchedule
   sourceCardinality: 0..1
-  sourceName: 0..*
+  targetCardinality: 0..*
 - source: Equipment
   target: EquipmentContainer
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: AdditionalGroupedEquipment
-  targetCardinality: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is
+  sourceName: AdditionalGroupedEquipment
+  sourceDescription: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is
     contained in another equipment container, but also grouped with this equipment container.  Examples include when a switch
     contained in a substation is also desired to be grouped with a line contianer or when a switch is included in a secondary
     substation and also grouped in a feeder.
+  targetCardinality: 0..*
   targetName: AdditionalEquipmentContainer
   targetDescription: Additional equipment container beyond the primary equipment container.  The equipment is contained in
     another equipment container, but also grouped with this equipment container.
 - source: Equipment
   target: UsagePoint
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Equipments
-  targetCardinality: All equipment connecting this usage point to the electrical grid.
+  sourceName: Equipments
+  sourceDescription: All equipment connecting this usage point to the electrical grid.
+  targetCardinality: 0..*
   targetName: UsagePoints
   targetDescription: All usage points connected to the electrical grid through this equipment.
 - source: Equipment
   target: OperationalRestriction
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Equipments
-  targetCardinality: All equipments to which this restriction applies.
+  sourceName: Equipments
+  sourceDescription: All equipments to which this restriction applies.
+  targetCardinality: 0..*
   targetName: OperationalRestrictions
   targetDescription: All operational restrictions for this equipment.
 - source: Equipment
   target: Outage
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: Equipments
-  targetCardinality: All equipments associated with this outage.
+  sourceName: Equipments
+  sourceDescription: All equipments associated with this outage.
+  targetCardinality: 0..*
   targetName: Outages
   targetDescription: All outages in which this equipment is involved.

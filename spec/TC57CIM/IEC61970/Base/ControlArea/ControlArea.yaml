@@ -33,20 +33,20 @@ associations:
 - source: ControlArea
   target: ControlAreaGeneratingUnit
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ControlArea
-  targetCardinality: The parent control area for the generating unit specifications.
+  sourceName: ControlArea
+  sourceDescription: The parent control area for the generating unit specifications.
+  targetCardinality: 0..*
   targetName: ControlAreaGeneratingUnit
   targetDescription: The generating unit specifications for the control area.
 - source: ControlArea
   target: TieFlow
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: ControlArea
-  targetCardinality: The control area of the tie flows.
+  sourceName: ControlArea
+  sourceDescription: The control area of the tie flows.
+  targetCardinality: 0..*
   targetName: TieFlow
   targetDescription: The tie flows associated with the control area.
 - source: ControlArea
   target: EnergyGroup
   sourceCardinality: "1"
-  sourceName: 0..*
+  targetCardinality: 0..*

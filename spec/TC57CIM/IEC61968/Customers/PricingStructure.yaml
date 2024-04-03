@@ -57,16 +57,16 @@ associations:
 - source: PricingStructure
   target: ServiceCategory
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: PricingStructures
-  targetCardinality: All pricing structures applicable to this service category.
+  sourceName: PricingStructures
+  sourceDescription: All pricing structures applicable to this service category.
+  targetCardinality: "1"
   targetName: ServiceCategory
   targetDescription: Service category to which this pricing structure applies.
 - source: PricingStructure
   target: CustomerAgreement
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: PricingStructures
-  targetCardinality: All pricing structures applicable to this customer agreement.
+  sourceName: PricingStructures
+  sourceDescription: All pricing structures applicable to this customer agreement.
+  targetCardinality: 0..*
   targetName: CustomerAgreements
   targetDescription: All customer agreements with this pricing structure.

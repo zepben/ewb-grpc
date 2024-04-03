@@ -16,16 +16,16 @@ associations:
 - source: WirePhaseInfo
   target: WireInfo
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: WirePhaseInfo
-  targetCardinality: Wire phase information associated with this wire information.
+  sourceName: WirePhaseInfo
+  sourceDescription: Wire phase information associated with this wire information.
+  targetCardinality: 0..1
   targetName: WireInfo
   targetDescription: Wire information contributing to this wire phase information.
 - source: WirePhaseInfo
   target: WirePosition
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: WirePhaseInfo
-  targetCardinality: Wire phase information for this wire position.
+  sourceName: WirePhaseInfo
+  sourceDescription: Wire phase information for this wire position.
+  targetCardinality: 0..1
   targetName: WirePosition
   targetDescription: Wire position with this wire phase information.

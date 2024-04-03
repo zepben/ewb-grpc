@@ -10,16 +10,16 @@ associations:
 - source: AirCompressor
   target: CAESPlant
   sourceCardinality: "1"
-  sourceName: "1"
-  sourceDescription: AirCompressor
-  targetCardinality: An air compressor may be a member of a compressed air energy storage plant.
+  sourceName: AirCompressor
+  sourceDescription: An air compressor may be a member of a compressed air energy storage plant.
+  targetCardinality: "1"
   targetName: CAESPlant
   targetDescription: An air compressor may be a member of a compressed air energy storage plant.
 - source: AirCompressor
   target: CombustionTurbine
   sourceCardinality: 0..1
-  sourceName: "1"
-  sourceDescription: AirCompressor
-  targetCardinality: A CAES air compressor is driven by combustion turbine.
+  sourceName: AirCompressor
+  sourceDescription: A CAES air compressor is driven by combustion turbine.
+  targetCardinality: "1"
   targetName: CombustionTurbine
   targetDescription: A CAES air compressor is driven by combustion turbine.

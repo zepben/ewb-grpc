@@ -55,8 +55,8 @@ associations:
 - source: AuxiliaryAgreement
   target: CustomerAgreement
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: AuxiliaryAgreements
-  targetCardinality: All (non-service related) auxiliary agreements that refer to this customer agreement.
+  sourceName: AuxiliaryAgreements
+  sourceDescription: All (non-service related) auxiliary agreements that refer to this customer agreement.
+  targetCardinality: 0..1
   targetName: CustomerAgreement
   targetDescription: Customer agreement this (non-service related) auxiliary agreement refers to.

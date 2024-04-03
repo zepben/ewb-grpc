@@ -50,40 +50,40 @@ associations:
 - source: Reservoir
   target: LevelVsVolumeCurve
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Reservoir
-  targetCardinality: A reservoir may have a level versus volume relationship.
+  sourceName: Reservoir
+  sourceDescription: A reservoir may have a level versus volume relationship.
+  targetCardinality: 0..*
   targetName: LevelVsVolumeCurves
   targetDescription: A reservoir may have a level versus volume relationship.
 - source: Reservoir
   target: InflowForecast
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Reservoir
-  targetCardinality: A reservoir may have a "natural" inflow forecast.
+  sourceName: Reservoir
+  sourceDescription: A reservoir may have a "natural" inflow forecast.
+  targetCardinality: 0..*
   targetName: InflowForecasts
   targetDescription: A reservoir may have a "natural" inflow forecast.
 - source: Reservoir
   target: HydroPowerPlant
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Reservoir
-  targetCardinality: Generators discharge water to or pumps are supplied water from a downstream reservoir.
+  sourceName: Reservoir
+  sourceDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
+  targetCardinality: 0..*
   targetName: HydroPowerPlants
   targetDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
 - source: Reservoir
   target: HydroPowerPlant
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: GenSourcePumpDischargeReservoir
-  targetCardinality: Generators are supplied water from or pumps discharge water to an upstream reservoir.
+  sourceName: GenSourcePumpDischargeReservoir
+  sourceDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
+  targetCardinality: 0..*
   targetName: UpstreamFromHydroPowerPlants
   targetDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
 - source: Reservoir
   target: TargetLevelSchedule
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: Reservoir
-  targetCardinality: A reservoir may have a water level target schedule.
+  sourceName: Reservoir
+  sourceDescription: A reservoir may have a water level target schedule.
+  targetCardinality: 0..1
   targetName: TargetLevelSchedule
   targetDescription: A reservoir may have a water level target schedule.

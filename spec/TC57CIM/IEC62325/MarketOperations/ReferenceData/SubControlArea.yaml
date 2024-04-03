@@ -64,124 +64,124 @@ associations:
 - source: SubControlArea
   target: LossClearingResults
   sourceCardinality: 0..1
-  sourceName: 1..*
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 1..*
   targetName: LossClearingResults
 - source: SubControlArea
   target: HostControlArea
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: SubControlAreas
-  targetCardinality: The interchange area  may operate as a control area
+  sourceName: SubControlAreas
+  sourceDescription: The interchange area  may operate as a control area
+  targetCardinality: "1"
   targetName: HostControlArea
   targetDescription: The interchange area  may operate as a control area
 - source: SubControlArea
   target: AreaReserveSpec
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: "1"
   targetName: AreaReserveSpecification
 - source: SubControlArea
   target: Pnode
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 0..*
   targetName: Pnode
 - source: SubControlArea
   target: DynamicSchedule
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Send_SubControlArea
-  targetCardinality: A control area can send dynamic schedules to other control areas
+  sourceName: Send_SubControlArea
+  sourceDescription: A control area can send dynamic schedules to other control areas
+  targetCardinality: 0..*
   targetName: Send_DynamicSchedules
   targetDescription: A control area can send dynamic schedules to other control areas
 - source: SubControlArea
   target: RTO
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: "1"
   targetName: RTO
 - source: SubControlArea
   target: ControlAreaDesignation
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 0..*
   targetName: ControlAreaDesignation
 - source: SubControlArea
   target: TieLine
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: SideA_SubControlArea
-  targetCardinality: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's
+  sourceName: SideA_SubControlArea
+  sourceDescription: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's
     boundary for a ControlAreaOperator or CustomerConsumer.
+  targetCardinality: 0..*
   targetName: SideA_TieLines
   targetDescription: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's
     boundary for a ControlAreaOperator or CustomerConsumer.
 - source: SubControlArea
   target: AggregateNode
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 0..*
   targetName: AggregateNode
 - source: SubControlArea
   target: Flowgate
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: To_SubControlArea
+  sourceName: To_SubControlArea
+  targetCardinality: 0..*
   targetName: To_Flowgate
 - source: SubControlArea
   target: DynamicSchedule
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: Receive_SubControlArea
-  targetCardinality: A control area can receive dynamic schedules from other control areas
+  sourceName: Receive_SubControlArea
+  sourceDescription: A control area can receive dynamic schedules from other control areas
+  targetCardinality: 0..*
   targetName: Receive_DynamicSchedules
   targetDescription: A control area can receive dynamic schedules from other control areas
 - source: SubControlArea
   target: AdjacentCASet
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 0..1
   targetName: AdjacentCASet
 - source: SubControlArea
   target: CnodeDistributionFactor
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 0..*
   targetName: CnodeDistributionFactor
 - source: SubControlArea
   target: TieLine
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: SideB_SubControlArea
-  targetCardinality: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's
+  sourceName: SideB_SubControlArea
+  sourceDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's
     boundary for a ControlAreaOperator or CustomerConsumer.
+  targetCardinality: 0..*
   targetName: SideB_TieLines
   targetDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's
     boundary for a ControlAreaOperator or CustomerConsumer.
 - source: SubControlArea
   target: InadvertentAccount
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: SubControlArea
-  targetCardinality: A control area can have one or more net inadvertent interchange accounts
+  sourceName: SubControlArea
+  sourceDescription: A control area can have one or more net inadvertent interchange accounts
+  targetCardinality: 0..*
   targetName: InadvertentAccount
   targetDescription: A control area can have one or more net inadvertent interchange accounts
 - source: SubControlArea
   target: Flowgate
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: From_SubControlArea
+  sourceName: From_SubControlArea
+  targetCardinality: 0..*
   targetName: From_Flowgate
 - source: SubControlArea
   target: ExPostLossResults
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 0..*
   targetName: ExPostLossResults
 - source: SubControlArea
   target: RegisteredResource
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: SubControlArea
+  sourceName: SubControlArea
+  targetCardinality: 0..*
   targetName: RegisteredResource

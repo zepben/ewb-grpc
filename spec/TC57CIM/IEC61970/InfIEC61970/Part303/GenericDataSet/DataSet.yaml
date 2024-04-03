@@ -31,12 +31,12 @@ associations:
 - source: DataSet
   target: AlternateModel
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: Dataset
-  targetCardinality: The data belonging to the alternate model.
+  sourceName: Dataset
+  sourceDescription: The data belonging to the alternate model.
+  targetCardinality: 0..1
   targetName: AlternateModel
   targetDescription: The alternate model using the data.
 - source: DataSet
   target: ModelPartVersion
   sourceCardinality: 0..*
-  sourceName: "1"
+  targetCardinality: "1"

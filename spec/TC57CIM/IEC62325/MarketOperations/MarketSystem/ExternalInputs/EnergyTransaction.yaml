@@ -60,46 +60,46 @@ associations:
 - source: EnergyTransaction
   target: SubControlArea
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: Export_EnergyTransactions
-  targetCardinality: Energy is transferred between interchange areas
+  sourceName: Export_EnergyTransactions
+  sourceDescription: Energy is transferred between interchange areas
+  targetCardinality: "1"
   targetName: Export_SubControlArea
   targetDescription: Energy is transferred between interchange areas
 - source: EnergyTransaction
   target: EnergyProfile
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: EnergyTransaction
-  targetCardinality: An EnergyTransaction shall have at least one EnergyProfile.
+  sourceName: EnergyTransaction
+  sourceDescription: An EnergyTransaction shall have at least one EnergyProfile.
+  targetCardinality: 1..*
   targetName: EnergyProfiles
   targetDescription: An EnergyTransaction shall have at least one EnergyProfile.
 - source: EnergyTransaction
   target: CurtailmentProfile
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: EnergyTransaction
-  targetCardinality: An EnergyTransaction may be curtailed by any of the participating entities.
+  sourceName: EnergyTransaction
+  sourceDescription: An EnergyTransaction may be curtailed by any of the participating entities.
+  targetCardinality: 0..*
   targetName: CurtailmentProfiles
   targetDescription: An EnergyTransaction may be curtailed by any of the participating entities.
 - source: EnergyTransaction
   target: SubControlArea
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: Import_EnergyTransactions
-  targetCardinality: Energy is transferred between interchange areas
+  sourceName: Import_EnergyTransactions
+  sourceDescription: Energy is transferred between interchange areas
+  targetCardinality: "1"
   targetName: Import_SubControlArea
   targetDescription: Energy is transferred between interchange areas
 - source: EnergyTransaction
   target: LossProfile
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: EnergyTransaction
-  targetCardinality: An EnergyTransaction may have a LossProfile.
+  sourceName: EnergyTransaction
+  sourceDescription: An EnergyTransaction may have a LossProfile.
+  targetCardinality: 0..*
   targetName: LossProfiles
   targetDescription: An EnergyTransaction may have a LossProfile.
 - source: EnergyTransaction
   target: TransmissionReservation
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: EnergyTransaction
+  sourceName: EnergyTransaction
+  targetCardinality: 0..1
   targetName: TransmissionReservation

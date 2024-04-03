@@ -52,26 +52,26 @@ associations:
 - source: TroubleTicket
   target: ServiceLocation
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: TroubleTicket
+  sourceName: TroubleTicket
+  targetCardinality: "1"
   targetName: ServiceLocation
 - source: TroubleTicket
   target: CustomerNotification
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: TroubleTickets
-  targetCardinality: All trouble tickets with this notification.
+  sourceName: TroubleTickets
+  sourceDescription: All trouble tickets with this notification.
+  targetCardinality: 0..*
   targetName: Notification
   targetDescription: Notification for this trouble ticket.
 - source: TroubleTicket
   target: UnplannedOutage
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: TroubleTicket
+  sourceName: TroubleTicket
+  targetCardinality: 0..1
   targetName: UnplannedOutage
 - source: TroubleTicket
   target: TroubleOrder
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: TroubleTicket
+  sourceName: TroubleTicket
+  targetCardinality: 0..1
   targetName: TroubleOrder

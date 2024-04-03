@@ -38,26 +38,26 @@ associations:
 - source: AggregateNode
   target: RTO
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: AggregateNode
+  sourceName: AggregateNode
+  targetCardinality: "1"
   targetName: RTO
 - source: AggregateNode
   target: Instructions
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: AggregateNode
+  sourceName: AggregateNode
+  targetCardinality: 0..*
   targetName: Instruction
 - source: AggregateNode
   target: AreaLoadCurve
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: AggregateNode
+  sourceName: AggregateNode
+  targetCardinality: 0..*
   targetName: AreaLoadCurve
 - source: AggregateNode
   target: RegisteredResource
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: AggregateNode
-  targetCardinality: An AggregateNode may be associated with up to many RegisteredResources.
+  sourceName: AggregateNode
+  sourceDescription: An AggregateNode may be associated with up to many RegisteredResources.
+  targetCardinality: 0..*
   targetName: RegisteredResource
   targetDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.

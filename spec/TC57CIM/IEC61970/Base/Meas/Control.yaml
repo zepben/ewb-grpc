@@ -28,23 +28,23 @@ associations:
 - source: Control
   target: RemoteControl
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: Control
-  targetCardinality: The Control for the RemoteControl point.
+  sourceName: Control
+  sourceDescription: The Control for the RemoteControl point.
+  targetCardinality: 0..1
   targetName: RemoteControl
   targetDescription: The remote point controlling the physical actuator.
 - source: Control
   target: PowerSystemResource
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Controls
-  targetCardinality: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
+  sourceName: Controls
+  sourceDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
     machine or capacitor bank breaker actuator.
+  targetCardinality: 0..1
   targetName: PowerSystemResource
   targetDescription: Regulating device governed by this control output.
 - source: Control
   target: ControlAction
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: Control
+  sourceName: Control
+  targetCardinality: 0..1
   targetName: ControlAction

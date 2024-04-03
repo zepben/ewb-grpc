@@ -64,40 +64,40 @@ associations:
 - source: CustomerAgreement
   target: DemandResponseProgram
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: CustomerAgreements
-  targetCardinality: All customer agreements through which the customer is enrolled in this demand response program.
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements through which the customer is enrolled in this demand response program.
+  targetCardinality: 0..*
   targetName: DemandResponsePrograms
   targetDescription: All demand response programs the customer is enrolled in through this customer agreement.
 - source: CustomerAgreement
   target: MeterReading
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: CustomerAgreement
-  targetCardinality: (could be deprecated in the future) Customer agreement for this meter reading.
+  sourceName: CustomerAgreement
+  sourceDescription: (could be deprecated in the future) Customer agreement for this meter reading.
+  targetCardinality: 0..*
   targetName: MeterReadings
   targetDescription: (could be deprecated in the future) All meter readings for this customer agreement.
 - source: CustomerAgreement
   target: ServiceSupplier
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: CustomerAgreements
-  targetCardinality: All customer agreements of this service supplier.
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements of this service supplier.
+  targetCardinality: "1"
   targetName: ServiceSupplier
   targetDescription: Service supplier for this customer agreement.
 - source: CustomerAgreement
   target: CustomerAccount
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: CustomerAgreements
-  targetCardinality: All agreements for this customer account.
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements for this customer account.
+  targetCardinality: "1"
   targetName: CustomerAccount
   targetDescription: Customer account owning this agreement.
 - source: CustomerAgreement
   target: Customer
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: CustomerAgreements
-  targetCardinality: All agreements of this customer.
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements of this customer.
+  targetCardinality: "1"
   targetName: Customer
   targetDescription: Customer for this agreement.

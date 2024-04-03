@@ -154,35 +154,35 @@ associations:
 - source: GeneratingUnit
   target: GenUnitOpSchedule
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: GeneratingUnit
-  targetCardinality: A generating unit may have an operating schedule, indicating the planned operation of the unit.
+  sourceName: GeneratingUnit
+  sourceDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
+  targetCardinality: 0..1
   targetName: GenUnitOpSchedule
   targetDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
 - source: GeneratingUnit
   target: ControlAreaGeneratingUnit
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: GeneratingUnit
-  targetCardinality: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
+  sourceName: GeneratingUnit
+  sourceDescription: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
     only once.
+  targetCardinality: 0..*
   targetName: ControlAreaGeneratingUnit
   targetDescription: ControlArea specifications for this generating unit.
 - source: GeneratingUnit
   target: GrossToNetActivePowerCurve
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: GeneratingUnit
-  targetCardinality: A generating unit may have a gross active power to net active power curve, describing the losses and
+  sourceName: GeneratingUnit
+  sourceDescription: A generating unit may have a gross active power to net active power curve, describing the losses and
     auxiliary power requirements of the unit.
+  targetCardinality: 0..*
   targetName: GrossToNetActivePowerCurves
   targetDescription: A generating unit may have a gross active power to net active power curve, describing the losses and
     auxiliary power requirements of the unit.
 - source: GeneratingUnit
   target: GenUnitOpCostCurve
   sourceCardinality: "1"
-  sourceName: 0..*
-  sourceDescription: GeneratingUnit
-  targetCardinality: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
+  sourceName: GeneratingUnit
+  sourceDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
+  targetCardinality: 0..*
   targetName: GenUnitOpCostCurves
   targetDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.

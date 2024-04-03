@@ -33,16 +33,16 @@ associations:
 - source: VendorShift
   target: Vendor
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: VendorShifts
-  targetCardinality: All vendor shifts opened and owned by this vendor.
+  sourceName: VendorShifts
+  sourceDescription: All vendor shifts opened and owned by this vendor.
+  targetCardinality: 0..1
   targetName: Vendor
   targetDescription: Vendor that opens and owns this vendor shift.
 - source: VendorShift
   target: MerchantAccount
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: VendorShifts
-  targetCardinality: All vendor shifts that operate on this merchant account.
+  sourceName: VendorShifts
+  sourceDescription: All vendor shifts that operate on this merchant account.
+  targetCardinality: 0..1
   targetName: MerchantAccount
   targetDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).

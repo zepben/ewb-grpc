@@ -8,16 +8,16 @@ associations:
 - source: Operator
   target: Incident
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Owner
-  targetCardinality: Operator who owns this incident.
+  sourceName: Owner
+  sourceDescription: Operator who owns this incident.
+  targetCardinality: 0..*
   targetName: Incidents
   targetDescription: All incidents owned by this operator.
 - source: Operator
   target: SwitchingAction
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Operator
-  targetCardinality: Operator responsible for this switching step.
+  sourceName: Operator
+  sourceDescription: Operator responsible for this switching step.
+  targetCardinality: 0..*
   targetName: SwitchingSteps
   targetDescription: All switching steps this operator is responsible for.

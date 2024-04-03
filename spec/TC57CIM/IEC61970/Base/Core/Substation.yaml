@@ -15,51 +15,51 @@ associations:
 - source: Substation
   target: SubGeographicalRegion
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: Substations
-  targetCardinality: The substations in this sub-geographical region.
+  sourceName: Substations
+  sourceDescription: The substations in this sub-geographical region.
+  targetCardinality: 0..1
   targetName: Region
   targetDescription: The SubGeographicalRegion containing the substation.
 - source: Substation
   target: Bay
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Substation
-  targetCardinality: Substation containing the bay.
+  sourceName: Substation
+  sourceDescription: Substation containing the bay.
+  targetCardinality: 0..*
   targetName: Bays
   targetDescription: Bays contained in the substation.
 - source: Substation
   target: DCConverterUnit
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: Substation
-  targetCardinality: The containing substation of the DC converter unit.
+  sourceName: Substation
+  sourceDescription: The containing substation of the DC converter unit.
+  targetCardinality: 0..*
   targetName: DCConverterUnit
   targetDescription: The DC converter unit belonging of the substation.
 - source: Substation
   target: Feeder
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: NormalEnergizingSubstation
-  targetCardinality: The substation that nominally energizes the feeder.  Also used for naming purposes.
+  sourceName: NormalEnergizingSubstation
+  sourceDescription: The substation that nominally energizes the feeder.  Also used for naming purposes.
+  targetCardinality: 0..*
   targetName: NormalEnergizedFeeder
   targetDescription: The normal energized feeders of the substation. Also used for naming purposes.
 - source: Substation
   target: Feeder
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: NamingSecondarySubstation
-  targetCardinality: The secondary substations that are normally energized from the feeder.  Used for naming purposes.   Should
+  sourceName: NamingSecondarySubstation
+  sourceDescription: The secondary substations that are normally energized from the feeder.  Used for naming purposes.   Should
     be consistent with the other associations for energizing terminal specification and the feeder energization specification.
+  targetCardinality: 0..1
   targetName: NamingFeeder
   targetDescription: The primary feeder that normally energizes the secondary substation. Used for naming purposes.  Either
     this association or the substation to subgeographical region should be used for hierarchical containment specification.
 - source: Substation
   target: Feeder
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: NormalEnergizedSubstation
-  targetCardinality: The substations that are normally energized by the feeder.
+  sourceName: NormalEnergizedSubstation
+  sourceDescription: The substations that are normally energized by the feeder.
+  targetCardinality: 0..*
   targetName: NormalEnergizingFeeder
   targetDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
     that describe the naming hierarchy.

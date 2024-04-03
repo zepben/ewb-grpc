@@ -43,28 +43,28 @@ associations:
 - source: CatalogAssetType
   target: ErpIssueInventory
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TypeAsset
+  sourceName: TypeAsset
+  targetCardinality: 0..*
   targetName: ErpInventoryIssues
 - source: CatalogAssetType
   target: CompatibleUnit
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: GenericAssetModel
+  sourceName: GenericAssetModel
+  targetCardinality: 0..*
   targetName: CompatibleUnits
 - source: CatalogAssetType
   target: ProductAssetModel
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: CatalogAssetType
-  targetCardinality: Catalog asset type to which this product asset model conforms.
+  sourceName: CatalogAssetType
+  sourceDescription: Catalog asset type to which this product asset model conforms.
+  targetCardinality: 0..*
   targetName: ProductAssetModel
   targetDescription: Product asset model conforming to this catalog asset type.
 - source: CatalogAssetType
   target: AssetInfo
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: CatalogAssetType
-  targetCardinality: Asset information (nameplate) for this catalog asset type.
+  sourceName: CatalogAssetType
+  sourceDescription: Asset information (nameplate) for this catalog asset type.
+  targetCardinality: 0..1
   targetName: AssetInfo
   targetDescription: Generic nameplate information associated with this catalog asset type.

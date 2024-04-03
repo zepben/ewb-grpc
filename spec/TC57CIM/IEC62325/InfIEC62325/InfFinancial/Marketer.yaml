@@ -7,16 +7,16 @@ associations:
 - source: Marketer
   target: EnergyProduct
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: ResoldBy_Marketer
-  targetCardinality: A Marketer may resell an EnergyProduct.
+  sourceName: ResoldBy_Marketer
+  sourceDescription: A Marketer may resell an EnergyProduct.
+  targetCardinality: 0..*
   targetName: Resells_EnergyProduct
   targetDescription: A Marketer may resell an EnergyProduct.
 - source: Marketer
   target: EnergyProduct
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: TitleHeldBy_Marketer
-  targetCardinality: A Marketer holds title to an EnergyProduct.
+  sourceName: TitleHeldBy_Marketer
+  sourceDescription: A Marketer holds title to an EnergyProduct.
+  targetCardinality: 0..*
   targetName: HoldsTitleTo_EnergyProducts
   targetDescription: A Marketer holds title to an EnergyProduct.

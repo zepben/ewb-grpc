@@ -62,10 +62,10 @@ associations:
 - source: SchedulingCoordinator
   target: LoadRatio
   sourceCardinality: 0..1
-  sourceName: "1"
-  sourceDescription: SchedulingCoordinator
+  sourceName: SchedulingCoordinator
+  targetCardinality: "1"
   targetName: LoadRatio
 - source: SchedulingCoordinator
   target: SchedulingCoordinatorUser
   sourceCardinality: "1"
-  sourceName: 0..*
+  targetCardinality: 0..*

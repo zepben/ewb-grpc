@@ -34,9 +34,9 @@ associations:
 - source: PendingCalculation
   target: IntervalBlock
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: PendingCalculation
-  targetCardinality: Pending calculation to apply to interval reading values contained by this block (after which the resulting
+  sourceName: PendingCalculation
+  sourceDescription: Pending calculation to apply to interval reading values contained by this block (after which the resulting
     reading type is different than the original because it reflects the conversion result).
+  targetCardinality: 0..*
   targetName: IntervalBlocks
   targetDescription: All blocks of interval reading values to which this pending conversion applies.

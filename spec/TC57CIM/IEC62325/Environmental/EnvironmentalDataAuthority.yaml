@@ -6,16 +6,16 @@ associations:
 - source: EnvironmentalDataAuthority
   target: AlertTypeList
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EnvironmentalDataAuthority
-  targetCardinality: The environmental data authority responsible for publishing this list of alert types.
+  sourceName: EnvironmentalDataAuthority
+  sourceDescription: The environmental data authority responsible for publishing this list of alert types.
+  targetCardinality: 0..*
   targetName: AlertTypeList
   targetDescription: A specific version of a list of alerts published by this environmental data authority.
 - source: EnvironmentalDataAuthority
   target: PhenomenonClassification
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: EnvironmentalDataAuthority
-  targetCardinality: Authority defining this environmental phenomenon.
+  sourceName: EnvironmentalDataAuthority
+  sourceDescription: Authority defining this environmental phenomenon.
+  targetCardinality: 0..*
   targetName: PhenomenonClassification
   targetDescription: Phenomenon classification defined by this environmental data authority.

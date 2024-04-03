@@ -20,16 +20,16 @@ associations:
 - source: UsagePointGroup
   target: EndDeviceControl
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: UsagePointGroups
-  targetCardinality: All usage point groups receiving commands from this end device control.
+  sourceName: UsagePointGroups
+  sourceDescription: All usage point groups receiving commands from this end device control.
+  targetCardinality: 0..*
   targetName: EndDeviceControls
   targetDescription: All end device controls sending commands to this usage point group.
 - source: UsagePointGroup
   target: DemandResponseProgram
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: UsagePointGroups
-  targetCardinality: All usage point groups enrolled in this demand response program.
+  sourceName: UsagePointGroups
+  sourceDescription: All usage point groups enrolled in this demand response program.
+  targetCardinality: 0..*
   targetName: DemandResponsePrograms
   targetDescription: All demand response programs this usage point group is enrolled in.

@@ -47,16 +47,16 @@ associations:
 - source: AssetInfo
   target: ProductAssetModel
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: AssetInfo
-  targetCardinality: Asset information (nameplate) for this product asset model.
+  sourceName: AssetInfo
+  sourceDescription: Asset information (nameplate) for this product asset model.
+  targetCardinality: 0..1
   targetName: ProductAssetModel
   targetDescription: Product asset model which conforms to this catalog asset type.
 - source: AssetInfo
   target: Asset
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: AssetInfo
-  targetCardinality: Data applicable to this asset.
+  sourceName: AssetInfo
+  sourceDescription: Data applicable to this asset.
+  targetCardinality: 0..*
   targetName: Assets
   targetDescription: All assets described by this data.

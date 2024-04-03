@@ -29,36 +29,36 @@ associations:
 - source: MeasurementValue
   target: MeasurementValueQuality
   sourceCardinality: "1"
-  sourceName: 0..1
-  sourceDescription: MeasurementValue
-  targetCardinality: A MeasurementValue has a MeasurementValueQuality associated with it.
+  sourceName: MeasurementValue
+  sourceDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
+  targetCardinality: 0..1
   targetName: MeasurementValueQuality
   targetDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
 - source: MeasurementValue
   target: MeasurementValueSource
   sourceCardinality: 0..*
-  sourceName: "1"
-  sourceDescription: MeasurementValues
-  targetCardinality: The MeasurementValues updated by the source.
+  sourceName: MeasurementValues
+  sourceDescription: The MeasurementValues updated by the source.
+  targetCardinality: "1"
   targetName: MeasurementValueSource
   targetDescription: A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc.
     User conventions for the names of sources are contained in the introduction to IEC 61970-301.
 - source: MeasurementValue
   target: OldPerson
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: MeasurementValues
+  sourceName: MeasurementValues
+  targetCardinality: 0..1
   targetName: ErpPerson
 - source: MeasurementValue
   target: ProcedureDataSet
   sourceCardinality: 0..*
-  sourceName: 0..*
-  sourceDescription: MeasurementValue
+  sourceName: MeasurementValue
+  targetCardinality: 0..*
   targetName: ProcedureDataSet
 - source: MeasurementValue
   target: CalculationMethodHierarchy
   sourceCardinality: 0..1
-  sourceName: 0..1
-  sourceDescription: MeasurementValue
-  targetCardinality: Measurement value to which this calculation method hierarchy applies.
+  sourceName: MeasurementValue
+  sourceDescription: Measurement value to which this calculation method hierarchy applies.
+  targetCardinality: 0..1
   targetName: CalculationMethodHierarchy

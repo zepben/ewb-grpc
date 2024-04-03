@@ -28,10 +28,10 @@ associations:
 - source: EnergyProduct
   target: EnergyTransaction
   sourceCardinality: "1"
-  sourceName: 1..*
-  sourceDescription: EnergyProduct
-  targetCardinality: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
+  sourceName: EnergyProduct
+  sourceDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
     this is a ServicePoint.
+  targetCardinality: 1..*
   targetName: EnergyTransactions
   targetDescription: The "Source" for an EnergyTransaction is an EnergyProduct which is injected into a ControlArea. Typically
     this is a ServicePoint.

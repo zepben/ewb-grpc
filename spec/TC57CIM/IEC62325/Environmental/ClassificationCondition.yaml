@@ -21,16 +21,16 @@ associations:
 - source: ClassificationCondition
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ClassificationCondition
-  targetCardinality: Classification condition which this analog helps define.
+  sourceName: ClassificationCondition
+  sourceDescription: Classification condition which this analog helps define.
+  targetCardinality: 0..*
   targetName: EnvironmentalAnalog
   targetDescription: Analog which contributes to the definition of this classification condition.
 - source: ClassificationCondition
   target: EnvironmentalStringMeasurement
   sourceCardinality: 0..1
-  sourceName: 0..*
-  sourceDescription: ClassificationCondition
-  targetCardinality: Classification condition which this string measurement helps define.
+  sourceName: ClassificationCondition
+  sourceDescription: Classification condition which this string measurement helps define.
+  targetCardinality: 0..*
   targetName: EnvironmentalStringMeasurement
   targetDescription: String measurement which contributes to the definition of this classification condition.

@@ -7,16 +7,16 @@ associations:
 - source: VoltageControlZone
   target: RegulationSchedule
   sourceCardinality: 0..*
-  sourceName: 0..1
-  sourceDescription: VoltageControlZones
-  targetCardinality: A VoltageControlZone may have a  voltage regulation schedule.
+  sourceName: VoltageControlZones
+  sourceDescription: A VoltageControlZone may have a  voltage regulation schedule.
+  targetCardinality: 0..1
   targetName: RegulationSchedule
   targetDescription: A VoltageControlZone may have a  voltage regulation schedule.
 - source: VoltageControlZone
   target: BusbarSection
   sourceCardinality: 0..1
-  sourceName: "1"
-  sourceDescription: VoltageControlZone
-  targetCardinality: A VoltageControlZone is controlled by a designated BusbarSection.
+  sourceName: VoltageControlZone
+  sourceDescription: A VoltageControlZone is controlled by a designated BusbarSection.
+  targetCardinality: "1"
   targetName: BusbarSection
   targetDescription: A VoltageControlZone is controlled by a designated BusbarSection.
