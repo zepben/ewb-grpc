@@ -3,3 +3,9 @@ description: An overcurrent protective device with a circuit opening fusible par
   of overcurrent through it. A fuse is considered a switching device because it breaks current.
 ancestors:
 - Switch
+associations:
+- source: Fuse
+  target: ProtectionRelayFunction
+  targetCardinality: 0..1
+  targetName: Function
+  targetDescription: The function implemented by this Fuse
