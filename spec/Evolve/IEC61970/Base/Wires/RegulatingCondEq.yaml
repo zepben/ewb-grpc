@@ -10,3 +10,12 @@ ancestors:
 descendents:
 - ShuntCompensator
 - PowerElectronicsConnection
+associations:
+- source: RegulatingCondEq
+  target: RegulatingControl
+  sourceCardinality: 1..*
+  sourceName: RegulatingCondEqs
+  sourceDescription: The equipment that participates in this regulating control scheme.
+  targetCardinality: 0..1
+  targetName: RegulatingControl
+  targetDescription: The regulating control scheme in which this equipment participates.

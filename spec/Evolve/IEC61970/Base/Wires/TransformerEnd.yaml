@@ -24,23 +24,12 @@ descendents:
 associations:
 - source: TransformerEnd
   target: Terminal
-  sourceCardinality: 0..*
-  sourceName: TransformerEnd
-  sourceDescription: All transformer ends connected at this terminal.
   targetCardinality: 0..1
   targetName: Terminal
   targetDescription: Terminal of the power transformer to which this transformer end belongs.
 - source: TransformerEnd
-  target: BaseVoltage
-  sourceCardinality: 0..*
-  sourceName: TransformerEnds
-  sourceDescription: Transformer ends at the base voltage.  This is essential for PU calculation.
-  targetCardinality: 0..1
-  targetName: BaseVoltage
-  targetDescription: Base voltage of the transformer end.  This is essential for PU calculation.
-- source: TransformerEnd
   target: RatioTapChanger
-  sourceCardinality: "1"
+  sourceCardinality: 0..1
   sourceName: TransformerEnd
   sourceDescription: Transformer end to which this ratio tap changer belongs.
   targetCardinality: 0..1
@@ -48,9 +37,6 @@ associations:
   targetDescription: Ratio tap changer associated with this transformer end.
 - source: TransformerEnd
   target: TransformerStarImpedance
-  sourceCardinality: 0..*
-  sourceName: TransformerEnd
-  sourceDescription: All transformer ends having this star impedance.
   targetCardinality: 0..1
   targetName: StarImpedance
   targetDescription: (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention,

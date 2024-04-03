@@ -26,12 +26,3 @@ associations:
   targetCardinality: 0..1
   targetName: TransformerEndInfo
   targetDescription: Transformer end datasheet used to calculate this transformer star impedance.
-- source: TransformerStarImpedance
-  target: TransformerEnd
-  sourceCardinality: 0..1
-  sourceName: StarImpedance
-  sourceDescription: (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention,
-    for a two winding transformer, the full values of the transformer should be entered on the high voltage end (endNumber=1).
-  targetCardinality: 0..*
-  targetName: TransformerEnd
-  targetDescription: All transformer ends having this star impedance.

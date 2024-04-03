@@ -32,6 +32,85 @@ attributes:
   type: PU
   description: Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection
     will trip or bypass.
+- name: inverterStandard
+  type: String
+  description: The standard this inverter follows, such as AS4777.2:2020
+- name: sustainOpOvervoltLimit
+  type: Integer
+  description: Indicates the sustained operation overvoltage limit in volts, when the average voltage for a 10-minute period exceeds the V¬nom-max.
+- name: stopAtOverFreq
+  type: Float
+  description: Over frequency (stop) in Hz. Permitted range is between 51 and 52 (inclusive)
+- name: stopAtUnderFreq
+  type: Float
+  description: Under frequency (stop) in Hz Permitted range is between 47 and 49 (inclusive)
+- name: invVoltWattRespMode
+  type: Boolean
+  description: Volt-Watt response mode allows an inverter to reduce is real power output depending on the measured voltage.
+   This mode is further described in AS4777.2:2015, section 6.3.2.2. True implies the mode is enabled.
+- name: invWattRespV1
+  type: Integer
+  description: Set point 1 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+- name: invWattRespV2
+  type: Integer
+  description: Set point 2 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+- name: invWattRespV3
+  type: Integer
+  description: Set point 3 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+- name: invWattRespV4
+  type: Integer
+  description:  Set point 4 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+- name: invWattRespPAtV1
+  type: Float
+  description: Power output set point 1 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+- name: invWattRespPAtV2
+  type: Float
+  description: Power output set point 2 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+- name: invWattRespPAtV3
+  type: Float
+  description: Power output set point 3 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+- name: invWattRespPAtV4
+  type: Float
+  description: Power output set point 4 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+- name: invVoltVarRespMode
+  type: Boolean
+  description: Volt-VAr response mode allows an inverter to consume (sink) or produce (source) reactive power depending on the measured voltage.
+    This mode is further described in AS4777.2:2015, section 6.3.2.3. True implies the mode is enabled.
+- name: invVarRespV1
+  type: Integer
+  description: Set point 1 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+- name: invVarRespV2
+  type: Integer
+  description: Set point 2 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+- name: invVarRespV3
+  type: Integer
+  description: Set point 3 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+- name: invVarRespV4
+  type: Integer
+  description: Set point 4 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+- name: invVarRespQAtV1
+  type: Float
+  description: Power output set point 1 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
+   negative number referring to a sink.
+- name: invVarRespQAtV2
+  type: Float
+  description: Power output set point 2 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
+   negative number referring to a sink.
+- name: invVarRespQAtV3
+  type: Float
+  description: Power output set point 3 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
+   negative number referring to a sink.
+- name: invVarRespQAtV4
+  type: Float
+  description: Power output set point 4 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
+   negative number referring to a sink.
+- name: invReactivePowerMode
+  type: Boolean
+  description: If true, enables Static Reactive Power mode on the inverter.
+- name: invFixReactivePower
+  type: Float
+  description: Static Reactive Power, specified in a percentage output of the system. Permitted range is between -1.0 and 1.0 (inclusive), with a negative
+    sign referring to “sink”.
 ancestors:
 - RegulatingCondEq
 associations:
@@ -41,7 +120,7 @@ associations:
   sourceName: PowerElectronicsConnection
   sourceDescription: Power electronics connection of this power electronics connection phase.
   targetCardinality: 0..*
-  targetName: PowerElectronicsConnectionPhase
+  targetName: Phases
   targetDescription: The individual phases models for the power electronics connection.
 - source: PowerElectronicsConnection
   target: PowerElectronicsUnit
@@ -49,5 +128,5 @@ associations:
   sourceName: PowerElectronicsConnection
   sourceDescription: A power electronics unit has a connection to the AC network.
   targetCardinality: 0..*
-  targetName: PowerElectronicsUnit
+  targetName: Units
   targetDescription: An AC network connection may have several power electronics units connecting through it.
