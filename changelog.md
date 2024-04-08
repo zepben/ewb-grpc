@@ -1,5 +1,22 @@
 # Zepben Protobuf and GRPC definitions
-## [0.27.0] - UNRELEASED
+## [0.28.0] - UNRELEASED
+### Breaking Changes
+* None.
+
+### New Features
+* None.
+
+### Enhancements
+* None.
+
+### Fixes
+* None.
+
+### Notes
+* None.
+
+
+## [0.27.0] - 20240408
 ### Breaking Changes
 * Removed `ProtectionEquipment`.
   * Change of inheritance: `CurrentRelay` &rarr; `ProtectionEquipment`.
@@ -39,7 +56,7 @@
 ### Notes
 * None.
 
-## [0.26.0] - UNRELEASED
+## [0.26.0] - 20231103
 ### Breaking Changes
 * None.
 
