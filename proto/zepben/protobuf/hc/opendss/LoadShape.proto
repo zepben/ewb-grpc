@@ -28,13 +28,18 @@ message LoadShape {
     double hrInterval = 2;
 
     /**
-     * The loadshapes values.
+     * The loadshapes P (real power) values.
      */
-    repeated float values = 3;
+    repeated float pValues = 3;
+
+    /**
+     * The loadshapes Q (reactive power) values.
+     */
+    repeated float qValues = 4;
 
     /**
      * Indication if the load shape needs to be normalised.
      */
-    bool normalise = 4;
+    bool normalise = 5;
 
 }

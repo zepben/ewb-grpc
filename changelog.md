@@ -24,6 +24,7 @@
   * Removed symmetric relation `ProtectionEquipment` &harr; `ProtectedSwitch`.
 * Renamed `CurrentRelayInfo` to `RelayInfo`.
 * Reworked values for enumerable type `ProtectionKind`.
+* `LoadShape`: added reactive power values to LoadShape.
 
 ### New Features
 * Added new messages and fields to support advanced modelling of protection relays:
