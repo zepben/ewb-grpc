@@ -43,7 +43,7 @@ jobs:
           /scripts/finalize-version.sh --csharp --no-commit cs/evolve-grpc.csproj
           commit_finalize_version
           version=$(xmlstarlet pyx java/pom.xml | grep -v ^A | xmlstarlet p2x | xmlstarlet sel -t -v "/project/version")
-          echo "::set-output name=release-version::$(echo $version)"
+          echo "release-version=$(echo $version)" >> ${GITHUB_OUTPUT}
         shell: bash
 
   java-deploy:
@@ -76,7 +76,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: java
           path: ${{ steps.deploy.outputs.artifact-path }}
@@ -119,6 +119,7 @@ jobs:
           echo "\n" >> ~/.pypirc
 
       - name: Deploy Python
+        id: deploy
         run: |
           echo "Show pypirc"
           cat ~/.pypirc
@@ -128,17 +129,20 @@ jobs:
           python build.py --fullclean
           python build.py --package
           twine upload --verbose --non-interactive --config-file ~/.pypirc dist/*
+
+          # Output artifact-path to ENV
           artifact="zepben.protobuf-${VERSION}-py3-none-any.whl"
-          echo "::set-output name=artifact::$(echo $artifact)"
-          echo "::set-output name=artifact-path::$(echo python/dist/$artifact)"
+          echo "artifact-path=$(echo python/dist/$artifact)" >> ${GITHUB_ENV}
+          # and 'artifact' to OUTPUT
+          echo "artifact=$(echo $artifact)" >> ${GITHUB_OUTPUT} 
         shell: bash
         continue-on-error: true
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python
-          path: ${{ steps.deploy.outputs.artifact-path }}
+          path: ${{ env.artifact-path }}
         continue-on-error: true
 
 
@@ -177,17 +181,18 @@ jobs:
           dotnet restore evolve-grpc.csproj --configfile Nuget.Config
           dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
           dotnet nuget push *.nupkg -k $ZEPBEN_NUGET_UPLOAD_KEY -s $ZEPBEN_NUGET_UPLOAD_FEED
+
           artifact="Zepben.Evolve.Grpc.${VERSION}.nupkg"
-          echo "::set-output name=artifact::$(echo $artifact)"
-          echo "::set-output name=artifact-path::$(echo cs/$artifact)"
+          echo "artifact-path=$(echo cs/$artifact)" >> ${GITHUB_ENV}
+          echo "artifact=$(echo $artifact)" >> ${GITHUB_OUTPUT}
         shell: bash
         continue-on-error: true
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: csharp
-          path: ${{ steps.deploy.outputs.artifact-path }}
+          path: ${{ env.artifact-path }}
         continue-on-error: true
 
   finalise:
@@ -224,21 +229,21 @@ jobs:
           version=$(xmlstarlet pyx pom.xml | grep -v ^A | xmlstarlet p2x | xmlstarlet sel -t -v "/project/version")
           git tag "v$version"
           git push --tags
-          echo "::set-output name=tag::$(echo v$version)"
+          echo "tag=$(echo v$version)" >> ${GITHUB_ENV}
         shell: bash
 
       - name: Download java artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: java
 
       - name: Download csharp artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: csharp
 
       - name: Download python artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python
                   
@@ -249,7 +254,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.merge.outputs.tag }}
+          tag_name: ${{ env.tag }}
           body_path: changelog.md
           draft: false
           prerelease: false
