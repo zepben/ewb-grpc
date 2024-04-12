@@ -1,0 +1,20 @@
+name: ConstraintTerm
+description: A constraint term is one element of a linear constraint.
+attributes:
+- name: factor
+  type: String
+- name: function
+  type: String
+  description: The function is an enumerated value that can be 'active', 'reactive', or 'VA' to indicate the type of flow.
+ancestors:
+- IdentifiedObject
+descendents:
+- NodeConstraintTerm
+- TerminalConstraintTerm
+associations:
+- source: ConstraintTerm
+  target: SecurityConstraintSum
+  sourceCardinality: 0..*
+  sourceName: ConstraintTerms
+  targetCardinality: "1"
+  targetName: SecurityConstraintSum

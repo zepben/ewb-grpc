@@ -1,0 +1,92 @@
+name: OilAnalysisFluidAnalogKind
+description: Analogs representing oil fluid test analysis result.
+attributes:
+- name: acidNumber
+  description: Acid neutralization number (in milligram of KOH/gram).
+- name: interfacialTension
+  description: Interfacial tension (in dyne/centimetre or milliNewton/metre, which are the same).
+- name: dielectricBreakdown
+  description: Dielectric breakdown, for electrode gap size and temperature specified by selected standard  (in kV).
+- name: powerFactorPercent
+  description: 'Fluid power factor at specified temperature (in percent). Commonly used in US. (Note: Fluid power factor is
+    very similar to fluid dissapation factor, but fluid power factor is cosine of the phase angle between an AC voltage applied
+    to oil and the resulting current (where dissipation factor is the tangent). For values up to 0.005, fluid power factor
+    and dissapation factor are very close. There is a conversion equation between the two).'
+- name: dissipationFactor
+  description: Fluid dissipation factor in absolute value, not a percentage. (Multiplying this value by 100 would result in
+    dissipation factor percent).
+- name: dissipationFactorPercent
+  description: Fluid dissipation factor (in percent). Commonly used in Asia. Dissipation factor is also known as loss factor
+    or tan delta.
+- name: oxidationInhibitorDBP
+  description: 2,6-ditertiary-butyl phenol (DBP) oxidation inhibitor concentration (in percent by weight).
+- name: oxidationInhibitorDBPC
+  description: 2,6-ditertiarybutyl para-cresol (DBPC) oxidation inhibitor concentration (in percent by weight).
+- name: oxidationInhibitorD2668
+  description: 2,6-ditertiary-butyl para-cresol and 2,6-ditertiary-butyl phenol concentration (in percent by weight).
+- name: additiveDBDS
+  description: Dibenzyl disulfide (DBDS) concentration (in ppm, specificially in milligram/kilogram).
+- name: specificGravity
+  description: Specific gravity corrected to 15°C. Also known as relative density. It is a ratio of density of tested oil
+    to density of water at a specific temperature.
+- name: density
+  description: Density (in gram/millilitre).
+- name: firePoint
+  description: Fire point (in °C). Fire point is when fire is sustained (oil catches fire). Can only be done by means of open
+    cup test, which is commonly used in US.
+- name: flashPointOpenCup
+  description: Flash point (in °C) determined via open cup test. Flash point occurs when enough vapors have accumulated to
+    sustain a flash. Open cup is used in US.
+- name: flashPointClosedCup
+  description: Flash point (in °C) determined via closed cup test. Flash point occurs when enough vapors have accumulated
+    to sustain a flash. Closed cup is used in Europe.
+- name: pourPoint
+  description: Pour point (in °C). The pour point of a liquid is the temperature at which it becomes semi solid and loses
+    its flow characteristics.
+- name: pourPointAutomatic
+  description: Pour point (in °C) determined by automatic method. The pour point of a liquid is the temperature at which it
+    becomes semi solid and loses its flow characteristics.
+- name: kinematicViscosity
+  description: Kinematic viscosity (in millimetre2/second). Kinematic viscosity is the ratio of - absolute (or dynamic) viscosity
+    to density.
+- name: staticElectrification
+  description: Static electrification tendency (in microcoulombs per metre3). Also called static charging tendency and electrostatic
+    charging tendency (ECT).
+- name: resistivity
+  description: Resistivity at 90°C (in gigohm-metre).
+- name: passivatorContent
+  description: Total passivator content (in milligram/kilogram).
+- name: passivatorIrgamet39
+  description: Irgamet 39 metal passivator content (in ppm, specifically milligram/kilogram).
+- name: passivatorTTA
+  description: Metal passivator TTA (Irgamet39 in solid form) content (in milligram/kilogram).
+- name: passivatorBTA
+  description: Metal passivator BTA content (in milligram/kilogram).
+- name: sedimentAndSludgePercent
+  description: Sediment and sludge (in percent).
+- name: carbonyl
+  description: Concentration of carbonyl compounds (aldehydes and ketones) determined using infrared spectroscopy (in percent).
+- name: aromatics
+  description: Concentration of aromatic compounds determined using infrared spectroscopy (in percent).
+- name: oxidation
+  description: Measure of oxidation stability (in hours).
+- name: sludge
+  description: Sludge (in percent by mass). Typically performed on new oil,but can be done on used oil.
+- name: solubleAcids
+  description: Soluble acids  (in milligram of KOH/gram). Typically performed on new oil,but can be done on used oil.
+- name: volatileAcids
+  description: Volatile acids (in milligram of KOH/gram). Typically performed on new oil,but can be done on used oil.
+- name: totalAcids
+  description: Total acids (soluble plus volatile) (in milligram of KOH/gram). Typically performed on new oil,but can be done
+    on used oil.
+- name: inductionTime
+  description: Oxidation induction time (in hours). Typically performed on new oil,but can be done on used oil.
+- name: inhibitor61125MethodC
+  description: Amount of inhibitor used in oxidation stablity test performed according to IEC 61125, method C. This value
+    should accompany values resulting from testing according to IEC 61125, method  C to allow interpretation.
+- name: duration61125MethodC
+  description: 'Duration of oxidation stablity test performed according to IEC 61125, method C. This value should accompany
+    values resulting from testing according to IEC 61125, method C to allow interpretation. Standard specified values are:
+    164, 332, and 500, but others can be used if agreed upon.'
+- name: petroleumOrigin
+  description: Characterization of the carbon-type composition of insulating oils by petroleum origin.

@@ -1,0 +1,22 @@
+name: LoadFollowingInst
+description: Metered SubSystem Load Following Instruction.
+attributes:
+- name: endTime
+  type: DateTime
+  description: Instruction End Time
+- name: loadFollowingMW
+  type: Float
+  description: Load Following MW Positive for follow-up and negative for follow-down
+- name: mssInstructionID
+  type: String
+  description: Unique instruction id per instruction, assigned by the SC and provided to ADS. ADS passes through.
+- name: startTime
+  type: DateTime
+  description: Instruction Start Time
+associations:
+- source: LoadFollowingInst
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: LoadFollowingInst
+  targetCardinality: "1"
+  targetName: RegisteredResource

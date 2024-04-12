@@ -1,0 +1,26 @@
+name: ShuntCompensatorDynamicData
+description: Optimal Power Flow or State Estimator Filter Bank Data for OTS. This is used for RealTime, Study and Maintenance
+  Users.
+attributes:
+- name: connectionStatus
+  type: Integer
+  description: The current status for the Voltage Control Capacitor 1= Connected 0 = Disconnected
+- name: desiredVoltage
+  type: Float
+  description: The desired voltage for the Voltage Control Capacitor
+- name: mVARInjection
+  type: Float
+  description: The injection of reactive power of the filter bank in the NA solution or VCS reactive power production
+- name: stepPosition
+  type: Integer
+  description: Voltage control capacitor step position
+- name: voltageRegulationStatus
+  type: Boolean
+  description: Indicator if the voltage control this is regulating True = Yes, False = No
+associations:
+- source: ShuntCompensatorDynamicData
+  target: MktShuntCompensator
+  sourceCardinality: 0..*
+  sourceName: ShuntCompensatorDynamicData
+  targetCardinality: "1"
+  targetName: MktShuntCompensator

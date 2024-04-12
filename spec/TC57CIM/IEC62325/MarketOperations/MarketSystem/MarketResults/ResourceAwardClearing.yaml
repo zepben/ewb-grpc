@@ -1,0 +1,24 @@
+name: ResourceAwardClearing
+description: Models details of bid and offer market clearing. Class indicates whether a contingency is active and whether
+  the automatic dispatching system is active for this interval of the market solution.
+attributes:
+- name: contingencyActive
+  type: YesNo
+  description: Indication that the system is currently operating in a contingency mode.
+- name: dispatchMode
+  type: AutomaticDispatchMode
+ancestors:
+- MarketFactors
+associations:
+- source: ResourceAwardClearing
+  target: RUCAwardInstruction
+  sourceCardinality: 1..*
+  sourceName: ClearingResourceAward
+  targetCardinality: 1..*
+  targetName: RUCAwardInstruction
+- source: ResourceAwardClearing
+  target: ResourceAwardInstruction
+  sourceCardinality: 1..*
+  sourceName: ClearingResourceAward
+  targetCardinality: 1..*
+  targetName: ResourceAwardInstruction

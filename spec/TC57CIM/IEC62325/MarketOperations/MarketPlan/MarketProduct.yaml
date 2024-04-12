@@ -1,0 +1,73 @@
+name: MarketProduct
+description: 'A product traded by an RTO (e.g. energy, 10 minute spinning reserve).  Ancillary service product examples include:
+  Regulation, Regulation Up, Regulation Down, Spinning Reserve, Non-Spinning Reserve, etc.'
+attributes:
+- name: marketProductType
+  type: MarketProductType
+  description: |-
+    Market product type examples:
+
+    EN (Energy)
+    RU (Regulation Up)
+    RD (Regulation Dn)
+    SR (Spinning Reserve)
+    NR (Non-Spinning Reserve)
+    RC (RUC)
+- name: rampInterval
+  type: Float
+  description: Ramping time interval for the specific market product type specified by marketProductType attribute. For example,
+    if marketProductType = EN (from enumeration MarketProductType), then the rampInterval is the ramping time interval for
+    Energy.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MarketProduct
+  target: ProductBid
+  sourceCardinality: "1"
+  sourceName: MarketProduct
+  targetCardinality: 0..*
+  targetName: ProductBids
+- source: MarketProduct
+  target: ResourceAwardInstruction
+  sourceCardinality: "1"
+  sourceName: MarketProduct
+  targetCardinality: 0..*
+  targetName: ResourceAwardInstruction
+- source: MarketProduct
+  target: BidError
+  sourceCardinality: 0..1
+  sourceName: MarketProduct
+  targetCardinality: 0..*
+  targetName: BidError
+- source: MarketProduct
+  target: BidPriceCap
+  sourceCardinality: 0..1
+  sourceName: MarketProduct
+  targetCardinality: 0..*
+  targetName: BidPriceCap
+- source: MarketProduct
+  target: MarketRegionResults
+  sourceCardinality: 0..1
+  sourceName: MarketProduct
+  targetCardinality: 0..1
+  targetName: MarketRegionResults
+- source: MarketProduct
+  target: Market
+  sourceCardinality: 1..*
+  sourceName: MarketProducts
+  targetCardinality: 0..1
+  targetName: Market
+- source: MarketProduct
+  target: ReserveReq
+  sourceCardinality: "1"
+  sourceName: MarketProduct
+  sourceDescription: Market product associated with reserve requirement must be a reserve or regulation product.
+  targetCardinality: 0..*
+  targetName: ReserveReqs
+  targetDescription: Market product associated with reserve requirement must be a reserve or regulation product.
+- source: MarketProduct
+  target: CommodityDefinition
+  sourceCardinality: "1"
+  sourceName: MarketProduct
+  targetCardinality: 0..*
+  targetName: CommodityDefinition

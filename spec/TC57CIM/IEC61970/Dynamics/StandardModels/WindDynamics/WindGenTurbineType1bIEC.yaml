@@ -1,0 +1,16 @@
+name: WindGenTurbineType1bIEC
+description: |-
+  Wind turbine IEC type 1B.
+
+  Reference: IEC 61400-27-1:2015, 5.5.2.3.
+ancestors:
+- WindTurbineType1or2IEC
+associations:
+- source: WindGenTurbineType1bIEC
+  target: WindPitchContPowerIEC
+  sourceCardinality: 0..1
+  sourceName: WindGenTurbineType1bIEC
+  sourceDescription: Wind turbine type 1B model with which this pitch control power model is associated.
+  targetCardinality: "1"
+  targetName: WindPitchContPowerIEC
+  targetDescription: Pitch control power model associated with this wind turbine type 1B model.

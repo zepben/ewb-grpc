@@ -1,0 +1,22 @@
+name: StatisticalCalculation
+description: Description of statistical calculation performed.
+attributes:
+- name: calculationMode
+  type: CalculationModeKind
+  description: Calculation mode.
+- name: calculationTechnique
+  type: CalculationTechniqueKind
+  description: Kind of statistical calculation, specifying how the measurement value is calculated.
+ancestors:
+- IdentifiedObject
+descendents:
+- PeriodicStatisticalCalculation
+associations:
+- source: StatisticalCalculation
+  target: CalculationMethodOrder
+  sourceCardinality: "1"
+  sourceName: StatisicalCalculation
+  sourceDescription: The statistical calculation done at this order.
+  targetCardinality: 0..*
+  targetName: CalculationMethodOrder
+  targetDescription: The order in which this statistical calculation is done.

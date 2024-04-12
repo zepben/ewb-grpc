@@ -1,0 +1,32 @@
+name: MarketResults
+description: This class holds elements that are single values for the entire market time horizon. That is, for the Day Ahead
+  market, there is 1 value for each element, not hourly based.  Is a summary of the market run.
+attributes:
+- name: ancillarySvcCost
+  type: Float
+  description: Total  AS Cost (i.e., payment) ($) over the time horizon
+- name: contingentOperatingResAvail
+  type: YesNo
+  description: Global Contingent Operating Reserve Availability Indicator (Yes/No)
+- name: energyCost
+  type: Float
+  description: Total Energy Cost ($) over the time horizon
+- name: minimumLoadCost
+  type: Float
+  description: Total Minimum Load Cost ($) over the time horizon
+- name: startUpCost
+  type: Float
+  description: Total Start-up Cost ($) over the time horizon
+- name: totalCost
+  type: Float
+  description: Total Cost (Energy + AS) cost ($) by over the time horizon
+- name: totalRucCost
+  type: Float
+  description: The total RUC capacity cost for this interval
+associations:
+- source: MarketResults
+  target: EnergyMarket
+  sourceCardinality: 0..1
+  sourceName: MarketResults
+  targetCardinality: "1"
+  targetName: EnergyMarket

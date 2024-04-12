@@ -1,0 +1,18 @@
+name: EndDeviceEventDetail
+description: Name-value pair, specific to end device events.
+attributes:
+- name: name
+  type: String
+  description: Name.
+- name: value
+  type: StringQuantity
+  description: Value, including unit information.
+associations:
+- source: EndDeviceEventDetail
+  target: EndDeviceEvent
+  sourceCardinality: 0..*
+  sourceName: EndDeviceEventDetails
+  sourceDescription: All details of this end device event.
+  targetCardinality: 0..1
+  targetName: EndDeviceEvent
+  targetDescription: End device owning this detail.

@@ -1,0 +1,41 @@
+name: RampRateCurve
+description: Ramp rate as a function of resource MW output.
+attributes:
+- name: condition
+  type: RampRateCondition
+  description: condition for the ramp rate
+- name: constraintRampType
+  type: ConstraintRampType
+  description: "The condition that identifies whether a Generating Resource should be constrained from Ancillary Service provision\
+    \ if its Schedule or Dispatch change across Trading Hours or Trading Intervals requires more than a specified fraction\
+    \ of the duration of the Trading Hour or Trading Interval. \n\nValid values are Fast/Slow"
+- name: rampRateType
+  type: RampRateType
+  description: How ramp rate is applied (e.g. raise or lower, as when applied to a generation resource)
+ancestors:
+- Curve
+associations:
+- source: RampRateCurve
+  target: GeneratingBid
+  sourceCardinality: 0..*
+  sourceName: RampRateCurve
+  targetCardinality: 0..1
+  targetName: GeneratingBid
+- source: RampRateCurve
+  target: LoadBid
+  sourceCardinality: 0..*
+  sourceName: RampRateCurve
+  targetCardinality: 0..1
+  targetName: LoadBid
+- source: RampRateCurve
+  target: InterTieBid
+  sourceCardinality: 0..*
+  sourceName: RampRateCurve
+  targetCardinality: 0..1
+  targetName: InterTieBid
+- source: RampRateCurve
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: RampRateCurve
+  targetCardinality: 0..*
+  targetName: RegisteredResource

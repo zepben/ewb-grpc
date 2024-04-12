@@ -1,0 +1,24 @@
+name: Circuit
+ancestors:
+- Line
+associations:
+- source: Circuit
+  target: Terminal
+  targetCardinality: 0..*
+  targetName: EndTerminals
+- source: Circuit
+  target: Substation
+  sourceCardinality: 0..*
+  sourceName: Circuits
+  sourceDescription: Simplification of the CIM association via Bay to Substation
+  targetCardinality: 0..*
+  targetName: EndSubstations
+  targetDescription: Simplification of the CIM association via Bay to Circuit
+- source: Circuit
+  target: Loop
+  sourceCardinality: 0..*
+  sourceName: Circuits
+  sourceDescription: Sub-transmission circuits that form part of this loop.
+  targetCardinality: 0..1
+  targetName: Loop
+  targetDescription: The loop containing this circuit.

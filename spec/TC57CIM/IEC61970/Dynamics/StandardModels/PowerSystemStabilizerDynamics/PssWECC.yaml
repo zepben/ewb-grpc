@@ -1,0 +1,64 @@
+name: PssWECC
+description: Dual input power system stabilizer, based on IEEE type 2, with modified output limiter defined by WECC (Western
+  Electricity Coordinating Council, USA).
+attributes:
+- name: inputSignal1Type
+  type: InputSignalKind
+  description: 'Type of input signal #1 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower,
+    generatorAcceleratingPower, busVoltage, or busVoltageDerivative - shall be different than PssWECC.inputSignal2Type).  Typical
+    value = rotorAngularFrequencyDeviation.'
+- name: inputSignal2Type
+  type: InputSignalKind
+  description: 'Type of input signal #2 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower,
+    generatorAcceleratingPower, busVoltage, busVoltageDerivative - shall be different than PssWECC.inputSignal1Type).  Typical
+    value = busVoltageDerivative.'
+- name: k1
+  type: PU
+  description: Input signal 1 gain (<i>K</i><i><sub>1</sub></i>).  Typical value = 1,13.
+- name: k2
+  type: PU
+  description: Input signal 2 gain (<i>K</i><i><sub>2</sub></i>).  Typical value = 0,0.
+- name: t1
+  type: Seconds
+  description: Input signal 1 transducer time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).  Typical value = 0,037.
+- name: t10
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>10</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: t2
+  type: Seconds
+  description: Input signal 2 transducer time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).  Typical value = 0,0.
+- name: t3
+  type: Seconds
+  description: Stabilizer washout time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).  Typical value = 9,5.
+- name: t4
+  type: Seconds
+  description: Stabilizer washout time lag constant (<i>T</i><i><sub>4</sub></i>) (&gt;= 0).  Typical value = 9,5.
+- name: t5
+  type: Seconds
+  description: Lead time constant (<i>T</i><i><sub>5</sub></i>) (&gt;= 0).  Typical value = 1,7.
+- name: t6
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>6</sub></i>) (&gt;= 0).  Typical value = 1,5.
+- name: t7
+  type: Seconds
+  description: Lead time constant (<i>T</i><i><sub>7</sub></i>) (&gt;= 0).  Typical value = 1,7.
+- name: t8
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>8</sub></i>) (&gt;= 0).  Typical value = 1,5.
+- name: t9
+  type: Seconds
+  description: Lead time constant (<i>T</i><i><sub>9</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: vcl
+  type: PU
+  description: Minimum value for voltage compensator output (<i>V</i><i><sub>CL</sub></i>). Typical value = 0.
+- name: vcu
+  type: PU
+  description: Maximum value for voltage compensator output (<i>V</i><i><sub>CU</sub></i>). Typical value = 0.
+- name: vsmax
+  type: PU
+  description: Maximum output signal (<i>Vsmax</i>) (&gt; PssWECC.vsmin). Typical value = 0,05.
+- name: vsmin
+  type: PU
+  description: Minimum output signal (<i>Vsmin</i>) (&lt; PssWECC.vsmax).  Typical value = -0,05.
+ancestors:
+- PowerSystemStabilizerDynamics

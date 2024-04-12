@@ -1,0 +1,53 @@
+name: ProtectionEquipment
+description: An electrical device designed to respond to input conditions in a prescribed manner and after specified conditions
+  are met to cause contact operation or similar abrupt change in associated electric control circuits, or simply to display
+  the detected condition. Protection equipment is associated with conducting equipment and usually operate circuit breakers.
+attributes:
+- name: highLimit
+  type: Float
+  description: The maximum allowable value.
+- name: lowLimit
+  type: Float
+  description: The minimum allowable value.
+- name: powerDirectionFlag
+  type: Boolean
+  description: Direction same as positive active power flow value.
+- name: relayDelayTime
+  type: Seconds
+  description: The time delay from detection of abnormal conditions to relay operation.
+- name: unitMultiplier
+  type: UnitMultiplier
+  description: The unit multiplier of the value.
+- name: unitSymbol
+  type: UnitSymbol
+  description: The unit of measure of the value.
+ancestors:
+- Equipment
+descendents:
+- SynchrocheckRelay
+- CurrentRelay
+associations:
+- source: ProtectionEquipment
+  target: ProtectedSwitch
+  sourceCardinality: 0..*
+  sourceName: OperatedByProtectionEquipment
+  sourceDescription: Protection equipments that operate this ProtectedSwitch.
+  targetCardinality: 0..*
+  targetName: ProtectedSwitches
+  targetDescription: Protected switches operated by this ProtectionEquipment.
+- source: ProtectionEquipment
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  sourceName: ProtectionEquipments
+  sourceDescription: Protection equipment  used to protect specific conducting equipment.
+  targetCardinality: 0..*
+  targetName: ConductingEquipments
+  targetDescription: Protection equipment may be used to protect specific conducting equipment.
+- source: ProtectionEquipment
+  target: ProtectiveAction
+  sourceCardinality: 0..1
+  sourceName: ProtectionEquipment
+  targetCardinality: 0..*
+  targetName: ProtectiveAction
+  targetDescription: Protective action can emulate the action done by one or more protection equipment. In a node breaker
+    model were protective equipment is model this association will be used.

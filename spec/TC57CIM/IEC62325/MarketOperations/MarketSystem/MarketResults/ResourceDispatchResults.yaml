@@ -1,0 +1,66 @@
+name: ResourceDispatchResults
+description: The ResourceDispatchResults class provides market results that can be provided to a SC. The specific data provided
+  consists of several indicators such as contingency flags, blocked start up, and RMR dispatch. It also provides the projected
+  overall and the regulating status of the resource.
+attributes:
+- name: blockedDispatch
+  type: String
+  description: Blocked Dispatch Indicator (Yes/No)
+- name: blockedPublishDOP
+  type: String
+  description: Block sending DOP to ADS (Y/N)
+- name: contingencyFlag
+  type: YesNo
+  description: Contingent Operating Reserve Indicator (Yes/No).  Resource participating with AS capacity in contingency dispatch.
+- name: limitIndicator
+  type: String
+  description: indicate which limit is the constraints
+- name: lowerLimit
+  type: Float
+  description: resource energy ramping lower limit
+- name: maxRampRate
+  type: Float
+  description: maximum ramp rate
+- name: operatingLimitHigh
+  type: Float
+  description: The upper operating limit incorporating any derate used by the RTD for the Binding Interval.
+- name: operatingLimitLow
+  type: Float
+  description: The lower operating limit incorporating any derate used by the RTD for the Binding Interval.
+- name: penaltyDispatchIndicator
+  type: YesNo
+  description: Penalty Dispatch Indicator (Yes / No) indicating an un-economic adjustment.
+- name: regulatingLimitHigh
+  type: Float
+  description: The upper regulating limit incorporating any derate used by the RTD for the Binding Interval.
+- name: regulatingLimitLow
+  type: Float
+  description: The lower regulating limit incorporating any derate used by the RTD for the Binding Interval.
+- name: resourceStatus
+  type: String
+  description: Unit Commitment Status (On/Off/Starting)
+- name: totalSchedule
+  type: Float
+  description: Resource total upward schedule.  total schedule = En + all AS per resource per interval
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+- name: upperLimit
+  type: Float
+  description: resource energy ramping upper limit
+associations:
+- source: ResourceDispatchResults
+  target: ResourceClearing
+  sourceCardinality: 1..*
+  sourceName: ResourceDispatchResults
+  targetCardinality: 0..1
+  targetName: ResourceClearing
+- source: ResourceDispatchResults
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: ResourceDispatchResults
+  targetCardinality: 0..1
+  targetName: RegisteredResource

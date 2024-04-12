@@ -1,0 +1,25 @@
+name: IOPoint
+description: The class describe a measurement or control value. The purpose is to enable having attributes and associations
+  common for measurement and control.
+ancestors:
+- IdentifiedObject
+descendents:
+- MeasurementValue
+- Control
+associations:
+- source: IOPoint
+  target: ProvidedBilateralPoint
+  sourceCardinality: 0..1
+  sourceName: IOPoint
+  sourceDescription: Measurement or control for the bilateral ICCP point.
+  targetCardinality: 0..*
+  targetName: BilateralToIOPoint
+  targetDescription: Bilateral ICCP point for the measurement or control.
+- source: IOPoint
+  target: IOPointSource
+  sourceCardinality: 0..*
+  sourceName: IOPoint
+  sourceDescription: ICCP point for a local measurement value source.
+  targetCardinality: 0..1
+  targetName: IOPointSource
+  targetDescription: Local merasurement value source for an ICCP point.

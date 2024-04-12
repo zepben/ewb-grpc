@@ -1,0 +1,40 @@
+name: CRRSegment
+description: "CRRSegment represents a segment of a CRR in a particular time frame. \n\nThe segment class contains amount,\
+  \ clearing price, start date and time, end date and time."
+attributes:
+- name: amount
+  type: Money
+  description: Dollar amount = quantity x clearingPrice
+- name: clearingPrice
+  type: Money
+  description: Clearing price of a CRR
+- name: endDateTime
+  type: DateTime
+  description: segment end date time
+- name: quantity
+  type: Float
+  description: The MW amount associated with the CRR
+- name: startDateTime
+  type: DateTime
+  description: segment start date time
+ancestors:
+- IdentifiedObject
+associations:
+- source: CRRSegment
+  target: Pnode
+  sourceCardinality: 0..*
+  sourceName: SourceCRRSegment
+  targetCardinality: 0..*
+  targetName: Source
+- source: CRRSegment
+  target: Pnode
+  sourceCardinality: 0..*
+  sourceName: SinkCRRSegment
+  targetCardinality: 0..*
+  targetName: Sink
+- source: CRRSegment
+  target: CongestionRevenueRight
+  sourceCardinality: 1..*
+  sourceName: CRRSegment
+  targetCardinality: "1"
+  targetName: CongestionRevenueRight

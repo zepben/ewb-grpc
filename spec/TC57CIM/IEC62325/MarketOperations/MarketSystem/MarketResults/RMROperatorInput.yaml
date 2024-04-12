@@ -1,0 +1,22 @@
+name: RMROperatorInput
+description: RMR Operator's entry of the RMR requirement per market interval.
+attributes:
+- name: manuallySchedRMRMw
+  type: Float
+  description: The lower of the original pre-dispatch or the AC run schedule (Also known as the RMR Reguirement) becomes the
+    pre-dispatch value.
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+ancestors:
+- MarketFactors
+associations:
+- source: RMROperatorInput
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: RMROperatorInput
+  targetCardinality: 0..1
+  targetName: RegisteredResource

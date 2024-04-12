@@ -1,0 +1,214 @@
+name: PssIEEE4B
+description: "IEEE 421.5-2005 type PSS4B power system stabilizer. The PSS4B model represents a structure based on multiple\
+  \ working frequency bands. Three separate bands, respectively dedicated to the low-, intermediate- and high-frequency modes\
+  \ of oscillations, are used in this delta omega (speed input) PSS.\nThere is an error in the in IEEE 421.5-2005 PSS4B model:\
+  \ the <i>Pe</i> input should read –<i>Pe</i>. This implies that the input <i>Pe</i> needs to be multiplied by -1.\nReference:\
+  \ IEEE 4B 421.5-2005, 8.4. \nParameter details:\nThis model has 2 input signals. They have the following fixed types (expressed\
+  \ in terms of InputSignalKind values): the first one is of rotorAngleFrequencyDeviation type and the second one is of generatorElectricalPower\
+  \ type."
+attributes:
+- name: bwh1
+  type: Float
+  description: 'Notch filter 1 (high-frequency band): three dB bandwidth (<i>B</i><i><sub>wi</sub></i>).'
+- name: bwh2
+  type: Float
+  description: 'Notch filter 2 (high-frequency band): three dB bandwidth (<i>B</i><i><sub>wi</sub></i>).'
+- name: bwl1
+  type: Float
+  description: 'Notch filter 1 (low-frequency band): three dB bandwidth (<i>B</i><i><sub>wi</sub></i>).'
+- name: bwl2
+  type: Float
+  description: 'Notch filter 2 (low-frequency band): three dB bandwidth (<i>B</i><i><sub>wi</sub></i>).'
+- name: kh
+  type: PU
+  description: High band gain (<i>K</i><i><sub>H</sub></i>).  Typical value = 120.
+- name: kh1
+  type: PU
+  description: High band differential filter gain (<i>K</i><i><sub>H1</sub></i>).  Typical value = 66.
+- name: kh11
+  type: PU
+  description: High band first lead-lag blocks coefficient (<i>K</i><i><sub>H11</sub></i>).  Typical value = 1.
+- name: kh17
+  type: PU
+  description: High band first lead-lag blocks coefficient (<i>K</i><i><sub>H17</sub></i>).  Typical value = 1.
+- name: kh2
+  type: PU
+  description: High band differential filter gain (<i>K</i><i><sub>H2</sub></i>).  Typical value = 66.
+- name: ki
+  type: PU
+  description: Intermediate band gain (<i>K</i><i><sub>I</sub></i>).  Typical value = 30.
+- name: ki1
+  type: PU
+  description: Intermediate band differential filter gain (<i>K</i><i><sub>I1</sub></i>).  Typical value = 66.
+- name: ki11
+  type: PU
+  description: Intermediate band first lead-lag blocks coefficient (<i>K</i><i><sub>I11</sub></i>).  Typical value = 1.
+- name: ki17
+  type: PU
+  description: Intermediate band first lead-lag blocks coefficient (<i>K</i><i><sub>I17</sub></i>).  Typical value = 1.
+- name: ki2
+  type: PU
+  description: Intermediate band differential filter gain (<i>K</i><i><sub>I2</sub></i>).  Typical value = 66.
+- name: kl
+  type: PU
+  description: Low band gain (<i>K</i><i><sub>L</sub></i>).  Typical value = 7.5.
+- name: kl1
+  type: PU
+  description: Low band differential filter gain (<i>K</i><i><sub>L1</sub></i>).  Typical value = 66.
+- name: kl11
+  type: PU
+  description: Low band first lead-lag blocks coefficient (<i>K</i><i><sub>L11</sub></i>).  Typical value = 1.
+- name: kl17
+  type: PU
+  description: Low band first lead-lag blocks coefficient (<i>K</i><i><sub>L17</sub></i>).  Typical value = 1.
+- name: kl2
+  type: PU
+  description: Low band differential filter gain (<i>K</i><i><sub>L2</sub></i>).  Typical value = 66.
+- name: omeganh1
+  type: Float
+  description: 'Notch filter 1 (high-frequency band): filter frequency (<i>omega</i><i><sub>ni</sub></i>).'
+- name: omeganh2
+  type: Float
+  description: 'Notch filter 2 (high-frequency band): filter frequency (<i>omega</i><i><sub>ni</sub></i>).'
+- name: omeganl1
+  type: Float
+  description: 'Notch filter 1 (low-frequency band): filter frequency (<i>omega</i><i><sub>ni</sub></i>).'
+- name: omeganl2
+  type: Float
+  description: 'Notch filter 2 (low-frequency band): filter frequency (<i>omega</i><i><sub>ni</sub></i>).'
+- name: th1
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H1</sub></i>) (&gt;= 0).  Typical value = 0,01513.
+- name: th10
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H10</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: th11
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H11</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: th12
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H12</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: th2
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H2</sub></i>) (&gt;= 0).  Typical value = 0,01816.
+- name: th3
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H3</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: th4
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H4</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: th5
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H5</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: th6
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H6</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: th7
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H7</sub></i>) (&gt;= 0).  Typical value = 0,01816.
+- name: th8
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H8</sub></i>) (&gt;= 0).  Typical value = 0,02179.
+- name: th9
+  type: Seconds
+  description: High band time constant (<i>T</i><i><sub>H9</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti1
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I1</sub></i>) (&gt;= 0).  Typical value = 0,173.
+- name: ti10
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I10</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti11
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I11</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti12
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I12</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti2
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I2</sub></i>) (&gt;= 0).  Typical value = 0,2075.
+- name: ti3
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I3</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti4
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I4</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti5
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I5</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti6
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I6</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: ti7
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I7</sub></i>) (&gt;= 0).  Typical value = 0,2075.
+- name: ti8
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I8</sub></i>) (&gt;= 0).  Typical value = 0,2491.
+- name: ti9
+  type: Seconds
+  description: Intermediate band time constant (<i>T</i><i><sub>I9</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl1
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L1</sub></i>) (&gt;= 0).  Typical value = 1,73.
+- name: tl10
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L10</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl11
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L11</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl12
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L12</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl2
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L2</sub></i>) (&gt;= 0).  Typical value = 2,075.
+- name: tl3
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L3</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl4
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L4</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl5
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L5</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl6
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L6</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tl7
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L7</sub></i>) (&gt;= 0).  Typical value = 2,075.
+- name: tl8
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L8</sub></i>) (&gt;= 0).  Typical value = 2,491.
+- name: tl9
+  type: Seconds
+  description: Low band time constant (<i>T</i><i><sub>L9</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: vhmax
+  type: PU
+  description: High band output maximum limit (<i>V</i><i><sub>Hmax</sub></i>) (&gt; PssIEEE4B.vhmin).  Typical value = 0,6.
+- name: vhmin
+  type: PU
+  description: High band output minimum limit (<i>V</i><i><sub>Hmin</sub></i>) (&lt; PssIEEE4V.vhmax).  Typical value = -0,6.
+- name: vimax
+  type: PU
+  description: Intermediate band output maximum limit (<i>V</i><i><sub>Imax</sub></i>) (&gt; PssIEEE4B.vimin).  Typical value
+    = 0,6.
+- name: vimin
+  type: PU
+  description: Intermediate band output minimum limit (<i>V</i><i><sub>Imin</sub></i>) (&lt; PssIEEE4B.vimax).  Typical value
+    = -0,6.
+- name: vlmax
+  type: PU
+  description: Low band output maximum limit (<i>V</i><i><sub>Lmax</sub></i>) (&gt; PssIEEE4B.vlmin).  Typical value = 0,075.
+- name: vlmin
+  type: PU
+  description: Low band output minimum limit (<i>V</i><i><sub>Lmin</sub></i>) (&lt; PssIEEE4B.vlmax).  Typical value = -0,075.
+- name: vstmax
+  type: PU
+  description: PSS output maximum limit (<i>V</i><i><sub>STmax</sub></i>) (&gt; PssIEEE4B.vstmin).  Typical value = 0,15.
+- name: vstmin
+  type: PU
+  description: PSS output minimum limit (<i>V</i><i><sub>STmin</sub></i>) (&lt; PssIEEE4B.vstmax).  Typical value = -0,15.
+ancestors:
+- PowerSystemStabilizerDynamics

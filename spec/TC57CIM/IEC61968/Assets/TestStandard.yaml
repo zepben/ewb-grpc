@@ -1,0 +1,74 @@
+name: TestStandard
+description: The precise standard used in executing a lab test, including the standard, and standard version, test method
+  and variant, if needed.
+attributes:
+- name: testMethod
+  type: TestMethod
+  description: Identification of test method used if multiple methods specified by test standard.
+- name: testStandardASTM
+  type: ASTMStandard
+  description: Which ASTM standard used to determine analog value result. Applies only if ASTM standard used.
+- name: testStandardCIGRE
+  type: CIGREStandard
+  description: Which CIGRE standard used to determine analog value result. Applies only if CIGRE standard used.
+- name: testStandardDIN
+  type: DINStandard
+  description: Which DIN standard used to determine analog value result. Applies only if DIN standard used.
+- name: testStandardDoble
+  type: DobleStandard
+  description: Which Doble standard used to determine analog value result. Applies only if Doble standard used.
+- name: testStandardEPA
+  type: EPAStandard
+  description: Which EPA standard used to determine analog value result. Applies only if EPA standard used.
+- name: testStandardIEC
+  type: IECStandard
+  description: Which IEC standard used to determine analog value result. Applies only if IEC standard used.
+- name: testStandardIEEE
+  type: IEEEStandard
+  description: Which IEEE standard used to determine analog value result. Applies only if IEEE standard used.
+- name: testStandardISO
+  type: ISOStandard
+  description: Which ISO standard used to determine analog value result. Applies only if ISO standard used.
+- name: testStandardLaborelec
+  type: LaborelecStandard
+  description: Which Laborelec standard used to determine analog value result. Applies only if Laborelec standard used.
+- name: testStandardTAPPI
+  type: TAPPIStandard
+  description: Which TAPPI standard used to determine analog value result. Applies only if TAPPI standard used.
+- name: testStandardUKMinistryOfDefence
+  type: UKMinistryOfDefenceStandard
+  description: Which UK Ministry of Defence standard used to determine analog value result. Applies only if UK Ministry of
+    Defence standard used.
+- name: testStandardWEP
+  type: WEPStandard
+  description: Which WEP standard used to determine analog value result. Applies only if WEP standard used.
+- name: testVariant
+  type: TestVariantKind
+  description: Identification of variant of test method or standard if one is specified by the standard.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TestStandard
+  target: AssetStringMeasurement
+  sourceCardinality: 0..1
+  sourceName: TestStandard
+  sourceDescription: Test standard which describes this asset string measurement.
+  targetCardinality: 0..*
+  targetName: AssetString
+  targetDescription: An asset health string related to this lab test standard.
+- source: TestStandard
+  target: AssetDiscrete
+  sourceCardinality: 0..1
+  sourceName: TestStandard
+  sourceDescription: The lab test standard to which this asset health discrete is related.
+  targetCardinality: 0..*
+  targetName: AssetDiscrete
+  targetDescription: An asset health discrete related to this lab test standard.
+- source: TestStandard
+  target: AssetAnalog
+  sourceCardinality: 0..1
+  sourceName: TestStandard
+  sourceDescription: The lab test standard to which this asset health analog is related.
+  targetCardinality: 0..*
+  targetName: AssetAnalog
+  targetDescription: An asset health analog related to this lab test standard.

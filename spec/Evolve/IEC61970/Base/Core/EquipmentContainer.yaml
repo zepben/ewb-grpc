@@ -1,0 +1,27 @@
+name: EquipmentContainer
+description: A modelling construct to provide a root class for containing equipment.
+ancestors:
+- ConnectivityNodeContainer
+descendents:
+- Feeder
+- Substation
+- Line
+- LvFeeder
+- Site
+associations:
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..1
+  sourceName: EquipmentContainer
+  sourceDescription: Container of this equipment.
+  targetCardinality: 0..*
+  targetName: Equipment
+  targetDescription: Contained equipment.
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..1
+  sourceName: EquipmentContainer
+  sourceDescription: Container of this equipment.
+  targetCardinality: 0..*
+  targetName: CurrentEquipment
+  targetDescription: Contained equipment relative to the current state of the network.

@@ -1,0 +1,33 @@
+name: RatioTapChanger
+description: |-
+  A tap changer that changes the voltage ratio impacting the voltage magnitude but not the phase angle across the transformer.
+
+  Angle sign convention (general): Positive value indicates a positive phase shift from the winding where the tap is located to the other winding (for a two-winding transformer).
+attributes:
+- name: stepVoltageIncrement
+  type: PerCent
+  description: |-
+    Tap step increment, in per cent of rated voltage of the power transformer end, per step position.
+    When the increment is negative, the voltage decreases when the tap step increases.
+- name: tculControlMode
+  type: TransformerControlMode
+  description: Specifies the regulation control mode (voltage or reactive) of the RatioTapChanger.
+ancestors:
+- TapChanger
+associations:
+- source: RatioTapChanger
+  target: RatioTapChangerTable
+  sourceCardinality: 0..*
+  sourceName: RatioTapChanger
+  sourceDescription: The ratio tap changer of this tap ratio table.
+  targetCardinality: 0..1
+  targetName: RatioTapChangerTable
+  targetDescription: The tap ratio table for this ratio  tap changer.
+- source: RatioTapChanger
+  target: TransformerEnd
+  sourceCardinality: 0..1
+  sourceName: RatioTapChanger
+  sourceDescription: Ratio tap changer associated with this transformer end.
+  targetCardinality: "1"
+  targetName: TransformerEnd
+  targetDescription: Transformer end to which this ratio tap changer belongs.

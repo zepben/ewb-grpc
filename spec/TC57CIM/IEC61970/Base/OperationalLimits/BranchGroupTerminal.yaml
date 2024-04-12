@@ -1,0 +1,23 @@
+name: BranchGroupTerminal
+description: A specific directed terminal flow for a branch group.
+attributes:
+- name: positiveFlowIn
+  type: Boolean
+  description: The flow into the terminal is summed if set true.   The flow out of the terminal is summed if set false.
+associations:
+- source: BranchGroupTerminal
+  target: BranchGroup
+  sourceCardinality: 0..*
+  sourceName: BranchGroupTerminal
+  sourceDescription: The directed branch group terminals to be summed.
+  targetCardinality: "1"
+  targetName: BranchGroup
+  targetDescription: The branch group to which the directed branch group terminals belong.
+- source: BranchGroupTerminal
+  target: Terminal
+  sourceCardinality: 0..*
+  sourceName: BranchGroupTerminal
+  sourceDescription: The directed branch group terminals for which this terminal is monitored.
+  targetCardinality: "1"
+  targetName: Terminal
+  targetDescription: The terminal to be summed.

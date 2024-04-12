@@ -1,0 +1,26 @@
+name: ComModule
+description: An asset having communications capabilities that can be paired with a meter or other end device to provide the
+  device with communication ability, through associated communication function. An end device that has communications capabilities
+  through embedded hardware can use that function directly (without the communication module), or combine embedded communication
+  function with additional communication functions provided through an external communication module (e.g. zigbee).
+attributes:
+- name: amrSystem
+  type: String
+  description: Automated meter reading (AMR) system communicating with this com module.
+- name: supportsAutonomousDst
+  type: Boolean
+  description: If true, autonomous daylight saving time (DST) function is supported.
+- name: timeZoneOffset
+  type: Minutes
+  description: Time zone offset relative to GMT for the location of this com module.
+ancestors:
+- Asset
+associations:
+- source: ComModule
+  target: ComFunction
+  sourceCardinality: 0..1
+  sourceName: ComModule
+  sourceDescription: Module performing this communication function.
+  targetCardinality: 0..*
+  targetName: ComFunctions
+  targetDescription: All functions this communication module performs.

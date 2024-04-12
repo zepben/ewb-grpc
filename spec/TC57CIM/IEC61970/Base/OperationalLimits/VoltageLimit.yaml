@@ -1,0 +1,15 @@
+name: VoltageLimit
+description: |-
+  Operational limit applied to voltage.
+  The use of operational VoltageLimit is preferred instead of limits defined at VoltageLevel. The operational VoltageLimits are used, if present.
+attributes:
+- name: value
+  type: Voltage
+  description: Limit on voltage. High or low limit nature of the limit depends upon the properties of the operational limit
+    type. The attribute shall be a positive value or zero.
+- name: normalValue
+  type: Voltage
+  description: The normal limit on voltage. High or low limit nature of the limit depends upon the properties of the operational
+    limit type. The attribute shall be a positive value or zero.
+ancestors:
+- OperationalLimit

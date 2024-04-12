@@ -1,0 +1,20 @@
+name: CustomerAgreement
+description: Agreement between the customer and the service supplier to pay for service at a specific service location. It
+  records certain billing information about the type of service provided at the service location and is used during charge
+  creation to determine the type of service.
+ancestors:
+- Agreement
+associations:
+- source: CustomerAgreement
+  target: PricingStructure
+  targetCardinality: 0..*
+  targetName: PricingStructures
+  targetDescription: All pricing structures applicable to this customer agreement.
+- source: CustomerAgreement
+  target: Customer
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements of this customer.
+  targetCardinality: "1"
+  targetName: Customer
+  targetDescription: Customer for this agreement.

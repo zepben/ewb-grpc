@@ -1,0 +1,85 @@
+name: GovHydroIEEE2
+description: |-
+  IEEE hydro turbine governor model represents plants with straightforward penstock configurations and hydraulic-dashpot governors.
+  Ref<font color="#0f0f0f">erence: IEEE Transactions on Power Apparatus and Systems, November/December 1973, Volume PAS-92, Number 6, <i><u>Dynamic Models for Steam and Hydro Turbines in Power System Studies</u></i>, page 1904.</font>
+attributes:
+- name: aturb
+  type: PU
+  description: Turbine numerator multiplier (<i>Aturb</i>).  Typical value = -1.
+- name: bturb
+  type: PU
+  description: Turbine denominator multiplier (<i>Bturb</i>) (&gt; 0).  Typical value = 0,5.
+- name: gv1
+  type: PU
+  description: Nonlinear gain point 1, PU gv (<i>Gv1</i>).  Typical value = 0.
+- name: gv2
+  type: PU
+  description: Nonlinear gain point 2, PU gv (<i>Gv2</i>).  Typical value = 0.
+- name: gv3
+  type: PU
+  description: Nonlinear gain point 3, PU gv (<i>Gv3</i>).  Typical value = 0.
+- name: gv4
+  type: PU
+  description: Nonlinear gain point 4, PU gv (<i>Gv4</i>).  Typical value = 0.
+- name: gv5
+  type: PU
+  description: Nonlinear gain point 5, PU gv (<i>Gv5</i>).  Typical value = 0.
+- name: gv6
+  type: PU
+  description: Nonlinear gain point 6, PU gv (<i>Gv6</i>).  Typical value = 0.
+- name: kturb
+  type: PU
+  description: Turbine gain (<i>Kturb</i>).  Typical value = 1.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pgv1
+  type: PU
+  description: Nonlinear gain point 1, PU power (<i>Pgv1</i>).  Typical value = 0.
+- name: pgv2
+  type: PU
+  description: Nonlinear gain point 2, PU power (<i>Pgv2</i>).  Typical value = 0.
+- name: pgv3
+  type: PU
+  description: Nonlinear gain point 3, PU power (<i>Pgv3</i>).  Typical value = 0.
+- name: pgv4
+  type: PU
+  description: Nonlinear gain point 4, PU power (<i>Pgv4</i>).  Typical value = 0.
+- name: pgv5
+  type: PU
+  description: Nonlinear gain point 5, PU power (<i>Pgv5</i>).  Typical value = 0.
+- name: pgv6
+  type: PU
+  description: Nonlinear gain point 6, PU power (<i>Pgv6</i>).  Typical value = 0.
+- name: pmax
+  type: PU
+  description: Maximum gate opening (<i>Pmax</i>) (&gt; GovHydroIEEE2.pmin).  Typical value = 1.
+- name: pmin
+  type: PU
+  description: Minimum gate opening (<i>Pmin</i>) (&lt;GovHydroIEEE2.pmax).  Typical value = 0.
+- name: rperm
+  type: PU
+  description: Permanent droop (<i>Rperm</i>).  Typical value = 0,05.
+- name: rtemp
+  type: PU
+  description: Temporary droop (<i>Rtemp</i>).  Typical value = 0,5.
+- name: tg
+  type: Seconds
+  description: Gate servo time constant (<i>Tg</i>) (&gt;= 0).  Typical value = 0,5.
+- name: tp
+  type: Seconds
+  description: Pilot servo valve time constant (<i>Tp</i>) (&gt;= 0).  Typical value = 0,03.
+- name: tr
+  type: Seconds
+  description: Dashpot time constant (<i>Tr</i>) (&gt;= 0).  Typical value = 12.
+- name: tw
+  type: Seconds
+  description: Water inertia time constant (<i>Tw</i>) (&gt;= 0).  Typical value = 2.
+- name: uc
+  type: Float
+  description: Maximum gate closing velocity (<i>Uc</i>) (&lt;0).  Typical value = -0,1.
+- name: uo
+  type: Float
+  description: Maximum gate opening velocity (<i>Uo</i>).  Unit = PU / s.  Typical value = 0,1.
+ancestors:
+- TurbineGovernorDynamics

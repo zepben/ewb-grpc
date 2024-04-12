@@ -1,0 +1,369 @@
+name: RegisteredResource
+description: A resource that is registered through the market participant registration system. Examples include generating
+  unit, load, and non-physical generator or load.
+attributes:
+- name: ACAFlag
+  type: YesNo
+  description: Indication that this resource is associated with an Adjacent Control Area.
+- name: ASSPOptimizationFlag
+  type: YesNo
+  description: Indication that the resource participates in the optimization process by default.
+- name: commercialOpDate
+  type: DateTime
+  description: Resource Commercial Operation Date.
+- name: contingencyAvailFlag
+  type: YesNo
+  description: Contingent operating reserve availiability (Yes/No).  Resource is availiable to participate with capacity in
+    contingency dispatch.
+- name: dispatchable
+  type: Boolean
+  description: 'Dispatchable: indicates whether the resource is dispatchable. This implies that the resource intends to submit
+    Energy bids/offers or Ancillary Services bids/offers, or self-provided schedules.'
+- name: ECAFlag
+  type: YesNo
+  description: Indication that this resource is associated with an Embedded Control area.
+- name: flexibleOfferFlag
+  type: YesNo
+  description: Flexible offer flag (Y/N).
+- name: hourlyPredispatch
+  type: YesNo
+  description: Indicates need to dispatch before the start of the operating hour. Only relevant in Real-Time Market. Applies
+    to generation, intertie and participating load resource. Value (Y/N).
+- name: isAggregatedRes
+  type: YesNo
+  description: A flag to indicate if a resource is an aggregated resource.
+- name: lastModified
+  type: DateTime
+  description: Indication of the last time this item was modified/versioned.
+- name: LMPMFlag
+  type: YesNo
+  description: 'LMPM flag: indicates whether the resource is subject to the LMPM test (Yes/No).'
+- name: marketParticipationFlag
+  type: YesNo
+  description: 'Market Participation flag: indicates whether the resource participate in the market.'
+- name: 'maxBaseSelfSchedQty '
+  type: Float
+  description: Maximum base self schedule quantity.
+- name: maxOnTime
+  type: Float
+  description: Maximum on time after start up.
+- name: minDispatchTime
+  type: Hours
+  description: Minimum number of consecutive hours a resource shall be dispatched if bid is accepted.
+- name: minOffTime
+  type: Float
+  description: Minimum off time after shut down.
+- name: minOnTime
+  type: Float
+  description: Minimum on time after start up.
+- name: mustOfferFlag
+  type: YesNo
+  description: 'Must offer flag: indicates whether the unit is subject to the must offer provisions (Y/N).'
+- name: nonMarket
+  type: YesNo
+  description: Flag to indicate that the Resource is not participating in the Market Operations.
+- name: pointOfDeliveryFlag
+  type: YesNo
+  description: Indication that the registered resource is a Point of Delivery (YES) resource which implies there is a POD
+    Loss Factor.
+- name: priceSetFlagDA
+  type: YesNo
+  description: |-
+    Price setting flag: indicates whether a resource is capable of setting the Market Clearing Price (Y) for the DA market, and if not, indicates whether the resource shall submit bids for energy at $ 0 (S) or not (N).
+
+    Initially in the RegisteredGenerator class. It was moved to the RegisteredResource class for the participating load dispatch purpose.
+- name: priceSetFlagRT
+  type: YesNo
+  description: |-
+    Price setting flag: indicates whether a resource is capable of setting the Market Clearing Price (Y) for the RT market, and if not, indicates whether the resource shall submit bids for energy at $ 0 (S) or not (N).
+
+    Initially in the RegisteredGenerator class. It was moved to the RegisteredResource class for the participating load dispatch purpose.
+- name: registrationStatus
+  type: ResourceRegistrationStatus
+  description: Registration Status of resource - Active, Mothballed, Planned, or Decommissioned.
+- name: resourceAdequacyFlag
+  type: YesNo
+  description: Indication that this resource participates in the resource adequacy function.
+- name: SMPMFlag
+  type: YesNo
+  description: 'SMPM flag: indicates whether the resource is subject to the SMPM test (Yes/No).'
+ancestors:
+- PowerSystemResource
+descendents:
+- RegisteredDistributedResource
+- RegisteredGenerator
+- RegisteredInterTie
+- RegisteredLoad
+associations:
+- source: RegisteredResource
+  target: ForbiddenRegion
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ForbiddenRegion
+- source: RegisteredResource
+  target: AggregateNode
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  sourceDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.
+  targetCardinality: 0..1
+  targetName: AggregateNode
+  targetDescription: An AggregateNode may be associated with up to many RegisteredResources.
+- source: RegisteredResource
+  target: DispatchInstReply
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: DispatchInstReply
+- source: RegisteredResource
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: TimeSeries
+- source: RegisteredResource
+  target: RampRateCurve
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: RampRateCurve
+- source: RegisteredResource
+  target: ContractDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ContractDistributionFactor
+- source: RegisteredResource
+  target: OrgResOwnership
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: OrgResOwnership
+- source: RegisteredResource
+  target: RMROperatorInput
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: RMROperatorInput
+- source: RegisteredResource
+  target: ResourceDispatchResults
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ResourceDispatchResults
+- source: RegisteredResource
+  target: SubstitutionResourceList
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: SubstitutionResourceList
+- source: RegisteredResource
+  target: AdjacentCASet
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..1
+  targetName: AdjacentCASet
+- source: RegisteredResource
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: SubControlArea
+- source: RegisteredResource
+  target: MarketParticipant
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..1
+  targetName: MarketParticipant
+- source: RegisteredResource
+  target: IntermittentResourceEligibility
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: IntermittentResourceEligibility
+- source: RegisteredResource
+  target: FormerReference
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: FormerReference
+- source: RegisteredResource
+  target: Commitments
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: Commitments
+- source: RegisteredResource
+  target: MPMResourceStatus
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: MPMResourceStatus
+- source: RegisteredResource
+  target: RUCAwardInstruction
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: RUCAwardInstruction
+- source: RegisteredResource
+  target: AllocationResultValues
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: AllocationResultValues
+- source: RegisteredResource
+  target: LoadFollowingInst
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: LoadFollowingInst
+- source: RegisteredResource
+  target: ResourceLoadFollowingInst
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ResourceLoadFollowingInst
+- source: RegisteredResource
+  target: ResourceCertification
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  sourceDescription: RegisteredResources are qualified for resource ancillary service types (which include market product
+    types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
+  targetCardinality: 0..*
+  targetName: ResourceAncillaryServiceQualification
+  targetDescription: RegisteredResources are qualified for resource ancillary service types (which include market product
+    types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
+- source: RegisteredResource
+  target: ExpectedEnergyValues
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ExpectedEnergyValues
+- source: RegisteredResource
+  target: Reason
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: Reason
+- source: RegisteredResource
+  target: ResourceCertification
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ResourceCertification
+- source: RegisteredResource
+  target: SchedulingPoint
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: InterTie
+- source: RegisteredResource
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..1
+  targetName: MktConnectivityNode
+- source: RegisteredResource
+  target: ResourceGroup
+  sourceCardinality: 1..*
+  sourceName: RegisteredResources
+  targetCardinality: 0..*
+  targetName: ResourceGroups
+- source: RegisteredResource
+  target: DopInstruction
+  sourceCardinality: 0..1
+  sourceName: RegisteredResouce
+  targetCardinality: 0..*
+  targetName: DopInstruction
+- source: RegisteredResource
+  target: ResourceCapacity
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ResourceCapacity
+- source: RegisteredResource
+  target: ResourceVerifiableCosts
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..1
+  targetName: ResourceVerifiableCosts
+- source: RegisteredResource
+  target: DefaultBid
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..1
+  targetName: DefaultBid
+- source: RegisteredResource
+  target: MarketObjectStatus
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: MarketObjectStatus
+- source: RegisteredResource
+  target: ControlAreaDesignation
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ControlAreaDesignation
+- source: RegisteredResource
+  target: LoadFollowingOperatorInput
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: LoadFollowingOperatorInput
+- source: RegisteredResource
+  target: MPMTestThreshold
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: MPMTestThreshold
+- source: RegisteredResource
+  target: ResourceAwardInstruction
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ResourceAwardInstruction
+- source: RegisteredResource
+  target: ExPostResourceResults
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: ExPostResourceResults
+- source: RegisteredResource
+  target: Instructions
+  sourceCardinality: "1"
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: Instructions
+- source: RegisteredResource
+  target: Pnode
+  sourceCardinality: 0..*
+  sourceName: RegisteredResources
+  sourceDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
+  targetCardinality: 0..1
+  targetName: Pnode
+  targetDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
+- source: RegisteredResource
+  target: HostControlArea
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..1
+  targetName: HostControlArea
+- source: RegisteredResource
+  target: Domain
+  sourceCardinality: 0..*
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: Domain
+- source: RegisteredResource
+  target: EnergyMarket
+  sourceCardinality: 0..*
+  sourceName: RegisteredResources
+  targetCardinality: 0..*
+  targetName: EnergyMarkets
+- source: RegisteredResource
+  target: DotInstruction
+  sourceCardinality: 0..1
+  sourceName: RegisteredResource
+  targetCardinality: 0..*
+  targetName: DotInstruction

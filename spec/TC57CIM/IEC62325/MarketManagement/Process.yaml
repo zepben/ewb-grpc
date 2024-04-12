@@ -1,0 +1,19 @@
+name: Process
+description: The formal specification of a set of business transactions having the same business goal.
+attributes:
+- name: classificationType
+  type: String
+  description: The classification mechanism used to group a set of objects together within a business process. The grouping
+    may be of a detailed or a summary nature.
+- name: processType
+  type: String
+  description: The kind of business process.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Process
+  target: MarketDocument
+  sourceCardinality: 0..*
+  sourceName: Process
+  targetCardinality: 0..*
+  targetName: MarketDocument

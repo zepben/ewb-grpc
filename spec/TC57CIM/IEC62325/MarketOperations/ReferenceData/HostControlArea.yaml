@@ -1,0 +1,87 @@
+name: HostControlArea
+description: A HostControlArea has a set of tie points and a set of generator controls (i.e., AGC). It also has a total load,
+  including transmission and distribution losses.
+attributes:
+- name: areaControlMode
+  type: AreaControlMode
+  description: 'The area''s present control mode: (CF = constant frequency) or (CTL = constant tie-line) or (TLB = tie-line
+    bias) or (OFF = off control)'
+- name: freqSetPoint
+  type: Frequency
+  description: The present power system frequency set point for automatic generation control
+- name: frequencyBiasFactor
+  type: Float
+  description: The control area's frequency bias factor, in MW/0.1 Hz, for automatic generation control (AGC)
+ancestors:
+- PowerSystemResource
+associations:
+- source: HostControlArea
+  target: Flowgate
+  sourceCardinality: 0..1
+  sourceName: HostControlArea
+  targetCardinality: 0..*
+  targetName: Flowgate
+- source: HostControlArea
+  target: AdjacentCASet
+  sourceCardinality: 0..1
+  sourceName: HostControlArea
+  targetCardinality: 0..1
+  targetName: AdjacentCASet
+- source: HostControlArea
+  target: CnodeDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: HostControlArea
+  targetCardinality: 0..*
+  targetName: CnodeDistributionFactor
+- source: HostControlArea
+  target: ControlAreaOperator
+  sourceCardinality: "1"
+  sourceName: ControlledBy
+  sourceDescription: A ControlAreaCompany controls a ControlArea.
+  targetCardinality: "1"
+  targetName: Controls
+  targetDescription: A ControlAreaCompany controls a ControlArea.
+- source: HostControlArea
+  target: LossClearingResults
+  sourceCardinality: 0..1
+  sourceName: HostControlArea
+  targetCardinality: 0..*
+  targetName: LossClearingResults
+- source: HostControlArea
+  target: SubControlArea
+  sourceCardinality: "1"
+  sourceName: HostControlArea
+  sourceDescription: The interchange area  may operate as a control area
+  targetCardinality: 0..*
+  targetName: SubControlAreas
+  targetDescription: The interchange area  may operate as a control area
+- source: HostControlArea
+  target: BidSelfSched
+  sourceCardinality: 0..1
+  sourceName: HostControlArea
+  targetCardinality: 0..*
+  targetName: BidSelfSched
+- source: HostControlArea
+  target: SysLoadDistributionFactor
+  sourceCardinality: "1"
+  sourceName: HostControlArea
+  targetCardinality: 0..*
+  targetName: SysLoadDistribuFactor
+- source: HostControlArea
+  target: TransferInterface
+  sourceCardinality: 0..1
+  sourceName: HostControlArea
+  targetCardinality: 0..*
+  targetName: TransferInterface
+- source: HostControlArea
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  sourceName: HostControlArea
+  targetCardinality: 0..*
+  targetName: RegisteredResource
+- source: HostControlArea
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: HostControlArea
+  targetCardinality: "1"
+  targetName: RTO

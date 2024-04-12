@@ -1,0 +1,46 @@
+name: CostType
+description: 'A categorization for resources, often costs, in accounting transactions. Examples include: material components,
+  building in service, coal sales, overhead, etc.'
+attributes:
+- name: amountAssignable
+  type: Boolean
+  description: True if an amount can be assigned to the resource element (e.g., building in service, transmission plant, software
+    development capital); false otherwise (e.g., internal labor, material components).
+- name: code
+  type: String
+  description: A codified representation of the resource element.
+- name: level
+  type: String
+  description: The level of the resource element in the hierarchy of resource elements (recursive relationship).
+- name: stage
+  type: String
+  description: 'The stage for which this costType applies: estimated design, estimated actual or actual actual.'
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: CostType
+  target: CostType
+  sourceCardinality: 0..1
+  sourceName: ParentCostType
+  targetCardinality: 0..*
+  targetName: ChildCostTypes
+- source: CostType
+  target: WorkCostDetail
+  sourceCardinality: "1"
+  sourceName: CostType
+  targetCardinality: 0..*
+  targetName: WorkCostDetails
+- source: CostType
+  target: ErpJournalEntry
+  sourceCardinality: 0..*
+  sourceName: CostTypes
+  targetCardinality: 0..*
+  targetName: ErpJournalEntries
+- source: CostType
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  sourceName: CostType
+  targetCardinality: 0..*
+  targetName: CompatibleUnits

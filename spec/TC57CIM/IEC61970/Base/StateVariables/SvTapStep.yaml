@@ -1,0 +1,18 @@
+name: SvTapStep
+description: State variable for transformer tap step.
+attributes:
+- name: position
+  type: Float
+  description: The floating point tap position.   This is not the tap ratio, but rather the tap step position as defined by
+    the related tap changer model and normally is constrained to be within the range of minimum and maximum tap positions.
+ancestors:
+- StateVariable
+associations:
+- source: SvTapStep
+  target: TapChanger
+  sourceCardinality: 0..1
+  sourceName: SvTapStep
+  sourceDescription: The tap step state associated with the tap changer.
+  targetCardinality: "1"
+  targetName: TapChanger
+  targetDescription: The tap changer associated with the tap step state.

@@ -1,0 +1,66 @@
+name: LandProperty
+description: Information about a particular piece of (land) property such as its use. Ownership of the property may be determined
+  through associations to Organisations and/or ErpPersons.
+attributes:
+- name: demographicKind
+  type: DemographicKind
+  description: Demographics around the site.
+- name: externalRecordReference
+  type: String
+  description: Reference allocated by the governing organisation (such as municipality) to this piece of land that has a formal
+    reference to Surveyor General's records. The governing organisation is specified in associated Organisation.
+- name: kind
+  type: LandPropertyKind
+  description: Kind of (land) property, categorised according to its main functional use from the utility's perspective.
+- name: status
+  type: Status
+ancestors:
+- IdentifiedObject
+associations:
+- source: LandProperty
+  target: LocationGrant
+  sourceCardinality: 0..1
+  sourceName: LandProperty
+  sourceDescription: Land property this location grant applies to.
+  targetCardinality: 0..*
+  targetName: LocationGrants
+  targetDescription: All location grants this land property has.
+- source: LandProperty
+  target: ErpSiteLevelData
+  sourceCardinality: 0..1
+  sourceName: LandProperty
+  targetCardinality: 0..*
+  targetName: ErpSiteLevelDatas
+- source: LandProperty
+  target: PropertyOrganisationRole
+  sourceCardinality: 1..
+  sourceName: LandProperty
+  targetCardinality: 0..*
+  targetName: ErpOrganisationRoles
+- source: LandProperty
+  target: PersonPropertyRole
+  sourceCardinality: "1"
+  sourceName: LandProperty
+  targetCardinality: 0..*
+  targetName: ErpPersonRoles
+- source: LandProperty
+  target: AssetContainer
+  sourceCardinality: 0..*
+  sourceName: LandProperties
+  targetCardinality: 0..*
+  targetName: AssetContainers
+- source: LandProperty
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: LandProperties
+  targetCardinality: 0..*
+  targetName: Locations
+  targetDescription: The spatail description of a piece of property.
+- source: LandProperty
+  target: RightOfWay
+  sourceCardinality: 0..*
+  sourceName: LandProperties
+  sourceDescription: All land properties this right of way applies to.
+  targetCardinality: 0..*
+  targetName: RightOfWays
+  targetDescription: All rights of way this land property has.

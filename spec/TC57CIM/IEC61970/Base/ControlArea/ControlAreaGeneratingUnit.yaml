@@ -1,0 +1,32 @@
+name: ControlAreaGeneratingUnit
+description: A control area generating unit. This class is needed so that alternate control area definitions may include the
+  same generating unit.   It should be noted that only one instance within a control area should reference a specific generating
+  unit.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ControlAreaGeneratingUnit
+  target: ControlArea
+  sourceCardinality: 0..*
+  sourceName: ControlAreaGeneratingUnit
+  sourceDescription: The generating unit specifications for the control area.
+  targetCardinality: "1"
+  targetName: ControlArea
+  targetDescription: The parent control area for the generating unit specifications.
+- source: ControlAreaGeneratingUnit
+  target: GeneratingUnit
+  sourceCardinality: 0..*
+  sourceName: ControlAreaGeneratingUnit
+  sourceDescription: ControlArea specifications for this generating unit.
+  targetCardinality: "1"
+  targetName: GeneratingUnit
+  targetDescription: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
+    only once.
+- source: ControlAreaGeneratingUnit
+  target: AltGeneratingUnitMeas
+  sourceCardinality: "1"
+  sourceName: ControlAreaGeneratingUnit
+  sourceDescription: The control area generating unit to which the prioritized measurement assignment is applied.
+  targetCardinality: 0..*
+  targetName: AltGeneratingUnitMeas
+  targetDescription: The link to prioritized measurements for this GeneratingUnit.

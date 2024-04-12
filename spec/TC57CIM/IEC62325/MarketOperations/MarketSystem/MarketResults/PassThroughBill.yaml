@@ -1,0 +1,99 @@
+name: PassThroughBill
+description: |-
+  Pass Through Bill is used for:
+  1)Two sided charge transactions with or without ISO involvement
+  2) Specific direct charges or payments that are calculated outside or provided directly to settlements
+  3) Specific charge bill determinants that are externally supplied and used in charge calculations
+attributes:
+- name: adjustedAmount
+  type: Money
+- name: amount
+  type: Money
+  description: The charge amount of the product/service.
+- name: billedTo
+  type: String
+  description: The company to which the PTB transaction is billed.
+- name: billEnd
+  type: DateTime
+  description: Bill period end date
+- name: billRunType
+  type: String
+  description: 'The settlement run type, for example: prelim, final, and rerun.'
+- name: billStart
+  type: DateTime
+  description: Bill period start date
+- name: effectiveDate
+  type: DateTime
+  description: The effective date of the transaction
+- name: isDisputed
+  type: Boolean
+  description: Disputed transaction indicator
+- name: isProfiled
+  type: Boolean
+  description: A flag indicating whether there is a profile data associated with the PTB.
+- name: paidTo
+  type: String
+  description: The company to which the PTB transaction is paid.
+- name: previousEnd
+  type: DateTime
+  description: The previous bill period end date
+- name: previousStart
+  type: DateTime
+  description: The previous bill period start date
+- name: price
+  type: Money
+  description: The price of product/service.
+- name: productCode
+  type: String
+  description: The product identifier for determining the charge type of the transaction.
+- name: providedBy
+  type: String
+  description: The company by which the PTB transaction service is provided.
+- name: quantity
+  type: FloatQuantity
+  description: The product quantity.
+- name: serviceEnd
+  type: DateTime
+  description: The end date of service provided, if periodic.
+- name: serviceStart
+  type: DateTime
+  description: The start date of service provided, if periodic.
+- name: soldTo
+  type: String
+  description: The company to which the PTB transaction is sold.
+- name: taxAmount
+  type: Money
+  description: The tax on services taken.
+- name: timeZone
+  type: String
+  description: The time zone code
+- name: tradeDate
+  type: DateTime
+  description: The trade date
+- name: transactionDate
+  type: DateTime
+  description: The date the transaction occurs.
+- name: transactionType
+  type: String
+  description: The type of transaction. For example, charge customer, bill customer, matching AR/AP, or bill determinant
+ancestors:
+- Document
+associations:
+- source: PassThroughBill
+  target: MarketStatementLineItem
+  sourceCardinality: 0..1
+  sourceName: PassThroughBill
+  targetCardinality: 0..1
+  targetName: MarketStatementLineItem
+- source: PassThroughBill
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  sourceName: PassThroughBill
+  targetCardinality: 0..*
+  targetName: MktUserAttribute
+- source: PassThroughBill
+  target: ChargeProfile
+  sourceCardinality: 0..1
+  sourceName: PassTroughBill
+  targetCardinality: 0..*
+  targetName: ChargeProfiles

@@ -1,0 +1,47 @@
+name: DesignLocation
+description: A logical part of the design (e.g., pole and all equipment on a pole). This includes points and spans.
+attributes:
+- name: spanLength
+  type: Length
+  description: The legth of the span from the previous pole to this pole.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: DesignLocation
+  target: MiscCostItem
+  sourceCardinality: 0..1
+  sourceName: DesignLocation
+  targetCardinality: 0..*
+  targetName: MiscCostItems
+- source: DesignLocation
+  target: DesignLocationCU
+  sourceCardinality: 0..1
+  sourceName: DesignLocation
+  targetCardinality: 0..*
+  targetName: DesignLocationCUs
+- source: DesignLocation
+  target: Design
+  sourceCardinality: 0..*
+  sourceName: DesignLocations
+  targetCardinality: 1..*
+  targetName: Designs
+- source: DesignLocation
+  target: ConditionFactor
+  sourceCardinality: 0..*
+  sourceName: DesignLocations
+  targetCardinality: 0..*
+  targetName: ConditionFactors
+- source: DesignLocation
+  target: WorkLocation
+  sourceCardinality: 0..*
+  sourceName: DesignLocations
+  targetCardinality: 1..*
+  targetName: WorkLocations
+- source: DesignLocation
+  target: ErpBomItemData
+  sourceCardinality: 0..1
+  sourceName: DesignLocation
+  targetCardinality: 0..*
+  targetName: ErpBomItemDatas

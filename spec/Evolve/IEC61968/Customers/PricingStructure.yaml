@@ -1,0 +1,13 @@
+name: PricingStructure
+description: Grouping of pricing components and prices used in the creation of customer charges and the eligibility criteria
+  under which these terms may be offered to a customer. The reasons for grouping include state, customer classification, site
+  characteristics, classification (i.e. fee price structure, deposit price structure, electric service price structure, etc.)
+  and accounting requirements.
+ancestors:
+- Document
+associations:
+- source: PricingStructure
+  target: Tariff
+  targetCardinality: 0..*
+  targetName: Tariffs
+  targetDescription: All tariffs used by this pricing structure.

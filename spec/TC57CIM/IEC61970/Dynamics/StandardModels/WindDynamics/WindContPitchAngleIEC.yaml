@@ -1,0 +1,50 @@
+name: WindContPitchAngleIEC
+description: |-
+  Pitch angle control model.
+  Reference: IEC 61400-27-1:2015, 5.6.5.2.
+attributes:
+- name: dthetamax
+  type: Float
+  description: Maximum pitch positive ramp rate (<i>dtheta</i><i><sub>max</sub></i>) (&gt; WindContPitchAngleIEC.dthetamin).
+    It is a type-dependent parameter. Unit = degrees / s.
+- name: dthetamin
+  type: Float
+  description: Maximum pitch negative ramp rate (<i>dtheta</i><i><sub>min</sub></i><i>)</i> (&lt; WindContPitchAngleIEC.dthetamax).
+    It is a type-dependent parameter. Unit = degrees / s.
+- name: kic
+  type: PU
+  description: Power PI controller integration gain (<i>K</i><i><sub>Ic</sub></i>). It is a type-dependent parameter.
+- name: kiomega
+  type: PU
+  description: Speed PI controller integration gain (<i>K</i><i><sub>Iomega</sub></i>). It is a type-dependent parameter.
+- name: kpc
+  type: PU
+  description: Power PI controller proportional gain (<i>K</i><i><sub>Pc</sub></i>). It is a type-dependent parameter.
+- name: kpomega
+  type: PU
+  description: Speed PI controller proportional gain (<i>K</i><i><sub>Pomega</sub></i>). It is a type-dependent parameter.
+- name: kpx
+  type: PU
+  description: Pitch cross coupling gain (<i>K</i><i><sub>PX</sub></i>). It is a type-dependent parameter.
+- name: thetamax
+  type: AngleDegrees
+  description: Maximum pitch angle (<i>theta</i><i><sub>max</sub></i>) (&gt; WindContPitchAngleIEC.thetamin). It is a type-dependent
+    parameter.
+- name: thetamin
+  type: AngleDegrees
+  description: Minimum pitch angle (<i>theta</i><i><sub>min</sub></i>) (&lt; WindContPitchAngleIEC.thetamax). It is a type-dependent
+    parameter.
+- name: ttheta
+  type: Seconds
+  description: Pitch time constant (<i>ttheta</i>) (&gt;= 0). It is a type-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindContPitchAngleIEC
+  target: WindTurbineType3IEC
+  sourceCardinality: "1"
+  sourceName: WindContPitchAngleIEC
+  sourceDescription: Wind control pitch angle model associated with this wind turbine type 3.
+  targetCardinality: "1"
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this pitch control model is associated.

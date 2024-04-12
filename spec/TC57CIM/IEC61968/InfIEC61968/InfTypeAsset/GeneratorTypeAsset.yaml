@@ -1,0 +1,54 @@
+name: GeneratorTypeAsset
+description: Generic generation equipment that may be used for various purposes such as work planning. It defines both the
+  Real and Reactive power properties (modelled at the PSR level as a GeneratingUnit + SynchronousMachine).
+attributes:
+- name: maxP
+  type: ActivePower
+  description: Maximum real power limit.
+- name: maxQ
+  type: ReactivePower
+  description: Maximum reactive power limit.
+- name: minP
+  type: ActivePower
+  description: Minimum real power generated.
+- name: minQ
+  type: ReactivePower
+  description: Minimum reactive power generated.
+- name: rDirectSubtrans
+  type: Resistance
+  description: Direct-axis subtransient resistance.
+- name: rDirectSync
+  type: Resistance
+  description: Direct-axis synchronous resistance.
+- name: rDirectTrans
+  type: Resistance
+  description: Direct-axis transient resistance.
+- name: rQuadSubtrans
+  type: Resistance
+  description: Quadrature-axis subtransient resistance.
+- name: rQuadSync
+  type: Resistance
+  description: Quadrature-axis synchronous resistance.
+- name: rQuadTrans
+  type: Resistance
+  description: Quadrature-axis transient resistance.
+- name: xDirectSubtrans
+  type: Reactance
+  description: Direct-axis subtransient reactance.
+- name: xDirectSync
+  type: Reactance
+  description: Direct-axis synchronous reactance.
+- name: xDirectTrans
+  type: Reactance
+  description: Direct-axis transient reactance.
+- name: xQuadSubtrans
+  type: Reactance
+  description: Quadrature-axis subtransient reactance.
+- name: xQuadSync
+  type: Reactance
+  description: Quadrature-axis synchronous reactance.
+- name: xQuadTrans
+  type: Reactance
+  description: Quadrature-axis transient reactance.
+ancestors:
+- CatalogAssetType

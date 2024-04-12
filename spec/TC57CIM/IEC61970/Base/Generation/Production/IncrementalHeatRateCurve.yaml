@@ -1,0 +1,19 @@
+name: IncrementalHeatRateCurve
+description: Relationship between unit incremental heat rate in (delta energy/time) per (delta active power) and unit output
+  in active power. The IHR curve represents the slope of the HeatInputCurve. Note that the "incremental heat rate" and the
+  "heat rate" have the same engineering units.
+attributes:
+- name: isNetGrossP
+  type: Boolean
+  description: Flag is set to true when output is expressed in net active power.
+ancestors:
+- Curve
+associations:
+- source: IncrementalHeatRateCurve
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  sourceName: IncrementalHeatRateCurve
+  sourceDescription: A thermal generating unit may have an incremental heat rate curve.
+  targetCardinality: "1"
+  targetName: ThermalGeneratingUnit
+  targetDescription: A thermal generating unit may have an incremental heat rate curve.

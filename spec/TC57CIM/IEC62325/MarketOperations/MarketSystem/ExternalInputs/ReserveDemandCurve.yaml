@@ -1,0 +1,26 @@
+name: ReserveDemandCurve
+description: Reserve demand curve.  Models maximum quantities of reserve required per Market Region and models a reserve demand
+  curve for the minimum quantities of reserve. The ReserveDemandCurve is a relationship between unit operating reserve price
+  in $/MWhr (Y-axis) and unit reserves in MW (X-axis).
+attributes:
+- name: reqMaxMW
+  type: Float
+  description: Region requirement maximum limit
+- name: reserveRequirementType
+  type: ReserveRequirementType
+  description: Reserve requirement type that the max and curve apply to. For example, operating reserve, regulation and contingency.
+ancestors:
+- Curve
+associations:
+- source: ReserveDemandCurve
+  target: MarketRegion
+  sourceCardinality: 0..*
+  sourceName: ReserveDemandCurve
+  targetCardinality: "1"
+  targetName: MarketRegion
+- source: ReserveDemandCurve
+  target: ASRequirements
+  sourceCardinality: 1..*
+  sourceName: ReserveDemandCurve
+  targetCardinality: "1"
+  targetName: ASRequirements

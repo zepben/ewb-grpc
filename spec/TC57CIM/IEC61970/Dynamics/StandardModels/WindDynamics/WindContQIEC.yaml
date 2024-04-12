@@ -1,0 +1,96 @@
+name: WindContQIEC
+description: |-
+  Q control model.
+  Reference: IEC 61400-27-1:2015, 5.6.5.7.
+attributes:
+- name: iqh1
+  type: PU
+  description: Maximum reactive current injection during dip (<i>i</i><i><sub>qh1</sub></i>). It is a type-dependent parameter.
+- name: iqmax
+  type: PU
+  description: Maximum reactive current injection (<i>i</i><i><sub>qmax</sub></i>) (&gt; WindContQIEC.iqmin). It is a type-dependent
+    parameter.
+- name: iqmin
+  type: PU
+  description: Minimum reactive current injection (<i>i</i><i><sub>qmin</sub></i>) (&lt; WindContQIEC.iqmax). It is a type-dependent
+    parameter.
+- name: iqpost
+  type: PU
+  description: Post fault reactive current injection (<i>i</i><i><sub>qpost</sub></i>). It is a project-dependent parameter.
+- name: kiq
+  type: PU
+  description: Reactive power PI controller integration gain (<i>K</i><i><sub>I,q</sub></i>). It is a type-dependent parameter.
+- name: kiu
+  type: PU
+  description: Voltage PI controller integration gain (<i>K</i><i><sub>I,u</sub></i>). It is a type-dependent parameter.
+- name: kpq
+  type: PU
+  description: Reactive power PI controller proportional gain (<i>K</i><i><sub>P,q</sub></i>). It is a type-dependent parameter.
+- name: kpu
+  type: PU
+  description: Voltage PI controller proportional gain (<i>K</i><i><sub>P,u</sub></i>). It is a type-dependent parameter.
+- name: kqv
+  type: PU
+  description: Voltage scaling factor for UVRT current (<i>K</i><i><sub>qv</sub></i>). It is a project-dependent parameter.
+- name: rdroop
+  type: PU
+  description: Resistive component of voltage drop impedance (<i>r</i><i><sub>droop</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+- name: tpfiltq
+  type: Seconds
+  description: Power measurement filter time constant (<i>T</i><i><sub>pfiltq</sub></i>) (&gt;= 0). It is a type-dependent
+    parameter.
+- name: tpost
+  type: Seconds
+  description: Length of time period where post fault reactive power is injected (<i>T</i><i><sub>post</sub></i>) (&gt;= 0).
+    It is a project-dependent parameter.
+- name: tqord
+  type: Seconds
+  description: Time constant in reactive power order lag (<i>T</i><i><sub>qord</sub></i>) (&gt;= 0). It is a type-dependent
+    parameter.
+- name: tufiltq
+  type: Seconds
+  description: Voltage measurement filter time constant (<i>T</i><i><sub>ufiltq</sub></i>) (&gt;= 0). It is a type-dependent
+    parameter.
+- name: udb1
+  type: PU
+  description: Voltage deadband lower limit (<i>u</i><i><sub>db1</sub></i>). It is a type-dependent parameter.
+- name: udb2
+  type: PU
+  description: Voltage deadband upper limit (<i>u</i><i><sub>db2</sub></i>). It is a type-dependent parameter.
+- name: umax
+  type: PU
+  description: Maximum voltage in voltage PI controller integral term (<i>u</i><i><sub>max</sub></i>) (&gt; WindContQIEC.umin).
+    It is a type-dependent parameter.
+- name: umin
+  type: PU
+  description: Minimum voltage in voltage PI controller integral term (<i>u</i><i><sub>min</sub></i>) (&lt; WindContQIEC.umax).
+    It is a type-dependent parameter.
+- name: uqdip
+  type: PU
+  description: Voltage threshold for UVRT detection in Q control (<i>u</i><i><sub>qdip</sub></i>). It is a type-dependent
+    parameter.
+- name: uref0
+  type: PU
+  description: User-defined bias in voltage reference (<i>u</i><i><sub>ref0</sub></i>). It is a case-dependent parameter.
+- name: windQcontrolModesType
+  type: WindQcontrolModeKind
+  description: Types of general wind turbine Q control modes (<i>M</i><i><sub>qG</sub></i>).  It is a project-dependent parameter.
+- name: windUVRTQcontrolModesType
+  type: WindUVRTQcontrolModeKind
+  description: Types of UVRT Q control modes (<i>M</i><i><sub>qUVRT</sub></i>). It is a project-dependent parameter.
+- name: xdroop
+  type: PU
+  description: Inductive component of voltage drop impedance (<i>x</i><i><sub>droop</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindContQIEC
+  target: WindTurbineType3or4IEC
+  sourceCardinality: "1"
+  sourceName: WIndContQIEC
+  sourceDescription: Wind control Q model associated with this wind turbine type 3 or type 4 model.
+  targetCardinality: "1"
+  targetName: WindTurbineType3or4IEC
+  targetDescription: Wind turbine type 3 or type 4 model with which this reactive control model is associated.

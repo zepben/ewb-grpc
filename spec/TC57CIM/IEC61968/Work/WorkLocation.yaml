@@ -1,0 +1,29 @@
+name: WorkLocation
+description: Information about a particular location for various forms of work.
+ancestors:
+- Location
+descendents:
+- ServiceLocation
+- MaintenanceLocation
+- InternalLocation
+associations:
+- source: WorkLocation
+  target: OneCallRequest
+  sourceCardinality: 0..*
+  sourceName: WorkLocations
+  targetCardinality: 0..1
+  targetName: OneCallRequest
+- source: WorkLocation
+  target: DesignLocation
+  sourceCardinality: 1..*
+  sourceName: WorkLocations
+  targetCardinality: 0..*
+  targetName: DesignLocations
+- source: WorkLocation
+  target: BaseWork
+  sourceCardinality: 0..1
+  sourceName: WorkLocation
+  sourceDescription: Location for this work/task.
+  targetCardinality: 0..*
+  targetName: BaseWorks
+  targetDescription: All works/tasks at this location.

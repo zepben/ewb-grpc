@@ -1,0 +1,68 @@
+name: ExcAVR7
+description: IVO excitation system.
+attributes:
+- name: a1
+  type: PU
+  description: Lead coefficient (<i>A</i><i><sub>1</sub></i>).  Typical value = 0,5.
+- name: a2
+  type: PU
+  description: Lag coefficient (<i>A</i><i><sub>2</sub></i>).  Typical value = 0,5.
+- name: a3
+  type: PU
+  description: Lead coefficient (<i>A</i><i><sub>3</sub></i>).  Typical value = 0,5.
+- name: a4
+  type: PU
+  description: Lag coefficient (<i>A</i><i><sub>4</sub></i>).  Typical value = 0,5.
+- name: a5
+  type: PU
+  description: Lead coefficient (<i>A</i><i><sub>5</sub></i>).  Typical value = 0,5.
+- name: a6
+  type: PU
+  description: Lag coefficient (<i>A</i><i><sub>6</sub></i>).  Typical value = 0,5.
+- name: k1
+  type: PU
+  description: Gain (<i>K</i><i><sub>1</sub></i>).  Typical value = 1.
+- name: k3
+  type: PU
+  description: Gain (<i>K</i><i><sub>3</sub></i>).  Typical value = 3.
+- name: k5
+  type: PU
+  description: Gain (<i>K</i><i><sub>5</sub></i>).  Typical value = 1.
+- name: t1
+  type: Seconds
+  description: Lead time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).  Typical value = 0,05.
+- name: t2
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: t3
+  type: Seconds
+  description: Lead time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: t4
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>4</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: t5
+  type: Seconds
+  description: Lead time constant (<i>T</i><i><sub>5</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: t6
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>6</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: vmax1
+  type: PU
+  description: Lead-lag maximum limit (<i>Vmax1</i>) (&gt; ExcAVR7.vmin1).  Typical value = 5.
+- name: vmax3
+  type: PU
+  description: Lead-lag maximum limit (<i>Vmax3</i>) (&gt; ExcAVR7.vmin3).  Typical value = 5.
+- name: vmax5
+  type: PU
+  description: Lead-lag maximum limit (<i>Vmax5</i>) (&gt; ExcAVR7.vmin5).  Typical value = 5.
+- name: vmin1
+  type: PU
+  description: Lead-lag minimum limit (<i>Vmin1</i>) (&lt; ExcAVR7.vmax1).  Typical value = -5.
+- name: vmin3
+  type: PU
+  description: Lead-lag minimum limit (<i>Vmin3</i>) (&lt; ExcAVR7.vmax3).  Typical value = -5.
+- name: vmin5
+  type: PU
+  description: Lead-lag minimum limit (<i>Vmin5</i>) (&lt; ExcAVR7.vmax5).  Typical value = -2.
+ancestors:
+- ExcitationSystemDynamics

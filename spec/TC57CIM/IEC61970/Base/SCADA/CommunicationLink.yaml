@@ -1,0 +1,25 @@
+name: CommunicationLink
+description: The connection to remote units is through one or more communication links. Reduntant links may exist. The CommunicationLink
+  class inherits PowerSystemResource. The intention is to allow CommunicationLinks to have Measurements. These Measurements
+  can be used to model link status as operational, out of service, unit failure etc.
+ancestors:
+- PowerSystemResource
+descendents:
+- IPAccessPoint
+associations:
+- source: CommunicationLink
+  target: RemoteUnit
+  sourceCardinality: 1..*
+  sourceName: CommunicationLinks
+  sourceDescription: RTUs may be attached to communication links.
+  targetCardinality: 0..*
+  targetName: RemoteUnits
+  targetDescription: RTUs may be attached to communication links.
+- source: CommunicationLink
+  target: BilateralExchangeActor
+  sourceCardinality: 0..n
+  sourceName: CommunicationLink
+  sourceDescription: Communication addressing for a Bilateral Table used by a ICCP data provider or consumer.
+  targetCardinality: 0..1
+  targetName: BilateralExchangeActor
+  targetDescription: ICCP data provider or consumer using communication addressing for a Bilateral table.

@@ -1,0 +1,25 @@
+name: ScheduledLimitValue
+description: A limit that is applicable during a scheduled time period.
+ancestors:
+- IdentifiedObject
+descendents:
+- ScheduledVoltageLimitValue
+- ScheduledCurrentLimitValue
+- ScheduledApparentPowerLimitValue
+- ScheduledActivePowerLimitValue
+associations:
+- source: ScheduledLimitValue
+  target: Season
+  sourceCardinality: 0..*
+  sourceName: ScheduledLimits
+  sourceDescription: The scheduled limits associated with the season.
+  targetCardinality: 0..1
+  targetName: Season
+  targetDescription: The season for which the scheduled limits applies.    If not specified, then applicable ot any season.
+- source: ScheduledLimitValue
+  target: ScheduledLimitDependency
+  sourceCardinality: 0..*
+  sourceName: ScheduledLimitValues
+  sourceDescription: The scheduled limit values for this limit dependency.
+  targetCardinality: "1"
+  targetName: ScheduledLimitDependency

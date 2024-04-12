@@ -1,0 +1,44 @@
+name: TransmissionCapacity
+description: This class models the transmission (either a transmission interface or a POR/POD pair) capacity including Total
+  Transfer Capacity (TTC), Operating Transfer Capacity (OTC), and Capacity Benefit Margin (CBM).
+attributes:
+- name: capacityBenefitMargin
+  type: Float
+  description: Capacity Benefit Margin (CBM) is used by Markets to calculate the transmission interface limits. This number
+    could be manually or procedurally determined. The CBM is defined per transmission interface (branch group).
+- name: operationalTransmissionCapacity
+  type: Float
+  description: The Operational Transmission Capacity (OTC) is the transmission capacity under the operating condition during
+    a specific time period, incorporating the effects of derates and current settings of operation controls. The OTCs for
+    all transmission interface (branch group) are always provided regardless of outage or switching conditions.
+- name: OTC15min_emergency
+  type: Float
+  description: The Operational Transmission Capacity (OTC) 15 minute Emergency Limit
+- name: OTCemergency
+  type: Float
+  description: The Operational Transmission Capacity (OTC) Emergency Limit.
+- name: POD
+  type: String
+  description: point of delivery
+- name: POR
+  type: String
+  description: point of receipt
+- name: startOperatingDate
+  type: DateTime
+  description: Operating date &amp; hour when the entitlement applies
+- name: totalTransmissionCapacity
+  type: Float
+  description: Total Transmission Capacity
+associations:
+- source: TransmissionCapacity
+  target: Flowgate
+  sourceCardinality: 0..*
+  sourceName: TransmissionCapacity
+  targetCardinality: 0..1
+  targetName: Flowgate
+- source: TransmissionCapacity
+  target: GenericConstraints
+  sourceCardinality: 0..*
+  sourceName: TransmissionCapacity
+  targetCardinality: 0..1
+  targetName: GenericConstraints

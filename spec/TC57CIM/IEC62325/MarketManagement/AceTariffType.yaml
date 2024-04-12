@@ -1,0 +1,25 @@
+name: AceTariffType
+description: The Area Control Error tariff type that is applied or used.
+attributes:
+- name: type
+  type: String
+  description: The coded type of an ACE tariff.
+associations:
+- source: AceTariffType
+  target: MarketDocument
+  sourceCardinality: 0..*
+  sourceName: AceTariffType
+  targetCardinality: 0..*
+  targetName: MarketDocument
+- source: AceTariffType
+  target: Unit
+  sourceCardinality: 0..*
+  sourceName: AceTariffType
+  targetCardinality: 0..*
+  targetName: Unit
+- source: AceTariffType
+  target: Point
+  sourceCardinality: 0..*
+  sourceName: AceTariffType
+  targetCardinality: 0..*
+  targetName: Point

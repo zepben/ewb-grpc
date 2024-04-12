@@ -1,0 +1,36 @@
+name: AssetModelCatalogueItem
+description: Provides pricing and other relevant information about a specific manufacturer's product (i.e., AssetModel), and
+  its price from a given supplier. A single AssetModel may be availble from multiple suppliers. Note that manufacturer and
+  supplier are both types of organisation, which the association is inherited from Document.
+attributes:
+- name: unitCost
+  type: Money
+  description: Unit cost for an asset model from a specific supplier, either for a unit cost or cost per unit length. Cost
+    is for material or asset only and does not include labor to install/construct or configure it.
+ancestors:
+- Document
+associations:
+- source: AssetModelCatalogueItem
+  target: ErpQuoteLineItem
+  sourceCardinality: 0..1
+  sourceName: AssetModelCatalogueItem
+  targetCardinality: 0..*
+  targetName: ErpQuoteLineItems
+- source: AssetModelCatalogueItem
+  target: ErpPOLineItem
+  sourceCardinality: 0..1
+  sourceName: AssetModelCatalogueItem
+  targetCardinality: 0..*
+  targetName: ErpPOLineItems
+- source: AssetModelCatalogueItem
+  target: AssetModelCatalogue
+  sourceCardinality: 0..*
+  sourceName: AssetModelCatalogueItems
+  targetCardinality: "1"
+  targetName: AssetModelCatalogue
+- source: AssetModelCatalogueItem
+  target: ProductAssetModel
+  sourceCardinality: 0..*
+  sourceName: AssetModelCatalogueItems
+  targetCardinality: 0..1
+  targetName: AssetModel

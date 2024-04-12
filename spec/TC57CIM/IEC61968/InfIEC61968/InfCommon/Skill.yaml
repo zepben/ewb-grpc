@@ -1,0 +1,34 @@
+name: Skill
+description: Proficiency level of a craft, which is required to operate or maintain a particular type of asset and/or perform
+  certain types of work.
+attributes:
+- name: certificationPeriod
+  type: DateTimeInterval
+  description: Interval between the certification and its expiry.
+- name: effectiveDateTime
+  type: DateTime
+  description: Date and time the skill became effective.
+- name: level
+  type: SkillLevelKind
+  description: Level of skill for a Craft.
+ancestors:
+- Document
+associations:
+- source: Skill
+  target: QualificationRequirement
+  sourceCardinality: 0..*
+  sourceName: Skills
+  targetCardinality: 0..*
+  targetName: QualificationRequirements
+- source: Skill
+  target: Craft
+  sourceCardinality: 0..*
+  sourceName: Skills
+  targetCardinality: 0..*
+  targetName: Crafts
+- source: Skill
+  target: OldPerson
+  sourceCardinality: 0..*
+  sourceName: Skills
+  targetCardinality: 0..1
+  targetName: ErpPerson

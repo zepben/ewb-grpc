@@ -1,0 +1,13 @@
+name: AccumulatorReset
+description: This command resets the counter value to zero.
+ancestors:
+- Control
+associations:
+- source: AccumulatorReset
+  target: AccumulatorValue
+  sourceCardinality: 0..1
+  sourceName: AccumulatorReset
+  sourceDescription: The command that resets the accumulator value.
+  targetCardinality: "1"
+  targetName: AccumulatorValue
+  targetDescription: The accumulator value that is reset by the command.

@@ -1,0 +1,28 @@
+name: MarketStatement
+description: A statement is a roll up of statement line items. Each statement along with its line items provide the details
+  of specific charges at any given time.  Used by Billing and Settlement.
+attributes:
+- name: end
+  type: DateTime
+  description: The end of a bill period.
+- name: referenceNumber
+  type: String
+  description: The version number of previous statement (in the case of true up).
+- name: start
+  type: DateTime
+  description: The start of a bill period.
+- name: tradeDate
+  type: DateTime
+  description: The date of which Settlement is run.
+- name: transactionDate
+  type: DateTime
+  description: The date of which this statement is issued.
+ancestors:
+- Document
+associations:
+- source: MarketStatement
+  target: MarketStatementLineItem
+  sourceCardinality: "1"
+  sourceName: MarketStatement
+  targetCardinality: 0..*
+  targetName: MarketStatementLineItem

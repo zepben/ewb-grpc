@@ -1,0 +1,165 @@
+name: Terminal
+description: An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection
+  points called connectivity nodes.
+attributes:
+- name: phases
+  type: PhaseCode
+  description: |-
+    Represents the normal network phasing condition. If the attribute is missing, three phases (ABC) shall be assumed, except for terminals of grounding classes (specializations of EarthFaultCompensator, GroundDisconnector, GroundSwitch, and Ground) which will be assumed to be N. Therefore, phase code ABCN is explicitly declared when needed, e.g. for star point grounding equipment.
+    The phase code on terminals connecting same ConnectivityNode or same TopologicalNode as well as for equipment between two terminals shall be consistent.
+ancestors:
+- ACDCTerminal
+descendents:
+- MktTerminal
+associations:
+- source: Terminal
+  target: TopologicalNode
+  sourceCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription: The terminals associated with the topological node.   This can be used as an alternative to the connectivity
+    node path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if connectivity
+    nodes are in the model, this association would probably not be used as an input specification.
+  targetCardinality: 0..1
+  targetName: TopologicalNode
+  targetDescription: The topological node associated with the terminal.   This can be used as an alternative to the connectivity
+    node path to topological node, thus making it unnecessary to model connectivity nodes in some cases.   Note that the if
+    connectivity nodes are in the model, this association would probably not be used as an input specification.
+- source: Terminal
+  target: ConnectivityNode
+  sourceCardinality: 0..*
+  sourceName: Terminals
+  sourceDescription: Terminals interconnected with zero impedance at a this connectivity node.
+  targetCardinality: 0..1
+  targetName: ConnectivityNode
+  targetDescription: The connectivity node to which this terminal connects with zero impedance.
+- source: Terminal
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  sourceName: Terminals
+  sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
+    connectivity nodes or topological nodes.
+  targetCardinality: "1"
+  targetName: ConductingEquipment
+  targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
+    to other conducting equipment terminals via connectivity nodes or topological nodes.
+- source: Terminal
+  target: RegulatingControl
+  sourceCardinality: 0..1
+  sourceName: Terminal
+  sourceDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node,
+    since the terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model
+    regulation at a terminal of a bus bar object.
+  targetCardinality: 0..*
+  targetName: RegulatingControl
+  targetDescription: The controls regulating this terminal.
+- source: Terminal
+  target: MutualCoupling
+  sourceCardinality: "1"
+  sourceName: First_Terminal
+  sourceDescription: The starting terminal for the calculation of distances along the first branch of the mutual coupling.  Normally
+    MutualCoupling would only be used for terminals of AC line segments.  The first and second terminals of a mutual coupling
+    should point to different AC line segments.
+  targetCardinality: 0..*
+  targetName: HasFirstMutualCoupling
+  targetDescription: Mutual couplings associated with the branch as the first branch.
+- source: Terminal
+  target: TransformerEnd
+  sourceCardinality: 0..1
+  sourceName: Terminal
+  sourceDescription: Terminal of the power transformer to which this transformer end belongs.
+  targetCardinality: 0..*
+  targetName: TransformerEnd
+  targetDescription: All transformer ends connected at this terminal.
+- source: Terminal
+  target: BranchGroupTerminal
+  sourceCardinality: "1"
+  sourceName: Terminal
+  sourceDescription: The terminal to be summed.
+  targetCardinality: 0..*
+  targetName: BranchGroupTerminal
+  targetDescription: The directed branch group terminals for which this terminal is monitored.
+- source: Terminal
+  target: SvPowerFlow
+  sourceCardinality: "1"
+  sourceName: Terminal
+  sourceDescription: The terminal associated with the power flow state variable.
+  targetCardinality: 0..*
+  targetName: SvPowerFlow
+  targetDescription: The power flow state variable associated with the terminal.
+- source: Terminal
+  target: AuxiliaryEquipment
+  sourceCardinality: "1"
+  sourceName: Terminal
+  sourceDescription: The Terminal at the equipment where the AuxiliaryEquipment is attached.
+  targetCardinality: 0..*
+  targetName: AuxiliaryEquipment
+  targetDescription: The auxiliary equipment connected to the terminal.
+- source: Terminal
+  target: MutualCoupling
+  sourceCardinality: "1"
+  sourceName: Second_Terminal
+  sourceDescription: The starting terminal for the calculation of distances along the second branch of the mutual coupling.
+  targetCardinality: 0..*
+  targetName: HasSecondMutualCoupling
+  targetDescription: Mutual couplings with the branch associated as the first branch.
+- source: Terminal
+  target: TieFlow
+  sourceCardinality: "1"
+  sourceName: Terminal
+  sourceDescription: The terminal to which this tie flow belongs.
+  targetCardinality: 0..2
+  targetName: TieFlow
+  targetDescription: The control area tie flows to which this terminal associates.
+- source: Terminal
+  target: EquipmentFault
+  sourceCardinality: 0..1
+  sourceName: Terminal
+  sourceDescription: The terminal connecting to the bus to which the fault is applied.
+  targetCardinality: 0..*
+  targetName: EquipmentFaults
+  targetDescription: The equipment faults at this terminal.
+- source: Terminal
+  target: ACDCConverter
+  sourceCardinality: 0..1
+  sourceName: PccTerminal
+  sourceDescription: Point of common coupling terminal for this converter DC side. It is typically the terminal on the power
+    transformer (or switch) closest to the AC network.
+  targetCardinality: 0..*
+  targetName: ConverterDCSides
+  targetDescription: All converters' DC sides linked to this point of common coupling terminal.
+- source: Terminal
+  target: PinTerminal
+  sourceCardinality: "1"
+  sourceName: Terminal
+  sourceDescription: The Terminal that should be used in compare.
+  targetCardinality: 0..*
+  targetName: PinTerminal
+- source: Terminal
+  target: Circuit
+  sourceCardinality: 0..*
+  sourceName: EndTerminal
+  targetCardinality: 0..1
+  targetName: Circuit
+- source: Terminal
+  target: Feeder
+  sourceCardinality: 1..*
+  sourceName: NormalHeadTerminal
+  sourceDescription: The normal head terminal or terminals of the feeder.
+  targetCardinality: 0..1
+  targetName: NormalHeadFeeder
+  targetDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
+- source: Terminal
+  target: RemoteInputSignal
+  sourceCardinality: "1"
+  sourceName: Terminal
+  sourceDescription: Remote terminal with which this input signal is associated.
+  targetCardinality: 0..*
+  targetName: RemoteInputSignal
+  targetDescription: Input signal coming from this terminal.
+- source: Terminal
+  target: Bushing
+  sourceCardinality: 0..1
+  sourceName: Terminal
+  sourceDescription: Terminal to which this bushing is attached.
+  targetCardinality: 0..1
+  targetName: Bushing

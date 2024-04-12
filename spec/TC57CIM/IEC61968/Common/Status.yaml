@@ -1,0 +1,16 @@
+name: Status
+description: Current status information relevant to an entity.
+attributes:
+- name: dateTime
+  type: DateTime
+  description: Date and time for which status 'value' applies.
+- name: reason
+  type: String
+  description: Reason code or explanation for why an object went to the current status 'value'.
+- name: remark
+  type: String
+  description: Pertinent information regarding the current 'value', as free form text.
+- name: value
+  type: String
+  description: Status value at 'dateTime'; prior status changes may have been kept in instances of activity records associated
+    with the object to which this status applies.

@@ -1,0 +1,13 @@
+name: OilPrice
+description: Price of oil in monetary units.
+attributes:
+- name: oilPriceIndex
+  type: Float
+  description: The average oil price at a defined fuel region.
+associations:
+- source: OilPrice
+  target: FuelRegion
+  sourceCardinality: "1"
+  sourceName: OilPrice
+  targetCardinality: "1"
+  targetName: FuelRegion

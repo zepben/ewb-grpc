@@ -1,0 +1,31 @@
+name: WirePhaseInfo
+description: Information on a wire carrying a single phase.
+attributes:
+- name: phaseInfo
+  type: SinglePhaseKind
+  description: Phase information.
+associations:
+- source: WirePhaseInfo
+  target: WireAssemblyInfo
+  sourceCardinality: 0..*
+  sourceName: WirePhaseInfo
+  sourceDescription: Wire phase information associated with this wire assembly.
+  targetCardinality: "1"
+  targetName: WireAssemblyInfo
+  targetDescription: Wire assembly information using this wire phase information.
+- source: WirePhaseInfo
+  target: WireInfo
+  sourceCardinality: 0..*
+  sourceName: WirePhaseInfo
+  sourceDescription: Wire phase information associated with this wire information.
+  targetCardinality: 0..1
+  targetName: WireInfo
+  targetDescription: Wire information contributing to this wire phase information.
+- source: WirePhaseInfo
+  target: WirePosition
+  sourceCardinality: 0..*
+  sourceName: WirePhaseInfo
+  sourceDescription: Wire phase information for this wire position.
+  targetCardinality: 0..1
+  targetName: WirePosition
+  targetDescription: Wire position with this wire phase information.

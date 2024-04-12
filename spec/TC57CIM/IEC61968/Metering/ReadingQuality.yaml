@@ -1,0 +1,32 @@
+name: ReadingQuality
+description: Quality of a specific reading value or interval reading value. Note that more than one quality may be applicable
+  to a given reading. Typically not used unless problems or unusual conditions occur (i.e., quality for each reading is assumed
+  to be good unless stated otherwise in associated reading quality type). It can also be used with the corresponding reading
+  quality type to indicate that the validation has been performed and succeeded.
+attributes:
+- name: comment
+  type: String
+  description: Elaboration on the quality code.
+- name: source
+  type: String
+  description: System acting as the source of the quality code.
+- name: timeStamp
+  type: DateTime
+  description: Date and time at which the quality code was assigned or ascertained.
+associations:
+- source: ReadingQuality
+  target: ReadingQualityType
+  sourceCardinality: 0..*
+  sourceName: ReadingQualities
+  sourceDescription: All reading qualities of this type.
+  targetCardinality: "1"
+  targetName: ReadingQualityType
+  targetDescription: Type of this reading quality.
+- source: ReadingQuality
+  target: BaseReading
+  sourceCardinality: 0..*
+  sourceName: ReadingQualities
+  sourceDescription: All qualities of this reading.
+  targetCardinality: 0..1
+  targetName: Reading
+  targetDescription: Reading value to which this quality applies.

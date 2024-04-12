@@ -1,0 +1,33 @@
+name: CUMaterialItem
+description: Compatible unit of a consumable supply item. For example, nuts, bolts, brackets, glue, etc.
+attributes:
+- name: corporateCode
+  type: String
+  description: Code for material.
+- name: quantity
+  type: IntegerQuantity
+  description: Quantity of the TypeMaterial for this CU, used to determine estimated costs based on a per unit cost or a cost
+    per unit length specified in the TypeMaterial.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: CUMaterialItem
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  sourceName: CUMaterialItems
+  targetCardinality: 0..*
+  targetName: CompatibleUnits
+- source: CUMaterialItem
+  target: TypeMaterial
+  sourceCardinality: 0..*
+  sourceName: CUMaterialItems
+  targetCardinality: 0..1
+  targetName: TypeMaterial
+- source: CUMaterialItem
+  target: PropertyUnit
+  sourceCardinality: 0..*
+  sourceName: CUMaterialItems
+  targetCardinality: 0..*
+  targetName: PropertyUnits

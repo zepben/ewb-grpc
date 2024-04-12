@@ -1,0 +1,12 @@
+name: NodeConstraintTerm
+description: To be used only to constrain a quantity that cannot be associated with a terminal. For example, a registered
+  generating unit that is not electrically connected to the network.
+ancestors:
+- ConstraintTerm
+associations:
+- source: NodeConstraintTerm
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  sourceName: NodeConstraintTerm
+  targetCardinality: "1"
+  targetName: MktConnectivityNode

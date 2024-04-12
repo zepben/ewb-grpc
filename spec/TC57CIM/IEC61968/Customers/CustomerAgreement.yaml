@@ -1,0 +1,103 @@
+name: CustomerAgreement
+description: Agreement between the customer and the service supplier to pay for service at a specific service location. It
+  records certain billing information about the type of service provided at the service location and is used during charge
+  creation to determine the type of service.
+attributes:
+- name: isPrePay
+  type: Boolean
+  description: ' If true, the customer is a pre-pay customer for the specified service.'
+- name: loadMgmt
+  type: String
+  description: Load management code.
+- name: shutOffDateTime
+  type: DateTime
+  description: Final date and time the service will be billed to the previous customer.
+ancestors:
+- Agreement
+associations:
+- source: CustomerAgreement
+  target: ServiceLocation
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements regulating this service location.
+  targetCardinality: 0..*
+  targetName: ServiceLocations
+  targetDescription: All service locations regulated by this customer agreement.
+- source: CustomerAgreement
+  target: StandardIndustryCode
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  targetCardinality: 0..1
+  targetName: StandardIndustryCode
+- source: CustomerAgreement
+  target: AuxiliaryAgreement
+  sourceCardinality: 0..1
+  sourceName: CustomerAgreement
+  sourceDescription: Customer agreement this (non-service related) auxiliary agreement refers to.
+  targetCardinality: 0..*
+  targetName: AuxiliaryAgreements
+  targetDescription: All (non-service related) auxiliary agreements that refer to this customer agreement.
+- source: CustomerAgreement
+  target: PricingStructure
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements with this pricing structure.
+  targetCardinality: 0..*
+  targetName: PricingStructures
+  targetDescription: All pricing structures applicable to this customer agreement.
+- source: CustomerAgreement
+  target: ServiceCategory
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements with this service category.
+  targetCardinality: 0..1
+  targetName: ServiceCategory
+  targetDescription: Service category for this agreement.
+- source: CustomerAgreement
+  target: UsagePoint
+  sourceCardinality: 0..1
+  sourceName: CustomerAgreement
+  sourceDescription: Customer agreement regulating this service delivery point.
+  targetCardinality: 0..*
+  targetName: UsagePoints
+  targetDescription: All service delivery points regulated by this customer agreement.
+- source: CustomerAgreement
+  target: DemandResponseProgram
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements through which the customer is enrolled in this demand response program.
+  targetCardinality: 0..*
+  targetName: DemandResponsePrograms
+  targetDescription: All demand response programs the customer is enrolled in through this customer agreement.
+- source: CustomerAgreement
+  target: MeterReading
+  sourceCardinality: 0..1
+  sourceName: CustomerAgreement
+  sourceDescription: (could be deprecated in the future) Customer agreement for this meter reading.
+  targetCardinality: 0..*
+  targetName: MeterReadings
+  targetDescription: (could be deprecated in the future) All meter readings for this customer agreement.
+- source: CustomerAgreement
+  target: ServiceSupplier
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All customer agreements of this service supplier.
+  targetCardinality: "1"
+  targetName: ServiceSupplier
+  targetDescription: Service supplier for this customer agreement.
+- source: CustomerAgreement
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements for this customer account.
+  targetCardinality: "1"
+  targetName: CustomerAccount
+  targetDescription: Customer account owning this agreement.
+- source: CustomerAgreement
+  target: Customer
+  sourceCardinality: 0..*
+  sourceName: CustomerAgreements
+  sourceDescription: All agreements of this customer.
+  targetCardinality: "1"
+  targetName: Customer
+  targetDescription: Customer for this agreement.

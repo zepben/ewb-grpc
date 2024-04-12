@@ -1,0 +1,102 @@
+name: ErpInvoiceLineItem
+description: An individual line item on an invoice.
+attributes:
+- name: billPeriod
+  type: DateTimeInterval
+  description: Bill period for the line item.
+- name: glAccount
+  type: String
+  description: General Ledger account code, must be a valid combination.
+- name: glDateTime
+  type: DateTime
+  description: Date and time line item will be posted to the General Ledger.
+- name: kind
+  type: ErpInvoiceLineItemKind
+  description: Kind of line item.
+- name: lineAmount
+  type: Float
+  description: Amount due for this line item.
+- name: lineNumber
+  type: String
+  description: Line item number on invoice statement.
+- name: lineVersion
+  type: String
+  description: Version number of the bill run.
+- name: netAmount
+  type: Float
+  description: Net line item charge amount.
+- name: previousAmount
+  type: Float
+  description: Previous line item charge amount.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpInvoiceLineItem
+  target: ErpJournalEntry
+  sourceCardinality: 0..1
+  sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..*
+  targetName: ErpJournalEntries
+- source: ErpInvoiceLineItem
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..*
+  sourceName: ComponentErpInvoiceLineItems
+  targetCardinality: 0..1
+  targetName: ContainerErpInvoiceLineItem
+- source: ErpInvoiceLineItem
+  target: ErpRecLineItem
+  sourceCardinality: 0..1
+  sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..1
+  targetName: ErpRecLineItem
+- source: ErpInvoiceLineItem
+  target: ErpPayment
+  sourceCardinality: 0..*
+  sourceName: ErpInvoiceLineItems
+  targetCardinality: 0..*
+  targetName: ErpPayments
+- source: ErpInvoiceLineItem
+  target: ErpPayableLineItem
+  sourceCardinality: 0..1
+  sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..1
+  targetName: ErpPayableLineItem
+- source: ErpInvoiceLineItem
+  target: ErpInvoice
+  sourceCardinality: 0..*
+  sourceName: ErpInvoiceLineItems
+  targetCardinality: "1"
+  targetName: ErpInvoice
+- source: ErpInvoiceLineItem
+  target: UserAttribute
+  sourceCardinality: 0..*
+  sourceName: ErpInvoiceLineItems
+  targetCardinality: 0..*
+  targetName: UserAttributes
+- source: ErpInvoiceLineItem
+  target: ErpRecDelvLineItem
+  sourceCardinality: 0..1
+  sourceName: ErpInvoiceLineItem
+  targetCardinality: 0..1
+  targetName: ErpRecDelvLineItem
+- source: ErpInvoiceLineItem
+  target: ErpQuoteLineItem
+  sourceCardinality: 0..1
+  sourceName: ErpInvoiceLineItem
+  sourceDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
+    a payment. An invoice is required for this to occur.
+  targetCardinality: 0..1
+  targetName: ErpQuoteLineItem
+- source: ErpInvoiceLineItem
+  target: WorkBillingInfo
+  sourceCardinality: 0..*
+  sourceName: ErpLineItems
+  targetCardinality: 0..*
+  targetName: WorkBillingInfos
+- source: ErpInvoiceLineItem
+  target: CustomerBillingInfo
+  sourceCardinality: 0..*
+  sourceName: ErpInvoiceLineItems
+  targetCardinality: 0..*
+  targetName: CustomerBillingInfos
+  targetDescription: Customer billing for services rendered.

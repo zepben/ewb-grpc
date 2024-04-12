@@ -1,0 +1,17 @@
+name: RemotePoint
+description: For an RTU, remote points correspond to telemetered values or control outputs. Other units (e.g. control centres)
+  usually also contain calculated values.
+ancestors:
+- IdentifiedObject
+descendents:
+- RemoteSource
+- RemoteControl
+associations:
+- source: RemotePoint
+  target: RemoteUnit
+  sourceCardinality: 0..*
+  sourceName: RemotePoints
+  sourceDescription: Remote points this Remote unit contains.
+  targetCardinality: "1"
+  targetName: RemoteUnit
+  targetDescription: Remote unit this point belongs to.

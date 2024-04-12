@@ -1,0 +1,14 @@
+name: InflowForecast
+description: Natural water inflow to a reservoir, usually forecasted from predicted rain and snowmelt. Typically in one hour
+  increments for up to 10 days. The forecast is given in average cubic meters per second over the time increment.
+ancestors:
+- RegularIntervalSchedule
+associations:
+- source: InflowForecast
+  target: Reservoir
+  sourceCardinality: 0..*
+  sourceName: InflowForecasts
+  sourceDescription: A reservoir may have a "natural" inflow forecast.
+  targetCardinality: "1"
+  targetName: Reservoir
+  targetDescription: A reservoir may have a "natural" inflow forecast.

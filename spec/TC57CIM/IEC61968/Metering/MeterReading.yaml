@@ -1,0 +1,61 @@
+name: MeterReading
+description: Set of values obtained from the meter.
+attributes:
+- name: isCoincidentTrigger
+  type: Boolean
+  description: If true, this meter reading is the meter reading for which other coincident meter readings are requested or
+    provided.
+- name: valuesInterval
+  type: DateTimeInterval
+  description: Date and time interval of the data items contained within this meter reading.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MeterReading
+  target: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: MeterReadings
+  sourceDescription: All meter readings obtained from this usage point.
+  targetCardinality: 0..1
+  targetName: UsagePoint
+  targetDescription: Usage point from which this meter reading (set of values) has been obtained.
+- source: MeterReading
+  target: EndDeviceEvent
+  sourceCardinality: 0..1
+  sourceName: MeterReading
+  sourceDescription: Set of measured values to which this event applies.
+  targetCardinality: 0..*
+  targetName: EndDeviceEvents
+  targetDescription: All end device events associated with this set of measured values.
+- source: MeterReading
+  target: CustomerAgreement
+  sourceCardinality: 0..*
+  sourceName: MeterReadings
+  sourceDescription: (could be deprecated in the future) All meter readings for this customer agreement.
+  targetCardinality: 0..1
+  targetName: CustomerAgreement
+  targetDescription: (could be deprecated in the future) Customer agreement for this meter reading.
+- source: MeterReading
+  target: Reading
+  sourceCardinality: 0..*
+  sourceName: MeterReadings
+  sourceDescription: All meter readings (sets of values) containing this reading value.
+  targetCardinality: 0..*
+  targetName: Readings
+  targetDescription: All reading values contained within this meter reading.
+- source: MeterReading
+  target: Meter
+  sourceCardinality: 0..*
+  sourceName: MeterReadings
+  sourceDescription: All meter readings provided by this meter.
+  targetCardinality: 0..1
+  targetName: Meter
+  targetDescription: Meter providing this reading.
+- source: MeterReading
+  target: IntervalBlock
+  sourceCardinality: 0..1
+  sourceName: MeterReading
+  sourceDescription: Meter reading containing this interval block.
+  targetCardinality: 0..*
+  targetName: IntervalBlocks
+  targetDescription: All interval blocks contained in this meter reading.

@@ -1,0 +1,13 @@
+name: BidSet
+description: |-
+  As set of mutually exclusive bids for which a maximum of one may be scheduled.
+  Of these generating bids, only one generating bid can be scheduled at a time.
+ancestors:
+- IdentifiedObject
+associations:
+- source: BidSet
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  sourceName: BidSet
+  targetCardinality: 1..*
+  targetName: GeneratingBids

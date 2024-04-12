@@ -1,0 +1,32 @@
+name: Clamp
+description: "A Clamp is a galvanic connection at a line segment where other equipment is connected. A Clamp does not cut\
+  \ the line segment. \nA Clamp is ConductingEquipment and has one Terminal with an associated ConnectivityNode. Any other\
+  \ ConductingEquipment can be connected to the Clamp ConnectivityNode."
+attributes:
+- name: lengthFromTerminal1
+  type: Length
+  description: The length to the place where the clamp is located starting from side one of the line segment, i.e. the line
+    segment terminal with sequence number equal to 1.
+ancestors:
+- ConductingEquipment
+associations:
+- source: Clamp
+  target: JumperAction
+  sourceCardinality: 0..1
+  sourceName: Clamp
+  targetCardinality: 0..1
+  targetName: JumperAction
+- source: Clamp
+  target: ClampAction
+  sourceCardinality: 0..1
+  sourceName: Clamp
+  targetCardinality: 0..1
+  targetName: ClampAction
+- source: Clamp
+  target: ACLineSegment
+  sourceCardinality: 0..*
+  sourceName: Clamp
+  sourceDescription: The clamps connected to the line segment.
+  targetCardinality: "1"
+  targetName: ACLineSegment
+  targetDescription: The line segment to which the clamp is connected.

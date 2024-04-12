@@ -1,0 +1,304 @@
+name: RegisteredGenerator
+description: Model of a generator  that is registered to participate in the market.
+attributes:
+- name: energyUpRampRate
+  type: ActivePowerChangeRate
+  description: Response rate in MW per minute for ramping energy up.
+- name: extremeLongStart
+  type: YesNo
+  description: Some long-start up time units may need to receive start up instruction before DA market results are available.  Long-Start
+    resources may be either physical resources within the control with start-up times greater than 18 hours or the long-start
+    contractual inter-tie commitment that shall be completed by 6 am one-day ahead.  Therefore, there is a need for a process
+    to determine the commitment of such resources before the DA market.
+- name: fuelSource
+  type: FuelSource
+  description: |-
+    Values: Natural Gas Based Resource, Non Natural Gas Based Resource
+    "NG" - Natural-Gas-Based Resource - a Resource that is powered by Natural Gas
+    "NNG" - Non-Natural-Gas-Based Resource - a Resouce that is powered by some other fuel than Natural Gas
+- name: highControlLimit
+  type: ActivePower
+  description: High limit for secondary (AGC) control
+- name: hotIntTime
+  type: Float
+  description: Hot-to-intermediate time (Seasonal)
+- name: hotStartTime
+  type: Float
+  description: Hot start time.
+- name: intColdTime
+  type: Float
+  description: Intermediate-to-cold time (Seasonal)
+- name: intStartTime
+  type: Float
+  description: Intermediate start time.
+- name: loadFollowingDownMSS
+  type: YesNo
+  description: Certifies resources for use in MSS Load Following Down
+- name: loadFollowingUpMSS
+  type: YesNo
+  description: Certifies resources for use in MSS Load Following Up
+- name: lowControlLImit
+  type: ActivePower
+  description: Low limit for secondary (AGC) control
+- name: maxDependableCap
+  type: ActivePower
+  description: Maximum Dependable Capacity (MNDC). Maximun Net Dependable Capacity is used in association with an RMR contract.
+- name: maximumAllowableSpinningReserve
+  type: ActivePower
+  description: Maximum allowable spinning reserve. Spinning reserve will never be considered greater than this value regardless
+    of the current operating point.
+- name: maximumOperatingLimit
+  type: ActivePower
+  description: This is the maximum operating MW limit the dispatcher can enter for this unit
+- name: maxMinLoadCost
+  type: CostRate
+  description: The registered maximum Minimum Load Cost of a Generating Resource registered with a Cost Basis of "Bid Cost".
+- name: maxPumpingLevel
+  type: ActivePower
+  description: max pumping level of a hydro pump unit
+- name: capacityFactor
+  type: PerCent
+  description: The ratio of actual energy produced by resource divided by the maximum potential energy if the resource is
+    fully utilized. As an example, wind farms.
+- name: coldStartTime
+  type: Float
+  description: Cold start time.
+- name: combinedCycleOperatingMode
+  type: String
+  description: Combined Cycle operating mode.
+- name: commericialOperationDate
+  type: DateTime
+- name: constrainedOutputFlag
+  type: YesNo
+  description: Constrained Output Generator (COG) Indicator (Yes/No), per Generating Resource
+- name: energyDownRampRate
+  type: ActivePowerChangeRate
+  description: Response rate in MW per minute for ramping energy down.
+- name: maxShutdownTime
+  type: DateTime
+  description: Maximum time this device can be shut down.
+- name: maxStartUpsPerDay
+  type: Integer
+  description: maximum start ups per day
+- name: maxWeeklyEnergy
+  type: Float
+  description: Maximum weekly Energy (Seasonal)
+- name: maxWeeklyStarts
+  type: Integer
+  description: Maximum weekly starts (seasonal parameter)
+- name: minimumLoadCostBasis
+  type: CostBasis
+  description: The cost basis for minimum load.
+- name: minimumLoadFuelCost
+  type: CostPerHeatUnit
+  description: The cost for the fuel required to get a Generating Resource to operate at the minimum load level
+- name: minimumOperatingLimit
+  type: ActivePower
+  description: This is the minimum operating MW limit the dispatcher can enter for this unit.
+- name: minLoadCost
+  type: CostRate
+  description: minimum load cost. Value is (currency/hr)
+- name: mustOfferRA
+  type: YesNo
+  description: Flag to indicate that this unit is a resource adequacy resource and must offer.
+- name: nameplateCapacity
+  type: ActivePower
+  description: MW value stated on the nameplate of the Generator -- the value it potentially could provide.
+- name: operatingMaintenanceCost
+  type: CostPerEnergyUnit
+  description: The portion of the Operating Cost of a Generating Resource that is not related to fuel cost.
+- name: pumpingCost
+  type: CostRate
+- name: pumpingFactor
+  type: Float
+  description: Pumping factor for pump storage units, conversion factor between generating and pumping.
+- name: pumpMinDownTime
+  type: Float
+  description: The minimum down time for the pump in a pump storage unit.
+- name: pumpMinUpTime
+  type: Float
+  description: The minimum up time aspect for the pump in a pump storage unit
+- name: pumpShutdownCost
+  type: Float
+  description: The cost to shutdown a pump during the pump aspect of a pump storage unit.
+- name: pumpShutdownTime
+  type: Integer
+  description: The shutdown time (minutes) of the pump aspect of a pump storage unit.
+- name: quickStartFlag
+  type: YesNo
+  description: Quick start flag (Yes/No). Identifies the registered generator as a quick start unit. A quick start unit is
+    a unit that has the ability to be available for load within a 30 minute period.
+- name: rampCurveType
+  type: RampCurveType
+  description: Ramp curve type. Identifies the type of curve which may be a fixed, static or dynamic.
+- name: regulationDownRampRate
+  type: ActivePowerChangeRate
+  description: Regulation down response rate in MW per minute
+- name: regulationFlag
+  type: UnitRegulationKind
+  description: Specifies if the unit is regulating or not regulating or expected to be regulating but is not.
+- name: regulationUpRampRate
+  type: ActivePowerChangeRate
+  description: Regulation up response rate in MW per minute.
+- name: resourceSubType
+  type: String
+  description: Unit sub type used by Settlements or scheduling application. Application use of the unit sub type may define
+    the necessary types as applicable.
+- name: riverSystem
+  type: String
+  description: River System the Resource is tied to.
+- name: RMNRFlag
+  type: YesNo
+  description: 'Reliability must not run (RMNR) flag: indicated whether the RMR unit is set as an RMNR in the current market'
+- name: RMRFlag
+  type: FlagTypeRMR
+  description: |-
+    Reliability must run (RMR) flag: indicates whether the unit is RMR; Indicates whether the unit is RMR:
+    N' - not an RMR unit
+    '1' - RMR Condition 1 unit
+    '2' - RMR Condition 2 unit
+- name: RMRManualIndicator
+  type: YesNo
+  description: Indicates the RMR Manual pre-determination status [Y/N]
+- name: RMTFlag
+  type: YesNo
+  description: 'Reliability must take (RMT) flag (Yes/No): indicates whether the unit is RMT'
+- name: spinRampRate
+  type: ActivePowerChangeRate
+  description: Response rate in MW per minute for spinning reserve.
+- name: startUpCostBasis
+  type: CostBasis
+  description: The cost basis for start up.
+- name: syncCondCapable
+  type: YesNo
+  description: Is the Resource Synchronous Condenser capable Resource?
+- name: unitType
+  type: UnitType
+  description: 'Generating unit type: Combined Cycle, Gas Turbine, Hydro Turbine, Other, Photovoltaic, Hydro Pump-Turbine,
+    Reciprocating Engine, Steam Turbine, Synchronous Condenser, Wind Turbine'
+- name: useLimitFlag
+  type: YesNo
+  description: 'Use limit flag: indicates if the use-limited resource is fully scheduled (or has some slack for real-time
+    dispatch) (Y/N)'
+- name: variableEnergyResource
+  type: YesNo
+  description: Provides an indication that this resource is intending to participate in an intermittent resource program.
+ancestors:
+- RegisteredResource
+descendents:
+- CombinedCycleConfiguration
+associations:
+- source: RegisteredGenerator
+  target: RMRHeatRateCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: RMRHeatRateCurve
+- source: RegisteredGenerator
+  target: RMRStartUpFuelCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: RMRStartUpFuelCurve
+- source: RegisteredGenerator
+  target: RMRStartUpCostCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: RMRStartUpCostCurve
+- source: RegisteredGenerator
+  target: RMRStartUpTimeCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: RMRStartUpTimeCurve
+- source: RegisteredGenerator
+  target: MktHeatRateCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: MktHeatRateCurve
+- source: RegisteredGenerator
+  target: RMRStartUpEnergyCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: RMRStartUpEnergyCurve
+- source: RegisteredGenerator
+  target: RegulatingLimit
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: RegulatingLimit
+- source: RegisteredGenerator
+  target: StartUpEnergyCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: StartUpEnergyCurve
+- source: RegisteredGenerator
+  target: StartUpFuelCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: StartUpFuelCurve
+- source: RegisteredGenerator
+  target: GeneratingBid
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..*
+  targetName: GeneratingBids
+- source: RegisteredGenerator
+  target: StartUpTimeCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: StartUpTimeCurve
+- source: RegisteredGenerator
+  target: Trade
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..*
+  targetName: Trade
+- source: RegisteredGenerator
+  target: FuelCostCurve
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: FuelCostCurve
+- source: RegisteredGenerator
+  target: LocalReliabilityArea
+  sourceCardinality: 0..*
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: LocalReliabilityArea
+- source: RegisteredGenerator
+  target: FuelRegion
+  sourceCardinality: 0..*
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..1
+  targetName: FuelRegion
+- source: RegisteredGenerator
+  target: StartUpCostCurve
+  sourceCardinality: 0..*
+  sourceName: RegisteredGenerators
+  targetCardinality: 0..*
+  targetName: StartUpCostCurves
+- source: RegisteredGenerator
+  target: EnergyPriceIndex
+  sourceCardinality: "1"
+  sourceName: RegisteredGenerator
+  targetCardinality: "1"
+  targetName: EnergyPriceIndex
+- source: RegisteredGenerator
+  target: UnitInitialConditions
+  sourceCardinality: 0..1
+  sourceName: GeneratingUnit
+  targetCardinality: 0..*
+  targetName: UnitInitialConditions
+- source: RegisteredGenerator
+  target: AuxiliaryObject
+  sourceCardinality: 0..1
+  sourceName: RegisteredGenerator
+  targetCardinality: 0..*
+  targetName: AuxillaryObject

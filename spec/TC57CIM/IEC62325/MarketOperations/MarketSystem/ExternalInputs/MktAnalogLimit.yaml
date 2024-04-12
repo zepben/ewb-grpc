@@ -1,0 +1,19 @@
+name: MktAnalogLimit
+description: Subclass of IEC 61970:Meas:AnalogLimit.
+attributes:
+- name: exceededLimit
+  type: Boolean
+  description: true if limit exceeded
+- name: limitType
+  type: AnalogLimitType
+  description: |-
+    The type of limit the value represents
+    Branch Limit Types:
+    Short Term
+    Medium Term
+    Long Term
+    Voltage Limits:
+    High
+    Low
+ancestors:
+- AnalogLimit

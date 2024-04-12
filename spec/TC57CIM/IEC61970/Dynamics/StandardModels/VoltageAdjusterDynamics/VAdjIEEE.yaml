@@ -1,0 +1,27 @@
+name: VAdjIEEE
+description: |-
+  IEEE voltage adjuster which is used to represent the voltage adjuster in either a power factor or VAr control system.
+  Reference: IEEE 421.5-2005, 11.1.
+attributes:
+- name: adjslew
+  type: Float
+  description: Rate at which output of adjuster changes (<i>ADJ_SLEW</i>).  Unit = s / PU.  Typical value = 300.
+- name: taoff
+  type: Seconds
+  description: Time that adjuster pulses are off (<i>T</i><i><sub>AOFF</sub></i>) (&gt;= 0).  Typical value = 0,5.
+- name: taon
+  type: Seconds
+  description: Time that adjuster pulses are on (<i>T</i><i><sub>AON</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: vadjf
+  type: Float
+  description: Set high to provide a continuous raise or lower (<i>V</i><i><sub>ADJF</sub></i>).
+- name: vadjmax
+  type: PU
+  description: Maximum output of the adjuster (<i>V</i><i><sub>ADJMAX</sub></i>) (&gt; VAdjIEEE.vadjmin).  Typical value =
+    1,1.
+- name: vadjmin
+  type: PU
+  description: Minimum output of the adjuster (<i>V</i><i><sub>ADJMIN</sub></i>) (&lt; VAdjIEEE.vadjmax).  Typical value =
+    0,9.
+ancestors:
+- VoltageAdjusterDynamics

@@ -1,0 +1,21 @@
+name: FrequencyConverter
+description: A device to convert from one frequency to another (e.g., frequency F1 to F2) comprises a pair of FrequencyConverter
+  instances. One converts from F1 to DC, the other converts the DC to F2.
+attributes:
+- name: frequency
+  type: Frequency
+  description: Frequency on the AC side.
+- name: maxP
+  type: ActivePower
+  description: The maximum active power on the DC side at which the frequency converter should operate.
+- name: maxU
+  type: Voltage
+  description: The maximum voltage on the DC side at which the frequency converter should operate.
+- name: minP
+  type: ActivePower
+  description: The minimum active power on the DC side at which the frequency converter should operate.
+- name: minU
+  type: Voltage
+  description: The minimum voltage on the DC side at which the frequency converter should operate.
+ancestors:
+- RegulatingCondEq

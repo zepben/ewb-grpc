@@ -1,0 +1,27 @@
+name: SeasonDayTypeSchedule
+description: A time schedule covering a 24 hour period, with curve data for a specific type of season and day.
+ancestors:
+- RegularIntervalSchedule
+descendents:
+- NonConformLoadSchedule
+- ConformLoadSchedule
+- RegulationSchedule
+- SwitchSchedule
+- TapSchedule
+associations:
+- source: SeasonDayTypeSchedule
+  target: DayType
+  sourceCardinality: 0..*
+  sourceName: SeasonDayTypeSchedules
+  sourceDescription: Schedules that use this DayType.
+  targetCardinality: 0..1
+  targetName: DayType
+  targetDescription: DayType for the Schedule.
+- source: SeasonDayTypeSchedule
+  target: Season
+  sourceCardinality: 0..*
+  sourceName: SeasonDayTypeSchedules
+  sourceDescription: Schedules that use this Season.
+  targetCardinality: 0..1
+  targetName: Season
+  targetDescription: Season for the Schedule.

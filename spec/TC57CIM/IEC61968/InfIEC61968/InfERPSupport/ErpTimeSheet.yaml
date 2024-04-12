@@ -1,0 +1,12 @@
+name: ErpTimeSheet
+description: Time sheet for employees and contractors. Note that ErpTimeSheet inherits the relationship to ErpPerson from
+  Document.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpTimeSheet
+  target: ErpTimeEntry
+  sourceCardinality: "1"
+  sourceName: ErpTimeSheet
+  targetCardinality: 0..*
+  targetName: ErpTimeEntries

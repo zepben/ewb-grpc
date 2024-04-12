@@ -1,0 +1,26 @@
+name: CUWorkEquipmentItem
+description: Compatible unit for various types of WorkEquipmentAssets, including vehicles.
+attributes:
+- name: equipCode
+  type: String
+  description: The equipment type code.
+- name: rate
+  type: CostRate
+  description: Standard usage rate for the type of vehicle.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: CUWorkEquipmentItem
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  sourceName: CUWorkEquipmentItems
+  targetCardinality: 0..*
+  targetName: CompatibleUnits
+- source: CUWorkEquipmentItem
+  target: WorkAsset
+  sourceCardinality: 0..1
+  sourceName: CUWorkEquipmentAsset
+  targetCardinality: 0..1
+  targetName: TypeAsset

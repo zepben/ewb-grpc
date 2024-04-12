@@ -1,0 +1,61 @@
+name: Instructions
+description: Provides the necessary information (on a resource basis) to capture the Startup/Shutdown instruction results.
+  This information is relevant to the DA Market (RUC only) as well as the RT Market (HASP, Pre-dispatch, and Interval).
+attributes:
+- name: bindingDOD
+  type: Float
+  description: Binding dispatch operating delta provides a relative delta to be applied. Typically used in demand response
+    instructions. The binding<font color="#0f0f0f">DOD instructions are cumulative; in other words a second DOD instruction
+    does not replace the previous DOD, instead the second DOD adds to the previous DODs.</font>
+- name: bindingDOT
+  type: Float
+- name: bindingInstruction
+  type: YesNo
+- name: instructionCost
+  type: Float
+  description: Total cost associated with changing the status of the resource.
+- name: instructionSource
+  type: MQSInstructionSource
+  description: instruction source for market quality results (INS, ACT)
+- name: instructionStartTime
+  type: DateTime
+  description: |-
+    Time the resource should be at Pmin (for start ups).
+
+    Time the resource is off line.
+- name: instructionType
+  type: AutomaticDispInstTypeCommitment
+  description: Indicator of either a Start-Up or a Shut-Down.
+- name: manuallyBlocked
+  type: YesNo
+  description: Manually Blocked Indicator (Yes/No). The instruction has been blocked by an Operator.
+- name: minStatusChangeTime
+  type: Integer
+  description: "Minimum start up time required to bring the unit online (minutes).\n\nSCUC commitment period start-up time.\
+    \ Calculated start up time based on the StartUpTimeCurve provided with the Bid.\n\nThis is a combination of StartUp time\
+    \ bid and Unit down time. \n\nUnits is minutes"
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+associations:
+- source: Instructions
+  target: InstructionClearing
+  sourceCardinality: 1..*
+  sourceName: Instructions
+  targetCardinality: 1..*
+  targetName: InstructionClearing
+- source: Instructions
+  target: AggregateNode
+  sourceCardinality: 0..*
+  sourceName: Instruction
+  targetCardinality: 0..1
+  targetName: AggregateNode
+- source: Instructions
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: Instructions
+  targetCardinality: "1"
+  targetName: RegisteredResource

@@ -1,0 +1,29 @@
+name: ClearanceDocument
+description: Safety document used to authorise work on conducting equipment in the field. Tagged equipment is not allowed
+  to be operated.
+attributes:
+- name: mustBeDeenergised
+  type: Boolean
+  description: If true, the equipment must be deenergised.
+- name: mustBeGrounded
+  type: Boolean
+  description: If true, the equipment must be grounded.
+ancestors:
+- SafetyDocument
+associations:
+- source: ClearanceDocument
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  sourceName: Clearances
+  sourceDescription: All clearances applicable to this power system resource.
+  targetCardinality: 0..*
+  targetName: TaggedPSRs
+  targetDescription: All power system resources tagged through this clearance.
+- source: ClearanceDocument
+  target: ClearanceAction
+  sourceCardinality: 0..1
+  sourceName: Clearance
+  sourceDescription: Clearance associated with this clearance action.
+  targetCardinality: 0..1
+  targetName: ClearanceAction
+  targetDescription: Clearance action associated with this clearance.

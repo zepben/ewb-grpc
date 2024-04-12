@@ -1,0 +1,82 @@
+name: WindPlantFreqPcontrolIEC
+description: |-
+  Frequency and active power controller model.
+  Reference: IEC 61400-27-1:2015, Annex D.
+attributes:
+- name: dprefmax
+  type: PU
+  description: Maximum ramp rate of <i>p</i><i><sub>WTref</sub></i> request from the plant controller to the wind turbines
+    (<i>dp</i><i><sub>refmax</sub></i>) (&gt; WindPlantFreqPcontrolIEC.dprefmin). It is a case-dependent parameter.
+- name: dprefmin
+  type: PU
+  description: Minimum (negative) ramp rate of <i>p</i><i><sub>WTref</sub></i> request from the plant controller to the wind
+    turbines (<i>dp</i><i><sub>refmin</sub></i>) (&lt; WindPlantFreqPcontrolIEC.dprefmax). It is a project-dependent parameter.
+- name: dpwprefmax
+  type: PU
+  description: Maximum positive ramp rate for wind plant power reference (<i>dp</i><i><sub>WPrefmax</sub></i>) (&gt; WindPlantFreqPcontrolIEC.dpwprefmin).
+    It is a project-dependent parameter.
+- name: dpwprefmin
+  type: PU
+  description: Maximum negative ramp rate for wind plant power reference (<i>dp</i><i><sub>WPrefmin</sub></i>) (&lt; WindPlantFreqPcontrolIEC.dpwprefmax).
+    It is a project-dependent parameter.
+- name: kiwpp
+  type: Float
+  description: Plant P controller integral gain (<i>K</i><i><sub>IWPp</sub></i>). It is a project-dependent parameter.
+- name: kiwppmax
+  type: PU
+  description: Maximum PI integrator term (<i>K</i><i><sub>IWPpmax</sub></i>) (&gt; WindPlantFreqPcontrolIEC.kiwppmin). It
+    is a project-dependent parameter.
+- name: kiwppmin
+  type: PU
+  description: Minimum PI integrator term (<i>K</i><i><sub>IWPpmin</sub></i>) (&lt; WindPlantFreqPcontrolIEC.kiwppmax). It
+    is a project-dependent parameter.
+- name: kpwpp
+  type: Float
+  description: Plant P controller proportional gain (<i>K</i><i><sub>PWPp</sub></i>). It is a project-dependent parameter.
+- name: kwppref
+  type: PU
+  description: Power reference gain (<i>K</i><i><sub>WPpref</sub></i>). It is a project-dependent parameter.
+- name: prefmax
+  type: PU
+  description: Maximum <i>p</i><i><sub>WTref</sub></i> request from the plant controller to the wind turbines (<i>p</i><i><sub>refmax</sub></i>)
+    (&gt; WindPlantFreqPcontrolIEC.prefmin). It is a project-dependent parameter.
+- name: prefmin
+  type: PU
+  description: Minimum <i>p</i><i><sub>WTref</sub></i> request from the plant controller to the wind turbines (<i>p</i><i><sub>refmin</sub></i>)
+    (&lt; WindPlantFreqPcontrolIEC.prefmax). It is a project-dependent parameter.
+- name: tpft
+  type: Seconds
+  description: Lead time constant in reference value transfer function (<i>T</i><i><sub>pft</sub></i>) (&gt;= 0). It is a
+    project-dependent parameter.
+- name: tpfv
+  type: Seconds
+  description: Lag time constant in reference value transfer function (<i>T</i><i><sub>pfv</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+- name: twpffiltp
+  type: Seconds
+  description: Filter time constant for frequency measurement (<i>T</i><i><sub>WPffiltp</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+- name: twppfiltp
+  type: Seconds
+  description: Filter time constant for active power measurement (<i>T</i><i><sub>WPpfiltp</sub></i>) (&gt;= 0). It is a project-dependent
+    parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindPlantFreqPcontrolIEC
+  target: WindPlantIEC
+  sourceCardinality: "1"
+  sourceName: WindPlantFreqPcontrolIEC
+  sourceDescription: Wind plant frequency and active power control model associated with this wind plant.
+  targetCardinality: "1"
+  targetName: WindPlantIEC
+  targetDescription: Wind plant model with which this wind plant frequency and active power control is associated.
+- source: WindPlantFreqPcontrolIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  sourceName: WindPlantFreqPcontrolIEC
+  sourceDescription: The frequency and active power wind plant control model with which this wind dynamics lookup table is
+    associated.
+  targetCardinality: 1..*
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this frequency and active power wind plant model.

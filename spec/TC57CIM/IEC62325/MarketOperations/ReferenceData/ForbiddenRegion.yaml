@@ -1,0 +1,26 @@
+name: ForbiddenRegion
+description: Forbbiden region is operating ranges where the units are unable to maintain steady operation without causing
+  equipment damage.  The four attributes that define a forbidden region are the low MW, the High MW, the crossing time, and
+  the crossing cost.
+attributes:
+- name: crossingCost
+  type: Float
+  description: Cost associated with crossing the forbidden region
+- name: crossTime
+  type: Integer
+  description: Time to cross the forbidden region in minutes.
+- name: highMW
+  type: Float
+  description: High end of the region definition
+- name: lowMW
+  type: Float
+  description: Low end of the region definition.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ForbiddenRegion
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: ForbiddenRegion
+  targetCardinality: 0..*
+  targetName: RegisteredResource

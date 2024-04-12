@@ -1,0 +1,64 @@
+name: ProtectionRelayFunction
+description: A function that a relay implements to protect equipment.
+attributes:
+- name: model
+  type: String
+  description: The protection equipment type name (manufacturer information)
+- name: reclosing
+  type: Boolean
+  description: True if the protection equipment is reclosing or False otherwise.
+- name: timeLimits
+  type: FloatList
+  description: The time limits (in seconds) for this relay function.
+    Order of entries corresponds to the order of entries in thresholds.
+- name: thresholds
+  type: RelaySettingList
+  description: The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
+- name: relayDelayTime
+  type: Float
+  description: The time delay from detection of abnormal conditions to relay operation in seconds.
+- name: protectionKind
+  type: ProtectionKind
+  description: The kind of protection being provided by this ProtectionRelayFunction.
+- name: directable
+  type: Boolean
+  description: Whether this ProtectionRelayFunction responds to power flow in a given direction.
+- name: powerDirection
+  type: PowerDirectionKind
+  description: The flow of power direction used by this ProtectionRelayFunction.
+ancestors:
+- PowerSystemResource
+descendents:
+- VoltageRelay
+- DistanceRelay
+- CurrentRelay
+associations:
+- source: ProtectionRelayFunction
+  target: RelaySetting
+  targetCardinality: 0..*
+  targetName: Thresholds
+  targetDescription: The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
+- source: ProtectionRelayFunction
+  target: ProtectedSwitch
+  sourceCardinality: 0..*
+  sourceName: RelayFunctons
+  sourceDescription: The ProtectionRelayFunctions operating this ProtectedSwitch.
+  targetCardinality: 0..*
+  targetName: ProtectedSwitches
+  targetDescription: The ProtectedSwitches operated by this ProtectionRelayFunction.
+- source: ProtectionRelayFunction
+  target: Sensor
+  sourceCardinality: 1..*
+  sourceName: RelayFunctions
+  sourceDescription: The relay functions influenced by this Sensor
+  targetCardinality: 0..*
+  targetName: Sensors
+  targetDescription: The Sensors for this relay function.
+- source: ProtectionRelayFunction
+  target: ProtectionRelayScheme
+  sourceCardinality: 0..*
+  sourceName: Functions
+  sourceDescription: The functions operated as part of this protection scheme.
+  targetCardinality: 0..*
+  targetName: Schemes
+  targetDescription: The schemes this function operates under.

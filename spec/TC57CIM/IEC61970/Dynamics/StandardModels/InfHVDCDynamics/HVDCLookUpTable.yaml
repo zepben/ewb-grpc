@@ -1,0 +1,21 @@
+name: HVDCLookUpTable
+attributes:
+- name: input
+  type: Float
+- name: output
+  type: Float
+- name: sequence
+  type: Integer
+- name: functionKind
+  type: LookUpTableFunctionKind
+associations:
+- source: HVDCLookUpTable
+  target: Qregulator
+  sourceCardinality: 1..*
+  sourceName: HVDClookUpTable
+  targetCardinality: 0..1
+  targetName: Qregulator
+- source: HVDCLookUpTable
+  target: VDCOL
+  sourceCardinality: 1..*
+  targetCardinality: 0..1

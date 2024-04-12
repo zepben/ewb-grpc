@@ -1,0 +1,15 @@
+name: HydroPumpOpSchedule
+description: 'The hydro pump''s Operator-approved current operating schedule (or plan), typically produced with the aid of
+  unit commitment type analyses. The unit''s operating schedule status is typically given as: (0=unavailable) (1=available
+  to startup or shutdown)  (2=must pump).'
+ancestors:
+- RegularIntervalSchedule
+associations:
+- source: HydroPumpOpSchedule
+  target: HydroPump
+  sourceCardinality: 0..1
+  sourceName: HydroPumpOpSchedule
+  sourceDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
+  targetCardinality: "1"
+  targetName: HydroPump
+  targetDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.

@@ -1,0 +1,51 @@
+name: ActivityRecord
+description: Records activity for an entity at a point in time; activity may be for an event that has already occurred or
+  for a planned activity.
+attributes:
+- name: createdDateTime
+  type: DateTime
+  description: Date and time this activity record has been created (different from the 'status.dateTime', which is the time
+    of a status change of the associated object, if applicable).
+- name: reason
+  type: String
+  description: Reason for event resulting in this activity record, typically supplied when user initiated.
+- name: severity
+  type: String
+  description: Severity level of event resulting in this activity record.
+- name: status
+  type: Status
+  description: Information on consequence of event resulting in this activity record.
+- name: type
+  type: String
+  description: Type of event resulting in this activity record.
+ancestors:
+- IdentifiedObject
+descendents:
+- ComplianceEvent
+- EndDeviceEvent
+- ConfigurationEvent
+- WorkActivityRecord
+- FailureEvent
+- AssetHealthEvent
+- PSREvent
+- SwitchingEvent
+- EnvironmentalAlert
+- EnvironmentalEvent
+- MktActivityRecord
+associations:
+- source: ActivityRecord
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: ActivityRecords
+  sourceDescription: All activity records created for this asset.
+  targetCardinality: 0..*
+  targetName: Assets
+  targetDescription: All assets for which this activity record has been created.
+- source: ActivityRecord
+  target: Author
+  sourceCardinality: 0..*
+  sourceName: ActivityRecords
+  sourceDescription: All activity records with this author.
+  targetCardinality: 0..1
+  targetName: Author
+  targetDescription: Author of this activity record.

@@ -1,0 +1,41 @@
+name: CombinedCycleConfiguration
+description: |-
+  Configuration options for combined cycle units.
+  For example, a Combined Cycle with (CT1, CT2, ST1) will have (CT1, ST1) and (CT2, ST1) configurations as part of(1CT + 1STlogicalconfiguration).
+attributes:
+- name: primaryConfiguration
+  type: Boolean
+  description: Whether this CombinedCycleConfiguration is the primary configuration in the associated Logical configuration?
+- name: ShutdownFlag
+  type: Boolean
+  description: Whether Combined Cycle Plant can be shut-down in this Configuration?
+- name: StartupFlag
+  type: Boolean
+  description: Whether Combined Cycle Plant can be started in this Logical Configuration?
+ancestors:
+- RegisteredGenerator
+associations:
+- source: CombinedCycleConfiguration
+  target: CombinedCycleConfigurationMember
+  sourceCardinality: "1"
+  sourceName: CombinedCycleConfiguration
+  targetCardinality: 0..*
+  targetName: CombinedCycleConfigurationMember
+- source: CombinedCycleConfiguration
+  target: CombinedCycleTransitionState
+  sourceCardinality: "1"
+  sourceName: ToConfiguration
+  targetCardinality: 0..*
+  targetName: ToTransitionState
+- source: CombinedCycleConfiguration
+  target: CombinedCycleTransitionState
+  sourceCardinality: "1"
+  sourceName: FromConfiguration
+  targetCardinality: 0..*
+  targetName: FromTransitionState
+- source: CombinedCycleConfiguration
+  target: CombinedCycleLogicalConfiguration
+  sourceCardinality: 1..*
+  sourceName: CombinedCycleConfiguration
+  targetCardinality: 0..1
+  targetName: CombinedCycleLogicalConfiguration

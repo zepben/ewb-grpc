@@ -1,0 +1,92 @@
+name: Pss2B
+description: Modified IEEE PSS2B.  Extra lead/lag (or rate) block added at end (up to 4 lead/lags total).
+attributes:
+- name: a
+  type: Float
+  description: Numerator constant (<i>a</i>).  Typical value = 1.
+- name: ks1
+  type: PU
+  description: Stabilizer gain (<i>Ks1</i>).  Typical value = 12.
+- name: ks2
+  type: PU
+  description: 'Gain on signal #2 (<i>Ks2</i>).  Typical value = 0,2.'
+- name: ks3
+  type: PU
+  description: 'Gain on signal #2 input before ramp-tracking filter (<i>Ks3</i>).  Typical value = 1.'
+- name: ks4
+  type: PU
+  description: 'Gain on signal #2 input after ramp-tracking filter (<i>Ks4</i>).  Typical value = 1.'
+- name: m
+  type: Integer
+  description: Denominator order of ramp tracking filter (<i>m</i>).  Typical value = 5.
+- name: n
+  type: Integer
+  description: Order of ramp tracking filter (<i>n</i>).  Typical value = 1.
+- name: t1
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).  Typical value = 0,12.
+- name: t10
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>10</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: t11
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>11</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: t2
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).  Typical value = 0,02.
+- name: t3
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).  Typical value = 0,3.
+- name: t4
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>4</sub></i>) (&gt;= 0).  Typical value = 0,02.
+- name: t6
+  type: Seconds
+  description: 'Time constant on signal #1 (<i>T</i><i><sub>6</sub></i>) (&gt;= 0).  Typical value = 0.'
+- name: t7
+  type: Seconds
+  description: 'Time constant on signal #2 (<i>T</i><i><sub>7</sub></i>) (&gt;= 0).  Typical value = 2.'
+- name: t8
+  type: Seconds
+  description: Lead of ramp tracking filter (<i>T</i><i><sub>8</sub></i>) (&gt;= 0).  Typical value = 0,2.
+- name: t9
+  type: Seconds
+  description: Lag of ramp tracking filter (<i>T</i><i><sub>9</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: ta
+  type: Seconds
+  description: Lead constant (<i>T</i><i><sub>a</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tb
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>b</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tw1
+  type: Seconds
+  description: 'First washout on signal #1 (<i>T</i><i><sub>w1</sub></i>) (&gt;= 0).  Typical value = 2.'
+- name: tw2
+  type: Seconds
+  description: 'Second washout on signal #1 (<i>T</i><i><sub>w2</sub></i>) (&gt;= 0).  Typical value = 2.'
+- name: tw3
+  type: Seconds
+  description: 'First washout on signal #2 (<i>T</i><i><sub>w3</sub></i>) (&gt;= 0).  Typical value = 2.'
+- name: tw4
+  type: Seconds
+  description: 'Second washout on signal #2 (<i>T</i><i><sub>w4</sub></i>) (&gt;= 0).  Typical value = 0.'
+- name: vsi1max
+  type: PU
+  description: 'Input signal #1 maximum limit (<i>Vsi1max</i>) (&gt; Pss2B.vsi1min).  Typical value = 2.'
+- name: vsi1min
+  type: PU
+  description: 'Input signal #1 minimum limit (<i>Vsi1min</i>) (&lt; Pss2B.vsi1max).  Typical value = -2.'
+- name: vsi2max
+  type: PU
+  description: 'Input signal #2 maximum limit (<i>Vsi2max</i>) (&gt; Pss2B.vsi2min).  Typical value = 2.'
+- name: vsi2min
+  type: PU
+  description: 'Input signal #2 minimum limit (<i>Vsi2min</i>) (&lt; Pss2B.vsi2max).  Typical value = -2.'
+- name: vstmax
+  type: PU
+  description: Stabilizer output maximum limit (<i>Vstmax</i>) (&gt; Pss2B.vstmin).  Typical value = 0,1.
+- name: vstmin
+  type: PU
+  description: Stabilizer output minimum limit (<i>Vstmin</i>) (&lt; Pss2B.vstmax).  Typical value = -0,1.
+ancestors:
+- PowerSystemStabilizerDynamics

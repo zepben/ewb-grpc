@@ -1,0 +1,18 @@
+name: OperationalUpdatedRating
+description: Lowered capability because of deterioration or inadequacy (sometimes referred to as derating or partial outage)
+  or other kind of operational rating change.
+attributes:
+- name: changeType
+  type: String
+  description: Type of operational updated rating, e.g. a derate, a rerate or a return to normal.
+ancestors:
+- OperationalRestriction
+associations:
+- source: OperationalUpdatedRating
+  target: PlannedOutage
+  sourceCardinality: 0..*
+  sourceName: UpdatedRatings
+  sourceDescription: All updated ratings for this planned equipment outage.
+  targetCardinality: "1"
+  targetName: PlannedOutage
+  targetDescription: Planned equipment outage with this updated rating.

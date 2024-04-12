@@ -1,0 +1,128 @@
+name: ExcitationSystemDynamics
+description: Excitation system function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
+  by definition of a user-defined model.</font>
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- ExcitationSystemUserDefined
+- ExcST7B
+- ExcST6B
+- ExcST4B
+- ExcST3A
+- ExcST2A
+- ExcST1A
+- ExcSK
+- ExcSEXS
+- ExcSCRX
+- ExcRQB
+- ExcREXS
+- ExcPIC
+- ExcOEX3T
+- ExcNI
+- ExcHU
+- ExcELIN2
+- ExcELIN1
+- ExcDC3A1
+- ExcDC3A
+- ExcDC2A
+- ExcDC1A
+- ExcCZ
+- ExcBBC
+- ExcAVR7
+- ExcAVR5
+- ExcAVR4
+- ExcAVR3
+- ExcAVR2
+- ExcAVR1
+- ExcANS
+- ExcAC8B
+- ExcAC6A
+- ExcAC5A
+- ExcAC4A
+- ExcAC3A
+- ExcAC2A
+- ExcAC1A
+- ExcIEEEST7B
+- ExcIEEEST6B
+- ExcIEEEST5B
+- ExcIEEEST4B
+- ExcIEEEST3A
+- ExcIEEEST2A
+- ExcIEEEST1A
+- ExcIEEEDC4B
+- ExcIEEEDC3A
+- ExcIEEEDC2A
+- ExcIEEEDC1A
+- ExcIEEEAC8B
+- ExcIEEEAC7B
+- ExcIEEEAC6A
+- ExcIEEEAC5A
+- ExcIEEEAC4A
+- ExcIEEEAC3A
+- ExcIEEEAC2A
+- ExcIEEEAC1A
+associations:
+- source: ExcitationSystemDynamics
+  target: SynchronousMachineDynamics
+  sourceCardinality: 0..1
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model associated with this synchronous machine model.
+  targetCardinality: "1"
+  targetName: SynchronousMachineDynamics
+  targetDescription: Synchronous machine model with which this excitation system model is associated.
+- source: ExcitationSystemDynamics
+  target: PowerSystemStabilizerDynamics
+  sourceCardinality: "1"
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this power system stabilizer model is associated.
+  targetCardinality: 0..1
+  targetName: PowerSystemStabilizerDynamics
+  targetDescription: Power system stabilizer model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: PFVArControllerType1Dynamics
+  sourceCardinality: "1"
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
+  targetCardinality: 0..1
+  targetName: PFVArControllerType1Dynamics
+  targetDescription: Power factor or VAr controller type 1 model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: OverexcitationLimiterDynamics
+  sourceCardinality: "1"
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this overexcitation limiter model is associated.
+  targetCardinality: 0..1
+  targetName: OverexcitationLimiterDynamics
+  targetDescription: Overexcitation limiter model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: DiscontinuousExcitationControlDynamics
+  sourceCardinality: "1"
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this discontinuous excitation control model is associated.
+  targetCardinality: 0..1
+  targetName: DiscontinuousExcitationControlDynamics
+  targetDescription: Discontinuous excitation control model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: PFVArControllerType2Dynamics
+  sourceCardinality: "1"
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this power factor or VAr controller type 2 is associated.
+  targetCardinality: 0..1
+  targetName: PFVArControllerType2Dynamics
+  targetDescription: Power factor or VAr controller type 2 model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: UnderexcitationLimiterDynamics
+  sourceCardinality: "1"
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this underexcitation limiter model is associated.
+  targetCardinality: 0..1
+  targetName: UnderexcitationLimiterDynamics
+  targetDescription: Undrexcitation limiter model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: VoltageCompensatorDynamics
+  sourceCardinality: "1"
+  sourceName: ExcitationSystemDynamics
+  sourceDescription: Excitation system model with which this voltage compensator is associated.
+  targetCardinality: "1"
+  targetName: VoltageCompensatorDynamics
+  targetDescription: Voltage compensator model associated with this excitation system model.

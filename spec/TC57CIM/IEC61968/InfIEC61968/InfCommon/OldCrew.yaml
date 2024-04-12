@@ -1,0 +1,41 @@
+name: OldCrew
+description: A crew is a group of people with specific skills, tools, and vehicles.
+attributes:
+- name: type
+  type: String
+  description: Classification by utility's work management standards and practices.
+ancestors:
+- Crew
+associations:
+- source: OldCrew
+  target: Route
+  sourceCardinality: 0..*
+  sourceName: Crews
+  targetCardinality: 0..1
+  targetName: Route
+- source: OldCrew
+  target: Assignment
+  sourceCardinality: 0..*
+  sourceName: Crews
+  sourceDescription: All Crews having this Assignment.
+  targetCardinality: 0..*
+  targetName: Assignments
+  targetDescription: All Assignments for this Crew.
+- source: OldCrew
+  target: ShiftPattern
+  sourceCardinality: 0..*
+  sourceName: Crews
+  targetCardinality: 0..*
+  targetName: ShiftPatterns
+- source: OldCrew
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: Crews
+  targetCardinality: 0..*
+  targetName: Locations
+- source: OldCrew
+  target: Capability
+  sourceCardinality: 0..1
+  sourceName: Crew
+  targetCardinality: 0..*
+  targetName: Capabilities

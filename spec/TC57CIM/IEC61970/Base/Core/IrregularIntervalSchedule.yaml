@@ -1,0 +1,13 @@
+name: IrregularIntervalSchedule
+description: The schedule has time points where the time between them varies.
+ancestors:
+- BasicIntervalSchedule
+associations:
+- source: IrregularIntervalSchedule
+  target: IrregularTimePoint
+  sourceCardinality: "1"
+  sourceName: IntervalSchedule
+  sourceDescription: An IrregularTimePoint belongs to an IrregularIntervalSchedule.
+  targetCardinality: 1..*
+  targetName: TimePoints
+  targetDescription: The point data values that define a curve.

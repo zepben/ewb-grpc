@@ -1,0 +1,24 @@
+name: SvVoltage
+description: State variable for voltage.
+attributes:
+- name: phase
+  type: SinglePhaseKind
+  description: If specified the voltage is the line to ground voltage of the individual phase.   If unspecified, then the
+    voltage is assumed balanced.
+- name: angle
+  type: AngleDegrees
+  description: The voltage angle of the topological node complex voltage with respect to system reference.
+- name: v
+  type: Voltage
+  description: The voltage magnitude at the topological node. The attribute shall be a positive value.
+ancestors:
+- StateVariable
+associations:
+- source: SvVoltage
+  target: TopologicalNode
+  sourceCardinality: 0..*
+  sourceName: SvVoltage
+  sourceDescription: The state voltage associated with the topological node.
+  targetCardinality: "1"
+  targetName: TopologicalNode
+  targetDescription: The topological node associated with the voltage state.

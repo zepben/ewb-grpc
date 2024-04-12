@@ -1,0 +1,81 @@
+name: ExcAC1A
+description: Modified IEEE AC1A alternator-supplied rectifier excitation system with different rate feedback source.
+attributes:
+- name: hvlvgates
+  type: Boolean
+  description: |-
+    Indicates if both HV gate and LV gate are active (<i>HVLVgates</i>).
+    true = gates are used
+    false = gates are not used.
+    Typical value = true.
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 400.
+- name: kc
+  type: PU
+  description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,2.
+- name: kd
+  type: PU
+  description: Demagnetizing factor, a function of exciter alternator reactances (<i>Kd</i>) (&gt;= 0).  Typical value = 0,38.
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>Ke</i>).  Typical value = 1.
+- name: kf
+  type: PU
+  description: Excitation control system stabilizer gains (<i>Kf</i>) (&gt;= 0).  Typical value = 0,03.
+- name: kf1
+  type: PU
+  description: Coefficient to allow different usage of the model (<i>Kf1</i>) (&gt;= 0).  Typical value = 0.
+- name: kf2
+  type: PU
+  description: Coefficient to allow different usage of the model (<i>Kf2</i>) (&gt;= 0).  Typical value = 1.
+- name: ks
+  type: PU
+  description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>) (&gt;= 0).  Typical value =
+    0.
+- name: seve1
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,1.
+- name: seve2
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,03.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,02.
+- name: tb
+  type: Seconds
+  description: Voltage regulator time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 0.
+- name: tc
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>c</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value
+    = 0,8.
+- name: tf
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt; 0).  Typical value = 1.
+- name: vamax
+  type: PU
+  description: Maximum voltage regulator output (<i>V</i><i><sub>amax</sub></i>) (&gt; 0).  Typical value = 14,5.
+- name: vamin
+  type: PU
+  description: Minimum voltage regulator output (<i>V</i><i><sub>amin</sub></i>) (&lt; 0).  Typical value = -14,5.
+- name: ve1
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve1</i>)
+    (&gt; 0).  Typical value = 4,18.
+- name: ve2
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve2</i>)
+    (&gt; 0).  Typical value = 3,14.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator outputs (<i>Vrmax</i>) (&gt; 0).  Typical value = 6,03.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator outputs (<i>Vrmin</i>) (&lt; 0).  Typical value = -5,43.
+ancestors:
+- ExcitationSystemDynamics

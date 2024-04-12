@@ -1,0 +1,15 @@
+name: Location
+description: The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment
+  in time. It can be defined with one or more position points (coordinates) in a given coordinate system.
+attributes:
+- name: mainAddress
+  type: StreetAddress
+  description: Main address of the location.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Location
+  target: PositionPoint
+  targetCardinality: 0..*
+  targetName: Points
+  targetDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.

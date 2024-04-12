@@ -1,0 +1,77 @@
+name: DiagramObject
+description: An object that defines one or more points in a given space. This object can be associated with anything that
+  specializes IdentifiedObject. For single line diagrams such objects typically include such items as analog values, breakers,
+  disconnectors, power transformers, and transmission lines.
+attributes:
+- name: drawingOrder
+  type: Integer
+  description: The drawing order of this element. The higher the number, the later the element is drawn in sequence. This
+    is used to ensure that elements that overlap are rendered in the correct order.
+- name: isPolygon
+  type: Boolean
+  description: Defines whether or not the diagram objects points define the boundaries of a polygon or the routing of a polyline.
+    If this value is true then a receiving application should consider the first and last points to be connected.
+- name: offsetX
+  type: Float
+  description: |-
+    The offset in the X direction. This is used for defining the offset from centre for rendering an icon (the default is that a single point specifies the centre of the icon).
+
+    The offset is in per-unit with 0 indicating there is no offset from the horizontal centre of the icon.  -0.5 indicates it is offset by 50% to the left and 0.5 indicates an offset of 50% to the right.
+- name: offsetY
+  type: Float
+  description: |-
+    The offset in the Y direction. This is used for defining the offset from centre for rendering an icon (the default is that a single point specifies the centre of the icon).
+
+    The offset is in per-unit with 0 indicating there is no offset from the vertical centre of the icon.  The offset direction is dependent on the orientation of the diagram, with -0.5 and 0.5 indicating an offset of +/- 50% on the vertical axis.
+- name: rotation
+  type: AngleDegrees
+  description: |-
+    Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation is clockwise.  DiagramObject.rotation=0 has the following meaning: The connection point of an element which has one terminal is pointing to the top side of the diagram. The connection point "From side" of an element which has more than one terminal is pointing to the top side of the diagram.
+    DiagramObject.rotation=90 has the following meaning: The connection point of an element which has one terminal is pointing to the right hand side of the diagram. The connection point "From side" of an element which has more than one terminal is pointing to the right hand side of the diagram.
+ancestors:
+- IdentifiedObject
+descendents:
+- TextDiagramObject
+associations:
+- source: DiagramObject
+  target: Diagram
+  sourceCardinality: 0..*
+  sourceName: DiagramElements
+  sourceDescription: A diagram is made up of multiple diagram objects.
+  targetCardinality: 0..1
+  targetName: Diagram
+  targetDescription: A diagram object is part of a diagram.
+- source: DiagramObject
+  target: VisibilityLayer
+  sourceCardinality: 0..*
+  sourceName: VisibleObjects
+  sourceDescription: A visibility layer can contain one or more diagram objects.
+  targetCardinality: 0..*
+  targetName: VisibilityLayers
+  targetDescription: A diagram object can be part of multiple visibility layers.
+- source: DiagramObject
+  target: DiagramObjectPoint
+  sourceCardinality: "1"
+  sourceName: DiagramObject
+  sourceDescription: The diagram object with which the points are associated.
+  targetCardinality: 0..*
+  targetName: DiagramObjectPoints
+  targetDescription: A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or
+    boundary (for polygons).
+- source: DiagramObject
+  target: DiagramObjectStyle
+  sourceCardinality: 0..*
+  sourceName: StyledObjects
+  sourceDescription: A style can be assigned to multiple diagram objects.
+  targetCardinality: 0..1
+  targetName: DiagramObjectStyle
+  targetDescription: A diagram object has a style associated that provides a reference for the style used in the originating
+    system.
+- source: DiagramObject
+  target: IdentifiedObject
+  sourceCardinality: 0..*
+  sourceName: DiagramObjects
+  sourceDescription: The diagram objects that are associated with the domain object.
+  targetCardinality: 0..1
+  targetName: IdentifiedObject
+  targetDescription: The domain object to which this diagram object is associated.

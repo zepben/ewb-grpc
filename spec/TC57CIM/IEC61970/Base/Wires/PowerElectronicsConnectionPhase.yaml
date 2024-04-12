@@ -1,0 +1,27 @@
+name: PowerElectronicsConnectionPhase
+description: A single phase of a power electronics connection.
+attributes:
+- name: p
+  type: ActivePower
+  description: Active power injection. Load sign convention is used, i.e. positive sign means flow into the equipment from
+    the network.
+- name: q
+  type: ReactivePower
+  description: Reactive power injection. Load sign convention is used, i.e. positive sign means flow into the equipment from
+    the network.
+- name: phase
+  type: SinglePhaseKind
+  description: Phase of this energy producer component.   If the energy producer is wye connected, the connection is from
+    the indicated phase to the central ground or neutral point.  If the energy producer is delta connected, the phase indicates
+    an energy producer connected from the indicated phase to the next logical non-neutral phase.
+ancestors:
+- PowerSystemResource
+associations:
+- source: PowerElectronicsConnectionPhase
+  target: PowerElectronicsConnection
+  sourceCardinality: 0..*
+  sourceName: PowerElectronicsConnectionPhase
+  sourceDescription: The individual phases models for the power electronics connection.
+  targetCardinality: "1"
+  targetName: PowerElectronicsConnection
+  targetDescription: Power electronics connection of this power electronics connection phase.

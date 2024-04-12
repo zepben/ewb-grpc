@@ -1,0 +1,78 @@
+name: GovHydroPID2
+description: |-
+  Hydro turbine and governor. Represents plants with straightforward penstock configurations and "three term" electro-hydraulic governors (i.e. Woodward<sup>TM</sup> electronic).
+  [Footnote: Woodward electronic governors are an example of suitable products available commercially. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of these products.]
+attributes:
+- name: atw
+  type: PU
+  description: Factor multiplying <i>Tw</i> (<i>Atw</i>).  Typical value = 0.
+- name: d
+  type: PU
+  description: Turbine damping factor (<i>D</i>).  Unit = delta P / delta speed.  Typical value = 0.
+- name: feedbackSignal
+  type: Boolean
+  description: |-
+    Feedback signal type flag (<i>Flag</i>).
+    true = use gate position feedback signal
+    false = use Pe.
+- name: g0
+  type: PU
+  description: Gate opening at speed no load (<i>G0</i>).  Typical value = 0.
+- name: g1
+  type: PU
+  description: Intermediate gate opening (<i>G1</i>).  Typical value = 0.
+- name: g2
+  type: PU
+  description: Intermediate gate opening (<i>G2</i>).  Typical value = 0.
+- name: gmax
+  type: PU
+  description: Maximum gate opening (<i>Gmax</i>) (&gt; GovHydroPID2.gmin).  Typical value = 0.
+- name: gmin
+  type: PU
+  description: Minimum gate opening (<i>Gmin</i>) (&gt; GovHydroPID2.gmax).  Typical value = 0.
+- name: kd
+  type: PU
+  description: Derivative gain (<i>Kd</i>).  Typical value = 0.
+- name: ki
+  type: Float
+  description: Reset gain (<i>Ki</i>).  Unit = PU/s.  Typical value = 0.
+- name: kp
+  type: PU
+  description: Proportional gain (<i>Kp</i>).  Typical value = 0.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt;0).  Unit = MW.
+- name: p1
+  type: PU
+  description: Power at gate opening <i>G1</i> (<i>P1</i>).  Typical value = 0.
+- name: p2
+  type: PU
+  description: Power at gate opening G2 (<i>P2</i>).  Typical value = 0.
+- name: p3
+  type: PU
+  description: Power at full opened gate (<i>P3</i>).  Typical value = 0.
+- name: rperm
+  type: PU
+  description: Permanent drop (<i>Rperm</i>).  Typical value = 0.
+- name: ta
+  type: Seconds
+  description: Controller time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0.
+- name: tb
+  type: Seconds
+  description: Gate servo time constant (<i>Tb</i>) (&gt; 0).
+- name: treg
+  type: Seconds
+  description: Speed detector time constant (<i>Treg</i>) (&gt;= 0).  Typical value = 0.
+- name: tw
+  type: Seconds
+  description: Water inertia time constant (<i>Tw</i>) (&gt;= 0).  Typical value = 0.
+- name: velmax
+  type: Float
+  description: Maximum gate opening velocity (<i>Velmax</i>) (&lt; GovHydroPID2.velmin).  Unit = PU / s.  Typical value =
+    0.
+- name: velmin
+  type: Float
+  description: Maximum gate closing velocity (<i>Velmin</i>) (&gt; GovHydroPID2.velmax).  Unit = PU / s.  Typical value =
+    0.
+ancestors:
+- TurbineGovernorDynamics

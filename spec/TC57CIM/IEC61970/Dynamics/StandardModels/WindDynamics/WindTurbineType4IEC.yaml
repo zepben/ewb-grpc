@@ -1,0 +1,16 @@
+name: WindTurbineType4IEC
+description: Parent class supporting relationships to IEC wind turbines type 4 including their control models.
+ancestors:
+- WindTurbineType3or4IEC
+descendents:
+- WindTurbineType4bIEC
+- WindTurbineType4aIEC
+associations:
+- source: WindTurbineType4IEC
+  target: WindGenType3aIEC
+  sourceCardinality: 0..1
+  sourceName: WindTurbineType4IEC
+  sourceDescription: Wind turbine type 4 model with which this wind generator type 3A model is associated.
+  targetCardinality: 0..1
+  targetName: WindGenType3aIEC
+  targetDescription: Wind generator type 3A model associated with this wind turbine type 4 model.

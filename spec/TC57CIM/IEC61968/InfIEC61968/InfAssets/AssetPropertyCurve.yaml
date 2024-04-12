@@ -1,0 +1,18 @@
+name: AssetPropertyCurve
+description: An Asset Property that is described through curves rather than as a data point. The relationship is to be defined
+  between an independent variable (X-axis) and one or two dependent variables (Y1-axis and Y2-axis).
+ancestors:
+- Curve
+associations:
+- source: AssetPropertyCurve
+  target: Specification
+  sourceCardinality: 0..*
+  sourceName: AssetPropertyCurves
+  targetCardinality: 0..1
+  targetName: Specification
+- source: AssetPropertyCurve
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: AssetPropertyCurves
+  targetCardinality: 0..*
+  targetName: Assets

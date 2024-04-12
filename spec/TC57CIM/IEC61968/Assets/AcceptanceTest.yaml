@@ -1,0 +1,15 @@
+name: AcceptanceTest
+description: Acceptance test for assets.
+attributes:
+- name: dateTime
+  type: DateTime
+  description: Date and time the asset was last tested using the 'type' of test and yielding the current status in 'success'
+    attribute.
+- name: success
+  type: Boolean
+  description: True if asset has passed acceptance test and may be placed in or is in service. It is set to false if asset
+    is removed from service and is required to be tested again before being placed back in service, possibly in a new location.
+    Since asset may go through multiple tests during its lifecycle, the date of each acceptance test may be recorded in 'Asset.ActivityRecord.status.dateTime'.
+- name: type
+  type: String
+  description: Type of test or group of tests that was conducted on 'dateTime'.

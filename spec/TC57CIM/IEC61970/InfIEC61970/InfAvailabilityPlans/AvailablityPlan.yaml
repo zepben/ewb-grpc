@@ -1,0 +1,14 @@
+name: AvailablityPlan
+description: The collection of all the availability schedules for a given time range.  Only one availability plan shall be
+  valid for the same period.
+attributes:
+- name: validPeriod
+  type: DateTimeInterval
+  description: The period of time for which the plan is valid.
+ancestors:
+- IdentifiedObject
+associations:
+- source: AvailablityPlan
+  target: UnavailablitySchedule
+  sourceCardinality: 0..1
+  targetCardinality: 0..*

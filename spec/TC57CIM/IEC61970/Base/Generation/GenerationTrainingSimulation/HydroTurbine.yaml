@@ -1,0 +1,38 @@
+name: HydroTurbine
+description: 'A water driven prime mover. Typical turbine types are: Francis, Kaplan, and Pelton.'
+attributes:
+- name: gateRateLimit
+  type: Float
+  description: Gate rate limit.
+- name: gateUpperLimit
+  type: PU
+  description: Gate upper limit.
+- name: maxHeadMaxP
+  type: ActivePower
+  description: Maximum efficiency active power at maximum head conditions.
+- name: minHeadMaxP
+  type: ActivePower
+  description: Maximum efficiency active power at minimum head conditions.
+- name: speedRating
+  type: RotationSpeed
+  description: Rated speed in number of revolutions. The attribute shall be a positive value.
+- name: speedRegulation
+  type: PU
+  description: Speed regulation.
+- name: transientDroopTime
+  type: Seconds
+  description: Transient droop time constant.
+- name: transientRegulation
+  type: PU
+  description: Transient regulation.
+- name: turbineRating
+  type: ActivePower
+  description: Rated turbine active power. The attribute shall be a positive value.
+- name: turbineType
+  type: HydroTurbineKind
+  description: Type of turbine.
+- name: waterStartingTime
+  type: Seconds
+  description: Water starting time.
+ancestors:
+- PrimeMover

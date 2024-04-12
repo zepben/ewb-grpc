@@ -1,0 +1,44 @@
+name: ExPostResourceResults
+description: 'Model of ex-post pricing of resources contains components of LMPs: energy, congestion, loss. Resource based.'
+attributes:
+- name: congestionLMP
+  type: Float
+  description: LMP component in USD (deprecated)
+- name: desiredMW
+  type: Float
+  description: Desired output of unit
+- name: dispatchRate
+  type: Float
+  description: Unit Dispatch rate from real time unit dispatch.
+- name: lmp
+  type: Float
+  description: LMP (Local Marginal Price) in USD at the equipment (deprecated)
+- name: lossLMP
+  type: Float
+  description: loss lmp (deprecated)
+- name: maxEconomicMW
+  type: Float
+  description: Economic Maximum MW
+- name: minEconomicMW
+  type: Float
+  description: Economic Minimum MW
+- name: resourceMW
+  type: Float
+  description: "Current MW output of the equipment \nAttribute Usage: Information purposes - Information purposes - Output\
+    \ of LPA engine."
+- name: status
+  type: EquipmentStatusType
+  description: Status of equipment
+associations:
+- source: ExPostResourceResults
+  target: ExPostResource
+  sourceCardinality: 0..*
+  sourceName: ExPostResourceResults
+  targetCardinality: "1"
+  targetName: ExPostResource
+- source: ExPostResourceResults
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: ExPostResourceResults
+  targetCardinality: 0..1
+  targetName: RegisteredResource

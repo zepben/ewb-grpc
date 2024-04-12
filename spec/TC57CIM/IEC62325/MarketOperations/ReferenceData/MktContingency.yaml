@@ -1,0 +1,44 @@
+name: MktContingency
+description: Subclass of IEC 61970:Contingency.
+attributes:
+- name: loadRolloverFlag
+  type: Boolean
+  description: "load change flag \nFlag that indicates whether load rollover and load pickup should be processed for this\
+    \ contingency"
+- name: ltcControlFlag
+  type: Boolean
+  description: "ltc enable flag \nFlag that indicates if LTCs regulate voltage during the solution of the contingency"
+- name: participationFactorSet
+  type: String
+  description: "Participation Factor flag \nAn indication which set of generator participation factors should be used to re-allocate\
+    \ generation in this contingency"
+- name: screeningFlag
+  type: Boolean
+  description: "sceening flag for outage \nFlag that indicated whether screening is bypassed for the contingency"
+ancestors:
+- Contingency
+associations:
+- source: MktContingency
+  target: ConstraintResults
+  sourceCardinality: "1"
+  sourceName: MktContingency
+  targetCardinality: 0..*
+  targetName: ConstraintResults
+- source: MktContingency
+  target: ContingencyConstraintLimit
+  sourceCardinality: "1"
+  sourceName: MktContingency
+  targetCardinality: 0..*
+  targetName: ContingencyConstraintLimit
+- source: MktContingency
+  target: TransferInterfaceSolution
+  sourceCardinality: 0..1
+  sourceName: ' MktContingencyA'
+  targetCardinality: 0..1
+  targetName: TransferInterfaceSolutionA
+- source: MktContingency
+  target: TransferInterfaceSolution
+  sourceCardinality: 0..1
+  sourceName: MktContingencyB
+  targetCardinality: 0..1
+  targetName: TransferInterfaceSolutionB

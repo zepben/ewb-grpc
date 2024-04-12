@@ -1,0 +1,24 @@
+name: TransactionBidResults
+description: Contains the cleared results for each TransactionBid submitted to and accepted by the market.
+attributes:
+- name: clearedMW
+  type: Float
+  description: The market transaction megawatt
+- name: clearedPrice
+  type: Float
+  description: The price of the market transaction
+ancestors:
+- IdentifiedObject
+associations:
+- source: TransactionBidResults
+  target: TransactionBidClearing
+  sourceCardinality: 0..*
+  sourceName: TransactionBidResults
+  targetCardinality: "1"
+  targetName: TransactionBidClearing
+- source: TransactionBidResults
+  target: TransactionBid
+  sourceCardinality: 0..*
+  sourceName: TransactionBidResults
+  targetCardinality: 0..1
+  targetName: TransactionBid

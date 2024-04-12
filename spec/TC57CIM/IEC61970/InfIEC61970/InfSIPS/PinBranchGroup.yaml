@@ -1,0 +1,16 @@
+name: PinBranchGroup
+description: Value associated with branch group is used as compare.
+attributes:
+- name: kind
+  type: PinBranchGroupKind
+  description: The compare operation done on the branch group.
+ancestors:
+- GateInputPin
+associations:
+- source: PinBranchGroup
+  target: BranchGroup
+  sourceCardinality: 0..*
+  sourceName: PinBranchGroup
+  targetCardinality: "1"
+  targetName: BranchGroup
+  targetDescription: The branch group that should be used in compare.

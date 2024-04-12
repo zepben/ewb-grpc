@@ -1,0 +1,17 @@
+name: MarketPlan
+description: This class identifies a set of planned markets.
+attributes:
+- name: tradingDay
+  type: DateTime
+  description: Planned market trading day.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MarketPlan
+  target: PlannedMarket
+  sourceCardinality: "1"
+  sourceName: MarketPlan
+  sourceDescription: A market plan has a number of markets (DA, HA, RT).
+  targetCardinality: 1..*
+  targetName: PlannedMarket
+  targetDescription: A market plan has a number of markets (DA, HA, RT).

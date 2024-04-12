@@ -1,0 +1,38 @@
+name: DopInstruction
+description: Provides the necessary information (on a resource basis) to capture the Dispatch Operating Point (DOP) results
+  on a Dispatch interval. This information is only relevant to the RT interval market.
+attributes:
+- name: mwDOP
+  type: ActivePower
+  description: Dispatched Operating Point (MW)
+- name: plotPriority
+  type: Integer
+  description: A value used to establish priority of the DOP when plotting.  This is only applicable when two DOPs exist for
+    the same time, but with different MW values.  E.g. when indicating a step in the curve.  Its used to determine if the
+    curve steps up or down.
+- name: runIndicatorDOP
+  type: YesNo
+  description: "Indication of DOP validity. \n\nShows the DOP is calculated from the latest run (YES). A NO indicator shows\
+    \ that the DOP is copied from a previous execution.\n\nUp to 2 intervals can be missed."
+- name: timestampDOP
+  type: DateTime
+  description: DOP time stamp
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+associations:
+- source: DopInstruction
+  target: InstructionClearingDOP
+  sourceCardinality: 1..*
+  sourceName: DopInstruction
+  targetCardinality: 1..*
+  targetName: InstructionClearingDOP
+- source: DopInstruction
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: DopInstruction
+  targetCardinality: 0..1
+  targetName: RegisteredResouce

@@ -1,0 +1,55 @@
+name: SafetyDocument
+description: Document restricting or authorising works on electrical equipment (for example a permit to work, sanction for
+  test, limitation of access, or certificate of isolation), defined based upon organisational practices.
+attributes:
+- name: issuedDateTime
+  type: DateTime
+  description: Date and time this safety document has been issued.
+- name: releasedDateTime
+  type: DateTime
+  description: Date and time this safety document has been released.
+ancestors:
+- Document
+descendents:
+- ClearanceDocument
+associations:
+- source: SafetyDocument
+  target: SwitchingPlan
+  sourceCardinality: 0..*
+  sourceName: SafetyDocuments
+  sourceDescription: All safety documents applicable to this swtiching plan.
+  targetCardinality: 0..1
+  targetName: SwitchingPlan
+  targetDescription: Switching plan to which this safety document applies.
+- source: SafetyDocument
+  target: OperationsSafetySupervisor
+  sourceCardinality: 0..*
+  sourceName: ReleasedSafetyDocuments
+  sourceDescription: All safety documents released to this supervisor.
+  targetCardinality: 0..1
+  targetName: ReleasedToSupervisor
+  targetDescription: Supervisor to which this safety document is released.
+- source: SafetyDocument
+  target: OperationsSafetySupervisor
+  sourceCardinality: 0..*
+  sourceName: IssuedSafetyDocuments
+  sourceDescription: All safety documents issued by this supervisor.
+  targetCardinality: 0..1
+  targetName: IssuedBySupervisor
+  targetDescription: Supervisor that issued this safety document.
+- source: SafetyDocument
+  target: FieldSafetySupervisor
+  sourceCardinality: 0..*
+  sourceName: ReleasedSafetyDocuments
+  sourceDescription: All safety documents released by this supervisor.
+  targetCardinality: 0..1
+  targetName: ReleasedBySupervisor
+  targetDescription: Supervisor that released this safety document.
+- source: SafetyDocument
+  target: FieldSafetySupervisor
+  sourceCardinality: 0..*
+  sourceName: IssuedSafetyDocuments
+  sourceDescription: All safety documents issued to this supervisor.
+  targetCardinality: 0..1
+  targetName: IssuedToSupervisor
+  targetDescription: Supervisor to whom this safety document is issued.

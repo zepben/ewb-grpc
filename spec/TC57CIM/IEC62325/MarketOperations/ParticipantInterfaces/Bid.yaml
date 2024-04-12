@@ -1,0 +1,76 @@
+name: Bid
+description: Represents both bids to purchase and offers to sell energy or ancillary services in an RTO-sponsored market.
+attributes:
+- name: marketType
+  type: MarketType
+  description: The market type, DAM or RTM.
+- name: startTime
+  type: DateTime
+  description: Start time and date for which bid applies.
+- name: stopTime
+  type: DateTime
+  description: Stop time and date for which bid is applicable.
+ancestors:
+- Document
+descendents:
+- AreaLoadBid
+- ResourceBid
+- TransactionBid
+- DefaultBid
+associations:
+- source: Bid
+  target: ChargeProfile
+  sourceCardinality: 0..1
+  sourceName: Bid
+  targetCardinality: 0..*
+  targetName: ChargeProfiles
+- source: Bid
+  target: MitigatedBidSegment
+  sourceCardinality: "1"
+  sourceName: Bid
+  targetCardinality: 0..*
+  targetName: MitigatedBidSegment
+- source: Bid
+  target: EnergyMarket
+  sourceCardinality: 0..*
+  sourceName: Bids
+  targetCardinality: "1"
+  targetName: EnergyMarket
+- source: Bid
+  target: MarketParticipant
+  sourceCardinality: 0..*
+  sourceName: Bid
+  targetCardinality: 0..1
+  targetName: MarketParticipant
+- source: Bid
+  target: MitigatedBid
+  sourceCardinality: 0..1
+  sourceName: Bid
+  targetCardinality: 0..*
+  targetName: MitigatedBid
+- source: Bid
+  target: ActionRequest
+  sourceCardinality: 0..*
+  sourceName: Bid
+  targetCardinality: "1"
+  targetName: ActionRequest
+- source: Bid
+  target: BidHourlySchedule
+  sourceCardinality: "1"
+  sourceName: Bid
+  targetCardinality: 0..*
+  targetName: BidHourlySchedule
+- source: Bid
+  target: ProductBid
+  sourceCardinality: "1"
+  sourceName: Bid
+  sourceDescription: A bid comprises one or more product bids of market products
+  targetCardinality: 1..*
+  targetName: ProductBids
+  targetDescription: A bid comprises one or more product bids of market products
+- source: Bid
+  target: RMRDetermination
+  sourceCardinality: 0..1
+  sourceName: Bid
+  targetCardinality: 0..*
+  targetName: RMRDetermination

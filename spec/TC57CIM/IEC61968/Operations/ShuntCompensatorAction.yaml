@@ -1,0 +1,14 @@
+name: ShuntCompensatorAction
+attributes:
+- name: kind
+  type: TempEquipActionKind
+  description: Switching action to perform
+ancestors:
+- SwitchingAction
+associations:
+- source: ShuntCompensatorAction
+  target: ShuntCompensator
+  sourceCardinality: 0..1
+  sourceName: ShuntCompensatorAction
+  targetCardinality: 0..1
+  targetName: ShuntCompensator

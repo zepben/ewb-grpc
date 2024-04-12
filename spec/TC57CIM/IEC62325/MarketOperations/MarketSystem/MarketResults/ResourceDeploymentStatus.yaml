@@ -1,0 +1,20 @@
+name: ResourceDeploymentStatus
+attributes:
+- name: acceptComments
+  type: String
+  description: Commenst to explain why the acceptance status. For example, to explain why a request is accepted only partially,
+    instead of fully.
+- name: acceptStatus
+  type: String
+  description: Status of the resource for this deployment. Values include (full compliance, partial compliance, opt-out, etc.)
+- name: resourceResponseMW
+  type: Float
+  description: The MW amount the resource can contribute for this deployment. This is from the DR provider - as a response?
+    Or actual? Does this belong in settlement? Discuss more.
+associations:
+- source: ResourceDeploymentStatus
+  target: InstructionClearing
+  sourceCardinality: 0..*
+  sourceName: ResourceDeploymentStatus
+  targetCardinality: 0..1
+  targetName: InstructionClearing

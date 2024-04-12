@@ -1,0 +1,46 @@
+name: PssSH
+description: |-
+  Siemens<sup>TM</sup> “H infinity” power system stabilizer with generator electrical power input.
+  [Footnote: Siemens "H infinity" power system stabilizers are an example of suitable products available commercially. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of these products.]
+attributes:
+- name: k
+  type: PU
+  description: Main gain (<i>K</i>).  Typical value = 1.
+- name: k0
+  type: PU
+  description: Gain 0 (<i>K0</i>).  Typical value = 0,012.
+- name: k1
+  type: PU
+  description: Gain 1 (<i>K1</i>).  Typical value = 0,488.
+- name: k2
+  type: PU
+  description: Gain 2 (<i>K2</i>).  Typical value = 0,064.
+- name: k3
+  type: PU
+  description: Gain 3 (<i>K3</i>).  Typical value = 0,224.
+- name: k4
+  type: PU
+  description: Gain 4 (<i>K4</i>).  Typical value = 0,1.
+- name: t1
+  type: Seconds
+  description: Time constant 1 (<i>T1</i>) (&gt; 0).  Typical value = 0,076.
+- name: t2
+  type: Seconds
+  description: Time constant 2 (<i>T2</i>) (&gt; 0).  Typical value = 0,086.
+- name: t3
+  type: Seconds
+  description: Time constant 3 (<i>T3</i>) (&gt; 0).   Typical value = 1,068.
+- name: t4
+  type: Seconds
+  description: Time constant 4 (<i>T4</i>) (&gt; 0).  Typical value = 1,913.
+- name: td
+  type: Seconds
+  description: Input time constant (<i>T</i><i><sub>d</sub></i>) (&gt;= 0).  Typical value = 10.
+- name: vsmax
+  type: PU
+  description: Output maximum limit (<i>Vsmax</i>) (&gt; PssSH.vsmin).  Typical value = 0,1.
+- name: vsmin
+  type: PU
+  description: Output minimum limit (<i>Vsmin</i>) (&lt; PssSH.vsmax).  Typical value = -0,1.
+ancestors:
+- PowerSystemStabilizerDynamics

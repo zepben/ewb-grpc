@@ -1,0 +1,18 @@
+name: EquivalentEquipment
+description: The class represents equivalent objects that are the result of a network reduction. The class is the base for
+  equivalent objects of different types.
+ancestors:
+- ConductingEquipment
+descendents:
+- EquivalentInjection
+- EquivalentBranch
+- EquivalentShunt
+associations:
+- source: EquivalentEquipment
+  target: EquivalentNetwork
+  sourceCardinality: 0..*
+  sourceName: EquivalentEquipments
+  sourceDescription: The associated reduced equivalents.
+  targetCardinality: 0..1
+  targetName: EquivalentNetwork
+  targetDescription: The equivalent where the reduced model belongs.

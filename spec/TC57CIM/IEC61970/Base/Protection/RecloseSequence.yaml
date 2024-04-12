@@ -1,0 +1,20 @@
+name: RecloseSequence
+description: A reclose sequence (open and close) is defined for each possible reclosure of a breaker.
+attributes:
+- name: recloseDelay
+  type: Seconds
+  description: Indicates the time lapse before the reclose step will execute a reclose.
+- name: recloseStep
+  type: Integer
+  description: Indicates the ordinal position of the reclose step relative to other steps in the sequence.
+ancestors:
+- IdentifiedObject
+associations:
+- source: RecloseSequence
+  target: ProtectedSwitch
+  sourceCardinality: 0..*
+  sourceName: RecloseSequences
+  sourceDescription: A breaker may have zero or more automatic reclosures after a trip occurs.
+  targetCardinality: "1"
+  targetName: ProtectedSwitch
+  targetDescription: A breaker may have zero or more automatic reclosures after a trip occurs.

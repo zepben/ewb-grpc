@@ -1,0 +1,18 @@
+name: StartRampCurve
+description: Rate in gross active power per minute (Y-axis) at which a unit can be loaded versus the number of hours (X-axis)
+  the unit was off line.
+attributes:
+- name: hotStandbyRamp
+  type: ActivePowerChangeRate
+  description: The startup ramp rate in gross for a unit that is on hot standby.
+ancestors:
+- Curve
+associations:
+- source: StartRampCurve
+  target: StartupModel
+  sourceCardinality: 0..1
+  sourceName: StartRampCurve
+  sourceDescription: The unit's startup model may have a startup ramp curve.
+  targetCardinality: "1"
+  targetName: StartupModel
+  targetDescription: The unit's startup model may have a startup ramp curve.

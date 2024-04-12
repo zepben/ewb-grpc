@@ -1,0 +1,17 @@
+name: EnvironmentalDiscrete
+description: Discrete (integer) measurement of relevance in the environmental domain.
+attributes:
+- name: kind
+  type: EnvironmentalDiscreteKind
+  description: Kind of environmental discrete (integer).
+ancestors:
+- Discrete
+associations:
+- source: EnvironmentalDiscrete
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  sourceName: EnvironmentalDiscrete
+  sourceDescription: Environmental discrete (integer) associated with this observation or forecast.
+  targetCardinality: 0..1
+  targetName: EnvironmentalInformation
+  targetDescription: Observation or forecast with which this environmental discrete (integer) is associated.

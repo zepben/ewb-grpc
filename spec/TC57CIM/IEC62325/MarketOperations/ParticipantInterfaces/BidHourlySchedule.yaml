@@ -1,0 +1,15 @@
+name: BidHourlySchedule
+description: Containment for bid hourly parameters that are not product dependent.
+ancestors:
+- RegularIntervalSchedule
+descendents:
+- WheelingReferenceSchedule
+- HourlyPreDispatchSchedule
+- OpenTieSchedule
+associations:
+- source: BidHourlySchedule
+  target: Bid
+  sourceCardinality: 0..*
+  sourceName: BidHourlySchedule
+  targetCardinality: "1"
+  targetName: Bid

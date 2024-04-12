@@ -1,0 +1,21 @@
+name: MarketScheduledEvent
+description: Signifies an event to trigger one or more activities, such as reading a meter, recalculating a bill, requesting
+  work, when generating units shall be scheduled for maintenance, when a transformer is scheduled to be refurbished, etc.
+attributes:
+- name: category
+  type: String
+  description: Category of scheduled event.
+- name: duration
+  type: Seconds
+  description: Duration of the scheduled event, for example, the time to ramp between values.
+- name: status
+  type: Status
+ancestors:
+- IdentifiedObject
+associations:
+- source: MarketScheduledEvent
+  target: MajorChargeGroup
+  sourceCardinality: 0..*
+  sourceName: MktScheduledEvent
+  targetCardinality: 0..1
+  targetName: MajorChargeGroup

@@ -1,0 +1,59 @@
+name: PssIEEE3B
+description: |-
+  IEEE 421.5-2005 type PSS3B power system stabilizer model. The PSS model PSS3B has dual inputs of electrical power and rotor angular frequency deviation. The signals are used to derive an equivalent mechanical power signal.
+  This model has 2 input signals. They have the following fixed types (expressed in terms of InputSignalKind values): the first one is of rotorAngleFrequencyDeviation type and the second one is of generatorElectricalPower type.
+  Reference: IEEE 3B 421.5-2005, 8.3.
+attributes:
+- name: a1
+  type: PU
+  description: Notch filter parameter (<i>A1</i>).  Typical value = 0,359.
+- name: a2
+  type: PU
+  description: Notch filter parameter (<i>A2</i>).  Typical value = 0,586.
+- name: a3
+  type: PU
+  description: Notch filter parameter (<i>A3</i>).  Typical value = 0,429.
+- name: a4
+  type: PU
+  description: Notch filter parameter (<i>A4</i>).  Typical value = 0,564.
+- name: a5
+  type: PU
+  description: Notch filter parameter (<i>A5</i>).  Typical value = 0,001.
+- name: a6
+  type: PU
+  description: Notch filter parameter (<i>A6</i>).  Typical value = 0.
+- name: a7
+  type: PU
+  description: Notch filter parameter (<i>A7</i>).  Typical value = 0,031.
+- name: a8
+  type: PU
+  description: Notch filter parameter (<i>A8</i>).  Typical value = 0.
+- name: ks1
+  type: PU
+  description: 'Gain on signal # 1 (<i>Ks1</i>).  Typical value = -0,602.'
+- name: ks2
+  type: PU
+  description: 'Gain on signal # 2 (<i>Ks2</i>).  Typical value = 30,12.'
+- name: t1
+  type: Seconds
+  description: Transducer time constant (<i>T1</i>) (&gt;= 0).  Typical value = 0,012.
+- name: t2
+  type: Seconds
+  description: Transducer time constant (<i>T2</i>) (&gt;= 0).  Typical value = 0,012.
+- name: tw1
+  type: Seconds
+  description: Washout time constant (<i>Tw1</i>) (&gt;= 0).  Typical value = 0,3.
+- name: tw2
+  type: Seconds
+  description: Washout time constant (<i>Tw2</i>) (&gt;= 0).  Typical value = 0,3.
+- name: tw3
+  type: Seconds
+  description: Washout time constant (<i>Tw3</i>) (&gt;= 0).  Typical value = 0,6.
+- name: vstmax
+  type: PU
+  description: Stabilizer output maximum limit (<i>Vstmax</i>) (&gt; PssIEEE3B.vstmin).  Typical value = 0,1.
+- name: vstmin
+  type: PU
+  description: Stabilizer output minimum limit (<i>Vstmin</i>) (&lt; PssIEEE3B.vstmax).  Typical value = -0,1.
+ancestors:
+- PowerSystemStabilizerDynamics

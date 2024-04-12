@@ -1,0 +1,36 @@
+name: TapChangerDynamicData
+description: Optimal Power Flow or State Estimator Phase Shifter Data. This is used for RealTime, Study and Maintenance Users.
+  SE Solution Phase Shifter Measurements from the last run of SE.
+attributes:
+- name: angleRegulationStatus
+  type: Boolean
+  description: True means the phase shifter is regulating.
+- name: desiredMW
+  type: Float
+  description: Phase Shifter Desired MW. The active power regulation setpoint of the phase shifter
+- name: desiredVoltage
+  type: Float
+  description: The desired voltage for the LTC
+- name: maximumAngle
+  type: Float
+  description: The maximum phase angle shift of the phase shifter
+- name: minimumAngle
+  type: Float
+  description: The minimum phase angle shift of the phase shifter
+- name: solvedAngle
+  type: Float
+  description: Phase Shifter Angle. The solved phase angle shift of the phase shifter
+- name: tapPosition
+  type: Float
+  description: Tap position of the phase shifter, high-side tap position of the transformer, or  low-side tap position of
+    the transformer
+- name: voltageRegulationStatus
+  type: Boolean
+  description: Indicator if the LTC transformer is regulating True = Yes, False = No
+associations:
+- source: TapChangerDynamicData
+  target: MktTapChanger
+  sourceCardinality: 0..*
+  sourceName: TapChangerDynamicData
+  targetCardinality: "1"
+  targetName: MktTapChanger

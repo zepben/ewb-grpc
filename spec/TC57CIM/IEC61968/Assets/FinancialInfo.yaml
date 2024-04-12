@@ -1,0 +1,49 @@
+name: FinancialInfo
+description: Various current financial properties associated with a particular asset. Historical properties may be determined
+  by ActivityRecords associated with the asset.
+attributes:
+- name: account
+  type: String
+  description: The account to which this actual material item is charged.
+- name: actualPurchaseCost
+  type: Money
+  description: The actual purchase cost of this particular asset.
+- name: costDescription
+  type: String
+  description: Description of the cost.
+- name: costType
+  type: String
+  description: Type of cost to which this Material Item belongs.
+- name: financialValue
+  type: Money
+  description: Value of asset as of 'valueDateTime'.
+- name: plantTransferDateTime
+  type: DateTime
+  description: Date and time asset's financial value was put in plant for regulatory accounting purposes (e.g., for rate base
+    calculations). This is sometime referred to as the "in-service date".
+- name: purchaseDateTime
+  type: DateTime
+  description: Date and time asset was purchased.
+- name: purchaseOrderNumber
+  type: String
+  description: ' Purchase order identifier.'
+- name: quantity
+  type: IntegerQuantity
+  description: The quantity of the asset if per unit length, for example conductor.
+- name: valueDateTime
+  type: DateTime
+  description: Date and time at which the financial value was last established.
+- name: warrantyEndDateTime
+  type: DateTime
+  description: Date and time warranty on asset expires.
+ancestors:
+- IdentifiedObject
+associations:
+- source: FinancialInfo
+  target: Asset
+  sourceCardinality: 0..1
+  sourceName: FinancialInfo
+  sourceDescription: Financial information related to this asset.
+  targetCardinality: 0..1
+  targetName: Asset
+  targetDescription: The asset to which this financial information relates.

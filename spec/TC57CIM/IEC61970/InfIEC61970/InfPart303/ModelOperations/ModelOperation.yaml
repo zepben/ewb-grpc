@@ -1,0 +1,31 @@
+name: ModelOperation
+description: An operation performed on models.
+attributes:
+- name: sequenceNumber
+  type: Integer
+  description: Sequence number within a operation sequence, lower is first.   Normally starts with 1.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ModelOperation
+  target: ModelOperationDescription
+  sourceCardinality: 0..*
+  sourceName: ModelOperation
+  sourceDescription: The instances of operations that conform to this operation type.
+  targetCardinality: "1"
+  targetName: ModelOperationDescription
+  targetDescription: The type of the model operation.
+- source: ModelOperation
+  target: ModelOperationArg
+  sourceCardinality: "1"
+  sourceName: ModelOperation
+  sourceDescription: The opeation for the operation argument.
+  targetCardinality: 0..*
+  targetName: ModelOperationArg
+  targetDescription: Arguments of the operation.
+- source: ModelOperation
+  target: ModelOperationSequence
+  sourceCardinality: 0..*
+  sourceName: ModelOperation
+  targetCardinality: "1"
+  targetName: OperationSequence

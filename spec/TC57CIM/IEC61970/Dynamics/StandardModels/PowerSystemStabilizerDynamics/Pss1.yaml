@@ -1,0 +1,56 @@
+name: Pss1
+description: Italian PSS with three inputs (speed, frequency, power).
+attributes:
+- name: kf
+  type: Float
+  description: Frequency power input gain (<i>K</i><i><sub>F</sub></i>).  Typical value = 5.
+- name: komega
+  type: Float
+  description: Shaft speed power input gain (<i>K</i><i><sub>omega</sub></i>).  Typical value = 0.
+- name: kpe
+  type: Float
+  description: Electric power input gain (<i>K</i><i><sub>PE</sub></i>).  Typical value = 0,3.
+- name: ks
+  type: Float
+  description: PSS gain (<i>Ks</i>).  Typical value = 1.
+- name: pmin
+  type: PU
+  description: Minimum power PSS enabling (<i>Pmin</i>).  Typical value = 0,25.
+- name: t10
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>10</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: t5
+  type: Seconds
+  description: Washout (<i>T</i><i><sub>5</sub></i>) (&gt;= 0).  Typical value = 3,5.
+- name: t6
+  type: Seconds
+  description: Filter time constant (<i>T</i><i><sub>6</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: t7
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>7</sub></i>) (&gt;= 0). If = 0, both blocks are bypassed.  Typical
+    value = 0.
+- name: t8
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>8</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: t9
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>9</sub></i>) (&gt;= 0).  If = 0, both blocks are bypassed.  Typical
+    value = 0.
+- name: tpe
+  type: Seconds
+  description: Electric power filter time constant (<i>T</i><i><sub>PE</sub></i>) (&gt;= 0).  Typical value = 0,05.
+- name: vadat
+  type: Boolean
+  description: |-
+    <font color="#0f0f0f">Signal selector (<i>V</i><i><sub>ADAT</sub></i>).</font>
+    <font color="#0f0f0f">true = closed (generator power is greater than <i>Pmin</i>)</font>
+    <font color="#0f0f0f">false = open (<i>Pe</i> is smaller than <i>Pmin</i>).</font>
+    <font color="#0f0f0f">Typical value = true.</font>
+- name: vsmn
+  type: PU
+  description: Stabilizer output maximum limit (<i>V</i><i><sub>SMN</sub></i>).  Typical value = -0,06.
+- name: vsmx
+  type: PU
+  description: Stabilizer output minimum limit (<i>V</i><i><sub>SMX</sub></i>).  Typical value = 0,06.
+ancestors:
+- PowerSystemStabilizerDynamics

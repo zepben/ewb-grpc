@@ -1,0 +1,122 @@
+name: TransformerEndInfo
+description: Transformer end data.
+attributes:
+- name: connectionKind
+  type: WindingConnection
+  description: Kind of connection.
+- name: emergencyS
+  type: ApparentPower
+  description: Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
+- name: endNumber
+  type: Integer
+  description: Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
+    Highest voltage winding should be 1.
+- name: insulationU
+  type: Voltage
+  description: Basic insulation level voltage rating.
+- name: phaseAngleClock
+  type: Integer
+  description: 'Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}.
+    For example, to express the second winding in code ''Dyn11'', set attributes as follows: ''endNumber''=2, ''connectionKind''
+    = Yn and ''phaseAngleClock'' = 11.'
+- name: r
+  type: Resistance
+  description: DC resistance.
+- name: ratedS
+  type: ApparentPower
+  description: Normal apparent power rating.
+- name: ratedU
+  type: Voltage
+  description: 'Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase
+    windings.'
+- name: shortTermS
+  type: ApparentPower
+  description: Apparent power that this winding can carry for a short period of time (in emergency).
+ancestors:
+- AssetInfo
+descendents:
+- OldTransformerEndInfo
+associations:
+- source: TransformerEndInfo
+  target: TransformerCoreAdmittance
+  sourceCardinality: 0..1
+  sourceName: TransformerEndInfo
+  sourceDescription: Transformer end datasheet used to calculate this core admittance.
+  targetCardinality: 0..1
+  targetName: CoreAdmittance
+  targetDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and
+    core losses. The full values of the transformer should be supplied for one transformer end info only.
+- source: TransformerEndInfo
+  target: TransformerMeshImpedance
+  sourceCardinality: 0..1
+  sourceName: FromTransformerEndInfo
+  sourceDescription: '''from'' transformer end datasheet this mesh impedance is calculated from. It determines the voltage
+    reference.'
+  targetCardinality: 0..*
+  targetName: FromMeshImpedances
+  targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
+- source: TransformerEndInfo
+  target: TransformerStarImpedance
+  sourceCardinality: 0..1
+  sourceName: TransformerEndInfo
+  sourceDescription: Transformer end datasheet used to calculate this transformer star impedance.
+  targetCardinality: 0..1
+  targetName: TransformerStarImpedance
+  targetDescription: Transformer star impedance calculated from this transformer end datasheet.
+- source: TransformerEndInfo
+  target: TransformerMeshImpedance
+  sourceCardinality: 0..*
+  sourceName: ToTransformerEndInfos
+  sourceDescription: All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.
+  targetCardinality: 0..*
+  targetName: ToMeshImpedances
+  targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
+- source: TransformerEndInfo
+  target: TransformerTankInfo
+  sourceCardinality: 1..*
+  sourceName: TransformerEndInfos
+  sourceDescription: Data for all the ends described by this transformer tank data.
+  targetCardinality: "1"
+  targetName: TransformerTankInfo
+  targetDescription: Transformer tank data that this end description is part of.
+- source: TransformerEndInfo
+  target: ShortCircuitTest
+  sourceCardinality: 1..*
+  sourceName: GroundedEnds
+  sourceDescription: All ends short-circuited in this short-circuit test.
+  targetCardinality: 0..*
+  targetName: GroundedEndShortCircuitTests
+  targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
+- source: TransformerEndInfo
+  target: ShortCircuitTest
+  sourceCardinality: "1"
+  sourceName: EnergisedEnd
+  sourceDescription: Transformer end that voltage is applied to in this short-circuit test. The test voltage is chosen to
+    induce rated current in the energised end.
+  targetCardinality: 0..*
+  targetName: EnergisedEndShortCircuitTests
+  targetDescription: All short-circuit test measurements in which this transformer end was energised.
+- source: TransformerEndInfo
+  target: OpenCircuitTest
+  sourceCardinality: "1"
+  sourceName: OpenEnd
+  sourceDescription: Transformer end measured for induced voltage and angle in this open-circuit test.
+  targetCardinality: 0..*
+  targetName: OpenEndOpenCircuitTests
+  targetDescription: All open-circuit test measurements in which this transformer end was not excited.
+- source: TransformerEndInfo
+  target: OpenCircuitTest
+  sourceCardinality: "1"
+  sourceName: EnergisedEnd
+  sourceDescription: Transformer end that current is applied to in this open-circuit test.
+  targetCardinality: 0..*
+  targetName: EnergisedEndOpenCircuitTests
+  targetDescription: All open-circuit test measurements in which this transformer end was excited.
+- source: TransformerEndInfo
+  target: NoLoadTest
+  sourceCardinality: 0..1
+  sourceName: EnergisedEnd
+  sourceDescription: Transformer end that current is applied to in this no-load test.
+  targetCardinality: 0..*
+  targetName: EnergisedEndNoLoadTests
+  targetDescription: All no-load test measurements in which this transformer end was energised.

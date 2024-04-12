@@ -1,0 +1,11 @@
+name: PinGate
+description: An output from one gate represent an input to another gate.
+ancestors:
+- GateInputPin
+associations:
+- source: PinGate
+  target: Gate
+  sourceCardinality: 0..*
+  sourceName: PinGate
+  targetCardinality: "1"
+  targetName: GateOutput

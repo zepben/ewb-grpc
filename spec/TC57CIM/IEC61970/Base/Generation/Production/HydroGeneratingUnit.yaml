@@ -1,0 +1,50 @@
+name: HydroGeneratingUnit
+description: A generating unit whose prime mover is a hydraulic turbine (e.g., Francis, Pelton, Kaplan).
+attributes:
+- name: energyConversionCapability
+  type: HydroEnergyConversionKind
+  description: Energy conversion capability for generating.
+- name: hydroUnitWaterCost
+  type: CostPerVolume
+  description: The equivalent cost of water that drives the hydro turbine.
+- name: turbineType
+  type: HydroTurbineKind
+  description: Type of turbine.
+- name: dropHeight
+  type: Length
+  description: The height water drops from the reservoir mid-point to the turbine.
+ancestors:
+- GeneratingUnit
+associations:
+- source: HydroGeneratingUnit
+  target: TailbayLossCurve
+  sourceCardinality: "1"
+  sourceName: HydroGeneratingUnit
+  sourceDescription: A hydro generating unit has a tailbay loss curve.
+  targetCardinality: 0..*
+  targetName: TailbayLossCurve
+  targetDescription: A hydro generating unit has a tailbay loss curve.
+- source: HydroGeneratingUnit
+  target: HydroPowerPlant
+  sourceCardinality: 0..*
+  sourceName: HydroGeneratingUnits
+  sourceDescription: The hydro generating unit belongs to a hydro power plant.
+  targetCardinality: 0..1
+  targetName: HydroPowerPlant
+  targetDescription: The hydro generating unit belongs to a hydro power plant.
+- source: HydroGeneratingUnit
+  target: HydroGeneratingEfficiencyCurve
+  sourceCardinality: "1"
+  sourceName: HydroGeneratingUnit
+  sourceDescription: A hydro generating unit has an efficiency curve.
+  targetCardinality: 0..*
+  targetName: HydroGeneratingEfficiencyCurves
+  targetDescription: A hydro generating unit has an efficiency curve.
+- source: HydroGeneratingUnit
+  target: PenstockLossCurve
+  sourceCardinality: "1"
+  sourceName: HydroGeneratingUnit
+  sourceDescription: A hydro generating unit has a penstock loss curve.
+  targetCardinality: 0..1
+  targetName: PenstockLossCurve
+  targetDescription: A hydro generating unit has a penstock loss curve.

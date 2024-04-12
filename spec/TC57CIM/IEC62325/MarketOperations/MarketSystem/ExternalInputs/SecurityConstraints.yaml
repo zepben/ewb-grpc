@@ -1,0 +1,34 @@
+name: SecurityConstraints
+description: Typical for regional transmission operators (RTOs), these constraints include transmission as well as generation
+  group constraints identified in both base case and critical contingency cases.
+attributes:
+- name: actualMW
+  type: ActivePower
+  description: Actual branch or group of branches MW flow (only for transmission constraints)
+- name: maxMW
+  type: ActivePower
+  description: Maximum MW limit
+- name: minMW
+  type: ActivePower
+  description: Minimum MW limit (only for transmission constraints).
+ancestors:
+- IdentifiedObject
+associations:
+- source: SecurityConstraints
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: SecurityConstraints
+  targetCardinality: 0..1
+  targetName: RTO
+- source: SecurityConstraints
+  target: GeneratingBid
+  sourceCardinality: 0..*
+  sourceName: SecurityConstraints
+  targetCardinality: 0..1
+  targetName: GeneratingBid
+- source: SecurityConstraints
+  target: Flowgate
+  sourceCardinality: 0..1
+  sourceName: SecurityConstraints
+  targetCardinality: 0..1
+  targetName: Flowgate

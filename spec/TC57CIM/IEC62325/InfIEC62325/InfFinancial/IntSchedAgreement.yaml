@@ -1,0 +1,11 @@
+name: IntSchedAgreement
+description: A type of agreement that provides the default method by which interchange schedules are to be integrated to obtain
+  hourly MWh schedules for accounting.
+attributes:
+- name: defaultIntegrationMethod
+  type: String
+  description: 'The default method by which interchange schedules are to be integrated to obtain hourly MWh schedules for
+    accounting. Method #1 is to integrate the instantaneous schedule between the hourly boundaries. Method #2 compensates
+    for any up/down ramping that occurs across the hourly boundary (this is called block accounting).'
+ancestors:
+- Agreement

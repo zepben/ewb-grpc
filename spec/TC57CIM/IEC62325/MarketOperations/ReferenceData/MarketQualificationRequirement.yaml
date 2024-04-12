@@ -1,0 +1,33 @@
+name: MarketQualificationRequirement
+description: Certain skills are required and shall be certified in order for a person (typically a member of a crew) to be
+  qualified to work on types of equipment.
+attributes:
+- name: effectiveDate
+  type: DateTime
+  description: Effective date of the privilege, terminate date of the privilege, or effective date of the application for
+    the organization
+- name: expirationDate
+  type: DateTime
+  description: |-
+    This is the terminate date of the application for the organization
+    The specific organization can no longer access the application as of the terminate date
+- name: qualificationID
+  type: String
+  description: Qualification identifier.
+- name: status
+  type: Integer
+  description: "The status of the privilege. Shows the status of the user´s qualification. \nThe current statuses are: 1=New,\
+    \ 2=Active, 3=Refused, 4=Terminated, 5=Withdrawn\nand it is subject to update."
+- name: statusType
+  type: String
+  description: This is the name of the status of the qualification and is used to display the status of the user's or organization's
+    status.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MarketQualificationRequirement
+  target: MarketSkill
+  sourceCardinality: 0..*
+  sourceName: MarketQualificationRequirements
+  targetCardinality: 0..*
+  targetName: MarketSkills

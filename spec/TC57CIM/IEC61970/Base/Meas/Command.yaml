@@ -1,0 +1,28 @@
+name: Command
+description: A Command is a discrete control used for supervisory control.
+attributes:
+- name: normalValue
+  type: Integer
+  description: Normal value for Control.value e.g. used for percentage scaling.
+- name: value
+  type: Integer
+  description: The value representing the actuator output.
+ancestors:
+- Control
+associations:
+- source: Command
+  target: ValueAliasSet
+  sourceCardinality: 0..*
+  sourceName: Commands
+  sourceDescription: The Commands using the set for translation.
+  targetCardinality: 0..1
+  targetName: ValueAliasSet
+  targetDescription: The ValueAliasSet used for translation of a Control value to a name.
+- source: Command
+  target: DiscreteValue
+  sourceCardinality: 0..1
+  sourceName: Command
+  sourceDescription: The Control variable associated with the MeasurementValue.
+  targetCardinality: "1"
+  targetName: DiscreteValue
+  targetDescription: The MeasurementValue that is controlled.

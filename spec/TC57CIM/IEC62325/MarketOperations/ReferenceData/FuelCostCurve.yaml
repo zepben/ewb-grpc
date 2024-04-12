@@ -1,0 +1,11 @@
+name: FuelCostCurve
+description: Relationship between unit fuel cost in $/kWh(Y-axis) and  unit output in MW (X-axis).
+ancestors:
+- Curve
+associations:
+- source: FuelCostCurve
+  target: RegisteredGenerator
+  sourceCardinality: 0..1
+  sourceName: FuelCostCurve
+  targetCardinality: 0..1
+  targetName: RegisteredGenerator

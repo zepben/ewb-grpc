@@ -1,0 +1,71 @@
+name: BillDeterminant
+description: Models various charges to support billing and settlement.
+attributes:
+- name: calculationLevel
+  type: String
+  description: Level in charge calculation order.
+- name: configVersion
+  type: String
+  description: The version of configuration of calculation logic in the settlement.
+- name: deleteStatus
+  type: String
+- name: effectiveDate
+  type: DateTime
+- name: exception
+  type: String
+- name: factor
+  type: String
+- name: frequency
+  type: String
+- name: numberInterval
+  type: Integer
+  description: Number of intervals of bill determiant in trade day, e.g. 300 for five minute intervals.
+- name: offset
+  type: String
+- name: precisionLevel
+  type: String
+  description: The level of precision in the current value.
+- name: primaryYN
+  type: String
+- name: referenceFlag
+  type: String
+- name: reportable
+  type: String
+- name: roundOff
+  type: String
+- name: source
+  type: String
+- name: terminationDate
+  type: DateTime
+- name: unitOfMeasure
+  type: String
+  description: The UOM for the current value of the Bill Determinant.
+ancestors:
+- Document
+associations:
+- source: BillDeterminant
+  target: ChargeProfileData
+  sourceCardinality: 0..1
+  sourceName: BillDeterminant
+  targetCardinality: 0..*
+  targetName: ChargeProfileData
+- source: BillDeterminant
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  sourceName: BillDeterminant
+  targetCardinality: 0..*
+  targetName: MktUserAttribute
+- source: BillDeterminant
+  target: ChargeComponent
+  sourceCardinality: 0..*
+  sourceName: BillDeterminants
+  sourceDescription: A BillDeterminant can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n BillDeterminant.
+  targetCardinality: 0..*
+  targetName: ChargeComponents
+  targetDescription: A BillDeterminant can have 0-n ChargeComponent and a ChargeComponent can associate to 0-n BillDeterminant.
+- source: BillDeterminant
+  target: ChargeProfile
+  sourceCardinality: 0..1
+  sourceName: BillDeterminant
+  targetCardinality: 0..1
+  targetName: ChargeProfile

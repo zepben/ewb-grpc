@@ -1,0 +1,56 @@
+name: GovSteamCC
+description: Cross compound turbine governor.  Unlike tandem compound units, cross compound units are not on the same shaft.
+attributes:
+- name: dhp
+  type: PU
+  description: HP damping factor (<i>Dhp</i>).  Typical value = 0.
+- name: dlp
+  type: PU
+  description: LP damping factor (<i>Dlp</i>).  Typical value = 0.
+- name: fhp
+  type: PU
+  description: Fraction of HP power ahead of reheater (<i>Fhp</i>).  Typical value = 0,3.
+- name: flp
+  type: PU
+  description: Fraction of LP power ahead of reheater (<i>Flp</i>).  Typical value = 0,7.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pmaxhp
+  type: PU
+  description: Maximum HP value position (<i>Pmaxhp</i>).  Typical value = 1.
+- name: pmaxlp
+  type: PU
+  description: Maximum LP value position (<i>Pmaxlp</i>).  Typical value = 1.
+- name: rhp
+  type: PU
+  description: HP governor droop (<i>Rhp</i>) (&gt; 0).  Typical value = 0,05.
+- name: rlp
+  type: PU
+  description: LP governor droop (<i>Rlp</i>) (&gt; 0).  Typical value = 0,05.
+- name: t1hp
+  type: Seconds
+  description: HP governor time constant (<i>T1hp</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t1lp
+  type: Seconds
+  description: LP governor time constant (<i>T1lp</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t3hp
+  type: Seconds
+  description: HP turbine time constant (<i>T3hp</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t3lp
+  type: Seconds
+  description: LP turbine time constant (<i>T3lp</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t4hp
+  type: Seconds
+  description: HP turbine time constant (<i>T4hp</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t4lp
+  type: Seconds
+  description: LP turbine time constant (<i>T4lp</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t5hp
+  type: Seconds
+  description: HP reheater time constant (<i>T5hp</i>) (&gt;= 0).  Typical value = 10.
+- name: t5lp
+  type: Seconds
+  description: LP reheater time constant (<i>T5lp</i>) (&gt;= 0).  Typical value = 10.
+ancestors:
+- CrossCompoundTurbineGovernorDynamics

@@ -1,0 +1,39 @@
+name: TimeTariffInterval
+description: One of a sequence of time intervals defined in terms of real time. It is typically used in association with TariffProfile
+  to define the intervals in a time of use tariff structure, where startDateTime simultaneously determines the starting point
+  of this interval and the ending point of the previous interval.
+attributes:
+- name: sequenceNumber
+  type: Integer
+  description: A sequential reference that defines the identity of this interval and its relative position with respect to
+    other intervals in a sequence of intervals.
+- name: startTime
+  type: Time
+  description: A real time marker that defines the starting time (typically it is the time of day) for this interval. The
+    interval extends to the start of the next interval or until it is reset to the start of the first interval by TariffProfile.tariffCycle.
+associations:
+- source: TimeTariffInterval
+  target: Charge
+  sourceCardinality: 0..*
+  sourceName: TimeTariffIntervals
+  sourceDescription: Tariff intervals to which this time-based charge has to be levied.
+  targetCardinality: 0..*
+  targetName: Charges
+  targetDescription: All charges used to define this time tariff interval.
+- source: TimeTariffInterval
+  target: TariffProfile
+  sourceCardinality: 0..*
+  sourceName: TimeTariffIntervals
+  sourceDescription: All time tariff intervals used to define this tariff profile.
+  targetCardinality: 0..*
+  targetName: TariffProfiles
+  targetDescription: All tariff profiles defined by this time tariff interval.
+- source: TimeTariffInterval
+  target: ConsumptionTariffInterval
+  sourceCardinality: 0..*
+  sourceName: TouTariffIntervals
+  sourceDescription: All time of use tariff intervals influenced by this consumption tariff interval.
+  targetCardinality: 0..*
+  targetName: ConsumptionTariffIntervals
+  targetDescription: All consumption tariff intervals that introduce variation in this time of use tariff interval; allows
+    to express e.g., peak hour prices that are different with different consumption blocks.

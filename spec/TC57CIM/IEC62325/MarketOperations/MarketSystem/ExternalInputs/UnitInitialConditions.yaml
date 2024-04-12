@@ -1,0 +1,44 @@
+name: UnitInitialConditions
+description: Resource status at the end of a given clearing period.
+attributes:
+- name: cumEnergy
+  type: RealEnergy
+  description: Cumulative energy production over trading period.
+- name: cumStatusChanges
+  type: Integer
+  description: Cumulative number of status changes of the resource.
+- name: numberOfStartups
+  type: Integer
+  description: Number of start ups in the Operating Day until the end of previous hour.
+- name: onlineStatus
+  type: Boolean
+  description: '''true'' if the GeneratingUnit is currently On-Line'
+- name: resourceMW
+  type: ActivePower
+  description: Resource MW output at the end of previous clearing period.
+- name: resourceStatus
+  type: Integer
+  description: |-
+    Resource status at the end of previous clearing period:
+    0 - off-line
+    1 - on-line production
+    2 - in shutdown process
+    3 - in startup process
+- name: statusDate
+  type: DateTime
+  description: Time and date for resourceStatus
+- name: timeInStatus
+  type: Float
+  description: Time in market trading intervals the resource is in the state as of the end of the previous clearing period.
+- name: timeInterval
+  type: DateTime
+  description: Time interval
+ancestors:
+- IdentifiedObject
+associations:
+- source: UnitInitialConditions
+  target: RegisteredGenerator
+  sourceCardinality: 0..*
+  sourceName: UnitInitialConditions
+  targetCardinality: 0..1
+  targetName: GeneratingUnit

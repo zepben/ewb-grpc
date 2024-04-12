@@ -1,0 +1,79 @@
+name: EnergySource
+description: A generic equivalent for an energy supplier on a transmission or distribution voltage level.
+attributes:
+- name: activePower
+  type: ActivePower
+  description: |-
+    High voltage source active injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
+- name: nominalVoltage
+  type: Voltage
+  description: Phase-to-phase nominal voltage.
+- name: r
+  type: Resistance
+  description: Positive sequence Thevenin resistance.
+- name: r0
+  type: Resistance
+  description: Zero sequence Thevenin resistance.
+- name: rn
+  type: Resistance
+  description: Negative sequence Thevenin resistance.
+- name: voltageAngle
+  type: AngleRadians
+  description: Phase angle of a-phase open circuit used when voltage characteristics need to be imposed at the node associated
+    with the terminal of the energy source, such as when voltages and angles from the transmission level are used as input
+    to the distribution network. The attribute shall be a positive value or zero.
+- name: voltageMagnitude
+  type: Voltage
+  description: Phase-to-phase open circuit voltage magnitude used when voltage characteristics need to be imposed at the node
+    associated with the terminal of the energy source, such as when voltages and angles from the transmission level are used
+    as input to the distribution network. The attribute shall be a positive value or zero.
+- name: x
+  type: Reactance
+  description: Positive sequence Thevenin reactance.
+- name: x0
+  type: Reactance
+  description: Zero sequence Thevenin reactance.
+- name: xn
+  type: Reactance
+  description: Negative sequence Thevenin reactance.
+- name: reactivePower
+  type: ReactivePower
+  description: |-
+    High voltage source reactive injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
+- name: pMin
+  type: ActivePower
+  description: This is the minimum active power that can be produced by the source. Load sign convention is used, i.e. positive
+    sign means flow out from a TopologicalNode (bus) into the conducting equipment.
+- name: pMax
+  type: ActivePower
+  description: This is the maximum active power that can be produced by the source. Load sign convention is used, i.e. positive
+    sign means flow out from a TopologicalNode (bus) into the conducting equipment.
+ancestors:
+- EnergyConnection
+associations:
+- source: EnergySource
+  target: EnergySchedulingType
+  sourceCardinality: 0..*
+  sourceName: EnergySource
+  sourceDescription: Energy Source of a particular Energy Scheduling Type.
+  targetCardinality: 0..1
+  targetName: EnergySchedulingType
+  targetDescription: Energy Scheduling Type of an Energy Source.
+- source: EnergySource
+  target: EnergySourcePhase
+  sourceCardinality: "1"
+  sourceName: EnergySource
+  sourceDescription: The energy sourceto which the phase belongs.
+  targetCardinality: 0..*
+  targetName: EnergySourcePhase
+  targetDescription: The individual phase information of the energy source.
+- source: EnergySource
+  target: EnergySourceAction
+  sourceCardinality: 0..1
+  sourceName: EnergySource
+  sourceDescription: Energy source on which this action is taken.
+  targetCardinality: 0..1
+  targetName: EnergySourceAction
+  targetDescription: Action taken with this energy source.

@@ -1,0 +1,47 @@
+name: ProtectiveActionAdjustment
+description: Protective actions on non-switching equipment. The operating condition is adjusted.
+attributes:
+- name: byPercentage
+  type: PerCent
+  description: The adjustment is given in percent of the active value.
+- name: byValue
+  type: Float
+  description: The adjustment is given in value of the active value.
+- name: kind
+  type: ProtectiveActionAdjustmentKind
+  description: Defines the kind of adjustment that should be done. With this value the correct attribute containing the value
+    needs to be used.
+- name: reduce
+  type: Boolean
+  description: If true, the adjusted value is an reduction. Other wise it is an increase in the value.
+- name: setValue
+  type: Float
+  description: The adjustment is given by a new active value.
+ancestors:
+- ProtectiveAction
+associations:
+- source: ProtectiveActionAdjustment
+  target: DCConductingEquipment
+  sourceCardinality: 0..*
+  sourceName: ProtectiveActionAdjustment
+  targetCardinality: "1"
+  targetName: DCConductingEquipment
+  targetDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+- source: ProtectiveActionAdjustment
+  target: Measurement
+  sourceCardinality: 0..*
+  sourceName: ProtectiveActionAdjustment
+  targetCardinality: 0..1
+  targetName: Measurement
+  targetDescription: The measurement is used to control the operation of an equipment.
+- source: ProtectiveActionAdjustment
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  sourceName: ProtectiveActionAdjustment
+  sourceDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+    For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float
+    will be rounded.
+  targetCardinality: "1"
+  targetName: ConductingEquipment
+  targetDescription: ConductingEquipment whose operating condition is changed when this protective action adjustment gets
+    activated.

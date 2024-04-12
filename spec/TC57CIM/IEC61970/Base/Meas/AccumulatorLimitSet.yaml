@@ -1,0 +1,21 @@
+name: AccumulatorLimitSet
+description: An AccumulatorLimitSet specifies a set of Limits that are associated with an Accumulator measurement.
+ancestors:
+- LimitSet
+associations:
+- source: AccumulatorLimitSet
+  target: AccumulatorLimit
+  sourceCardinality: "1"
+  sourceName: LimitSet
+  sourceDescription: The set of limits.
+  targetCardinality: 1..*
+  targetName: Limits
+  targetDescription: The limit values used for supervision of Measurements.
+- source: AccumulatorLimitSet
+  target: Accumulator
+  sourceCardinality: 0..*
+  sourceName: LimitSets
+  sourceDescription: A measurement may have zero or more limit ranges defined for it.
+  targetCardinality: 0..*
+  targetName: Measurements
+  targetDescription: The Measurements using the LimitSet.

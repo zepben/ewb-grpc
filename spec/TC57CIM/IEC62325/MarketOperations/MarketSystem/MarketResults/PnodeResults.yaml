@@ -1,0 +1,38 @@
+name: PnodeResults
+description: Provides the total price, the cost component, the loss component, and the congestion component for Pnodes for
+  the forward and real time markets. There are several prices produced based on the run type (MPM, RUC, Pricing, or Scheduling/Dispatch).
+attributes:
+- name: congestLMP
+  type: Float
+  description: Congestion component of Location Marginal Price (LMP) in monetary units per MW.
+- name: costLMP
+  type: Float
+  description: Cost component of Locational Marginal Pricing (LMP) in monetary units per MW.
+- name: lossLMP
+  type: Float
+  description: Loss component of Location Marginal Price (LMP) in monetary units per MW.
+- name: marginalClearingPrice
+  type: Float
+  description: Locational Marginal Price (LMP) ($/MWh)
+- name: scheduledMW
+  type: Float
+  description: total MW schedule at the pnode
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+associations:
+- source: PnodeResults
+  target: PnodeClearing
+  sourceCardinality: 1..*
+  sourceName: PnodeResults
+  targetCardinality: 0..1
+  targetName: PnodeClearing
+- source: PnodeResults
+  target: Pnode
+  sourceCardinality: 1..*
+  sourceName: PnodeResults
+  targetCardinality: 0..1
+  targetName: Pnode

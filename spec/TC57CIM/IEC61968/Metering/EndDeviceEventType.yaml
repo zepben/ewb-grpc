@@ -1,0 +1,30 @@
+name: EndDeviceEventType
+description: 'Detailed description for an event produced by an end device. Values in attributes allow for creation of recommended
+  codes to be used for identifying end device events as follows: <type>.<domain>.<subDomain>.<eventOrAction>.'
+attributes:
+- name: domain
+  type: String
+  description: High-level nature of the event. By properly classifying events by a small set of domain codes, a system can
+    more easily run reports based on the types of events that have occurred or been received.
+- name: eventOrAction
+  type: String
+  description: The most specific part of this event type. It is mainly in the form of a verb that gives action to the event
+    that just occurred.
+- name: subDomain
+  type: String
+  description: More specific nature of the event, as a further sub-categorisation of 'domain'.
+- name: type
+  type: String
+  description: Type of physical device from which the event was created. A value of zero (0) can be used when the source is
+    unknown.
+ancestors:
+- IdentifiedObject
+associations:
+- source: EndDeviceEventType
+  target: EndDeviceEvent
+  sourceCardinality: "1"
+  sourceName: EndDeviceEventType
+  sourceDescription: Type of this end device event.
+  targetCardinality: 0..*
+  targetName: EndDeviceEvents
+  targetDescription: All end device events of this type.

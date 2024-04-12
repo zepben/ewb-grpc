@@ -1,0 +1,15 @@
+name: CrewMember
+description: Member of a crew.
+ancestors:
+- OperationPersonRole
+descendents:
+- FieldSafetySupervisor
+associations:
+- source: CrewMember
+  target: Crew
+  sourceCardinality: 0..*
+  sourceName: CrewMembers
+  sourceDescription: All members of this crew.
+  targetCardinality: 0..1
+  targetName: Crew
+  targetDescription: Crew to which this crew member belongs.

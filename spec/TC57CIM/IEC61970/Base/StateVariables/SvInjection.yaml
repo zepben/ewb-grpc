@@ -1,0 +1,28 @@
+name: SvInjection
+description: The SvInjection reports the calculated bus injection minus the sum of the terminal flows. The terminal flow is
+  positive out from the bus (load sign convention) and bus injection has positive flow into the bus. SvInjection may have
+  the remainder after state estimation or slack after power flow calculation.
+attributes:
+- name: phase
+  type: SinglePhaseKind
+  description: The terminal phase at which the connection is applied.   If missing, the injection is assumed to be balanced
+    among non-neutral phases.
+- name: pInjection
+  type: ActivePower
+  description: The active power mismatch between calculated injection and initial injection.  Positive sign means injection
+    into the TopologicalNode (bus).
+- name: qInjection
+  type: ReactivePower
+  description: The reactive power mismatch between calculated injection and initial injection.  Positive sign means injection
+    into the TopologicalNode (bus).
+ancestors:
+- StateVariable
+associations:
+- source: SvInjection
+  target: TopologicalNode
+  sourceCardinality: 0..*
+  sourceName: SvInjection
+  sourceDescription: The injection flows state variables associated with the topological node.
+  targetCardinality: "1"
+  targetName: TopologicalNode
+  targetDescription: The topological node associated with the flow injection state variable.

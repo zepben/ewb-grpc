@@ -1,0 +1,83 @@
+name: ExcIEEEAC6A
+description: |-
+  IEEE 421.5-2005 type AC6A model. The model represents field-controlled alternator-rectifier excitation systems with system-supplied electronic voltage regulators.  The maximum output of the regulator, <i>V</i><i><sub>R</sub></i>, is a function of terminal voltage, <i>V</i><i><sub>T</sub></i>. The field current limiter included in the original model AC6A remains in the 2005 update.
+  Reference: IEEE 421.5-2005, 6.6.
+attributes:
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>K</i><i><sub>A</sub></i>) (&gt; 0).  Typical value = 536.
+- name: kc
+  type: PU
+  description: Rectifier loading factor proportional to commutating reactance (<i>K</i><i><sub>C</sub></i>) (&gt;= 0). Typical
+    value = 0,173.
+- name: kd
+  type: PU
+  description: Demagnetizing factor, a function of exciter alternator reactances (<i>K</i><i><sub>D</sub></i>) (&gt;= 0).  Typical
+    value = 1,91.
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>K</i><i><sub>E</sub></i>).  Typical value = 1,6.
+- name: kh
+  type: PU
+  description: Exciter field current limiter gain (<i>K</i><i><sub>H</sub></i>) (&gt;= 0).  Typical value = 92.
+- name: seve1
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>V</i><i><sub>E1</sub></i>, back
+    of commutating reactance (<i>S</i><i><sub>E</sub></i><i>[V</i><i><sub>E1</sub></i><i>])</i> (&gt;= 0).  Typical value
+    = 0,214.
+- name: seve2
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>V</i><i><sub>E2</sub></i>, back
+    of commutating reactance (<i>S</i><i><sub>E</sub></i><i>[V</i><i><sub>E2</sub></i><i>]</i>) (&gt;= 0).  Typical value
+    = 0,044.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>A</sub></i>) (&gt;= 0).  Typical value = 0,086.
+- name: tb
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>B</sub></i>) (&gt;= 0).  Typical value = 9.
+- name: tc
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>C</sub></i>) (&gt;= 0).  Typical value = 3.
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>T</i><i><sub>E</sub></i>) (&gt;
+    0).  Typical value = 1.
+- name: th
+  type: Seconds
+  description: Exciter field current limiter time constant (<i>T</i><i><sub>H</sub></i>) (&gt; 0).  Typical value = 0,08.
+- name: tj
+  type: Seconds
+  description: Exciter field current limiter time constant (<i>T</i><i><sub>J</sub></i>) (&gt;= 0).  Typical value = 0,02.
+- name: tk
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>K</sub></i>) (&gt;= 0).  Typical value = 0,18.
+- name: vamax
+  type: PU
+  description: Maximum voltage regulator output (<i>V</i><i><sub>AMAX</sub></i>) (&gt; 0).  Typical value = 75.
+- name: vamin
+  type: PU
+  description: Minimum voltage regulator output (V<sub>AMIN</sub>) (&lt; 0).  Typical value = -75.
+- name: ve1
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>V</i><i><sub>E1</sub></i>)
+    (&gt; 0).  Typical value = 7,4.
+- name: ve2
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>V</i><i><sub>E2</sub></i>)
+    (&gt; 0).  Typical value = 5,55.
+- name: vfelim
+  type: PU
+  description: Exciter field current limit reference (<i>V</i><i><sub>FELIM</sub></i>) (&gt; 0).  Typical value = 19.
+- name: vhmax
+  type: PU
+  description: Maximum field current limiter signal reference (<i>V</i><i><sub>HMAX</sub></i>) (&gt; 0).  Typical value =
+    75.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>V</i><i><sub>RMAX</sub></i>) (&gt; 0).  Typical value = 44.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>V</i><i><sub>RMIN</sub></i>) (&lt; 0).  Typical value = -36.
+ancestors:
+- ExcitationSystemDynamics

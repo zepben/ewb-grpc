@@ -1,0 +1,133 @@
+name: GovHydroR
+description: Fourth order lead-lag governor and hydro turbine.
+attributes:
+- name: pgv4
+  type: PU
+  description: Nonlinear gain point 4, PU power (<i>Pgv4</i>).  Typical value = 0.
+- name: pgv5
+  type: PU
+  description: Nonlinear gain point 5, PU power (<i>Pgv5</i>).  Typical value = 0.
+- name: pgv6
+  type: PU
+  description: Nonlinear gain point 6, PU power (<i>Pgv6</i>).  Typical value = 0.
+- name: pmax
+  type: PU
+  description: Maximum gate opening, PU of <i>MWbase</i> (<i>Pmax</i>) (&gt; GovHydroR.pmin).  Typical value = 1.
+- name: pmin
+  type: PU
+  description: Minimum gate opening, PU of <i>MWbase</i> (<i>Pmin</i>) (&lt; GovHydroR.pmax).  Typical value = 0.
+- name: qnl
+  type: PU
+  description: No-load turbine flow at nominal head (<i>Qnl</i>).  Typical value = 0,08.
+- name: r
+  type: PU
+  description: Steady-state droop (<i>R</i>).  Typical value = 0,05.
+- name: t1
+  type: Seconds
+  description: Lead time constant 1 (<i>T1</i>) (&gt;= 0).  Typical value = 1,5.
+- name: t2
+  type: Seconds
+  description: Lag time constant 1 (<i>T2</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t3
+  type: Seconds
+  description: Lead time constant 2 (<i>T3</i>) (&gt;= 0).  Typical value = 1,5.
+- name: t4
+  type: Seconds
+  description: Lag time constant 2 (<i>T4</i>) (&gt;= 0).  Typical value = 0,1.
+- name: t5
+  type: Seconds
+  description: Lead time constant 3 (<i>T5</i>) (&gt;= 0).  Typical value = 0.
+- name: t6
+  type: Seconds
+  description: Lag time constant 3 (<i>T6</i>) (&gt;= 0).  Typical value = 0,05.
+- name: t7
+  type: Seconds
+  description: Lead time constant 4 (<i>T7</i>) (&gt;= 0).  Typical value = 0.
+- name: t8
+  type: Seconds
+  description: Lag time constant 4 (<i>T8</i>) (&gt;= 0).  Typical value = 0,05.
+- name: td
+  type: Seconds
+  description: Input filter time constant (<i>Td</i>) (&gt;= 0).  Typical value = 0,05.
+- name: tp
+  type: Seconds
+  description: Gate servo time constant (<i>Tp</i>) (&gt;= 0).  Typical value = 0,05.
+- name: tt
+  type: Seconds
+  description: Power feedback time constant (<i>Tt</i>) (&gt;= 0).  Typical value = 0.
+- name: at
+  type: PU
+  description: Turbine gain (<i>At</i>).  Typical value = 1,2.
+- name: db1
+  type: Frequency
+  description: Intentional dead-band width (<i>db1</i>).  Unit = Hz.  Typical value = 0.
+- name: db2
+  type: ActivePower
+  description: Unintentional dead-band (<i>db2</i>).  Unit = MW.  Typical value = 0.
+- name: dturb
+  type: PU
+  description: Turbine damping factor (<i>Dturb</i>).  Typical value = 0,2.
+- name: eps
+  type: Frequency
+  description: Intentional db hysteresis (<i>eps</i>).  Unit = Hz.  Typical value = 0.
+- name: gmax
+  type: PU
+  description: Maximum governor output (<i>Gmax</i>) (&gt; GovHydroR.gmin).  Typical value = 1,05.
+- name: gmin
+  type: PU
+  description: Minimum governor output (<i>Gmin</i>) (&lt; GovHydroR.gmax).  Typical value = -0,05.
+- name: gv1
+  type: PU
+  description: Nonlinear gain point 1, PU gv (<i>Gv1</i>).  Typical value = 0.
+- name: gv2
+  type: PU
+  description: Nonlinear gain point 2, PU gv (<i>Gv2</i>).  Typical value = 0.
+- name: gv3
+  type: PU
+  description: Nonlinear gain point 3, PU gv (<i>Gv3</i>).  Typical value = 0.
+- name: gv4
+  type: PU
+  description: Nonlinear gain point 4, PU gv (<i>Gv4</i>).  Typical value = 0.
+- name: gv5
+  type: PU
+  description: Nonlinear gain point 5, PU gv (<i>Gv5</i>).  Typical value = 0.
+- name: gv6
+  type: PU
+  description: Nonlinear gain point 6, PU gv (<i>Gv6</i>).  Typical value = 0.
+- name: h0
+  type: PU
+  description: Turbine nominal head (<i>H0</i>).  Typical value = 1.
+- name: inputSignal
+  type: Boolean
+  description: "Input signal switch (<i>Flag</i>).\ntrue = <i>Pe</i> input is used\nfalse = feedback is received from <i>CV</i>.\n\
+    <i>Flag</i> is normally dependent on <i>Tt</i>.  If <i>Tt </i>is zero, <i>Flag</i> is set to false. If <i>Tt</i> is not\
+    \ zero, <i>Flag</i> is set to true.  \nTypical value = true."
+- name: kg
+  type: PU
+  description: Gate servo gain (<i>Kg</i>).  Typical value = 2.
+- name: ki
+  type: PU
+  description: Integral gain (<i>Ki</i>).  Typical value = 0,5.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pgv1
+  type: PU
+  description: Nonlinear gain point 1, PU power (<i>Pgv1</i>).  Typical value = 0.
+- name: pgv2
+  type: PU
+  description: Nonlinear gain point 2, PU power (<i>Pgv2</i>).  Typical value = 0.
+- name: pgv3
+  type: PU
+  description: Nonlinear gain point 3, PU power (<i>Pgv3</i>).  Typical value = 0.
+- name: tw
+  type: Seconds
+  description: Water inertia time constant (<i>Tw</i>) (&gt; 0).  Typical value = 1.
+- name: velcl
+  type: Float
+  description: Maximum gate closing velocity (<i>Velcl</i>).  Unit = PU / s.  Typical value = -0,2.
+- name: velop
+  type: Float
+  description: Maximum gate opening velocity (<i>Velop</i>).  Unit = PU / s.  Typical value = 0,2.
+ancestors:
+- TurbineGovernorDynamics

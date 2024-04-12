@@ -1,0 +1,34 @@
+name: ShuntCompensatorPhase
+description: Single phase of a multi-phase shunt compensator when its attributes might be different per phase.
+attributes:
+- name: maximumSections
+  type: Integer
+  description: The maximum number of sections that may be switched in for this phase.
+- name: normalSections
+  type: Integer
+  description: For the capacitor phase, the normal number of sections switched in. The value shall be between zero and ShuntCompensatorPhase.maximumSections.
+- name: phase
+  type: SinglePhaseKind
+  description: Phase of this shunt compensator component.   If the shunt compensator is wye connected, the connection is from
+    the indicated phase to the central ground or neutral point.  If the shunt compensator is delta connected, the phase indicates
+    a shunt compensator connected from the indicated phase to the next logical non-neutral phase.
+- name: sections
+  type: Float
+  description: |-
+    Shunt compensator sections in use. Starting value for steady state solution. The attribute shall be a positive value or zero. Non integer values are allowed to support continuous variables. The reasons for continuous value are to support study cases where no discrete shunt compensators has yet been designed, a solutions where a narrow voltage band force the sections to oscillate or accommodate for a continuous solution as input.
+    For LinearShuntConpensator the value shall be between zero and ShuntCompensatorPhase.maximumSections. At value zero the shunt compensator conductance and admittance is zero. Linear interpolation of conductance and admittance between the previous and next integer section is applied in case of non-integer values.
+    For NonlinearShuntCompensator-s shall only be set to one of the NonlinearShuntCompenstorPhasePoint.sectionNumber. There is no interpolation between NonlinearShuntCompenstorPhasePoint-s.
+ancestors:
+- PowerSystemResource
+descendents:
+- LinearShuntCompensatorPhase
+- NonlinearShuntCompensatorPhase
+associations:
+- source: ShuntCompensatorPhase
+  target: ShuntCompensator
+  sourceCardinality: 0..*
+  sourceName: ShuntCompensatorPhase
+  sourceDescription: The individual phases models for the shunt compensator.
+  targetCardinality: "1"
+  targetName: ShuntCompensator
+  targetDescription: Shunt compensator of this shunt compensator phase.

@@ -1,0 +1,18 @@
+name: AccountNotification
+description: Notifications for move-in, move-out, delinquencies, etc.
+attributes:
+- name: customerNotificationType
+  type: String
+- name: methodType
+  type: String
+- name: note
+  type: String
+- name: time
+  type: DateTime
+associations:
+- source: AccountNotification
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  sourceName: AccountNotification
+  targetCardinality: "1"
+  targetName: CustomerAccount

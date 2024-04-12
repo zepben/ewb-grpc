@@ -1,0 +1,18 @@
+name: AssetDiscrete
+description: Definition of type of discrete useful in asset domain.
+ancestors:
+- Discrete
+descendents:
+- OilAnalysisPCBDiscrete
+- OilAnalysisParticleDiscrete
+- OilAnalysisFluidDiscrete
+- InspectionDiscrete
+associations:
+- source: AssetDiscrete
+  target: TestStandard
+  sourceCardinality: 0..*
+  sourceName: AssetDiscrete
+  sourceDescription: An asset health discrete related to this lab test standard.
+  targetCardinality: 0..1
+  targetName: TestStandard
+  targetDescription: The lab test standard to which this asset health discrete is related.

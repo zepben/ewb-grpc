@@ -1,0 +1,47 @@
+name: EnergyConsumerPhase
+description: A single phase of an energy consumer.
+attributes:
+- name: pfixed
+  type: ActivePower
+  description: Active power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means flow
+    out from a node.
+- name: pfixedPct
+  type: PerCent
+  description: Fixed active power as per cent of load group fixed active power. Load sign convention is used, i.e. positive
+    sign means flow out from a node.
+- name: phase
+  type: SinglePhaseKind
+  description: Phase of this energy consumer component.   If the energy consumer is wye connected, the connection is from
+    the indicated phase to the central ground or neutral point.  If the energy consumer is delta connected, the phase indicates
+    an energy consumer connected from the indicated phase to the next logical non-neutral phase.
+- name: qfixed
+  type: ReactivePower
+  description: Reactive power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means
+    flow out from a node.
+- name: qfixedPct
+  type: PerCent
+  description: Fixed reactive power as per cent of load group fixed reactive power. Load sign convention is used, i.e. positive
+    sign means flow out from a node.
+- name: p
+  type: ActivePower
+  description: |-
+    Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+ancestors:
+- PowerSystemResource
+associations:
+- source: EnergyConsumerPhase
+  target: EnergyConsumer
+  sourceCardinality: 0..*
+  sourceName: EnergyConsumerPhase
+  sourceDescription: The individual phase models for this energy consumer.
+  targetCardinality: "1"
+  targetName: EnergyConsumer
+  targetDescription: The energy consumer to which this phase belongs.

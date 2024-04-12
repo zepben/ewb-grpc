@@ -1,0 +1,11 @@
+name: ScheduledLimitDependency
+ancestors:
+- LimitDependency
+associations:
+- source: ScheduledLimitDependency
+  target: ScheduledLimitValue
+  sourceCardinality: "1"
+  sourceName: ScheduledLimitDependency
+  targetCardinality: 0..*
+  targetName: ScheduledLimitValues
+  targetDescription: The scheduled limit values for this limit dependency.

@@ -1,0 +1,17 @@
+name: MktSeriesCompensator
+description: Subclass of IEC 61970:Wires:SeriesCompensator.
+ancestors:
+- SeriesCompensator
+associations:
+- source: MktSeriesCompensator
+  target: BranchEndFlow
+  sourceCardinality: 0..*
+  sourceName: MktSeriesCompensatorEndBFlow
+  targetCardinality: 0..1
+  targetName: EndBFlow
+- source: MktSeriesCompensator
+  target: BranchEndFlow
+  sourceCardinality: 0..*
+  sourceName: MktSeriresCompensatorEndAFlow
+  targetCardinality: 0..1
+  targetName: EndAFlow

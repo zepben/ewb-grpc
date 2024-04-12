@@ -1,0 +1,13 @@
+name: ErpPurchaseOrder
+description: A document that communicates an order to purchase goods from a buyer to a supplier. The PurchaseOrder carries
+  information to and from the buyer and supplier. It is a legally binding document once both Parties agree to the contents
+  and the specified terms and conditions of the order.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpPurchaseOrder
+  target: ErpPOLineItem
+  sourceCardinality: "1"
+  sourceName: ErpPurchaseOrder
+  targetCardinality: 0..*
+  targetName: ErpPOLineItems

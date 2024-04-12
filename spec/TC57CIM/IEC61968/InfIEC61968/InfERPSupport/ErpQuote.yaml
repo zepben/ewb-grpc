@@ -1,0 +1,12 @@
+name: ErpQuote
+description: Document describing the prices of goods or services provided by a supplier. It includes the terms of the purchase,
+  delivery proposals, identification of goods or services ordered, as well as their quantities.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpQuote
+  target: ErpQuoteLineItem
+  sourceCardinality: "1"
+  sourceName: ErpQuote
+  targetCardinality: 0..*
+  targetName: ErpQuoteLineItems

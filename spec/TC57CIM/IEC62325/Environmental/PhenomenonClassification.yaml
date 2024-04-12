@@ -1,0 +1,28 @@
+name: PhenomenonClassification
+description: A pre-defined phenomenon classification as defined by a particular authority.
+ancestors:
+- IdentifiedObject
+associations:
+- source: PhenomenonClassification
+  target: EnvironmentalDataAuthority
+  sourceCardinality: 0..*
+  sourceName: PhenomenonClassification
+  sourceDescription: Phenomenon classification defined by this environmental data authority.
+  targetCardinality: 0..1
+  targetName: EnvironmentalDataAuthority
+  targetDescription: Authority defining this environmental phenomenon.
+- source: PhenomenonClassification
+  target: EnvironmentalPhenomenon
+  sourceCardinality: 0..1
+  sourceName: PhenomenonClassification
+  sourceDescription: The classification of this phenomenon.
+  targetCardinality: 0..*
+  targetName: EnvironmentalPhenomenon
+- source: PhenomenonClassification
+  target: ClassificationCondition
+  sourceCardinality: 0..1
+  sourceName: PhenomenonClassification
+  sourceDescription: Phenomenon classification to which this condition relates.
+  targetCardinality: 0..*
+  targetName: ClassificationCondition
+  targetDescription: Condition contributing to the classification of this phenomenon.

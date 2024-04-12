@@ -1,0 +1,23 @@
+name: ShiftPattern
+description: The patterns of shifts worked by people or crews.
+attributes:
+- name: assignmentType
+  type: String
+  description: Type of assignement intended to be worked on this shift, for example, temporary, standard, etc.
+- name: cycleCount
+  type: Integer
+  description: Number of cycles for a temporary shift.
+- name: status
+  type: Status
+- name: validityInterval
+  type: DateTimeInterval
+  description: Date and time interval for which this shift pattern is valid (when it became effective and when it expires).
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: ShiftPattern
+  target: OldCrew
+  sourceCardinality: 0..*
+  sourceName: ShiftPatterns
+  targetCardinality: 0..*
+  targetName: Crews

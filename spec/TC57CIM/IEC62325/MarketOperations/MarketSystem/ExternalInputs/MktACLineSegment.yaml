@@ -1,0 +1,17 @@
+name: MktACLineSegment
+description: Subclass of IEC 61970:Wires:ACLineSegment.
+ancestors:
+- ACLineSegment
+associations:
+- source: MktACLineSegment
+  target: BranchEndFlow
+  sourceCardinality: 0..*
+  sourceName: MktACLineSegmentEndAFlow
+  targetCardinality: 0..1
+  targetName: EndAFlow
+- source: MktACLineSegment
+  target: BranchEndFlow
+  sourceCardinality: 0..*
+  sourceName: MktACLineSegmentEndBFlow
+  targetCardinality: 0..1
+  targetName: EndBFlow

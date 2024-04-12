@@ -1,0 +1,25 @@
+name: DERCurveData
+attributes:
+- name: intervalNumber
+  type: Integer
+- name: maxYValue
+  type: Float
+- name: minYValue
+  type: Float
+- name: nominalYValue
+  type: Float
+- name: timeStamp
+  type: DateTime
+associations:
+- source: DERCurveData
+  target: DispatchSchedule
+  sourceCardinality: 0..*
+  sourceName: DERCurveData
+  targetCardinality: 0..1
+  targetName: DispatchSchedule
+- source: DERCurveData
+  target: DERMonitorableParameter
+  sourceCardinality: 0..1
+  sourceName: DERCurveData
+  targetCardinality: "1"
+  targetName: DERMonitorableParameter

@@ -1,0 +1,17 @@
+name: HeatRecoveryBoiler
+description: The heat recovery system associated with combustion turbines in order to produce steam for combined cycle plants.
+attributes:
+- name: steamSupplyRating2
+  type: Float
+  description: The steam supply rating in kilopounds per hour, if dual pressure boiler.
+ancestors:
+- FossilSteamSupply
+associations:
+- source: HeatRecoveryBoiler
+  target: CombustionTurbine
+  sourceCardinality: 0..1
+  sourceName: HeatRecoveryBoiler
+  sourceDescription: A combustion turbine may have a heat recovery boiler for making steam.
+  targetCardinality: 0..*
+  targetName: CombustionTurbines
+  targetDescription: A combustion turbine may have a heat recovery boiler for making steam.

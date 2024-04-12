@@ -1,0 +1,80 @@
+name: EquivalentInjection
+description: This class represents equivalent injections (generation or load).  Voltage regulation is allowed only at the
+  point of connection.
+attributes:
+- name: maxP
+  type: ActivePower
+  description: Maximum active power of the injection.
+- name: maxQ
+  type: ReactivePower
+  description: Maximum reactive power of the injection.  Used for modelling of infeed for load flow exchange. Not used for
+    short circuit modelling.  If maxQ and minQ are not used ReactiveCapabilityCurve can be used.
+- name: minP
+  type: ActivePower
+  description: Minimum active power of the injection.
+- name: minQ
+  type: ReactivePower
+  description: Minimum reactive power of the injection.  Used for modelling of infeed for load flow exchange. Not used for
+    short circuit modelling.  If maxQ and minQ are not used ReactiveCapabilityCurve can be used.
+- name: r
+  type: Resistance
+  description: |-
+    Positive sequence resistance. Used to represent Extended-Ward (IEC 60909).
+    Usage : Extended-Ward is a result of network reduction prior to the data exchange.
+- name: r0
+  type: Resistance
+  description: |-
+    Zero sequence resistance. Used to represent Extended-Ward (IEC 60909).
+    Usage : Extended-Ward is a result of network reduction prior to the data exchange.
+- name: r2
+  type: Resistance
+  description: |-
+    Negative sequence resistance. Used to represent Extended-Ward (IEC 60909).
+    Usage : Extended-Ward is a result of network reduction prior to the data exchange.
+- name: regulationCapability
+  type: Boolean
+  description: Specifies whether or not the EquivalentInjection has the capability to regulate the local voltage. If true
+    the EquivalentInjection can regulate. If false the EquivalentInjection cannot regulate. ReactiveCapabilityCurve can only
+    be associated with EquivalentInjection  if the flag is true.
+- name: regulationStatus
+  type: Boolean
+  description: Specifies the regulation status of the EquivalentInjection.  True is regulating.  False is not regulating.
+- name: regulationTarget
+  type: Voltage
+  description: The target voltage for voltage regulation. The attribute shall be a positive value.
+- name: x
+  type: Reactance
+  description: |-
+    Positive sequence reactance. Used to represent Extended-Ward (IEC 60909).
+    Usage : Extended-Ward is a result of network reduction prior to the data exchange.
+- name: x0
+  type: Reactance
+  description: |-
+    Zero sequence reactance. Used to represent Extended-Ward (IEC 60909).
+    Usage : Extended-Ward is a result of network reduction prior to the data exchange.
+- name: x2
+  type: Reactance
+  description: |-
+    Negative sequence reactance. Used to represent Extended-Ward (IEC 60909).
+    Usage : Extended-Ward is a result of network reduction prior to the data exchange.
+- name: p
+  type: ActivePower
+  description: |-
+    Equivalent active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
+- name: q
+  type: ReactivePower
+  description: |-
+    Equivalent reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
+ancestors:
+- EquivalentEquipment
+associations:
+- source: EquivalentInjection
+  target: ReactiveCapabilityCurve
+  sourceCardinality: 0..*
+  sourceName: EquivalentInjection
+  sourceDescription: The equivalent injection using this reactive capability curve.
+  targetCardinality: 0..1
+  targetName: ReactiveCapabilityCurve
+  targetDescription: The reactive capability curve used by this equivalent injection.

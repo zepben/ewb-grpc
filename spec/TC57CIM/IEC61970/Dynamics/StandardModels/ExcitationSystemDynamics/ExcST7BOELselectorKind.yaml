@@ -1,0 +1,12 @@
+name: ExcST7BOELselectorKind
+description: Types of connections for the OEL input used for static excitation systems type 7B.
+attributes:
+- name: noOELinput
+  description: No OEL input is used. Corresponds to <i>OELin</i> not = 1 and not = 2 and not = 3 on the ExcST7B diagram. Original
+    ExcST7B model would have called this <i>OELin</i> = 0.
+- name: addVref
+  description: The signal is added to <i>Vref</i>.  Corresponds to <i>OELin</i> = 1 on the ExcST7B diagram.
+- name: inputLVgate
+  description: The signal is connected into the input <i>LVGate</i>. Corresponds to <i>OELin</i> = 2 on the ExcST7B diagram.
+- name: outputLVgate
+  description: The signal is connected into the output <i>LVGate</i>.  Corresponds to <i>OELin</i> = 3 on the ExcST7B diagram.

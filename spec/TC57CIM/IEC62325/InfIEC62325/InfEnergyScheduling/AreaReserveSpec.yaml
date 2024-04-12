@@ -1,0 +1,33 @@
+name: AreaReserveSpec
+description: The control area's reserve specification.
+attributes:
+- name: Description
+  type: String
+  description: Description of the object or instance.
+- name: lowerRegMarginReqt
+  type: ActivePower
+  description: Lower regulating margin requirement in MW, the amount of generation that can be dropped by control in 10 minutes
+- name: opReserveReqt
+  type: ActivePower
+  description: Operating reserve requirement in MW, where operating reserve is the generating capability that is fully available
+    within 30 minutes. Operating reserve is composed of primary reserve (t less than 10 min) and secondary reserve (10 less
+    than t less than 30 min).
+- name: primaryReserveReqt
+  type: ActivePower
+  description: Primary reserve requirement in MW, where primary reserve is generating capability that is fully available within
+    10 minutes. Primary reserve is composed of spinning reserve and quick-start reserve.
+- name: raiseRegMarginReqt
+  type: ActivePower
+  description: Raise regulating margin requirement in MW, the amount of generation that can be picked up by control in 10
+    minutes
+- name: spinningReserveReqt
+  type: ActivePower
+  description: Spinning reserve requirement in MW, spinning reserve is generating capability that is presently synchronized
+    to the network and is fully available within 10 minutes
+associations:
+- source: AreaReserveSpec
+  target: SubControlArea
+  sourceCardinality: "1"
+  sourceName: AreaReserveSpecification
+  targetCardinality: 0..*
+  targetName: SubControlArea

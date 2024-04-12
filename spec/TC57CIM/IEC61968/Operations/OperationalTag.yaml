@@ -1,0 +1,30 @@
+name: OperationalTag
+description: Operational tag placed on a power system resource or asset in the context of switching plan execution or other
+  work in the field.
+ancestors:
+- Document
+associations:
+- source: OperationalTag
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  sourceName: OperationalTags
+  sourceDescription: All operational tags placed on this power system resource.
+  targetCardinality: 0..1
+  targetName: PowerSystemResource
+  targetDescription: Power system resource on which this tag has been placed.
+- source: OperationalTag
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: OperationalTags
+  sourceDescription: All operational tags placed on this asset.
+  targetCardinality: 0..1
+  targetName: Asset
+  targetDescription: Asset on which this tag has been placed.
+- source: OperationalTag
+  target: TagAction
+  sourceCardinality: 0..1
+  sourceName: OperationalTag
+  sourceDescription: Tag associated with this tag action.
+  targetCardinality: 0..1
+  targetName: TagAction
+  targetDescription: Tag action associated with this tag.

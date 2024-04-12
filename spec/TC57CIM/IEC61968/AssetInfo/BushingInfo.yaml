@@ -1,0 +1,32 @@
+name: BushingInfo
+description: Bushing datasheet information.
+attributes:
+- name: c1Capacitance
+  type: Capacitance
+  description: Factory measured capacitance, measured between the power factor tap and the bushing conductor.
+- name: c1PowerFactor
+  type: PerCent
+  description: Factory measured insulation power factor, measured between the power factor tap and the bushing conductor.
+- name: c2Capacitance
+  type: Capacitance
+  description: Factory measured capacitance measured between the power factor tap and ground.
+- name: c2PowerFactor
+  type: PerCent
+  description: Factory measured insulation power factor, measured between the power factor tap and ground.
+- name: insulationKind
+  type: BushingInsulationKind
+  description: Kind of insulation.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: Rated current for bushing as installed.
+- name: ratedImpulseWithstandVoltage
+  type: Voltage
+  description: Rated impulse withstand voltage, also known as BIL (Basic Impulse Level).
+- name: ratedLineToGroundVoltage
+  type: Voltage
+  description: Rated line-to-ground voltage. Also referred to as Uy on bushing nameplate.
+- name: ratedVoltage
+  type: Voltage
+  description: Rated voltage. Can be referred to as Um, system voltage or class on bushing nameplate.
+ancestors:
+- AssetInfo

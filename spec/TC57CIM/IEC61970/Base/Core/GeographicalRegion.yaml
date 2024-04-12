@@ -1,0 +1,13 @@
+name: GeographicalRegion
+description: A geographical region of a power system network model.
+ancestors:
+- IdentifiedObject
+associations:
+- source: GeographicalRegion
+  target: SubGeographicalRegion
+  sourceCardinality: 0..1
+  sourceName: Region
+  sourceDescription: The geographical region which this sub-geographical region is within.
+  targetCardinality: 0..*
+  targetName: Regions
+  targetDescription: All sub-geographical regions within this geographical region.

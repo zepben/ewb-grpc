@@ -1,0 +1,18 @@
+name: ContingencyEquipment
+description: Equipment whose in service status is to change, such as a power transformer or AC line segment.
+attributes:
+- name: contingentStatus
+  type: ContingencyEquipmentStatusKind
+  description: The status for the associated equipment when in the contingency state.   This status is independent of the
+    case to which the contingency is originally applied, but defines the equipment status when the contingency is applied.
+ancestors:
+- ContingencyElement
+associations:
+- source: ContingencyEquipment
+  target: Equipment
+  sourceCardinality: 0..*
+  sourceName: ContingencyEquipment
+  sourceDescription: The contingency equipments in which this equipment participates.
+  targetCardinality: "1"
+  targetName: Equipment
+  targetDescription: The single piece of equipment to which to apply the contingency.

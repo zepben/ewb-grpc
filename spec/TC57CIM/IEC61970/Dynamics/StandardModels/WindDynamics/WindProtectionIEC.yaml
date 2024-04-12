@@ -1,0 +1,59 @@
+name: WindProtectionIEC
+description: |-
+  The grid protection model includes protection against over- and under-voltage, and against over- and under-frequency.
+  Reference: IEC 61400-27-1:2015, 5.6.6.
+attributes:
+- name: dfimax
+  type: PU
+  description: Maximum rate of change of frequency (<i>dF</i><i><sub>max</sub></i>). It is a type-dependent parameter.
+- name: fover
+  type: PU
+  description: Wind turbine over frequency protection activation threshold (<i>f</i><i><sub>over</sub></i>). It is a project-dependent
+    parameter.
+- name: funder
+  type: PU
+  description: Wind turbine under frequency protection activation threshold (<i>f</i><i><sub>under</sub></i>). It is a project-dependent
+    parameter.
+- name: mzc
+  type: Boolean
+  description: "Zero crossing measurement mode (<i>Mzc</i>).  It is a type-dependent parameter. \ntrue = WT protection system\
+    \ uses zero crossings to detect frequency (1 in the IEC model)\nfalse = WT protection system does not use zero crossings\
+    \ to detect frequency (0 in the IEC model)."
+- name: tfma
+  type: Seconds
+  description: Time interval of moving average window (<i>TfMA</i>) (&gt;= 0).  It is a type-dependent parameter.
+- name: uover
+  type: PU
+  description: Wind turbine over voltage protection activation threshold (<i>u</i><i><sub>over</sub></i>). It is a project-dependent
+    parameter.
+- name: uunder
+  type: PU
+  description: Wind turbine under voltage protection activation threshold (<i>u</i><i><sub>under</sub></i>). It is a project-dependent
+    parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindProtectionIEC
+  target: WindTurbineType3or4IEC
+  sourceCardinality: "1"
+  sourceName: WindProtectionIEC
+  sourceDescription: Wind turbune protection model associated with this wind generator type 3 or type 4 model.
+  targetCardinality: 0..1
+  targetName: WindTurbineType3or4IEC
+  targetDescription: Wind generator type 3 or type 4 model with which this wind turbine protection model is associated.
+- source: WindProtectionIEC
+  target: WindTurbineType1or2IEC
+  sourceCardinality: "1"
+  sourceName: WindProtectionIEC
+  sourceDescription: Wind turbune protection model associated with this wind generator type 1 or type 2 model.
+  targetCardinality: 0..1
+  targetName: WindTurbineType1or2IEC
+  targetDescription: Wind generator type 1 or type 2 model with which this wind turbine protection model is associated.
+- source: WindProtectionIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  sourceName: WindProtectionIEC
+  sourceDescription: The grid protection model with which this wind dynamics lookup table is associated.
+  targetCardinality: 1..*
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this grid protection model.

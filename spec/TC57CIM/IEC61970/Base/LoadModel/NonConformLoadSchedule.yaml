@@ -1,0 +1,14 @@
+name: NonConformLoadSchedule
+description: An active power (Y1-axis) and reactive power (Y2-axis) schedule (curves) versus time (X-axis) for non-conforming
+  loads, e.g., large industrial load or power station service (where modelled).
+ancestors:
+- SeasonDayTypeSchedule
+associations:
+- source: NonConformLoadSchedule
+  target: NonConformLoadGroup
+  sourceCardinality: 0..*
+  sourceName: NonConformLoadSchedules
+  sourceDescription: The NonConformLoadSchedules in the NonConformLoadGroup.
+  targetCardinality: "1"
+  targetName: NonConformLoadGroup
+  targetDescription: The NonConformLoadGroup where the NonConformLoadSchedule belongs.

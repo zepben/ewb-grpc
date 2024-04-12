@@ -1,0 +1,29 @@
+name: GovSteam0
+description: A simplified steam turbine governor.
+attributes:
+- name: dt
+  type: PU
+  description: Turbine damping coefficient (<i>Dt</i>).  Unit = delta P / delta speed. Typical value = 0.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: r
+  type: PU
+  description: Permanent droop (<i>R</i>).  Typical value = 0,05.
+- name: t1
+  type: Seconds
+  description: Steam bowl time constant (<i>T1</i>) (&gt; 0).  Typical value = 0,5.
+- name: t2
+  type: Seconds
+  description: Numerator time constant of <i>T2</i>/<i>T3</i> block (<i>T2</i>) (&gt;= 0).  Typical value = 3.
+- name: t3
+  type: Seconds
+  description: Reheater time constant (<i>T3</i>) (&gt; 0).  Typical value = 10.
+- name: vmax
+  type: PU
+  description: Maximum valve position, PU of <i>mwcap</i> (<i>Vmax</i>) (&gt; GovSteam0.vmin).  Typical value = 1.
+- name: vmin
+  type: PU
+  description: Minimum valve position, PU of <i>mwcap</i> (<i>Vmin</i>) (&lt; GovSteam0.vmax).  Typical value = 0.
+ancestors:
+- TurbineGovernorDynamics

@@ -1,0 +1,36 @@
+name: ResourceCapacity
+description: This class model the various capacities of a resource. A resource may have numbers of capacities related to operating,
+  ancillary services, energy trade and so forth. Capacities may be defined for active power or reactive power.
+attributes:
+- name: capacityType
+  type: ResourceCapacityType
+  description: |-
+    capacity type
+
+    The types are but not limited to:
+
+    Regulation Up
+    Regulation Dn
+    Spinning Reserve
+    Non-Spinning Reserve
+    FOO capacity
+    MOO capacity
+- name: defaultCapacity
+  type: Decimal
+  description: default capacity
+- name: maximumCapacity
+  type: Decimal
+  description: maximum capacity
+- name: minimumCapacity
+  type: Decimal
+  description: minimum capacity
+- name: unitSymbol
+  type: UnitSymbol
+  description: Unit selection for the capacity values.
+associations:
+- source: ResourceCapacity
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: ResourceCapacity
+  targetCardinality: 0..*
+  targetName: RegisteredResource

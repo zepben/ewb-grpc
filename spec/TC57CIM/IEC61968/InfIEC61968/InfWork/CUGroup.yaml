@@ -1,0 +1,27 @@
+name: CUGroup
+description: A Compatible Unit Group identifies a set of compatible units which may be jointly utilized for estimating and
+  designating jobs.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: CUGroup
+  target: CUGroup
+  sourceCardinality: 0..*
+  sourceName: ParentCUGroups
+  targetCardinality: 0..*
+  targetName: ChildCUGroups
+- source: CUGroup
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  sourceName: CUGroup
+  targetCardinality: 0..*
+  targetName: CompatibleUnits
+- source: CUGroup
+  target: DesignLocationCU
+  sourceCardinality: 0..*
+  sourceName: CUGroups
+  targetCardinality: 0..*
+  targetName: DesignLocationCUs

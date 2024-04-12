@@ -1,0 +1,13 @@
+name: InadvertentAccount
+description: An account for tracking inadvertent interchange versus time for each control area. A control area may have more
+  than one inadvertent account in order to track inadvertent over one or more specific tie points in addition to the usual
+  overall net inadvertent. Separate accounts would also be used to track designated time periods, such as on-peak and off-peak.
+associations:
+- source: InadvertentAccount
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: InadvertentAccount
+  sourceDescription: A control area can have one or more net inadvertent interchange accounts
+  targetCardinality: "1"
+  targetName: SubControlArea
+  targetDescription: A control area can have one or more net inadvertent interchange accounts

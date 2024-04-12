@@ -1,0 +1,31 @@
+name: PowerSystemResource
+description: A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing
+  many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system
+  resources can have measurements associated.
+attributes:
+- name: numControls
+  type: Integer
+  description: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous machine or
+    capacitor bank breaker actuator.
+ancestors:
+- IdentifiedObject
+descendents:
+- ConnectivityNodeContainer
+- Equipment
+- TapChanger
+- ProtectionRelayFunction
+- EnergyConsumerPhase
+- EnergySourcePhase
+- PowerElectronicsConnectionPhase
+- RegulatingControl
+associations:
+- source: PowerSystemResource
+  target: AssetInfo
+  targetCardinality: 0..1
+  targetName: AssetInfo
+  targetDescription: Datasheet information for this power system resource.
+- source: PowerSystemResource
+  target: Location
+  targetCardinality: 0..1
+  targetName: Location
+  targetDescription: Location of this power system resource.

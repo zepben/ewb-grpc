@@ -1,0 +1,25 @@
+name: UnavailablitySchedule
+description: A schedule of unavailability for one or more specified equipment that need to follow the same scheduling periods.
+ancestors:
+- IdentifiedObject
+associations:
+- source: UnavailablitySchedule
+  target: AvailablityPlan
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+- source: UnavailablitySchedule
+  target: EquipmentUnavailabilitySchedule
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+- source: UnavailablitySchedule
+  target: UnavailabilityScheduleDependency
+  sourceCardinality: "1"
+  sourceName: UnavailabilityScheduleImpacts
+  targetCardinality: 0..*
+  targetName: DependsOn
+- source: UnavailablitySchedule
+  target: UnavailabilityScheduleDependency
+  sourceCardinality: "1"
+  sourceName: UnavailabilityScheduleDependsOn
+  targetCardinality: 0..*
+  targetName: Impacts

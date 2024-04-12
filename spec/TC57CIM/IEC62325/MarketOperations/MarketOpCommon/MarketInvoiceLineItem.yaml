@@ -1,0 +1,49 @@
+name: MarketInvoiceLineItem
+description: An individual line item on an invoice.
+attributes:
+- name: billPeriod
+  type: DateTimeInterval
+  description: Bill period for the line item.
+- name: glAccount
+  type: String
+  description: General Ledger account code, shall be a valid combination.
+- name: glDateTime
+  type: DateTime
+  description: Date and time line item will be posted to the General Ledger.
+- name: kind
+  type: MktInvoiceLineItemKind
+  description: Kind of line item.
+- name: lineAmount
+  type: Float
+  description: Amount due for this line item.
+- name: lineNumber
+  type: String
+  description: Line item number on invoice statement.
+- name: lineVersion
+  type: String
+  description: Version number of the bill run.
+- name: netAmount
+  type: Float
+  description: Net line item charge amount.
+- name: previousAmount
+  type: Float
+  description: Previous line item charge amount.
+associations:
+- source: MarketInvoiceLineItem
+  target: MarketInvoiceLineItem
+  sourceCardinality: 0..*
+  sourceName: ComponentMarketInvoiceLineItems
+  targetCardinality: 0..1
+  targetName: ContainerMarketInvoiceLineItem
+- source: MarketInvoiceLineItem
+  target: MarketInvoice
+  sourceCardinality: 0..*
+  sourceName: MarketInvoiceLineItems
+  targetCardinality: "1"
+  targetName: MarketInvoice
+- source: MarketInvoiceLineItem
+  target: Settlement
+  sourceCardinality: 0..*
+  sourceName: MarketInvoiceLineItem
+  targetCardinality: 0..*
+  targetName: Settlement

@@ -1,0 +1,50 @@
+name: NetworkModelProjectChangeVersion
+description: Describes the status and the planned implementation of the associated change set into the as-built model.    New
+  instances of this class with new identity are instantiated upon changes to the content of this class or changes to the associated
+  change set.  Instances of this class are considered immutable.  The case audit trail can reference this immutable data to
+  exactly reproduce a case.
+attributes:
+- name: effectiveDateTime
+  type: DateTime
+  description: The date/time the change set is included in the model.
+- name: comment
+  type: String
+  description: A user provided comment describing the changes in this version from the previous version.
+- name: timeStamp
+  type: DateTime
+  description: The date/time this version was finalized and thus made immutable.
+ancestors:
+- IdentifiedObject
+associations:
+- source: NetworkModelProjectChangeVersion
+  target: ChangeSet
+  sourceCardinality: 0..*
+  sourceName: NetworkModelProjectChangeVersion
+  sourceDescription: The project of the details of model changes.
+  targetCardinality: 0..1
+  targetName: ChangeSet
+  targetDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
+- source: NetworkModelProjectChangeVersion
+  target: NetworkModelProjectChange
+  sourceCardinality: 1..*
+  sourceName: NetworkModelProjectChangeVersion
+  sourceDescription: A specific version of the network model project change.
+  targetCardinality: "1"
+  targetName: NetworkModelProjectChange
+  targetDescription: The persistent network model project change to which this version applies.
+- source: NetworkModelProjectChangeVersion
+  target: NetworkModelProjectChangeVersion
+  sourceCardinality: 0..1
+  sourceName: Supercedes
+  sourceDescription: Project version that is being superceded.
+  targetCardinality: 0..1
+  targetName: SupercededBy
+  targetDescription: The project version that will supercede this project version.
+- source: NetworkModelProjectChangeVersion
+  target: NetworkModelProjectState
+  sourceCardinality: 0..*
+  sourceName: NetworkModelProjectChangeVersion
+  sourceDescription: The change versions that are at this state.
+  targetCardinality: 0..1
+  targetName: NetworkModelProjectState
+  targetDescription: The state of this network model project version.

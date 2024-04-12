@@ -1,0 +1,28 @@
+name: LoadGenericNonLinear
+description: Generic non-linear dynamic (GNLD) load. This model can be used in mid-term and long-term voltage stability simulations
+  (i.e., to study voltage collapse), as it can replace a more detailed representation of aggregate load, including induction
+  motors, thermostatically controlled and static loads.
+attributes:
+- name: bs
+  type: Float
+  description: Steady state voltage index for reactive power (<i>BS</i>).
+- name: bt
+  type: Float
+  description: Transient voltage index for reactive power (<i>BT</i>).
+- name: genericNonLinearLoadModelType
+  type: GenericNonLinearLoadModelKind
+  description: Type of generic non-linear load model.
+- name: ls
+  type: Float
+  description: Steady state voltage index for active power (<i>LS</i>).
+- name: lt
+  type: Float
+  description: Transient voltage index for active power (<i>LT</i>).
+- name: tp
+  type: Seconds
+  description: Time constant of lag function of active power (<i>T</i><i><sub>P</sub></i>) (&gt; 0).
+- name: tq
+  type: Seconds
+  description: Time constant of lag function of reactive power (<i>T</i><i><sub>Q</sub></i>) (&gt; 0).
+ancestors:
+- LoadDynamics

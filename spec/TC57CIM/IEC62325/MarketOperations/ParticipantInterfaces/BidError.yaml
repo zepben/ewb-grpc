@@ -1,0 +1,38 @@
+name: BidError
+description: This class represent the error information for a bid that is detected during bid validation.
+attributes:
+- name: componentType
+  type: String
+- name: endTime
+  type: DateTime
+  description: hour wihthin the bid for which the error applies
+- name: errMessage
+  type: String
+  description: error message
+- name: errPriority
+  type: Integer
+  description: Priority number for the error message
+- name: logTimeStamp
+  type: DateTime
+- name: msgLevel
+  type: Integer
+- name: ruleID
+  type: Integer
+- name: startTime
+  type: DateTime
+  description: hour wihthin the bid for which the error applies
+ancestors:
+- IdentifiedObject
+associations:
+- source: BidError
+  target: ResourceBid
+  sourceCardinality: 0..*
+  sourceName: BidError
+  targetCardinality: 0..*
+  targetName: ResourceBid
+- source: BidError
+  target: MarketProduct
+  sourceCardinality: 0..*
+  sourceName: BidError
+  targetCardinality: 0..1
+  targetName: MarketProduct

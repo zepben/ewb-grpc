@@ -1,0 +1,23 @@
+name: FieldDispatchStep
+description: Details of the step in the field dispatch history.
+attributes:
+- name: dispatchStatus
+  type: CrewStatusKind
+  description: The status of one or more crews dispatched to perform field work at one or more work sites
+- name: occurredDateTime
+  type: DateTime
+  description: The date and time at which the dispatch status occurred.
+- name: remarks
+  type: String
+  description: freeform comments related to the dispatch to perform field work.
+- name: sequenceNumber
+  type: Integer
+  description: The sequence number of the field dispatch step within the field dispatch history.  Begins with 1 and increments
+    up.
+associations:
+- source: FieldDispatchStep
+  target: FieldDispatchHistory
+  sourceCardinality: 0..*
+  sourceName: FieldDispatchStep
+  targetCardinality: "1"
+  targetName: FieldDispatchHistory

@@ -1,0 +1,23 @@
+name: MeasurementCalculator
+description: Result of a calculation of one or more measurement.
+attributes:
+- name: kind
+  type: CalculationKind
+  description: Calculation operation executed on the operants.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MeasurementCalculator
+  target: PinMeasurement
+  sourceCardinality: 0..1
+  sourceName: MeasurementCalculator
+  sourceDescription: Result of the calculation used as input to a gate.
+  targetCardinality: 0..*
+  targetName: PinMeasurement
+- source: MeasurementCalculator
+  target: MeasurementCalculatorInput
+  sourceCardinality: "1"
+  sourceName: MeasurementCalculator
+  targetCardinality: 1..*
+  targetName: MeasurementCalculatorInput
+  targetDescription: Used in the calculation.

@@ -1,0 +1,73 @@
+name: ConstraintResults
+description: Provides the Market results for the constraint processing for either the DAM or RTM. The data includes the constraint
+  type (binding or violated), the solved value for the constraint, and the associated shadow price.
+attributes:
+- name: baseFlow
+  type: Float
+  description: Branch base Power Flow.
+- name: BGLimit
+  type: Float
+  description: This value is determined in DA and RTM. The SCUC optimization ensures that the MW flow on the Branch Group
+    will not exceed this limit in the relevant direction.
+- name: BGTRResCap
+  type: Float
+  description: Branch Group TR Reservation Capacity - This value is determined in DA and RTM. It is the amount of spare transmission
+    capacity that is left for the TR holder to use.
+- name: bindingLimit
+  type: Float
+  description: MW Limit.
+- name: clearedValue
+  type: Float
+  description: Cleared MW.
+- name: competitivePathConstraint
+  type: YesNo
+  description: Non-competitive path constraint Flag"(Y/N)  indicating whether the shadow price on a non-competitive path was
+    non-zero.
+- name: constraintType
+  type: ResultsConstraintType
+  description: Type of constraint.
+- name: limitFlag
+  type: ConstraintLimitType
+  description: Limit flag ('Maximum', 'Minimum').
+- name: optimizationFlag
+  type: YesNo
+  description: Included in optimization Y/N.
+- name: overloadMW
+  type: Float
+  description: Transmission overload MW.
+- name: percentMW
+  type: Float
+  description: Actual MW flow as percent of limit.
+- name: shadowPrice
+  type: Float
+  description: Shadow Price ($/MW) for the commodity.  Shadow price for the corresponding constraint.
+- name: updateTimeStamp
+  type: DateTime
+  description: Update time stamp.
+- name: updateType
+  type: MQSCHGType
+  description: MQS change type.
+- name: updateUser
+  type: String
+  description: Updated user.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ConstraintResults
+  target: MktContingency
+  sourceCardinality: 0..*
+  sourceName: ConstraintResults
+  targetCardinality: "1"
+  targetName: MktContingency
+- source: ConstraintResults
+  target: ConstraintClearing
+  sourceCardinality: 0..*
+  sourceName: ConstraintResults
+  targetCardinality: 0..1
+  targetName: ConstraintClearing
+- source: ConstraintResults
+  target: Flowgate
+  sourceCardinality: 1..*
+  sourceName: ConstraintResults
+  targetCardinality: "1"
+  targetName: Flowgate

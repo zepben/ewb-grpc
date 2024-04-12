@@ -1,0 +1,28 @@
+name: ModelOperationArgDescription
+description: The type of custom operation dataset role for an operation description.
+attributes:
+- name: multiplicityMaximum
+  type: Integer
+  description: |2-
+
+    The maximum multiplicity of the instance arguments that should be supplied for a single operation.     Use -1 to indicate unlimited.
+- name: multiplicityMinimum
+  type: Integer
+  description: |2-
+
+    The minimum multiplicity of the instance arguments that should be supplied for a single operation.     Use zero to indicate optional.
+ancestors:
+- IdentifiedObject
+descendents:
+- IncrementalDatasetArgDescription
+- DatasetArgDescription
+associations:
+- source: ModelOperationArgDescription
+  target: ModelOperationDescription
+  sourceCardinality: 0..*
+  sourceName: OperationDatasetArgDescription
+  sourceDescription: The type of dataset roles that can be used for a type of general model operation.
+  targetCardinality: "1"
+  targetName: ModelOperationDefinition
+  targetDescription: The type of operation for this type of dataset role.   Operations referencing the dataset role type should
+    only belong to operations that reference the operation type.

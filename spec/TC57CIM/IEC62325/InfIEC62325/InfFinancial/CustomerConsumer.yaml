@@ -1,0 +1,15 @@
+name: CustomerConsumer
+description: The energy buyer in the energy marketplace.
+ancestors:
+- Organisation
+associations:
+- source: CustomerConsumer
+  target: TieLine
+  sourceCardinality: 0..1
+  sourceName: ParentOfB
+  sourceDescription: A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at
+    the collection of metering points, called a TieLine.
+  targetCardinality: 0..*
+  targetName: CustChildOf
+  targetDescription: A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a
+    unique SubControlArea at the collection of metering points, called a TieLine.

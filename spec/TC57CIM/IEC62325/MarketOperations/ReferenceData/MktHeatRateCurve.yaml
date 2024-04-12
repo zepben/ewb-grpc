@@ -1,0 +1,17 @@
+name: MktHeatRateCurve
+description: 'Subclass of IEC 61970: Generation: Production:HeatRateCurve.'
+ancestors:
+- HeatRateCurve
+associations:
+- source: MktHeatRateCurve
+  target: RegisteredGenerator
+  sourceCardinality: 0..1
+  sourceName: MktHeatRateCurve
+  targetCardinality: 0..1
+  targetName: RegisteredGenerator
+- source: MktHeatRateCurve
+  target: ResourceVerifiableCosts
+  sourceCardinality: "1"
+  sourceName: MktHeatRateCurve
+  targetCardinality: 0..1
+  targetName: ResourceVerifiableCosts

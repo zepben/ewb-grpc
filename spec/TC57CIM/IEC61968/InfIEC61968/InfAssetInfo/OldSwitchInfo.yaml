@@ -1,0 +1,34 @@
+name: OldSwitchInfo
+description: Properties of switch assets.
+attributes:
+- name: dielectricStrength
+  type: Voltage
+  description: The maximum rms voltage that may be applied across an open contact without breaking down the dielectric properties
+    of the switch in the open position.
+- name: loadBreak
+  type: Boolean
+  description: True if switch has load breaking capabiity. Unless specified false, this is always assumed to be true for breakers
+    and reclosers.
+- name: makingCapacity
+  type: CurrentFlow
+  description: The highest value of current the switch can make at the rated voltage under specified operating conditions
+    without suffering significant deterioration of its performance.
+- name: minimumCurrent
+  type: CurrentFlow
+  description: The lowest value of current that the switch can make, carry and break in uninterrupted duty at the rated voltage
+    under specified operating conditions without suffering significant deterioration of its performance.
+- name: poleCount
+  type: Integer
+  description: Number of poles (i.e. of current carrying conductors that are switched).
+- name: remote
+  type: Boolean
+  description: ' True if device is capable of being operated by remote control.'
+- name: withstandCurrent
+  type: CurrentFlow
+  description: The highest value of current the switch can carry in the closed position at the rated voltage under specified
+    operating conditions without suffering significant deterioration of its performance.
+ancestors:
+- SwitchInfo
+descendents:
+- BreakerInfo
+- RecloserInfo

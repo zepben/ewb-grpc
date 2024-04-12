@@ -1,0 +1,12 @@
+name: ErpReceivable
+description: Transaction representing an invoice, credit memo or debit memo to a customer. It is an open (unpaid) item in
+  the Accounts Receivable ledger.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpReceivable
+  target: ErpRecLineItem
+  sourceCardinality: "1"
+  sourceName: ErpReceivable
+  targetCardinality: 0..*
+  targetName: ErpRecLineItems

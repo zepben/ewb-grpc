@@ -1,0 +1,33 @@
+name: Settlement
+description: Specifies a settlement run.
+attributes:
+- name: tradeDate
+  type: DateTime
+  description: The trade date on which the settlement is run.
+ancestors:
+- Document
+associations:
+- source: Settlement
+  target: MajorChargeGroup
+  sourceCardinality: 0..*
+  sourceName: Settlement
+  targetCardinality: 1..*
+  targetName: MajorChargeGroup
+- source: Settlement
+  target: EnergyMarket
+  sourceCardinality: 0..*
+  sourceName: Settlements
+  targetCardinality: 0..1
+  targetName: EnergyMarket
+- source: Settlement
+  target: MarketLedgerEntry
+  sourceCardinality: 0..*
+  sourceName: Settlement
+  targetCardinality: 0..*
+  targetName: MarketLedgerEntry
+- source: Settlement
+  target: MarketInvoiceLineItem
+  sourceCardinality: 0..*
+  sourceName: Settlement
+  targetCardinality: 0..*
+  targetName: MarketInvoiceLineItem

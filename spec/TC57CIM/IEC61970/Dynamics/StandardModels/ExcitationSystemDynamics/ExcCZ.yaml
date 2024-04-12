@@ -1,0 +1,35 @@
+name: ExcCZ
+description: Czech proportion/integral exciter.
+attributes:
+- name: efdmax
+  type: PU
+  description: Exciter output maximum limit (<i>Efdmax</i>) (&gt; ExcCZ.efdmin).
+- name: efdmin
+  type: PU
+  description: Exciter output minimum limit (<i>Efdmin</i>) (&lt; ExcCZ.efdmax).
+- name: ka
+  type: PU
+  description: Regulator gain (<i>Ka</i>).
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>Ke</i>).
+- name: kp
+  type: PU
+  description: Regulator proportional gain (<i>Kp</i>).
+- name: ta
+  type: Seconds
+  description: Regulator time constant (<i>Ta</i>) (&gt;= 0).
+- name: tc
+  type: Seconds
+  description: Regulator integral time constant (<i>Tc</i>) (&gt;= 0).
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt;= 0).
+- name: vrmax
+  type: PU
+  description: Voltage regulator maximum limit (<i>Vrmax</i>) (&gt; ExcCZ.vrmin).
+- name: vrmin
+  type: PU
+  description: Voltage regulator minimum limit (<i>Vrmin</i>) (&lt; ExcCZ.vrmax).
+ancestors:
+- ExcitationSystemDynamics

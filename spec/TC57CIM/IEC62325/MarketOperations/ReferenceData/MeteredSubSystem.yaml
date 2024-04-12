@@ -1,0 +1,17 @@
+name: MeteredSubSystem
+description: A metered subsystem.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MeteredSubSystem
+  target: MSSZone
+  sourceCardinality: 0..1
+  sourceName: MeteredSubSystem
+  targetCardinality: 0..*
+  targetName: MSSZone
+- source: MeteredSubSystem
+  target: MSSAggregation
+  sourceCardinality: 1..*
+  sourceName: MeteredSubSystem
+  targetCardinality: 0..1
+  targetName: MSSAggregation

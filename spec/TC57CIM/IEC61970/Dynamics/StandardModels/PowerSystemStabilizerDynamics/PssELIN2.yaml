@@ -1,0 +1,38 @@
+name: PssELIN2
+description: Power system stabilizer typically associated with ExcELIN2 (though PssIEEE2B or Pss2B can also be used).
+attributes:
+- name: apss
+  type: PU
+  description: Coefficient (<i>a_PSS</i>).  Typical value = 0,1.
+- name: ks1
+  type: PU
+  description: Gain (<i>Ks1</i>).  Typical value = 1.
+- name: ks2
+  type: PU
+  description: Gain (<i>Ks2</i>).  Typical value = 0,1.
+- name: ppss
+  type: PU
+  description: Coefficient (<i>p_PSS</i>) (&gt;= 0 and &lt;= 4).  Typical value = 0,1.
+- name: psslim
+  type: PU
+  description: PSS limiter (<i>psslim</i>).  Typical value = 0,1.
+- name: ts1
+  type: Seconds
+  description: Time constant (<i>Ts1</i>) (&gt;= 0).  Typical value = 0.
+- name: ts2
+  type: Seconds
+  description: Time constant (<i>Ts2</i>) (&gt;= 0).  Typical value = 1.
+- name: ts3
+  type: Seconds
+  description: Time constant (<i>Ts3</i>) (&gt;= 0).  Typical value = 1.
+- name: ts4
+  type: Seconds
+  description: Time constant (<i>Ts4</i>) (&gt;= 0).  Typical value = 0,1.
+- name: ts5
+  type: Seconds
+  description: Time constant (<i>Ts5</i>) (&gt;= 0).  Typical value = 0.
+- name: ts6
+  type: Seconds
+  description: Time constant (<i>Ts6</i>) (&gt;= 0).  Typical value = 1.
+ancestors:
+- PowerSystemStabilizerDynamics

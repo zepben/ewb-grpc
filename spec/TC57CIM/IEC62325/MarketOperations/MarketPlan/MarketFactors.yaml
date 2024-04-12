@@ -1,0 +1,50 @@
+name: MarketFactors
+description: Aggregation of market information relative for a specific time interval.
+attributes:
+- name: intervalEndTime
+  type: DateTime
+  description: The end of the time interval for which requirement is defined.
+- name: intervalStartTime
+  type: DateTime
+  description: The start of the time interval for which requirement is defined.
+ancestors:
+- Document
+descendents:
+- TransactionBidClearing
+- MPMClearing
+- SecurityConstraintsClearing
+- MarketCaseClearing
+- InterTieClearing
+- ExPostLoss
+- ExPostMarketRegion
+- ExPostPricing
+- ExPostResource
+- AncillaryServiceClearing
+- CommitmentClearing
+- ConstraintClearing
+- GeneralClearing
+- InstructionClearing
+- InstructionClearingDOP
+- InstructionClearingDOT
+- LossClearing
+- MitigatedBidClearing
+- PnodeClearing
+- RMROperatorInput
+- ResourceAwardClearing
+- ResourceClearing
+- SecurityConstraintSum
+- IntermittentResourceEligibility
+- LossSensitivity
+associations:
+- source: MarketFactors
+  target: Market
+  sourceCardinality: 0..*
+  sourceName: MarketFactors
+  targetCardinality: 0..1
+  targetName: Market
+- source: MarketFactors
+  target: MktActivityRecord
+  sourceCardinality: 0..*
+  sourceName: MarketFactors
+  targetCardinality: 0..*
+  targetName: MktActivityRecord

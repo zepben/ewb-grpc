@@ -1,0 +1,11 @@
+name: ConstraintClearing
+description: Groups all items associated with Binding Constraints and Constraint Violations per interval and market.
+ancestors:
+- MarketFactors
+associations:
+- source: ConstraintClearing
+  target: ConstraintResults
+  sourceCardinality: 0..1
+  sourceName: ConstraintClearing
+  targetCardinality: 0..*
+  targetName: ConstraintResults

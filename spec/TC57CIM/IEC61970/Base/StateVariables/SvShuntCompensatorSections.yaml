@@ -1,0 +1,22 @@
+name: SvShuntCompensatorSections
+description: State variable for the number of sections in service for a shunt compensator.
+attributes:
+- name: sections
+  type: Float
+  description: The number of sections in service as a continuous variable. The attribute shall be a positive value or zero.
+    To get integer value scale with ShuntCompensator.bPerSection.
+- name: phase
+  type: SinglePhaseKind
+  description: The terminal phase at which the connection is applied.   If missing, the injection is assumed to be balanced
+    among non-neutral phases.
+ancestors:
+- StateVariable
+associations:
+- source: SvShuntCompensatorSections
+  target: ShuntCompensator
+  sourceCardinality: 0..*
+  sourceName: SvShuntCompensatorSections
+  sourceDescription: The state for the number of shunt compensator sections in service.
+  targetCardinality: "1"
+  targetName: ShuntCompensator
+  targetDescription: The shunt compensator for which the state applies.

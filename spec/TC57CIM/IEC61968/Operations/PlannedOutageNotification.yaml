@@ -1,0 +1,17 @@
+name: PlannedOutageNotification
+description: This class will be used to generate call ahead lists for customers who will be affected by a planned outage.
+ancestors:
+- Document
+associations:
+- source: PlannedOutageNotification
+  target: SwitchingPlan
+  sourceCardinality: 0..1
+  sourceName: PlannedOutageNotification
+  targetCardinality: 0..1
+  targetName: SwitchingPlan
+- source: PlannedOutageNotification
+  target: Customer
+  sourceCardinality: 0..*
+  sourceName: PlannedOutageNotification
+  targetCardinality: 0..*
+  targetName: Customer

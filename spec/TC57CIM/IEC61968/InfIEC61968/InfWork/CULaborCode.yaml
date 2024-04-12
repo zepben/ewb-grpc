@@ -1,0 +1,17 @@
+name: CULaborCode
+description: Labor code associated with various compatible unit labor items.
+attributes:
+- name: code
+  type: String
+  description: Labor code.
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: CULaborCode
+  target: CULaborItem
+  sourceCardinality: 0..1
+  sourceName: CULaborCode
+  targetCardinality: 0..*
+  targetName: CULaborItems

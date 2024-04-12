@@ -1,0 +1,25 @@
+name: AccumulatorValue
+description: AccumulatorValue represents an accumulated (counted) MeasurementValue.
+attributes:
+- name: value
+  type: Integer
+  description: The value to supervise. The value is positive.
+ancestors:
+- MeasurementValue
+associations:
+- source: AccumulatorValue
+  target: Accumulator
+  sourceCardinality: 0..*
+  sourceName: AccumulatorValues
+  sourceDescription: The values connected to this measurement.
+  targetCardinality: "1"
+  targetName: Accumulator
+  targetDescription: Measurement to which this value is connected.
+- source: AccumulatorValue
+  target: AccumulatorReset
+  sourceCardinality: "1"
+  sourceName: AccumulatorValue
+  sourceDescription: The accumulator value that is reset by the command.
+  targetCardinality: 0..1
+  targetName: AccumulatorReset
+  targetDescription: The command that resets the accumulator value.

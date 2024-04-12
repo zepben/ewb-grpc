@@ -1,0 +1,21 @@
+name: AreaLoadCurve
+description: Area load curve definition.
+attributes:
+- name: forecastType
+  type: LoadForecastType
+  description: Load forecast area type.
+ancestors:
+- RegularIntervalSchedule
+associations:
+- source: AreaLoadCurve
+  target: AggregateNode
+  sourceCardinality: 0..*
+  sourceName: AreaLoadCurve
+  targetCardinality: 0..1
+  targetName: AggregateNode
+- source: AreaLoadCurve
+  target: TACArea
+  sourceCardinality: 0..*
+  sourceName: AreaLoadCurve
+  targetCardinality: 0..1
+  targetName: TACArea

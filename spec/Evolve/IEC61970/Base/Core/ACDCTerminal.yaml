@@ -1,0 +1,18 @@
+name: ACDCTerminal
+description: An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical
+  connection points called connectivity nodes.
+ancestors:
+- IdentifiedObject
+descendents:
+- Terminal
+associations:
+- source: ACDCTerminal
+  target: Measurement
+  sourceCardinality: 0..1
+  sourceName: Terminal
+  sourceDescription: One or more measurements may be associated with a terminal in the network.
+  targetCardinality: 0..*
+  targetName: Measurements
+  targetDescription: Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It
+    may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current
+    transformer (CT) at the bar between a breaker and an isolator.

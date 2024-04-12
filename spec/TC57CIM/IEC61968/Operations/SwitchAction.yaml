@@ -1,0 +1,26 @@
+name: SwitchAction
+description: Action on switch as a switching step.
+attributes:
+- name: kind
+  type: SwitchActionKind
+  description: Switching action to perform.
+ancestors:
+- SwitchingAction
+associations:
+- source: SwitchAction
+  target: Switch
+  sourceCardinality: 0..1
+  sourceName: SwitchAction
+  sourceDescription: Action changing status of this switch.
+  targetCardinality: 0..1
+  targetName: OperatedSwitch
+  targetDescription: Switch that is the object of this switch action.
+- source: SwitchAction
+  target: Outage
+  sourceCardinality: 0..*
+  sourceName: PlannedSwitchActions
+  sourceDescription: All switch actions to apply within the scope of this planned outage. Each such action groups switches
+    to which the action is to apply in order to produce the desired network state considered as outage.
+  targetCardinality: 0..1
+  targetName: PlannedOutage
+  targetDescription: Planned outage for whose scope this switch action applies.

@@ -1,0 +1,37 @@
+name: TransformerStarImpedance
+description: |-
+  Transformer star impedance (Pi-model) that accurately reflects impedance for transformers with 2 or 3 windings. For transformers with 4 or more windings, TransformerMeshImpedance class shall be used.
+  For transmission networks use PowerTransformerEnd impedances (r, r0, x, x0, b, b0, g and g0).
+attributes:
+- name: r
+  type: Resistance
+  description: Resistance of the transformer end.
+- name: r0
+  type: Resistance
+  description: Zero sequence series resistance of the transformer end.
+- name: x
+  type: Reactance
+  description: Positive sequence series reactance of the transformer end.
+- name: x0
+  type: Reactance
+  description: Zero sequence series reactance of the transformer end.
+ancestors:
+- IdentifiedObject
+associations:
+- source: TransformerStarImpedance
+  target: TransformerEnd
+  sourceCardinality: 0..1
+  sourceName: StarImpedance
+  sourceDescription: (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention,
+    for a two winding transformer, the full values of the transformer should be entered on the high voltage end (endNumber=1).
+  targetCardinality: 0..*
+  targetName: TransformerEnd
+  targetDescription: All transformer ends having this star impedance.
+- source: TransformerStarImpedance
+  target: TransformerEndInfo
+  sourceCardinality: 0..1
+  sourceName: TransformerStarImpedance
+  sourceDescription: Transformer star impedance calculated from this transformer end datasheet.
+  targetCardinality: 0..1
+  targetName: TransformerEndInfo
+  targetDescription: Transformer end datasheet used to calculate this transformer star impedance.

@@ -1,0 +1,57 @@
+name: WindPitchContPowerIEC
+description: |-
+  Pitch control power model.
+  Reference: IEC 61400-27-1:2015, 5.6.5.1.
+attributes:
+- name: dpmax
+  type: PU
+  description: Rate limit for increasing power (<i>dp</i><i><sub>max</sub></i>) (&gt; WindPitchContPowerIEC.dpmin). It is
+    a type-dependent parameter.
+- name: dpmin
+  type: PU
+  description: Rate limit for decreasing power (<i>dp</i><i><sub>min</sub></i>) (&lt; WindPitchContPowerIEC.dpmax). It is
+    a type-dependent parameter.
+- name: pmin
+  type: PU
+  description: Minimum power setting (<i>p</i><i><sub>min</sub></i>). It is a type-dependent parameter.
+- name: pset
+  type: PU
+  description: If <i>p</i><i><sub>init</sub></i><sub> </sub>&lt; <i>p</i><i><sub>set</sub></i><sub> </sub>then power will
+    be ramped down to <i>p</i><i><sub>min</sub></i>. It is (<i>p</i><i><sub>set</sub></i>) in the IEC 61400-27-1:2015. It
+    is a type-dependent parameter.
+- name: t1
+  type: Seconds
+  description: Lag time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0). It is a type-dependent parameter.
+- name: tr
+  type: Seconds
+  description: Voltage measurement time constant (<i>T</i><i><sub>r</sub></i>) (&gt;= 0). It is a type-dependent parameter.
+- name: uuvrt
+  type: PU
+  description: Dip detection threshold (<i>u</i><i><sub>UVRT</sub></i>). It is a type-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindPitchContPowerIEC
+  target: WindGenTurbineType2IEC
+  sourceCardinality: "1"
+  sourceName: WindPitchContPowerIEC
+  sourceDescription: Pitch control power model associated with this wind turbine type 2 model.
+  targetCardinality: 0..1
+  targetName: WindGenTurbineType2IEC
+  targetDescription: Wind turbine type 2 model with which this pitch control power model is associated.
+- source: WindPitchContPowerIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  sourceName: WindPitchContPowerIEC
+  sourceDescription: The pitch control power model with which this wind dynamics lookup table is associated.
+  targetCardinality: 1..*
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this pitch control power model.
+- source: WindPitchContPowerIEC
+  target: WindGenTurbineType1bIEC
+  sourceCardinality: "1"
+  sourceName: WindPitchContPowerIEC
+  sourceDescription: Pitch control power model associated with this wind turbine type 1B model.
+  targetCardinality: 0..1
+  targetName: WindGenTurbineType1bIEC
+  targetDescription: Wind turbine type 1B model with which this pitch control power model is associated.

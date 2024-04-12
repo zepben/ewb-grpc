@@ -1,0 +1,16 @@
+name: EquipmentUnavailabilitySchedule
+ancestors:
+- IdentifiedObject
+associations:
+- source: EquipmentUnavailabilitySchedule
+  target: UnavailablitySchedule
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: EquipmentUnavailabilitySchedule
+  target: Equipment
+  sourceCardinality: 0..*
+  targetCardinality: 0..1
+- source: EquipmentUnavailabilitySchedule
+  target: UnavailabilitySwitchAction
+  sourceCardinality: "1"
+  targetCardinality: 0..*

@@ -1,0 +1,29 @@
+name: SynchronousMachineDetailed
+description: "All synchronous machine detailed types use a subset of the same data parameters and input/output variables.\
+  \  \nThe several variations differ in the following ways:\n- the number of  equivalent windings that are included;\n- the\
+  \ way in which saturation is incorporated into the model;\n- whether or not “subtransient saliency” (<i>X''q</i> not = <i>X''d</i>)\
+  \ is represented.\nIt is not necessary for each simulation tool to have separate models for each of the model types.  The\
+  \ same model can often be used for several types by alternative logic within the model.  Also, differences in saturation\
+  \ representation might not result in significant model performance differences so model substitutions are often acceptable."
+attributes:
+- name: efdBaseRatio
+  type: Float
+  description: Ratio (exciter voltage/generator voltage) of <i>Efd</i> bases of exciter and generator models (&gt; 0). Typical
+    value = 1.
+- name: ifdBaseType
+  type: IfdBaseKind
+  description: 'Excitation base system mode. It should be equal to the value of <i>WLMDV</i> given by the user. <i>WLMDV</i>
+    is the PU ratio between the field voltage and the excitation current: <i>Efd</i> = <i>WLMDV</i> x <i>Ifd</i>. Typical
+    value = ifag.'
+- name: saturationFactor120QAxis
+  type: Float
+  description: Quadrature-axis saturation factor at 120% of rated terminal voltage (<i>S12q</i>) (&gt;= SynchonousMachineDetailed.saturationFactorQAxis).  Typical
+    value = 0,12.
+- name: saturationFactorQAxis
+  type: Float
+  description: Quadrature-axis saturation factor at rated terminal voltage (<i>S1q</i>) (&gt;= 0). Typical value = 0,02.
+ancestors:
+- SynchronousMachineDynamics
+descendents:
+- SynchronousMachineEquivalentCircuit
+- SynchronousMachineTimeConstantReactance

@@ -1,0 +1,48 @@
+name: VendorShift
+description: The operating shift for a vendor during which the vendor may transact against the merchant's account. It aggregates
+  transactions and receipts during the shift and periodically debits a merchant account. The totals in vendor shift should
+  always be the sum of totals aggregated in all cashier shifts that were open under the particular vendor shift.
+attributes:
+- name: merchantDebitAmount
+  type: Money
+  description: The amount that is to be debited from the merchant account for this vendor shift. This amount reflects the
+    sum(PaymentTransaction.transactionAmount).
+- name: posted
+  type: Boolean
+  description: If true, merchantDebitAmount has been debited from MerchantAccount; typically happens at the end of VendorShift
+    when it closes.
+ancestors:
+- Shift
+associations:
+- source: VendorShift
+  target: Transaction
+  sourceCardinality: 0..1
+  sourceName: VendorShift
+  sourceDescription: Vendor shift during which this transaction was recorded.
+  targetCardinality: 0..*
+  targetName: Transactions
+  targetDescription: All transactions recorded during this vendor shift.
+- source: VendorShift
+  target: Receipt
+  sourceCardinality: 0..1
+  sourceName: VendorShift
+  sourceDescription: Vendor shift during which this receipt was recorded.
+  targetCardinality: 0..*
+  targetName: Receipts
+  targetDescription: All receipts recorded during this vendor shift.
+- source: VendorShift
+  target: Vendor
+  sourceCardinality: 0..*
+  sourceName: VendorShifts
+  sourceDescription: All vendor shifts opened and owned by this vendor.
+  targetCardinality: 0..1
+  targetName: Vendor
+  targetDescription: Vendor that opens and owns this vendor shift.
+- source: VendorShift
+  target: MerchantAccount
+  sourceCardinality: 0..*
+  sourceName: VendorShifts
+  sourceDescription: All vendor shifts that operate on this merchant account.
+  targetCardinality: 0..1
+  targetName: MerchantAccount
+  targetDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).

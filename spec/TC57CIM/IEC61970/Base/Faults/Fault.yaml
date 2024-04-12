@@ -1,0 +1,53 @@
+name: Fault
+description: Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or
+  short circuits from objects not typically modelled (for example, a tree falling on a line).
+attributes:
+- name: kind
+  type: PhaseConnectedFaultKind
+  description: The kind of phase fault.
+- name: phases
+  type: PhaseCode
+  description: The phases participating in the fault. The fault connections into these phases are further specified by the
+    type of fault.
+- name: impedance
+  type: FaultImpedance
+  description: Fault impedance. Its usage is described by 'kind'.
+- name: occurredDateTime
+  type: DateTime
+  description: The date and time at which the fault occurred.
+ancestors:
+- IdentifiedObject
+descendents:
+- EquipmentFault
+- LineFault
+associations:
+- source: Fault
+  target: Equipment
+  sourceCardinality: 0..*
+  sourceName: Faults
+  sourceDescription: All faults on this equipment.
+  targetCardinality: 0..1
+  targetName: FaultyEquipment
+  targetDescription: Equipment carrying this fault.
+- source: Fault
+  target: FaultCauseType
+  sourceCardinality: 0..*
+  sourceName: Faults
+  sourceDescription: All faults with this cause type.
+  targetCardinality: 0..*
+  targetName: FaultCauseTypes
+  targetDescription: All types of fault cause.
+- source: Fault
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: Fault
+  targetCardinality: 0..1
+  targetName: Location
+- source: Fault
+  target: Outage
+  sourceCardinality: 0..*
+  sourceName: Faults
+  sourceDescription: All faults involved in this outage.
+  targetCardinality: 0..1
+  targetName: Outage
+  targetDescription: Outage associated with this fault.

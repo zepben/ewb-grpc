@@ -1,0 +1,50 @@
+name: TieLine
+ancestors:
+- IdentifiedObject
+associations:
+- source: TieLine
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: SideA_TieLines
+  sourceDescription: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's
+    boundary for a ControlAreaOperator or CustomerConsumer.
+  targetCardinality: "1"
+  targetName: SideA_SubControlArea
+  targetDescription: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's
+    boundary for a ControlAreaOperator or CustomerConsumer.
+- source: TieLine
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: SideB_TieLines
+  sourceDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's
+    boundary for a ControlAreaOperator or CustomerConsumer.
+  targetCardinality: "1"
+  targetName: SideB_SubControlArea
+  targetDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's
+    boundary for a ControlAreaOperator or CustomerConsumer.
+- source: TieLine
+  target: CustomerConsumer
+  sourceCardinality: 0..*
+  sourceName: CustChildOf
+  sourceDescription: A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a
+    unique SubControlArea at the collection of metering points, called a TieLine.
+  targetCardinality: 0..1
+  targetName: ParentOfB
+  targetDescription: A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at
+    the collection of metering points, called a TieLine.
+- source: TieLine
+  target: ControlAreaOperator
+  sourceCardinality: 0..*
+  sourceName: CAChildOf
+  sourceDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
+  targetCardinality: 0..*
+  targetName: ParentOfA
+  targetDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
+- source: TieLine
+  target: EnergyTransaction
+  sourceCardinality: 0..*
+  sourceName: TieLines
+  sourceDescription: A dynamic energy transaction can act as a pseudo tie line.
+  targetCardinality: 0..1
+  targetName: EnergyTransaction
+  targetDescription: A dynamic energy transaction can act as a pseudo tie line.

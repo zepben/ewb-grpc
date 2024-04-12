@@ -1,0 +1,53 @@
+name: WindContRotorRIEC
+description: |-
+  Rotor resistance control model.
+  Reference: IEC 61400-27-1:2015, 5.6.5.3.
+attributes:
+- name: kirr
+  type: PU
+  description: Integral gain in rotor resistance PI controller (<i>K</i><i><sub>Irr</sub></i>). It is a type-dependent parameter.
+- name: komegafilt
+  type: Float
+  description: Filter gain for generator speed measurement (<i>K</i><i><sub>omegafilt</sub></i>). It is a type-dependent parameter.
+- name: kpfilt
+  type: Float
+  description: Filter gain for power measurement (<i>K</i><i><sub>pfilt</sub></i>). It is a type-dependent parameter.
+- name: kprr
+  type: PU
+  description: Proportional gain in rotor resistance PI controller (<i>K</i><i><sub>Prr</sub></i>). It is a type-dependent
+    parameter.
+- name: rmax
+  type: PU
+  description: Maximum rotor resistance (<i>r</i><i><sub>max</sub></i>) (&gt; WindContRotorRIEC.rmin). It is a type-dependent
+    parameter.
+- name: rmin
+  type: PU
+  description: Minimum rotor resistance (<i>r</i><i><sub>min</sub></i>) (&lt; WindContRotorRIEC.rmax). It is a type-dependent
+    parameter.
+- name: tomegafiltrr
+  type: Seconds
+  description: Filter time constant for generator speed measurement (<i>T</i><i><sub>omegafiltrr</sub></i>) (&gt;= 0). It
+    is a type-dependent parameter.
+- name: tpfiltrr
+  type: Seconds
+  description: Filter time constant for power measurement (<i>T</i><i><sub>pfiltrr</sub></i>) (&gt;= 0). It is a type-dependent
+    parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindContRotorRIEC
+  target: WindGenTurbineType2IEC
+  sourceCardinality: "1"
+  sourceName: WindContRotorRIEC
+  sourceDescription: Wind control rotor resistance model associated with wind turbine type 2 model.
+  targetCardinality: "1"
+  targetName: WindGenTurbineType2IEC
+  targetDescription: Wind turbine type 2 model with whitch this wind control rotor resistance model is associated.
+- source: WindContRotorRIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  sourceName: WindContRotorRIEC
+  sourceDescription: The rotor resistance control model with which this wind dynamics lookup table is associated.
+  targetCardinality: 1..*
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this rotor resistance control model.

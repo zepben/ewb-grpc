@@ -1,0 +1,11 @@
+name: LossClearing
+description: RT only and is published on 5 minute intervals for the previous RT time interval results.
+ancestors:
+- MarketFactors
+associations:
+- source: LossClearing
+  target: LossClearingResults
+  sourceCardinality: 0..1
+  sourceName: LossClearing
+  targetCardinality: 0..*
+  targetName: LossClearingResults

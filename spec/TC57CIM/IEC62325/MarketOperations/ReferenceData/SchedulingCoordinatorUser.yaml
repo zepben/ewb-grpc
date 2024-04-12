@@ -1,0 +1,14 @@
+name: SchedulingCoordinatorUser
+description: Describing users of a Scheduling Coordinator.
+attributes:
+- name: loginID
+  type: String
+  description: Login ID
+- name: loginRole
+  type: String
+  description: Assigned roles (these are roles with either Read or Read/Write privileges on different Market Systems)
+associations:
+- source: SchedulingCoordinatorUser
+  target: SchedulingCoordinator
+  sourceCardinality: 0..*
+  targetCardinality: "1"

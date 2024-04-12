@@ -1,0 +1,44 @@
+name: WindMechIEC
+description: |-
+  Two mass model.
+  Reference: IEC 61400-27-1:2015, 5.6.2.1.
+attributes:
+- name: cdrt
+  type: PU
+  description: Drive train damping (<i>c</i><i><sub>drt</sub></i><i>)</i>. It is a type-dependent parameter.
+- name: hgen
+  type: Seconds
+  description: Inertia constant of generator (<i>H</i><i><sub>gen</sub></i>) (&gt;= 0). It is a type-dependent parameter.
+- name: hwtr
+  type: Seconds
+  description: Inertia constant of wind turbine rotor (<i>H</i><i><sub>WTR</sub></i>) (&gt;= 0). It is a type-dependent parameter.
+- name: kdrt
+  type: PU
+  description: Drive train stiffness (<i>k</i><i><sub>drt</sub></i>). It is a type-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindMechIEC
+  target: WindTurbineType4bIEC
+  sourceCardinality: "1"
+  sourceName: WindMechIEC
+  sourceDescription: Wind mechanical model associated with this wind turbine type 4B model.
+  targetCardinality: 0..1
+  targetName: WindTurbineType4bIEC
+  targetDescription: Wind turbine type 4B model with which this wind mechanical model is associated.
+- source: WindMechIEC
+  target: WindTurbineType3IEC
+  sourceCardinality: "1"
+  sourceName: WindMechIEC
+  sourceDescription: Wind mechanical model associated with this wind turbine type 3 model.
+  targetCardinality: 0..1
+  targetName: WindTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind mechanical model is associated.
+- source: WindMechIEC
+  target: WindTurbineType1or2IEC
+  sourceCardinality: "1"
+  sourceName: WindMechIEC
+  sourceDescription: Wind mechanical model associated with this wind generator type 1 or type 2 model.
+  targetCardinality: 0..1
+  targetName: WindTurbineType1or2IEC
+  targetDescription: Wind generator type 1 or type 2 model with which this wind mechanical model is associated.

@@ -1,0 +1,21 @@
+name: PrimeMover
+description: The machine used to develop mechanical energy used to drive a generator.
+attributes:
+- name: primeMoverRating
+  type: Float
+  description: Rating of prime mover.
+ancestors:
+- PowerSystemResource
+descendents:
+- HydroTurbine
+- CombustionTurbine
+- SteamTurbine
+associations:
+- source: PrimeMover
+  target: SynchronousMachine
+  sourceCardinality: 0..*
+  sourceName: PrimeMovers
+  sourceDescription: Prime movers that drive this SynchronousMachine.
+  targetCardinality: 0..*
+  targetName: SynchronousMachines
+  targetDescription: Synchronous machines this Prime mover drives.

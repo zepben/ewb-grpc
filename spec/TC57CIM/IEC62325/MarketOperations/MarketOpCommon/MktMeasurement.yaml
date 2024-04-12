@@ -1,0 +1,41 @@
+name: MktMeasurement
+description: Subclass of IEC61970:Meas:Measurement.
+ancestors:
+- Measurement
+associations:
+- source: MktMeasurement
+  target: TiePoint
+  sourceCardinality: 1..*
+  sourceName: ForMktMeasurement
+  sourceDescription: A measurement is made on the A side of a tie point
+  targetCardinality: "1"
+  targetName: ForTiePoint
+  targetDescription: A measurement is made on the A side of a tie point
+- source: MktMeasurement
+  target: ViolationLimit
+  sourceCardinality: 0..1
+  sourceName: MktMeasurement
+  targetCardinality: 0..*
+  targetName: ViolationLimit
+- source: MktMeasurement
+  target: Pnode
+  sourceCardinality: 0..*
+  sourceName: MktMeasurement
+  sourceDescription: Allows Measurements to be associated to Pnodes.
+  targetCardinality: 0..1
+  targetName: Pnode
+  targetDescription: Allows Pnode an association to aggregated resources external DC ties or psuedo tie measurements.
+- source: MktMeasurement
+  target: TiePoint
+  sourceCardinality: 1..*
+  sourceName: ByMktMeasurement
+  sourceDescription: A measurement is made on the B side of a tie point
+  targetCardinality: "1"
+  targetName: ByTiePoint
+  targetDescription: A measurement is made on the B side of a tie point
+- source: MktMeasurement
+  target: DynamicSchedule
+  sourceCardinality: "1"
+  sourceName: MktMeasurement
+  targetCardinality: 0..*
+  targetName: DynamicSchedule

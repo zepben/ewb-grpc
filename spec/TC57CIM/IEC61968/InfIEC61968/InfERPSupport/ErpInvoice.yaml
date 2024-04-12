@@ -1,0 +1,49 @@
+name: ErpInvoice
+description: A roll up of invoice line items. The whole invoice has a due date and amount to be paid, with information such
+  as customer, banks etc. being obtained through associations. The invoice roll up is based on individual line items that
+  each contain amounts and descriptions for specific services or products.
+attributes:
+- name: amount
+  type: Money
+  description: Total amount due on this invoice based on line items and applicable adjustments.
+- name: billMediaKind
+  type: BillMediaKind
+  description: Kind of media by which the CustomerBillingInfo was delivered.
+- name: dueDate
+  type: Date
+  description: Calculated date upon which the Invoice amount is due.
+- name: kind
+  type: ErpInvoiceKind
+  description: Kind of invoice (default is 'sales').
+- name: mailedDate
+  type: Date
+  description: Date on which the customer billing statement/invoice was printed/mailed.
+- name: proForma
+  type: Boolean
+  description: True if payment is to be paid by a Customer to accept a particular ErpQuote (with associated Design) and have
+    work initiated, at which time an associated ErpInvoice should automatically be generated. EprPayment.subjectStatus satisfies
+    terms specificed in the ErpQuote.
+- name: referenceNumber
+  type: String
+  description: Number of an invoice to be reference by this invoice.
+- name: transactionDateTime
+  type: DateTime
+  description: Date and time when the invoice is issued.
+- name: transferType
+  type: String
+  description: Type of invoice transfer.
+ancestors:
+- ErpDocument
+associations:
+- source: ErpInvoice
+  target: ErpInvoiceLineItem
+  sourceCardinality: "1"
+  sourceName: ErpInvoice
+  targetCardinality: 0..*
+  targetName: ErpInvoiceLineItems
+- source: ErpInvoice
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  sourceName: ErpInvoicees
+  targetCardinality: 0..1
+  targetName: CustomerAccount

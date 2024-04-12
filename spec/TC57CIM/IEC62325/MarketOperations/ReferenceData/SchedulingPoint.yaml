@@ -1,0 +1,23 @@
+name: SchedulingPoint
+description: Connection to other organizations at the boundary of the ISO/RTO.
+ancestors:
+- IdentifiedObject
+associations:
+- source: SchedulingPoint
+  target: Flowgate
+  sourceCardinality: 0..*
+  sourceName: InterTie
+  targetCardinality: 0..1
+  targetName: Flowgate
+- source: SchedulingPoint
+  target: InterchangeSchedule
+  sourceCardinality: 0..1
+  sourceName: InterTie
+  targetCardinality: 0..*
+  targetName: InterchangeSchedule
+- source: SchedulingPoint
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: InterTie
+  targetCardinality: 0..*
+  targetName: RegisteredResource

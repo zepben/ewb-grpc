@@ -1,0 +1,95 @@
+name: GovHydroFrancis
+description: |-
+  Detailed hydro unit - Francis model.  This model can be used to represent three types of governors.
+  A schematic of the hydraulic system of detailed hydro unit models, such as Francis and Pelton, is provided in the DetailedHydroModelHydraulicSystem diagram.
+attributes:
+- name: am
+  type: PU
+  description: Opening section <i>S</i><i><sub>EFF</sub></i> at the maximum efficiency (<i>Am</i>).  Typical value = 0,7.
+- name: av0
+  type: Area
+  description: Area of the surge tank (<i>A</i><i><sub>V0</sub></i>). Unit = m<sup>2</sup>. Typical value = 30.
+- name: av1
+  type: Area
+  description: Area of the compensation tank (<i>A</i><i><sub>V1</sub></i>). Unit = m<sup>2</sup>. Typical value = 700.
+- name: bp
+  type: PU
+  description: Droop (<i>Bp</i>).  Typical value = 0,05.
+- name: db1
+  type: Frequency
+  description: Intentional dead-band width (<i>DB1</i>).  Unit = Hz.  Typical value = 0.
+- name: etamax
+  type: PU
+  description: Maximum efficiency (<i>EtaMax</i>).  Typical value = 1,05.
+- name: governorControl
+  type: FrancisGovernorControlKind
+  description: Governor control flag (<i>Cflag</i>).  Typical value = mechanicHydrolicTachoAccelerator.
+- name: h1
+  type: Length
+  description: Head of compensation chamber water level with respect to the level of penstock (<i>H</i><i><sub>1</sub></i>).  Unit
+    = km.  Typical value = 0,004.
+- name: h2
+  type: Length
+  description: Head of surge tank water level with respect to the level of penstock (<i>H</i><i><sub>2</sub></i>).  Unit =
+    km.  Typical value = 0,040.
+- name: hn
+  type: Length
+  description: Rated hydraulic head (<i>H</i><i><sub>n</sub></i>).  Unit = km.  Typical value = 0,250.
+- name: kc
+  type: PU
+  description: Penstock loss coefficient (due to friction) (<i>Kc</i>).  Typical value = 0,025.
+- name: kg
+  type: PU
+  description: Water tunnel and surge chamber loss coefficient (due to friction) (<i>Kg</i>).  Typical value = 0,025.
+- name: kt
+  type: PU
+  description: Washout gain (<i>Kt</i>).  Typical value = 0,25.
+- name: qc0
+  type: PU
+  description: No-load turbine flow at nominal head (<i>Qc0</i>).  Typical value = 0,1.
+- name: qn
+  type: VolumeFlowRate
+  description: Rated flow (<i>Q</i><i><sub>n</sub></i>). Unit = m<sup>3</sup>/s. Typical value = 250.
+- name: ta
+  type: Seconds
+  description: Derivative gain (<i>Ta</i>) (&gt;= 0).  Typical value = 3.
+- name: td
+  type: Seconds
+  description: Washout time constant (<i>Td</i>) (&gt;= 0).  Typical value = 6.
+- name: ts
+  type: Seconds
+  description: Gate servo time constant (<i>Ts</i>) (&gt;= 0).  Typical value = 0,5.
+- name: twnc
+  type: Seconds
+  description: Water inertia time constant (<i>Twnc</i>) (&gt;= 0).  Typical value = 1.
+- name: twng
+  type: Seconds
+  description: Water tunnel and surge chamber inertia time constant (<i>Twng</i>) (&gt;= 0). Typical value = 3.
+- name: tx
+  type: Seconds
+  description: Derivative feedback gain (<i>Tx</i>) (&gt;= 0).  Typical value = 1.
+- name: va
+  type: Float
+  description: Maximum gate opening velocity (<i>Va</i>).  Unit = PU / s.  Typical value = 0,06.
+- name: valvmax
+  type: PU
+  description: Maximum gate opening (<i>ValvMax</i>) (&gt; GovHydroFrancis.valvmin).  Typical value = 1,1.
+- name: valvmin
+  type: PU
+  description: Minimum gate opening (<i>ValvMin</i>) (&lt; GovHydroFrancis.valvmax).  Typical value = 0.
+- name: vc
+  type: Float
+  description: Maximum gate closing velocity (<i>Vc</i>).  Unit = PU / s.  Typical value = -0,06.
+- name: waterTunnelSurgeChamberSimulation
+  type: Boolean
+  description: |-
+    Water tunnel and surge chamber simulation (<i>Tflag</i>).
+    true = enable of water tunnel and surge chamber simulation
+    false = inhibit of water tunnel and surge chamber simulation.
+    Typical value = false.
+- name: zsfc
+  type: Length
+  description: Head of upper water level with respect to the level of penstock (<i>Zsfc</i>). Unit = km.  Typical value =
+    0,025.
+ancestors:
+- TurbineGovernorDynamics

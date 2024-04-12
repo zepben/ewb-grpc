@@ -1,0 +1,25 @@
+name: ReserveReq
+description: Requirements for minimum amount of reserve and/or regulation to be supplied by a set of qualified resources.
+ancestors:
+- ResourceGroupReq
+associations:
+- source: ReserveReq
+  target: SensitivityPriceCurve
+  sourceCardinality: 0..1
+  sourceName: ReserveReq
+  targetCardinality: 0..1
+  targetName: SensitivityPriceCurve
+- source: ReserveReq
+  target: MarketProduct
+  sourceCardinality: 0..*
+  sourceName: ReserveReqs
+  sourceDescription: Market product associated with reserve requirement must be a reserve or regulation product.
+  targetCardinality: "1"
+  targetName: MarketProduct
+  targetDescription: Market product associated with reserve requirement must be a reserve or regulation product.
+- source: ReserveReq
+  target: ReserveReqCurve
+  sourceCardinality: "1"
+  sourceName: ReserveReq
+  targetCardinality: "1"
+  targetName: ReserveReqCurve

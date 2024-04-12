@@ -1,0 +1,23 @@
+name: ExPostLossResults
+description: Model results of ex-post calculation of MW losses. Summarizes loss in two categories losses on the the extra
+  high voltage transmission and total losses. Calculated for each subcontrol area.
+attributes:
+- name: ehvLossMW
+  type: Float
+  description: "EHV MW losses in the company \nAttribute Usage: Information purposes - Output of LPA engine."
+- name: totalLossMW
+  type: Float
+  description: "Total MW losses in the company \nAttribute Usage: Information purposes - Output of LPA engine."
+associations:
+- source: ExPostLossResults
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: ExPostLossResults
+  targetCardinality: 0..1
+  targetName: SubControlArea
+- source: ExPostLossResults
+  target: ExPostLoss
+  sourceCardinality: 0..*
+  sourceName: ExPostLossResults
+  targetCardinality: "1"
+  targetName: ExPostLoss

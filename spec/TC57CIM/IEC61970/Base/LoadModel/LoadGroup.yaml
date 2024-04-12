@@ -1,0 +1,17 @@
+name: LoadGroup
+description: The class is the third level in a hierarchical structure for grouping of loads for the purpose of load flow load
+  scaling.
+ancestors:
+- IdentifiedObject
+descendents:
+- NonConformLoadGroup
+- ConformLoadGroup
+associations:
+- source: LoadGroup
+  target: SubLoadArea
+  sourceCardinality: 1..*
+  sourceName: LoadGroups
+  sourceDescription: The Loadgroups in the SubLoadArea.
+  targetCardinality: "1"
+  targetName: SubLoadArea
+  targetDescription: The SubLoadArea where the Loadgroup belongs.

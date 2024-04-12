@@ -1,0 +1,20 @@
+name: OverexcitationLimiterDynamics
+description: Overexcitation limiter function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
+  by definition of a user-defined model.</font>
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- OverexcitationLimiterUserDefined
+- OverexcLimX2
+- OverexcLimX1
+- OverexcLim2
+- OverexcLimIEEE
+associations:
+- source: OverexcitationLimiterDynamics
+  target: ExcitationSystemDynamics
+  sourceCardinality: 0..1
+  sourceName: OverexcitationLimiterDynamics
+  sourceDescription: Overexcitation limiter model associated with this excitation system model.
+  targetCardinality: "1"
+  targetName: ExcitationSystemDynamics
+  targetDescription: Excitation system model with which this overexcitation limiter model is associated.

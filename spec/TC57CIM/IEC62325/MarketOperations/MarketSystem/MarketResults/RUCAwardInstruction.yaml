@@ -1,0 +1,49 @@
+name: RUCAwardInstruction
+description: This class models the information about the RUC awards.
+attributes:
+- name: clearedPrice
+  type: Float
+  description: Marginal Price ($/MW) for the commodity (Regulation Up, Regulation Down, Spinning Reserve, or Non-spinning
+    reserve) for pricing run.
+- name: marketProductType
+  type: MarketProductType
+  description: |-
+    major product type may include the following but not limited to:
+
+    Energy
+    Regulation Up
+    Regulation Dn
+    Spinning Reserve
+    Non-Spinning Reserve
+    Operating Reserve
+- name: RUCAward
+  type: Float
+  description: The RUC Award of a resource is the portion of the RUC Capacity that is not under RA or RMR contracts. The RUC
+    Award of a resource is the portion of the RUC Capacity that is eligible for RUC Availability payment.
+- name: RUCCapacity
+  type: Float
+  description: The RUC Capacity of a resource is the difference between (i) the RUC Schedule and (ii) the higher of the DA
+    Schedule and the Minimum Load.
+- name: RUCSchedule
+  type: Float
+  description: The RUC Schedule of a resource is its output level that balances the load forecast used in RUC. The RUC Schedule
+    in RUC is similar to the DA Schedule in DAM.
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+associations:
+- source: RUCAwardInstruction
+  target: ResourceAwardClearing
+  sourceCardinality: 1..*
+  sourceName: RUCAwardInstruction
+  targetCardinality: 1..*
+  targetName: ClearingResourceAward
+- source: RUCAwardInstruction
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: RUCAwardInstruction
+  targetCardinality: 0..1
+  targetName: RegisteredResource

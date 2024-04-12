@@ -1,0 +1,40 @@
+name: RemoteConnectDisconnectInfo
+description: Details of remote connect and disconnect function.
+attributes:
+- name: armedTimeout
+  type: Seconds
+  description: Setting of the timeout elapsed time.
+- name: customerVoltageLimit
+  type: Voltage
+  description: Voltage limit on customer side of RCD switch above which the connect should not be made.
+- name: energyLimit
+  type: RealEnergy
+  description: Limit of energy before disconnect.
+- name: energyUsageStartDateTime
+  type: DateTime
+  description: Start date and time to accumulate energy for energy usage limiting.
+- name: energyUsageWarning
+  type: RealEnergy
+  description: Warning energy limit, used to trigger event code that energy usage is nearing limit.
+- name: isArmConnect
+  type: Boolean
+  description: True if the RCD switch has to be armed before a connect action can be initiated.
+- name: isArmDisconnect
+  type: Boolean
+  description: True if the RCD switch has to be armed before a disconnect action can be initiated.
+- name: isEnergyLimiting
+  type: Boolean
+  description: True if the energy usage is limited and the customer will be disconnected if they go over the limit.
+- name: needsPowerLimitCheck
+  type: Boolean
+  description: True if load limit has to be checked to issue an immediate disconnect (after a connect) if load is over the
+    limit.
+- name: needsVoltageLimitCheck
+  type: Boolean
+  description: True if voltage limit has to be checked to prevent connect if voltage is over the limit.
+- name: powerLimit
+  type: ActivePower
+  description: Load limit above which the connect should either not take place or should cause an immediate disconnect.
+- name: usePushbutton
+  type: Boolean
+  description: True if pushbutton has to be used for connect.

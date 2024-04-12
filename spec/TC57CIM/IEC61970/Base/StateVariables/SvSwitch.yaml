@@ -1,0 +1,21 @@
+name: SvSwitch
+description: State variable for switch.
+attributes:
+- name: open
+  type: Boolean
+  description: The attribute tells if the computed state of the switch is considered open.
+- name: phase
+  type: SinglePhaseKind
+  description: The terminal phase at which the connection is applied.   If missing, the injection is assumed to be balanced
+    among non-neutral phases.
+ancestors:
+- StateVariable
+associations:
+- source: SvSwitch
+  target: Switch
+  sourceCardinality: 0..*
+  sourceName: SvSwitch
+  sourceDescription: The switch state associated with the switch.
+  targetCardinality: "1"
+  targetName: Switch
+  targetDescription: The switch associated with the switch state.

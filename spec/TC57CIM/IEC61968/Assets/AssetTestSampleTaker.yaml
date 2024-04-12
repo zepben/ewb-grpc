@@ -1,0 +1,13 @@
+name: AssetTestSampleTaker
+description: Identity of person/organization that took sample.
+ancestors:
+- AssetOrganisationRole
+associations:
+- source: AssetTestSampleTaker
+  target: Specimen
+  sourceCardinality: 0..1
+  sourceName: AssetTestSampleTaker
+  sourceDescription: Test sampler taker who gathered this specimen.
+  targetCardinality: 0..*
+  targetName: Specimen
+  targetDescription: Specimen taken by this sample taker.

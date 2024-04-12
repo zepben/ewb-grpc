@@ -1,0 +1,16 @@
+name: OperatingParticipant
+description: An operator of multiple power system resource objects. Note multple operating participants may operate the same
+  power system resource object.   This can be used for modeling jointly owned units where each owner operates as a contractual
+  share.
+ancestors:
+- IdentifiedObject
+associations:
+- source: OperatingParticipant
+  target: OperatingShare
+  sourceCardinality: "1"
+  sourceName: OperatingParticipant
+  sourceDescription: The operating participant having this share with the associated power system resource.
+  targetCardinality: 0..*
+  targetName: OperatingShare
+  targetDescription: The operating shares of this operating participant.  An operating participant can be resused for any
+    number of power system resources.

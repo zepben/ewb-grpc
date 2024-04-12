@@ -1,0 +1,23 @@
+name: Route
+description: Route that is followed, for example by service crews.
+attributes:
+- name: status
+  type: Status
+- name: type
+  type: String
+  description: Classification by utility's work management standards and practices.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Route
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: Routes
+  targetCardinality: 0..*
+  targetName: Locations
+- source: Route
+  target: OldCrew
+  sourceCardinality: 0..1
+  sourceName: Route
+  targetCardinality: 0..*
+  targetName: Crews

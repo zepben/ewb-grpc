@@ -1,0 +1,51 @@
+name: Procedure
+description: Documented procedure for various types of work or work tasks on assets.
+attributes:
+- name: instruction
+  type: String
+  description: Textual description of this procedure.
+- name: kind
+  type: ProcedureKind
+  description: Kind of procedure.
+- name: sequenceNumber
+  type: String
+  description: Sequence number in a sequence of procedures being performed.
+ancestors:
+- Document
+associations:
+- source: Procedure
+  target: Measurement
+  sourceCardinality: 0..*
+  sourceName: Procedures
+  sourceDescription: Measurements are specified in types of documents, such as procedures.
+  targetCardinality: 0..*
+  targetName: Measurements
+  targetDescription: Document containing this measurement.
+- source: Procedure
+  target: ProcedureDataSet
+  sourceCardinality: 0..1
+  sourceName: Procedure
+  sourceDescription: Procedure capturing this data set.
+  targetCardinality: 0..*
+  targetName: ProcedureDataSets
+  targetDescription: All data sets captured by this procedure.
+- source: Procedure
+  target: Limit
+  sourceCardinality: 0..*
+  sourceName: Procedures
+  targetCardinality: 0..*
+  targetName: Limits
+- source: Procedure
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: Procedures
+  sourceDescription: All procedures applicable to this asset.
+  targetCardinality: 0..*
+  targetName: Assets
+  targetDescription: All assets to which this procedure applies.
+- source: Procedure
+  target: CompatibleUnit
+  sourceCardinality: 0..*
+  sourceName: Procedures
+  targetCardinality: 0..*
+  targetName: CompatibleUnits

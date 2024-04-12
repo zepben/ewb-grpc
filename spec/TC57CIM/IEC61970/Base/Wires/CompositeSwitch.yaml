@@ -1,0 +1,23 @@
+name: CompositeSwitch
+description: "A model of a set of individual Switches normally enclosed within the same cabinet and possibly with interlocks\
+  \ that restrict the combination of switch positions. These are typically found in medium voltage distribution networks.\
+  \ \nA CompositeSwitch could represent a Ring-Main-Unit (RMU), or pad-mounted switchgear, with primitive internal devices\
+  \ such as an internal bus-bar plus 3 or 4 internal switches each of which may individually be open or closed. A CompositeSwitch\
+  \ and a set of contained Switches can also be used to represent a multi-position switch e.g. a switch that can connect a\
+  \ circuit to Ground, Open or Busbar."
+attributes:
+- name: compositeSwitchType
+  type: String
+  description: An alphanumeric code that can be used as a reference to extra information such as the description of the interlocking
+    scheme if any.
+ancestors:
+- Equipment
+associations:
+- source: CompositeSwitch
+  target: Switch
+  sourceCardinality: 0..1
+  sourceName: CompositeSwitch
+  sourceDescription: Composite switch to which this Switch belongs.
+  targetCardinality: 0..*
+  targetName: Switches
+  targetDescription: Switches contained in this Composite switch.

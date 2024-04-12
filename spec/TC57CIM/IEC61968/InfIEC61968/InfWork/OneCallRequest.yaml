@@ -1,0 +1,22 @@
+name: OneCallRequest
+description: A request for other utilities to mark their underground facilities prior to commencement of construction and/or
+  maintenance.
+attributes:
+- name: explosivesUsed
+  type: Boolean
+  description: True if explosives have been or are planned to be used.
+- name: markedIndicator
+  type: Boolean
+  description: True if work location has been marked, for example for a dig area.
+- name: markingInstruction
+  type: String
+  description: Instructions for marking a dig area, if applicable.
+ancestors:
+- WorkDocument
+associations:
+- source: OneCallRequest
+  target: WorkLocation
+  sourceCardinality: 0..1
+  sourceName: OneCallRequest
+  targetCardinality: 0..*
+  targetName: WorkLocations

@@ -1,0 +1,17 @@
+name: MktTerminal
+description: Subclass of IEC61970:Core:Terminal.
+ancestors:
+- Terminal
+associations:
+- source: MktTerminal
+  target: Flowgate
+  sourceCardinality: 0..*
+  sourceName: MktTerminal
+  targetCardinality: 0..1
+  targetName: Flowgate
+- source: MktTerminal
+  target: TerminalConstraintTerm
+  sourceCardinality: "1"
+  sourceName: MktTerminal
+  targetCardinality: 0..*
+  targetName: TerminalConstraintTerm

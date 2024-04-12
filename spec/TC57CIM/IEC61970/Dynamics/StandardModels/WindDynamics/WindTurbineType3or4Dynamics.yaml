@@ -1,0 +1,33 @@
+name: WindTurbineType3or4Dynamics
+description: Parent class supporting relationships to wind turbines type 3 and type 4 and wind plant including their control
+  models.
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- WindType3or4UserDefined
+- WindTurbineType3or4IEC
+associations:
+- source: WindTurbineType3or4Dynamics
+  target: PowerElectronicsConnection
+  sourceCardinality: 0..1
+  sourceName: WindTurbineType3or4Dynamics
+  sourceDescription: The wind turbine type 3 or type 4 dynamics model associated with this power electronics connection.
+  targetCardinality: "1"
+  targetName: PowerElectronicsConnection
+  targetDescription: The power electronics connection associated with this wind turbine type 3 or type 4 dynamics model.
+- source: WindTurbineType3or4Dynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  sourceName: WindTurbineType3or4Dynamics
+  sourceDescription: Wind turbine type 3 or type 4 models using this remote input signal.
+  targetCardinality: 0..1
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by these wind turbine type 3 or type 4 models.
+- source: WindTurbineType3or4Dynamics
+  target: WindPlantDynamics
+  sourceCardinality: 1..*
+  sourceName: WindTurbineType3or4Dynamics
+  sourceDescription: The wind turbine type 3 or type 4 associated with this wind plant.
+  targetCardinality: 0..1
+  targetName: WindPlantDynamics
+  targetDescription: The wind plant with which the wind turbines type 3 or type 4 are associated.

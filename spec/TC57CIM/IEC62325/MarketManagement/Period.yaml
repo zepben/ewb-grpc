@@ -1,0 +1,34 @@
+name: Period
+description: An identification of a time interval that may have a given resolution.
+attributes:
+- name: resolution
+  type: Duration
+  description: The number of units of time that compose an individual step within a period.
+- name: timeInterval
+  type: DateTimeInterval
+  description: The start and end date and time for a given interval.
+associations:
+- source: Period
+  target: Reason
+  sourceCardinality: 0..*
+  sourceName: Period
+  targetCardinality: 0..*
+  targetName: Reason
+- source: Period
+  target: MarketDocument
+  sourceCardinality: 0..*
+  sourceName: Period
+  targetCardinality: 0..*
+  targetName: MarketDocument
+- source: Period
+  target: Point
+  sourceCardinality: "1"
+  sourceName: Period
+  targetCardinality: 0..*
+  targetName: Point
+- source: Period
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: Period
+  targetCardinality: 0..*
+  targetName: TimeSeries

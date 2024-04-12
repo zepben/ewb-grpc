@@ -1,0 +1,39 @@
+name: OperationalLimitType
+description: The operational meaning of a category of limits.
+attributes:
+- name: acceptableDuration
+  type: Seconds
+  description: The nominal acceptable duration of the limit. Limits are commonly expressed in terms of the time limit for
+    which the limit is normally acceptable. The actual acceptable duration of a specific limit may depend on other local factors
+    such as temperature or wind speed. The attribute has meaning only if the flag isInfiniteDuration is set to false, hence
+    it shall not be exchanged when isInfiniteDuration is set to true.
+- name: direction
+  type: OperationalLimitDirectionKind
+  description: The direction of the limit.
+- name: isInfiniteDuration
+  type: Boolean
+  description: Defines if the operational limit type has infinite duration. If true, the limit has infinite duration. If false,
+    the limit has definite duration which is defined by the attribute acceptableDuration.
+ancestors:
+- IdentifiedObject
+associations:
+- source: OperationalLimitType
+  target: OperationalLimit
+  sourceCardinality: 0..1
+  sourceName: OperationalLimitType
+  sourceDescription: The limit type associated with this limit.
+  targetCardinality: 0..*
+  targetName: OperationalLimit
+  targetDescription: The operational limits associated with this type of limit.
+- source: OperationalLimitType
+  target: OperatonalLimitTypeScaling
+  sourceCardinality: 0..1
+  sourceName: SourceOperationalLimitType
+  targetCardinality: 0..*
+  targetName: SourceOperationalLimitTypeScaling
+- source: OperationalLimitType
+  target: OperatonalLimitTypeScaling
+  sourceCardinality: "1"
+  sourceName: TargetOperationalLimit
+  targetCardinality: 0..1
+  targetName: TargetOperationalLimitmTypeScaling

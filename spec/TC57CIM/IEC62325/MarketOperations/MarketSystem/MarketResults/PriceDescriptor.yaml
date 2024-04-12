@@ -1,0 +1,22 @@
+name: PriceDescriptor
+description: The price of a Commodity during a given time interval may change over time.  For example, a price may be forecasted
+  a year ahead, a month ahead, a day ahead, an hour ahead, and in real time; this is defined using the MarketType. Additionally
+  a price may have one or more components. For example, a locational marginal energy price may be the arithmetic sum of the
+  system price, the congestion price, and the loss price.  The priceType enumeration is used determine if the price is the
+  complete price (priceType="total") or one of potentially many constituent components.
+attributes:
+- name: marketType
+  type: MarketType
+  description: The time frame for the price, using the standard conventions associated with the MarketType enumeration.
+- name: priceType
+  type: PriceTypeKind
+  description: The "kind" of price being described.  In general, the priceType will either be "total" to signify that the
+    price is the price paid to buy or sell the commodity, sometimes referred to as an "all-in" price, or one of potentially
+    many components.
+associations:
+- source: PriceDescriptor
+  target: CommodityPrice
+  sourceCardinality: "1"
+  sourceName: PriceDescriptor
+  targetCardinality: 1..*
+  targetName: CommodityPrice

@@ -1,0 +1,35 @@
+name: DynamicSchedule
+description: A continuously variable component of a control area's MW net interchange schedule. Dynamic schedules are sent
+  and received by control areas.
+attributes:
+- name: dynSchedSignRev
+  type: Boolean
+  description: Dynamic schedule sign reversal required (true/false)
+- name: dynSchedStatus
+  type: String
+  description: The "active" or "inactive" status of the dynamic schedule
+ancestors:
+- BasicIntervalSchedule
+associations:
+- source: DynamicSchedule
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: Send_DynamicSchedules
+  sourceDescription: A control area can send dynamic schedules to other control areas
+  targetCardinality: "1"
+  targetName: Send_SubControlArea
+  targetDescription: A control area can send dynamic schedules to other control areas
+- source: DynamicSchedule
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: Receive_DynamicSchedules
+  sourceDescription: A control area can receive dynamic schedules from other control areas
+  targetCardinality: "1"
+  targetName: Receive_SubControlArea
+  targetDescription: A control area can receive dynamic schedules from other control areas
+- source: DynamicSchedule
+  target: MktMeasurement
+  sourceCardinality: 0..*
+  sourceName: DynamicSchedule
+  targetCardinality: "1"
+  targetName: MktMeasurement

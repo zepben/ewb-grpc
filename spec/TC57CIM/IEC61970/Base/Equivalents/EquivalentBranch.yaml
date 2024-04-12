@@ -1,0 +1,81 @@
+name: EquivalentBranch
+description: The class represents equivalent branches. In cases where a transformer phase shift is modelled and the EquivalentBranch
+  is spanning the same nodes, the impedance quantities for the EquivalentBranch shall consider the needed phase shift.
+attributes:
+- name: negativeR12
+  type: Resistance
+  description: |-
+    Negative sequence series resistance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909.
+    EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: negativeR21
+  type: Resistance
+  description: |-
+    Negative sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
+    EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: negativeX12
+  type: Reactance
+  description: |-
+    Negative sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909.
+    Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: negativeX21
+  type: Reactance
+  description: |-
+    Negative sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
+    Usage: EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: positiveR12
+  type: Resistance
+  description: "Positive sequence series resistance from terminal sequence  1 to terminal sequence 2 . Used for short circuit\
+    \ data exchange according to IEC 60909. \nEquivalentBranch is a result of network reduction prior to the data exchange."
+- name: positiveR21
+  type: Resistance
+  description: |-
+    Positive sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
+    EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: positiveX12
+  type: Reactance
+  description: |-
+    Positive sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909.
+    Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: positiveX21
+  type: Reactance
+  description: |-
+    Positive sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
+    Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: r
+  type: Resistance
+  description: Positive sequence series resistance of the reduced branch.
+- name: r21
+  type: Resistance
+  description: |-
+    Resistance from terminal sequence 2 to terminal sequence 1 .Used for steady state power flow. This attribute is optional and represent unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.r is given, then EquivalentBranch.r21 is assumed equal to EquivalentBranch.r.
+    Usage rule : EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: x
+  type: Reactance
+  description: Positive sequence series reactance of the reduced branch.
+- name: x21
+  type: Reactance
+  description: |-
+    Reactance from terminal sequence 2 to terminal sequence 1. Used for steady state power flow. This attribute is optional and represents an unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.x is given, then EquivalentBranch.x21 is assumed equal to EquivalentBranch.x.
+    Usage rule: EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: zeroR12
+  type: Resistance
+  description: |-
+    Zero sequence series resistance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909.
+    EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: zeroR21
+  type: Resistance
+  description: |-
+    Zero sequence series resistance from terminal sequence  2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
+    Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: zeroX12
+  type: Reactance
+  description: |-
+    Zero sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909.
+    Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
+- name: zeroX21
+  type: Reactance
+  description: |-
+    Zero sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
+    Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
+ancestors:
+- EquivalentEquipment

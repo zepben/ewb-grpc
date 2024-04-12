@@ -1,0 +1,20 @@
+name: AlternateModel
+ancestors:
+- IdentifiedObject
+associations:
+- source: AlternateModel
+  target: DataSet
+  sourceCardinality: 0..1
+  sourceName: AlternateModel
+  sourceDescription: The alternate model using the data.
+  targetCardinality: "1"
+  targetName: Dataset
+  targetDescription: The data belonging to the alternate model.
+- source: AlternateModel
+  target: AlternateModelGroup
+  sourceCardinality: 0..*
+  sourceName: AlternateModel
+  sourceDescription: An alternate model that can be one possiblity among alternates.
+  targetCardinality: "1"
+  targetName: AlternateModelGroup
+  targetDescription: The group of alternate models for which one alternate is used.

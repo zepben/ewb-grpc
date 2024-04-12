@@ -1,0 +1,19 @@
+name: OutageArea
+description: This defines the area covered by the Outage.
+attributes:
+- name: earliestReportedTime
+  type: DateTime
+  description: This is the reported time of the first outage report
+- name: metersServed
+  type: Integer
+  description: defines the number of meters served in the defined area.
+- name: outageAreaKind
+  type: AreaKind
+  description: defines the type of area that has the outage - county, state, zipcode, etc.
+associations:
+- source: OutageArea
+  target: Outage
+  sourceCardinality: 0..*
+  sourceName: OutageArea
+  targetCardinality: 0..*
+  targetName: Outage

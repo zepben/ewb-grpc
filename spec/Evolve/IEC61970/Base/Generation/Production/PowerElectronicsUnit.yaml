@@ -1,0 +1,26 @@
+name: PowerElectronicsUnit
+description: A generating unit or battery or aggregation that connects to the AC network using power electronics rather than
+  rotating machines.
+attributes:
+- name: maxP
+  type: ActivePower
+  description: Maximum active power limit. This is the maximum (nameplate) limit for the unit.
+- name: minP
+  type: ActivePower
+  description: Minimum active power limit. This is the minimum (nameplate) limit for the unit.
+ancestors:
+- Equipment
+descendents:
+- PowerElectronicsWindUnit
+- BatteryUnit
+- PhotoVoltaicUnit
+- EvChargingUnit
+associations:
+- source: PowerElectronicsUnit
+  target: PowerElectronicsConnection
+  sourceCardinality: 0..*
+  sourceName: Units
+  sourceDescription: An AC network connection may have several power electronics units connecting through it.
+  targetCardinality: "1"
+  targetName: PowerElectronicsConnection
+  targetDescription: A power electronics unit has a connection to the AC network.

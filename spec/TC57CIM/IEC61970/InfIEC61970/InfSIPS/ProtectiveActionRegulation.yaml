@@ -1,0 +1,20 @@
+name: ProtectiveActionRegulation
+description: Protective action to change regulation to Equipment.
+attributes:
+- name: isRegulating
+  type: Boolean
+  description: If true the regulator is put in-service, otherwise out-of-service (no regulation).
+- name: targetValue
+  type: Float
+  description: The target value specified the new case input for the regulator.  The value has the units appropriate to the
+    mode attribute. The protective action does not change the mode attribute.
+ancestors:
+- ProtectiveAction
+associations:
+- source: ProtectiveActionRegulation
+  target: RegulatingControl
+  sourceCardinality: 0..*
+  sourceName: ProtectiveActionRegulation
+  sourceDescription: Enable/disable a regulating control or set new target value.
+  targetCardinality: "1"
+  targetName: RegulatingControl

@@ -1,0 +1,23 @@
+name: LoadAggregate
+description: |-
+  Aggregate loads are used to represent all or part of the real and reactive load from one or more loads in the static (power flow) data. This load is usually the aggregation of many individual load devices and the load model is an approximate representation of the aggregate response of the load devices to system disturbances.
+  Standard aggregate load model comprised of static and/or dynamic components.  A static load model represents the sensitivity of the real and reactive power consumed by the load to the amplitude and frequency of the bus voltage. A dynamic load model can be used to represent the aggregate response of the motor components of the load.
+ancestors:
+- LoadDynamics
+associations:
+- source: LoadAggregate
+  target: LoadStatic
+  sourceCardinality: "1"
+  sourceName: LoadAggregate
+  sourceDescription: Aggregate load to which this aggregate static load belongs.
+  targetCardinality: 0..1
+  targetName: LoadStatic
+  targetDescription: Aggregate static load associated with this aggregate load.
+- source: LoadAggregate
+  target: LoadMotor
+  sourceCardinality: "1"
+  sourceName: LoadAggregate
+  sourceDescription: Aggregate load to which this aggregate motor (dynamic) load belongs.
+  targetCardinality: 0..1
+  targetName: LoadMotor
+  targetDescription: Aggregate motor (dynamic) load associated with this aggregate load.

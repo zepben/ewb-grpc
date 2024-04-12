@@ -1,0 +1,13 @@
+name: DayType
+description: Group of similar days.   For example it could be used to represent weekdays, weekend, or holidays.
+ancestors:
+- IdentifiedObject
+associations:
+- source: DayType
+  target: SeasonDayTypeSchedule
+  sourceCardinality: 0..1
+  sourceName: DayType
+  sourceDescription: DayType for the Schedule.
+  targetCardinality: 0..*
+  targetName: SeasonDayTypeSchedules
+  targetDescription: Schedules that use this DayType.

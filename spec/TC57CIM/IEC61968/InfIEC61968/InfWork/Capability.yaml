@@ -1,0 +1,35 @@
+name: Capability
+description: Capabilities of a crew.
+attributes:
+- name: performanceFactor
+  type: String
+  description: Capability performance factor.
+- name: status
+  type: Status
+- name: type
+  type: String
+  description: Classification by utility's work management standards and practices.
+- name: validityInterval
+  type: DateTimeInterval
+  description: Date and time interval for which this capability is valid (when it became effective and when it expires).
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: Capability
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  sourceName: Capabilities
+  targetCardinality: 0..*
+  targetName: WorkTasks
+- source: Capability
+  target: OldCrew
+  sourceCardinality: 0..*
+  sourceName: Capabilities
+  targetCardinality: 0..1
+  targetName: Crew
+- source: Capability
+  target: Craft
+  sourceCardinality: 0..*
+  sourceName: Capabilities
+  targetCardinality: 0..*
+  targetName: Crafts

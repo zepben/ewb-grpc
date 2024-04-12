@@ -1,0 +1,37 @@
+name: ServiceSupplier
+description: Organisation that provides services to customers.
+attributes:
+- name: issuerIdentificationNumber
+  type: String
+  description: Unique transaction reference prefix number issued to an entity by the International Organization for Standardization
+    for the purpose of tagging onto electronic financial transactions, as defined in ISO/IEC 7812-1 and ISO/IEC 7812-2.
+- name: kind
+  type: SupplierKind
+  description: Kind of supplier.
+ancestors:
+- OrganisationRole
+associations:
+- source: ServiceSupplier
+  target: BankAccount
+  sourceCardinality: 0..1
+  sourceName: ServiceSupplier
+  sourceDescription: ServiceSupplier that is owner of this BankAccount.
+  targetCardinality: 0..*
+  targetName: BankAccounts
+  targetDescription: All BackAccounts this ServiceSupplier owns.
+- source: ServiceSupplier
+  target: UsagePoint
+  sourceCardinality: 0..1
+  sourceName: ServiceSupplier
+  sourceDescription: ServiceSupplier (utility) utilising this usage point to deliver a service.
+  targetCardinality: 0..*
+  targetName: UsagePoints
+  targetDescription: All usage points this service supplier utilises to deliver a service.
+- source: ServiceSupplier
+  target: CustomerAgreement
+  sourceCardinality: "1"
+  sourceName: ServiceSupplier
+  sourceDescription: Service supplier for this customer agreement.
+  targetCardinality: 0..*
+  targetName: CustomerAgreements
+  targetDescription: All customer agreements of this service supplier.

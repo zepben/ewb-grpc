@@ -1,0 +1,21 @@
+name: PhaseTapChangerTable
+description: Describes a tabular curve for how the phase angle difference and impedance varies with the tap step.
+ancestors:
+- IdentifiedObject
+associations:
+- source: PhaseTapChangerTable
+  target: PhaseTapChangerTabular
+  sourceCardinality: 0..1
+  sourceName: PhaseTapChangerTable
+  sourceDescription: The phase tap changer table for this phase tap changer.
+  targetCardinality: 0..*
+  targetName: PhaseTapChangerTabular
+  targetDescription: The phase tap changers to which this phase tap table applies.
+- source: PhaseTapChangerTable
+  target: PhaseTapChangerTablePoint
+  sourceCardinality: "1"
+  sourceName: PhaseTapChangerTable
+  sourceDescription: The table of this point.
+  targetCardinality: 1..*
+  targetName: PhaseTapChangerTablePoint
+  targetDescription: The points of this table.

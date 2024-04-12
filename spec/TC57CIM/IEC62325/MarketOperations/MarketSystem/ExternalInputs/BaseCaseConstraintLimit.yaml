@@ -1,0 +1,13 @@
+name: BaseCaseConstraintLimit
+description: Possibly time-varying max MW or MVA and optionally Min MW limit or MVA limit (Y1 and Y2, respectively) assigned
+  to a contingency analysis base case. Use CurveSchedule XAxisUnits to specify MW or MVA. To be used only if the BaseCaseConstraintLimit
+  differs from the DefaultConstraintLimit.
+ancestors:
+- Curve
+associations:
+- source: BaseCaseConstraintLimit
+  target: SecurityConstraintSum
+  sourceCardinality: 0..1
+  sourceName: BaseCaseConstraintLimit
+  targetCardinality: "1"
+  targetName: SecurityConstraintSum

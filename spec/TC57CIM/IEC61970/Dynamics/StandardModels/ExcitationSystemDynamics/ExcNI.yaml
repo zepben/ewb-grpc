@@ -1,0 +1,37 @@
+name: ExcNI
+description: Bus or solid fed SCR (silicon-controlled rectifier) bridge excitation system model type NI (NVE).
+attributes:
+- name: busFedSelector
+  type: Boolean
+  description: "Fed by selector (<i>BusFedSelector</i>). \ntrue = bus fed (switch is closed)\nfalse = solid fed (switch is\
+    \ open).\nTypical value = true."
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 210.
+- name: kf
+  type: PU
+  description: Excitation control system stabilizer gain (<i>Kf</i>) (&gt; 0).  Typical value 0,01.
+- name: r
+  type: PU
+  description: "<i>rc</i> / <i>rfd</i> (<i>R</i>) (&gt;= 0). \n0 means exciter has negative current capability\n&gt; 0 means\
+    \ exciter does not have negative current capability.  \nTypical value = 5."
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,02.
+- name: tf1
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf1</i>) (&gt; 0). Typical value = 1,0.
+- name: tf2
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>Tf2</i>) (&gt; 0). Typical value = 0,1.
+- name: tr
+  type: Seconds
+  description: Time constant (<i>Tr</i>) (&gt;= 0). Typical value = 0,02.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator ouput (<i>Vrmax</i>) (&gt; ExcNI.vrmin). Typical value = 5,0.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator ouput (<i>Vrmin</i>) (&lt; ExcNI.vrmax). Typical value = -2,0.
+ancestors:
+- ExcitationSystemDynamics

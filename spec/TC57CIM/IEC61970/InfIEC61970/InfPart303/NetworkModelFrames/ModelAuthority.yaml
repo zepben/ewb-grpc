@@ -1,0 +1,14 @@
+name: ModelAuthority
+description: A Modeling Authority is an entity responsible for supplying and maintaining the data defining a specific set
+  of objects in a network model.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ModelAuthority
+  target: ModelAuthoritySet
+  sourceCardinality: "1"
+  sourceName: ModelingAuthority
+  sourceDescription: Modeling Authority suppliying and maintaining the data for the objects in this Modeling Authority Set.
+  targetCardinality: 1..*
+  targetName: ModelingAuthoritySets
+  targetDescription: Modeling Authority Sets supplied and maintained by this Modeling Authority.

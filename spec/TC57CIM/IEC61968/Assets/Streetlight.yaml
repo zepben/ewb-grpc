@@ -1,0 +1,23 @@
+name: Streetlight
+description: Streetlight asset.
+attributes:
+- name: armLength
+  type: Length
+  description: Length of arm. Note that a new light may be placed on an existing arm.
+- name: lampKind
+  type: StreetlightLampKind
+  description: Lamp kind.
+- name: lightRating
+  type: ActivePower
+  description: Power rating of light.
+ancestors:
+- Asset
+associations:
+- source: Streetlight
+  target: Pole
+  sourceCardinality: 0..*
+  sourceName: Streetlights
+  sourceDescription: All streetlights attached to this pole.
+  targetCardinality: 0..1
+  targetName: Pole
+  targetDescription: Pole to which thiss streetlight is attached.

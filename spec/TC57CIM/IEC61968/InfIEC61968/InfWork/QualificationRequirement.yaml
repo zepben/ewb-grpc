@@ -1,0 +1,34 @@
+name: QualificationRequirement
+description: ' Certain skills are required and must be certified in order for a person (typically a member of a crew) to be
+  qualified to work on types of equipment.'
+attributes:
+- name: qualificationID
+  type: String
+  description: Qualification identifier.
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: QualificationRequirement
+  target: Specification
+  sourceCardinality: 0..*
+  sourceName: QualificationRequirements
+  targetCardinality: 0..*
+  targetName: Specifications
+- source: QualificationRequirement
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  sourceName: QualificationRequirements
+  targetCardinality: 0..*
+  targetName: WorkTasks
+- source: QualificationRequirement
+  target: CULaborItem
+  sourceCardinality: 0..*
+  sourceName: QualificationRequirements
+  targetCardinality: 0..*
+  targetName: CULaborItems
+- source: QualificationRequirement
+  target: Skill
+  sourceCardinality: 0..*
+  sourceName: QualificationRequirements
+  targetCardinality: 0..*
+  targetName: Skills

@@ -1,0 +1,29 @@
+name: ErpPayment
+description: Payment infromation and status for any individual line item of an ErpInvoice (e.g., when payment is from a customer).
+  ErpPayable is also updated when payment is to a supplier and ErpReceivable is updated when payment is from a customer. Multiple
+  payments can be made against a single line item and an individual payment can apply to more that one line item.
+attributes:
+- name: termsPayment
+  type: String
+  description: Payment terms (e.g., net 30).
+ancestors:
+- ErpDocument
+associations:
+- source: ErpPayment
+  target: ErpRecLineItem
+  sourceCardinality: 0..*
+  sourceName: ErpPayments
+  targetCardinality: 0..*
+  targetName: ErpRecLineItems
+- source: ErpPayment
+  target: ErpPayableLineItem
+  sourceCardinality: 0..*
+  sourceName: ErpPayments
+  targetCardinality: 0..*
+  targetName: ErpPayableLineItems
+- source: ErpPayment
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..*
+  sourceName: ErpPayments
+  targetCardinality: 0..*
+  targetName: ErpInvoiceLineItems

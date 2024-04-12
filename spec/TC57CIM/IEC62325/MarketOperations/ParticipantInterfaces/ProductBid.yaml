@@ -1,0 +1,43 @@
+name: ProductBid
+description: Component of a bid that pertains to one market product.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ProductBid
+  target: BidPriceSchedule
+  sourceCardinality: "1"
+  sourceName: ProductBid
+  targetCardinality: 0..*
+  targetName: BidSchedule
+- source: ProductBid
+  target: Bid
+  sourceCardinality: 1..*
+  sourceName: ProductBids
+  sourceDescription: A bid comprises one or more product bids of market products
+  targetCardinality: "1"
+  targetName: Bid
+  targetDescription: A bid comprises one or more product bids of market products
+- source: ProductBid
+  target: BidSelfSched
+  sourceCardinality: "1"
+  sourceName: ProductBid
+  targetCardinality: 0..*
+  targetName: BidSelfSched
+- source: ProductBid
+  target: BidDistributionFactor
+  sourceCardinality: "1"
+  sourceName: ProductBid
+  targetCardinality: 0..*
+  targetName: BidDistributionFactor
+- source: ProductBid
+  target: BidHourlyProductSchedule
+  sourceCardinality: "1"
+  sourceName: ProductBid
+  targetCardinality: 0..*
+  targetName: BidHourlyProductSchedule
+- source: ProductBid
+  target: MarketProduct
+  sourceCardinality: 0..*
+  sourceName: ProductBids
+  targetCardinality: "1"
+  targetName: MarketProduct

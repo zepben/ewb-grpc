@@ -1,0 +1,70 @@
+name: CatalogAssetType
+description: a Assets that may be used for planning, work or design purposes.
+attributes:
+- name: estimatedUnitCost
+  type: Money
+  description: Estimated unit cost (or cost per unit length) of this type of asset. It does not include labor to install,
+    construct or configure it.
+- name: kind
+  type: AssetKind
+  description: Kind of asset (from enumerated list).
+- name: quantity
+  type: StringQuantity
+  description: The value, unit of measure, and multiplier for the quantity.
+- name: stockItem
+  type: Boolean
+  description: True if item is a stock item (default).
+- name: type
+  type: String
+  description: Description of type of asset.
+ancestors:
+- IdentifiedObject
+descendents:
+- GeneratorTypeAsset
+associations:
+- source: CatalogAssetType
+  target: TypeAssetCatalogue
+  sourceCardinality: 0..*
+  sourceName: TypeAssets
+  targetCardinality: 0..1
+  targetName: TypeAssetCatalogue
+- source: CatalogAssetType
+  target: ErpReqLineItem
+  sourceCardinality: 0..1
+  sourceName: TypeAsset
+  targetCardinality: 0..*
+  targetName: ErpReqLineItems
+- source: CatalogAssetType
+  target: ErpBomItemData
+  sourceCardinality: 0..1
+  sourceName: TypeAsset
+  targetCardinality: 0..*
+  targetName: ErpBomItemDatas
+- source: CatalogAssetType
+  target: ErpIssueInventory
+  sourceCardinality: 0..1
+  sourceName: TypeAsset
+  targetCardinality: 0..*
+  targetName: ErpInventoryIssues
+- source: CatalogAssetType
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  sourceName: GenericAssetModel
+  targetCardinality: 0..*
+  targetName: CompatibleUnits
+- source: CatalogAssetType
+  target: ProductAssetModel
+  sourceCardinality: 0..1
+  sourceName: CatalogAssetType
+  sourceDescription: Catalog asset type to which this product asset model conforms.
+  targetCardinality: 0..*
+  targetName: ProductAssetModel
+  targetDescription: Product asset model conforming to this catalog asset type.
+- source: CatalogAssetType
+  target: AssetInfo
+  sourceCardinality: 0..1
+  sourceName: CatalogAssetType
+  sourceDescription: Asset information (nameplate) for this catalog asset type.
+  targetCardinality: 0..1
+  targetName: AssetInfo
+  targetDescription: Generic nameplate information associated with this catalog asset type.

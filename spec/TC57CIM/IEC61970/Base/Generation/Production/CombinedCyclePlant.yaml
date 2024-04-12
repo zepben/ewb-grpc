@@ -1,0 +1,20 @@
+name: CombinedCyclePlant
+description: A set of combustion turbines and steam turbines where the exhaust heat from the combustion turbines is recovered
+  to make steam for the steam turbines, resulting in greater overall plant efficiency.
+attributes:
+- name: combCyclePlantRating
+  type: ActivePower
+  description: The combined cycle plant's active power output rating.
+ancestors:
+- PowerSystemResource
+descendents:
+- MktCombinedCyclePlant
+associations:
+- source: CombinedCyclePlant
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  sourceName: CombinedCyclePlant
+  sourceDescription: A thermal generating unit may be a member of a combined cycle plant.
+  targetCardinality: 0..*
+  targetName: ThermalGeneratingUnits
+  targetDescription: A thermal generating unit may be a member of a combined cycle plant.

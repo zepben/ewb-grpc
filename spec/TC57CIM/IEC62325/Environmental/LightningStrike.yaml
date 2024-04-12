@@ -1,0 +1,25 @@
+name: LightningStrike
+description: A cloud-to-ground lightning strike at a particular location.
+attributes:
+- name: errorEllipseConfidence
+  type: PerCent
+  description: Likelihood that strike fell within errorEllipse.
+- name: errorEllipseMajorSemiAxis
+  type: Length
+  description: Length of major semi-axis (longest radius) of the error ellipse.
+- name: errorEllipseMinorSemiAxis
+  type: Length
+  description: Length of minor semi-axis (shortest radius) of the error ellipse.
+- name: errorEllipseOrientation
+  type: Bearing
+  description: The orientation of the major semi- axis in degrees from True North.
+- name: negativePolarity
+  type: Boolean
+  description: The polarity of the strike, with T meaning negative. About 90% of all lightning strokes are negative strokes,
+    meaning that they were initiated by a large concentration of negative charge in the cloud-base; this tends to induce an
+    area of positive charge on the ground.
+- name: peakAmplitude
+  type: CurrentFlow
+  description: Peak current of strike.
+ancestors:
+- GeosphericPhenomenon

@@ -1,0 +1,18 @@
+name: StartMainFuelCurve
+description: The quantity of main fuel (Y-axis) used to restart and repay the auxiliary power consumed versus the number of
+  hours (X-axis) the unit was off line.
+attributes:
+- name: mainFuelType
+  type: FuelType
+  description: Type of main fuel.
+ancestors:
+- Curve
+associations:
+- source: StartMainFuelCurve
+  target: StartupModel
+  sourceCardinality: 0..1
+  sourceName: StartMainFuelCurve
+  sourceDescription: The unit's startup model may have a startup main fuel curve.
+  targetCardinality: "1"
+  targetName: StartupModel
+  targetDescription: The unit's startup model may have a startup main fuel curve.

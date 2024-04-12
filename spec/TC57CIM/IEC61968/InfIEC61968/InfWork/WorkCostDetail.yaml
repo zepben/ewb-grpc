@@ -1,0 +1,83 @@
+name: WorkCostDetail
+description: A collection of all of the individual cost items collected from multiple sources.
+attributes:
+- name: amount
+  type: Money
+  description: 'Amount in designated currency for work, either a total or an individual element. As defined in the attribute
+    "type," multiple instances are applicable to each work for: planned cost, actual cost, authorized cost, budgeted cost,
+    forecasted cost, other.'
+- name: isDebit
+  type: Boolean
+  description: True if 'amount' is a debit, false if it is a credit.
+- name: transactionDateTime
+  type: DateTime
+  description: Date and time that 'amount' is posted to the work.
+ancestors:
+- WorkDocument
+associations:
+- source: WorkCostDetail
+  target: WorkCostSummary
+  sourceCardinality: 0..1
+  sourceName: WorkCostDetail
+  targetCardinality: 0..1
+  targetName: WorkCostSummary
+- source: WorkCostDetail
+  target: ErpProjectAccounting
+  sourceCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetCardinality: "1"
+  targetName: ErpProjectAccounting
+- source: WorkCostDetail
+  target: PropertyUnit
+  sourceCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetCardinality: 0..*
+  targetName: PropertyUnits
+- source: WorkCostDetail
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetCardinality: 0..1
+  targetName: WorkTask
+- source: WorkCostDetail
+  target: ContractorItem
+  sourceCardinality: "1"
+  sourceName: WorkCostDetail
+  targetCardinality: 0..*
+  targetName: ContractorItems
+- source: WorkCostDetail
+  target: Work
+  sourceCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetCardinality: 0..*
+  targetName: Works
+- source: WorkCostDetail
+  target: OverheadCost
+  sourceCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetCardinality: 0..1
+  targetName: OverheadCost
+- source: WorkCostDetail
+  target: MiscCostItem
+  sourceCardinality: 0..1
+  sourceName: WorkCostDetail
+  targetCardinality: 0..*
+  targetName: MiscCostItems
+- source: WorkCostDetail
+  target: LaborItem
+  sourceCardinality: "1"
+  sourceName: WorkCostDetail
+  targetCardinality: 0..*
+  targetName: LaborItems
+- source: WorkCostDetail
+  target: Design
+  sourceCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetCardinality: 0..1
+  targetName: Design
+- source: WorkCostDetail
+  target: CostType
+  sourceCardinality: 0..*
+  sourceName: WorkCostDetails
+  targetCardinality: "1"
+  targetName: CostType

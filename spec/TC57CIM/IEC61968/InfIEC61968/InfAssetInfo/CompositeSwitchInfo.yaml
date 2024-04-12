@@ -1,0 +1,33 @@
+name: CompositeSwitchInfo
+description: Properties of a composite switch.
+attributes:
+- name: ganged
+  type: Boolean
+  description: True if multi-phase switch controls all phases concurrently.
+- name: initOpMode
+  type: String
+  description: 'Initial operating mode, with the following values: Automatic, Manual.'
+- name: interruptingRating
+  type: CurrentFlow
+  description: Breaking capacity, or short circuit rating, is the maximum rated current which the device can safely interrupt
+    at the rated voltage.
+- name: kind
+  type: CompositeSwitchKind
+  description: Kind of composite switch.
+- name: phaseCode
+  type: PhaseCode
+  description: Phases carried, if applicable.
+- name: phaseCount
+  type: Integer
+  description: Supported number of phases, typically 0, 1 or 3.
+- name: ratedVoltage
+  type: Voltage
+  description: Rated voltage.
+- name: remote
+  type: Boolean
+  description: ' True if device is capable of being operated by remote control.'
+- name: switchStateCount
+  type: Integer
+  description: Number of switch states represented by the composite switch.
+ancestors:
+- AssetInfo

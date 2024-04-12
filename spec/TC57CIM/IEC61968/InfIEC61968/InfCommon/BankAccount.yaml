@@ -1,0 +1,27 @@
+name: BankAccount
+description: Bank account.
+attributes:
+- name: accountNumber
+  type: String
+  description: Account reference number.
+ancestors:
+- Document
+descendents:
+- ErpBankAccount
+associations:
+- source: BankAccount
+  target: Bank
+  sourceCardinality: 0..*
+  sourceName: BankAccounts
+  sourceDescription: All BankAccounts this Bank provides.
+  targetCardinality: 0..1
+  targetName: Bank
+  targetDescription: Bank that provides this BankAccount.
+- source: BankAccount
+  target: ServiceSupplier
+  sourceCardinality: 0..*
+  sourceName: BankAccounts
+  sourceDescription: All BackAccounts this ServiceSupplier owns.
+  targetCardinality: 0..1
+  targetName: ServiceSupplier
+  targetDescription: ServiceSupplier that is owner of this BankAccount.

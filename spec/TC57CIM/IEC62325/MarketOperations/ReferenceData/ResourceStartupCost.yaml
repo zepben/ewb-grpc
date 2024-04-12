@@ -1,0 +1,58 @@
+name: ResourceStartupCost
+description: To model the startup costs of a generation resource.
+attributes:
+- name: fuelColdStartup
+  type: Float
+  description: Verifiable Cold Start Up Fuel (MMBtu per start)
+- name: fuelHotStartup
+  type: Float
+  description: Verifiable Hot Start Up Fuel (MMBtu per start)
+- name: fuelIntermediateStartup
+  type: Float
+  description: Verifiable Intermediate Start Up Fuel (MMBtu per start)
+- name: fuelLowSustainedLimit
+  type: Float
+  description: Minimum-Energy fuel, MMBtu/MWh
+- name: gasPercentColdStartup
+  type: PerCent
+  description: Percentage of Fuel Index Price (gas) for cold startup
+- name: gasPercentHotStartup
+  type: PerCent
+  description: Percentage of Fuel Index Price (gas) for hot startup
+- name: gasPercentIntermediateStartup
+  type: PerCent
+  description: Percentage of Fuel Index Price (gas) for intermediate startup
+- name: gasPercentLowSustainedLimit
+  type: PerCent
+  description: Percentage of FIP (gas) for operating at LSL
+- name: oilPercentColdStartup
+  type: PerCent
+  description: Percentage of Fuel Oil Price (FOP) for cold startup
+- name: oilPercentHotStartup
+  type: PerCent
+  description: Percentage of Fuel Oil Price (FOP) for hot startup
+- name: oilPercentIntermediateStartup
+  type: PerCent
+  description: Percentage of Fuel Oil Price (FOP) for intermediate startup
+- name: oilPercentLowSustainedLimit
+  type: PerCent
+  description: Percentage of FOP (oil) for operating at LSL
+- name: solidfuelPercentColdStartup
+  type: PerCent
+  description: Percentage of Solid Fuel for cold startup
+- name: solidfuelPercentHotStartup
+  type: PerCent
+  description: Percentage of Solid Fuel for hot startup
+- name: solidfuelPercentIntermediateStartup
+  type: PerCent
+  description: Percentage of Solid Fuel for intermedite startup
+- name: solidfuelPercentLowSustainedLimit
+  type: PerCent
+  description: Percentage of Solid Fuel for operating at LSL
+associations:
+- source: ResourceStartupCost
+  target: ResourceVerifiableCosts
+  sourceCardinality: 0..*
+  sourceName: ResourceStartupCost
+  targetCardinality: "1"
+  targetName: ResourceVerifiableCosts

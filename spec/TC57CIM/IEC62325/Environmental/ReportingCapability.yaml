@@ -1,0 +1,31 @@
+name: ReportingCapability
+description: <font color="#0f0f0f">Definition of one set of reporting capabilities for this monitoring station. The associated
+  EnvironmentalValueSets describe the maximum range of possible environmental values the station is capable of returning.  This
+  attribute is intended primarily to assist a utility in managing its stations. </font>
+attributes:
+- name: reportingIntervalPeriod
+  type: Integer
+  description: Number of units of time making up reporting period.
+- name: reportingIntervalType
+  type: CalculationIntervalUnitKind
+  description: Unit of time in which reporting period is expressed.
+- name: reportingMethod
+  type: ReportingMethodKind
+  description: Indicates how the weather station reports observations.
+associations:
+- source: ReportingCapability
+  target: EnvironmentalMonitoringStation
+  sourceCardinality: 0..*
+  sourceName: ReportingCapability
+  sourceDescription: One of the reporting capabilities of this monitoring station.
+  targetCardinality: "1"
+  targetName: EnvironmentalMonitoringStation
+  targetDescription: The environmental monitoring station to which this set of reporting capabilities belong.
+- source: ReportingCapability
+  target: EnvironmentalAnalog
+  sourceCardinality: 0..1
+  sourceName: ReportingCapability
+  sourceDescription: The reporting capability this environmental value set helps define.
+  targetCardinality: 0..*
+  targetName: EnvironmentalAnalog
+  targetDescription: One of the environmental value sets expressing one of the reporting capabilities.

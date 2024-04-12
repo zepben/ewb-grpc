@@ -1,0 +1,15 @@
+name: EnergyComponent
+ancestors:
+- IdentifiedObject
+descendents:
+- ProportionalDistributionComponent
+- BlockDispatchComponent
+associations:
+- source: EnergyComponent
+  target: EnergyGroup
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: EnergyComponent
+  target: EnergyConnection
+  sourceCardinality: 0..*
+  targetCardinality: "1"

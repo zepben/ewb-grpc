@@ -1,0 +1,50 @@
+name: MajorChargeGroup
+description: 'A Major Charge Group is the same as Invoice Type which provides the highest level of grouping for charge types
+  configuration. Examples: Market, FERC, RMR.'
+attributes:
+- name: effectiveDate
+  type: DateTime
+- name: frequencyType
+  type: String
+- name: invoiceType
+  type: String
+- name: requireAutorun
+  type: String
+- name: revisionNumber
+  type: String
+  description: Revision number for the major charge group
+- name: runType
+  type: String
+- name: runVersion
+  type: String
+- name: terminationDate
+  type: DateTime
+ancestors:
+- IdentifiedObject
+associations:
+- source: MajorChargeGroup
+  target: ChargeType
+  sourceCardinality: 0..*
+  sourceName: MajorChargeGroup
+  sourceDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
+  targetCardinality: 0..*
+  targetName: ChargeType
+  targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
+- source: MajorChargeGroup
+  target: MarketScheduledEvent
+  sourceCardinality: 0..1
+  sourceName: MajorChargeGroup
+  targetCardinality: 0..*
+  targetName: MktScheduledEvent
+- source: MajorChargeGroup
+  target: Settlement
+  sourceCardinality: 1..*
+  sourceName: MajorChargeGroup
+  targetCardinality: 0..*
+  targetName: Settlement
+- source: MajorChargeGroup
+  target: MarketInvoice
+  sourceCardinality: 1..*
+  sourceName: MajorChargeGroup
+  targetCardinality: 0..*
+  targetName: MarketInvoice

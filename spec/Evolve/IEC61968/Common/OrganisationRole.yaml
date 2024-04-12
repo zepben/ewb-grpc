@@ -1,0 +1,14 @@
+name: OrganisationRole
+description: Identifies a way in which an organisation may participate in the utility enterprise (e.g., customer, manufacturer,
+  etc).
+ancestors:
+- IdentifiedObject
+descendents:
+- Customer
+- AssetOrganisationRole
+associations:
+- source: OrganisationRole
+  target: Organisation
+  targetCardinality: 0..1
+  targetName: Organisation
+  targetDescription: Organisation having this role.

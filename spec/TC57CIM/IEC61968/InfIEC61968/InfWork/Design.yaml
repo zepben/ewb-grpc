@@ -1,0 +1,65 @@
+name: Design
+description: |-
+  A design for consideration by customers, potential customers, or internal work.
+  Note that the Version of design is the revision attribute that is inherited from Document.
+attributes:
+- name: costEstimate
+  type: Money
+  description: Estimated cost (not price) of design.
+- name: kind
+  type: DesignKind
+  description: Kind of this design.
+- name: price
+  type: Money
+  description: ' Price to customer for implementing design.'
+ancestors:
+- WorkDocument
+associations:
+- source: Design
+  target: OldWorkTask
+  sourceCardinality: 0..1
+  sourceName: Design
+  targetCardinality: 0..*
+  targetName: WorkTasks
+- source: Design
+  target: WorkCostDetail
+  sourceCardinality: 0..1
+  sourceName: Design
+  targetCardinality: 0..*
+  targetName: WorkCostDetails
+- source: Design
+  target: ErpBOM
+  sourceCardinality: 0..1
+  sourceName: Design
+  targetCardinality: 0..*
+  targetName: ErpBOMs
+- source: Design
+  target: ConditionFactor
+  sourceCardinality: 0..*
+  sourceName: Designs
+  targetCardinality: 0..*
+  targetName: ConditionFactors
+- source: Design
+  target: Work
+  sourceCardinality: 0..*
+  sourceName: Designs
+  targetCardinality: 0..1
+  targetName: Work
+- source: Design
+  target: ErpQuoteLineItem
+  sourceCardinality: 0..1
+  sourceName: Design
+  targetCardinality: 0..1
+  targetName: ErpQuoteLineItem
+- source: Design
+  target: DesignLocation
+  sourceCardinality: 1..*
+  sourceName: Designs
+  targetCardinality: 0..*
+  targetName: DesignLocations
+- source: Design
+  target: DesignLocationCU
+  sourceCardinality: 0..*
+  sourceName: Designs
+  targetCardinality: 0..*
+  targetName: DesignLocationsCUs

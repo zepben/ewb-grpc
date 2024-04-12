@@ -1,0 +1,32 @@
+name: WindContQPQULimIEC
+description: |-
+  QP and QU limitation model.
+  Reference: IEC 61400-27-1:2015, 5.6.5.10.
+attributes:
+- name: tpfiltql
+  type: Seconds
+  description: Power measurement filter time constant for Q capacity (<i>T</i><i><sub>pfiltql</sub></i>) (&gt;= 0). It is
+    a type-dependent parameter.
+- name: tufiltql
+  type: Seconds
+  description: Voltage measurement filter time constant for Q capacity (<i>T</i><i><sub>ufiltql</sub></i>) (&gt;= 0). It is
+    a type-dependent parameter.
+ancestors:
+- IdentifiedObject
+associations:
+- source: WindContQPQULimIEC
+  target: WindTurbineType3or4IEC
+  sourceCardinality: 0..1
+  sourceName: WindContQPQULimIEC
+  sourceDescription: QP and QU limitation model associated with this wind generator type 3 or type 4 model.
+  targetCardinality: 0..1
+  targetName: WindTurbineType3or4IEC
+  targetDescription: Wind generator type 3 or type 4 model with which this QP and QU limitation model is associated.
+- source: WindContQPQULimIEC
+  target: WindDynamicsLookupTable
+  sourceCardinality: 0..1
+  sourceName: WindContQPQULimIEC
+  sourceDescription: The QP and QU limitation model with which this wind dynamics lookup table is associated.
+  targetCardinality: 1..*
+  targetName: WindDynamicsLookupTable
+  targetDescription: The wind dynamics lookup table associated with this QP and QU limitation model.

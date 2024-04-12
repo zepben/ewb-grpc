@@ -1,0 +1,33 @@
+name: DERMonitorableParameter
+attributes:
+- name: DERParameter
+  type: DERParameterKind
+- name: flowDirection
+  type: FlowDirectionKind
+- name: yMultiplier
+  type: UnitMultiplier
+- name: yUnit
+  type: DERUnitSymbol
+- name: yUnitInstalledMax
+  type: Float
+- name: yUnitInstalledMin
+  type: Float
+associations:
+- source: DERMonitorableParameter
+  target: DispatchSchedule
+  sourceCardinality: "1"
+  sourceName: DERMonitorableParameter
+  targetCardinality: 0..*
+  targetName: DispatchSchedule
+- source: DERMonitorableParameter
+  target: EndDeviceGroup
+  sourceCardinality: 0..*
+  sourceName: DERMonitorableParameter
+  targetCardinality: 0..*
+  targetName: EndDeviceGroup
+- source: DERMonitorableParameter
+  target: DERCurveData
+  sourceCardinality: "1"
+  sourceName: DERMonitorableParameter
+  targetCardinality: 0..1
+  targetName: DERCurveData

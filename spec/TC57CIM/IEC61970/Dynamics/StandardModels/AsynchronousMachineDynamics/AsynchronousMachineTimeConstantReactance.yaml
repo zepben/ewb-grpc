@@ -1,0 +1,29 @@
+name: AsynchronousMachineTimeConstantReactance
+description: "Parameter details:\n<ol>\n\t<li>If <i>X'' </i>=<i> X'</i>, a single cage (one equivalent rotor winding per axis)\
+  \ is modelled.</li>\n\t<li>The “<i>p</i>” in the attribute names is a substitution for a “prime” in the usual parameter\
+  \ notation, e.g. <i>tpo</i> refers to <i>T'o</i>.</li>\n</ol>\nThe parameters used for models expressed in time constant\
+  \ reactance form include:\n- RotatingMachine.ratedS (<i>MVAbase</i>);\n- RotatingMachineDynamics.damping (<i>D</i>);\n-\
+  \ RotatingMachineDynamics.inertia (<i>H</i>);\n- RotatingMachineDynamics.saturationFactor (<i>S1</i>);\n- RotatingMachineDynamics.saturationFactor120\
+  \ (<i>S12</i>);\n- RotatingMachineDynamics.statorLeakageReactance (<i>Xl</i>);\n- RotatingMachineDynamics.statorResistance\
+  \ (<i>Rs</i>);\n- .xs (<i>Xs</i>);\n- .xp (<i>X'</i>);\n- .xpp (<i>X''</i>);\n- .tpo (<i>T'o</i>);\n- .tppo (<i>T''o</i>)."
+attributes:
+- name: tpo
+  type: Seconds
+  description: Transient rotor time constant (<i>T'o</i>) (&gt; AsynchronousMachineTimeConstantReactance.tppo).  Typical value
+    = 5.
+- name: tppo
+  type: Seconds
+  description: Subtransient rotor time constant (<i>T''o</i>) (&gt; 0).  Typical value = 0,03.
+- name: xp
+  type: PU
+  description: Transient reactance (unsaturated) (<i>X'</i>) (&gt;= AsynchronousMachineTimeConstantReactance.xpp).  Typical
+    value = 0,5.
+- name: xpp
+  type: PU
+  description: Subtransient reactance (unsaturated) (<i>X''</i>) (&gt; RotatingMachineDynamics.statorLeakageReactance).  Typical
+    value = 0,2.
+- name: xs
+  type: PU
+  description: Synchronous reactance (<i>Xs</i>) (&gt;= AsynchronousMachineTimeConstantReactance.xp).  Typical value = 1,8.
+ancestors:
+- AsynchronousMachineDynamics

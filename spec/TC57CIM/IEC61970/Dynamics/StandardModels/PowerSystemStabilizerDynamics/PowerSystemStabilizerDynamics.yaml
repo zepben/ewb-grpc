@@ -1,0 +1,42 @@
+name: PowerSystemStabilizerDynamics
+description: Power system stabilizer function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
+  by definition of a user-defined model.</font>
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- PowerSystemStabilizerUserDefined
+- PssWECC
+- PssSTAB2A
+- PssSK
+- PssSH
+- PssSB4
+- PssRQB
+- PssPTIST3
+- PssPTIST1
+- PssELIN2
+- Pss5
+- Pss2ST
+- Pss2B
+- Pss1A
+- Pss1
+- PssIEEE4B
+- PssIEEE3B
+- PssIEEE2B
+- PssIEEE1A
+associations:
+- source: PowerSystemStabilizerDynamics
+  target: ExcitationSystemDynamics
+  sourceCardinality: 0..1
+  sourceName: PowerSystemStabilizerDynamics
+  sourceDescription: Power system stabilizer model associated with this excitation system model.
+  targetCardinality: "1"
+  targetName: ExcitationSystemDynamics
+  targetDescription: Excitation system model with which this power system stabilizer model is associated.
+- source: PowerSystemStabilizerDynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  sourceName: PowerSystemStabilizerDynamics
+  sourceDescription: Power system stabilizer model using this remote input signal.
+  targetCardinality: 0..*
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this power system stabilizer model.

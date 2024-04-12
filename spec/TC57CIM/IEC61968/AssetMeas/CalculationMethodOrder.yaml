@@ -1,0 +1,23 @@
+name: CalculationMethodOrder
+description: The order of this calculation method in a hierarchy of calculation methods.
+attributes:
+- name: order
+  type: Integer
+  description: Order of the statistical calculation method within the calculation method hierarchy.
+associations:
+- source: CalculationMethodOrder
+  target: CalculationMethodHierarchy
+  sourceCardinality: 0..*
+  sourceName: CalculationMethodOrder
+  sourceDescription: Order of a statistical calculation associated with this calculation method hierarchy.
+  targetCardinality: "1"
+  targetName: CalculationMethodHierarchy
+  targetDescription: The calculation method hierarchy of which this order of statistical calculation is a member.
+- source: CalculationMethodOrder
+  target: StatisticalCalculation
+  sourceCardinality: 0..*
+  sourceName: CalculationMethodOrder
+  sourceDescription: The order in which this statistical calculation is done.
+  targetCardinality: "1"
+  targetName: StatisicalCalculation
+  targetDescription: The statistical calculation done at this order.

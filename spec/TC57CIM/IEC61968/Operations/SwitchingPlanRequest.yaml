@@ -1,0 +1,47 @@
+name: SwitchingPlanRequest
+description: A document used to request that a switching plan be created for a particular purpose.
+attributes:
+- name: comment
+  type: String
+  description: Free-form text to describe the request
+- name: equipmentToBeIsolated
+  type: String
+  description: free-form list of the equipment to be isolated by the switching
+- name: forwardSwitchingDateTimeInterval
+  type: DateTimeInterval
+- name: groundingPoints
+  type: String
+  description: free-form list of equipment to be grounded or other actions to be taken in order to accomplish the required
+    grounding.
+- name: isolationArea
+  type: String
+  description: free-form description of the area to be isolated by the switching
+- name: isolationPoints
+  type: String
+  description: free-form list of equipment to be operated or other actions to be taken in order to accomplish the required
+    isolation.
+- name: outageDateTimeInterval
+  type: DateTimeInterval
+  description: The window of time during which one or more customers will be de-energized during execution of the switching
+    plan.
+- name: purpose
+  type: String
+- name: reverseSwitchingDateTimeInterval
+  type: DateTimeInterval
+- name: switchingRequestDetails
+  type: String
+ancestors:
+- Document
+associations:
+- source: SwitchingPlanRequest
+  target: SwitchingPlan
+  sourceCardinality: 0..1
+  sourceName: SwitchingPlanRequest
+  targetCardinality: 0..*
+  targetName: SwitchingPlan
+- source: SwitchingPlanRequest
+  target: Organisation
+  sourceCardinality: 0..*
+  sourceName: SwitchingPlanRequest
+  targetCardinality: 0..1
+  targetName: RequestingOrganization

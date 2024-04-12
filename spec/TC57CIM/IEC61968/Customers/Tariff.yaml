@@ -1,0 +1,30 @@
+name: Tariff
+description: Document, approved by the responsible regulatory agency, listing the terms and conditions, including a schedule
+  of prices, under which utility services will be provided. It has a unique number within the state or province. For rate
+  schedules it is frequently allocated by the affiliated Public utilities commission (PUC).
+attributes:
+- name: endDate
+  type: Date
+  description: (if tariff became inactive) Date tariff was terminated.
+- name: startDate
+  type: Date
+  description: Date tariff was activated.
+ancestors:
+- Document
+associations:
+- source: Tariff
+  target: TariffProfile
+  sourceCardinality: 0..*
+  sourceName: Tariffs
+  sourceDescription: All tariffs defined by this tariff profile.
+  targetCardinality: 0..*
+  targetName: TariffProfiles
+  targetDescription: All tariff profiles using this tariff.
+- source: Tariff
+  target: PricingStructure
+  sourceCardinality: 0..*
+  sourceName: Tariffs
+  sourceDescription: All tariffs used by this pricing structure.
+  targetCardinality: 0..*
+  targetName: PricingStructures
+  targetDescription: All pricing structures using this tariff.

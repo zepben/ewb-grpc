@@ -1,0 +1,19 @@
+name: TradingHubValues
+description: Models prices at Trading Hubs.
+attributes:
+- name: price
+  type: Float
+  description: Utilizes the Market type. For DA, the price is hourly. For RTM the price is a 5 minute price.
+associations:
+- source: TradingHubValues
+  target: AggregatedPnode
+  sourceCardinality: 0..*
+  sourceName: TradingHubValues
+  targetCardinality: "1"
+  targetName: AggregatedPnode
+- source: TradingHubValues
+  target: TradingHubPrice
+  sourceCardinality: 1..*
+  sourceName: TradingHubValues
+  targetCardinality: "1"
+  targetName: TradingHubPrice

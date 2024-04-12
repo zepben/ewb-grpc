@@ -1,0 +1,134 @@
+name: GovSteam1
+description: Steam turbine governor, based on the GovSteamIEEE1 (with optional deadband and nonlinear valve gain added).
+attributes:
+- name: db1
+  type: Frequency
+  description: Intentional deadband width (<i>db1</i>).  Unit = Hz.  Typical value = 0.
+- name: db2
+  type: ActivePower
+  description: Unintentional deadband (<i>db2</i>).  Unit = MW.  Typical value = 0.
+- name: eps
+  type: Frequency
+  description: Intentional db hysteresis (<i>eps</i>).  Unit = Hz.  Typical value = 0.
+- name: gv1
+  type: PU
+  description: Nonlinear gain valve position point 1 (<i>GV1</i>).  Typical value = 0.
+- name: gv2
+  type: PU
+  description: Nonlinear gain valve position point 2 (<i>GV2</i>).  Typical value = 0,4.
+- name: gv3
+  type: PU
+  description: Nonlinear gain valve position point 3 (<i>GV3</i>).  Typical value = 0,5.
+- name: gv4
+  type: PU
+  description: Nonlinear gain valve position point 4 (<i>GV4</i>).  Typical value = 0,6.
+- name: gv5
+  type: PU
+  description: Nonlinear gain valve position point 5 (<i>GV5</i>).  Typical value = 1.
+- name: gv6
+  type: PU
+  description: Nonlinear gain valve position point 6 (<i>GV6</i>).  Typical value = 0.
+- name: k
+  type: PU
+  description: Governor gain (reciprocal of droop) (<i>K</i>) (&gt; 0).  Typical value = 25.
+- name: k1
+  type: Float
+  description: Fraction of HP shaft power after first boiler pass (<i>K1</i>).  Typical value = 0,2.
+- name: k2
+  type: Float
+  description: Fraction of LP shaft power after first boiler pass (<i>K2</i>).  Typical value = 0.
+- name: k3
+  type: Float
+  description: Fraction of HP shaft power after second boiler pass (<i>K3</i>).  Typical value = 0,3.
+- name: k4
+  type: Float
+  description: Fraction of LP shaft power after second boiler pass (<i>K4</i>).  Typical value = 0.
+- name: k5
+  type: Float
+  description: Fraction of HP shaft power after third boiler pass (<i>K5</i>).  Typical value = 0,5.
+- name: k6
+  type: Float
+  description: Fraction of LP shaft power after third boiler pass (<i>K6</i>).  Typical value = 0.
+- name: k7
+  type: Float
+  description: Fraction of HP shaft power after fourth boiler pass (<i>K7</i>).  Typical value = 0.
+- name: k8
+  type: Float
+  description: Fraction of LP shaft power after fourth boiler pass (<i>K8</i>).  Typical value = 0.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pgv1
+  type: PU
+  description: Nonlinear gain power value point 1 (<i>Pgv1</i>).  Typical value = 0.
+- name: pgv2
+  type: PU
+  description: Nonlinear gain power value point 2 (<i>Pgv2</i>).  Typical value = 0,75.
+- name: pgv3
+  type: PU
+  description: Nonlinear gain power value point 3 (<i>Pgv3</i>).  Typical value = 0,91.
+- name: pgv4
+  type: PU
+  description: Nonlinear gain power value point 4 (<i>Pgv4</i>).  Typical value = 0,98.
+- name: pgv5
+  type: PU
+  description: Nonlinear gain power value point 5 (<i>Pgv5</i>).  Typical value = 1.
+- name: pgv6
+  type: PU
+  description: Nonlinear gain power value point 6 (<i>Pgv6</i>).  Typical value = 0.
+- name: pmax
+  type: PU
+  description: Maximum valve opening (<i>Pmax</i>) (&gt; GovSteam1.pmin).  Typical value = 1.
+- name: pmin
+  type: PU
+  description: Minimum valve opening (<i>Pmin</i>) (&gt;= 0 and &lt; GovSteam1.pmax).  Typical value = 0.
+- name: sdb1
+  type: Boolean
+  description: |-
+    Intentional deadband indicator.
+    true = intentional deadband is applied
+    false = intentional deadband is not applied.
+    Typical value = true.
+- name: sdb2
+  type: Boolean
+  description: |-
+    Unintentional deadband location.
+    true = intentional deadband is applied before point "A"
+    false = intentional deadband is applied after point "A".
+    Typical value = true.
+- name: t1
+  type: Seconds
+  description: Governor lag time constant (<i>T1</i>) (&gt;= 0).  Typical value = 0.
+- name: t2
+  type: Seconds
+  description: Governor lead time constant (<i>T2</i>) (&gt;= 0).  Typical value = 0.
+- name: t3
+  type: Seconds
+  description: Valve positioner time constant (<i>T3) </i>(&gt; 0).  Typical value = 0,1.
+- name: t4
+  type: Seconds
+  description: Inlet piping/steam bowl time constant (<i>T4</i>) (&gt;= 0).  Typical value = 0,3.
+- name: t5
+  type: Seconds
+  description: Time constant of second boiler pass (<i>T5</i>) (&gt;= 0).  Typical value = 5.
+- name: t6
+  type: Seconds
+  description: Time constant of third boiler pass (<i>T6</i>) (&gt;= 0).  Typical value = 0,5.
+- name: t7
+  type: Seconds
+  description: Time constant of fourth boiler pass (<i>T7</i>) (&gt;= 0).  Typical value = 0.
+- name: uc
+  type: Float
+  description: Maximum valve closing velocity (<i>Uc</i>) (&lt; 0).  Unit = PU / s.  Typical value = -10.
+- name: uo
+  type: Float
+  description: Maximum valve opening velocity (<i>Uo</i>) (&gt; 0).  Unit = PU / s.  Typical value = 1.
+- name: valve
+  type: Boolean
+  description: |-
+    Nonlinear valve characteristic.
+    true = nonlinear valve characteristic is used
+    false = nonlinear valve characteristic is not used.
+    Typical value = true.
+ancestors:
+- TurbineGovernorDynamics

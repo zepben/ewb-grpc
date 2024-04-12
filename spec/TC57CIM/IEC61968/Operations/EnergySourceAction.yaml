@@ -1,0 +1,17 @@
+name: EnergySourceAction
+description: Action on energy source as a switching step.
+attributes:
+- name: kind
+  type: TempEquipActionKind
+  description: Switching action to perform.
+ancestors:
+- SwitchingAction
+associations:
+- source: EnergySourceAction
+  target: EnergySource
+  sourceCardinality: 0..1
+  sourceName: EnergySourceAction
+  sourceDescription: Action taken with this energy source.
+  targetCardinality: 0..1
+  targetName: EnergySource
+  targetDescription: Energy source on which this action is taken.

@@ -1,0 +1,26 @@
+name: UnderexcLimX2
+description: <font color="#0f0f0f">Westinghouse minimum excitation limiter.</font>
+attributes:
+- name: kf2
+  type: PU
+  description: Differential gain (<i>K</i><i><sub>F2</sub></i>).
+- name: km
+  type: PU
+  description: Minimum excitation limit gain (<i>K</i><i><sub>M</sub></i>).
+- name: melmax
+  type: PU
+  description: Minimum excitation limit value (<i>MELMAX</i>).
+- name: qo
+  type: PU
+  description: Excitation centre setting (<i>Q</i><i><sub>O</sub></i>).
+- name: r
+  type: PU
+  description: Excitation radius (<i>R</i>).
+- name: tf2
+  type: Seconds
+  description: Differential time constant (<i>T</i><i><sub>F2</sub></i>) (&gt;= 0).
+- name: tm
+  type: Seconds
+  description: Minimum excitation limit time constant (<i>T</i><i><sub>M</sub></i>) (&gt;= 0).
+ancestors:
+- UnderexcitationLimiterDynamics

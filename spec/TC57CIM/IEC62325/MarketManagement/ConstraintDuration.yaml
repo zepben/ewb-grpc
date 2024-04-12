@@ -1,0 +1,16 @@
+name: ConstraintDuration
+description: Duration constraint to activate, to put in operation, to deactivate, ... a given event.
+attributes:
+- name: duration
+  type: Duration
+  description: The duration of the constraint.
+- name: type
+  type: String
+  description: The type of the constraint.
+associations:
+- source: ConstraintDuration
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: ConstraintDuration
+  targetCardinality: 0..*
+  targetName: TimeSeries

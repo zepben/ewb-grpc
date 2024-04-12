@@ -1,0 +1,34 @@
+name: TransmissionReservation
+description: A transmission reservation is obtained from the OASIS system to reserve transmission for a specified time period,
+  transmission path and transmission product.
+associations:
+- source: TransmissionReservation
+  target: TransactionBid
+  sourceCardinality: 0..1
+  sourceName: TransmissionReservation
+  targetCardinality: 0..1
+  targetName: TransactionBid
+- source: TransmissionReservation
+  target: EnergyTransaction
+  sourceCardinality: 0..1
+  sourceName: TransmissionReservation
+  targetCardinality: 0..1
+  targetName: EnergyTransaction
+- source: TransmissionReservation
+  target: TransmissionPath
+  sourceCardinality: 0..*
+  sourceName: TransmissionReservation
+  targetCardinality: "1"
+  targetName: TransmissionPath
+- source: TransmissionReservation
+  target: ServicePoint
+  sourceCardinality: 0..*
+  sourceName: SourceReservation
+  targetCardinality: 0..1
+  targetName: Source
+- source: TransmissionReservation
+  target: ServicePoint
+  sourceCardinality: 0..*
+  sourceName: SinkReservation
+  targetCardinality: 0..1
+  targetName: Sink

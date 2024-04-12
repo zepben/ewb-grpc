@@ -1,0 +1,87 @@
+name: EnergyConsumer
+description: |-
+  Generic user of energy - a  point of consumption on the power system model.
+  EnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.
+attributes:
+- name: customerCount
+  type: Integer
+  description: Number of individual customers represented by this demand.
+- name: grounded
+  type: Boolean
+  description: Used for Yn and Zn connections. True if the neutral is solidly grounded.
+- name: pfixed
+  type: ActivePower
+  description: Active power of the load that is a fixed quantity and does not vary as load group value varies. Load sign convention
+    is used, i.e. positive sign means flow out from a node.
+- name: pfixedPct
+  type: PerCent
+  description: Fixed active power as a percentage of load group fixed active power. Used to represent the time-varying components.  Load
+    sign convention is used, i.e. positive sign means flow out from a node.
+- name: phaseConnection
+  type: PhaseShuntConnectionKind
+  description: The type of phase connection, such as wye or delta.
+- name: qfixed
+  type: ReactivePower
+  description: Reactive power of the load that is a fixed quantity and does not vary as load group value varies. Load sign
+    convention is used, i.e. positive sign means flow out from a node.
+- name: qfixedPct
+  type: PerCent
+  description: Fixed reactive power as a percentage of load group fixed reactive power. Used to represent the time-varying
+    components.  Load sign convention is used, i.e. positive sign means flow out from a node.
+- name: p
+  type: ActivePower
+  description: |-
+    Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
+ancestors:
+- EnergyConnection
+descendents:
+- NonConformLoad
+- StationSupply
+- ConformLoad
+associations:
+- source: EnergyConsumer
+  target: LoadResponseCharacteristic
+  sourceCardinality: 0..*
+  sourceName: EnergyConsumer
+  sourceDescription: The set of loads that have the response characteristics.
+  targetCardinality: 0..1
+  targetName: LoadResponse
+  targetDescription: The load response characteristic of this load.  If missing, this load is assumed to be constant power.
+- source: EnergyConsumer
+  target: EnergyConsumerPhase
+  sourceCardinality: "1"
+  sourceName: EnergyConsumer
+  sourceDescription: The energy consumer to which this phase belongs.
+  targetCardinality: 0..*
+  targetName: EnergyConsumerPhase
+  targetDescription: The individual phase models for this energy consumer.
+- source: EnergyConsumer
+  target: EnergyConsumerAction
+  sourceCardinality: 0..1
+  sourceName: EnergyConsumer
+  targetCardinality: 0..1
+  targetName: EnergyConsumerAction
+- source: EnergyConsumer
+  target: PowerCutZone
+  sourceCardinality: 1..*
+  sourceName: EnergyConsumers
+  sourceDescription: Energy consumer is assigned to the power cut zone.
+  targetCardinality: 0..1
+  targetName: PowerCutZone
+  targetDescription: The  energy consumer is assigned to this power cut zone.
+- source: EnergyConsumer
+  target: LoadDynamics
+  sourceCardinality: 0..*
+  sourceName: EnergyConsumer
+  sourceDescription: Energy consumer to which this dynamics load model applies.
+  targetCardinality: 0..1
+  targetName: LoadDynamics
+  targetDescription: Load dynamics model used to describe dynamic behaviour of this energy consumer.

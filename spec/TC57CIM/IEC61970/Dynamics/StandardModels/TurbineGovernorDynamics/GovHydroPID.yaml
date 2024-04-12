@@ -1,0 +1,106 @@
+name: GovHydroPID
+description: PID governor and turbine.
+attributes:
+- name: aturb
+  type: PU
+  description: Turbine numerator multiplier (<i>Aturb</i>) (see parameter detail 3).  Typical value -1.
+- name: bturb
+  type: PU
+  description: Turbine denominator multiplier (<i>Bturb</i>) (see parameter detail 3).  Typical value = 0,5.
+- name: db1
+  type: Frequency
+  description: Intentional dead-band width (<i>db1</i>).  Unit = Hz.  Typical value = 0.
+- name: db2
+  type: ActivePower
+  description: Unintentional dead-band (<i>db2</i>).  Unit = MW.  Typical value = 0.
+- name: eps
+  type: Frequency
+  description: Intentional db hysteresis (<i>eps</i>).  Unit = Hz.  Typical value = 0.
+- name: gv1
+  type: PU
+  description: Nonlinear gain point 1, PU gv (<i>Gv1</i>).  Typical value = 0.
+- name: gv2
+  type: PU
+  description: Nonlinear gain point 2, PU gv (<i>Gv2</i>).  Typical value = 0.
+- name: gv3
+  type: PU
+  description: Nonlinear gain point 3, PU gv (<i>Gv3</i>).  Typical value = 0.
+- name: gv4
+  type: PU
+  description: Nonlinear gain point 4, PU gv (<i>Gv4</i>).  Typical value = 0.
+- name: gv5
+  type: PU
+  description: Nonlinear gain point 5, PU gv (<i>Gv5</i>).  Typical value = 0.
+- name: gv6
+  type: PU
+  description: Nonlinear gain point 6, PU gv (<i>Gv6</i>).  Typical value = 0.
+- name: inputSignal
+  type: Boolean
+  description: "Input signal switch (<i>Flag</i>). \ntrue = <i>Pe</i> input is used\nfalse = feedback is received from <i>CV</i>.\n\
+    <i>Flag</i> is normally dependent on <i>Tt</i>.  If <i>Tt </i>is zero, <i>Flag</i> is set to false. If <i>Tt</i> is not\
+    \ zero, <i>Flag</i> is set to true.  \nTypical value = true."
+- name: kd
+  type: PU
+  description: Derivative gain (<i>Kd</i>).  Typical value = 1,11.
+- name: kg
+  type: PU
+  description: Gate servo gain (<i>Kg</i>).  Typical value = 2,5.
+- name: ki
+  type: PU
+  description: Integral gain (<i>Ki</i>).  Typical value = 0,36.
+- name: kp
+  type: PU
+  description: Proportional gain (<i>Kp</i>).  Typical value = 0,1.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pgv1
+  type: PU
+  description: Nonlinear gain point 1, PU power (<i>Pgv1</i>).  Typical value = 0.
+- name: pgv2
+  type: PU
+  description: Nonlinear gain point 2, PU power (<i>Pgv2</i>).  Typical value = 0.
+- name: pgv3
+  type: PU
+  description: Nonlinear gain point 3, PU power (<i>Pgv3</i>).  Typical value = 0.
+- name: pgv4
+  type: PU
+  description: Nonlinear gain point 4, PU power (<i>Pgv4</i>).  Typical value = 0.
+- name: pgv5
+  type: PU
+  description: Nonlinear gain point 5, PU power (<i>Pgv5</i>).  Typical value = 0.
+- name: pgv6
+  type: PU
+  description: Nonlinear gain point 6, PU power (<i>Pgv6</i>).  Typical value = 0.
+- name: pmax
+  type: PU
+  description: Maximum gate opening, PU of MWbase (<i>Pmax</i>) (&gt; GovHydroPID.pmin).  Typical value = 1.
+- name: pmin
+  type: PU
+  description: Minimum gate opening, PU of MWbase (<i>Pmin</i>) (&lt; GovHydroPID.pmax).  Typical value = 0.
+- name: r
+  type: PU
+  description: Steady state droop (<i>R</i>).  Typical value = 0,05.
+- name: td
+  type: Seconds
+  description: Input filter time constant (<i>Td</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0.
+- name: tf
+  type: Seconds
+  description: Washout time constant (<i>Tf</i>) (&gt;= 0).  Typical value = 0,1.
+- name: tp
+  type: Seconds
+  description: Gate servo time constant (<i>Tp</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0,35.
+- name: tt
+  type: Seconds
+  description: Power feedback time constant (<i>Tt</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0,02.
+- name: tturb
+  type: Seconds
+  description: Turbine time constant (<i>Tturb</i>) (&gt;= 0). See Parameter detail 3.  Typical value = 0,8.
+- name: velcl
+  type: Float
+  description: Maximum gate closing velocity (<i>Velcl</i>).  Unit = PU / s.  Typical value = -0,14.
+- name: velop
+  type: Float
+  description: Maximum gate opening velocity (<i>Velop</i>).  Unit = PU / s.  Typical value = 0,09.
+ancestors:
+- TurbineGovernorDynamics

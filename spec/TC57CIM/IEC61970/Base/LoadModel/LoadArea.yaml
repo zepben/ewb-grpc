@@ -1,0 +1,14 @@
+name: LoadArea
+description: The class is the root or first level in a hierarchical structure for grouping of loads for the purpose of load
+  flow load scaling.
+ancestors:
+- EnergyArea
+associations:
+- source: LoadArea
+  target: SubLoadArea
+  sourceCardinality: "1"
+  sourceName: LoadArea
+  sourceDescription: The LoadArea where the SubLoadArea belongs.
+  targetCardinality: 1..*
+  targetName: SubLoadAreas
+  targetDescription: The SubLoadAreas in the LoadArea.

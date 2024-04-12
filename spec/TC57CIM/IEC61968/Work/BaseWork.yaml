@@ -1,0 +1,42 @@
+name: BaseWork
+description: Common representation for work and work tasks.
+attributes:
+- name: kind
+  type: WorkKind
+  description: Kind of work.
+- name: priority
+  type: Priority
+  description: Priority of work.
+- name: statusKind
+  type: WorkStatusKind
+  description: Kind of work status.
+ancestors:
+- Document
+descendents:
+- WorkTask
+- Work
+associations:
+- source: BaseWork
+  target: WorkActivityRecord
+  sourceCardinality: 0..1
+  sourceName: BaseWork
+  sourceDescription: Base work that this activity record tracks.
+  targetCardinality: 0..*
+  targetName: WorkActivityRecords
+  targetDescription: All activity records for this work or work task.
+- source: BaseWork
+  target: WorkLocation
+  sourceCardinality: 0..*
+  sourceName: BaseWorks
+  sourceDescription: All works/tasks at this location.
+  targetCardinality: 0..1
+  targetName: WorkLocation
+  targetDescription: Location for this work/task.
+- source: BaseWork
+  target: WorkTimeSchedule
+  sourceCardinality: 0..1
+  sourceName: BaseWork
+  sourceDescription: Time schedule for this work or work task.
+  targetCardinality: 0..*
+  targetName: TimeSchedules
+  targetDescription: All time schedules for this work or work task.

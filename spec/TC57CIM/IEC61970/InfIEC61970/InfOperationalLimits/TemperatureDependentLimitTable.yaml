@@ -1,0 +1,11 @@
+name: TemperatureDependentLimitTable
+description: This is a table lookup that provides limit values corresponding to a temperature input.
+ancestors:
+- EnvironmentalDependentLimit
+associations:
+- source: TemperatureDependentLimitTable
+  target: TemperatureDependentLimitPoint
+  sourceCardinality: "1"
+  sourceName: TemperatureDependentLimitTable
+  targetCardinality: 0..*
+  targetName: TemperatureLimitTablePoint

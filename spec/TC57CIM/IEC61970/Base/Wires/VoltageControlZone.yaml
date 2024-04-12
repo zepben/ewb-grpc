@@ -1,0 +1,22 @@
+name: VoltageControlZone
+description: An area of the power system network which is defined for secondary voltage control purposes. A voltage control
+  zone consists of a collection of substations with a designated bus bar section whose voltage will be controlled.
+ancestors:
+- PowerSystemResource
+associations:
+- source: VoltageControlZone
+  target: RegulationSchedule
+  sourceCardinality: 0..*
+  sourceName: VoltageControlZones
+  sourceDescription: A VoltageControlZone may have a  voltage regulation schedule.
+  targetCardinality: 0..1
+  targetName: RegulationSchedule
+  targetDescription: A VoltageControlZone may have a  voltage regulation schedule.
+- source: VoltageControlZone
+  target: BusbarSection
+  sourceCardinality: 0..1
+  sourceName: VoltageControlZone
+  sourceDescription: A VoltageControlZone is controlled by a designated BusbarSection.
+  targetCardinality: "1"
+  targetName: BusbarSection
+  targetDescription: A VoltageControlZone is controlled by a designated BusbarSection.

@@ -1,0 +1,15 @@
+name: Usage
+description: The way material and assets are used to perform a certain type of work task. The way is described in text in
+  the inheritied description attribute.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- WorkIdentifiedObject
+associations:
+- source: Usage
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  sourceName: Usages
+  targetCardinality: 0..1
+  targetName: WorkTask

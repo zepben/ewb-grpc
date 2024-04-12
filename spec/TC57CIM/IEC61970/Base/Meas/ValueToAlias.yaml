@@ -1,0 +1,17 @@
+name: ValueToAlias
+description: Describes the translation of one particular value into a name, e.g. 1 as "Open".
+attributes:
+- name: value
+  type: Integer
+  description: The value that is mapped.
+ancestors:
+- IdentifiedObject
+associations:
+- source: ValueToAlias
+  target: ValueAliasSet
+  sourceCardinality: 1..*
+  sourceName: Values
+  sourceDescription: The ValueToAlias mappings included in the set.
+  targetCardinality: "1"
+  targetName: ValueAliasSet
+  targetDescription: The ValueAliasSet having the ValueToAlias mappings.

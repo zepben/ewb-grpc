@@ -1,0 +1,69 @@
+name: SynchronousMachineTimeConstantReactance
+description: "Synchronous machine detailed modelling types are defined by the combination of the attributes SynchronousMachineTimeConstantReactance.modelType\
+  \ and SynchronousMachineTimeConstantReactance.rotorType.  \nParameter details:\n<ol>\n\t<li>The “p” in the time-related\
+  \ attribute names is a substitution for a “prime” in the usual parameter notation, e.g. tpdo refers to <i>T'do</i>.</li>\n\
+  \t<li>The parameters used for models expressed in time constant reactance form include:</li>\n</ol>\n- RotatingMachine.ratedS\
+  \ (<i>MVAbase</i>);\n- RotatingMachineDynamics.damping (<i>D</i>);\n- RotatingMachineDynamics.inertia (<i>H</i>);\n- RotatingMachineDynamics.saturationFactor\
+  \ (<i>S1</i>);\n- RotatingMachineDynamics.saturationFactor120 (<i>S12</i>);\n- RotatingMachineDynamics.statorLeakageReactance\
+  \ (<i>Xl</i>);\n- RotatingMachineDynamics.statorResistance (<i>Rs</i>);\n- SynchronousMachineTimeConstantReactance.ks (<i>Ks</i>);\n\
+  - SynchronousMachineDetailed.saturationFactorQAxis (<i>S1q</i>);\n- SynchronousMachineDetailed.saturationFactor120QAxis\
+  \ (<i>S12q</i>);\n- SynchronousMachineDetailed.efdBaseRatio;\n- SynchronousMachineDetailed.ifdBaseType;\n- .xDirectSync\
+  \ (<i>Xd</i>);\n- .xDirectTrans (<i>X'd</i>);\n- .xDirectSubtrans (<i>X''d</i>);\n- .xQuadSync (<i>Xq</i>);\n- .xQuadTrans\
+  \ (<i>X'q</i>);\n- .xQuadSubtrans (<i>X''q</i>);\n- .tpdo (<i>T'do</i>);\n- .tppdo (<i>T''do</i>);\n- .tpqo (<i>T'qo</i>);\n\
+  - .tppqo (<i>T''qo</i>);\n- .tc."
+attributes:
+- name: ks
+  type: Float
+  description: Saturation loading correction factor (<i>Ks</i>) (&gt;= 0).  Used only by type J model.  Typical value = 0.
+- name: modelType
+  type: SynchronousMachineModelKind
+  description: Type of synchronous machine model used in dynamic simulation applications.
+- name: rotorType
+  type: RotorKind
+  description: Type of rotor on physical machine.
+- name: tc
+  type: Seconds
+  description: Damping time constant for “Canay” reactance (&gt;= 0).  Typical value = 0.
+- name: tpdo
+  type: Seconds
+  description: Direct-axis transient rotor time constant (<i>T'do</i>) (&gt; SynchronousMachineTimeConstantReactance.tppdo).  Typical
+    value = 5.
+- name: tppdo
+  type: Seconds
+  description: Direct-axis subtransient rotor time constant (<i>T''do</i>) (&gt; 0).  Typical value = 0,03.
+- name: tppqo
+  type: Seconds
+  description: Quadrature-axis subtransient rotor time constant (<i>T''qo</i>) (&gt; 0). Typical value = 0,03.
+- name: tpqo
+  type: Seconds
+  description: Quadrature-axis transient rotor time constant (<i>T'qo</i>) (&gt; SynchronousMachineTimeConstantReactance.tppqo).
+    Typical value = 0,5.
+- name: xDirectSubtrans
+  type: PU
+  description: Direct-axis subtransient reactance (unsaturated) (<i>X''d</i>) (&gt; RotatingMachineDynamics.statorLeakageReactance).  Typical
+    value = 0,2.
+- name: xDirectSync
+  type: PU
+  description: Direct-axis synchronous reactance (<i>Xd</i>) (&gt;= SynchronousMachineTimeConstantReactance.xDirectTrans).
+    The quotient of a sustained value of that AC component of armature voltage that is produced by the total direct-axis flux
+    due to direct-axis armature current and the value of the AC component of this current, the machine running at rated speed.  Typical
+    value = 1,8.
+- name: xDirectTrans
+  type: PU
+  description: Direct-axis transient reactance (unsaturated) (<i>X'd</i>) (&gt;= SynchronousMachineTimeConstantReactance.xDirectSubtrans).  Typical
+    value = 0,5.
+- name: xQuadSubtrans
+  type: PU
+  description: Quadrature-axis subtransient reactance (<i>X''q</i>) (&gt; RotatingMachineDynamics.statorLeakageReactance).  Typical
+    value = 0,2.
+- name: xQuadSync
+  type: PU
+  description: |-
+    Quadrature-axis synchronous reactance (<i>Xq</i>) (&gt;= SynchronousMachineTimeConstantReactance.xQuadTrans).
+    The ratio of the component of reactive armature voltage, due to the quadrature-axis component of armature current, to this component of current, under steady state conditions and at rated frequency.  Typical value = 1,6.
+- name: xQuadTrans
+  type: PU
+  description: Quadrature-axis transient reactance (<i>X'q</i>) (&gt;= SynchronousMachineTimeConstantReactance.xQuadSubtrans).  Typical
+    value = 0,3.
+ancestors:
+- SynchronousMachineDetailed

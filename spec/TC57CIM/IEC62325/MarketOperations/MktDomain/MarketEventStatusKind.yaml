@@ -1,0 +1,19 @@
+name: MarketEventStatusKind
+description: Market event status types.
+attributes:
+- name: active
+  description: |-
+    The status of the event is currently in a active state.
+    Active (when sysdate is equal or greater than to planned start time)
+- name: cancelled
+  description: |-
+    The status of the event is currently in a cancelled state.
+    Cancelled (stopped before planned start time or planned end time)
+- name: completed
+  description: |-
+    The status of the event is currently in a completed state.
+    Complete (when sysdate is equal to the release time)
+- name: planned
+  description: |-
+    The status of the event is currently in a planned state.
+    Planned (sysdate is less than planned start time)

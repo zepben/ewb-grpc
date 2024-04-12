@@ -1,0 +1,70 @@
+name: AggregatedPnode
+description: An aggregated pricing node is a specialized type of pricing node used to model items such as System Zone, Default
+  Price Zone, Custom Price Zone, Control Area, Aggregated Generation, Aggregated Particpating Load, Aggregated Non-Participating
+  Load, Trading Hub, Designated Control Area(DCA) Zone.
+attributes:
+- name: apnodeType
+  type: ApnodeType
+  description: Aggregate Price Node Types
+- name: participationCategory
+  type: ParticipationCategoryMPM
+  description: |-
+    Designated Control Area participation in LMP price measurement
+
+    'Y' - Participates in both Local Market Power Mitigation (LMPM) and System Market Power Mitigation (SMPM)
+    'N' - Not included in LMP price measures
+    'S' - Participatesin SMPM price measures
+    'L' - Participatesin LMPM price measures
+ancestors:
+- Pnode
+descendents:
+- CongestionArea
+associations:
+- source: AggregatedPnode
+  target: MPMTestResults
+  sourceCardinality: "1"
+  sourceName: AggregatedPnode
+  targetCardinality: 1..*
+  targetName: MPMTestResults
+- source: AggregatedPnode
+  target: PnodeDistributionFactor
+  sourceCardinality: "1"
+  sourceName: AggregatedPnode
+  targetCardinality: 1..*
+  targetName: PnodeDistributionFactor
+- source: AggregatedPnode
+  target: TACArea
+  sourceCardinality: 0..*
+  sourceName: AggregatedPnode
+  targetCardinality: 0..*
+  targetName: TACArea
+- source: AggregatedPnode
+  target: GenDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: AggregatedPnode
+  targetCardinality: 1..*
+  targetName: GenDistributionFactor
+- source: AggregatedPnode
+  target: LoadDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: AggregatedPnode
+  targetCardinality: 1..*
+  targetName: LoadDistributionFactor
+- source: AggregatedPnode
+  target: MktCombinedCyclePlant
+  sourceCardinality: 0..1
+  sourceName: AggregatedPnode
+  targetCardinality: 0..*
+  targetName: MktCombinedCyclePlant
+- source: AggregatedPnode
+  target: MPMTestThreshold
+  sourceCardinality: 0..*
+  sourceName: AggregatedPnode
+  targetCardinality: 1..*
+  targetName: MPMTestThreshold
+- source: AggregatedPnode
+  target: TradingHubValues
+  sourceCardinality: "1"
+  sourceName: AggregatedPnode
+  targetCardinality: 0..*
+  targetName: TradingHubValues

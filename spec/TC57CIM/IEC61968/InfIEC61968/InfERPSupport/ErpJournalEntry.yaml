@@ -1,0 +1,59 @@
+name: ErpJournalEntry
+description: Details of an individual entry in a journal, which is to be posted to a ledger on the posting date.
+attributes:
+- name: accountID
+  type: String
+  description: Account identifier for this entry.
+- name: amount
+  type: Money
+  description: The amount of the debit or credit for this account.
+- name: postingDateTime
+  type: DateTime
+  description: Date and time this entry is to be posted to the ledger.
+- name: sourceID
+  type: String
+  description: The identifer of the source for this entry.
+- name: status
+  type: Status
+- name: transactionDateTime
+  type: DateTime
+  description: Date and time journal entry was recorded.
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpJournalEntry
+  target: ErpPayableLineItem
+  sourceCardinality: 0..*
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..*
+  targetName: ErpPayableLineItems
+- source: ErpJournalEntry
+  target: ErpLedgerEntry
+  sourceCardinality: 0..1
+  sourceName: ErpJounalEntry
+  targetCardinality: 0..1
+  targetName: ErpLedgerEntry
+- source: ErpJournalEntry
+  target: ErpRecLineItem
+  sourceCardinality: 0..*
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..*
+  targetName: ErpRecLineItems
+- source: ErpJournalEntry
+  target: ErpJournal
+  sourceCardinality: 0..*
+  sourceName: ErpJournalEntries
+  targetCardinality: "1"
+  targetName: ErpJournal
+- source: ErpJournalEntry
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..*
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..1
+  targetName: ErpInvoiceLineItem
+- source: ErpJournalEntry
+  target: CostType
+  sourceCardinality: 0..*
+  sourceName: ErpJournalEntries
+  targetCardinality: 0..*
+  targetName: CostTypes

@@ -1,0 +1,17 @@
+name: LocalReliabilityArea
+description: Allows definition of reliability areas (e.g.. load pockets) within the ISO/RTO.
+ancestors:
+- IdentifiedObject
+associations:
+- source: LocalReliabilityArea
+  target: RegisteredGenerator
+  sourceCardinality: 0..1
+  sourceName: LocalReliabilityArea
+  targetCardinality: 0..*
+  targetName: RegisteredGenerator
+- source: LocalReliabilityArea
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: LocalReliabilityArea
+  targetCardinality: "1"
+  targetName: RTO

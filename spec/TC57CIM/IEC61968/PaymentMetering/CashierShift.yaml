@@ -1,0 +1,43 @@
+name: CashierShift
+description: The operating shift for a cashier, during which the cashier may transact against the cashier shift, subject to
+  vendor shift being open.
+attributes:
+- name: cashFloat
+  type: Money
+  description: The amount of cash that the cashier brings to start the shift and that will be taken away at the end of the
+    shift; i.e. the cash float does not get banked.
+ancestors:
+- Shift
+associations:
+- source: CashierShift
+  target: PointOfSale
+  sourceCardinality: 0..*
+  sourceName: CashierShifts
+  sourceDescription: All shifts this point of sale operated in.
+  targetCardinality: 0..1
+  targetName: PointOfSale
+  targetDescription: Point of sale that is in operation during this shift.
+- source: CashierShift
+  target: Receipt
+  sourceCardinality: 0..1
+  sourceName: CashierShift
+  sourceDescription: Cashier shift during which this receipt was recorded.
+  targetCardinality: 0..*
+  targetName: Receipts
+  targetDescription: All Receipts recorded for this Shift.
+- source: CashierShift
+  target: Transaction
+  sourceCardinality: 0..1
+  sourceName: CashierShift
+  sourceDescription: Cashier shift during which this transaction was recorded.
+  targetCardinality: 0..*
+  targetName: Transactions
+  targetDescription: All transactions recorded during this cashier shift.
+- source: CashierShift
+  target: Cashier
+  sourceCardinality: 0..*
+  sourceName: CashierShifts
+  sourceDescription: All shifts operated by this cashier.
+  targetCardinality: 0..1
+  targetName: Cashier
+  targetDescription: Cashier operating this shift.

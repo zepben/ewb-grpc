@@ -1,0 +1,30 @@
+name: Auction
+description: A class providing the identification and type of an auction.
+attributes:
+- name: allocationMode
+  type: String
+  description: Identification of the method of allocation in an auction.
+- name: cancelled
+  type: String
+  description: An indicator that signifies that the auction has been cancelled.
+- name: category
+  type: String
+  description: The product category of an auction.
+- name: paymentTerms
+  type: String
+  description: The terms which dictate the determination of the bid payment price.
+- name: rights
+  type: String
+  description: The rights of use the transmission capacity acquired in an auction.
+- name: type
+  type: String
+  description: The kind of the Auction (e.g. implicit, explicit ...).
+ancestors:
+- IdentifiedObject
+associations:
+- source: Auction
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: Auction
+  targetCardinality: 0..*
+  targetName: TimeSeries

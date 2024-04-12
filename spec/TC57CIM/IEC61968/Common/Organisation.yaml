@@ -1,0 +1,51 @@
+name: Organisation
+description: Organisation that might have roles as utility, contractor, supplier, manufacturer, customer, etc.
+attributes:
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+- name: phone1
+  type: TelephoneNumber
+  description: Phone number.
+- name: phone2
+  type: TelephoneNumber
+  description: Additional phone number.
+- name: postalAddress
+  type: StreetAddress
+  description: Postal address, potentially different than 'streetAddress' (e.g., another city).
+- name: streetAddress
+  type: StreetAddress
+  description: Street address.
+ancestors:
+- IdentifiedObject
+descendents:
+- ParentOrganization
+- TransmissionProvider
+- Marketer
+- GenerationProvider
+- CustomerConsumer
+- ControlAreaOperator
+- MarketParticipant
+associations:
+- source: Organisation
+  target: ParentOrganization
+  sourceCardinality: 0..*
+  sourceName: Organisation
+  sourceDescription: Organisation that is part of this parent organisation.
+  targetCardinality: 0..1
+  targetName: ParentOrganisation
+  targetDescription: Parent organisation of this organisation.
+- source: Organisation
+  target: SwitchingPlanRequest
+  sourceCardinality: 0..1
+  sourceName: RequestingOrganization
+  targetCardinality: 0..*
+  targetName: SwitchingPlanRequest
+- source: Organisation
+  target: OrganisationRole
+  sourceCardinality: 0..1
+  sourceName: Organisation
+  sourceDescription: Organisation having this role.
+  targetCardinality: 0..*
+  targetName: Roles
+  targetDescription: All roles of this organisation.

@@ -1,0 +1,31 @@
+name: GenICompensationForGenJ
+description: Resistive and reactive components of compensation for generator associated with IEEE type 2 voltage compensator
+  for current flow out of another generator in the interconnection.
+attributes:
+- name: rcij
+  type: PU
+  description: <font color="#0f0f0f">Resistive component of compensation of generator associated with this IEEE type 2 voltage
+    compensator for current flow out of another generator (<i>Rcij</i>).</font>
+- name: xcij
+  type: PU
+  description: <font color="#0f0f0f">Reactive component of compensation of generator associated with this IEEE type 2 voltage
+    compensator for current flow out of another generator (<i>Xcij</i>).</font>
+ancestors:
+- IdentifiedObject
+associations:
+- source: GenICompensationForGenJ
+  target: VCompIEEEType2
+  sourceCardinality: 2..*
+  sourceName: GenICompensationForGenJ
+  sourceDescription: Compensation of this voltage compensator's generator for current flow out of another generator.
+  targetCardinality: "1"
+  targetName: VcompIEEEType2
+  targetDescription: The standard IEEE type 2 voltage compensator of this compensation.
+- source: GenICompensationForGenJ
+  target: SynchronousMachineDynamics
+  sourceCardinality: 0..*
+  sourceName: GenICompensationForGenJ
+  sourceDescription: Compensation of voltage compensator's generator for current flow out of this  generator.
+  targetCardinality: "1"
+  targetName: SynchronousMachineDynamics
+  targetDescription: Standard synchronous machine out of which current flow is being compensated for.

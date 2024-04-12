@@ -1,0 +1,27 @@
+name: ResourceVerifiableCosts
+description: This class is defined to describe the verifiable costs associated with a generation resource.
+associations:
+- source: ResourceVerifiableCosts
+  target: MktHeatRateCurve
+  sourceCardinality: 0..1
+  sourceName: ResourceVerifiableCosts
+  targetCardinality: "1"
+  targetName: MktHeatRateCurve
+- source: ResourceVerifiableCosts
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  sourceName: ResourceVerifiableCosts
+  targetCardinality: "1"
+  targetName: RegisteredResource
+- source: ResourceVerifiableCosts
+  target: ResourceOperationMaintenanceCost
+  sourceCardinality: 0..1
+  sourceName: ResourceVerifiableCosts
+  targetCardinality: "1"
+  targetName: ResourceOperationMaintenanceCost
+- source: ResourceVerifiableCosts
+  target: ResourceStartupCost
+  sourceCardinality: "1"
+  sourceName: ResourceVerifiableCosts
+  targetCardinality: 0..*
+  targetName: ResourceStartupCost

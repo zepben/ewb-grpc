@@ -1,0 +1,22 @@
+name: BidDistributionFactor
+description: This class allows SC to input different time intervals for distribution factors.
+attributes:
+- name: timeIntervalEnd
+  type: DateTime
+  description: 'End of the time interval n which bid is valid (yyyy-mm-dd hh24: mi: ss)'
+- name: timeIntervalStart
+  type: DateTime
+  description: 'Start of the time interval in which bid is valid (yyyy-mm-dd hh24: mi: ss).'
+associations:
+- source: BidDistributionFactor
+  target: PnodeDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: BidDistributionFactor
+  targetCardinality: 0..*
+  targetName: PnodeDistributionFactor
+- source: BidDistributionFactor
+  target: ProductBid
+  sourceCardinality: 0..*
+  sourceName: BidDistributionFactor
+  targetCardinality: "1"
+  targetName: ProductBid

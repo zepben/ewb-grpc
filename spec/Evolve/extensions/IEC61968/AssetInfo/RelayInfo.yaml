@@ -1,0 +1,15 @@
+name: RelayInfo
+description: Normal apparent power rating for a PowerTransformerEnd based on their cooling types.
+attributes:
+- name: curveSetting
+  type: string
+  description: The type of curve used for the Relay.
+- name: recloseFast
+  type: Boolean
+  description: True if recloseDelays are associated with a fast Curve, False otherwise.
+- name: recloseDelays
+  type: FloatList
+  description: The reclose delays for this curve and relay type (in seconds). The index of the list is the reclose step, and the
+    value is the overall delay time.
+ancestors:
+- AssetInfo

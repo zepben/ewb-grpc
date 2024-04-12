@@ -1,0 +1,18 @@
+name: TradingHubPrice
+description: Models prices at Trading Hubs, interval based.
+attributes:
+- name: intervalStartTime
+  type: DateTime
+- name: marketType
+  type: MarketType
+- name: updateTimeStamp
+  type: DateTime
+- name: updateUser
+  type: String
+associations:
+- source: TradingHubPrice
+  target: TradingHubValues
+  sourceCardinality: "1"
+  sourceName: TradingHubPrice
+  targetCardinality: 1..*
+  targetName: TradingHubValues

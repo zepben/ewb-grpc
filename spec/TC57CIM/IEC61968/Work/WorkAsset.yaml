@@ -1,0 +1,22 @@
+name: WorkAsset
+description: Asset used to perform work.
+ancestors:
+- Asset
+descendents:
+- Vehicle
+- Tool
+associations:
+- source: WorkAsset
+  target: Crew
+  sourceCardinality: 0..*
+  sourceName: WorkAssets
+  sourceDescription: All work assets used by this crew.
+  targetCardinality: 0..1
+  targetName: Crew
+  targetDescription: Crew using this work asset.
+- source: WorkAsset
+  target: CUWorkEquipmentItem
+  sourceCardinality: 0..1
+  sourceName: TypeAsset
+  targetCardinality: 0..1
+  targetName: CUWorkEquipmentAsset

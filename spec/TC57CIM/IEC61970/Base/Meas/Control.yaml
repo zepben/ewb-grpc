@@ -1,0 +1,50 @@
+name: Control
+description: Control is used for supervisory/device control. It represents control outputs that are used to change the state
+  in a process, e.g. close or open breaker, a set point value or a raise lower command.
+attributes:
+- name: operationInProgress
+  type: Boolean
+  description: Indicates that a client is currently sending control commands that has not completed.
+- name: timeStamp
+  type: DateTime
+  description: The last time a control output was sent.
+- name: unitMultiplier
+  type: UnitMultiplier
+  description: The unit multiplier of the controlled quantity.
+- name: unitSymbol
+  type: UnitSymbol
+  description: The unit of measure of the controlled quantity.
+- name: controlType
+  type: String
+  description: Specifies the type of Control, e.g. BreakerOn/Off, GeneratorVoltageSetPoint, TieLineFlow etc. The ControlType.name
+    shall be unique among all specified types and describe the type.
+ancestors:
+- IOPoint
+descendents:
+- Command
+- AccumulatorReset
+- AnalogControl
+associations:
+- source: Control
+  target: RemoteControl
+  sourceCardinality: "1"
+  sourceName: Control
+  sourceDescription: The Control for the RemoteControl point.
+  targetCardinality: 0..1
+  targetName: RemoteControl
+  targetDescription: The remote point controlling the physical actuator.
+- source: Control
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  sourceName: Controls
+  sourceDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
+    machine or capacitor bank breaker actuator.
+  targetCardinality: 0..1
+  targetName: PowerSystemResource
+  targetDescription: Regulating device governed by this control output.
+- source: Control
+  target: ControlAction
+  sourceCardinality: 0..1
+  sourceName: Control
+  targetCardinality: 0..1
+  targetName: ControlAction

@@ -1,0 +1,22 @@
+name: DiscExcContIEEEDEC2A
+description: |-
+  IEEE type DEC2A model for discontinuous excitation control. This system provides transient excitation boosting via an open-loop control as initiated by a trigger signal generated remotely.
+  Reference: IEEE 421.5-2005 12.3.
+attributes:
+- name: td1
+  type: Seconds
+  description: Discontinuous controller time constant (<i>T</i><i><sub>D1</sub></i>) (&gt;= 0).
+- name: td2
+  type: Seconds
+  description: Discontinuous controller washout time constant (<i>T</i><i><sub>D2</sub></i>) (&gt;= 0).
+- name: vdmax
+  type: PU
+  description: Limiter (<i>V</i><i><sub>DMAX</sub></i>) (&gt; DiscExcContIEEEDEC2A.vdmin).
+- name: vdmin
+  type: PU
+  description: Limiter (<i>V</i><i><sub>DMIN</sub></i>) (&lt; DiscExcContIEEEDEC2A.vdmax).
+- name: vk
+  type: PU
+  description: Discontinuous controller input reference (<i>V</i><i><sub>K</sub></i>).
+ancestors:
+- DiscontinuousExcitationControlDynamics

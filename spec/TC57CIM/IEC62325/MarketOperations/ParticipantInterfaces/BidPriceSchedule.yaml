@@ -1,0 +1,32 @@
+name: BidPriceSchedule
+description: Defines bid schedules to allow a product bid to use specified bid price curves for different time intervals.
+attributes:
+- name: bidType
+  type: BidMitigationType
+  description: "BID Type:  \n\nI - Initial Bid; \nF - Final Bid"
+- name: mitigationStatus
+  type: BidMitigationStatus
+  description: |-
+    Mitigation Status:
+
+    'S' - Mitigated by SMPM because of "misconduct"
+    'L; - Mitigated by LMPM because of "misconduct"
+    'R' - Modified by LMPM because of RMR rules
+    'M' - Mitigated because of "misconduct" both by SMPM and LMPM
+    'B' - Mitigated because of "misconduct" both by SMPM and modified by LMLM because of RMR rules
+    'O' - original
+ancestors:
+- RegularIntervalSchedule
+associations:
+- source: BidPriceSchedule
+  target: BidPriceCurve
+  sourceCardinality: 0..*
+  sourceName: BidSchedule
+  targetCardinality: "1"
+  targetName: BidPriceCurve
+- source: BidPriceSchedule
+  target: ProductBid
+  sourceCardinality: 0..*
+  sourceName: BidSchedule
+  targetCardinality: "1"
+  targetName: ProductBid

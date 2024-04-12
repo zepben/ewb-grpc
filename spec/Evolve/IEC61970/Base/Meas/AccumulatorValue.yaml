@@ -1,0 +1,14 @@
+name: AccumulatorValue
+description: AccumulatorValue represents an accumulated (counted) MeasurementValue.
+attributes:
+- name: value
+  type: Integer
+  description: The value to supervise. The value is positive.
+ancestors:
+- MeasurementValue
+associations:
+- source: AccumulatorValue
+  target: Accumulator
+  targetCardinality: "1"
+  targetName: Accumulator
+  targetDescription: Measurement to which this value is connected.

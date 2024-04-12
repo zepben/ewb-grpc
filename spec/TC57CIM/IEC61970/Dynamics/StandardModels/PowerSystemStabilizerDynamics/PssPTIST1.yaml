@@ -1,0 +1,38 @@
+name: PssPTIST1
+description: PTI microprocessor-based stabilizer type 1.
+attributes:
+- name: dtc
+  type: Seconds
+  description: Time step related to activation of controls (<i>deltatc</i>) (&gt;= 0).  Typical value = 0,025.
+- name: dtf
+  type: Seconds
+  description: Time step frequency calculation (<i>deltatf</i>) (&gt;= 0).  Typical value = 0,025.
+- name: dtp
+  type: Seconds
+  description: Time step active power calculation (<i>deltatp</i>) (&gt;= 0).  Typical value = 0,0125.
+- name: k
+  type: PU
+  description: Gain (<i>K</i>).  Typical value = 9.
+- name: m
+  type: PU
+  description: (<i>M</i>).  <i>M </i>= 2 x <i>H</i>.  Typical value = 5.
+- name: t1
+  type: Seconds
+  description: Time constant (<i>T1</i>) (&gt;= 0).  Typical value = 0,3.
+- name: t2
+  type: Seconds
+  description: Time constant (<i>T2</i>) (&gt;= 0).  Typical value = 1.
+- name: t3
+  type: Seconds
+  description: Time constant (<i>T3</i>) (&gt;= 0).  Typical value = 0,2.
+- name: t4
+  type: Seconds
+  description: Time constant (<i>T4</i>) (&gt;= 0).  Typical value = 0,05.
+- name: tf
+  type: Seconds
+  description: Time constant (<i>Tf</i>) (&gt;= 0).  Typical value = 0,2.
+- name: tp
+  type: Seconds
+  description: Time constant (<i>Tp</i>) (&gt;= 0).  Typical value = 0,2.
+ancestors:
+- PowerSystemStabilizerDynamics

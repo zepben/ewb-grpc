@@ -1,0 +1,11 @@
+name: BaseFrequency
+description: The BaseFrequency class describes a base frequency for a power system network. In case of multiple power networks
+  with different frequencies, e.g. 50 Hz or 60 Hz each network will have its own base frequency class. Hence it is assumed
+  that power system objects having different base frequencies appear in separate documents where each document has a single
+  base frequency instance.
+attributes:
+- name: frequency
+  type: Frequency
+  description: The base frequency.
+ancestors:
+- IdentifiedObject

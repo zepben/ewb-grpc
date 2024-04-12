@@ -1,0 +1,38 @@
+name: ISOUpperLayer
+description: Is a set of configure addressing information that is required since ICCP utilizes addressing other than a TCP
+  port.
+attributes:
+- name: osiPsel
+  type: String
+  description: Is the addressing selector for OSI presentation addressing.
+- name: osiSsel
+  type: String
+  description: Is the OSI session layer addressing information.
+- name: apTitle
+  type: String
+  description: Is a sequence of integer strings separated by ".".  The value, in conjunction with other application addressing
+    attributes (e.g. other APs) are used to select a specific application (e.g. the ICCP application entity) per the OSI reference
+    model.  The sequence, and its values, represent a namespace whose values are governed by ISO/IEC 7498-3.
+- name: osiTsel
+  type: String
+  description: Is the OSI Transport Layer addressing information.
+- name: apInvoke
+  type: Integer
+  description: Is a further application level OSI addressing parameter.
+- name: aeInvoke
+  type: Integer
+  description: Is part of the Application Entity addressing as specified by ISO Addressing.
+- name: aeQual
+  type: Integer
+  description: Is the AE qualifier and represents further application level addressing information.
+ancestors:
+- TCPAccessPoint
+associations:
+- source: ISOUpperLayer
+  target: PublicX509Certificate
+  sourceCardinality: 0..1
+  sourceName: ISOUpperLayer
+  sourceDescription: Application layer used with the certificate for mutual authentication.
+  targetCardinality: 0..*
+  targetName: UpperLayerPublicX509Certificate
+  targetDescription: Certificate to be bound for use for Application layer mutual authentication.

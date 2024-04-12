@@ -1,0 +1,107 @@
+name: ThermalGeneratingUnit
+description: A generating unit whose prime mover could be a steam turbine, combustion turbine, or diesel engine.
+attributes:
+- name: oMCost
+  type: CostPerHeatUnit
+  description: Operating and maintenance cost for the thermal unit.
+ancestors:
+- GeneratingUnit
+descendents:
+- MktThermalGeneratingUnit
+associations:
+- source: ThermalGeneratingUnit
+  target: HeatRateCurve
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have a heat rate curve.
+  targetCardinality: 0..1
+  targetName: HeatRateCurve
+  targetDescription: A thermal generating unit may have a heat rate curve.
+- source: ThermalGeneratingUnit
+  target: CogenerationPlant
+  sourceCardinality: 0..*
+  sourceName: ThermalGeneratingUnits
+  sourceDescription: A thermal generating unit may be a member of a cogeneration plant.
+  targetCardinality: 0..1
+  targetName: CogenerationPlant
+  targetDescription: A thermal generating unit may be a member of a cogeneration plant.
+- source: ThermalGeneratingUnit
+  target: FuelAllocationSchedule
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have one or more fuel allocation schedules.
+  targetCardinality: 0..*
+  targetName: FuelAllocationSchedules
+  targetDescription: A thermal generating unit may have one or more fuel allocation schedules.
+- source: ThermalGeneratingUnit
+  target: StartupModel
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have a startup model.
+  targetCardinality: 0..1
+  targetName: StartupModel
+  targetDescription: A thermal generating unit may have a startup model.
+- source: ThermalGeneratingUnit
+  target: EmissionCurve
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have  one or more emission curves.
+  targetCardinality: 0..*
+  targetName: EmissionCurves
+  targetDescription: A thermal generating unit may have  one or more emission curves.
+- source: ThermalGeneratingUnit
+  target: ShutdownCurve
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have a shutdown curve.
+  targetCardinality: 0..1
+  targetName: ShutdownCurve
+  targetDescription: A thermal generating unit may have a shutdown curve.
+- source: ThermalGeneratingUnit
+  target: IncrementalHeatRateCurve
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have an incremental heat rate curve.
+  targetCardinality: 0..1
+  targetName: IncrementalHeatRateCurve
+  targetDescription: A thermal generating unit may have an incremental heat rate curve.
+- source: ThermalGeneratingUnit
+  target: FossilFuel
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have one or more fossil fuels.
+  targetCardinality: 0..*
+  targetName: FossilFuels
+  targetDescription: A thermal generating unit may have one or more fossil fuels.
+- source: ThermalGeneratingUnit
+  target: CAESPlant
+  sourceCardinality: 0..1
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may be a member of a compressed air energy storage plant.
+  targetCardinality: 0..1
+  targetName: CAESPlant
+  targetDescription: A thermal generating unit may be a member of a compressed air energy storage plant.
+- source: ThermalGeneratingUnit
+  target: CombinedCyclePlant
+  sourceCardinality: 0..*
+  sourceName: ThermalGeneratingUnits
+  sourceDescription: A thermal generating unit may be a member of a combined cycle plant.
+  targetCardinality: 0..1
+  targetName: CombinedCyclePlant
+  targetDescription: A thermal generating unit may be a member of a combined cycle plant.
+- source: ThermalGeneratingUnit
+  target: EmissionAccount
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have one or more emission allowance accounts.
+  targetCardinality: 0..*
+  targetName: EmmissionAccounts
+  targetDescription: A thermal generating unit may have one or more emission allowance accounts.
+- source: ThermalGeneratingUnit
+  target: HeatInputCurve
+  sourceCardinality: "1"
+  sourceName: ThermalGeneratingUnit
+  sourceDescription: A thermal generating unit may have a heat input curve.
+  targetCardinality: 0..1
+  targetName: HeatInputCurve
+  targetDescription: A thermal generating unit may have a heat input curve.

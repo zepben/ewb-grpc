@@ -1,0 +1,73 @@
+name: LoadResponseCharacteristic
+description: "Models the characteristic response of the load demand due to changes in system conditions such as voltage and\
+  \ frequency. It is not related to demand response.\nIf LoadResponseCharacteristic.exponentModel is True, the exponential\
+  \ voltage or frequency dependent models are specified and used as to calculate active and reactive power components of the\
+  \ load model.\nThe equations to calculate active and reactive power components of the load model are internal to the power\
+  \ flow calculation, hence they use different quantities depending on the use case of the data exchange. \nThe equations\
+  \ for exponential voltage dependent load model injected power are: \npInjection= Pnominal* (Voltage/cim:BaseVoltage.nominalVoltage)\
+  \ ** cim:LoadResponseCharacteristic.pVoltageExponent\nqInjection= Qnominal* (Voltage/cim:BaseVoltage.nominalVoltage) **\
+  \ cim:LoadResponseCharacteristic.qVoltageExponent\nWhere: \n1) * means \"multiply\" and ** is \"raised to power of\";\n\
+  2) Pnominal and Qnominal represent the active power and reactive power at nominal voltage as any load described by the voltage\
+  \ exponential model shall be given at nominal voltage.  This means that EnergyConsumer.p and EnergyConsumer.q  are at nominal\
+  \ voltage.\n3) After power flow is solved: \n-pInjection and qInjection correspond to SvPowerflow.p and SvPowerflow.q respectively.\
+  \  \n- Voltage corresponds to SvVoltage.v at the TopologicalNode where the load is connected."
+attributes:
+- name: exponentModel
+  type: Boolean
+  description: |-
+    Indicates the exponential voltage dependency model is to be used. If false, the coefficient model is to be used.
+    The exponential voltage dependency model consist of the attributes:
+    - pVoltageExponent
+    - qVoltageExponent
+    - pFrequencyExponent
+    - qFrequencyExponent.
+    The coefficient model consist of the attributes:
+    - pConstantImpedance
+    - pConstantCurrent
+    - pConstantPower
+    - qConstantImpedance
+    - qConstantCurrent
+    - qConstantPower.
+    The sum of pConstantImpedance, pConstantCurrent and pConstantPower shall equal 1.
+    The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1.
+- name: pConstantCurrent
+  type: Float
+  description: Portion of active power load modelled as constant current.
+- name: pConstantImpedance
+  type: Float
+  description: Portion of active power load modelled as constant impedance.
+- name: pConstantPower
+  type: Float
+  description: Portion of active power load modelled as constant power.
+- name: pFrequencyExponent
+  type: Float
+  description: Exponent of per unit frequency effecting active power.
+- name: pVoltageExponent
+  type: Float
+  description: Exponent of per unit voltage effecting real power.
+- name: qConstantCurrent
+  type: Float
+  description: Portion of reactive power load modelled as constant current.
+- name: qConstantImpedance
+  type: Float
+  description: Portion of reactive power load modelled as constant impedance.
+- name: qConstantPower
+  type: Float
+  description: Portion of reactive power load modelled as constant power.
+- name: qFrequencyExponent
+  type: Float
+  description: Exponent of per unit frequency effecting reactive power.
+- name: qVoltageExponent
+  type: Float
+  description: Exponent of per unit voltage effecting reactive power.
+ancestors:
+- IdentifiedObject
+associations:
+- source: LoadResponseCharacteristic
+  target: EnergyConsumer
+  sourceCardinality: 0..1
+  sourceName: LoadResponse
+  sourceDescription: The load response characteristic of this load.  If missing, this load is assumed to be constant power.
+  targetCardinality: 0..*
+  targetName: EnergyConsumer
+  targetDescription: The set of loads that have the response characteristics.

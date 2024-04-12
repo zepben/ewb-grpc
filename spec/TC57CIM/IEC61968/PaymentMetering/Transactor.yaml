@@ -1,0 +1,15 @@
+name: Transactor
+description: The entity that ultimately executes the transaction and which is in control of the process; typically this is
+  embodied in secure software running on a server that may employ secure hardware encryption devices for secure transaction
+  processing.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Transactor
+  target: MerchantAccount
+  sourceCardinality: 0..*
+  sourceName: Transactors
+  sourceDescription: All transactors this merchant account is registered with.
+  targetCardinality: 0..*
+  targetName: MerchantAccounts
+  targetDescription: All merchant accounts registered with this transactor.

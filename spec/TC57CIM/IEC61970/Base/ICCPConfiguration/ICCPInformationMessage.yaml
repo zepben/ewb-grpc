@@ -1,0 +1,22 @@
+name: ICCPInformationMessage
+description: This class represents the TASE.2 Information Message Object.  The IdentifiedObject.name attribute must be non-null.  The
+  value of the attribute shall be used as the TASE.2 Information Reference, as specified by 60870-6-503.
+attributes:
+- name: localReference
+  type: String
+  description: The Local Reference attribute specifies a value agreed upon between sender and receiver of the Information
+    Message. It further identifies the Information Message.
+- name: scope
+  type: ICCPScopeKind
+  description: Indicates if the Point is global scoped (e.g. VCC) or accessible only to the Bilateral table peer (e.g. ICC).
+ancestors:
+- IdentifiedObject
+associations:
+- source: ICCPInformationMessage
+  target: TASE2BilateralTable
+  sourceCardinality: 0..*
+  sourceName: ICCPInformationMessage
+  sourceDescription: Informational message to be included in a Bilateral Table agreement.
+  targetCardinality: 0..*
+  targetName: TASE2BilateralTable
+  targetDescription: Bilateral table agreement that includes the informational message.

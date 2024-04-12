@@ -1,0 +1,20 @@
+name: RepairItem
+description: Asset component to be repaired or problem area to be corrected.
+attributes:
+- name: breakerRepairItem
+  type: BreakerRepairItemKind
+  description: Breaker component or problem area which is the focus of this maintenance work task (for work tasks related
+    to breakers only).
+- name: transformerRepairItem
+  type: TransformerRepairItemKind
+  description: Transformer component or problem area which is the focus of this maintenance work task (for work tasks related
+    to transformers only).
+associations:
+- source: RepairItem
+  target: RepairWorkTask
+  sourceCardinality: 0..*
+  sourceName: BreakerRepairItem
+  sourceDescription: Type of breaker item to be repaird by this repair work task.
+  targetCardinality: 0..*
+  targetName: RepairWorkTask
+  targetDescription: Repair work task under which breaker item of this type is repaired.

@@ -1,0 +1,51 @@
+name: TapChangerInfo
+description: Tap changer data.
+attributes:
+- name: bil
+  type: Voltage
+  description: Basic Insulation Level (BIL) expressed as the impulse crest voltage of a nominal wave, typically 1.2 X 50 microsecond.
+    This is a measure of the ability of the insulation to withstand very high voltage surges.
+- name: ctRating
+  type: CurrentFlow
+  description: Built-in current transformer primary rating.
+- name: ctRatio
+  type: Float
+  description: Built-in current transducer ratio.
+- name: frequency
+  type: Frequency
+  description: Frequency at which the ratings apply.
+- name: highStep
+  type: Integer
+  description: Highest possible tap step position, advance from neutral.
+- name: isTcul
+  type: Boolean
+  description: Whether this tap changer has under load tap changing capabilities.
+- name: lowStep
+  type: Integer
+  description: Lowest possible tap step position, retard from neutral.
+- name: neutralStep
+  type: Integer
+  description: The neutral tap step position for the winding.
+- name: neutralU
+  type: Voltage
+  description: Voltage at which the winding operates at the neutral tap setting.
+- name: ptRatio
+  type: Float
+  description: Built-in voltage transducer ratio.
+- name: ratedApparentPower
+  type: ApparentPower
+  description: Rated apparent power.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: Rated current.
+- name: ratedVoltage
+  type: Voltage
+  description: Rated voltage.
+- name: stepPhaseIncrement
+  type: AngleDegrees
+  description: Phase shift per step position.
+- name: stepVoltageIncrement
+  type: PerCent
+  description: Tap step increment, in per cent of rated voltage, per step position.
+ancestors:
+- AssetInfo

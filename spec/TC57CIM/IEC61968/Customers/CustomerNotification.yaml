@@ -1,0 +1,44 @@
+name: CustomerNotification
+description: Conditions for notifying the customer about the changes in the status of their service (e.g., outage restore,
+  estimated restoration time, tariff or service level change, etc.)
+attributes:
+- name: contactType
+  type: String
+  description: Type of contact (e.g., phone, email, etc.).
+- name: contactValue
+  type: String
+  description: Value of contact type (e.g., phone number, email address, etc.).
+- name: earliestDateTimeToCall
+  type: DateTime
+  description: Earliest date time to call the customer.
+- name: latestDateTimeToCall
+  type: DateTime
+  description: Latest date time to call the customer.
+- name: trigger
+  type: NotificationTriggerKind
+  description: Trigger for this notification.
+associations:
+- source: CustomerNotification
+  target: TroubleTicket
+  sourceCardinality: 0..*
+  sourceName: Notification
+  sourceDescription: Notification for this trouble ticket.
+  targetCardinality: 0..*
+  targetName: TroubleTickets
+  targetDescription: All trouble tickets with this notification.
+- source: CustomerNotification
+  target: Customer
+  sourceCardinality: 0..*
+  sourceName: CustomerNotifications
+  sourceDescription: All notifications required by this customer.
+  targetCardinality: 0..1
+  targetName: Customer
+  targetDescription: Customer requiring this notification.
+- source: CustomerNotification
+  target: Incident
+  sourceCardinality: 0..*
+  sourceName: CustomerNotifications
+  sourceDescription: All notifications for a customer related to the status change of this incident.
+  targetCardinality: 0..1
+  targetName: Incident
+  targetDescription: Incident as a subject of this customer notification.

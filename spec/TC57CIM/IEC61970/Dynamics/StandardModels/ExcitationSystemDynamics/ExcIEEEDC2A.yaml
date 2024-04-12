@@ -1,0 +1,69 @@
+name: ExcIEEEDC2A
+description: |-
+  IEEE 421.5-2005 type DC2A model. This model represents field-controlled DC commutator exciters with continuously acting voltage regulators having supplies obtained from the generator or auxiliary bus.  It differs from the type DC1A model only in the voltage regulator output limits, which are now proportional to terminal voltage <i>V</i><i><sub>T</sub></i>.
+  It is representative of solid-state replacements for various forms of older mechanical and rotating amplifier regulating equipment connected to DC commutator exciters.
+  Reference: IEEE 421.5-2005, 5.2.
+attributes:
+- name: efd1
+  type: PU
+  description: Exciter voltage at which exciter saturation is defined (<i>E</i><i><sub>FD1</sub></i>) (&gt; 0).  Typical value
+    = 3,05.
+- name: efd2
+  type: PU
+  description: Exciter voltage at which exciter saturation is defined (<i>E</i><i><sub>FD2</sub></i>) (&gt; 0).  Typical value
+    = 2,29.
+- name: exclim
+  type: PU
+  description: (<i>exclim</i>).  IEEE standard is ambiguous about lower limit on exciter output. Typical value = - 999  which
+    means that there is no limit applied.
+- name: ka
+  type: PU
+  description: Voltage regulator gain (<i>K</i><i><sub>A</sub></i>) (&gt; 0).  Typical value = 300.
+- name: ke
+  type: PU
+  description: Exciter constant related to self-excited field (<i>K</i><i><sub>E</sub></i>).  Typical value = 1.
+- name: kf
+  type: PU
+  description: Excitation control system stabilizer gain (<i>K</i><i><sub>F</sub></i>) (&gt;= 0).  Typical value = 0,1.
+- name: seefd1
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>E</i><i><sub>FD1</sub></i> (<i>S</i><i><sub>E</sub></i><i>[E</i><i><sub>FD1</sub></i><i>]</i>)
+    (&gt;= 0).  Typical value = 0,279.
+- name: seefd2
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>E</i><i><sub>FD2</sub></i> (<i>S</i><i><sub>E</sub></i><i>[E</i><i><sub>FD2</sub></i><i>]</i>)
+    (&gt;= 0).  Typical value = 0,117.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>A</sub></i>) (&gt; 0).  Typical value = 0,01.
+- name: tb
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>B</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: tc
+  type: Seconds
+  description: Voltage regulator time constant (<i>T</i><i><sub>C</sub></i>) (&gt;= 0).  Typical value = 0.
+- name: te
+  type: Seconds
+  description: Exciter time constant, integration rate associated with exciter control (<i>T</i><i><sub>E</sub></i>) (&gt;
+    0).  Typical value = 1,33.
+- name: tf
+  type: Seconds
+  description: Excitation control system stabilizer time constant (<i>T</i><i><sub>F</sub></i>) (&gt; 0).  Typical value =
+    0,675.
+- name: uelin
+  type: Boolean
+  description: |-
+    UEL input (<i>uelin</i>).
+    true = input is connected to the HV gate
+    false = input connects to the error signal.
+    Typical value = true.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator output (<i>V</i><i><sub>RMAX</sub></i>)(&gt; ExcIEEEDC2A.vrmin).  Typical value =
+    4,95.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator output (<i>V</i><i><sub>RMIN</sub></i>) (&lt; 0 and &lt; ExcIEEEDC2A.vrmax).  Typical
+    value = -4,9.
+ancestors:
+- ExcitationSystemDynamics

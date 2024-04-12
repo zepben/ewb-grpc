@@ -1,0 +1,17 @@
+name: RiskScore
+description: Score that is indicative of the risk associated with one or more assets.
+attributes:
+- name: kind
+  type: RiskScoreKind
+  description: The risk kind, such as CustomerRisk, FinancialRisk, SafetyRisk, etc.
+ancestors:
+- AggregateScore
+associations:
+- source: RiskScore
+  target: HealthScore
+  sourceCardinality: 0..1
+  sourceName: AssetRiskScore
+  sourceDescription: Risk score with which this health score is associated.
+  targetCardinality: 0..*
+  targetName: AssetHealthScore
+  targetDescription: Individual health score associated with this risk score.

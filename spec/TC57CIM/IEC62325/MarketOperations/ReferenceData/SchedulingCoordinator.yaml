@@ -1,0 +1,71 @@
+name: SchedulingCoordinator
+description: Market participants could be represented by Scheduling Coordinators (SCs) that are registered with the RTO/ISO.
+  One participant could register multiple SCs with the RTO/ISO. Many market participants can do business with the RTO/ISO
+  using a single SC. One SC could schedule multiple generators. A load scheduling point could be used by multiple SCs. Each
+  SC could schedule load at multiple scheduling points. An inter-tie scheduling point can be used by multiple SCs. Each SC
+  can schedule interchange at multiple inter-tie scheduling points.
+attributes:
+- name: creditFlag
+  type: YesNo
+  description: Flag to indicate creditworthiness (Y, N)
+- name: creditStartEffectiveDate
+  type: DateTime
+  description: Date that the scheduling coordinator becomes creditworthy.
+- name: lastModified
+  type: DateTime
+  description: Indication of the last time this scheduling coordinator information was modified.
+- name: qualificationStatus
+  type: String
+  description: Scheduling coordinator qualification status, Qualified, Not Qualified, or Disqualified.
+- name: scid
+  type: String
+  description: This is the short name or Scheduling Coordinator ID field.
+ancestors:
+- MarketParticipant
+associations:
+- source: SchedulingCoordinator
+  target: ContractRight
+  sourceCardinality: "1"
+  sourceName: SchedulingCoordinator
+  targetCardinality: 0..*
+  targetName: TransmissionContractRight
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: 0..1
+  sourceName: submitToSchedulingCoordinator
+  targetCardinality: 0..*
+  targetName: SubmitToSCTrade
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: "1"
+  sourceName: To_SC
+  targetCardinality: 0..*
+  targetName: ToSCTrade
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: "1"
+  sourceName: From_SC
+  targetCardinality: 0..*
+  targetName: FromSCTrade
+- source: SchedulingCoordinator
+  target: Trade
+  sourceCardinality: 0..1
+  sourceName: submitFromSchedulingCoordinator
+  targetCardinality: 0..*
+  targetName: SubmitFromSCTrade
+- source: SchedulingCoordinator
+  target: MarketParticipant
+  sourceCardinality: 0..*
+  sourceName: SchedulingCoordinator
+  targetCardinality: 0..1
+  targetName: MarketParticipant
+- source: SchedulingCoordinator
+  target: LoadRatio
+  sourceCardinality: 0..1
+  sourceName: SchedulingCoordinator
+  targetCardinality: "1"
+  targetName: LoadRatio
+- source: SchedulingCoordinator
+  target: SchedulingCoordinatorUser
+  sourceCardinality: "1"
+  targetCardinality: 0..*

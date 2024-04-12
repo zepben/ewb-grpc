@@ -1,0 +1,17 @@
+name: RepairWorkTask
+description: Work task for asset repair. Costs associated with this are considered corrective maintenance (CM) costs.
+attributes:
+- name: emergency
+  type: Boolean
+  description: Repair work is emergency.
+ancestors:
+- WorkTask
+associations:
+- source: RepairWorkTask
+  target: RepairItem
+  sourceCardinality: 0..*
+  sourceName: RepairWorkTask
+  sourceDescription: Repair work task under which breaker item of this type is repaired.
+  targetCardinality: 0..*
+  targetName: BreakerRepairItem
+  targetDescription: Type of breaker item to be repaird by this repair work task.

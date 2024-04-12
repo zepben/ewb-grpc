@@ -1,0 +1,42 @@
+name: Quantity
+description: "Description of quantities needed in the data exchange. \nThe type of the quantity is described either by the\
+  \ role of the association or the type attribute.\nThe quality attribute provides the information about the quality of the\
+  \ quantity (measured, estimated, etc.)."
+attributes:
+- name: quality
+  type: String
+  description: The quality of the information being provided. This quality may be estimated, not available, as provided, etc.
+- name: quantity
+  type: Decimal
+  description: |-
+    The quantity value.
+    The association role provides the information about what is expressed.
+- name: type
+  type: String
+  description: The description of the type of the quantity.
+associations:
+- source: Quantity
+  target: Quantity
+  sourceCardinality: 0..*
+  sourceName: Detail_Quantity
+  sourceDescription: Additional information related to the associated quantity.
+  targetCardinality: 0..1
+  targetName: quantity
+- source: Quantity
+  target: Point
+  sourceCardinality: 0..*
+  sourceName: Quantity
+  targetCardinality: 0..*
+  targetName: Point
+- source: Quantity
+  target: Domain
+  sourceCardinality: 0..*
+  sourceName: Quantity
+  targetCardinality: 0..*
+  targetName: Domain
+- source: Quantity
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: Quantity
+  targetCardinality: 0..*
+  targetName: TimeSeries

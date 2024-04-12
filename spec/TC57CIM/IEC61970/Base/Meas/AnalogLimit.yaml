@@ -1,0 +1,19 @@
+name: AnalogLimit
+description: Limit values for Analog measurements.
+attributes:
+- name: value
+  type: Float
+  description: The value to supervise against.
+ancestors:
+- Limit
+descendents:
+- MktAnalogLimit
+associations:
+- source: AnalogLimit
+  target: AnalogLimitSet
+  sourceCardinality: 0..*
+  sourceName: Limits
+  sourceDescription: The limit values used for supervision of Measurements.
+  targetCardinality: "1"
+  targetName: LimitSet
+  targetDescription: The set of limits.

@@ -1,0 +1,41 @@
+name: CogenerationPlant
+description: A set of thermal generating units for the production of electrical energy and process steam (usually from the
+  output of the steam turbines). The steam sendout is typically used for industrial purposes or for municipal heating and
+  cooling.
+attributes:
+- name: cogenHPSendoutRating
+  type: Float
+  description: The high pressure steam sendout.
+- name: cogenHPSteamRating
+  type: Float
+  description: The high pressure steam rating.
+- name: cogenLPSendoutRating
+  type: Float
+  description: The low pressure steam sendout.
+- name: cogenLPSteamRating
+  type: Float
+  description: The low pressure steam rating.
+- name: ratedP
+  type: ActivePower
+  description: |-
+    The rated output active power of the cogeneration plant.
+    The attribute shall be a positive value.
+ancestors:
+- PowerSystemResource
+associations:
+- source: CogenerationPlant
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  sourceName: CogenerationPlant
+  sourceDescription: A thermal generating unit may be a member of a cogeneration plant.
+  targetCardinality: 0..*
+  targetName: ThermalGeneratingUnits
+  targetDescription: A thermal generating unit may be a member of a cogeneration plant.
+- source: CogenerationPlant
+  target: SteamSendoutSchedule
+  sourceCardinality: "1"
+  sourceName: CogenerationPlant
+  sourceDescription: A cogeneration plant has a steam sendout schedule.
+  targetCardinality: "1"
+  targetName: SteamSendoutSchedule
+  targetDescription: A cogeneration plant has a steam sendout schedule.

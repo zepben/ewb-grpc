@@ -1,0 +1,27 @@
+name: ScheduledEventData
+description: Schedule parameters for an activity that is to occur, is occurring, or has completed.
+attributes:
+- name: estimatedWindow
+  type: DateTimeInterval
+  description: Estimated date and time for activity execution (with earliest possibility of activity initiation and latest
+    possibility of activity completion).
+- name: requestedWindow
+  type: DateTimeInterval
+  description: Requested date and time interval for activity execution.
+- name: status
+  type: Status
+associations:
+- source: ScheduledEventData
+  target: InspectionDataSet
+  sourceCardinality: 0..*
+  sourceName: AccordingToSchedules
+  targetCardinality: "1"
+  targetName: InspectionDataSet
+- source: ScheduledEventData
+  target: ScheduledEvent
+  sourceCardinality: 0..1
+  sourceName: ScheduledEventData
+  sourceDescription: Specification for this scheduled event.
+  targetCardinality: 0..*
+  targetName: ScheduledEvents
+  targetDescription: All scheduled events with this specification.

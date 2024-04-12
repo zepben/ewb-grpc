@@ -1,0 +1,35 @@
+name: StructureSupport
+description: Support for structure assets.
+attributes:
+- name: anchorKind
+  type: AnchorKind
+  description: (if anchor) Kind of anchor.
+- name: anchorRodCount
+  type: Integer
+  description: (if anchor) Number of rods used.
+- name: anchorRodLength
+  type: Length
+  description: (if anchor) Length of rod used.
+- name: direction
+  type: AngleDegrees
+  description: Direction of this support structure.
+- name: kind
+  type: StructureSupportKind
+  description: Kind of structure support.
+- name: length
+  type: Length
+  description: Length of this support structure.
+- name: size
+  type: String
+  description: Size of this support structure.
+ancestors:
+- Asset
+associations:
+- source: StructureSupport
+  target: Structure
+  sourceCardinality: 0..*
+  sourceName: StructureSupports
+  sourceDescription: Structure support for this structure.
+  targetCardinality: 0..1
+  targetName: SecuredStructure
+  targetDescription: The secured structure supported by this structure support.

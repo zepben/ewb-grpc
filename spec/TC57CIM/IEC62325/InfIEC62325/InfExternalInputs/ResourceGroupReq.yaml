@@ -1,0 +1,19 @@
+name: ResourceGroupReq
+description: Ancillary service requirements for a market.
+ancestors:
+- IdentifiedObject
+descendents:
+- ReserveReq
+associations:
+- source: ResourceGroupReq
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: ResourceGroupReqs
+  targetCardinality: 0..*
+  targetName: RTOs
+- source: ResourceGroupReq
+  target: ResourceGroup
+  sourceCardinality: 0..*
+  sourceName: ResourceGroupReqs
+  targetCardinality: "1"
+  targetName: ResourceGroup

@@ -1,0 +1,86 @@
+name: Work
+description: Document used to request, initiate, track and record work.
+attributes:
+- name: requestDateTime
+  type: DateTime
+  description: Date and time work was requested.
+- name: workOrderNumber
+  type: String
+  description: Work order number (or other unique identifying information) for this work.
+ancestors:
+- BaseWork
+associations:
+- source: Work
+  target: Project
+  sourceCardinality: 0..*
+  sourceName: Works
+  targetCardinality: 0..1
+  targetName: Project
+- source: Work
+  target: WorkTask
+  sourceCardinality: "1"
+  sourceName: Work
+  sourceDescription: Work this task belongs to.
+  targetCardinality: 0..*
+  targetName: WorkTasks
+  targetDescription: All tasks in this work.
+- source: Work
+  target: ErpProjectAccounting
+  sourceCardinality: 0..*
+  sourceName: Works
+  targetCardinality: 0..1
+  targetName: ErpProjectAccounting
+- source: Work
+  target: Appointment
+  sourceCardinality: 0..*
+  sourceName: Works
+  sourceDescription: All works for this appointment.
+  targetCardinality: 0..*
+  targetName: Appointments
+  targetDescription: All appointments for this work.
+- source: Work
+  target: WorkCostDetail
+  sourceCardinality: 0..*
+  sourceName: Works
+  targetCardinality: 0..*
+  targetName: WorkCostDetails
+- source: Work
+  target: WorkBillingInfo
+  sourceCardinality: 0..*
+  sourceName: Works
+  targetCardinality: 0..1
+  targetName: WorkBillingInfo
+- source: Work
+  target: Design
+  sourceCardinality: 0..1
+  sourceName: Work
+  targetCardinality: 0..*
+  targetName: Designs
+- source: Work
+  target: BusinessCase
+  sourceCardinality: 0..*
+  sourceName: Works
+  targetCardinality: 0..1
+  targetName: BusinessCase
+- source: Work
+  target: WorkFlowStep
+  sourceCardinality: 0..1
+  sourceName: Work
+  targetCardinality: 0..*
+  targetName: WorkFlowSteps
+- source: Work
+  target: Customer
+  sourceCardinality: 0..*
+  sourceName: Works
+  sourceDescription: All the works performed for this customer.
+  targetCardinality: 0..*
+  targetName: Customers
+  targetDescription: All the customers for which this work is performed.
+- source: Work
+  target: Incident
+  sourceCardinality: 0..*
+  sourceName: Works
+  sourceDescription: All works addressing this incident.
+  targetCardinality: 0..*
+  targetName: Incidents
+  targetDescription: All incidents being addressed by this work.

@@ -1,0 +1,50 @@
+name: OutagePlan
+description: Document containing the definition of planned outages of equipment and/or usage points. It will reference switching
+  plans that are used to execute the planned outage.
+attributes:
+- name: approvedDateTime
+  type: DateTime
+  description: The date and time the outage plan was approved
+- name: cancelledDateTime
+  type: DateTime
+  description: Date and Time the planned outage was canceled.
+- name: plannedPeriod
+  type: DateTimeInterval
+  description: planned start and end time of the planned outage.
+- name: purpose
+  type: String
+  description: Purpose of  this outage plan, such as whether it is to replace equipment or perform maintenance or repairs
+    or to reconfigure network topology.
+ancestors:
+- Document
+associations:
+- source: OutagePlan
+  target: PlannedOutage
+  sourceCardinality: 0..1
+  sourceName: OutagePlan
+  sourceDescription: Outage plan for executing a planned outage.
+  targetCardinality: 0..1
+  targetName: PlannedOutage
+  targetDescription: The outage resulting from the execution of the outage plan.
+- source: OutagePlan
+  target: OutageOrder
+  sourceCardinality: 0..1
+  sourceName: OutagePlan
+  targetCardinality: 0..1
+  targetName: OutageOrder
+- source: OutagePlan
+  target: Customer
+  sourceCardinality: 0..1
+  sourceName: OutagePlan
+  sourceDescription: The outage plan that identifies the customers that are affected.
+  targetCardinality: 0..*
+  targetName: Customer
+  targetDescription: The customers that are affected by this planned outage.
+- source: OutagePlan
+  target: SwitchingPlan
+  sourceCardinality: 0..1
+  sourceName: OutagePlan
+  sourceDescription: The outage plan for which the switching plan is defined.
+  targetCardinality: 0..1
+  targetName: SwitchingPlan
+  targetDescription: The swiching plan that is associated with the outage plan.

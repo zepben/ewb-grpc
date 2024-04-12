@@ -1,0 +1,34 @@
+name: PFVArControllerType1Dynamics
+description: Power factor or VAr controller type 1 function block whose behaviour is described by reference to a standard
+  model <font color="#0f0f0f">or by definition of a user-defined model.</font>
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- PFVArControllerType1UserDefined
+- PFVArType1IEEEVArController
+- PFVArType1IEEEPFController
+associations:
+- source: PFVArControllerType1Dynamics
+  target: ExcitationSystemDynamics
+  sourceCardinality: 0..1
+  sourceName: PFVArControllerType1Dynamics
+  sourceDescription: Power factor or VAr controller type 1 model associated with this excitation system model.
+  targetCardinality: "1"
+  targetName: ExcitationSystemDynamics
+  targetDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
+- source: PFVArControllerType1Dynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  sourceName: PFVArControllerType1Dynamics
+  sourceDescription: Power factor or VAr controller type 1 model using this remote input signal.
+  targetCardinality: 0..1
+  targetName: RemoteInputSignal
+  targetDescription: Remote input signal used by this power factor or VAr controller type 1 model.
+- source: PFVArControllerType1Dynamics
+  target: VoltageAdjusterDynamics
+  sourceCardinality: "1"
+  sourceName: PFVArControllerType1Dynamics
+  sourceDescription: Power factor or VAr controller type 1 model with which this voltage adjuster is associated.
+  targetCardinality: 0..1
+  targetName: VoltageAdjusterDynamics
+  targetDescription: Voltage adjuster model associated with this power factor or VAr controller type 1 model.

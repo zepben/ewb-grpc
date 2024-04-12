@@ -1,0 +1,26 @@
+name: LoadFollowingOperatorInput
+description: Model of load following capabilities that are entered by operators on a temporary basis.  Related to Registered
+  Resources in Metered Subsystems.
+attributes:
+- name: dataEntryTimeStamp
+  type: DateTime
+  description: Time the data entry was performed
+- name: tempLoadFollowingDownManualCap
+  type: Float
+  description: temporarily manually entered LFD capacity
+- name: tempLoadFollowingUpManualCap
+  type: Float
+  description: temporarily manually entered LFU capacity.
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+associations:
+- source: LoadFollowingOperatorInput
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: LoadFollowingOperatorInput
+  targetCardinality: 0..1
+  targetName: RegisteredResource

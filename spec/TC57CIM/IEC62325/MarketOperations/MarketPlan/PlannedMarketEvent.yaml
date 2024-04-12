@@ -1,0 +1,30 @@
+name: PlannedMarketEvent
+description: This class represents planned events. Used to model the various planned events in a market (closing time, clearing
+  time, etc.)
+attributes:
+- name: eventType
+  type: String
+  description: Planned event type.
+- name: plannedTime
+  type: Integer
+  description: This is relative time so that this attribute can be used by more than one planned market. For example the bid
+    submission is 10am everyday.
+ancestors:
+- IdentifiedObject
+associations:
+- source: PlannedMarketEvent
+  target: PlannedMarket
+  sourceCardinality: 1..*
+  sourceName: PlannedMarketEvent
+  sourceDescription: A planned market shall have a set of planned events
+  targetCardinality: 0..*
+  targetName: PlannedMarket
+  targetDescription: A planned market shall have a set of planned events
+- source: PlannedMarketEvent
+  target: MarketActualEvent
+  sourceCardinality: 0..1
+  sourceName: PlannedMarketEvent
+  sourceDescription: Planned event executed by this actual event.
+  targetCardinality: 1..*
+  targetName: MarketActualEvent
+  targetDescription: All actual events that execute this planned event.

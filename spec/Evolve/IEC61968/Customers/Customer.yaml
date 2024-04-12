@@ -1,0 +1,20 @@
+name: Customer
+description: Organisation receiving services from service supplier.
+attributes:
+- name: kind
+  type: CustomerKind
+  description: Kind of customer.
+- name: numEndDevices
+  type: Integer
+  description: Count of the EndDevice's that are associated with this Customer.
+ancestors:
+- OrganisationRole
+associations:
+- source: Customer
+  target: CustomerAgreement
+  sourceCardinality: "1"
+  sourceName: Customer
+  sourceDescription: Customer for this agreement.
+  targetCardinality: 0..*
+  targetName: CustomerAgreements
+  targetDescription: All agreements of this customer.

@@ -1,0 +1,26 @@
+name: Seal
+description: Physically controls access to AssetContainers.
+attributes:
+- name: appliedDateTime
+  type: DateTime
+  description: Date and time this seal has been applied.
+- name: condition
+  type: SealConditionKind
+  description: Condition of seal.
+- name: kind
+  type: SealKind
+  description: Kind of seal.
+- name: sealNumber
+  type: String
+  description: (reserved word) Seal number.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Seal
+  target: AssetContainer
+  sourceCardinality: 0..*
+  sourceName: Seals
+  sourceDescription: All seals applied to this asset container.
+  targetCardinality: 0..1
+  targetName: AssetContainer
+  targetDescription: Asset container to which this seal is applied.

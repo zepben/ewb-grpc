@@ -1,0 +1,16 @@
+name: StringMeasurement
+description: StringMeasurement represents a measurement with values of type string.
+ancestors:
+- Measurement
+descendents:
+- AssetStringMeasurement
+- EnvironmentalStringMeasurement
+associations:
+- source: StringMeasurement
+  target: StringMeasurementValue
+  sourceCardinality: "1"
+  sourceName: StringMeasurement
+  sourceDescription: Measurement to which this value is connected.
+  targetCardinality: 0..*
+  targetName: StringMeasurementValues
+  targetDescription: The values connected to this measurement.

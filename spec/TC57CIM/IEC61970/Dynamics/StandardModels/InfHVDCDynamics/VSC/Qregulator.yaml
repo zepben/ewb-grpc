@@ -1,0 +1,20 @@
+name: Qregulator
+associations:
+- source: Qregulator
+  target: VSCtype1
+  sourceCardinality: "1"
+  sourceName: Qregulator
+  targetCardinality: 0..1
+  targetName: VSCtype1
+- source: Qregulator
+  target: HVDCLookUpTable
+  sourceCardinality: 0..1
+  sourceName: Qregulator
+  targetCardinality: 1..*
+  targetName: HVDClookUpTable
+- source: Qregulator
+  target: Delay
+  sourceCardinality: 0..1
+  sourceName: Qregulator
+  targetCardinality: "1"
+  targetName: Delay

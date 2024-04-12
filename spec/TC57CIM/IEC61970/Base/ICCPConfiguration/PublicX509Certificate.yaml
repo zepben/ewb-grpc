@@ -1,0 +1,27 @@
+name: PublicX509Certificate
+description: Used to convey information that will allow matching in order to determine which certificate to use.  Actual certificates
+  are exchanged externally to the CIM exchange.
+attributes:
+- name: issuerName
+  type: String
+  description: Represents the CA that issued the certificate.  Defined to be per X.509.
+- name: serialNumber
+  type: String
+  description: Is the serial number of the certificate per X.509 definition.
+associations:
+- source: PublicX509Certificate
+  target: TCPAccessPoint
+  sourceCardinality: 0..*
+  sourceName: PublicX509Certificate
+  sourceDescription: Is the Public Certificate used for mutual authentication between peers.
+  targetCardinality: 0..1
+  targetName: TCPAccessPoint
+  targetDescription: The association allows a certificate to be bound for use by TLS.
+- source: PublicX509Certificate
+  target: ISOUpperLayer
+  sourceCardinality: 0..*
+  sourceName: UpperLayerPublicX509Certificate
+  sourceDescription: Certificate to be bound for use for Application layer mutual authentication.
+  targetCardinality: 0..1
+  targetName: ISOUpperLayer
+  targetDescription: Application layer used with the certificate for mutual authentication.

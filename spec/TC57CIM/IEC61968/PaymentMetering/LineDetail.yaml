@@ -1,0 +1,15 @@
+name: LineDetail
+description: Details on an amount line, with rounding, date and note.
+attributes:
+- name: amount
+  type: Money
+  description: Amount for this line item.
+- name: dateTime
+  type: DateTime
+  description: Date and time when this line was created in the application process.
+- name: note
+  type: String
+  description: Free format note relevant to this line.
+- name: rounding
+  type: Money
+  description: Totalised monetary value of all errors due to process rounding or truncating that is not reflected in 'amount'.

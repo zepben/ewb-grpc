@@ -1,0 +1,75 @@
+name: GovHydroWPID
+description: |-
+  Woodward<sup>TM</sup> PID hydro governor.
+  [Footnote: Woodward PID hydro governors are an example of suitable products available commercially. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of these products.]
+attributes:
+- name: d
+  type: PU
+  description: Turbine damping factor (<i>D</i>).  Unit = delta P / delta speed.
+- name: gatmax
+  type: PU
+  description: Gate opening limit maximum (<i>Gatmax</i>) (&gt; GovHydroWPID.gatmin).
+- name: gatmin
+  type: PU
+  description: Gate opening limit minimum (<i>Gatmin</i>) (&lt; GovHydroWPID.gatmax).
+- name: gv1
+  type: PU
+  description: Gate position 1 (<i>Gv1</i>).
+- name: gv2
+  type: PU
+  description: Gate position 2 (<i>Gv2</i>).
+- name: gv3
+  type: PU
+  description: Gate position 3 (<i>Gv3</i>) (= 1,0).
+- name: kd
+  type: PU
+  description: Derivative gain (<i>Kd</i>).  Typical value = 1,11.
+- name: ki
+  type: PU
+  description: Reset gain (<i>Ki</i>).  Typical value = 0,36.
+- name: kp
+  type: PU
+  description: Proportional gain (<i>Kp</i>).  Typical value = 0,1.
+- name: mwbase
+  type: ActivePower
+  description: Base for power values  (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pgv1
+  type: PU
+  description: Output at <i>Gv1</i> PU of <i>MWbase</i> (<i>Pgv1</i>).
+- name: pgv2
+  type: PU
+  description: Output at <i>Gv2</i> PU of <i>MWbase</i> (<i>Pgv2</i>).
+- name: pgv3
+  type: PU
+  description: Output at <i>Gv3</i> PU of <i>MWbase</i> (<i>Pgv3</i>).
+- name: pmax
+  type: PU
+  description: Maximum power output (<i>Pmax</i>) (&gt; GovHydroWPID.pmin).
+- name: pmin
+  type: PU
+  description: Minimum power output (<i>Pmin</i>) (&lt; GovHydroWPID.pmax).
+- name: reg
+  type: PU
+  description: Permanent drop (<i>Reg</i>).
+- name: ta
+  type: Seconds
+  description: Controller time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0.
+- name: tb
+  type: Seconds
+  description: Gate servo time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 0.
+- name: treg
+  type: Seconds
+  description: Speed detector time constant (<i>Treg</i>) (&gt;= 0).
+- name: tw
+  type: Seconds
+  description: Water inertia time constant (<i>Tw</i>) (&gt;= 0).  Typical value = 0.
+- name: velmax
+  type: PU
+  description: Maximum gate opening velocity (<i>Velmax</i>) (&gt; GovHydroWPID.velmin).  Unit = PU / s.  Typical value =
+    0.
+- name: velmin
+  type: PU
+  description: Maximum gate closing velocity (<i>Velmin</i>) (&lt; GovHydroWPID.velmax).  Unit = PU / s.  Typical value =
+    0.
+ancestors:
+- TurbineGovernorDynamics

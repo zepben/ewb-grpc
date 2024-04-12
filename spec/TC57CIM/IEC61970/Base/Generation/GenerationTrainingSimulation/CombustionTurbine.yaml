@@ -1,0 +1,57 @@
+name: CombustionTurbine
+description: A prime mover that is typically fuelled by gas or light oil.
+attributes:
+- name: ambientTemp
+  type: Temperature
+  description: Default ambient temperature to be used in modelling applications.
+- name: auxPowerVersusFrequency
+  type: PU
+  description: Off-nominal frequency effect on turbine auxiliaries. Per unit reduction in auxiliary active power consumption
+    versus per unit reduction in frequency (from rated frequency).
+- name: auxPowerVersusVoltage
+  type: PU
+  description: Off-nominal voltage effect on turbine auxiliaries. Per unit reduction in auxiliary active power consumption
+    versus per unit reduction in auxiliary bus voltage (from a specified voltage level).
+- name: capabilityVersusFrequency
+  type: PU
+  description: Off-nominal frequency effect on turbine capability. Per unit reduction in unit active power capability versus
+    per unit reduction in frequency (from rated frequency).
+- name: heatRecoveryFlag
+  type: Boolean
+  description: Flag that is set to true if the combustion turbine is associated with a heat recovery boiler.
+- name: powerVariationByTemp
+  type: PU
+  description: Per unit change in power per (versus) unit change in ambient temperature.
+- name: referenceTemp
+  type: Temperature
+  description: Reference temperature at which the output of the turbine was defined.
+- name: timeConstant
+  type: Seconds
+  description: The time constant for the turbine.
+ancestors:
+- PrimeMover
+associations:
+- source: CombustionTurbine
+  target: AirCompressor
+  sourceCardinality: "1"
+  sourceName: CombustionTurbine
+  sourceDescription: A CAES air compressor is driven by combustion turbine.
+  targetCardinality: 0..1
+  targetName: AirCompressor
+  targetDescription: A CAES air compressor is driven by combustion turbine.
+- source: CombustionTurbine
+  target: HeatRecoveryBoiler
+  sourceCardinality: 0..*
+  sourceName: CombustionTurbines
+  sourceDescription: A combustion turbine may have a heat recovery boiler for making steam.
+  targetCardinality: 0..1
+  targetName: HeatRecoveryBoiler
+  targetDescription: A combustion turbine may have a heat recovery boiler for making steam.
+- source: CombustionTurbine
+  target: CTTempActivePowerCurve
+  sourceCardinality: "1"
+  sourceName: CombustionTurbine
+  sourceDescription: A combustion turbine may have an active power versus ambient temperature relationship.
+  targetCardinality: 0..1
+  targetName: CTTempActivePowerCurve
+  targetDescription: A combustion turbine may have an active power versus ambient temperature relationship.

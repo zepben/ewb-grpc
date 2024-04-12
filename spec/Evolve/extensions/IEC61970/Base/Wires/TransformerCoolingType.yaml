@@ -1,0 +1,96 @@
+name: TransformerCoolingType
+description: |
+  Vector group of the transformer for protective relaying, e.g., Dyn1. For unbalanced transformers, this may not be simply determined from the constituent winding connections and phase angle dispacements.
+  The vectorGroup string consists of the following components in the order listed: high voltage winding connection, mid voltage winding connection (for three winding transformers), phase displacement clock number from 0 to 11, low voltage winding connection phase displacement clock number from 0 to 11.
+  The winding connections are D (delta), Y (wye), YN (wye with neutral), Z (zigzag), ZN (zigzag with neutral), A (auto transformer). Upper case means the high voltage, lower case mid or low. The high voltage winding always has clock postion 0 and is not included in the vector group string.
+  Some examples:
+                  YNy0 (two winding wye to wye with no phase displacement),
+                  YNd11 (two winding wye to delta with 330 degrees phase displacement),
+                  YNyn0d5 (three winding transformer wye with neutral high voltgage, wye with neutral mid
+                          voltgage and no phase displacement, delta low voltage with 150 degrees displacement).
+
+  Phase displacement is defined as the angular difference between the phasors representing the voltages between the neutral point (real or imaginary) and the corresponding terminals of two windings, a positive sequence voltage system being applied to the high-voltage terminals, following each other in alphabetical sequence if they are lettered, or in numerical sequence if they are numbered: the phasors are assumed to rotate in a counter-clockwise sense.
+attributes:
+- name: UNKNOWN
+- name: DD0
+- name: DZ0
+- name: DZN0
+- name: YNY0
+- name: YNYN0
+- name: YY0
+- name: YYN0
+- name: ZD0
+- name: ZND0
+- name: DYN1
+- name: DZ1
+- name: DZN1
+- name: YD1
+- name: YND1
+- name: YNZN1
+- name: YZ1
+- name: YZN1
+- name: ZD1
+- name: ZND1
+- name: ZNYN1
+- name: ZY1
+- name: ZYN1
+- name: DY5
+- name: DYN5
+- name: YD5
+- name: YND5
+- name: YNZ5
+- name: YNZN5
+- name: YZ5
+- name: YZN5
+- name: ZNY5
+- name: ZNYN5
+- name: ZY5
+- name: ZYN5
+- name: DD6
+- name: DZ6
+- name: DZN6
+- name: YNY6
+- name: YNYN6
+- name: YY6
+- name: YYN6
+- name: ZD6
+- name: ZND6
+- name: DY7
+- name: DYN7
+- name: DZ7
+- name: DZN7
+- name: YD7
+- name: YND7
+- name: YNZN7
+- name: YZ7
+- name: YZN7
+- name: ZD7
+- name: ZND7
+- name: ZNYN7
+- name: ZY7
+- name: ZYN7
+- name: DY11
+- name: DYN11
+- name: YD11
+- name: YND11
+- name: YNZ11
+- name: YNZN11
+- name: YZ11
+- name: YZN11
+- name: ZNY11
+- name: ZNYN11
+- name: ZY11
+- name: ZYN11
+- name: DY1
+- name: Y0
+- name: YN0
+- name: D0
+- name: ZNY1
+- name: ZNY7
+- name: DDN0
+- name: DND0
+- name: DNYN1
+- name: DNYN11
+- name: YNDN1
+- name: YNDN11
+- name: TTN1

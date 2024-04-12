@@ -1,0 +1,23 @@
+name: Control
+description: Control is used for supervisory/device control. It represents control outputs that are used to change the state
+  in a process, e.g. close or open breaker, a set point value or a raise lower command.
+ancestors:
+- IOPoint
+associations:
+- source: Control
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  sourceName: Controls
+  sourceDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
+    machine or capacitor bank breaker actuator.
+  targetCardinality: 0..1
+  targetName: PowerSystemResource
+  targetDescription: Regulating device governed by this control output.
+- source: Control
+  target: RemoteControl
+  sourceCardinality: "1"
+  sourceName: Control
+  sourceDescription: The Control for the RemoteControl point.
+  targetCardinality: 0..1
+  targetName: RemoteControl
+  targetDescription: The remote point controlling the physical actuator.

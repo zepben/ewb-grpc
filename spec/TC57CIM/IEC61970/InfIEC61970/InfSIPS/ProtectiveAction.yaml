@@ -1,0 +1,45 @@
+name: ProtectiveAction
+description: A protective action for supporting the integrity of the power system.
+attributes:
+- name: enabled
+  type: Boolean
+  description: The status of the class set by operation or by signal. Optional field that will override other status fields.
+- name: normalEnabled
+  type: Boolean
+  description: The default/normal value used when other active signal/values are missing.
+ancestors:
+- IdentifiedObject
+descendents:
+- ProtectiveActionRegulation
+- ProtectiveActionEquipment
+- ProtectiveActionAdjustment
+associations:
+- source: ProtectiveAction
+  target: Gate
+  sourceCardinality: 0..*
+  sourceName: ProtectiveActionCom
+  sourceDescription: For the ProtectiveAction to be activated the condition for communication needs to be met (true).
+  targetCardinality: 0..1
+  targetName: GateComCondition
+- source: ProtectiveAction
+  target: Gate
+  sourceCardinality: 0..*
+  sourceName: ProtectiveActionEnabled
+  targetCardinality: 0..1
+  targetName: GateEnabledCondition
+  targetDescription: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
+- source: ProtectiveAction
+  target: ProtectionEquipment
+  sourceCardinality: 0..*
+  sourceName: ProtectiveAction
+  sourceDescription: Protective action can emulate the action done by one or more protection equipment. In a node breaker
+    model were protective equipment is model this association will be used.
+  targetCardinality: 0..1
+  targetName: ProtectionEquipment
+- source: ProtectiveAction
+  target: ProtectiveActionCollection
+  sourceCardinality: 1..*
+  sourceName: ProtectiveAction
+  sourceDescription: Set of ProtectiveAction belonging to a ProtectiveActionCollection.
+  targetCardinality: "1"
+  targetName: ProtectiveActionCollection

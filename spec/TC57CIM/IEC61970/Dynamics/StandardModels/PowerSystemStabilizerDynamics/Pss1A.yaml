@@ -1,0 +1,73 @@
+name: Pss1A
+description: Single input power system stabilizer. It is a modified version in order to allow representation of various vendors'
+  implementations on PSS type 1A.
+attributes:
+- name: a1
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>1</sub></i>).
+- name: a2
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>2</sub></i>).
+- name: a3
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>3</sub></i>).
+- name: a4
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>4</sub></i>).
+- name: a5
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>5</sub></i>).
+- name: a6
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>6</sub></i>).
+- name: a7
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>7</sub></i>).
+- name: a8
+  type: PU
+  description: Notch filter parameter (<i>A</i><i><sub>8</sub></i>).
+- name: inputSignalType
+  type: InputSignalKind
+  description: Type of input signal (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower, generatorAcceleratingPower,
+    busVoltage, or busVoltageDerivative).
+- name: kd
+  type: Boolean
+  description: "Selector (<i>Kd</i>). \ntrue = e<sup>-sTdelay</sup> used\nfalse = e<sup>-sTdelay</sup> not used."
+- name: ks
+  type: PU
+  description: Stabilizer gain (<i>K</i><i><sub>s</sub></i>).
+- name: t1
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).
+- name: t2
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>2</sub></i>) (&gt;= 0).
+- name: t3
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>3</sub></i>) (&gt;= 0).
+- name: t4
+  type: Seconds
+  description: Lead/lag time constant (<i>T</i><i><sub>4</sub></i>) (&gt;= 0).
+- name: t5
+  type: Seconds
+  description: Washout time constant (<i>T</i><i><sub>5</sub></i>) (&gt;= 0).
+- name: t6
+  type: Seconds
+  description: Transducer time constant (<i>T</i><i><sub>6</sub></i>) (&gt;= 0).
+- name: tdelay
+  type: Seconds
+  description: Time constant (<i>Tdelay</i>) (&gt;= 0).
+- name: vcl
+  type: PU
+  description: Stabilizer input cutoff threshold (<i>Vcl</i>).
+- name: vcu
+  type: PU
+  description: Stabilizer input cutoff threshold (<i>Vcu</i>).
+- name: vrmax
+  type: PU
+  description: Maximum stabilizer output (<i>Vrmax</i>) (&gt; Pss1A.vrmin).
+- name: vrmin
+  type: PU
+  description: Minimum stabilizer output (<i>Vrmin</i>) (&lt; Pss1A.vrmax).
+ancestors:
+- PowerSystemStabilizerDynamics

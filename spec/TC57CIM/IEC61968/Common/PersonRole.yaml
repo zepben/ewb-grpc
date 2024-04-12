@@ -1,0 +1,31 @@
+name: PersonRole
+ancestors:
+- IdentifiedObject
+descendents:
+- OperationPersonRole
+- DocumentPersonRole
+associations:
+- source: PersonRole
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  sourceName: ChangedPersonRole
+  sourceDescription: Person role whose change resulted in this configuration event.
+  targetCardinality: 0..*
+  targetName: ConfigurationEvents
+  targetDescription: All configuration events created for this person role.
+- source: PersonRole
+  target: Appointment
+  sourceCardinality: 0..*
+  sourceName: Persons
+  sourceDescription: All persons for this appointment.
+  targetCardinality: 0..*
+  targetName: Appointments
+  targetDescription: All appointments for this person.
+- source: PersonRole
+  target: Person
+  sourceCardinality: 0..*
+  sourceName: Roles
+  sourceDescription: All roles of this person.
+  targetCardinality: 0..1
+  targetName: Person
+  targetDescription: Person having this role.

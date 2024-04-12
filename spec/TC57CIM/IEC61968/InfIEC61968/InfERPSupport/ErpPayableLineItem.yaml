@@ -1,0 +1,32 @@
+name: ErpPayableLineItem
+description: Of an ErpPayable, a line item references an ErpInvoiceLineitem or other source such as credit memos.
+attributes:
+- name: status
+  type: Status
+ancestors:
+- ErpIdentifiedObject
+associations:
+- source: ErpPayableLineItem
+  target: ErpPayment
+  sourceCardinality: 0..*
+  sourceName: ErpPayableLineItems
+  targetCardinality: 0..*
+  targetName: ErpPayments
+- source: ErpPayableLineItem
+  target: ErpPayable
+  sourceCardinality: 0..*
+  sourceName: ErpPayableLineItems
+  targetCardinality: "1"
+  targetName: ErpPayable
+- source: ErpPayableLineItem
+  target: ErpJournalEntry
+  sourceCardinality: 0..*
+  sourceName: ErpPayableLineItems
+  targetCardinality: 0..*
+  targetName: ErpJournalEntries
+- source: ErpPayableLineItem
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..1
+  sourceName: ErpPayableLineItem
+  targetCardinality: 0..1
+  targetName: ErpInvoiceLineItem

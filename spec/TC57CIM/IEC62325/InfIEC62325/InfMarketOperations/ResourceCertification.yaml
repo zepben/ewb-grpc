@@ -1,0 +1,37 @@
+name: ResourceCertification
+description: This class represent the resource certification for a specific product type. For example, a resource is certified
+  for Non-Spinning reserve for RTM.
+attributes:
+- name: certifiedDAM
+  type: YesNo
+- name: certifiedNonspinDAM
+  type: YesNo
+- name: certifiedNonspinDAMMw
+  type: Float
+- name: certifiedNonspinRTM
+  type: YesNo
+- name: certifiedNonspinRTMMw
+  type: Float
+- name: certifiedPIRP
+  type: YesNo
+- name: certifiedRegulation
+  type: YesNo
+- name: certifiedRegulationMw
+  type: Float
+- name: certifiedReplaceAS
+  type: YesNo
+- name: certifiedRTM
+  type: YesNo
+- name: certifiedRUC
+  type: YesNo
+- name: certifiedSpin
+  type: YesNo
+- name: certifiedSpinMw
+  type: Float
+associations:
+- source: ResourceCertification
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: ResourceCertification
+  targetCardinality: 0..*
+  targetName: RegisteredResource

@@ -1,0 +1,16 @@
+name: ExpectedEnergy
+description: Model Expected Energy from Market Clearing, interval based.
+attributes:
+- name: intervalStartTime
+  type: DateTime
+- name: updateTimeStamp
+  type: DateTime
+- name: updateUser
+  type: String
+associations:
+- source: ExpectedEnergy
+  target: ExpectedEnergyValues
+  sourceCardinality: "1"
+  sourceName: ExpectedEnergy
+  targetCardinality: 1..*
+  targetName: ExpectedEnergyValues

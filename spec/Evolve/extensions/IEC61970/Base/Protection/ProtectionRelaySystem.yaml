@@ -1,0 +1,17 @@
+name: ProtectionRelaySystem
+description: A relay system for controlling ProtectedSwitches.
+attributes:
+- name: protectionKind
+  type: ProtectionKind
+  description: The kind of protection being provided by this protection equipment.
+ancestors:
+- Equipment
+associations:
+- source: ProtectionRelaySystem
+  target: ProtectionRelayScheme
+  sourceCardinality: 0..1
+  sourceName: System
+  sourceDescription: The system this scheme belongs to.
+  targetCardinality: 0..*
+  targetName: Schemes
+  targetDescription: TThe schemes implemented by this ProtectionRelaySystem.

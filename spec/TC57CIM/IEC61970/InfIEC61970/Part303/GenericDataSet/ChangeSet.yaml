@@ -1,0 +1,34 @@
+name: ChangeSet
+description: Describes a set of changes that can be applied in different situations.   A given registered target object  MRID
+  may only be referenced once by the contained change set members.
+ancestors:
+- DataSet
+associations:
+- source: ChangeSet
+  target: IncrementalDatasetArg
+  sourceCardinality: "1"
+  sourceName: IncrementalDataset
+  targetCardinality: 0..*
+  targetName: IncrementalDatasetArg
+- source: ChangeSet
+  target: ChangeSetMember
+  sourceCardinality: 0..1
+  sourceName: Changeset
+  sourceDescription: Dataset containing the data objects.
+  targetCardinality: 0..*
+  targetName: ChangeSetMember
+  targetDescription: Data objects contained in the dataset.
+- source: ChangeSet
+  target: NetworkModelProjectChangeVersion
+  sourceCardinality: 0..1
+  sourceName: ChangeSet
+  sourceDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
+  targetCardinality: 0..*
+  targetName: NetworkModelProjectChangeVersion
+  targetDescription: The project of the details of model changes.
+- source: ChangeSet
+  target: NetworkModelProjectStage
+  sourceCardinality: 1..*
+  sourceName: ChangeSets
+  targetCardinality: 0..1
+  targetName: NMProjectStage

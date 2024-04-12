@@ -1,0 +1,32 @@
+name: NetworkModelProjectComponent
+description: Abstract class for both a network model project and network model change.
+ancestors:
+- IdentifiedObject
+descendents:
+- NetworkModelProject
+- NetworkModelProjectChange
+associations:
+- source: NetworkModelProjectComponent
+  target: NetworkModelProjectDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+- source: NetworkModelProjectComponent
+  target: NetworkModelProject
+  sourceCardinality: 0..*
+  sourceName: ContainedProject
+  sourceDescription: Projects that are included in this parent project.
+  targetCardinality: "1"
+  targetName: ContainingProject
+  targetDescription: The parent project of this project.
+- source: NetworkModelProjectComponent
+  target: NetworkModelProjectRelationship
+  sourceCardinality: "1"
+  sourceName: ProjectA
+  targetCardinality: 0..*
+  targetName: ProjectARelationships
+- source: NetworkModelProjectComponent
+  target: NetworkModelProjectRelationship
+  sourceCardinality: "1"
+  sourceName: ProjectB
+  targetCardinality: 0..*
+  targetName: ProjectBRelationships

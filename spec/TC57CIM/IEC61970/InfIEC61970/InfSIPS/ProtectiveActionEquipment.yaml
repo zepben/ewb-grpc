@@ -1,0 +1,17 @@
+name: ProtectiveActionEquipment
+description: Protective action to put an Equipment in-service/out-of-service.
+attributes:
+- name: inService
+  type: Boolean
+  description: If true the equipment is put in-service, otherwise out-of-service.
+ancestors:
+- ProtectiveAction
+associations:
+- source: ProtectiveActionEquipment
+  target: Equipment
+  sourceCardinality: 0..*
+  sourceName: ProtectiveActionEquipment
+  sourceDescription: Protective action is controlling equipment. This can be direct signals from the control center, or emulation
+    of action done by protection equipment.
+  targetCardinality: "1"
+  targetName: Equipment

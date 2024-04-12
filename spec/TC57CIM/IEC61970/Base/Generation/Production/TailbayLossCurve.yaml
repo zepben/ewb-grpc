@@ -1,0 +1,15 @@
+name: TailbayLossCurve
+description: Relationship between tailbay head loss height (Y-axis) and the total discharge into the power station's tailbay
+  volume per time unit (X-axis) . There could be more than one curve depending on the level of the tailbay reservoir or river
+  level.
+ancestors:
+- Curve
+associations:
+- source: TailbayLossCurve
+  target: HydroGeneratingUnit
+  sourceCardinality: 0..*
+  sourceName: TailbayLossCurve
+  sourceDescription: A hydro generating unit has a tailbay loss curve.
+  targetCardinality: "1"
+  targetName: HydroGeneratingUnit
+  targetDescription: A hydro generating unit has a tailbay loss curve.

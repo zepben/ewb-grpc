@@ -1,0 +1,30 @@
+name: TradeError
+description: Trade error and warning messages associated with the rule engine processing of the submitted trade.
+attributes:
+- name: endTime
+  type: DateTime
+  description: hour wihthin the trade for which the error applies
+- name: errMessage
+  type: String
+  description: error message
+- name: errPriority
+  type: Integer
+  description: Priority number for the error message
+- name: logTimeStamp
+  type: DateTime
+  description: Timestamp of logged error/warning message
+- name: ruleID
+  type: Integer
+  description: Rule identifier which triggered the error/warning message
+- name: startTime
+  type: DateTime
+  description: hour wihthin the trade for which the error applies
+ancestors:
+- IdentifiedObject
+associations:
+- source: TradeError
+  target: Trade
+  sourceCardinality: 0..*
+  sourceName: TradeError
+  targetCardinality: 0..1
+  targetName: Trade

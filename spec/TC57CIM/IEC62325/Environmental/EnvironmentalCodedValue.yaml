@@ -1,0 +1,19 @@
+name: EnvironmentalCodedValue
+description: An environmental value described using a coded value. A triplicate of enumerated values representing intensity,
+  coverage, type of weather is used. These may be concatenated into the string value.
+attributes:
+- name: coverageKind
+  type: CoverageCodeKind
+  description: Code representing the coverage of the weather condition.
+- name: intensityKind
+  type: IntensityCodeKind
+  description: Code representing the intensity of the weather condition.
+- name: probabilityPercent
+  type: PerCent
+  description: Probability of weather condition occurring during the time interval expressed as a percentage. Applicable only
+    when weather condition is related to a forecast (not an observation).
+- name: weatherKind
+  type: WeatherCodeKind
+  description: Code representing the type of weather condition.
+ancestors:
+- StringMeasurementValue

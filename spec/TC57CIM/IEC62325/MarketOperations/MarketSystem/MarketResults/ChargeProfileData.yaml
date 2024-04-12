@@ -1,0 +1,25 @@
+name: ChargeProfileData
+description: Model of various charges associated with an energy profile to support billing and settlement.
+attributes:
+- name: sequence
+  type: Integer
+  description: The sequence number of the profile.
+- name: timeStamp
+  type: DateTime
+  description: The date and time of an interval.
+- name: value
+  type: Float
+  description: The value of an interval given a profile type (amount, price, or quantity), subject to the UOM.
+associations:
+- source: ChargeProfileData
+  target: ChargeProfile
+  sourceCardinality: 0..*
+  sourceName: ChargeProfileData
+  targetCardinality: 0..1
+  targetName: ChargeProfile
+- source: ChargeProfileData
+  target: BillDeterminant
+  sourceCardinality: 0..*
+  sourceName: ChargeProfileData
+  targetCardinality: 0..1
+  targetName: BillDeterminant

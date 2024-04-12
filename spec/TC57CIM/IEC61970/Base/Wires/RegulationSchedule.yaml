@@ -1,0 +1,21 @@
+name: RegulationSchedule
+description: A pre-established pattern over time for a controlled variable, e.g., busbar voltage.
+ancestors:
+- SeasonDayTypeSchedule
+associations:
+- source: RegulationSchedule
+  target: RegulatingControl
+  sourceCardinality: 0..*
+  sourceName: RegulationSchedule
+  sourceDescription: Schedule for this regulating control.
+  targetCardinality: "1"
+  targetName: RegulatingControl
+  targetDescription: Regulating controls that have this schedule.
+- source: RegulationSchedule
+  target: VoltageControlZone
+  sourceCardinality: 0..1
+  sourceName: RegulationSchedule
+  sourceDescription: A VoltageControlZone may have a  voltage regulation schedule.
+  targetCardinality: 0..*
+  targetName: VoltageControlZones
+  targetDescription: A VoltageControlZone may have a  voltage regulation schedule.

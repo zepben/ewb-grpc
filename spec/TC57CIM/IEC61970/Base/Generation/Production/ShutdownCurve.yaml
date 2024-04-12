@@ -1,0 +1,21 @@
+name: ShutdownCurve
+description: Relationship between the rate in gross active power/minute (Y-axis) at which a unit should be shutdown and its
+  present gross MW output (X-axis).
+attributes:
+- name: shutdownCost
+  type: Money
+  description: Fixed shutdown cost.
+- name: shutdownDate
+  type: DateTime
+  description: The date and time of the most recent generating unit shutdown.
+ancestors:
+- Curve
+associations:
+- source: ShutdownCurve
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  sourceName: ShutdownCurve
+  sourceDescription: A thermal generating unit may have a shutdown curve.
+  targetCardinality: "1"
+  targetName: ThermalGeneratingUnit
+  targetDescription: A thermal generating unit may have a shutdown curve.

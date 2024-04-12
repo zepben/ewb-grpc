@@ -1,0 +1,78 @@
+name: CompatibleUnit
+description: A pre-planned job model containing labor, material, and accounting requirements for standardized job planning.
+attributes:
+- name: estCost
+  type: Money
+  description: Estimated total cost for perfoming CU.
+- name: quantity
+  type: String
+  description: The quantity, unit of measure, and multiplier at the CU level that applies to the materials.
+ancestors:
+- WorkDocument
+associations:
+- source: CompatibleUnit
+  target: DesignLocationCU
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..*
+  targetName: DesignLocationCUs
+- source: CompatibleUnit
+  target: CUGroup
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..1
+  targetName: CUGroup
+- source: CompatibleUnit
+  target: CatalogAssetType
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..1
+  targetName: GenericAssetModel
+- source: CompatibleUnit
+  target: Procedure
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..*
+  targetName: Procedures
+- source: CompatibleUnit
+  target: PropertyUnit
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..1
+  targetName: PropertyUnit
+- source: CompatibleUnit
+  target: CostType
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..1
+  targetName: CostType
+- source: CompatibleUnit
+  target: CUWorkEquipmentItem
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..*
+  targetName: CUWorkEquipmentItems
+- source: CompatibleUnit
+  target: CUMaterialItem
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..*
+  targetName: CUMaterialItems
+- source: CompatibleUnit
+  target: CULaborItem
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..*
+  targetName: CULaborItems
+- source: CompatibleUnit
+  target: CUContractorItem
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..*
+  targetName: CUContractorItems
+- source: CompatibleUnit
+  target: CUAllowableAction
+  sourceCardinality: 0..*
+  sourceName: CompatibleUnits
+  targetCardinality: 0..1
+  targetName: CUAllowableAction

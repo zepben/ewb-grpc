@@ -1,0 +1,16 @@
+name: ContingencyElement
+description: An element of a system event to be studied by contingency analysis, representing a change in status of a single
+  piece of equipment.
+ancestors:
+- IdentifiedObject
+descendents:
+- ContingencyEquipment
+associations:
+- source: ContingencyElement
+  target: Contingency
+  sourceCardinality: 0..*
+  sourceName: ContingencyElement
+  sourceDescription: A contingency can have any number of contingency elements.
+  targetCardinality: "1"
+  targetName: Contingency
+  targetDescription: A contingency element belongs to one contingency.

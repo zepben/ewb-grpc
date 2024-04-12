@@ -1,0 +1,17 @@
+name: MitigatedBid
+description: Mitigated bid results posted for a given settlement period.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MitigatedBid
+  target: MitigatedBidClearing
+  sourceCardinality: 0..*
+  sourceName: MitigatedBid
+  targetCardinality: 1..*
+  targetName: MitigatedBidClearing
+- source: MitigatedBid
+  target: Bid
+  sourceCardinality: 0..*
+  sourceName: MitigatedBid
+  targetCardinality: 0..1
+  targetName: Bid

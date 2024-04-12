@@ -1,0 +1,95 @@
+name: Switch
+description: A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal
+  devices including grounding switches. The ACDCTerminal.connected at the two sides of the switch shall not be considered
+  for assessing switch connectivity, i.e. only Switch.open, .normalOpen and .locked are relevant.
+attributes:
+- name: normalOpen
+  type: Boolean
+  description: The attribute is used in cases when no Measurement for the status value is present. If the Switch has a status
+    measurement the Discrete.normalValue is expected to match with the Switch.normalOpen.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: |-
+    The maximum continuous current carrying capacity in amps governed by the device material and construction.
+    The attribute shall be a positive value.
+- name: retained
+  type: Boolean
+  description: Branch is retained in the topological solution.  The flow through retained switches will normally be calculated
+    in power flow.
+- name: switchOnCount
+  type: Integer
+  description: The switch on count since the switch was last reset or initialized.
+- name: switchOnDate
+  type: DateTime
+  description: The date and time when the switch was last switched on.
+- name: open
+  type: Boolean
+  description: The attribute tells if the switch is considered open when used as input to topology processing.
+- name: locked
+  type: Boolean
+  description: "If true, the switch is locked. The resulting switch state is a combination of locked and Switch.open attributes\
+    \ as follows:\n<ul>\n\t<li>locked=true and Switch.open=true. The resulting state is open and locked;</li>\n\t<li>locked=false\
+    \ and Switch.open=true. The resulting state is open;</li>\n\t<li>locked=false and Switch.open=false. The resulting state\
+    \ is closed.</li>\n</ul>"
+ancestors:
+- ConductingEquipment
+descendents:
+- ProtectedSwitch
+- Cut
+- Sectionaliser
+- Fuse
+- GroundDisconnector
+- Jumper
+- Disconnector
+- MktSwitch
+associations:
+- source: Switch
+  target: SwitchPhase
+  sourceCardinality: "1"
+  sourceName: Switch
+  sourceDescription: The switch of the switch phase.
+  targetCardinality: 0..*
+  targetName: SwitchPhase
+  targetDescription: The individual switch phases for the switch.
+- source: Switch
+  target: SwitchSchedule
+  sourceCardinality: "1"
+  sourceName: Switch
+  sourceDescription: A SwitchSchedule is associated with a Switch.
+  targetCardinality: 0..*
+  targetName: SwitchSchedules
+  targetDescription: A Switch can be associated with SwitchSchedules.
+- source: Switch
+  target: CompositeSwitch
+  sourceCardinality: 0..*
+  sourceName: Switches
+  sourceDescription: Switches contained in this Composite switch.
+  targetCardinality: 0..1
+  targetName: CompositeSwitch
+  targetDescription: Composite switch to which this Switch belongs.
+- source: Switch
+  target: UnavailabilitySwitchAction
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+- source: Switch
+  target: SvSwitch
+  sourceCardinality: "1"
+  sourceName: Switch
+  sourceDescription: The switch associated with the switch state.
+  targetCardinality: 0..*
+  targetName: SvSwitch
+  targetDescription: The switch state associated with the switch.
+- source: Switch
+  target: ConnectDisconnectFunction
+  sourceCardinality: 0..*
+  sourceName: Switches
+  targetCardinality: 0..*
+  targetName: ConnectDisconnectFunctions
+- source: Switch
+  target: SwitchAction
+  sourceCardinality: 0..1
+  sourceName: OperatedSwitch
+  sourceDescription: Switch that is the object of this switch action.
+  targetCardinality: 0..1
+  targetName: SwitchAction
+  targetDescription: Action changing status of this switch.

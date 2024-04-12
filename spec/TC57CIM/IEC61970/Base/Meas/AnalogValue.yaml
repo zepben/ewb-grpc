@@ -1,0 +1,41 @@
+name: AnalogValue
+description: AnalogValue represents an analog MeasurementValue.
+attributes:
+- name: value
+  type: Float
+  description: The value to supervise.
+ancestors:
+- MeasurementValue
+associations:
+- source: AnalogValue
+  target: AnalogControl
+  sourceCardinality: "1"
+  sourceName: AnalogValue
+  sourceDescription: The MeasurementValue that is controlled.
+  targetCardinality: 0..1
+  targetName: AnalogControl
+  targetDescription: The Control variable associated with the MeasurementValue.
+- source: AnalogValue
+  target: AltTieMeas
+  sourceCardinality: "1"
+  sourceName: AnalogValue
+  sourceDescription: The specific analog value used as a source.
+  targetCardinality: 0..*
+  targetName: AltTieMeas
+  targetDescription: The usage of the measurement within the control area specification.
+- source: AnalogValue
+  target: AltGeneratingUnitMeas
+  sourceCardinality: "1"
+  sourceName: AnalogValue
+  sourceDescription: The specific analog value used as a source.
+  targetCardinality: 0..*
+  targetName: AltGeneratingUnit
+  targetDescription: The alternate generating unit for which this measurement value applies.
+- source: AnalogValue
+  target: Analog
+  sourceCardinality: 0..*
+  sourceName: AnalogValues
+  sourceDescription: The values connected to this measurement.
+  targetCardinality: "1"
+  targetName: Analog
+  targetDescription: Measurement to which this value is connected.

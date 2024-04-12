@@ -1,0 +1,13 @@
+name: GasPrice
+description: Price of gas in monetary units.
+attributes:
+- name: gasPriceIndex
+  type: Float
+  description: The average natural gas price at a defined fuel region.
+associations:
+- source: GasPrice
+  target: FuelRegion
+  sourceCardinality: "1"
+  sourceName: GasPrice
+  targetCardinality: "1"
+  targetName: FuelRegion

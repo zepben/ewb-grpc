@@ -1,0 +1,18 @@
+name: CRROrgRole
+description: Identifies a way in which an organisation may participate with a defined Congestion Revenue Right (CRR).
+attributes:
+- name: kind
+  type: CRRRoleType
+  description: Kind of role the organisation is with regards to the congestion revenue rights.
+- name: status
+  type: Status
+  description: Status of congestion revenue rights organisation role.
+ancestors:
+- OrganisationRole
+associations:
+- source: CRROrgRole
+  target: CongestionRevenueRight
+  sourceCardinality: 1..*
+  sourceName: CRROrgRole
+  targetCardinality: "1"
+  targetName: CongestionRevenueRight

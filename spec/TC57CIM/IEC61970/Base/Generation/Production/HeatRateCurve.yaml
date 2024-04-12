@@ -1,0 +1,20 @@
+name: HeatRateCurve
+description: Relationship between unit heat rate per active power (Y-axis) and  unit output (X-axis). The heat input is from
+  all fuels.
+attributes:
+- name: isNetGrossP
+  type: Boolean
+  description: Flag is set to true when output is expressed in net active power.
+ancestors:
+- Curve
+descendents:
+- MktHeatRateCurve
+associations:
+- source: HeatRateCurve
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  sourceName: HeatRateCurve
+  sourceDescription: A thermal generating unit may have a heat rate curve.
+  targetCardinality: "1"
+  targetName: ThermalGeneratingUnit
+  targetDescription: A thermal generating unit may have a heat rate curve.

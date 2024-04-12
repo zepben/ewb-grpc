@@ -1,0 +1,26 @@
+name: NetworkModelProjectComponent2
+attributes:
+- name: version
+  type: Integer
+- name: created
+  type: DateTime
+- name: closed
+  type: DateTime
+- name: updated
+  type: DateTime
+ancestors:
+- IdentifiedObject
+descendents:
+- NetworkModelProjectStage
+- NetworkModelProject2
+associations:
+- source: NetworkModelProjectComponent2
+  target: CurrentState
+  sourceCardinality: 0..*
+  targetCardinality: "1"
+- source: NetworkModelProjectComponent2
+  target: NetworkModelProject2
+  sourceCardinality: 0..*
+  sourceName: Child
+  targetCardinality: 0..1
+  targetName: Parent

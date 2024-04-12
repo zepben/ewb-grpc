@@ -1,0 +1,11 @@
+name: BidPriceCurve
+description: Relationship between unit operating price in $/hour (Y-axis) and unit output in MW (X-axis).
+ancestors:
+- Curve
+associations:
+- source: BidPriceCurve
+  target: BidPriceSchedule
+  sourceCardinality: "1"
+  sourceName: BidPriceCurve
+  targetCardinality: 0..*
+  targetName: BidSchedule

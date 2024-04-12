@@ -1,0 +1,112 @@
+name: ExcSK
+description: Slovakian excitation system.  UEL and secondary voltage control are included in this model. When this model is
+  used, there cannot be a separate underexcitation limiter or VAr controller model.
+attributes:
+- name: efdmax
+  type: PU
+  description: Field voltage clipping upper level limit (<i>Efdmax</i>) (&gt; ExcSK.efdmin).
+- name: efdmin
+  type: PU
+  description: Field voltage clipping lower level limit (<i>Efdmin</i>) (&lt; ExcSK.efdmax).
+- name: emax
+  type: PU
+  description: Maximum field voltage output (<i>Emax</i>) (&gt; ExcSK.emin).  Typical value = 20.
+- name: emin
+  type: PU
+  description: Minimum field voltage output (<i>Emin</i>) (&lt; ExcSK.emax).  Typical value = -20.
+- name: k
+  type: PU
+  description: Gain (<i>K</i>).  Typical value = 1.
+- name: k1
+  type: PU
+  description: Parameter of underexcitation limit (<i>K1</i>).  Typical value = 0,1364.
+- name: k2
+  type: PU
+  description: Parameter of underexcitation limit (<i>K2</i>).  Typical value = -0,3861.
+- name: kc
+  type: PU
+  description: PI controller gain (<i>Kc</i>).  Typical value = 70.
+- name: kce
+  type: PU
+  description: Rectifier regulation factor (<i>Kce</i>).  Typical value = 0.
+- name: kd
+  type: PU
+  description: Exciter internal reactance (<i>Kd</i>).  Typical value = 0.
+- name: kgob
+  type: PU
+  description: P controller gain (<i>Kgob</i>).  Typical value = 10.
+- name: kp
+  type: PU
+  description: PI controller gain (<i>Kp</i>).  Typical value = 1.
+- name: kqi
+  type: PU
+  description: PI controller gain of integral component (<i>Kqi</i>).  Typical value = 0.
+- name: kqob
+  type: PU
+  description: Rate of rise of the reactive power (<i>Kqob</i>).
+- name: kqp
+  type: PU
+  description: PI controller gain (<i>Kqp</i>).  Typical value = 0.
+- name: nq
+  type: PU
+  description: Deadband of reactive power (<i>nq</i>).  Determines the range of sensitivity.  Typical value = 0,001.
+- name: qconoff
+  type: Boolean
+  description: |-
+    Secondary voltage control state (<i>Qc_on_off</i>).
+    true = secondary voltage control is on
+    false = secondary voltage control is off.
+    Typical value = false.
+- name: qz
+  type: PU
+  description: Desired value (setpoint) of reactive power, manual setting (<i>Qz</i>).
+- name: remote
+  type: Boolean
+  description: |-
+    Selector to apply automatic calculation in secondary controller model (<i>remote</i>).
+    true = automatic calculation is activated
+    false = manual set is active; the use of desired value of reactive power (<i>Qz</i>) is required.
+    Typical value = true.
+- name: sbase
+  type: ApparentPower
+  description: Apparent power of the unit (<i>Sbase</i>) (&gt; 0).  Unit = MVA.  Typical value = 259.
+- name: tc
+  type: Seconds
+  description: PI controller phase lead time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 8.
+- name: te
+  type: Seconds
+  description: Time constant of gain block (<i>Te</i>) (&gt;= 0).  Typical value = 0,1.
+- name: ti
+  type: Seconds
+  description: PI controller phase lead time constant (<i>Ti</i>) (&gt;= 0).  Typical value = 2.
+- name: tp
+  type: Seconds
+  description: Time constant (<i>Tp</i>) (&gt;= 0).  Typical value = 0,1.
+- name: tr
+  type: Seconds
+  description: Voltage transducer time constant (<i>Tr</i>) (&gt;= 0).  Typical value = 0,01.
+- name: uimax
+  type: PU
+  description: Maximum error (<i>UImax</i>) (&gt; ExcSK.uimin).  Typical value = 10.
+- name: uimin
+  type: PU
+  description: Minimum error (<i>UImin</i>) (&lt; ExcSK.uimax).  Typical value = -10.
+- name: urmax
+  type: PU
+  description: Maximum controller output (<i>URmax</i>) (&gt; ExcSK.urmin).  Typical value = 10.
+- name: urmin
+  type: PU
+  description: Minimum controller output (<i>URmin</i>) (&lt; ExcSK.urmax).  Typical value = -10.
+- name: vtmax
+  type: PU
+  description: Maximum terminal voltage input (<i>Vtmax</i>) (&gt; ExcSK.vtmin).  Determines the range of voltage deadband.  Typical
+    value = 1,05.
+- name: vtmin
+  type: PU
+  description: Minimum terminal voltage input (<i>Vtmin</i>) (&lt; ExcSK.vtmax).  Determines the range of voltage deadband.  Typical
+    value = 0,95.
+- name: yp
+  type: PU
+  description: Maximum output (<i>Yp</i>).  Typical value = 1.
+ancestors:
+- ExcitationSystemDynamics

@@ -1,0 +1,43 @@
+name: GovSteamFV2
+description: Steam turbine governor with reheat time constants and modelling of the effects of fast valve closing to reduce
+  mechanical power.
+attributes:
+- name: dt
+  type: PU
+  description: (<i>Dt</i>).
+- name: k
+  type: PU
+  description: Fraction of the turbine power developed by turbine sections not involved in fast valving (<i>K</i>).
+- name: mwbase
+  type: ActivePower
+  description: Alternate base used instead of machine base in equipment model if necessary (<i>MWbase</i>) (&gt; 0).  Unit
+    = MW.
+- name: r
+  type: PU
+  description: (<i>R</i>).
+- name: t1
+  type: Seconds
+  description: Governor time constant (<i>T1</i>) (&gt;= 0).
+- name: t3
+  type: Seconds
+  description: Reheater time constant (<i>T3</i>) (&gt;= 0).
+- name: ta
+  type: Seconds
+  description: Time after initial time for valve to close (<i>Ta</i>) (&gt;= 0).
+- name: tb
+  type: Seconds
+  description: Time after initial time for valve to begin opening (<i>Tb</i>) (&gt;= 0).
+- name: tc
+  type: Seconds
+  description: Time after initial time for valve to become fully open (<i>Tc</i>) (&gt;= 0).
+- name: tt
+  type: Seconds
+  description: Time constant with which power falls off after intercept valve closure (<i>Tt</i>) (&gt;= 0).
+- name: vmax
+  type: PU
+  description: (<i>Vmax</i>) (&gt; GovSteamFV2.vmin).
+- name: vmin
+  type: PU
+  description: (<i>Vmin</i>) (&lt; GovSteamFV2.vmax).
+ancestors:
+- TurbineGovernorDynamics

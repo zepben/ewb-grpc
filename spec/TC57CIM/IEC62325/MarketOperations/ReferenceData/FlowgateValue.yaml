@@ -1,0 +1,36 @@
+name: FlowgateValue
+description: Day Ahead,  Network Native Load, Economic Dispatch, values used for calculation of Network Native Load (NNL)
+  Determinator process.
+attributes:
+- name: economicDispatchLimit
+  type: Integer
+  description: Limit for Economic Dispatch priority 6 energy flow on the specified flowgate for the specified time period.
+- name: effectiveDate
+  type: DateTime
+  description: "Date/Time when record becomes effective \nUsed to determine when a record becomes effective"
+- name: firmNetworkLimit
+  type: Integer
+  description: Limit for firm flow on the specified flowgate for the specified time period. The amount of energy flow over
+    a specifed flowgate due to generation in the market which can be classified as Firm Network priority.
+- name: flowDirectionFlag
+  type: FlowDirectionType
+  description: Specifies the direction of energy flow in the flowgate
+- name: mktFlow
+  type: Integer
+  description: The amount of energy flow over a specifed flowgate due to generation in the market.
+- name: netFirmNetworkLimit
+  type: Integer
+  description: Net Energy flow in flowgate for the associated FlowgatePartner
+associations:
+- source: FlowgateValue
+  target: FlowgatePartner
+  sourceCardinality: 0..1
+  sourceName: FlowgateValue
+  targetCardinality: 0..1
+  targetName: FlowgatePartner
+- source: FlowgateValue
+  target: Flowgate
+  sourceCardinality: 0..*
+  sourceName: FlowgateValue
+  targetCardinality: "1"
+  targetName: Flowgate

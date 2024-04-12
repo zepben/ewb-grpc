@@ -1,0 +1,45 @@
+name: Commitments
+description: Provides the necessary information (on a resource basis) to capture the Startup/Shutdown commitment results.
+  This information is relevant to all markets.
+attributes:
+- name: commitmentType
+  type: CommitmentType
+  description: the type of UC status (self commitment, ISO commitment, or SCUC commitment)
+- name: instructionCost
+  type: Float
+  description: Total cost associated with changing the status of the resource.
+- name: instructionType
+  type: AutomaticDispInstTypeCommitment
+  description: Indicator of either a Start-Up or a Shut-Down.
+- name: intervalEndTime
+  type: DateTime
+  description: End time for the commitment period. This will be on an interval boundary.
+- name: intervalStartTime
+  type: DateTime
+  description: Start time for the commitment period. This will be on an interval boundary.
+- name: minStatusChangeTime
+  type: Integer
+  description: "SCUC commitment period start-up time. Calculated start up time based on the StartUpTimeCurve provided with\
+    \ the Bid.\n\nThis is a combination of StartUp time bid and Unit down time. \n\nUnits is minutes"
+- name: noLoadCost
+  type: Float
+  description: Unit no load cost in case of energy commodity
+- name: updateTimeStamp
+  type: DateTime
+- name: updateType
+  type: MQSCHGType
+- name: updateUser
+  type: String
+associations:
+- source: Commitments
+  target: CommitmentClearing
+  sourceCardinality: 1..*
+  sourceName: Commitments
+  targetCardinality: 1..*
+  targetName: CommitmentClearing
+- source: Commitments
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: Commitments
+  targetCardinality: "1"
+  targetName: RegisteredResource

@@ -1,0 +1,90 @@
+name: Curve
+description: A multi-purpose curve or functional relationship between an independent variable (X-axis) and dependent (Y-axis)
+  variables.
+attributes:
+- name: curveStyle
+  type: CurveStyle
+  description: The style or shape of the curve.
+- name: xMultiplier
+  type: UnitMultiplier
+  description: Multiplier for X-axis.
+- name: xUnit
+  type: UnitSymbol
+  description: The X-axis units of measure.
+- name: y1Multiplier
+  type: UnitMultiplier
+  description: Multiplier for Y1-axis.
+- name: y1Unit
+  type: UnitSymbol
+  description: The Y1-axis units of measure.
+- name: y2Multiplier
+  type: UnitMultiplier
+  description: Multiplier for Y2-axis.
+- name: y2Unit
+  type: UnitSymbol
+  description: The Y2-axis units of measure.
+- name: y3Multiplier
+  type: UnitMultiplier
+  description: Multiplier for Y3-axis.
+- name: y3Unit
+  type: UnitSymbol
+  description: The Y3-axis units of measure.
+ancestors:
+- IdentifiedObject
+descendents:
+- CTTempActivePowerCurve
+- StartRampCurve
+- TailbayLossCurve
+- StartMainFuelCurve
+- ShutdownCurve
+- GenUnitOpCostCurve
+- GrossToNetActivePowerCurve
+- ReactiveCapabilityCurve
+- HeatRateCurve
+- FuelAllocationSchedule
+- HydroGeneratingEfficiencyCurve
+- LevelVsVolumeCurve
+- StartIgnFuelCurve
+- EmissionAccount
+- HeatInputCurve
+- TargetLevelSchedule
+- IncrementalHeatRateCurve
+- PenstockLossCurve
+- EmissionCurve
+- VsCapabilityCurve
+- SubscribePowerCurve
+- AssetPropertyCurve
+- FuelCostCurve
+- SensitivityPriceCurve
+- ReserveReqCurve
+- LoadReductionTimeCurve
+- MaxStartUpCostCurve
+- RMRHeatRateCurve
+- RMRStartUpCostCurve
+- RMRStartUpEnergyCurve
+- RMRStartUpFuelCurve
+- RMRStartUpTimeCurve
+- ResourceOperationMaintenanceCost
+- StartUpEnergyCurve
+- StartUpFuelCurve
+- BidPriceCurve
+- LoadReductionPriceCurve
+- NotificationTimeCurve
+- RampRateCurve
+- StartUpCostCurve
+- StartUpTimeCurve
+- BaseCaseConstraintLimit
+- ContingencyConstraintLimit
+- DefaultBidCurve
+- DefaultConstraintLimit
+- ReserveDemandCurve
+- InterchangeSchedule
+associations:
+- source: Curve
+  target: CurveData
+  sourceCardinality: "1"
+  sourceName: Curve
+  sourceDescription: The curve of  this curve data point.
+  targetCardinality: 0..*
+  targetName: CurveDatas
+  targetDescription: The point data values that define this curve.

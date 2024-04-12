@@ -1,0 +1,17 @@
+name: MktLine
+description: Subclass for IEC61970:Wires:Line.
+ancestors:
+- Line
+associations:
+- source: MktLine
+  target: TransmissionRightOfWay
+  sourceCardinality: 0..*
+  sourceName: MktLine
+  targetCardinality: 0..1
+  targetName: TransmissionRightOfWay
+- source: MktLine
+  target: Flowgate
+  sourceCardinality: 0..*
+  sourceName: MktLine
+  targetCardinality: 0..*
+  targetName: Flowgate

@@ -1,0 +1,11 @@
+name: GenerationProvider
+description: The energy seller in the energy marketplace.
+ancestors:
+- Organisation
+associations:
+- source: GenerationProvider
+  target: EnergyProduct
+  sourceCardinality: "1"
+  sourceName: GenerationProvider
+  targetCardinality: 1..*
+  targetName: ProvidedBy

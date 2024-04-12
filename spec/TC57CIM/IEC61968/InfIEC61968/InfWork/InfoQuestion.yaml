@@ -1,0 +1,27 @@
+name: InfoQuestion
+description: Questions and answers associated with a type of document for purposes of clarification. Questions may be predefined
+  or ad hoc.
+attributes:
+- name: answer
+  type: String
+  description: Answer to question.
+- name: answerDateTime
+  type: DateTime
+  description: The date and time the quesiton was answered.
+- name: answerRemark
+  type: String
+  description: Remarks to qualify the answer.
+- name: questionCode
+  type: String
+  description: The question code. If blank, refer to questionText.
+- name: questionRemark
+  type: String
+  description: Remarks to qualify the question in this situation.
+- name: questionText
+  type: String
+  description: For non-coded questions, the question is provided here.
+- name: questionType
+  type: String
+  description: The type of the question.
+ancestors:
+- WorkDocument

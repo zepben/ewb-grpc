@@ -1,0 +1,17 @@
+name: PanPricing
+description: PAN action/command used to issue pricing information to a PAN device.
+attributes:
+- name: providerID
+  type: Integer
+  description: Unique identifier for the commodity provider.
+ancestors:
+- EndDeviceAction
+associations:
+- source: PanPricing
+  target: PanPricingDetail
+  sourceCardinality: 0..1
+  sourceName: PanPricing
+  sourceDescription: PAN pricing command/action issuing this price detail.
+  targetCardinality: 0..*
+  targetName: PanPricingDetails
+  targetDescription: All pricing details issued by this PAN pricing command/action.

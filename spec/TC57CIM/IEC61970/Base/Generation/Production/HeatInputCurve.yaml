@@ -1,0 +1,32 @@
+name: HeatInputCurve
+description: Relationship between unit heat input in energy per time for main fuel (Y1-axis) and supplemental fuel (Y2-axis)
+  versus unit output in active power (X-axis). The quantity of main fuel used to sustain generation at this output level is
+  prorated for throttling between definition points. The quantity of supplemental fuel used at this output level is fixed
+  and not prorated.
+attributes:
+- name: auxPowerMult
+  type: PU
+  description: Power output - auxiliary power multiplier adjustment factor.
+- name: auxPowerOffset
+  type: ActivePower
+  description: Power output - auxiliary power offset adjustment factor.
+- name: heatInputEff
+  type: PU
+  description: Heat input - efficiency multiplier adjustment factor.
+- name: heatInputOffset
+  type: HeatRate
+  description: Heat input - offset adjustment factor.
+- name: isNetGrossP
+  type: Boolean
+  description: Flag is set to true when output is expressed in net active power.
+ancestors:
+- Curve
+associations:
+- source: HeatInputCurve
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  sourceName: HeatInputCurve
+  sourceDescription: A thermal generating unit may have a heat input curve.
+  targetCardinality: "1"
+  targetName: ThermalGeneratingUnit
+  targetDescription: A thermal generating unit may have a heat input curve.

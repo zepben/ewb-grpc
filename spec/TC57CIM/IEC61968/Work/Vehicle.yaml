@@ -1,0 +1,15 @@
+name: Vehicle
+description: Vehicle asset.
+attributes:
+- name: odometerReadDateTime
+  type: DateTime
+  description: Date and time the last odometer reading was recorded.
+- name: odometerReading
+  type: Length
+  description: Odometer reading of this vehicle as of the 'odometerReadingDateTime'. Refer to associated ActivityRecords for
+    earlier readings.
+- name: usageKind
+  type: VehicleUsageKind
+  description: Kind of usage of the vehicle.
+ancestors:
+- WorkAsset

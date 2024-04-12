@@ -1,0 +1,197 @@
+name: GovHydroWEH
+description: "Woodward<sup>TM </sup>electric hydro governor. \n[Footnote: Woodward electric hydro governors are an example\
+  \ of suitable products available commercially. This information is given for the convenience of users of this document and\
+  \ does not constitute an endorsement by IEC of these products.]"
+attributes:
+- name: db
+  type: PU
+  description: Speed deadband (<i>db</i>).
+- name: dicn
+  type: PU
+  description: Value to allow the integral controller to advance beyond the gate limits (<i>Dicn</i>).
+- name: dpv
+  type: PU
+  description: Value to allow the pilot valve controller to advance beyond the gate limits (<i>Dpv</i>).
+- name: dturb
+  type: PU
+  description: Turbine damping factor (<i>Dturb</i>).  Unit = delta P (PU of <i>MWbase</i>) / delta speed (PU).
+- name: feedbackSignal
+  type: Boolean
+  description: |-
+    Feedback signal selection (<i>Sw</i>).
+    true = PID output (if <i>R-Perm-Gate </i>= droop and <i>R-Perm-Pe </i>= 0)
+    false = electrical power (if <i>R-Perm-Gate </i>= 0 and <i>R-Perm-Pe </i>= droop) or
+    false = gate position (if R<i>-Perm-Gate </i>= droop and <i>R-Perm-Pe </i>= 0).
+    Typical value = false.
+- name: fl1
+  type: PU
+  description: Flowgate 1 (<i>Fl1</i>).  Flow value for gate position point 1 for lookup table representing water flow through
+    the turbine as a function of gate position to produce steady state flow.
+- name: fl2
+  type: PU
+  description: Flowgate 2 (<i>Fl2</i>).  Flow value for gate position point 2 for lookup table representing water flow through
+    the turbine as a function of gate position to produce steady state flow.
+- name: fl3
+  type: PU
+  description: Flowgate 3 (<i>Fl3</i>).  Flow value for gate position point 3 for lookup table representing water flow through
+    the turbine as a function of gate position to produce steady state flow.
+- name: fl4
+  type: PU
+  description: Flowgate 4 (<i>Fl4</i>).  Flow value for gate position point 4 for lookup table representing water flow through
+    the turbine as a function of gate position to produce steady state flow.
+- name: fl5
+  type: PU
+  description: Flowgate 5 (<i>Fl5</i>).  Flow value for gate position point 5 for lookup table representing water flow through
+    the turbine as a function of gate position to produce steady state flow.
+- name: fp1
+  type: PU
+  description: Flow P1 (<i>Fp1</i>).  Turbine flow value for point 1 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp10
+  type: PU
+  description: Flow P10 (<i>Fp10</i>).  Turbine flow value for point 10 for lookup table representing PU mechanical power
+    on machine MVA rating as a function of turbine flow.
+- name: fp2
+  type: PU
+  description: Flow P2 (<i>Fp2</i>).  Turbine flow value for point 2 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp3
+  type: PU
+  description: Flow P3 (<i>Fp3</i>).  Turbine flow value for point 3 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp4
+  type: PU
+  description: Flow P4 (<i>Fp4</i>).  Turbine flow value for point 4 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp5
+  type: PU
+  description: Flow P5 (<i>Fp5</i>).  Turbine flow value for point 5 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp6
+  type: PU
+  description: Flow P6 (<i>Fp6</i>).  Turbine flow value for point 6 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp7
+  type: PU
+  description: Flow P7 (<i>Fp7</i>).  Turbine flow value for point 7 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp8
+  type: PU
+  description: Flow P8 (<i>Fp8</i>).  Turbine flow value for point 8 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: fp9
+  type: PU
+  description: Flow P9 (<i>Fp9</i>).  Turbine flow value for point 9 for lookup table representing PU mechanical power on
+    machine MVA rating as a function of turbine flow.
+- name: gmax
+  type: PU
+  description: Maximum gate position (<i>Gmax</i>) (&gt; GovHydroWEH.gmin).
+- name: gmin
+  type: PU
+  description: Minimum gate position (<i>Gmin</i>) (&lt; GovHydroWEH.gmax).
+- name: gtmxcl
+  type: PU
+  description: Maximum gate closing rate (<i>Gtmxcl</i>).
+- name: gtmxop
+  type: PU
+  description: Maximum gate opening rate (<i>Gtmxop</i>).
+- name: gv1
+  type: PU
+  description: Gate 1 (<i>Gv1</i>).  Gate Position value for point 1 for lookup table representing water flow through the
+    turbine as a function of gate position to produce steady state flow.
+- name: gv2
+  type: PU
+  description: Gate 2 (<i>Gv2</i>).  Gate Position value for point 2 for lookup table representing water flow through the
+    turbine as a function of gate position to produce steady state flow.
+- name: gv3
+  type: PU
+  description: Gate 3 (<i>Gv3</i>).  Gate Position value for point 3 for lookup table representing water flow through the
+    turbine as a function of gate position to produce steady state flow.
+- name: gv4
+  type: PU
+  description: Gate 4 (<i>Gv4</i>).  Gate Position value for point 4 for lookup table representing water flow through the
+    turbine as a function of gate position to produce steady state flow.
+- name: gv5
+  type: PU
+  description: Gate 5 (<i>Gv5</i>).  Gate Position value for point 5 for lookup table representing water flow through the
+    turbine as a function of gate position to produce steady state flow.
+- name: kd
+  type: PU
+  description: Derivative controller derivative gain (<i>Kd</i>).
+- name: ki
+  type: PU
+  description: Derivative controller Integral gain (<i>Ki</i>).
+- name: kp
+  type: PU
+  description: Derivative control gain (<i>Kp</i>).
+- name: mwbase
+  type: ActivePower
+  description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
+- name: pmss1
+  type: PU
+  description: Pmss flow P1 (<i>Pmss1</i>).  Mechanical power output for turbine flow point 1 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss10
+  type: PU
+  description: Pmss flow P10 (<i>Pmss10</i>).  Mechanical power output for turbine flow point 10 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss2
+  type: PU
+  description: Pmss flow P2 (<i>Pmss2</i>).  Mechanical power output for turbine flow point 2 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss3
+  type: PU
+  description: Pmss flow P3 (<i>Pmss3</i>).  Mechanical power output for turbine flow point 3 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss4
+  type: PU
+  description: Pmss flow P4 (<i>Pmss4</i>).  Mechanical power output for turbine flow point 4 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss5
+  type: PU
+  description: Pmss flow P5 (<i>Pmss5</i>).  Mechanical power output for turbine flow point 5 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss6
+  type: PU
+  description: Pmss flow P6 (<i>Pmss6</i>).  Mechanical power output for turbine flow point 6 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss7
+  type: PU
+  description: Pmss flow P7 (<i>Pmss7</i>).  Mechanical power output for turbine flow point 7 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss8
+  type: PU
+  description: Pmss flow P8 (<i>Pmss8</i>).  Mechanical power output for turbine flow point 8 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: pmss9
+  type: PU
+  description: Pmss flow P9 (<i>Pmss9</i>).  Mechanical power output for turbine flow point 9 for lookup table representing
+    PU mechanical power on machine MVA rating as a function of turbine flow.
+- name: rpg
+  type: Float
+  description: Permanent droop for governor output feedback (<i>R-Perm-Gate</i>).
+- name: rpp
+  type: Float
+  description: Permanent droop for electrical power feedback (<i>R-Perm-Pe</i>).
+- name: td
+  type: Seconds
+  description: Derivative controller time constant (<i>Td</i>) (&gt;= 0).  Limits the derivative characteristic beyond a breakdown
+    frequency to avoid amplification of high-frequency noise.
+- name: tdv
+  type: Seconds
+  description: Distributive valve time lag time constant (<i>Tdv</i>) (&gt;= 0).
+- name: tg
+  type: Seconds
+  description: Value to allow the distribution valve controller to advance beyond the gate movement rate limit (<i>Tg</i>)
+    (&gt;= 0).
+- name: tp
+  type: Seconds
+  description: Pilot valve time lag time constant (<i>Tp</i>) (&gt;= 0).
+- name: tpe
+  type: Seconds
+  description: Electrical power droop time constant (<i>Tpe</i>) (&gt;= 0).
+- name: tw
+  type: Seconds
+  description: Water inertia time constant (<i>Tw</i>) (&gt; 0).
+ancestors:
+- TurbineGovernorDynamics

@@ -1,0 +1,37 @@
+name: SubGeographicalRegion
+description: A subset of a geographical region of a power system network model.
+ancestors:
+- IdentifiedObject
+associations:
+- source: SubGeographicalRegion
+  target: Line
+  sourceCardinality: 0..1
+  sourceName: Region
+  sourceDescription: The sub-geographical region of the line.
+  targetCardinality: 0..*
+  targetName: Lines
+  targetDescription: The lines within the sub-geographical region.
+- source: SubGeographicalRegion
+  target: Substation
+  sourceCardinality: 0..1
+  sourceName: Region
+  sourceDescription: The SubGeographicalRegion containing the substation.
+  targetCardinality: 0..*
+  targetName: Substations
+  targetDescription: The substations in this sub-geographical region.
+- source: SubGeographicalRegion
+  target: GeographicalRegion
+  sourceCardinality: 0..*
+  sourceName: Regions
+  sourceDescription: All sub-geographical regions within this geographical region.
+  targetCardinality: 0..1
+  targetName: Region
+  targetDescription: The geographical region which this sub-geographical region is within.
+- source: SubGeographicalRegion
+  target: DCLine
+  sourceCardinality: 0..1
+  sourceName: Region
+  sourceDescription: The SubGeographicalRegion containing the DC line.
+  targetCardinality: 0..*
+  targetName: DCLines
+  targetDescription: The DC lines in this sub-geographical region.

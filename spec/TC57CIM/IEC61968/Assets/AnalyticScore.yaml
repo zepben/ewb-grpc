@@ -1,0 +1,51 @@
+name: AnalyticScore
+description: An indicative scoring by an analytic that can be used to characterize the health of or the risk associated with
+  one or more assets.  The analytic score reflects the results of an execution of an analytic against an asset or group of
+  assets.
+attributes:
+- name: calculationDateTime
+  type: DateTime
+  description: Timestamp of when the score was calculated.
+- name: effectiveDateTime
+  type: DateTime
+  description: Date-time for when the score applies.
+- name: value
+  type: Float
+  description: Asset health score value.
+ancestors:
+- IdentifiedObject
+descendents:
+- AggregateScore
+associations:
+- source: AnalyticScore
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: AnalyticScore
+  sourceDescription: Analytic result related to this asset.
+  targetCardinality: 0..1
+  targetName: Asset
+  targetDescription: Asset to which this analytic score applies.
+- source: AnalyticScore
+  target: AssetGroup
+  sourceCardinality: 0..*
+  sourceName: AnalyticScore
+  sourceDescription: Analytic score for this asset group.
+  targetCardinality: 0..1
+  targetName: AssetGroup
+  targetDescription: Asset group to which this analytic score applies..
+- source: AnalyticScore
+  target: AggregateScore
+  sourceCardinality: 1..*
+  sourceName: AnalyticScore
+  sourceDescription: Analytic score contributing to this aggregate score.
+  targetCardinality: 0..1
+  targetName: AssetAggregateScore
+  targetDescription: Aggregate score to which this analytic score contributed.
+- source: AnalyticScore
+  target: Analytic
+  sourceCardinality: 0..*
+  sourceName: AnalyticScore
+  sourceDescription: Analytic score produced by this analytic.
+  targetCardinality: 0..1
+  targetName: Analytic
+  targetDescription: Analytic which was executed to arrive at this analytic score..

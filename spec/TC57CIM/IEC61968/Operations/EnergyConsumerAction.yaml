@@ -1,0 +1,15 @@
+name: EnergyConsumerAction
+description: Action to connect or disconnect the Energy Consumer from its Terminal
+attributes:
+- name: kind
+  type: TempEquipActionKind
+  description: Switching action to perform
+ancestors:
+- SwitchingAction
+associations:
+- source: EnergyConsumerAction
+  target: EnergyConsumer
+  sourceCardinality: 0..1
+  sourceName: EnergyConsumerAction
+  targetCardinality: 0..1
+  targetName: EnergyConsumer

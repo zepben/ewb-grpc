@@ -1,0 +1,14 @@
+name: CurrentRelay
+description: A device that checks current flow values in any direction or designated direction.
+attributes:
+- name: currentLimit1
+  type: CurrentFlow
+  description: Current limit number one 1 for inverse time pickup.
+- name: inverseTimeFlag
+  type: Boolean
+  description: Set true if the current relay has inverse time characteristic.
+- name: timeDelay1
+  type: Seconds
+  description: Inverse time delay number 1 for current limit number 1.
+ancestors:
+- ProtectionRelayFunction

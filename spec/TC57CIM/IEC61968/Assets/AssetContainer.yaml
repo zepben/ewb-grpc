@@ -1,0 +1,34 @@
+name: AssetContainer
+description: Asset that is aggregation of other assets such as conductors, transformers, switchgear, land, fences, buildings,
+  equipment, vehicles, etc.
+ancestors:
+- Asset
+descendents:
+- EndDevice
+- Structure
+- Facility
+- DuctBank
+- Cabinet
+associations:
+- source: AssetContainer
+  target: Seal
+  sourceCardinality: 0..1
+  sourceName: AssetContainer
+  sourceDescription: Asset container to which this seal is applied.
+  targetCardinality: 0..*
+  targetName: Seals
+  targetDescription: All seals applied to this asset container.
+- source: AssetContainer
+  target: LandProperty
+  sourceCardinality: 0..*
+  sourceName: AssetContainers
+  targetCardinality: 0..*
+  targetName: LandProperties
+- source: AssetContainer
+  target: Asset
+  sourceCardinality: 0..1
+  sourceName: AssetContainer
+  sourceDescription: Container of this asset.
+  targetCardinality: 0..*
+  targetName: Assets
+  targetDescription: All assets within this container asset.

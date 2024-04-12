@@ -1,0 +1,32 @@
+name: RegisteredLoad
+description: |-
+  Model of a load that is registered to participate in the market.
+
+  RegisteredLoad is used to model any load that is served by the wholesale market directly. RegisteredLoads may be dispatchable or non-dispatchable and may or may not have bid curves. Examples of RegisteredLoads would include: distribution company load, energy retailer load, large bulk power system connected facility load.
+
+  Loads that are served indirectly, for example - through an energy retailer or a vertical utility, should be modeled as RegisteredDistributedResources. Examples of RegisteredDistributedResources would include: distribution level storage, distribution level generation and distribution level demand response.
+attributes:
+- name: blockLoadTransfer
+  type: Boolean
+  description: Emergency operating procedure - Flag to indicate that the Resource is Block Load pseudo resource.
+- name: dynamicallyScheduledLoadResource
+  type: Boolean
+  description: Flag to indicate that a Load Resource is part of a DSR Load
+- name: dynamicallyScheduledQualification
+  type: Boolean
+  description: Qualification status (used for DSR qualification).
+ancestors:
+- RegisteredResource
+associations:
+- source: RegisteredLoad
+  target: LoadBid
+  sourceCardinality: 0..1
+  sourceName: RegisteredLoad
+  targetCardinality: 0..*
+  targetName: LoadBids
+- source: RegisteredLoad
+  target: AuxiliaryObject
+  sourceCardinality: 0..1
+  sourceName: RegisteredLoad
+  targetCardinality: 0..*
+  targetName: AuxillaryObject

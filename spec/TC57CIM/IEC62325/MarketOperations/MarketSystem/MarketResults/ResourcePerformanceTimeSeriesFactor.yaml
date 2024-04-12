@@ -1,0 +1,25 @@
+name: ResourcePerformanceTimeSeriesFactor
+description: Represents the performance of a resource as time series data for a specified time period, time interval, and
+  evaluation criteria.
+attributes:
+- name: timeSeriesDataType
+  type: String
+  description: Type of the time series data, e.g. baseline data, meter read data, computed performance data.
+- name: timeSeriesDescription
+  type: String
+  description: Optional description of the time series data, e.g. baseline data, meter read data, computed performance data.
+- name: value1Description
+  type: String
+  description: Description for the value1 contained within the TimeSeriesFactor.
+- name: value2Description
+  type: String
+  description: Description for the value2 contained within the TimeSeriesFactor.
+ancestors:
+- RegularIntervalSchedule
+associations:
+- source: ResourcePerformanceTimeSeriesFactor
+  target: ResourcePerformanceEvaluation
+  sourceCardinality: 0..*
+  sourceName: ResourcePerformanceTimeSeriesFactors
+  targetCardinality: "1"
+  targetName: ResourcePerformanceEvaluation

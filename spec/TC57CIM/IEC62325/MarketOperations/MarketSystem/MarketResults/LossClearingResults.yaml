@@ -1,0 +1,30 @@
+name: LossClearingResults
+description: Provides the MW loss for RUC Zones, subcontrol areas, and the total loss.
+attributes:
+- name: lossMW
+  type: Float
+associations:
+- source: LossClearingResults
+  target: SubControlArea
+  sourceCardinality: 1..*
+  sourceName: LossClearingResults
+  targetCardinality: 0..1
+  targetName: SubControlArea
+- source: LossClearingResults
+  target: HostControlArea
+  sourceCardinality: 0..*
+  sourceName: LossClearingResults
+  targetCardinality: 0..1
+  targetName: HostControlArea
+- source: LossClearingResults
+  target: LossClearing
+  sourceCardinality: 0..*
+  sourceName: LossClearingResults
+  targetCardinality: 0..1
+  targetName: LossClearing
+- source: LossClearingResults
+  target: RUCZone
+  sourceCardinality: 0..*
+  sourceName: LossClearingResults
+  targetCardinality: 0..1
+  targetName: RUCZone

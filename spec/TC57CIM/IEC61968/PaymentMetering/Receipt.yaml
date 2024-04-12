@@ -1,0 +1,44 @@
+name: Receipt
+description: Record of total receipted payment from customer.
+attributes:
+- name: isBankable
+  type: Boolean
+  description: True if this receipted payment is manually bankable, otherwise it is an electronic funds transfer.
+- name: line
+  type: LineDetail
+  description: Receipted amount with rounding, date and note.
+ancestors:
+- IdentifiedObject
+associations:
+- source: Receipt
+  target: Transaction
+  sourceCardinality: 0..1
+  sourceName: Receipt
+  sourceDescription: The receipted payment for which this transaction has been recorded.
+  targetCardinality: 1..*
+  targetName: Transactions
+  targetDescription: All transactions recorded for this receipted payment.
+- source: Receipt
+  target: VendorShift
+  sourceCardinality: 0..*
+  sourceName: Receipts
+  sourceDescription: All receipts recorded during this vendor shift.
+  targetCardinality: 0..1
+  targetName: VendorShift
+  targetDescription: Vendor shift during which this receipt was recorded.
+- source: Receipt
+  target: Tender
+  sourceCardinality: "1"
+  sourceName: Receipt
+  sourceDescription: Receipt that recorded this receiving of a payment in the form of tenders.
+  targetCardinality: 1..*
+  targetName: Tenders
+  targetDescription: All payments received in the form of tenders recorded by this receipt.
+- source: Receipt
+  target: CashierShift
+  sourceCardinality: 0..*
+  sourceName: Receipts
+  sourceDescription: All Receipts recorded for this Shift.
+  targetCardinality: 0..1
+  targetName: CashierShift
+  targetDescription: Cashier shift during which this receipt was recorded.

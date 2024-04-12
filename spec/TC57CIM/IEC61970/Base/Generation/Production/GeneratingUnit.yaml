@@ -1,0 +1,188 @@
+name: GeneratingUnit
+description: A single or set of synchronous machines for converting mechanical power into alternating-current power. For example,
+  individual machines within a set may be defined for scheduling purposes while a single control signal is derived for the
+  set. In this case there would be a GeneratingUnit for each member of the set and an additional GeneratingUnit corresponding
+  to the set.
+attributes:
+- name: allocSpinResP
+  type: ActivePower
+  description: The planned unused capacity (spinning reserve) which can be used to support emergency load.
+- name: autoCntrlMarginP
+  type: ActivePower
+  description: The planned unused capacity which can be used to support automatic control overruns.
+- name: baseP
+  type: ActivePower
+  description: For dispatchable units, this value represents the economic active power basepoint, for units that are not dispatchable,
+    this value represents the fixed generation value. The value shall be between the operating low and high limits.
+- name: controlDeadband
+  type: ActivePower
+  description: Unit control error deadband. When a unit's desired active power change is less than this deadband, then no
+    control pulses will be sent to the unit.
+- name: controlPulseHigh
+  type: Seconds
+  description: Pulse high limit which is the largest control pulse that the unit can respond to.
+- name: controlPulseLow
+  type: Seconds
+  description: Pulse low limit which is the smallest control pulse that the unit can respond to.
+- name: controlResponseRate
+  type: ActivePowerChangeRate
+  description: Unit response rate which specifies the active power change for a control pulse of one second in the most responsive
+    loading level of the unit.
+- name: efficiency
+  type: PerCent
+  description: The efficiency of the unit in converting mechanical energy, from the prime mover, into electrical energy.
+- name: genControlMode
+  type: GeneratorControlMode
+  description: The unit control mode.
+- name: genControlSource
+  type: GeneratorControlSource
+  description: The source of controls for a generating unit.  Defines the control status of the generating unit.
+- name: governorMPL
+  type: PU
+  description: Governor motor position limit.
+- name: governorSCD
+  type: PerCent
+  description: Governor Speed Changer Droop.   This is the change in generator power output divided by the change in frequency
+    normalized by the nominal power of the generator and the nominal frequency and expressed in percent and negated. A positive
+    value of speed change droop provides additional generator output upon a drop in frequency.
+- name: highControlLimit
+  type: ActivePower
+  description: High limit for secondary (AGC) control.
+- name: initialP
+  type: ActivePower
+  description: Default initial active power  which is used to store a powerflow result for the initial active power for this
+    unit in this network configuration.
+- name: longPF
+  type: Float
+  description: Generating unit long term economic participation factor.
+- name: lowControlLimit
+  type: ActivePower
+  description: Low limit for secondary (AGC) control.
+- name: lowerRampRate
+  type: ActivePowerChangeRate
+  description: The normal maximum rate the generating unit active power output can be lowered by control actions.
+- name: maxEconomicP
+  type: ActivePower
+  description: Maximum high economic active power limit, that should not exceed the maximum operating active power limit.
+- name: maximumAllowableSpinningReserve
+  type: ActivePower
+  description: Maximum allowable spinning reserve. Spinning reserve will never be considered greater than this value regardless
+    of the current operating point.
+- name: maxOperatingP
+  type: ActivePower
+  description: This is the maximum operating active power limit the dispatcher can enter for this unit.
+- name: minEconomicP
+  type: ActivePower
+  description: Low economic active power limit that shall be greater than or equal to the minimum operating active power limit.
+- name: minimumOffTime
+  type: Seconds
+  description: Minimum time interval between unit shutdown and startup.
+- name: minOperatingP
+  type: ActivePower
+  description: This is the minimum operating active power limit the dispatcher can enter for this unit.
+- name: modelDetail
+  type: Classification
+  description: Detail level of the generator model data.
+- name: nominalP
+  type: ActivePower
+  description: |-
+    The nominal power of the generating unit.  Used to give precise meaning to percentage based attributes such as the governor speed change droop (governorSCD attribute).
+    The attribute shall be a positive value equal to or less than RotatingMachine.ratedS.
+- name: normalPF
+  type: Float
+  description: Generating unit economic participation factor.  The sum of the participation factors across generating units
+    does not have to sum to one.  It is used for representing distributed slack participation factor. The attribute shall
+    be a positive value or zero.
+- name: penaltyFactor
+  type: Float
+  description: 'Defined as: 1 / ( 1 - Incremental Transmission Loss); with the Incremental Transmission Loss expressed as
+    a plus or minus value. The typical range of penalty factors is (0.9 to 1.1).'
+- name: raiseRampRate
+  type: ActivePowerChangeRate
+  description: The normal maximum rate the generating unit active power output can be raised by control actions.
+- name: ratedGrossMaxP
+  type: ActivePower
+  description: |-
+    The unit's gross rated maximum capacity (book value).
+    The attribute shall be a positive value.
+- name: ratedGrossMinP
+  type: ActivePower
+  description: |-
+    The gross rated minimum generation level which the unit can safely operate at while delivering power to the transmission grid.
+    The attribute shall be a positive value.
+- name: ratedNetMaxP
+  type: ActivePower
+  description: |-
+    The net rated maximum capacity determined by subtracting the auxiliary power used to operate the internal plant machinery from the rated gross maximum capacity.
+    The attribute shall be a positive value.
+- name: shortPF
+  type: Float
+  description: Generating unit short term economic participation factor.
+- name: startupCost
+  type: Money
+  description: The initial startup cost incurred for each start of the GeneratingUnit.
+- name: startupTime
+  type: Seconds
+  description: Time it takes to get the unit on-line, from the time that the prime mover mechanical power is applied.
+- name: tieLinePF
+  type: Float
+  description: Generating unit economic participation factor.
+- name: variableCost
+  type: Money
+  description: The variable cost component of production per unit of ActivePower.
+- name: totalEfficiency
+  type: PerCent
+  description: The efficiency of the unit in converting the fuel into electrical energy.
+ancestors:
+- Equipment
+descendents:
+- WindGeneratingUnit
+- NuclearGeneratingUnit
+- ThermalGeneratingUnit
+- HydroGeneratingUnit
+- SolarGeneratingUnit
+- MktGeneratingUnit
+associations:
+- source: GeneratingUnit
+  target: RotatingMachine
+  sourceCardinality: 0..1
+  sourceName: GeneratingUnit
+  sourceDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
+  targetCardinality: 0..*
+  targetName: RotatingMachine
+  targetDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
+- source: GeneratingUnit
+  target: GenUnitOpSchedule
+  sourceCardinality: "1"
+  sourceName: GeneratingUnit
+  sourceDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
+  targetCardinality: 0..1
+  targetName: GenUnitOpSchedule
+  targetDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
+- source: GeneratingUnit
+  target: ControlAreaGeneratingUnit
+  sourceCardinality: "1"
+  sourceName: GeneratingUnit
+  sourceDescription: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
+    only once.
+  targetCardinality: 0..*
+  targetName: ControlAreaGeneratingUnit
+  targetDescription: ControlArea specifications for this generating unit.
+- source: GeneratingUnit
+  target: GrossToNetActivePowerCurve
+  sourceCardinality: "1"
+  sourceName: GeneratingUnit
+  sourceDescription: A generating unit may have a gross active power to net active power curve, describing the losses and
+    auxiliary power requirements of the unit.
+  targetCardinality: 0..*
+  targetName: GrossToNetActivePowerCurves
+  targetDescription: A generating unit may have a gross active power to net active power curve, describing the losses and
+    auxiliary power requirements of the unit.
+- source: GeneratingUnit
+  target: GenUnitOpCostCurve
+  sourceCardinality: "1"
+  sourceName: GeneratingUnit
+  sourceDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
+  targetCardinality: 0..*
+  targetName: GenUnitOpCostCurves
+  targetDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.

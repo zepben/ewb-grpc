@@ -1,0 +1,33 @@
+name: Project
+description: A collection of related work. For construction projects and maintenance projects, multiple phases may be performed.
+attributes:
+- name: budget
+  type: Money
+  description: Overall project budget.
+ancestors:
+- WorkDocument
+associations:
+- source: Project
+  target: Project
+  sourceCardinality: 0..1
+  sourceName: ParentProject
+  targetCardinality: 0..*
+  targetName: SubProjects
+- source: Project
+  target: ErpProjectAccounting
+  sourceCardinality: 0..*
+  sourceName: Projects
+  targetCardinality: "1"
+  targetName: ErpProjectAccounting
+- source: Project
+  target: BusinessCase
+  sourceCardinality: 0..*
+  sourceName: Projects
+  targetCardinality: 0..1
+  targetName: BusinessCase
+- source: Project
+  target: Work
+  sourceCardinality: 0..1
+  sourceName: Project
+  targetCardinality: 0..*
+  targetName: Works

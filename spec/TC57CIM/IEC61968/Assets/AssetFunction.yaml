@@ -1,0 +1,29 @@
+name: AssetFunction
+description: Function performed by an asset.
+attributes:
+- name: configID
+  type: String
+  description: Configuration specified for this function.
+- name: firmwareID
+  type: String
+  description: Firmware version.
+- name: hardwareID
+  type: String
+  description: Hardware version.
+- name: password
+  type: String
+  description: Password needed to access this function.
+- name: programID
+  type: String
+  description: Name of program.
+ancestors:
+- IdentifiedObject
+descendents:
+- EndDeviceFunction
+associations:
+- source: AssetFunction
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: AssetFunction
+  targetCardinality: 0..1
+  targetName: Asset

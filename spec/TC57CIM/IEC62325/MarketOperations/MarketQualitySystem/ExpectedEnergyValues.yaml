@@ -1,0 +1,20 @@
+name: ExpectedEnergyValues
+description: Model Expected Energy from Market Clearing.
+attributes:
+- name: energyTypeCode
+  type: String
+- name: expectedMwh
+  type: Float
+associations:
+- source: ExpectedEnergyValues
+  target: ExpectedEnergy
+  sourceCardinality: 1..*
+  sourceName: ExpectedEnergyValues
+  targetCardinality: "1"
+  targetName: ExpectedEnergy
+- source: ExpectedEnergyValues
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: ExpectedEnergyValues
+  targetCardinality: 0..1
+  targetName: RegisteredResource

@@ -1,0 +1,24 @@
+name: MarketRegion
+description: A specialized class of AggregatedNode type. Defines the MarketRegions. Regions could be system Market Regions,
+  Energy Regions or Ancillary Service Regions.
+ancestors:
+- AggregateNode
+associations:
+- source: MarketRegion
+  target: MarketRegionResults
+  sourceCardinality: "1"
+  sourceName: MarketRegion
+  targetCardinality: 1..*
+  targetName: MarketRegionResults
+- source: MarketRegion
+  target: ReserveDemandCurve
+  sourceCardinality: "1"
+  sourceName: MarketRegion
+  targetCardinality: 0..*
+  targetName: ReserveDemandCurve
+- source: MarketRegion
+  target: ExPostMarketRegionResults
+  sourceCardinality: "1"
+  sourceName: MarketRegion
+  targetCardinality: 0..*
+  targetName: ExPostMarketRegionResults

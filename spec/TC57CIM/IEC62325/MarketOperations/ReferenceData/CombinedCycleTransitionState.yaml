@@ -1,0 +1,21 @@
+name: CombinedCycleTransitionState
+description: Defines the available from and to Transition States for the Combine Cycle Configurations.
+attributes:
+- name: upTransition
+  type: Boolean
+  description: |-
+    Flag indicating whether this is an UP transition.
+    If not, it is a DOWN transition.
+associations:
+- source: CombinedCycleTransitionState
+  target: CombinedCycleConfiguration
+  sourceCardinality: 0..*
+  sourceName: ToTransitionState
+  targetCardinality: "1"
+  targetName: ToConfiguration
+- source: CombinedCycleTransitionState
+  target: CombinedCycleConfiguration
+  sourceCardinality: 0..*
+  sourceName: FromTransitionState
+  targetCardinality: "1"
+  targetName: FromConfiguration

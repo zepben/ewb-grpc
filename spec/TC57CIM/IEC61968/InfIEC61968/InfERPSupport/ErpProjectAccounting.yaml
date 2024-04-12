@@ -1,0 +1,31 @@
+name: ErpProjectAccounting
+description: 'Utility Project Accounting information, used by ERP applications to enable all relevant sub-systems that submit
+  single sided transactions to transfer information with a Project Accounting Application. This would include, but not necessarily
+  be limited to: Accounts Payable, Accounts Receivable, Budget, Order Management, Purchasing, Time and Labor, Travel and Expense.'
+ancestors:
+- ErpDocument
+associations:
+- source: ErpProjectAccounting
+  target: Project
+  sourceCardinality: "1"
+  sourceName: ErpProjectAccounting
+  targetCardinality: 0..*
+  targetName: Projects
+- source: ErpProjectAccounting
+  target: ErpTimeEntry
+  sourceCardinality: 0..1
+  sourceName: ErpProjectAccounting
+  targetCardinality: 0..*
+  targetName: ErpTimeEntries
+- source: ErpProjectAccounting
+  target: WorkCostDetail
+  sourceCardinality: "1"
+  sourceName: ErpProjectAccounting
+  targetCardinality: 0..*
+  targetName: WorkCostDetails
+- source: ErpProjectAccounting
+  target: Work
+  sourceCardinality: 0..1
+  sourceName: ErpProjectAccounting
+  targetCardinality: 0..*
+  targetName: Works

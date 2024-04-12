@@ -1,0 +1,23 @@
+name: CurrentEmergencyScheduledInterchange
+description: Control area emergency schedules
+attributes:
+- name: emergencyScheduleMW
+  type: Float
+  description: Net tie MW. These are three entries, the current emergency schedule interchange and the two future schedules
+    if they exist.
+- name: emergencyScheduleRampTime
+  type: Integer
+  description: Ramp time, the ramping time for a schedule. This is calculated as the remaining time to ramp if a schedule
+    is ramping. Measured in seconds, but can be negattive.
+- name: emergencyScheduleStartTime
+  type: DateTime
+  description: Net tie time,  the start time for a schedule. This is calculated as the current time if a schedule is ramping.
+ancestors:
+- IdentifiedObject
+associations:
+- source: CurrentEmergencyScheduledInterchange
+  target: InternalControlArea
+  sourceCardinality: 0..*
+  sourceName: CurrentEmergencySI
+  targetCardinality: "1"
+  targetName: InternalControlArea

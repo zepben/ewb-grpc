@@ -1,0 +1,45 @@
+name: SwitchInfo
+description: |-
+  <was Switch data.>
+  Switch datasheet information.
+attributes:
+- name: breakingCapacity
+  type: CurrentFlow
+  description: The maximum fault current a breaking device can break safely under prescribed conditions of use.
+- name: gasWeightPerTank
+  type: Mass
+  description: Weight of gas in each tank of SF6 dead tank breaker.
+- name: isSinglePhase
+  type: Boolean
+  description: If true, it is a single phase switch.
+- name: isUnganged
+  type: Boolean
+  description: If true, the switch is not ganged (i.e., a switch phase may be operated separately from other phases).
+- name: lowPressureAlarm
+  type: Pressure
+  description: Gas or air pressure at or below which a low pressure alarm is generated.
+- name: lowPressureLockOut
+  type: Pressure
+  description: Gas or air pressure below which the breaker will not open.
+- name: oilVolumePerTank
+  type: Volume
+  description: Volume of oil in each tank of bulk oil breaker.
+- name: ratedCurrent
+  type: CurrentFlow
+  description: Rated current.
+- name: ratedFrequency
+  type: Frequency
+  description: Frequency for which switch is rated.
+- name: ratedImpulseWithstandVoltage
+  type: Voltage
+  description: Rated impulse withstand voltage, also known as BIL (Basic Impulse Level).
+- name: ratedInterruptingTime
+  type: Seconds
+  description: Switch rated interrupting time in seconds.
+- name: ratedVoltage
+  type: Voltage
+  description: Rated voltage.
+ancestors:
+- AssetInfo
+descendents:
+- OldSwitchInfo

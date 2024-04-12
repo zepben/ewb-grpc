@@ -1,0 +1,84 @@
+name: MarketStatementLineItem
+description: An individual line item on an ISO settlement statement.
+attributes:
+- name: currentAmount
+  type: Float
+  description: Current settlement amount.
+- name: currentISOAmount
+  type: Float
+  description: Current ISO settlement amount.
+- name: currentISOQuantity
+  type: Float
+  description: Current ISO settlement quantity.
+- name: currentPrice
+  type: Float
+  description: Current settlement price.
+- name: currentQuantity
+  type: Float
+  description: Current settlement quantity, subject to the UOM.
+- name: intervalDate
+  type: DateTime
+  description: The date of which the settlement is run.
+- name: intervalNumber
+  type: String
+  description: The number of intervals.
+- name: netAmount
+  type: Float
+  description: Net settlement amount.
+- name: netISOAmount
+  type: Float
+  description: Net ISO settlement amount.
+- name: netISOQuantity
+  type: Float
+  description: Net ISO settlement quantity.
+- name: netPrice
+  type: Float
+  description: Net settlement price.
+- name: netQuantity
+  type: Float
+  description: Net settlement quantity, subject to the UOM.
+- name: previousAmount
+  type: Float
+  description: Previous settlement amount.
+- name: previousISOAmount
+  type: Float
+  description: Previous ISO settlement amount.
+- name: previousISOQuantity
+  type: Float
+  description: Previous ISO settlement quantity.
+- name: previousPrice
+  type: Float
+  description: Previous settlement price.
+- name: previousQuantity
+  type: Float
+  description: Previous settlement quantity, subject to the UOM.
+- name: quantityUOM
+  type: String
+  description: The unit of measure for the quantity element of the line item.
+ancestors:
+- IdentifiedObject
+associations:
+- source: MarketStatementLineItem
+  target: MarketStatement
+  sourceCardinality: 0..*
+  sourceName: MarketStatementLineItem
+  targetCardinality: "1"
+  targetName: MarketStatement
+- source: MarketStatementLineItem
+  target: MarketStatementLineItem
+  sourceCardinality: 0..*
+  sourceName: ComponentMarketStatementLineItem
+  targetCardinality: 0..1
+  targetName: ContainerMarketStatementLineItem
+- source: MarketStatementLineItem
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  sourceName: MarketStatementLineItem
+  targetCardinality: 0..*
+  targetName: MktUserAttribute
+- source: MarketStatementLineItem
+  target: PassThroughBill
+  sourceCardinality: 0..1
+  sourceName: MarketStatementLineItem
+  targetCardinality: 0..1
+  targetName: PassThroughBill

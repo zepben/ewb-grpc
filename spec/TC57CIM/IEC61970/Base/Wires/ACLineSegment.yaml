@@ -1,0 +1,106 @@
+name: ACLineSegment
+description: |-
+  A wire or combination of wires, with consistent electrical characteristics, building a single electrical system, used to carry alternating current between points in the power system.
+  For symmetrical, transposed three phase lines, it is sufficient to use attributes of the line segment, which describe impedances and admittances for the entire length of the segment.  Additionally impedances can be computed by using length and associated per length impedances.
+  The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same BaseVoltage.nominalVoltage. However, boundary lines may have slightly different BaseVoltage.nominalVoltages and variation is allowed. Larger voltage difference in general requires use of an equivalent branch.
+attributes:
+- name: b0ch
+  type: Susceptance
+  description: Zero sequence shunt (charging) susceptance, uniformly distributed, of the entire line section.
+- name: bch
+  type: Susceptance
+  description: Positive sequence shunt (charging) susceptance, uniformly distributed, of the entire line section.  This value
+    represents the full charging over the full length of the line.
+- name: g0ch
+  type: Conductance
+  description: Zero sequence shunt (charging) conductance, uniformly distributed, of the entire line section.
+- name: gch
+  type: Conductance
+  description: Positive sequence shunt (charging) conductance, uniformly distributed, of the entire line section.
+- name: r
+  type: Resistance
+  description: Positive sequence series resistance of the entire line section.
+- name: r0
+  type: Resistance
+  description: Zero sequence series resistance of the entire line section.
+- name: shortCircuitEndTemperature
+  type: Temperature
+  description: Maximum permitted temperature at the end of SC for the calculation of minimum short-circuit currents. Used
+    for short circuit data exchange according to IEC 60909.
+- name: x
+  type: Reactance
+  description: Positive sequence series reactance of the entire line section.
+- name: x0
+  type: Reactance
+  description: Zero sequence series reactance of the entire line section.
+ancestors:
+- Conductor
+descendents:
+- MktACLineSegment
+associations:
+- source: ACLineSegment
+  target: Clamp
+  sourceCardinality: "1"
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the clamp is connected.
+  targetCardinality: 0..*
+  targetName: Clamp
+  targetDescription: The clamps connected to the line segment.
+- source: ACLineSegment
+  target: WireSpacingInfo
+  sourceCardinality: 0..*
+  sourceName: ACLineSegment
+  targetCardinality: 0..1
+  targetName: WireSpacingInfo
+- source: ACLineSegment
+  target: PerLengthImpedance
+  sourceCardinality: 0..*
+  sourceName: ACLineSegments
+  sourceDescription: All line segments described by this per-length impedance.
+  targetCardinality: 0..1
+  targetName: PerLengthImpedance
+  targetDescription: Per-length impedance of this line segment.
+- source: ACLineSegment
+  target: Cut
+  sourceCardinality: "1"
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the cut is applied.
+  targetCardinality: 0..*
+  targetName: Cut
+  targetDescription: Cuts applied to the line segment.
+- source: ACLineSegment
+  target: LineFault
+  sourceCardinality: 0..1
+  sourceName: ACLineSegment
+  sourceDescription: The line segment of this line fault.
+  targetCardinality: 0..*
+  targetName: LineFaults
+  targetDescription: The line faults of the line segment.
+- source: ACLineSegment
+  target: ACLineSegmentPhase
+  sourceCardinality: "1"
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the phase belongs.
+  targetCardinality: 0..*
+  targetName: ACLineSegmentPhases
+  targetDescription: The line segment phases which belong to the line segment.
+- source: ACLineSegment
+  target: JumperAction
+  sourceCardinality: 0..*
+  sourceName: ACLineSegments
+  sourceDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
+    clamp in case the jumper needs to connect along the line segment.
+  targetCardinality: 0..1
+  targetName: LineJumpingAction
+  targetDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
+    of at its terminals).
+- source: ACLineSegment
+  target: GroundAction
+  sourceCardinality: 0..1
+  sourceName: AlongACLineSegment
+  sourceDescription: The line segment that this ground action will affect. This is the only way to access relationship to
+    clamp in case the ground needs to be placed along the line segment.
+  targetCardinality: 0..1
+  targetName: LineGroundingAction
+  targetDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead
+    of at its terminals).

@@ -1,0 +1,16 @@
+name: StaticVarCompensatorDynamics
+description: Static var compensator whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
+  by definition of a user-defined model.</font>
+ancestors:
+- DynamicsFunctionBlock
+descendents:
+- SVCUserDefined
+associations:
+- source: StaticVarCompensatorDynamics
+  target: StaticVarCompensator
+  sourceCardinality: 0..1
+  sourceName: StaticVarCompensatorDynamics
+  sourceDescription: Static Var Compensator dynamics model used to describe dynamic behaviour of this Static Var Compensator.
+  targetCardinality: "1"
+  targetName: StaticVarCompensator
+  targetDescription: Static Var Compensator to which Static Var Compensator dynamics model applies.

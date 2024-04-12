@@ -1,0 +1,21 @@
+name: Series
+description: A set of similar physical or conceptual objects defined for the same period or point of time.
+attributes:
+- name: lastUpdateDate
+  type: Date
+  description: The date of the last update related to this market object.
+- name: methodType
+  type: String
+  description: Type of method used in the business process related to this Series, e.g. metering method.
+- name: registrationDate
+  type: Date
+  description: For a market object, the date of registration of a contract, e.g. the date of change of supplier for a customer.
+ancestors:
+- TimeSeries
+associations:
+- source: Series
+  target: Series
+  sourceCardinality: 0..*
+  sourceName: Series
+  targetCardinality: 0..*
+  targetName: SelfSeries

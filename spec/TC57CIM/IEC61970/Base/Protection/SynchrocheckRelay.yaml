@@ -1,0 +1,16 @@
+name: SynchrocheckRelay
+description: A device that operates when two AC circuits are within the desired limits of frequency, phase angle, and voltage,
+  to permit or to cause the paralleling of these two circuits. Used to prevent the paralleling of non-synchronous topological
+  islands.
+attributes:
+- name: maxAngleDiff
+  type: AngleRadians
+  description: The maximum allowable voltage vector phase angle difference across the open device.
+- name: maxFreqDiff
+  type: Frequency
+  description: The maximum allowable frequency difference across the open device.
+- name: maxVoltDiff
+  type: Voltage
+  description: The maximum allowable difference voltage across the open device.
+ancestors:
+- ProtectionEquipment

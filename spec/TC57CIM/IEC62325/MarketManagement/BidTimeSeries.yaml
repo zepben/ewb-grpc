@@ -1,0 +1,34 @@
+name: BidTimeSeries
+description: The formal specification of specific characteristics related to a bid.
+attributes:
+- name: blockBid
+  type: String
+  description: Indication that  the values in the period are considered as a whole. They cannot be changed or subdivided.
+- name: direction
+  type: String
+  description: The coded identification of the energy flow.
+- name: divisible
+  type: String
+  description: An indication whether or not each element of the bid may be partially accepted or not.
+- name: exclusiveBidsIdentification
+  type: String
+  description: "Unique identification associated with all linked tenders.\nThe identification of a set of tenders that are\
+    \ linked together signifying that only one can be accepted. \nThis identification is defined by the tenderer and must\
+    \ be unique for a given auction."
+- name: linkedBidsIdentification
+  type: String
+  description: Unique identification associated with all linked bids.
+- name: minimumActivationQuantity
+  type: Decimal
+  description: The minimum quantity of energy that can be activated at a given time interval.
+- name: priority
+  type: Integer
+  description: The numeric local priority given to a bid. Lower numeric values will have higher priority.
+- name: status
+  type: String
+  description: The information about the status of the bid, such as "shared", "restricted", ...
+- name: stepIncrementQuantity
+  type: Decimal
+  description: The minimum increment that can be applied for an increase in an activation request.
+ancestors:
+- TimeSeries

@@ -1,0 +1,62 @@
+name: AssetInfo
+description: |-
+  Set of attributes of an asset, representing typical datasheet information of a physical device that can be instantiated and shared in different data exchange contexts:
+  - as attributes of an asset instance (installed or in stock)
+  - as attributes of an asset model (product by a manufacturer)
+  - as attributes of a type asset (generic type of an asset as used in designs/extension planning).
+ancestors:
+- IdentifiedObject
+descendents:
+- FaultIndicatorInfo
+- CurrentTransformerInfo
+- CompositeSwitchInfo
+- SurgeArresterInfo
+- ProtectionEquipmentInfo
+- PotentialTransformerInfo
+- EndDeviceInfo
+- WireSpacingInfo
+- WireInfo
+- TransformerTankInfo
+- TransformerEndInfo
+- TapChangerInfo
+- SwitchInfo
+- ShuntCompensatorInfo
+- PowerTransformerInfo
+- OperatingMechanismInfo
+- InterrupterUnitInfo
+- BushingInfo
+- BusbarSectionInfo
+- WireAssemblyInfo
+associations:
+- source: AssetInfo
+  target: CatalogAssetType
+  sourceCardinality: 0..1
+  sourceName: AssetInfo
+  sourceDescription: Generic nameplate information associated with this catalog asset type.
+  targetCardinality: 0..1
+  targetName: CatalogAssetType
+  targetDescription: Asset information (nameplate) for this catalog asset type.
+- source: AssetInfo
+  target: PowerSystemResource
+  sourceCardinality: 0..1
+  sourceName: AssetDatasheet
+  sourceDescription: Datasheet information for this power system resource.
+  targetCardinality: 0..*
+  targetName: PowerSystemResources
+  targetDescription: All power system resources with this datasheet information.
+- source: AssetInfo
+  target: ProductAssetModel
+  sourceCardinality: 0..1
+  sourceName: AssetInfo
+  sourceDescription: Asset information (nameplate) for this product asset model.
+  targetCardinality: 0..1
+  targetName: ProductAssetModel
+  targetDescription: Product asset model which conforms to this catalog asset type.
+- source: AssetInfo
+  target: Asset
+  sourceCardinality: 0..1
+  sourceName: AssetInfo
+  sourceDescription: Data applicable to this asset.
+  targetCardinality: 0..*
+  targetName: Assets
+  targetDescription: All assets described by this data.

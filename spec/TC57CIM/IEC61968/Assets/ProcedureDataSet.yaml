@@ -1,0 +1,60 @@
+name: ProcedureDataSet
+description: A data set recorded each time a procedure is executed. Observed results are captured in associated measurement
+  values and/or values for properties relevant to the type of procedure performed.
+attributes:
+- name: completedDateTime
+  type: DateTime
+  description: Date and time procedure was completed.
+ancestors:
+- Document
+descendents:
+- LabTestDataSet
+- DiagnosisDataSet
+- TestDataSet
+- MaintenanceDataSet
+- InspectionDataSet
+associations:
+- source: ProcedureDataSet
+  target: MeasurementValue
+  sourceCardinality: 0..*
+  sourceName: ProcedureDataSet
+  targetCardinality: 0..*
+  targetName: MeasurementValue
+- source: ProcedureDataSet
+  target: TransformerObservation
+  sourceCardinality: 0..*
+  sourceName: ProcedureDataSets
+  targetCardinality: 0..*
+  targetName: TransformerObservations
+- source: ProcedureDataSet
+  target: WorkTask
+  sourceCardinality: 0..*
+  sourceName: ProcedureDataSet
+  sourceDescription: Procedure data set associated with this work task.
+  targetCardinality: 0..1
+  targetName: WorkTask
+  targetDescription: Work task that created this procedure data set.
+- source: ProcedureDataSet
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: ProcedureDataSet
+  sourceDescription: Procedure data set that applies to this asset.
+  targetCardinality: 0..1
+  targetName: Asset
+  targetDescription: Asset to which this procedure data set applies.
+- source: ProcedureDataSet
+  target: Procedure
+  sourceCardinality: 0..*
+  sourceName: ProcedureDataSets
+  sourceDescription: All data sets captured by this procedure.
+  targetCardinality: 0..1
+  targetName: Procedure
+  targetDescription: Procedure capturing this data set.
+- source: ProcedureDataSet
+  target: UserAttribute
+  sourceCardinality: 0..*
+  sourceName: ProcedureDataSets
+  targetCardinality: 0..*
+  targetName: Properties
+  targetDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
+    kind of property it is, and 'value.value' attribute for the actual value.

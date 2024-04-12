@@ -1,0 +1,32 @@
+name: RegularIntervalSchedule
+description: The schedule has time points where the time between them is constant.
+attributes:
+- name: endTime
+  type: DateTime
+  description: The time for the last time point.  The value can be a time of day, not a specific date.
+- name: timeStep
+  type: Seconds
+  description: The time between each pair of subsequent regular time points in sequence order.
+ancestors:
+- BasicIntervalSchedule
+descendents:
+- HydroPumpOpSchedule
+- SeasonDayTypeSchedule
+- GenUnitOpSchedule
+- InflowForecast
+- SteamSendoutSchedule
+- BidHourlyProductSchedule
+- BidHourlySchedule
+- BidPriceSchedule
+- BidSelfSched
+- ResourcePerformanceTimeSeriesFactor
+- AreaLoadCurve
+associations:
+- source: RegularIntervalSchedule
+  target: RegularTimePoint
+  sourceCardinality: "1"
+  sourceName: IntervalSchedule
+  sourceDescription: Regular interval schedule containing this time point.
+  targetCardinality: 1..*
+  targetName: TimePoints
+  targetDescription: The regular interval time point data values that define this schedule.

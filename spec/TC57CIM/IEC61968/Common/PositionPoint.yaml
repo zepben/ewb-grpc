@@ -1,0 +1,31 @@
+name: PositionPoint
+description: Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'.
+  Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe
+  a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like
+  a substation or a geographical zone - in this case, have first and last position point with the same values).
+attributes:
+- name: groupNumber
+  type: Integer
+  description: Zero-relative sequence number of this group within a series of points; used when there is a need to express
+    disjoint groups of points that are considered to be part of a single location.
+- name: sequenceNumber
+  type: Integer
+  description: Zero-relative sequence number of this point within a series of points.
+- name: xPosition
+  type: String
+  description: X axis position.
+- name: yPosition
+  type: String
+  description: Y axis position.
+- name: zPosition
+  type: String
+  description: (if applicable) Z axis position.
+associations:
+- source: PositionPoint
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: PositionPoints
+  sourceDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+  targetCardinality: "1"
+  targetName: Location
+  targetDescription: Location described by this position point.

@@ -1,0 +1,30 @@
+name: MarketCaseClearing
+description: Market case clearing results are posted for a given settlement period.
+attributes:
+- name: caseType
+  type: String
+  description: |-
+    Settlement period:
+    'DA - Bid-in'
+    'DA - Reliability'
+    'DA - Amp1'
+    'DA - Amp2'
+    'RT - Ex-Ante'
+    'RT - Ex-Post'
+    'RT - Amp1'
+    'RT - Amp2'
+- name: modifiedDate
+  type: DateTime
+  description: Last time and date clearing results were manually modified.
+- name: postedDate
+  type: DateTime
+  description: Bid clearing results posted time and date.
+ancestors:
+- MarketFactors
+associations:
+- source: MarketCaseClearing
+  target: AncillaryServiceClearing
+  sourceCardinality: 0..1
+  sourceName: MarketCaseClearing
+  targetCardinality: 0..*
+  targetName: MarketProductClearing

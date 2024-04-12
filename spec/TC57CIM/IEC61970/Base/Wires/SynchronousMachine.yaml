@@ -1,0 +1,146 @@
+name: SynchronousMachine
+description: An electromechanical device that operates with shaft rotating synchronously with the network. It is a single
+  machine operating either as a generator or synchronous condenser or pump.
+attributes:
+- name: aVRToManualLag
+  type: Seconds
+  description: Time delay required when switching from Automatic Voltage Regulation (AVR) to Manual for a lagging MVAr violation.
+- name: aVRToManualLead
+  type: Seconds
+  description: Time delay required when switching from Automatic Voltage Regulation (AVR) to Manual for a leading MVAr violation.
+- name: baseQ
+  type: ReactivePower
+  description: Default base reactive power value. This value represents the initial reactive power that can be used by any
+    application function.
+- name: condenserP
+  type: ActivePower
+  description: Active power consumed when in condenser mode operation.
+- name: coolantCondition
+  type: Float
+  description: Temperature or pressure of coolant medium.
+- name: coolantType
+  type: CoolantType
+  description: Method of cooling the machine.
+- name: earthing
+  type: Boolean
+  description: Indicates whether or not the generator is earthed. Used for short circuit data exchange according to IEC 60909.
+- name: earthingStarPointR
+  type: Resistance
+  description: Generator star point earthing resistance (Re). Used for short circuit data exchange according to IEC 60909.
+- name: earthingStarPointX
+  type: Reactance
+  description: Generator star point earthing reactance (Xe). Used for short circuit data exchange according to IEC 60909.
+- name: ikk
+  type: CurrentFlow
+  description: |-
+    Steady-state short-circuit current (in A for the profile) of generator with compound excitation during 3-phase short circuit.
+    - Ikk=0: Generator with no compound excitation.
+    - Ikk&lt;&gt;0: Generator with compound excitation.
+    Ikk is used to calculate the minimum steady-state short-circuit current for generators with compound excitation.
+    (4.6.1.2 in IEC 60909-0:2001).
+    Used only for single fed short circuit on a generator. (4.3.4.2. in IEC 60909-0:2001).
+- name: manualToAVR
+  type: Seconds
+  description: Time delay required when switching from Manual to Automatic Voltage Regulation. This value is used in the accelerating
+    power reference frame for powerflow solutions.
+- name: maxQ
+  type: ReactivePower
+  description: Maximum reactive power limit. This is the maximum (nameplate) limit for the unit.
+- name: maxU
+  type: Voltage
+  description: Maximum voltage limit for the unit.
+- name: minQ
+  type: ReactivePower
+  description: Minimum reactive power limit for the unit.
+- name: minU
+  type: Voltage
+  description: Minimum voltage  limit for the unit.
+- name: mu
+  type: Float
+  description: |-
+    Factor to calculate the breaking current (Section 4.5.2.1 in IEC 60909-0).
+    Used only for single fed short circuit on a generator (Section 4.3.4.2. in IEC 60909-0).
+- name: operatingMode
+  type: SynchronousMachineOperatingMode
+  description: Current mode of operation.
+- name: qPercent
+  type: PerCent
+  description: Part of the coordinated reactive control that comes from this machine. The attribute is used as a participation
+    factor not necessarily summing up to 100% for the participating devices in the control.
+- name: r
+  type: Resistance
+  description: Equivalent resistance (RG) of generator. RG is considered for the calculation of all currents, except for the
+    calculation of the peak current ip. Used for short circuit data exchange according to IEC 60909.
+- name: r0
+  type: Resistance
+  description: Zero sequence resistance of the synchronous machine.
+- name: r2
+  type: Resistance
+  description: Negative sequence resistance.
+- name: referencePriority
+  type: Integer
+  description: Priority of unit for use as powerflow voltage phase angle reference bus selection. 0 = don t care (default)
+    1 = highest priority. 2 is less than 1 and so on.
+- name: satDirectSubtransX
+  type: PU
+  description: Direct-axis subtransient reactance saturated, also known as Xd"sat.
+- name: satDirectSyncX
+  type: PU
+  description: Direct-axes saturated synchronous reactance (xdsat); reciprocal of short-circuit ration. Used for short circuit
+    data exchange, only for single fed short circuit on a generator. (4.3.4.2. in IEC 60909-0:2001).
+- name: satDirectTransX
+  type: PU
+  description: Saturated Direct-axis transient reactance. The attribute is primarily used for short circuit calculations according
+    to ANSI.
+- name: shortCircuitRotorType
+  type: ShortCircuitRotorKind
+  description: Type of rotor, used by short circuit applications, only for single fed short circuit according to IEC 60909.
+- name: type
+  type: SynchronousMachineKind
+  description: Modes that this synchronous machine can operate in.
+- name: voltageRegulationRange
+  type: PerCent
+  description: |-
+    Range of generator voltage regulation (PG in IEC 60909-0) used for calculation of the impedance correction factor KG defined in IEC 60909-0.
+    This attribute is used to describe the operating voltage of the generating unit.
+- name: x0
+  type: Reactance
+  description: Zero sequence reactance of the synchronous machine.
+- name: x2
+  type: Reactance
+  description: Negative sequence reactance.
+ancestors:
+- RotatingMachine
+associations:
+- source: SynchronousMachine
+  target: PrimeMover
+  sourceCardinality: 0..*
+  sourceName: SynchronousMachines
+  sourceDescription: Synchronous machines this Prime mover drives.
+  targetCardinality: 0..*
+  targetName: PrimeMovers
+  targetDescription: Prime movers that drive this SynchronousMachine.
+- source: SynchronousMachine
+  target: ReactiveCapabilityCurve
+  sourceCardinality: 1..*
+  sourceName: InitiallyUsedBySynchronousMachines
+  sourceDescription: Synchronous machines using this curve as default.
+  targetCardinality: 0..1
+  targetName: InitialReactiveCapabilityCurve
+  targetDescription: The default reactive capability curve for use by a synchronous machine.
+- source: SynchronousMachine
+  target: ReactiveCapabilityCurve
+  sourceCardinality: 1..*
+  sourceName: SynchronousMachines
+  sourceDescription: Synchronous machines using this curve.
+  targetCardinality: 0..*
+  targetName: ReactiveCapabilityCurves
+  targetDescription: All available reactive capability curves for this synchronous machine.
+- source: SynchronousMachine
+  target: SynchronousMachineDynamics
+  sourceCardinality: "1"
+  sourceName: SynchronousMachine
+  sourceDescription: Synchronous machine to which synchronous machine dynamics model applies.
+  targetCardinality: 0..1
+  targetName: SynchronousMachineDynamics
+  targetDescription: Synchronous machine dynamics model used to describe dynamic behaviour of this synchronous machine.

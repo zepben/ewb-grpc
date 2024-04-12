@@ -1,0 +1,27 @@
+name: Feeder
+description: |-
+  A collection of equipment for organizational purposes, used for grouping distribution resources.
+  The organization a feeder does not necessarily reflect connectivity or current operation state.
+ancestors:
+- EquipmentContainer
+associations:
+- source: Feeder
+  target: Terminal
+  sourceCardinality: 0..1
+  targetName: NormalHeadTerminal
+  targetDescription: The normal head terminal or terminals of the feeder.
+- source: Feeder
+  target: Substation
+  sourceCardinality: 0..*
+  sourceName: Feeders
+  sourceDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
+    that describe the naming hierarchy.
+  targetCardinality: 0..*
+  targetName: NormalEnergizingSubstation
+  targetDescription: The substations that are normally energized by the feeder.
+- source: Feeder
+  target: LvFeeder
+  sourceCardinality: 0..1
+  sourceName: NormalEnergizingFeeders
+  targetCardinality: 0..*
+  targetName: NormalEnergizedLvFeeders

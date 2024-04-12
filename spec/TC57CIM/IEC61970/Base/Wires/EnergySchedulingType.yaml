@@ -1,0 +1,13 @@
+name: EnergySchedulingType
+description: Used to define the type of generation for scheduling purposes.
+ancestors:
+- IdentifiedObject
+associations:
+- source: EnergySchedulingType
+  target: EnergySource
+  sourceCardinality: 0..1
+  sourceName: EnergySchedulingType
+  sourceDescription: Energy Scheduling Type of an Energy Source.
+  targetCardinality: 0..*
+  targetName: EnergySource
+  targetDescription: Energy Source of a particular Energy Scheduling Type.

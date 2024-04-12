@@ -1,0 +1,38 @@
+name: PssSK
+description: Slovakian PSS with three inputs.
+attributes:
+- name: k1
+  type: PU
+  description: Gain <i>P</i> (<i>K</i><i><sub>1</sub></i>).  Typical value = -0,3.
+- name: k2
+  type: PU
+  description: Gain <i>f</i><i><sub>E</sub></i><i> </i>(<i>K</i><i><sub>2</sub></i>).  Typical value = -0,15.
+- name: k3
+  type: PU
+  description: Gain <i>I</i><i><sub>f</sub></i><i> </i>(<i>K</i><i><sub>3</sub></i>).  Typical value = 10.
+- name: t1
+  type: Seconds
+  description: Denominator time constant (<i>T</i><i><sub>1</sub></i>) (&gt; 0,005).  Typical value = 0,3.
+- name: t2
+  type: Seconds
+  description: Filter time constant (<i>T</i><i><sub>2</sub></i>) (&gt; 0,005).  Typical value = 0,35.
+- name: t3
+  type: Seconds
+  description: Denominator time constant (<i>T</i><i><sub>3</sub></i>) (&gt; 0,005).  Typical value = 0,22.
+- name: t4
+  type: Seconds
+  description: Filter time constant (<i>T</i><i><sub>4</sub></i>) (&gt; 0,005).  Typical value = 0,02.
+- name: t5
+  type: Seconds
+  description: Denominator time constant (<i>T</i><i><sub>5</sub></i>) (&gt; 0,005).  Typical value = 0,02.
+- name: t6
+  type: Seconds
+  description: Filter time constant (<i>T</i><i><sub>6</sub></i>) (&gt; 0,005).  Typical value = 0,02.
+- name: vsmax
+  type: PU
+  description: Stabilizer output maximum limit (<i>V</i><i><sub>SMAX</sub></i>) (&gt; PssSK.vsmin).  Typical value = 0,4.
+- name: vsmin
+  type: PU
+  description: Stabilizer output minimum limit (<i>V</i><i><sub>SMIN</sub></i>) (&lt; PssSK.vsmax).  Typical value = -0.4.
+ancestors:
+- PowerSystemStabilizerDynamics
