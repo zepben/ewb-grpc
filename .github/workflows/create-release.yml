@@ -131,7 +131,8 @@ jobs:
           twine upload --verbose --non-interactive --config-file ~/.pypirc dist/*
 
           # Output artifact-path to ENV
-          artifact="zepben.protobuf-${VERSION}-py3-none-any.whl"
+          version=$(grep version= setup.py | cut -d= -f2 | tr -d '",')
+          artifact="zepben.protobuf-${version}-py3-none-any.whl"
           echo "artifact-path=$(echo python/dist/$artifact)" >> ${GITHUB_ENV}
           # and 'artifact' to OUTPUT
           echo "artifact=$(echo $artifact)" >> ${GITHUB_OUTPUT} 
