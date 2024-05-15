@@ -1,20 +1,27 @@
 # Zepben Protobuf and GRPC definitions
+
 ## [0.29.0] - UNRELEASED
+
 ### Breaking Changes
+
 * None.
 
 ### New Features
+
 * None.
 
 ### Enhancements
-* None.
+
+* Added `designTemperature` and `designRating` to `Conductor` to capture limitations in the conductor based on the
+  network design and physical surrounds of the conductor.
 
 ### Fixes
+
 * None.
 
 ### Notes
-* None.
 
+* None.
 
 ## [0.28.0] - 2024-05-14
 
@@ -44,9 +51,9 @@
 ### Breaking Changes
 
 * Removed `ProtectionEquipment`.
-    * Change of inheritance: `CurrentRelay` &rarr; `ProtectionEquipment`.
-      becomes `CurrentRelay` &rarr; `ProtectionRelayFunction`.
-    * Removed symmetric relation `ProtectionEquipment` &harr; `ProtectedSwitch`.
+  * Change of inheritance: `CurrentRelay` &rarr; `ProtectionEquipment`.
+    becomes `CurrentRelay` &rarr; `ProtectionRelayFunction`.
+  * Removed symmetric relation `ProtectionEquipment` &harr; `ProtectedSwitch`.
 * Renamed `CurrentRelayInfo` to `RelayInfo`.
 * Reworked values for enumerable type `ProtectionKind`.
 * `LoadShape`: added reactive power values to LoadShape.
@@ -54,30 +61,30 @@
 ### New Features
 
 * Added new messages and fields to support advanced modelling of protection relays:
-    * `SeriesCompensator`: A series capacitor or reactor or an AC transmission line without charging susceptance.
-    * `Ground`: A point where the system is grounded used for connecting conducting equipment to ground.
-    * `GroundDisconnector`: A manually operated or motor operated mechanical switching device used for isolating a
-      circuit
-      or equipment from ground.
-    * `ProtectionRelayScheme`: A scheme that a group of relay functions implement. For example, typically schemes are
-      primary and secondary, or main and failsafe.
-    * `ProtectionRelayFunction`: A function that a relay implements to protect equipment.
-    * `ProtectionRelaySystem`: A relay system for controlling `ProtectedSwitch`es.
-    * `RelaySetting`: The threshold settings for a given relay.
-    * `VoltageRelay`: A device that detects when the voltage in an AC circuit reaches a preset voltage.
-    * `DistanceRelay`: A protective device used in power systems that measures the impedance of a transmission line to
-      determine the distance to a fault, and initiates circuit breaker tripping to isolate the faulty
-      section and safeguard the power system.
-    * `RelayInfo.recloseFast`: True if recloseDelays are associated with a fast Curve, False otherwise.
-    * `RegulatingControl.ratedCurrent`: The rated current of associated CT in amps for a RegulatingControl.
+  * `SeriesCompensator`: A series capacitor or reactor or an AC transmission line without charging susceptance.
+  * `Ground`: A point where the system is grounded used for connecting conducting equipment to ground.
+  * `GroundDisconnector`: A manually operated or motor operated mechanical switching device used for isolating a
+    circuit
+    or equipment from ground.
+  * `ProtectionRelayScheme`: A scheme that a group of relay functions implement. For example, typically schemes are
+    primary and secondary, or main and failsafe.
+  * `ProtectionRelayFunction`: A function that a relay implements to protect equipment.
+  * `ProtectionRelaySystem`: A relay system for controlling `ProtectedSwitch`es.
+  * `RelaySetting`: The threshold settings for a given relay.
+  * `VoltageRelay`: A device that detects when the voltage in an AC circuit reaches a preset voltage.
+  * `DistanceRelay`: A protective device used in power systems that measures the impedance of a transmission line to
+    determine the distance to a fault, and initiates circuit breaker tripping to isolate the faulty
+    section and safeguard the power system.
+  * `RelayInfo.recloseFast`: True if recloseDelays are associated with a fast Curve, False otherwise.
+  * `RegulatingControl.ratedCurrent`: The rated current of associated CT in amps for a RegulatingControl.
 
 ### Enhancements
 
 * Added MeasurementZoneInfo to the Syf proto message.
 * Bumped protobuf and gRPC versions:
-    * JVM (Maven): `com.google.protobuf:*:3.24.2`, `io.grpc:*:1.59.1`
-    * Python (setup.py): `protobuf==4.24.2`, `grpcio==1.59.3`, `grpcio-tools==1.59.3`
-    * C# (NuGet): `Google.Protobuf` version `3.24.2`, `Grpc.*` version `2.46.6`
+  * JVM (Maven): `com.google.protobuf:*:3.24.2`, `io.grpc:*:1.59.1`
+  * Python (setup.py): `protobuf==4.24.2`, `grpcio==1.59.3`, `grpcio-tools==1.59.3`
+  * C# (NuGet): `Google.Protobuf` version `3.24.2`, `Grpc.*` version `2.46.6`
 
 ### Fixes
 
@@ -101,12 +108,12 @@
 * Added load data timezone information to ModelConfig and Syf messages.
 * Added calibration flag to ModelConfig message.
 * Added new RPCs:
-    * `getMetadata`: Get the metadata related to the service. Added to `CustomerConsumer`, `DiagramConsumer`,
-      and `NetworkConsumer`.
+  * `getMetadata`: Get the metadata related to the service. Added to `CustomerConsumer`, `DiagramConsumer`,
+    and `NetworkConsumer`.
 * Added new message:
-    * `GetMetadataRequest`
-    * `GetMetadataResponse`
-    * `DataSource`
+  * `GetMetadataRequest`
+  * `GetMetadataResponse`
+  * `DataSource`
 * Added `MaybeModel` to support signalling the end of a sequence of `Model` messages.
 
 ### Enhancements
@@ -134,9 +141,9 @@
 * `ratedS` has been deprecated from PowerTransformerEnd. Use `ratings` instead.
 * Added configs to `Job` message for CIM to OpenDSS translation and OpenDSS solve parameters.
 * Added the following metadata fields to the hosting capacity `Job` message:
-    * `normVMinPu`
-    * `normVMaxPu`
-    * `resultsDetailLevel`
+  * `normVMinPu`
+  * `normVMaxPu`
+  * `resultsDetailLevel`
 * Added `LogMessage` to the hosting capacity module, which is used to carry logs between HC processes.
 
 ### Enhancements
@@ -160,25 +167,25 @@
 ### New Features
 
 * Added new RPCs:
-    * `getDiagramObjects`: Get the DiagramObjects for a given mRID.
-    * `getCustomersForContainer`: Get the customers for a given EquipmentContainer.
+  * `getDiagramObjects`: Get the DiagramObjects for a given mRID.
+  * `getCustomersForContainer`: Get the customers for a given EquipmentContainer.
 * Added the following messages for hosting capacity:
-    * `Syf` and `Job` messages for hosting capacity control.
-    * `Model`, `LoadShape` and `EnergyMeter` report messages for streaming results from OpenDSS.
+  * `Syf` and `Job` messages for hosting capacity control.
+  * `Model`, `LoadShape` and `EnergyMeter` report messages for streaming results from OpenDSS.
 * Added `Job` message for hosting capacity, which describes a hosting capacity run for a single feeder.
 * Added CIM enums:
-    * `PowerDirectionKind`
-    * `RegulatingControlModeKind`
+  * `PowerDirectionKind`
+  * `RegulatingControlModeKind`
 * Added CIM message:
-    * `RegulatingControl`
-    * `TapChangerControl`
-    * `EvChargingUnit`
+  * `RegulatingControl`
+  * `TapChangerControl`
+  * `EvChargingUnit`
 * Added new fields to:
-    * `Equipment`
-    * `PowerElectronicsConnection`
-    * `ProtectionEquipment`
-    * `TapChanger`
-    * `UsagePoint`
+  * `Equipment`
+  * `PowerElectronicsConnection`
+  * `ProtectionEquipment`
+  * `TapChanger`
+  * `UsagePoint`
 
 ### Enhancements
 
@@ -201,36 +208,36 @@
 ### New Features
 
 * Added new messages:
-    * `Sensor`: AuxiliaryEquipment that transform a measured quantity into signals.
-    * `CurrentTransformer`: Instrument transformer used to measure electrical qualities of the circuit that is being
-      protected and/or monitored.
-    * `PotentialTransformer`: Instrument transformer (also known as Voltage Transformer) used to measure electrical
-      qualities of the circuit that is being
-      protected and/or monitored.
-    * `CurrentTransformerInfo`: Properties of current transformer assets. Extends AssetInfo.
-    * `PotentialTransformerInfo`: Properties of potential transformer assets. Extends AssetInfo.
-    * `Ratio`: A fraction specified explicitly with a numerator and denominator, which can be used to calculate the
-      quotient.
-    * `RecloseSequence`: A reclose sequence (open and close) is defined for each possible reclosure of a breaker.
-    * `ProtectionEquipment`: An electrical device designed to respond to input conditions in a prescribed manner and
-      after specified conditions are met to cause
-      contact operation
-      or similar abrupt change in associated electric control circuits, or simply to display the detected condition.
-      Protection equipment is associated with
-      conducting equipment and usually operate circuit breakers.
-    * `CurrentRelay`: A device that checks current flow values in any direction or designated direction.
-    * `SwitchInfo`: Switch datasheet information.
-    * `CurrentRelayInfo`: Current Relay Datasheet Information.
+  * `Sensor`: AuxiliaryEquipment that transform a measured quantity into signals.
+  * `CurrentTransformer`: Instrument transformer used to measure electrical qualities of the circuit that is being
+    protected and/or monitored.
+  * `PotentialTransformer`: Instrument transformer (also known as Voltage Transformer) used to measure electrical
+    qualities of the circuit that is being
+    protected and/or monitored.
+  * `CurrentTransformerInfo`: Properties of current transformer assets. Extends AssetInfo.
+  * `PotentialTransformerInfo`: Properties of potential transformer assets. Extends AssetInfo.
+  * `Ratio`: A fraction specified explicitly with a numerator and denominator, which can be used to calculate the
+    quotient.
+  * `RecloseSequence`: A reclose sequence (open and close) is defined for each possible reclosure of a breaker.
+  * `ProtectionEquipment`: An electrical device designed to respond to input conditions in a prescribed manner and
+    after specified conditions are met to cause
+    contact operation
+    or similar abrupt change in associated electric control circuits, or simply to display the detected condition.
+    Protection equipment is associated with
+    conducting equipment and usually operate circuit breakers.
+  * `CurrentRelay`: A device that checks current flow values in any direction or designated direction.
+  * `SwitchInfo`: Switch datasheet information.
+  * `CurrentRelayInfo`: Current Relay Datasheet Information.
 * Added new enums:
-    * `PotentialTransformerKind`: The construction kind of the potential transformer.
-    * `ProtectionKind`: The kind of protection being provided by this protection equipment.
+  * `PotentialTransformerKind`: The construction kind of the potential transformer.
+  * `ProtectionKind`: The kind of protection being provided by this protection equipment.
 * Added new fields:
-    * `ProtectedSwitch.breakingCapacity`: The maximum fault current in amps a breaking device can break safely under
-      prescribed conditions of use.
-    * `Switch.ratedCurrent`: The maximum continuous current carrying capacity in amps governed by the device material
-      and construction. The attribute shall be a
-      positive value.
-    * `Breaker.inTransitTime`: The transition time from open to close in seconds.
+  * `ProtectedSwitch.breakingCapacity`: The maximum fault current in amps a breaking device can break safely under
+    prescribed conditions of use.
+  * `Switch.ratedCurrent`: The maximum continuous current carrying capacity in amps governed by the device material
+    and construction. The attribute shall be a
+    positive value.
+  * `Breaker.inTransitTime`: The transition time from open to close in seconds.
 
 ## [0.22.0] - 2022-10-21
 
@@ -242,17 +249,17 @@
 
 * Added `LvFeeder`, an `EquipmentContainer` containing only LV `Equipment`.
 * Added the following fields to `GetEquipmentForContainersRequest`:
-    * `includeEnergizingContainers`: Specifies whether to include equipment from containers energizing the ones listed
-      in
-      `mridList`. This is of the enum type `IncludedEnergizingContainers`, which has three possible values:
-        * `EXCLUDE_ENERGIZING_CONTAINERS`: No additional effect (default).
-        * `INCLUDE_ENERGIZING_FEEDERS`: Include HV/MV feeders that power LV feeders listed in `mridList`.
-        * `INCLUDE_ENERGIZING_SUBSTATIONS`: In addition to `INCLUDE_ENERGIZING_FEEDERS`, include substations that
-          energize a HV/MV feeder listed in `mridList` or included via `INCLUDE_ENERGIZING_FEEDERS`.
-    * `includeEnergizedContainers`: Specifies whether to include equipment from containers energized by the ones listed
-      in
-      `mridList`. This is of the enum type `IncludedEnergizedContainers`, which has three possible values:
-        * `EXCLUDE_ENERGIZED_CONTAINERS`: No additional effect (default).
-        * `INCLUDE_ENERGIZED_FEEDERS`: Include HV/MV feeders powered by substations listed in `mridList`.
-        * `INCLUDE_ENERGIZED_LV_FEEDERS`: In addition to `INCLUDE_ENERGIZED_FEEDERS`, include LV feeders that
-          are energizes by a HV/MV feeder listed in `mridList` or included via `INCLUDE_ENERGIZED_FEEDERS`.
+  * `includeEnergizingContainers`: Specifies whether to include equipment from containers energizing the ones listed
+    in
+    `mridList`. This is of the enum type `IncludedEnergizingContainers`, which has three possible values:
+    * `EXCLUDE_ENERGIZING_CONTAINERS`: No additional effect (default).
+    * `INCLUDE_ENERGIZING_FEEDERS`: Include HV/MV feeders that power LV feeders listed in `mridList`.
+    * `INCLUDE_ENERGIZING_SUBSTATIONS`: In addition to `INCLUDE_ENERGIZING_FEEDERS`, include substations that
+      energize a HV/MV feeder listed in `mridList` or included via `INCLUDE_ENERGIZING_FEEDERS`.
+  * `includeEnergizedContainers`: Specifies whether to include equipment from containers energized by the ones listed
+    in
+    `mridList`. This is of the enum type `IncludedEnergizedContainers`, which has three possible values:
+    * `EXCLUDE_ENERGIZED_CONTAINERS`: No additional effect (default).
+    * `INCLUDE_ENERGIZED_FEEDERS`: Include HV/MV feeders powered by substations listed in `mridList`.
+    * `INCLUDE_ENERGIZED_LV_FEEDERS`: In addition to `INCLUDE_ENERGIZED_FEEDERS`, include LV feeders that
+      are energizes by a HV/MV feeder listed in `mridList` or included via `INCLUDE_ENERGIZED_FEEDERS`.
