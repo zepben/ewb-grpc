@@ -76,11 +76,21 @@ jobs:
         continue-on-error: true
 
       - name: Upload artifact
+        id: artifact
         uses: actions/upload-artifact@v3
         with:
           name: java
           path: ${{ steps.deploy.outputs.artifact-path }}
         continue-on-error: true
+
+      - name: Report any failures
+        run: |
+          if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
+            echo " :boom: There was an error in the \`Maven deploy to Central\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
+          if [ "${{ steps.artifact.outcome }}" == "failure" ]; then
+            echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
 
   python-deploy:
     needs: release-checks
@@ -141,10 +151,20 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
+        id: artifact
         with:
           name: python
           path: ${{ env.artifact-path }}
         continue-on-error: true
+
+      - name: Report any failures
+        run: |
+          if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
+            echo " :boom: There was an error in the \`Deploy Python\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
+          if [ "${{ steps.artifact.outcome }}" == "failure" ]; then
+            echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
 
 
   cs-deploy:
@@ -191,10 +211,20 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
+        id: artifact
         with:
           name: csharp
           path: ${{ env.artifact-path }}
         continue-on-error: true
+
+      - name: Report any failures
+        run: |
+          if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
+            echo " :boom: There was an error in the \`Deploy CSharp\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
+          if [ "${{ steps.artifact.outcome }}" == "failure" ]; then
+            echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
 
   finalise:
     needs: [java-deploy, python-deploy, cs-deploy]
@@ -212,10 +242,10 @@ jobs:
         shell: sh
 
       - name: Delete release branch if deploy failed and fail
-        if: needs.java-deploy.result == 'failure' || needs.cs-deploy.result == 'failure' || needs.python-deploy.result == 'failure'
+        if: needs.java-deploy.outcome == 'failure' || needs.cs-deploy.outcome == 'failure' || needs.python-deploy.outcome == 'failure'
         run: |
           git push origin -d release
-          echo "There was an error in the mvn deploy command above."
+          echo "There was an error in one of the deployment jobs. Check the logs above."
           exit 1
         shell: bash
 
@@ -231,6 +261,9 @@ jobs:
           git tag "v$version"
           git push --tags
           echo "tag=$(echo v$version)" >> ${GITHUB_ENV}
+          echo " " >> ${GITHUB_STEP_SUMMARY}
+          echo ":rocket: The deployment to remote servers succeeded!" >> ${GITHUB_STEP_SUMMARY}
+          echo "If there are errors above, investigate and resolve manually." >> ${GITHUB_STEP_SUMMARY}
         shell: bash
 
       - name: Download java artifact
@@ -264,6 +297,12 @@ jobs:
             ${{ needs.java-deploy.outputs.artifact }} 
             ${{ needs.python-deploy.outputs.artifact }} 
         continue-on-error: true
+
+      - name: Report any failures
+        run: |
+          if [ "${{ steps.create_release.outcome }}" == "failure" ]; then
+            echo " :boom: There was an error in the \`Create Release and upload assets\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
 
   update-version:
     needs: finalise
