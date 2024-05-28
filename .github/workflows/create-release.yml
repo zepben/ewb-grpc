@@ -245,7 +245,7 @@ jobs:
         if: needs.java-deploy.outcome == 'failure' || needs.cs-deploy.outcome == 'failure' || needs.python-deploy.outcome == 'failure'
         run: |
           git push origin -d release
-          echo "There was an error in the one of the deployment jobs. Check the logs above."
+          echo "There was an error in one of the deployment jobs. Check the logs above."
           exit 1
         shell: bash
 
