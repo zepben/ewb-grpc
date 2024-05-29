@@ -7,7 +7,7 @@
 * None.
 
 ### Enhancements
-* None.
+* Added `specialNeed` to `Customer` to capture any special needs of the customer, e.g. life support.
 
 ### Fixes
 * None.
