@@ -17,7 +17,7 @@
 
 ## [0.30.0] - 2024-05-29
 ### Breaking Changes
-* None.
+* Updated the hosting capacity 'Job' and 'Syf' protos to support the configuration for the generator, executor, and result processor modules be passed as base64 encoded json objects.
 
 ### New Features
 * None.

@@ -12,10 +12,6 @@ option java_package = "com.zepben.protobuf.hc";
 option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
-import "zepben/protobuf/hc/ModelConfig.proto";
-import "zepben/protobuf/hc/SolveConfig.proto";
-import "zepben/protobuf/hc/ResultsConfig.proto";
-
 /**
  * Describes a work package for the HC model processor.
  */
@@ -37,38 +33,23 @@ message Job {
   repeated int32 years = 3;
 
   /**
-   * Config for the OpenDSS network model
+   * Compressed, base64'd JSON configuration to be passed to all modules.
    */
-  ModelConfig modelConfig = 4;
+  string commonConfig = 4;
 
   /**
-   * Config for solving the OpenDSS model
+   * Compressed, base64'd JSON configuration to be passed to the generator.
    */
-  SolveConfig solveConfig = 5;
-
-  /**
-   * Specifies the level of detail in the results.
-   */
-  ResultsConfig resultsConfig = 6;
-
-  /**
-   * Whether to enable QA checks for the OpenDSS model.
-   */
-  bool qualityAssuranceProcessing = 7;
-
-  /**
-   * Compressed, base64'd JSON configuration to be passed to the model generator.
-   */
-  string generatorConfig = 8;
+  string generatorConfig = 5;
 
   /**
    * Compressed, base64'd JSON configuration to be passed to the executor.
    */
-  string executorConfig = 9;
+  string executorConfig = 6;
 
   /**
    * Compressed, base64'd JSON configuration to be passed to the results processor.
    */
-  string resultsProcessorConfig = 10;
+  string resultProcessorConfig = 7;
 
 }
