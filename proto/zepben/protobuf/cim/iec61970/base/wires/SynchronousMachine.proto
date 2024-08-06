@@ -1,0 +1,141 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/wires/RotatingMachine.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachineKind.proto";
+
+/**
+ * An electromechanical device that operates with shaft rotating synchronously with the network. It is a single machine operating either as a generator or
+ * synchronous condenser or pump.
+ */
+message SynchronousMachine {
+
+  /**
+   * The RotatingMachine fields for this SynchronousMachine.
+   */
+  RotatingMachine rm = 1;
+
+  /**
+   * Default base reactive power value in VAr. This value represents the initial reactive power that can be used by any application function.
+   */
+  double baseQ = 2;
+
+  /**
+   * Active power consumed (watts) when in condenser mode operation.
+   */
+  int32 condenserP = 3;
+
+  /**
+   * Indicates whether or not the generator is earthed. Used for short circuit data exchange according to IEC 60909.
+   */
+  bool earthing = 4;
+
+  /**
+   * Generator star point earthing resistance in Ohms (Re). Used for short circuit data exchange according to IEC 60909.
+   */
+  double earthingStarPointR = 5;
+
+  /**
+   * Generator star point earthing reactance in Ohms (Xe). Used for short circuit data exchange according to IEC 60909.
+   */
+  double earthingStarPointX = 6;
+
+  /**
+   * Steady-state short-circuit current (in A for the profile) of generator with compound excitation during 3-phase short circuit. - Ikk=0: Generator with no
+   * compound excitation. - Ikk<>0: Generator with compound excitation. Ikk is used to calculate the minimum steady-state short-circuit current for generators
+   * with compound excitation. (4.6.1.2 in IEC 60909-0:2001). Used only for single fed short circuit on a generator. (4.3.4.2. in IEC 60909-0:2001).
+   */
+  double ikk = 7;
+
+  /**
+   * Maximum reactive power limit in VAr. This is the maximum (nameplate) limit for the unit.
+   */
+  double maxQ = 8;
+
+  /**
+   * Maximum voltage limit for the unit in volts.
+   */
+  int32 maxU = 9;
+
+  /**
+   * Minimum reactive power limit for the unit in VAr.
+   */
+  double minQ = 10;
+
+  /**
+   * Minimum voltage limit for the unit in volts.
+   */
+  int32 minU = 11;
+
+  /**
+   * Factor to calculate the breaking current (Section 4.5.2.1 in IEC 60909-0). Used only for single fed short circuit on a generator (Section 4.3.4.2. in IEC 60909-0).
+   */
+  double mu = 12;
+
+  /**
+   * Equivalent resistance (RG) of generator as a percentage. RG is considered for the calculation of all currents, except for the calculation of the peak
+   * current ip. Used for short circuit data exchange according to IEC 60909.
+   */
+  double r = 13;
+
+  /**
+   * Zero sequence resistance of the synchronous machine as a percentage.
+   */
+  double r0 = 14;
+
+  /**
+   * Negative sequence resistance as a percentage.
+   */
+  double r2 = 15;
+
+  /**
+   * Direct-axis subtransient reactance saturated as a percentage, also known as Xd"sat.
+   */
+  double satDirectSubtransX = 16;
+
+  /**
+   * Direct-axes saturated synchronous reactance (xdsat); reciprocal of short-circuit ration, as a percentage. Used for short circuit data exchange,
+   * only for single fed short circuit on a generator. (4.3.4.2. in IEC 60909-0:2001).
+   */
+  double satDirectSyncX = 17;
+
+  /**
+   * Saturated Direct-axis transient reactance as a percentage. The attribute is primarily used for short circuit calculations according to ANSI.
+   */
+  double satDirectTransX = 18;
+
+  /**
+   * Zero sequence reactance of the synchronous machine as a percentage.
+   */
+  double x0 = 19;
+
+  /**
+   * Negative sequence reactance as a percentage.
+   */
+  double x2 = 20;
+
+  /**
+   * Modes that this synchronous machine can operate in.
+   */
+  SynchronousMachineKind type = 21;
+
+  /**
+   * Current mode of operation.
+   */
+  SynchronousMachineKind operatingMode = 22;
+
+
+
+}

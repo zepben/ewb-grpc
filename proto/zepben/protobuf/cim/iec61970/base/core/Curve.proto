@@ -1,0 +1,33 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "proto/zepben/protobuf/cim/iec61970/base/core/CurveData.proto";
+
+/**
+ * A multi-purpose curve or functional relationship between an independent variable (X-axis) and dependent (Y-axis) variables.
+ */
+message Curve {
+
+  /**
+  * The IdentifiedObject fields for this Curve.
+  */
+  IdentifiedObject io = 1;
+
+  /**
+  * The point data values that define this curve.
+  */
+  CurveData curveData = 2;
+}

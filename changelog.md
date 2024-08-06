@@ -4,10 +4,25 @@
 * None.
 
 ### New Features
-* None.
+* Added New Classes
+  * `RotatingMachine`: A rotating machine which may be used as a generator or motor.
+  * `SynchronousMachine`: An electromechanical device that operates with shaft rotating synchronously with the network. It is a single machine operating 
+    either as a generator or synchronous condenser or pump.
+  * `SynchronousMachineKind`: Synchronous machine type.
+  * `Curve`: A multipurpose curve or functional relationship between an independent variable (X-axis) and dependent (Y-axis) variables.
+  * `CurveData`: Multi-purpose data points for defining a curve. The use of this generic class is discouraged if a more specific class can be used to specify 
+    the X and Y axis values along with their specific data types.
+  * `ReactiveCapabilityCurve`: Reactive power rating envelope versus the synchronous machine's active power, in both the generating and motoring modes. 
+    For each active power value there is a corresponding high and low reactive power limit value. Typically there will be a separate curve for each coolant 
+    condition, such as hydrogen pressure. The Y1 axis values represent reactive minimum and the Y2 axis values represent reactive maximum.
+  * `EarthFaultCompensator`: A conducting equipment used to represent a connection to ground which is typically used to compensate earth faults. An earth fault 
+    compensator device modelled with a single terminal implies a second terminal solidly connected to ground. If two terminals are modelled, the ground is not 
+    assumed and normal connection rules apply.
+  * `GroundingImpedance`: A fixed impedance device used for grounding.
+  * `PetersenCoil`: A variable impedance device normally used to offset line charging during single line faults in an ungrounded section of network.
 
 ### Enhancements
-* None.
+* Add `phaseCode` to `UsagePoint` to record the phase data of the Usage Point.
 
 ### Fixes
 * None.

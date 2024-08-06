@@ -90,6 +90,17 @@ import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelaySystem.proto
 import "zepben/protobuf/cim/iec61970/base/protection/RelaySetting.proto";
 import "zepben/protobuf/cim/iec61970/base/protection/VoltageRelay.proto";
 import "zepben/protobuf/cim/iec61970/base/protection/DistanceRelay.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/RotatingMachine.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachine.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachineKind.proto";
+import "zepben/protobuf/cim/iec61970/base/core/Curve.proto";
+import "zepben/protobuf/cim/iec61970/base/core/CurveData.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/ReactiveCapabilityCurve.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/GroundingImpedance.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/PetersenCoil.proto";
+
+
 
 // The set of leaf identified objects that the network service manages.
 message NetworkIdentifiedObject {
@@ -170,6 +181,15 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.protection.ProtectionRelaySystem protectionRelaySystem = 75;
         zepben.protobuf.cim.iec61970.base.protection.VoltageRelay voltageRelay = 76;
         zepben.protobuf.cim.iec61970.base.protection.DistanceRelay distanceRelay = 77;
+        zepben.protobuf.cim.iec61970.base.wires.RotatingMachine rotatingMachine = 78;
+        zepben.protobuf.cim.iec61970.base.wires.SynchronousMachine synchronousMachine = 79;
+        zepben.protobuf.cim.iec61970.base.wires.SynchronousMachineKind synchronousMachineKind = 80;
+        zepben.protobuf.cim.iec61970.base.core.Curve curve = 81;
+        zepben.protobuf.cim.iec61970.base.core.CurveData curveData = 82;
+        zepben.protobuf.cim.iec61970.base.wires.ReactiveCapabilityCurve reactiveCapabilityCurve = 83;
+        zepben.protobuf.cim.iec61970.base.wires.EarthFaultCompensator earthFaultCompensator = 84;
+        zepben.protobuf.cim.iec61970.base.wires.GroundingImpedance groundingImpedance = 85;
+        zepben.protobuf.cim.iec61970.base.wires.PetersenCoil petersenCoil = 86;
 
 
         google.protobuf.Any other = 999;

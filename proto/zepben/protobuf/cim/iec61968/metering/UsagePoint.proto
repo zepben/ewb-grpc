@@ -14,6 +14,7 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Metering";
 package zepben.protobuf.cim.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
 
 /**
  * Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical
@@ -63,5 +64,11 @@ message UsagePoint {
      * The approved inverter capacity at this UsagePoint in volt-amperes.
      */
     int32 approvedInverterCapacity = 8;
+
+    /**
+     * Phase code. Number of wires and specific nominal phases can be deduced from enumeration literal values. For example, ABCN is three-phase, four-wire,
+     * s12n (splitSecondary12N) is single-phase, three-wire, and s1n and s2n are single-phase, two-wire.
+     */
+    iec61970.base.core.PhaseCode phaseCode = 9;
 
 }

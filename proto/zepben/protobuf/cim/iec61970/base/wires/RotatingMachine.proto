@@ -1,0 +1,53 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto";
+
+/**
+ * A rotating machine which may be used as a generator or motor.
+ */
+message RotatingMachine {
+
+  /**
+   * The RegulatingCondEq fields for this RotatingMachine.
+   */
+  RegulatingCondEq rce = 1;
+
+  /**
+   * Power factor (nameplate data). It is primarily used for short circuit data exchange according to IEC 60909. The attribute cannot be a negative value.
+   */
+  double ratedPowerFactor = 2;
+
+  /**
+   * Nameplate apparent power rating for the unit in volt-amperes (VA). The attribute shall have a positive value.
+   */
+  double ratedS = 3;
+
+  /**
+   * Rated voltage in volts (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according to IEC 60909. The attribute shall be a positive value.
+   */
+  double ratedU = 4;
+
+  /**
+   * Active power injection in watts. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
+   */
+  double p = 5;
+
+  /**
+   * Reactive power injection in VAr. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
+   */
+  double q = 6;
+
+}
