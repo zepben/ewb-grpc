@@ -17,7 +17,7 @@ jobs:
       SLACK_NOTIFICATION: YES
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -49,16 +49,16 @@ jobs:
   java-deploy:
     needs: release-checks
     runs-on: ubuntu-latest
-    container: zepben/pipeline-java
+    container: zepben/pipeline-java:4.5.1
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: release
 
       - name: Cache maven deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /maven
           key: maven
@@ -95,11 +95,11 @@ jobs:
   python-deploy:
     needs: release-checks
     runs-on: ubuntu-latest
-    container: python:3.8-slim
+    container: python:3.9
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: release
 
@@ -180,12 +180,12 @@ jobs:
       ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
       ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: release
 
       - name: Cache C# deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /root/.nuget/packages
           key: cs
@@ -231,7 +231,7 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic:5.5.0
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -318,7 +318,7 @@ jobs:
       SLACK_NOTIFICATION: YES
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
           ref: release

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -27,13 +27,13 @@ jobs:
           apk add --no-cache tar
 
       - name: Cache licence-check
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /lc
           key: lcc
 
       - name: Cache protolock
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /protolock
           key: pbc
@@ -52,7 +52,7 @@ jobs:
 
   java-deploy:
     needs: licence-check-and-protolock-update
-    container: zepben/pipeline-java
+    container: zepben/pipeline-java:4.5.1
     runs-on: ubuntu-latest
     env:
       ZEPBEN_GPG_KEY: ${{ secrets.ZEPBEN_GPG_KEY_B64 }}
@@ -64,7 +64,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Cache maven deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /maven
           key: maven
@@ -93,7 +93,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Cache C# deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /root/.nuget/packages
           key: cs
@@ -111,7 +111,7 @@ jobs:
 
   python-deploy:
     needs: licence-check-and-protolock-update
-    container: python:3.8-slim
+    container: python:3.9
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

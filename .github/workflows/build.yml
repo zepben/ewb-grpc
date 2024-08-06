@@ -15,13 +15,13 @@ jobs:
           apk add --no-cache tar
 
       - name: Cache licence-check
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /lc
           key: lcc
 
       - name: Cache protolock
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /protolock
           key: pbc
@@ -39,13 +39,13 @@ jobs:
 
   java-build:
     needs: licence-and-protolock-check
-    container: zepben/pipeline-java
+    container: zepben/pipeline-java:4.5.1
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Cache maven deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /maven
           key: maven
@@ -61,10 +61,10 @@ jobs:
     container: mcr.microsoft.com/dotnet/core/sdk:3.1
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Cache C# deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /root/.nuget/packages
           key: cs
@@ -76,13 +76,13 @@ jobs:
 
   python-build:
     needs: licence-and-protolock-check
-    container: python:3.8-slim
+    container: python:3.9
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Cache python deps
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /pipcache
           key: pip
