@@ -15,6 +15,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/RotatingMachine.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachineKind.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/ReactiveCapabilityCurve.proto";
 
 /**
  * An electromechanical device that operates with shaft rotating synchronously with the network. It is a single machine operating either as a generator or
@@ -136,5 +137,8 @@ message SynchronousMachine {
      */
     SynchronousMachineKind operatingMode = 22;
 
-
+    /**
+     * The available reactive capability curves for this synchronous machine. The first shall be the default for this SynchronousMachine.
+     */
+    repeated ReactiveCapabilityCurve reactiveCapabilityCurveMRIDs = 23;
 }
