@@ -114,7 +114,7 @@ jobs:
     container: python:3.9
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install git
         run: |
@@ -147,7 +147,7 @@ jobs:
           echo "Show pypirc"
           cat ~/.pypirc
           cd python
-          pip install 'twine==4.0.2'
+          pip install 'twine==5.1.1'
           pip install -r requirements.txt
           python build.py --fullclean
           python build.py --package
