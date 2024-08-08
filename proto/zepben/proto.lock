@@ -2851,6 +2851,11 @@
                 "id": 8,
                 "name": "approvedInverterCapacity",
                 "type": "int32"
+              },
+              {
+                "id": 9,
+                "name": "phaseCode",
+                "type": "iec61970.base.core.PhaseCode"
               }
             ]
           }
@@ -2858,6 +2863,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto"
           }
         ],
         "package": {
@@ -3372,6 +3380,103 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.core"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.core"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Core"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:core:/:Curve.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Curve",
+            "fields": [
+              {
+                "id": 1,
+                "name": "io",
+                "type": "IdentifiedObject"
+              },
+              {
+                "id": 2,
+                "name": "curveData",
+                "type": "CurveData",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/CurveData.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.core"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.core"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Core"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:core:/:CurveData.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "CurveData",
+            "fields": [
+              {
+                "id": 1,
+                "name": "xvalue",
+                "type": "float"
+              },
+              {
+                "id": 2,
+                "name": "y1value",
+                "type": "float"
+              },
+              {
+                "id": 3,
+                "name": "y2value",
+                "type": "float"
+              },
+              {
+                "id": 4,
+                "name": "y3value",
+                "type": "float"
+              }
+            ]
           }
         ],
         "package": {
@@ -6486,6 +6591,50 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:EarthFaultCompensator.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "EarthFaultCompensator",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ce",
+                "type": "core.ConductingEquipment"
+              },
+              {
+                "id": 2,
+                "name": "r",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:EnergyConnection.proto",
       "def": {
         "messages": [
@@ -7024,6 +7173,50 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:GroundingImpedance.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "GroundingImpedance",
+            "fields": [
+              {
+                "id": 1,
+                "name": "efc",
+                "type": "EarthFaultCompensator"
+              },
+              {
+                "id": 2,
+                "name": "x",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:Jumper.proto",
       "def": {
         "messages": [
@@ -7374,6 +7567,50 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/PerLengthImpedance.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:PetersenCoil.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PetersenCoil",
+            "fields": [
+              {
+                "id": 1,
+                "name": "efc",
+                "type": "EarthFaultCompensator"
+              },
+              {
+                "id": 2,
+                "name": "xGroundNominal",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto"
           }
         ],
         "package": {
@@ -8028,6 +8265,45 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:ReactiveCapabilityCurve.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ReactiveCapabilityCurve",
+            "fields": [
+              {
+                "id": 1,
+                "name": "c",
+                "type": "core.Curve"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/Curve.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:Recloser.proto",
       "def": {
         "messages": [
@@ -8294,6 +8570,70 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:RotatingMachine.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "RotatingMachine",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rce",
+                "type": "RegulatingCondEq"
+              },
+              {
+                "id": 2,
+                "name": "ratedPowerFactor",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "ratedS",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "ratedU",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "p",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "q",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:SeriesCompensator.proto",
       "def": {
         "messages": [
@@ -8525,6 +8865,227 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:SynchronousMachine.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SynchronousMachine",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rm",
+                "type": "RotatingMachine"
+              },
+              {
+                "id": 2,
+                "name": "baseQ",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "condenserP",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "earthing",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "earthingStarPointR",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "earthingStarPointX",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "ikk",
+                "type": "double"
+              },
+              {
+                "id": 8,
+                "name": "maxQ",
+                "type": "double"
+              },
+              {
+                "id": 9,
+                "name": "maxU",
+                "type": "int32"
+              },
+              {
+                "id": 10,
+                "name": "minQ",
+                "type": "double"
+              },
+              {
+                "id": 11,
+                "name": "minU",
+                "type": "int32"
+              },
+              {
+                "id": 12,
+                "name": "mu",
+                "type": "double"
+              },
+              {
+                "id": 13,
+                "name": "r",
+                "type": "double"
+              },
+              {
+                "id": 14,
+                "name": "r0",
+                "type": "double"
+              },
+              {
+                "id": 15,
+                "name": "r2",
+                "type": "double"
+              },
+              {
+                "id": 16,
+                "name": "satDirectSubtransX",
+                "type": "double"
+              },
+              {
+                "id": 17,
+                "name": "satDirectSyncX",
+                "type": "double"
+              },
+              {
+                "id": 18,
+                "name": "satDirectTransX",
+                "type": "double"
+              },
+              {
+                "id": 19,
+                "name": "x0",
+                "type": "double"
+              },
+              {
+                "id": 20,
+                "name": "x2",
+                "type": "double"
+              },
+              {
+                "id": 21,
+                "name": "type",
+                "type": "SynchronousMachineKind"
+              },
+              {
+                "id": 22,
+                "name": "operatingMode",
+                "type": "SynchronousMachineKind"
+              },
+              {
+                "id": 23,
+                "name": "reactiveCapabilityCurveMRIDs",
+                "type": "ReactiveCapabilityCurve",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/RotatingMachine.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachineKind.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/ReactiveCapabilityCurve.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:SynchronousMachineKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "SynchronousMachineKind.Enum",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "generator",
+                "integer": 1
+              },
+              {
+                "name": "condenser",
+                "integer": 2
+              },
+              {
+                "name": "generatorOrCondenser",
+                "integer": 3
+              },
+              {
+                "name": "motor",
+                "integer": 4
+              },
+              {
+                "name": "generatorOrMotor",
+                "integer": 5
+              },
+              {
+                "name": "motorOrCondenser",
+                "integer": 6
+              },
+              {
+                "name": "generatorOrCondenserOrMotor",
+                "integer": 7
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "SynchronousMachineKind"
           }
         ],
         "package": {
@@ -13342,6 +13903,26 @@
                 "type": "zepben.protobuf.cim.iec61970.base.protection.DistanceRelay"
               },
               {
+                "id": 78,
+                "name": "synchronousMachine",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.SynchronousMachine"
+              },
+              {
+                "id": 79,
+                "name": "reactiveCapabilityCurve",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.ReactiveCapabilityCurve"
+              },
+              {
+                "id": 80,
+                "name": "groundingImpedance",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.GroundingImpedance"
+              },
+              {
+                "id": 81,
+                "name": "petersenCoil",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.PetersenCoil"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any"
@@ -13583,6 +14164,18 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/protection/DistanceRelay.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachine.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/ReactiveCapabilityCurve.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/GroundingImpedance.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PetersenCoil.proto"
           }
         ],
         "package": {
