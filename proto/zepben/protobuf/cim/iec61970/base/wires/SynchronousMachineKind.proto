@@ -1,0 +1,64 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+/**
+ * Synchronous machine type.
+ */
+message SynchronousMachineKind {
+
+    /**
+     * NOTE: This enum is wrapped in a message due to a c98 naming conflict with UNKNOWN
+     */
+    enum Enum {
+
+        UNKNOWN = 0;
+
+        /**
+         * Indicates the synchronous machine can operate as a generator.
+         */
+        generator = 1;
+
+        /**
+         * Indicates the synchronous machine can operate as a condenser.
+         */
+        condenser = 2;
+
+        /**
+         * Indicates the synchronous machine can operate as a generator or as a condenser.
+         */
+        generatorOrCondenser = 3;
+
+        /**
+         * Indicates the synchronous machine can operate as a motor.
+         */
+        motor = 4;
+
+        /**
+         * Indicates the synchronous machine can operate as a generator or as a motor.
+         */
+        generatorOrMotor = 5;
+
+        /**
+         * Indicates the synchronous machine can operate as a motor or as a condenser.
+         */
+        motorOrCondenser = 6;
+
+        /**
+         * Indicates the synchronous machine can operate as a generator or as a condenser or as a motor.
+         */
+        generatorOrCondenserOrMotor = 7;
+
+    }
+
+}

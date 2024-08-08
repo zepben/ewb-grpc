@@ -1,0 +1,42 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+/**
+ * Multi-purpose data points for defining a curve. The use of this generic class is discouraged if a more specific class can be used to specify the X and
+ * Y axis values along with their specific data types.
+ */
+message CurveData {
+
+    /**
+     * The data value of the X-axis variable, depending on the X-axis units.
+     */
+    float xvalue = 1;
+
+    /**
+     * The data value of the first Y-axis variable, depending on the Y-axis units.
+     */
+    float y1value = 2;
+
+    /**
+     * The data value of the second Y-axis variable (if present), depending on the Y-axis units.
+     */
+    float y2value = 3;
+
+    /**
+     * The data value of the third Y-axis variable (if present), depending on the Y-axis units.
+     */
+    float y3value = 4;
+
+}

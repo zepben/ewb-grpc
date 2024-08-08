@@ -1,0 +1,32 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto";
+
+/**
+ * A fixed impedance device used for grounding.
+ */
+message GroundingImpedance {
+
+    /**
+     * The EarthFaultCompensator fields for this EarthFaultCompensator.
+     */
+    EarthFaultCompensator efc = 1;
+
+    /**
+     * Reactance of device in ohms.
+     */
+    double x = 2;
+
+}
