@@ -49,7 +49,7 @@ jobs:
   java-deploy:
     needs: release-checks
     runs-on: ubuntu-latest
-    container: zepben/pipeline-java:4.5.1
+    container: zepben/pipeline-java-ewb
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:

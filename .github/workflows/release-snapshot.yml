@@ -52,7 +52,7 @@ jobs:
 
   java-deploy:
     needs: licence-check-and-protolock-update
-    container: zepben/pipeline-java:4.5.1
+    container: zepben/pipeline-java-ewb
     runs-on: ubuntu-latest
     env:
       ZEPBEN_GPG_KEY: ${{ secrets.ZEPBEN_GPG_KEY_B64 }}
