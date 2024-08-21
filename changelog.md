@@ -25,7 +25,7 @@
 * Add `phaseCode` to `UsagePoint` to record the phase data of the Usage Point.
 
 ### Fixes
-* None.
+* Update java to superpom 0.36.2 (which brings dokka 1.9.20).
 
 ### Notes
 * None.
