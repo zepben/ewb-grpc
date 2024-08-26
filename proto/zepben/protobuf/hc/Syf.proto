@@ -12,92 +12,50 @@ option java_package = "com.zepben.protobuf.hc";
 option csharp_namespace = "Zepben.Protobuf.HC";
 package zepben.protobuf.hc;
 
-import "zepben/protobuf/hc/measurement/MeasurementZoneInfo.proto";
-import "zepben/protobuf/hc/ModelConfig.proto";
-import "zepben/protobuf/hc/ResultsConfig.proto";
-
 /**
  * A Scenario/Year/Feeder tuple. This is the base unit of our hosting capacity orchestration.
  * This also contains metadata about the model that the results processor needs.
  */
 message Syf {
 
-    /**
-     * The name of the scenario.
-     */
-    string scenario = 1;
+  /**
+   * The name of the scenario.
+   */
+  string scenario = 1;
 
-    /**
-     * The year in the scenario.
-     */
-    int32 year = 2;
+  /**
+   * The year in the scenario.
+   */
+  int32 year = 2;
 
-    /**
-     * The name of the feeder.
-     */
-    string feeder = 3;
+  /**
+   * The name of the feeder.
+   */
+  string feeder = 3;
 
-    /**
-     * A map of elements to the VA ratings of transformers in the model for this syf below the element (they may have been changed from the base model).
-     */
-    map<string, int64> installedTxCapacity = 4;
+  /**
+   * Compressed, base64'd JSON configuration to be passed to all modules.
+   */
+  string commonConfig = 4;
 
-    /**
-     * Controls min voltage for use in network performance metrics.
-     */
-    double normVMinPu = 5;
+  /**
+   * Compressed, base64'd JSON configuration to be passed to the generator.
+   */
+  string generatorConfig = 5;
 
-    /**
-     * Controls max voltage for use in network performance metrics.
-     */
-    double normVMaxPu = 6;
+  /**
+   * Compressed, base64'd JSON configuration to be passed to the executor.
+   */
+  string executorConfig = 6;
 
-    /**
-    * Controls min voltage for use in network performance metrics.
-    */
-    double emergVMinPu = 7;
+  /**
+   * Compressed, base64'd JSON configuration to be passed to the results processor.
+   */
+  string resultProcessorConfig = 7;
 
-    /**
-     * Controls max voltage for use in network performance metrics.
-     */
-    double emergVMaxPu = 8;
-
-    /**
-     * Specifies the level of detail in the results.
-     */
-    ResultsConfig resultsConfig = 9;
-
-    /**
-     * Whether to run QA checks with the model.
-     */
-    bool qualityAssuranceProcessing = 10;
-
-    /**
-     * The time period of the model.
-     */
-    oneof modelTime {
-        FixedTime fixedTime = 11;
-        TimePeriod timePeriod = 12;
-    }
-
-    /**
-     * Load data time zone.
-     */
-    string timezone = 13;
-
-    /**
-     * Compressed, base64'd JSON configuration to be passed to the executor.
-     */
-    string executorConfig = 14;
-
-    /**
-     * Compressed, base64'd JSON configuration to be passed to the results processor.
-     */
-    string resultsProcessorConfig = 15;
-
-    /*
-     * Map of EnergyMeter IDs to their measurement zone info
-     */
-    map<string, measurement.MeasurementZoneInfo> mzInfo = 16;
+  /**
+   * Compressed, base64'd JSON that contains auxiliary syf data.
+   */
+  string auxiliaryData = 8;
 
 }
