@@ -13,6 +13,7 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.hc.opendss";
 option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
 
+package zepben.protobuf.hc.opendss;
 import "zepben/protobuf/hc/opendss/EnergyMeter.proto";
 import "zepben/protobuf/hc/opendss/Diagnostics.proto";
 
@@ -35,5 +36,6 @@ message OpenDssReport {
         LossesTotals losses = 11;
         NodeMismatch nm = 12;
         KVBaseMismatch kvm = 13;
+        bool failure= 14;
     }
 }
