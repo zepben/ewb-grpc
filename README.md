@@ -86,6 +86,17 @@ nuget init path/to/Zepben.Evolve.Grpc.<VERSION>.nupkg path/to/local/nuget/debug/
 
 ### C
 
+There are 2 ways to build packages locally:
+ * To build the libraries using a container, login to ghrc.io with your credentials, and run:
+
+```sh
+cd c
+make container-lib
+```
+  This will download the contaner zepben/grpc-c-builder and use it to build the libraries.
+
+ * Alternatively, to build libraries directly, install `protoc`, `grpc` and `make` packages, and run: 
+
 ```sh
 cd c
 make

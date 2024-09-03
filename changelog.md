@@ -23,6 +23,8 @@
 
 ### Enhancements
 * Add `phaseCode` to `UsagePoint` to record the phase data of the Usage Point.
+* Add docker-based C lib bulder;
+* Add `make container-lib` option to build Hosting Capacity C libraries in a container
 
 ### Fixes
 * Update java to superpom 0.36.4 (which brings dokka 1.9.20).

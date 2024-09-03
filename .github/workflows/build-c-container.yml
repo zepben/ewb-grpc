@@ -1,0 +1,31 @@
+name: Create grpc-c-builder image
+
+on: workflow_dispatch
+
+jobs:
+  build_grpc_c_builder:
+    runs-on: ubuntu-latest
+    container:  hashicorp/packer:1.12
+    env:
+      REGISTRY: ${{ secrets.CONTAINER_REGISTRY }}
+      REGISTRY_USER: ${{ github.actor }}
+      REGISTRY_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Packer Version
+        run: |
+          packer version
+
+      - name: Create zepben/grpc-c-builder
+        run: |
+          apk add docker tar
+          mkdir /build
+          export PACKER_CONFIG_DIR=/build
+          cd c/builder-container
+          packer init alpine-protoc.pkr.hcl
+          packer validate alpine-protoc.pkr.hcl
+          packer build -on-error=abort alpine-protoc.pkr.hcl
+        shell: bash
+
+
