@@ -102,7 +102,7 @@ cd c
 make
 ```
 
-You can now copy the output files as needed to your C project.
+You can now copy the output files from the `c/out/` directory as needed to your C project.
 
 ## Model Specification
 
