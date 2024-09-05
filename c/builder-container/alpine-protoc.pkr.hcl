@@ -8,23 +8,23 @@ packer {
 }
 
 variable "tag" {
-    type = string
-    default = "1.0.0"
+  type    = string
+  default = "1.0.0"
 }
 
-variable "registry_token" {
+variable "dockerhub_pw" {
   type    = string
-  default = "${env("REGISTRY_ACCESS_TOKEN")}"
+  default = "${env("DOCKER_HUB_ACCESS_TOKEN")}"
 }
 
-variable "registry_user" {
+variable "dockerhub_user" {
   type    = string
-  default = "${env("REGISTRY_USER")}"
+  default = "${env("DOCKER_HUB_USER")}"
 }
 
 variable "repository" {
-  type = string
-  default = "${env("REGISTRY")}/zepben/grpc-c-builder"
+  type    = string
+  default = "zepben/grpc-c-builder"
 }
 
 source "docker" "image" {
@@ -43,13 +43,13 @@ build {
     post-processor "docker-tag" {
       name       = "docker.tag"
       repository = "${var.repository}"
-      tags       = [${var.tag}]
+      tags       = [var.tag]
     }
     post-processor "docker-push" {
       name           = "docker.push"
-      login           = true
-      login_password = "${var.registry_token}"
-      login_username = "${var.registry_user}"
+      login          = true
+      login_password = "${var.dockerhub_pw}"
+      login_username = "${var.dockerhub_user}"
     }
   }
 }
