@@ -7,9 +7,9 @@ packer {
   }
 }
 
-variable "tag" {
-    type = string
-    default = "1.0.0"
+variable "tags" {
+    type = list(string)
+    default = ["1.0.0"]
 }
 
 variable "registry_token" {
@@ -43,7 +43,7 @@ build {
     post-processor "docker-tag" {
       name       = "docker.tag"
       repository = "${var.repository}"
-      tags       = [${var.tag}]
+      tags       = var.tags
     }
     post-processor "docker-push" {
       name           = "docker.push"
