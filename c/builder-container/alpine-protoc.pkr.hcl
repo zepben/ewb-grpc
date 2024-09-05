@@ -7,9 +7,9 @@ packer {
   }
 }
 
-variable "tags" {
-    type = list(string)
-    default = ["1.0.0"]
+variable "tag" {
+  type    = string
+  default = "1.0.0"
 }
 
 variable "dockerhub_pw" {
@@ -23,7 +23,7 @@ variable "dockerhub_user" {
 }
 
 variable "repository" {
-  type = string
+  type    = string
   default = "zepben/grpc-c-builder"
 }
 
@@ -43,11 +43,11 @@ build {
     post-processor "docker-tag" {
       name       = "docker.tag"
       repository = "${var.repository}"
-      tags       = var.tags
+      tags       = [var.tag]
     }
     post-processor "docker-push" {
       name           = "docker.push"
-      login           = true
+      login          = true
       login_password = "${var.dockerhub_pw}"
       login_username = "${var.dockerhub_user}"
     }
