@@ -16,10 +16,16 @@ import "zepben/protobuf/nm/set-switch-state-requests.proto";
 import "zepben/protobuf/nm/set-switch-state-responses.proto";
 
 service SwitchStateService {
-    rpc setCurrentSwitchStates(SetCurrentSwitchStatesRequest) returns (SetCurrentSwitchStatesResponse);
+    // Receive batches of switch events in a constant stream
+    // Response for each request with a status for each request
+    rpc setCurrentSwitchStates(stream SetCurrentSwitchStatesRequest) returns (stream SetCurrentSwitchStatesResponse);
 }
 
 
+service SwitchStateQueryService {
+    // Get a stream of all switch state events between two timestamps.
+    rpc getCurrentSwitchStates(GetCurrentSwitchStatesRequest) returns (stream GetCurrentSwitchStatesResponse);
+}
 
 
 

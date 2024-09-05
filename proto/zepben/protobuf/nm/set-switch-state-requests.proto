@@ -13,8 +13,15 @@ option csharp_namespace = "Zepben.Protobuf.NM";
 package zepben.protobuf.nm;
 
 import "zepben/protobuf/nm/set-switch-state-data.proto";
+import "google/protobuf/timestamp.proto";
 
 message SetCurrentSwitchStatesRequest {
     int64 messageId = 1;
-    repeated SwitchStateUpdate switchesToUpdate = 2;
+    repeated CurrentStateEvent events = 2;
+}
+
+message GetCurrentSwitchStatesRequest {
+    int64 messageId = 1;
+    google.protobuf.Timestamp from = 2;
+    google.protobuf.Timestamp to = 3;
 }
