@@ -1,0 +1,41 @@
+/*
+ * Copyright 2021 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.nm";
+option csharp_namespace = "Zepben.Protobuf.NM";
+package zepben.protobuf.nm;
+
+import "zepben/protobuf/ns/network-state-requests.proto";
+import "zepben/protobuf/ns/network-state-responses.proto";
+
+/**
+ * A service for updating the state of the network.
+ */
+service UpdateNetworkStateService {
+
+    /**
+     * Receive batches of current state events in a constant stream. All events in a single request will be processed as a
+     * batch and will be acknowledged. Separate requests may be processed together, but there is no guarantee.
+     */
+    rpc setCurrentStates(stream SetCurrentStatesRequest) returns (stream SetCurrentStatesResponse);
+
+}
+
+/**
+ * A service for querying the state of the network.
+ */
+service QueryNetworkStateService {
+
+    /**
+     * Get a stream of all current state events between two timestamps.
+     */
+    rpc getCurrentStates(GetCurrentStatesRequest) returns (stream GetCurrentStatesResponse);
+
+}

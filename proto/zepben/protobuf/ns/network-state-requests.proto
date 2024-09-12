@@ -1,0 +1,56 @@
+/*
+ * Copyright 2021 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.nm";
+option csharp_namespace = "Zepben.Protobuf.NM";
+package zepben.protobuf.nm;
+
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/ns/data/change-events.proto";
+
+/**
+ * A request to update the current state of the network. All events in a single request will be processed as a
+ * batch and will be acknowledged. Separate requests may be processed together, but there is no guarantee.
+ */
+message SetCurrentStatesRequest {
+
+    /**
+     * An identifier of this message. This will be sent in the response to allow matching in a client.
+     */
+    int64 messageId = 1;
+
+    /**
+     * A list of current state events for this batch.
+     */
+    repeated CurrentStateEvent event = 2;
+
+}
+
+/**
+ * A request for all current state events between two timestamps.
+ */
+message GetCurrentStatesRequest {
+
+    /**
+     * An identifier of this message. This will be sent in the response to allow matching in a client.
+     */
+    int64 messageId = 1;
+
+    /**
+     * The timestamp for the earliest requested event.
+     */
+    google.protobuf.Timestamp from = 2;
+
+    /**
+     * The timestamp for the latest requested event.
+     */
+    google.protobuf.Timestamp to = 3;
+
+}

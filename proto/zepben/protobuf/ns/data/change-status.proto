@@ -1,0 +1,92 @@
+/*
+ * Copyright 2021 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.nm";
+option csharp_namespace = "Zepben.Protobuf.NM";
+package zepben.protobuf.nm;
+
+import "google/protobuf/timestamp.proto";
+
+/**
+ * A response indicating all items in the batch were applied successfully.
+ */
+message BatchSuccessful {
+}
+
+/**
+ * A response indicating all items in the batch were applied successfully.
+ */
+message ProcessingPaused {
+
+    /**
+     * The timestamp when the processing was paused.
+     */
+    google.protobuf.Timestamp since = 2;
+
+}
+
+/**
+ * A response indicating one or more items in the batch couldn't be applied.
+ */
+message BatchFailure {
+
+    /**
+     * Indicates if only come of the batch failed (true), or all entries in the batch failed (false).
+     */
+    bool partialFailure = 1;
+
+    /**
+     * The status of each item processed in the batch that failed. This uses a wrapper class to allow a repeated one-of.
+     */
+    repeated StateEventFailure failed = 2;
+}
+
+/**
+ * A wrapper class for allowing a one-of to be repeated.
+ */
+message StateEventFailure {
+
+    /**
+     * The eventId of the state event that failed.
+     */
+    string eventId = 1;
+
+    oneof reason {
+        StateEventUnknownMrid unknownMrid = 2;
+        StateEventDuplicateMrid duplicateMrid = 3;
+        StateEventInvalidMrid invalidMrid = 4;
+        StateEventUnsupportedPhasing unsupportedPhasing = 5;
+    }
+}
+
+/**
+ * The requested mRID was not found in the network.
+ */
+message StateEventUnknownMrid {
+}
+
+/**
+ * The requested mRID already existed in the network and can't be used.
+ */
+message StateEventDuplicateMrid {
+}
+
+/**
+ * The requested mRID was found in the network model, but was of an invalid type.
+ */
+message StateEventInvalidMrid {
+}
+
+/**
+ * The requested phasing was not available for the given operation. e.g. An open state request was made with
+ * unsupported phases.
+ */
+message StateEventUnsupportedPhasing {
+}
