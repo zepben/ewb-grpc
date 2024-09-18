@@ -21,6 +21,7 @@
   * `GroundingImpedance`: A fixed impedance device used for grounding.
   * `PetersenCoil`: A variable impedance device normally used to offset line charging during single line faults in an ungrounded section of network.
   * Added new 'failure' type to OpendssReport.
+* Added `OpenDssReportBatch`
 
 ### Enhancements
 * Add `phaseCode` to `UsagePoint` to record the phase data of the Usage Point.
