@@ -2,6 +2,7 @@
 ## [0.31.0] - UNRELEASED
 ### Breaking Changes
 * Updated the hosting capacity 'Job' and 'Syf' protos to support the configuration for the generator, executor, and result processor modules be passed as base64 encoded json objects.
+* `Switch.ratedCurrent` has been converted to a `double` (used to be an `integer`). Type safe languages will need to be updated to support floating point arithmatic/syntax.
 
 ### New Features
 * Added New Classes
