@@ -79,6 +79,12 @@ jobs:
           GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
           POM_PATH: java/pom.xml
 
+  # CS deploy will deploy the built packages to our NUGET repository.
+  # NUGET_SETTINGS: is a link to our Nuget.Config configuration in ci-utils repository.
+  # ZEPBEN_NUGET_UPLOAD_FEED: is a link to our repository in form of https://<nexus-repo>/repository/nuget-releases/
+  # ZEPBEN_NUGET_FEED_USERNAME: a username for Nexus-Nuget repository, used in Nuget.Config
+  # ZEPBEN_NUGET_FEED_PASSWORD: a password for Nexus-Nuget repository, used in Nuget.Config
+  # ZEPBEN_NUGET_UPLOAD_KEY: a key to use with Nexus repository on package push. 
   cs-deploy:
     needs: licence-check-and-protolock-update
     container: mcr.microsoft.com/dotnet/core/sdk:3.1
