@@ -1,0 +1,165 @@
+/*
+ * Copyright 2021 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.nm";
+option csharp_namespace = "Zepben.Protobuf.NM";
+package zepben.protobuf.nm;
+
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
+
+/**
+ * An event to apply to the current state of the network.
+ */
+message CurrentStateEvent {
+
+    /**
+     * An identifier of this event. This must be unique across requests to allow detection of
+     * duplicates when requesting events via dates vs those streamed via live updates.
+     */
+    string eventId = 1;
+
+    /**
+     * The timestamp when the event occurred.
+     */
+    google.protobuf.Timestamp timestamp = 2;
+
+    /**
+     * The type of event that occurred.
+     */
+    oneof event {
+        SwitchStateEvent switch = 3;
+        AddCutEvent addCut = 4;
+        RemoveCutEvent removeCut = 5;
+        AddJumperEvent addJumper = 6;
+        RemoveJumperEvent removeJumper = 7;
+    }
+
+}
+
+/**
+ * An event to update the state of a switch.
+ */
+message SwitchStateEvent {
+
+    /**
+     * The mRID of the switch affected by this event.
+     */
+    string mRID = 1;
+
+    /**
+     * The action to take on the switch for the specified phases.
+     */
+    SwitchAction action = 2;
+
+    /**
+     * The phases affected by this event. If not specified, all phases will be affected.
+     */
+    cim.iec61970.base.core.PhaseCode phases = 3;
+
+}
+
+/**
+ * An event to add a cut to the network.
+ */
+message AddCutEvent {
+
+    /**
+     * The mRID of the cut defined by this event. This should match any future remove instructions.
+     */
+    string mRID = 1;
+
+    /**
+     * The mRID of the AC line segment that was cut.
+     */
+    string aclsMRID = 2;
+
+    // TBD. Could be longitude/latitude of the cut?
+
+}
+
+/**
+ * An event to remove a cut from the network.
+ */
+message RemoveCutEvent {
+
+    /**
+     * The mRID of the cut to remove. This should match a previously added cut.
+     */
+    string mRID = 1;
+
+}
+
+/**
+ * An event to modify a jumper.
+ */
+message AddJumperEvent {
+
+    /**
+     * The mRID of the jumper affected by this event.
+     */
+    string mRID = 1;
+
+    /**
+     * Information on how this jumper is connected at one end of the jumper.
+     */
+    JumperConnection from = 2;
+
+    /**
+     * Information on how this jumper is connected at the other end of the jumper.
+     */
+    JumperConnection to = 3;
+
+}
+
+/**
+ * An event to modify a jumper.
+ */
+message RemoveJumperEvent {
+
+    /**
+     * The mRID of the jumper affected by this event.
+     */
+    string mRID = 1;
+
+}
+
+/**
+ * Information about how a jumper is connected to the network.
+ */
+message JumperConnection {
+
+    /**
+    * The mRID of the conducting equipment (or terminal) connected to this end of the jumper.
+    */
+    string connectedMRID = 1;
+
+    // TBD. Could be longitude/latitude of the connection?
+
+}
+
+enum SwitchAction {
+
+    /**
+     * The specified action was unknown, or was not set.
+     */
+    UNKNOWN = 0;
+
+    /**
+     * A request to open a switch.
+     */
+    OPEN = 1;
+
+    /**
+     * A request to close a switch.
+     */
+    CLOSE = 2;
+
+}

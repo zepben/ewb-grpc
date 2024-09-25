@@ -1,0 +1,55 @@
+/*
+ * Copyright 2021 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.nm";
+option csharp_namespace = "Zepben.Protobuf.NM";
+package zepben.protobuf.nm;
+
+import "zepben/protobuf/ns/data/change-status.proto";
+import "zepben/protobuf/ns/data/change-events.proto";
+
+/**
+ * A response indicating the status of an update the current state of the network. Each request will be
+ * acknowledged, even if it was processed with another request.
+ */
+message SetCurrentStatesResponse {
+
+    /**
+     * The messageId of the request this response is for.
+     */
+    int64 messageId = 1;
+
+    /**
+     * The outcome of processing this batch of updates.
+     */
+    oneof status {
+        BatchSuccessful success = 2;
+        ProcessingPaused paused = 3;
+        BatchFailure failure = 4;
+    }
+
+}
+
+/**
+ * A response containing a collection of current state events that need to be processed as a batch.
+ */
+message GetCurrentStatesResponse {
+
+    /**
+     * The messageId of the request this response is for.
+     */
+    int64 messageId = 1;
+
+    /**
+     * A list of current state events that need to be processed as a batch.
+     */
+    repeated CurrentStateEvent event = 2;
+
+}
