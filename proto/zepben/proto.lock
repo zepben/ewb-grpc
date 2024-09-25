@@ -14249,6 +14249,489 @@
       }
     },
     {
+      "protopath": "protobuf:/:ns:/:data:/:change-events.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "SwitchAction",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "OPEN",
+                "integer": 1
+              },
+              {
+                "name": "CLOSE",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "CurrentStateEvent",
+            "fields": [
+              {
+                "id": 1,
+                "name": "eventId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "timestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 3,
+                "name": "switch",
+                "type": "SwitchStateEvent",
+                "oneof_parent": "event"
+              },
+              {
+                "id": 4,
+                "name": "addCut",
+                "type": "AddCutEvent",
+                "oneof_parent": "event"
+              },
+              {
+                "id": 5,
+                "name": "removeCut",
+                "type": "RemoveCutEvent",
+                "oneof_parent": "event"
+              },
+              {
+                "id": 6,
+                "name": "addJumper",
+                "type": "AddJumperEvent",
+                "oneof_parent": "event"
+              },
+              {
+                "id": 7,
+                "name": "removeJumper",
+                "type": "RemoveJumperEvent",
+                "oneof_parent": "event"
+              }
+            ]
+          },
+          {
+            "name": "SwitchStateEvent",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "action",
+                "type": "SwitchAction"
+              },
+              {
+                "id": 3,
+                "name": "phases",
+                "type": "cim.iec61970.base.core.PhaseCode"
+              }
+            ]
+          },
+          {
+            "name": "AddCutEvent",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "aclsMRID",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "RemoveCutEvent",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "AddJumperEvent",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "from",
+                "type": "JumperConnection"
+              },
+              {
+                "id": 3,
+                "name": "to",
+                "type": "JumperConnection"
+              }
+            ]
+          },
+          {
+            "name": "RemoveJumperEvent",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "JumperConnection",
+            "fields": [
+              {
+                "id": 1,
+                "name": "connectedMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:ns:/:data:/:change-status.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "BatchSuccessful"
+          },
+          {
+            "name": "ProcessingPaused",
+            "fields": [
+              {
+                "id": 2,
+                "name": "since",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          },
+          {
+            "name": "BatchFailure",
+            "fields": [
+              {
+                "id": 1,
+                "name": "partialFailure",
+                "type": "bool"
+              },
+              {
+                "id": 2,
+                "name": "failed",
+                "type": "StateEventFailure",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "StateEventFailure",
+            "fields": [
+              {
+                "id": 1,
+                "name": "eventId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "unknownMrid",
+                "type": "StateEventUnknownMrid",
+                "oneof_parent": "reason"
+              },
+              {
+                "id": 3,
+                "name": "duplicateMrid",
+                "type": "StateEventDuplicateMrid",
+                "oneof_parent": "reason"
+              },
+              {
+                "id": 4,
+                "name": "invalidMrid",
+                "type": "StateEventInvalidMrid",
+                "oneof_parent": "reason"
+              },
+              {
+                "id": 5,
+                "name": "unsupportedPhasing",
+                "type": "StateEventUnsupportedPhasing",
+                "oneof_parent": "reason"
+              }
+            ]
+          },
+          {
+            "name": "StateEventUnknownMrid"
+          },
+          {
+            "name": "StateEventDuplicateMrid"
+          },
+          {
+            "name": "StateEventInvalidMrid"
+          },
+          {
+            "name": "StateEventUnsupportedPhasing"
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:ns:/:network-state-requests.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SetCurrentStatesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "event",
+                "type": "CurrentStateEvent",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetCurrentStatesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "from",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 3,
+                "name": "to",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/ns/data/change-events.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:ns:/:network-state-responses.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SetCurrentStatesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "success",
+                "type": "BatchSuccessful",
+                "oneof_parent": "status"
+              },
+              {
+                "id": 3,
+                "name": "paused",
+                "type": "ProcessingPaused",
+                "oneof_parent": "status"
+              },
+              {
+                "id": 4,
+                "name": "failure",
+                "type": "BatchFailure",
+                "oneof_parent": "status"
+              }
+            ]
+          },
+          {
+            "name": "GetCurrentStatesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "event",
+                "type": "CurrentStateEvent",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/ns/data/change-status.proto"
+          },
+          {
+            "path": "zepben/protobuf/ns/data/change-events.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:ns:/:network-state.proto",
+      "def": {
+        "services": [
+          {
+            "name": "UpdateNetworkStateService",
+            "rpcs": [
+              {
+                "name": "setCurrentStates",
+                "in_type": "SetCurrentStatesRequest",
+                "out_type": "SetCurrentStatesResponse",
+                "in_streamed": true,
+                "out_streamed": true
+              }
+            ]
+          },
+          {
+            "name": "QueryNetworkStateService",
+            "rpcs": [
+              {
+                "name": "getCurrentStates",
+                "in_type": "GetCurrentStatesRequest",
+                "out_type": "GetCurrentStatesResponse",
+                "out_streamed": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/ns/network-state-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/ns/network-state-responses.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.nm"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.nm"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.NM"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:wc:/:wc.proto",
       "def": {
         "services": [
