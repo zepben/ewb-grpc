@@ -21,7 +21,8 @@ message BatchSuccessful {
 }
 
 /**
- * A response indicating all items in the batch were applied successfully.
+ * A response indicating that current state events are not currently being processed. There is no need to retry these,
+ * the missed events will be requested when processing resumes.
  */
 message ProcessingPaused {
 
