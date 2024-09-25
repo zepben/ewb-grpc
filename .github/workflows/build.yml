@@ -7,9 +7,9 @@ on:
 jobs:
   licence-and-protolock-check:
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic
+    container: zepben/pipeline-basic:5.7.4
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - run: |
           apk add --no-cache tar
