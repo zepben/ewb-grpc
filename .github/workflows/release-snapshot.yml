@@ -11,7 +11,7 @@ on:
 jobs:
   licence-check-and-protolock-update:
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic
+    container: zepben/pipeline-basic:5.7.4
     steps:
       - uses: actions/checkout@v4
         with:
@@ -61,7 +61,7 @@ jobs:
       GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
       GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Cache maven deps
         uses: actions/cache@v3
@@ -96,7 +96,7 @@ jobs:
       ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
       ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Cache C# deps
         uses: actions/cache@v3
@@ -162,7 +162,7 @@ jobs:
 
   update-snapshot-version:
     needs: [python-deploy, cs-deploy, java-deploy]
-    container: zepben/pipeline-basic
+    container: zepben/pipeline-basic:5.7.4
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
@@ -172,7 +172,7 @@ jobs:
       NEXUS_MAVEN_SNAPSHOT: ${{ secrets.NEXUS_MAVEN_SNAPSHOT }}
       NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
