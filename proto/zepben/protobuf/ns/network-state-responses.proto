@@ -30,9 +30,9 @@ message SetCurrentStatesResponse {
      * The outcome of processing this batch of updates.
      */
     oneof status {
-        BatchSuccessful success = 2;
-        ProcessingPaused paused = 3;
-        BatchFailure failure = 4;
+        data.BatchSuccessful success = 2;
+        data.ProcessingPaused paused = 3;
+        data.BatchFailure failure = 4;
     }
 
 }
@@ -50,6 +50,6 @@ message GetCurrentStatesResponse {
     /**
      * A list of current state events that need to be processed as a batch.
      */
-    repeated CurrentStateEvent event = 2;
+    repeated data.CurrentStateEvent event = 2;
 
 }
