@@ -134,7 +134,7 @@ jobs:
           echo "Show pypirc"
           cat ~/.pypirc
           cd python
-          pip install 'twine==4.0.2'
+          pip install 'twine==5.1.1'
           pip install -r requirements.txt
           python build.py --fullclean
           python build.py --package
@@ -159,10 +159,10 @@ jobs:
 
       - name: Report any failures
         run: |
-          if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
+          if [[ "${{ steps.deploy.outcome }}" == "failure" ]]; then
             echo " :boom: There was an error in the \`Deploy Python\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
-          if [ "${{ steps.artifact.outcome }}" == "failure" ]; then
+          if [[ "${{ steps.artifact.outcome }}" == "failure" ]]; then
             echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
 
