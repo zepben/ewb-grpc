@@ -84,7 +84,7 @@ jobs:
         continue-on-error: true
 
       - name: Report any failures
-        shell: sh {0}
+        shell: bash
         run: |
           if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
             echo " :boom: There was an error in the \`Maven deploy to Central\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
@@ -159,7 +159,7 @@ jobs:
         continue-on-error: true
 
       - name: Report any failures
-        shell: sh {0}
+        shell: bash
         run: |
           if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
             echo " :boom: There was an error in the \`Deploy Python\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
@@ -225,7 +225,7 @@ jobs:
         continue-on-error: true
 
       - name: Report any failures
-        shell: sh {0}
+        shell: bash
         run: |
           if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
             echo " :boom: There was an error in the \`Deploy CSharp\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
@@ -307,7 +307,7 @@ jobs:
         continue-on-error: true
 
       - name: Report any failures
-        shell: sh {0}
+        shell: bash
         run: |
           if [ "${{ steps.create_release.outcome }}" == "failure" ]; then
             echo " :boom: There was an error in the \`Create Release and upload assets\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
