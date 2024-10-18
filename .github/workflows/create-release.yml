@@ -86,10 +86,10 @@ jobs:
       - name: Report any failures
         shell: bash
         run: |
-          if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
+          if [ "${{ steps.deploy.outcome }}" = "failure" ]; then
             echo " :boom: There was an error in the \`Maven deploy to Central\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
-          if [ "${{ steps.artifact.outcome }}" == "failure" ]; then
+          if [ "${{ steps.artifact.outcome }}" = "failure" ]; then
             echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
 
@@ -161,10 +161,10 @@ jobs:
       - name: Report any failures
         shell: bash
         run: |
-          if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
+          if [ "${{ steps.deploy.outcome }}" = "failure" ]; then
             echo " :boom: There was an error in the \`Deploy Python\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
-          if [ "${{ steps.artifact.outcome }}" == "failure" ]; then
+          if [ "${{ steps.artifact.outcome }}" = "failure" ]; then
             echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
 
@@ -227,10 +227,10 @@ jobs:
       - name: Report any failures
         shell: bash
         run: |
-          if [ "${{ steps.deploy.outcome }}" == "failure" ]; then
+          if [ "${{ steps.deploy.outcome }}" = "failure" ]; then
             echo " :boom: There was an error in the \`Deploy CSharp\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
-          if [ "${{ steps.artifact.outcome }}" == "failure" ]; then
+          if [ "${{ steps.artifact.outcome }}" = "failure" ]; then
             echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
 
@@ -309,7 +309,7 @@ jobs:
       - name: Report any failures
         shell: bash
         run: |
-          if [ "${{ steps.create_release.outcome }}" == "failure" ]; then
+          if [ "${{ steps.create_release.outcome }}" = "failure" ]; then
             echo " :boom: There was an error in the \`Create Release and upload assets\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
 
