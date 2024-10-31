@@ -10,7 +10,7 @@
 * None.
 
 ### Fixes
-* None.
+* Renamed `from` and `to` fields in the `GetCurrentStatesRequest` message to `from_timestamp` and `to_timestamp` to ensure compatibility with Python's reserved keywords.
 
 ### Notes
 * None.
