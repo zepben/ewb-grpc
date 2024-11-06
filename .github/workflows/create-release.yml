@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   release-checks:
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.7.4
+    container: zepben/pipeline-basic
     outputs:
       version: ${{ steps.check.outputs.release-version }}
     env:
@@ -58,7 +58,7 @@ jobs:
           ref: release
 
       - name: Cache maven deps
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: /maven
           key: maven
@@ -77,7 +77,7 @@ jobs:
 
       - name: Upload artifact
         id: artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: java
           path: ${{ steps.deploy.outputs.artifact-path }}
@@ -115,7 +115,7 @@ jobs:
         shell: sh
 
       - name: Cache python deps
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: pip
@@ -151,7 +151,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         id: artifact
         with:
           name: python
@@ -192,7 +192,7 @@ jobs:
           ref: release
 
       - name: Cache C# deps
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: /root/.nuget/packages
           key: cs
@@ -217,7 +217,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         id: artifact
         with:
           name: csharp
@@ -237,7 +237,7 @@ jobs:
   finalise:
     needs: [java-deploy, python-deploy, cs-deploy]
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.7.4
+    container: zepben/pipeline-basic
     steps:
       - uses: actions/checkout@v4
         with:
@@ -275,17 +275,17 @@ jobs:
         shell: bash
 
       - name: Download java artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: java
 
       - name: Download csharp artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: csharp
 
       - name: Download python artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: python
                   
@@ -316,7 +316,7 @@ jobs:
   update-version:
     needs: finalise
     runs-on: ubuntu-latest
-    container: zepben/pipeline-basic:5.7.4
+    container: zepben/pipeline-basic
     env:
       GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
