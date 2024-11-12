@@ -15,6 +15,7 @@ package zepben.protobuf.cim.iec61970.base.wires.generation.production;
 
 import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryStateKind.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControl.proto";
 
 /**
  * An electrochemical energy storage device.
@@ -41,5 +42,10 @@ message BatteryUnit {
    * BatteryUnit.ratedE.
    */
   int64 storedE = 4;
+
+  /**
+   * [ZBEX] All controls present on this battery.
+   */
+  repeated extensions.iec61970.wires.BatteryControl batteryControls = 5;
 
 }

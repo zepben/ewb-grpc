@@ -1,0 +1,41 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61968.metering";
+option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.Iec61968.Metering";
+package zepben.protobuf.cim.extensions.iec61968.metering;
+
+import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunction.proto";
+import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunctionKind.proto";
+import "zepben/protobuf/cim/iec61968/metering/ControlledAppliance.proto";
+
+/**
+ * [ZBEX] PAN function that an end device supports, distinguished by 'kind'.
+ */
+message PanDemandResponseFunction {
+
+    /**
+     * EndDeviceFunction for this PanDemandResponseFunction.
+     */
+    cim.iec61968.metering.EndDeviceFunction edf = 1;
+
+    /**
+     * [ZBEX] Kind of this function.
+     */
+    cim.iec61968.metering.EndDeviceFunctionKind kind = 2;
+
+    /**
+     * [ZBEX] ControlledAppliance is not an IdentifiedObject, so in terms of database storage can be collapsed into the pan_demand_response_functions table.
+     * It could also be a data class and "interned", as there's likely to only be a couple of these, and there's only a maximum of 4096 combinations (and practically much less than that).
+     */
+    cim.iec61968.metering.ControlledAppliance appliance = 3;
+
+}
