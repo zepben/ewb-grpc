@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2024 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -14,7 +14,6 @@ option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.IEC61970.Wires";
 package zepben.protobuf.cim.extensions.iec61970.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/RegulatingControl.proto";
-import "google/protobuf/struct.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControlMode.proto";
 
 
@@ -29,24 +28,29 @@ message BatteryControl {
     cim.iec61970.base.wires.RegulatingControl rc = 1;
 
     /**
+     * [ZBEX] BatteryUnit controlled by this BatteryControl.
+     */
+    string batteryUnitMRID = 2;
+
+    /**
      * [ZBEX] Charging rate (input power) in percentage of maxP. (Unit: PerCent)
      */
-    double chargingRate = 2;
+    double chargingRate = 3;
 
     /**
      * [ZBEX] Discharge rate (output power) in percentage of maxP. (Unit: PerCent)
      */
-    double dischargingRate = 3;
+    double dischargingRate = 4;
 
     /**
      * [ZBEX] Percentage of the rated storage capacity that should be reserved during normal operations. This reserve acts as a safeguard, preventing the energy level
      * from dropping below this threshold under standard conditions. The field must be set to a non-negative value between 0 and 1. (Unit: PerCent)
      */
-    double reservePercent = 4;
+    double reservePercent = 5;
 
     /**
      * [ZBEX] Mode of operation for the dispatch (charging/discharging) function of BatteryControl.
      */
-    BatteryControlMode controlMode = 5;
+    BatteryControlMode controlMode = 6;
 
 }

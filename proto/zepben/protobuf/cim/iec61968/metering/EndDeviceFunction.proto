@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2024 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -26,8 +26,13 @@ message EndDeviceFunction {
     iec61968.assets.AssetFunction af = 1;
 
     /**
+     * The EndDevice to which this EndDeviceFunction take place.
+     */
+    string endDeviceMRID = 2;
+
+    /**
      * True if the function is enabled.
      */
-    bool enabled = 2;
+    bool enabled = 3;
 
 }
