@@ -1,0 +1,27 @@
+name: StaticVarCompensator
+description: |-
+  A facility for providing variable and controllable shunt reactive power.
+  The SVC typically consists of a step-down transformer, filter, thyristor-controlled reactor,
+  and thyristor-switched capacitor arms. The SVC may operate in fixed MVar output mode or in voltage control mode.
+  When in voltage control mode, the output of the SVC will be proportional to the deviation of voltage at the
+  controlled bus from the voltage set-point. The SVC characteristic slope defines the proportion.
+  If the voltage at the controlled bus is equal to the voltage set-point, the SVC MVar output is zero.
+attributes:
+- name: capacitiveRating
+  type: Double
+  description: Capacitive reactance at maximum capacitive reactive power. Shall always be positive.
+- name: inductiveRating
+  type: Double
+  description: Inductive reactance at maximum inductive reactive power. Shall always be negative.
+- name: q
+  type: Double
+  description: Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
+- name: svcControlMode
+  type: SVCControlMode
+  description: SVC control mode.
+- name: voltageSetPoint
+  type: Integer
+  description: The reactive power output of the SVC is proportional to the difference between the voltage at the regulated bus and the voltage setpoint.
+    When the regulated bus voltage is equal to the voltage setpoint, the reactive power output is zero.
+ancestors:
+- RegulatingCondEq
