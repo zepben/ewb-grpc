@@ -13,7 +13,6 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Metering";
 package zepben.protobuf.cim.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetContainer.proto";
-import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunctionKind.proto";
 
 /**
  * Asset container that performs one or more end device functions. One type of end device is a meter which can
@@ -53,6 +52,6 @@ message EndDevice {
     /**
      * All end device functions this end device performs.
      */
-    repeated EndDeviceFunctionKind endDeviceFunctions = 5;
+    repeated string endDeviceFunctionMRIDs = 5;
 
 }
