@@ -9,19 +9,19 @@ description: |-
 attributes:
 - name: capacitiveRating
   type: Double
-  description: Capacitive reactance at maximum capacitive reactive power. Shall always be positive.
+  description: Capacitive reactance in Ohms at maximum capacitive reactive power. Shall always be positive.
 - name: inductiveRating
   type: Double
-  description: Inductive reactance at maximum inductive reactive power. Shall always be negative.
+  description: Inductive reactance in Ohms at maximum inductive reactive power. Shall always be negative.
 - name: q
   type: Double
-  description: Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
+  description: Reactive power injection in VAr. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
 - name: svcControlMode
   type: SVCControlMode
   description: SVC control mode.
 - name: voltageSetPoint
   type: Integer
   description: The reactive power output of the SVC is proportional to the difference between the voltage at the regulated bus and the voltage setpoint.
-    When the regulated bus voltage is equal to the voltage setpoint, the reactive power output is zero.
+    When the regulated bus voltage is equal to the voltage set-point, the reactive power output is zero. Must be in volts.
 ancestors:
 - RegulatingCondEq
