@@ -1,0 +1,12 @@
+name: PanDemandResponseFunction
+description: PAN function that an end device supports, distinguished by 'kind'.
+attributes:
+- name: kind
+  type: EndDeviceFunctionKind
+  description: Kind of this function.
+- name: appliance
+  type: ControlledAppliance
+  description: ControlledAppliance is not an IdentifiedObject, so in terms of database storage can be collapsed into the pan_demand_response_functions table.
+    It could also be a data class and "interned", as there's likely to only be a couple of these, and there's only a maximum of 4096 combinations (and practically much less than that)
+ancestors:
+- EndDeviceFunction
