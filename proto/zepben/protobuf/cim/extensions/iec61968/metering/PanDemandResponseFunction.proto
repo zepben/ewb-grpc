@@ -10,7 +10,7 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.extensions.iec61968.metering";
-option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.Iec61968.Metering";
+option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.IEC61968.Metering";
 package zepben.protobuf.cim.extensions.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunction.proto";
@@ -23,7 +23,7 @@ import "zepben/protobuf/cim/iec61968/metering/ControlledAppliance.proto";
 message PanDemandResponseFunction {
 
     /**
-     * EndDeviceFunction for this PanDemandResponseFunction.
+     * The EndDeviceFunction fields for this PanDemandResponseFunction.
      */
     cim.iec61968.metering.EndDeviceFunction edf = 1;
 
@@ -33,8 +33,7 @@ message PanDemandResponseFunction {
     cim.iec61968.metering.EndDeviceFunctionKind kind = 2;
 
     /**
-     * [ZBEX] ControlledAppliance is not an IdentifiedObject, so in terms of database storage can be collapsed into the pan_demand_response_functions table.
-     * It could also be a data class and "interned", as there's likely to only be a couple of these, and there's only a maximum of 4096 combinations (and practically much less than that).
+     * [ZBEX] Appliance being controlled.
      */
     cim.iec61968.metering.ControlledAppliance appliance = 3;
 

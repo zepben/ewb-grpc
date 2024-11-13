@@ -32,17 +32,17 @@ message StaticVarCompensator {
     RegulatingCondEq rce = 1;
 
     /**
-     * Capacitive reactance at maximum capacitive reactive power. Shall always be positive.
+     * Capacitive reactance in Ohms at maximum capacitive reactive power. Shall always be positive.
      */
     double capacitiveRating = 2;
 
     /**
-     * Inductive reactance at maximum inductive reactive power. Shall always be negative.
+     * Inductive reactance in Ohms at maximum inductive reactive power. Shall always be negative.
      */
     double inductiveRating = 3;
 
     /**
-     * Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
+     * Reactive power injection in VAr. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
      */
     double q = 4;
 
@@ -53,7 +53,7 @@ message StaticVarCompensator {
 
     /**
      * The reactive power output of the SVC is proportional to the difference between the voltage at the regulated bus and the voltage setpoint.
-     * When the regulated bus voltage is equal to the voltage setpoint, the reactive power output is zero.
+     * When the regulated bus voltage is equal to the voltage set-point, the reactive power output is zero. Must be in volts.
      */
     int32 voltageSetPoint = 6;
 }
