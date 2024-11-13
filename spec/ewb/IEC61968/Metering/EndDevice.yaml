@@ -26,3 +26,12 @@ associations:
   targetCardinality: All end devices that measure the service delivered to this service location.
   targetName: Location
   targetDescription: Service location whose service delivery is measured by this end device.
+- source: EndDevice
+  target: EndDeviceFunction
+  sourceCardinality: 0..*
+  sourceName: EndDevices
+  sourceDescription: All end device functions this end device performs.
+  targetCardinality: 0..*
+  targetName: EndDeviceFunction
+  targetDescription: End device function available on this device
+
