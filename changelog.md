@@ -1,5 +1,21 @@
 # Zepben Protobuf and GRPC definitions
-## [0.32.0] - UNRELEASED
+## [0.33.0] - UNRELEASED
+### Breaking Changes
+* None.
+
+### New Features
+* None.
+
+### Enhancements
+* None.
+
+### Fixes
+* None.
+
+### Notes
+* None.
+
+## [0.32.0] - 2024-12-02
 ### Breaking Changes
 * Renamed `from` and `to` fields in the `GetCurrentStatesRequest` message to `fromTimestamp` and `toTimestamp` to ensure compatibility with Python's reserved keywords.
 
