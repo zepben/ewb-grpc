@@ -27,11 +27,13 @@ message TapChanger {
     /**
      * Highest possible tap step position, advance from neutral.
      * The attribute shall be greater than lowStep.
+     * This tap position results in the maximum voltage boost on secondary winding(s).
      */
     int32 highStep = 2;
 
     /**
-     * Lowest possible tap step position, retard from neutral
+     * Lowest possible tap step position, retard from neutral.
+     * This tap position results in the maximum voltage buck on secondary winding(s).
      */
     int32 lowStep = 3;
 
