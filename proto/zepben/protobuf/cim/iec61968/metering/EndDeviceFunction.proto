@@ -14,6 +14,7 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Metering";
 package zepben.protobuf.cim.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetFunction.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Function performed by an end device such as a meter, communication equipment, controllers, etc.
@@ -33,6 +34,9 @@ message EndDeviceFunction {
     /**
      * True if the function is enabled.
      */
-    bool enabled = 3;
+    oneof enabled {
+        google.protobuf.NullValue enabledNull = 3;
+        bool enabledSet = 4;
+    }
 
 }
