@@ -1,13 +1,14 @@
 # Zepben Protobuf and GRPC definitions
 ## [0.33.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Removed `getCurrentEquipmentForFeeder` as its functionality is now incorporated in `getEquipmentForContainers`.
 
 ### New Features
 * None.
 
 ### Enhancements
-* None.
+* Added the energized relationship for the current state of network between `Feeder` and `LvFeeder`.
+* Updated `getEquipmentForContainers` to allow requesting normal, current or all equipments.
 
 ### Fixes
 * None.

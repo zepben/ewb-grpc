@@ -12,6 +12,14 @@ associations:
   targetName: NormalEnergizingFeeders
   targetDescription: The HV/MV feeders that energize this LV feeder.
 - source: LvFeeder
+  target: Feeder
+  sourceCardinality: 0..*
+  sourceName: CurrentlyEnergizedLvFeeders
+  sourceDescription: The LV feeders that are currently energized by the feeder.
+  targetCardinality: 0..*
+  targetName: CurrentlyEnergizingFeeders
+  targetDescription: The HV/MV feeders that energize this LV feeder in the current state of the network.
+- source: LvFeeder
   target: Equipment
   sourceCardinality: 0..*
   sourceName: NormalLvFeeders
