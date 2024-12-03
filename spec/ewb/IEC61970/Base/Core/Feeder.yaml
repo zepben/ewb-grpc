@@ -23,5 +23,15 @@ associations:
   target: LvFeeder
   sourceCardinality: 0..1
   sourceName: NormalEnergizingFeeders
+  sourceDescription: The HV/MV feeders that energize the LV feeder.
   targetCardinality: 0..*
   targetName: NormalEnergizedLvFeeders
+  targetDescription: The LV feeders that are normally energized by this feeder.
+- source: Feeder
+  target: LvFeeder
+  sourceCardinality: 0..1
+  sourceName: CurrentlyEnergizingFeeders
+  sourceDescription: The HV/MV feeders that energize the LV feeder in the current state of the network.
+  targetCardinality: 0..*
+  targetName: CurrentlyEnergizedLvFeeders
+  targetDescription: The LV feeders that are currently energized by this feeder.

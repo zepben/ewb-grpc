@@ -3653,6 +3653,12 @@
                 "name": "normalEnergizedLvFeederMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "CurrentlyEnergizedLvFeedersMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -10367,6 +10373,12 @@
                 "name": "normalEnergizingFeederMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "currentlyEnergizingFeedersMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -13834,6 +13846,22 @@
                 "integer": 2
               }
             ]
+          },
+          {
+            "name": "EnergizedNetworkState",
+            "enum_fields": [
+              {
+                "name": "ALL_NETWORK_STATE"
+              },
+              {
+                "name": "NORMAL_NETWORK_STATE",
+                "integer": 1
+              },
+              {
+                "name": "CURRENT_NETWORK_STATE",
+                "integer": 2
+              }
+            ]
           }
         ],
         "messages": [
@@ -13886,6 +13914,11 @@
                 "id": 4,
                 "name": "includeEnergizedContainers",
                 "type": "IncludedEnergizedContainers"
+              },
+              {
+                "id": 5,
+                "name": "energizedNetworkState",
+                "type": "EnergizedNetworkState"
               }
             ]
           },
