@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.ns";
 option csharp_namespace = "Zepben.Protobuf.NS";
 package zepben.protobuf.ns;
 
+import "google/protobuf/empty.proto";
 import "zepben/protobuf/ns/network-state-requests.proto";
 import "zepben/protobuf/ns/network-state-responses.proto";
 
@@ -37,5 +38,10 @@ service QueryNetworkStateService {
      * Get a stream of all current state events between two timestamps.
      */
     rpc getCurrentStates(GetCurrentStatesRequest) returns (stream GetCurrentStatesResponse);
+
+    /**
+     * Send a stream of status responses, one for each message received in the GetCurrentStatesResponse.
+     */
+    rpc reportBatchStatus(stream SetCurrentStatesResponse) returns (google.protobuf.Empty);
 
 }
