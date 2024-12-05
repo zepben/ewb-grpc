@@ -14472,11 +14472,19 @@
             ]
           },
           {
+            "name": "BatchNotProcessed"
+          },
+          {
             "name": "StateEventFailure",
             "fields": [
               {
                 "id": 1,
                 "name": "eventId",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "message",
                 "type": "string"
               },
               {
@@ -14502,6 +14510,12 @@
                 "name": "unsupportedPhasing",
                 "type": "StateEventUnsupportedPhasing",
                 "oneof_parent": "reason"
+              },
+              {
+                "id": 7,
+                "name": "unsupportedMrid",
+                "type": "StateEventUnsupportedMrid",
+                "oneof_parent": "reason"
               }
             ]
           },
@@ -14516,6 +14530,9 @@
           },
           {
             "name": "StateEventUnsupportedPhasing"
+          },
+          {
+            "name": "StateEventUnsupportedMrid"
           }
         ],
         "imports": [
@@ -14639,6 +14656,12 @@
                 "name": "failure",
                 "type": "data.BatchFailure",
                 "oneof_parent": "status"
+              },
+              {
+                "id": 5,
+                "name": "notProcessed",
+                "type": "data.BatchNotProcessed",
+                "oneof_parent": "status"
               }
             ]
           },
@@ -14710,11 +14733,20 @@
                 "in_type": "GetCurrentStatesRequest",
                 "out_type": "GetCurrentStatesResponse",
                 "out_streamed": true
+              },
+              {
+                "name": "reportBatchStatus",
+                "in_type": "SetCurrentStatesResponse",
+                "out_type": "google.protobuf.Empty",
+                "in_streamed": true
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "google/protobuf/empty.proto"
+          },
           {
             "path": "zepben/protobuf/ns/network-state-requests.proto"
           },
