@@ -50,6 +50,14 @@ message BatchFailure {
 }
 
 /**
+ * A response indicating all items in the batch were ignored because the message ID of the batch was prior to the
+ * last processed batch. This is expected when starting the service if the same item is sent to the current state
+ * processing queue and is also included in the backlog processing response.
+ */
+message BatchNotProcessed {
+}
+
+/**
  * A wrapper class for allowing a one-of to be repeated.
  */
 message StateEventFailure {
@@ -59,12 +67,23 @@ message StateEventFailure {
      */
     string eventId = 1;
 
+    /**
+     * A message describing why the event failed.
+     */
+    string message = 6;
+
+    /**
+     * The reason for the failure. This is to prevent having to parse the message to determine the failure cause.
+     */
     oneof reason {
         StateEventUnknownMrid unknownMrid = 2;
         StateEventDuplicateMrid duplicateMrid = 3;
         StateEventInvalidMrid invalidMrid = 4;
         StateEventUnsupportedPhasing unsupportedPhasing = 5;
+        // NOTE: To prevent conflicts, message above uses = 6;
+        StateEventUnsupportedMrid unsupportedMrid = 7;
     }
+
 }
 
 /**
@@ -90,4 +109,11 @@ message StateEventInvalidMrid {
  * unsupported phases.
  */
 message StateEventUnsupportedPhasing {
+}
+
+/**
+ * The mRID provided can't be used to perform the given action even though it is of the correct type. e.g. Trying to
+ * open/close a switch in a voltage level that hasn't been implemented in the server.
+ */
+message StateEventUnsupportedMrid {
 }

@@ -7,7 +7,10 @@
 * None.
 
 ### Enhancements
-* None.
+* State update batches that are skipped/ignored because they have already been processed in the backlog processing can now return `BatchNotProcessed`.
+* Added `StateEventFailure.message` to provide a descriptive message of the failure.
+* Added new event failure type `StateEventUnsupportedMrid`, which can be used to indicate a valid element was found, but the operation isn't supported by the
+  server. e.g. As of writing, you can't operate switches at the EHV level.
 
 ### Fixes
 * None.
@@ -17,7 +20,8 @@
 
 ## [0.32.0] - 2024-12-02
 ### Breaking Changes
-* Renamed `from` and `to` fields in the `GetCurrentStatesRequest` message to `fromTimestamp` and `toTimestamp` to ensure compatibility with Python's reserved keywords.
+* Renamed `from` and `to` fields in the `GetCurrentStatesRequest` message to `fromTimestamp` and `toTimestamp` to ensure compatibility with Python's reserved
+  keywords.
 
 ### New Features
 * None.
@@ -33,24 +37,26 @@
 
 ## [0.31.0] - 2024-10-18
 ### Breaking Changes
-* Updated the hosting capacity 'Job' and 'Syf' protos to support the configuration for the generator, executor, and result processor modules be passed as base64 encoded json objects.
-* `Switch.ratedCurrent` has been converted to a `double` (used to be an `integer`). Type safe languages will need to be updated to support floating point arithmatic/syntax.
+* Updated the hosting capacity 'Job' and 'Syf' protos to support the configuration for the generator, executor, and result processor modules be passed as base64
+  encoded json objects.
+* `Switch.ratedCurrent` has been converted to a `double` (used to be an `integer`). Type safe languages will need to be updated to support floating point
+  arithmatic/syntax.
 * Refactored switch state events from `com.zepben.protobuf.nm` to `com.zepben.protobuf.ns`.
 
 ### New Features
 * Added New Classes
   * `RotatingMachine`: A rotating machine which may be used as a generator or motor.
-  * `SynchronousMachine`: An electromechanical device that operates with shaft rotating synchronously with the network. It is a single machine operating 
+  * `SynchronousMachine`: An electromechanical device that operates with shaft rotating synchronously with the network. It is a single machine operating
     either as a generator or synchronous condenser or pump.
   * `SynchronousMachineKind`: Synchronous machine type.
   * `Curve`: A multipurpose curve or functional relationship between an independent variable (X-axis) and dependent (Y-axis) variables.
-  * `CurveData`: Multi-purpose data points for defining a curve. The use of this generic class is discouraged if a more specific class can be used to specify 
+  * `CurveData`: Multi-purpose data points for defining a curve. The use of this generic class is discouraged if a more specific class can be used to specify
     the X and Y axis values along with their specific data types.
-  * `ReactiveCapabilityCurve`: Reactive power rating envelope versus the synchronous machine's active power, in both the generating and motoring modes. 
-    For each active power value there is a corresponding high and low reactive power limit value. Typically there will be a separate curve for each coolant 
+  * `ReactiveCapabilityCurve`: Reactive power rating envelope versus the synchronous machine's active power, in both the generating and motoring modes.
+    For each active power value there is a corresponding high and low reactive power limit value. Typically there will be a separate curve for each coolant
     condition, such as hydrogen pressure. The Y1 axis values represent reactive minimum and the Y2 axis values represent reactive maximum.
-  * `EarthFaultCompensator`: A conducting equipment used to represent a connection to ground which is typically used to compensate earth faults. An earth fault 
-    compensator device modelled with a single terminal implies a second terminal solidly connected to ground. If two terminals are modelled, the ground is not 
+  * `EarthFaultCompensator`: A conducting equipment used to represent a connection to ground which is typically used to compensate earth faults. An earth fault
+    compensator device modelled with a single terminal implies a second terminal solidly connected to ground. If two terminals are modelled, the ground is not
     assumed and normal connection rules apply.
   * `GroundingImpedance`: A fixed impedance device used for grounding.
   * `PetersenCoil`: A variable impedance device normally used to offset line charging during single line faults in an ungrounded section of network.
