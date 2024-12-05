@@ -31,7 +31,7 @@ enum IncludedEnergizedContainers {
     INCLUDE_ENERGIZED_FEEDERS = 1;
     INCLUDE_ENERGIZED_LV_FEEDERS = 2;
 }
-enum EnergizedNetworkState {
+enum NetworkState {
     ALL_NETWORK_STATE = 0;
     NORMAL_NETWORK_STATE = 1;
     CURRENT_NETWORK_STATE = 2;
@@ -54,8 +54,8 @@ message GetEquipmentForContainersRequest {
     // in the response.
     IncludedEnergizedContainers includeEnergizedContainers = 4;
 
-    // Rule for which energized containers to include based on the state of the network
-    EnergizedNetworkState energizedNetworkState = 5;
+    // Rule for equipments to return based on the state of the network
+    NetworkState networkState = 5;
 }
 
 message GetEquipmentForRestrictionRequest {
