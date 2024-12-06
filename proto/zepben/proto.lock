@@ -14446,16 +14446,6 @@
             "name": "BatchSuccessful"
           },
           {
-            "name": "ProcessingPaused",
-            "fields": [
-              {
-                "id": 2,
-                "name": "since",
-                "type": "google.protobuf.Timestamp"
-              }
-            ]
-          },
-          {
             "name": "BatchFailure",
             "fields": [
               {
@@ -14647,18 +14637,12 @@
               },
               {
                 "id": 3,
-                "name": "paused",
-                "type": "data.ProcessingPaused",
-                "oneof_parent": "status"
-              },
-              {
-                "id": 4,
                 "name": "failure",
                 "type": "data.BatchFailure",
                 "oneof_parent": "status"
               },
               {
-                "id": 5,
+                "id": 4,
                 "name": "notProcessed",
                 "type": "data.BatchNotProcessed",
                 "oneof_parent": "status"
