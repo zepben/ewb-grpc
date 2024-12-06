@@ -21,19 +21,6 @@ message BatchSuccessful {
 }
 
 /**
- * A response indicating that current state events are not currently being processed. There is no need to retry these,
- * the missed events will be requested when processing resumes.
- */
-message ProcessingPaused {
-
-    /**
-     * The timestamp when the processing was paused.
-     */
-    google.protobuf.Timestamp since = 2;
-
-}
-
-/**
  * A response indicating one or more items in the batch couldn't be applied.
  */
 message BatchFailure {

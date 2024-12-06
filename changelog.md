@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [0.33.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Removed the `ProcessingPaused` current state status response due to pause/resume support being dropped.
 
 ### New Features
 * None.
