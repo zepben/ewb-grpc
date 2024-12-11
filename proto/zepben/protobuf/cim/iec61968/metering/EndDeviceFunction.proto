@@ -27,16 +27,11 @@ message EndDeviceFunction {
     iec61968.assets.AssetFunction af = 1;
 
     /**
-     * The EndDevice to which this EndDeviceFunction take place.
-     */
-    string endDeviceMRID = 2;
-
-    /**
      * True if the function is enabled.
      */
     oneof enabled {
-        google.protobuf.NullValue enabledNull = 3;
-        bool enabledSet = 4;
+        google.protobuf.NullValue enabledNull = 2;
+        bool enabledSet = 3;
     }
 
 }

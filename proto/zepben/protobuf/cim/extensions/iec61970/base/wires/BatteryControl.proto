@@ -28,29 +28,24 @@ message BatteryControl {
     cim.iec61970.base.wires.RegulatingControl rc = 1;
 
     /**
-     * [ZBEX] BatteryUnit controlled by this BatteryControl.
-     */
-    string batteryUnitMRID = 2;
-
-    /**
      * [ZBEX] Charging rate (input power) in percentage of maxP. (Unit: PerCent)
      */
-    double chargingRate = 3;
+    double chargingRate = 2;
 
     /**
      * [ZBEX] Discharge rate (output power) in percentage of maxP. (Unit: PerCent)
      */
-    double dischargingRate = 4;
+    double dischargingRate = 3;
 
     /**
      * [ZBEX] Percentage of the rated storage capacity that should be reserved during normal operations. This reserve acts as a safeguard, preventing the energy level
      * from dropping below this threshold under standard conditions. The field must be set to a non-negative value between 0 and 1. (Unit: PerCent)
      */
-    double reservePercent = 5;
+    double reservePercent = 4;
 
     /**
      * [ZBEX] Mode of operation for the dispatch (charging/discharging) function of BatteryControl.
      */
-    BatteryControlMode controlMode = 6;
+    BatteryControlMode controlMode = 5;
 
 }
