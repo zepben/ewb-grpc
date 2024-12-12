@@ -1,0 +1,40 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61968.metering";
+option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.IEC61968.Metering";
+package zepben.protobuf.cim.extensions.iec61968.metering;
+
+import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunction.proto";
+import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunctionKind.proto";
+
+/**
+ * [ZBEX] PAN function that an end device supports, distinguished by 'kind'.
+ */
+message PanDemandResponseFunction {
+
+    /**
+     * The EndDeviceFunction fields for this PanDemandResponseFunction.
+     */
+    cim.iec61968.metering.EndDeviceFunction edf = 1;
+
+    /**
+     * [ZBEX] Kind of this function.
+     */
+    cim.iec61968.metering.EndDeviceFunctionKind kind = 2;
+
+    /**
+     * [ZBEX] Appliance being controlled.
+     * Storing a 12 bit mask that represents a specific set of configuration for ControlledAppliance
+     */
+    int32 appliance = 3;
+
+}
