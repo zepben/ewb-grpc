@@ -2,9 +2,23 @@
 ## [0.33.0] - UNRELEASED
 ### Breaking Changes
 * Removed the `ProcessingPaused` current state status response due to pause/resume support being dropped.
+* Corrected `AcLineSegment.perLengthSequenceImpedanceMRID` to `AcLineSegment.perLengthImpedanceMRID`.
 
 ### New Features
-* None.
+* Added New Classes
+  * `StaticVarCompensator`: A facility for providing variable and controllable shunt reactive power. The SVC typically consists of a stepdown transformer,
+    filter, thyristor-controlled reactor, and thyristor-switched capacitor arms. The SVC may operate in fixed MVar output mode or in voltage control mode.
+    When in voltage control mode, the output of the SVC will be proportional to the deviation of voltage at the controlled bus from the voltage setpoint.
+    The SVC characteristic slope defines the proportion. If the voltage at the controlled bus is equal to the voltage setpoint, the SVC MVar output is zero.
+  * `SVCControlMode`: Static VAr Compensator control mode.
+  * `EndDeviceFunction`: Function performed by an end device such as a meter, communication equipment, controllers, etc.
+  * `PanDemandResponseFunction`: PAN function that an end device supports, distinguished by 'kind'.
+  * `ControlledAppliance`: Appliance controlled with a PAN device control.
+  * `EndDeviceFunctionKind`: Kind of end device function.
+  * `AssetFunction`: Function performed by an asset.
+  * `BatteryControl`: Describes behaviour specific to controlling batteries.
+  * `PerLengthPhaseImpedance`: Impedance and admittance parameters per unit length for n-wire unbalanced lines, in matrix form.
+  * `PhaseImpedanceData`: Impedance and conductance matrix element values. The diagonal elements are described by the elements having the same toPhase and fromPhase value an the off diagonal elements have different toPhase and fromPhase values.
 
 ### Enhancements
 * State update batches that are skipped/ignored because they have already been processed in the backlog processing can now return `BatchNotProcessed`.
@@ -24,18 +38,7 @@
   keywords.
 
 ### New Features
-* Added New Classes
-  * `StaticVarCompensator`: A facility for providing variable and controllable shunt reactive power. The SVC typically consists of a stepdown transformer,
-    filter, thyristor-controlled reactor, and thyristor-switched capacitor arms. The SVC may operate in fixed MVar output mode or in voltage control mode.
-    When in voltage control mode, the output of the SVC will be proportional to the deviation of voltage at the controlled bus from the voltage setpoint.
-    The SVC characteristic slope defines the proportion. If the voltage at the controlled bus is equal to the voltage setpoint, the SVC MVar output is zero.
-  * `SVCControlMode`: Static VAr Compensator control mode.
-  * `EndDeviceFunction`: Function performed by an end device such as a meter, communication equipment, controllers, etc.
-  * `PanDemandResponseFunction`: PAN function that an end device supports, distinguished by 'kind'.
-  * `ControlledAppliance`: Appliance controlled with a PAN device control.
-  * `EndDeviceFunctionKind`: Kind of end device function.
-  * `AssetFunction`: Function performed by an asset.
-  * `BatteryControl`: Describes behaviour specific to controlling batteries.
+* None.
 
 ### Enhancements
 * Added new attributes to `RegulatingControl`
