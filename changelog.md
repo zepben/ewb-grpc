@@ -25,22 +25,6 @@
 * Added `StateEventFailure.message` to provide a descriptive message of the failure.
 * Added new event failure type `StateEventUnsupportedMrid`, which can be used to indicate a valid element was found, but the operation isn't supported by the
   server. e.g. As of writing, you can't operate switches at the EHV level.
-
-### Fixes
-* None.
-
-### Notes
-* None.
-
-## [0.32.0] - 2024-12-02
-### Breaking Changes
-* Renamed `from` and `to` fields in the `GetCurrentStatesRequest` message to `fromTimestamp` and `toTimestamp` to ensure compatibility with Python's reserved
-  keywords.
-
-### New Features
-* None.
-
-### Enhancements
 * Added new attributes to `RegulatingControl`
   * `ctPrimary`: Current rating of the CT, expressed in terms of the current (in Amperes) that flows in the Primary where the 'Primary' is the conductor being monitored.
     It ensures proper operation of the regulating equipment by providing the necessary current references for control actions. An important side effect of this
@@ -59,7 +43,8 @@
 
 ## [0.32.0] - 2024-12-02
 ### Breaking Changes
-* Renamed `from` and `to` fields in the `GetCurrentStatesRequest` message to `fromTimestamp` and `toTimestamp` to ensure compatibility with Python's reserved keywords.
+* Renamed `from` and `to` fields in the `GetCurrentStatesRequest` message to `fromTimestamp` and `toTimestamp` to ensure compatibility with Python's reserved
+  keywords.
 
 ### New Features
 * None.
