@@ -56,6 +56,7 @@ import "zepben/protobuf/cim/iec61970/base/wires/Fuse.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Jumper.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Junction.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/LinearShuntCompensator.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/PerLengthPhaseImpedance.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PerLengthSequenceImpedance.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PowerTransformer.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PowerTransformerEnd.proto";
@@ -93,6 +94,9 @@ import "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachine.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/ReactiveCapabilityCurve.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/GroundingImpedance.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PetersenCoil.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/StaticVarCompensator.proto";
+import "zepben/protobuf/cim/extensions/iec61968/metering/PanDemandResponseFunction.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControl.proto";
 
 
 
@@ -179,6 +183,10 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.ReactiveCapabilityCurve reactiveCapabilityCurve = 79;
         zepben.protobuf.cim.iec61970.base.wires.GroundingImpedance groundingImpedance = 80;
         zepben.protobuf.cim.iec61970.base.wires.PetersenCoil petersenCoil = 81;
+        zepben.protobuf.cim.iec61970.base.wires.StaticVarCompensator staticVarCompensator = 82;
+        zepben.protobuf.cim.extensions.iec61968.metering.PanDemandResponseFunction panDemandResponseFunction = 83;
+        zepben.protobuf.cim.extensions.iec61970.base.wires.BatteryControl batteryControl = 84;
+        zepben.protobuf.cim.iec61970.base.wires.PerLengthPhaseImpedance perLengthPhaseImpedance = 85;
 
 
         google.protobuf.Any other = 999;

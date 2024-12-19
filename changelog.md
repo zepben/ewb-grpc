@@ -2,15 +2,38 @@
 ## [0.33.0] - UNRELEASED
 ### Breaking Changes
 * Removed the `ProcessingPaused` current state status response due to pause/resume support being dropped.
+* Corrected `AcLineSegment.perLengthSequenceImpedanceMRID` to `AcLineSegment.perLengthImpedanceMRID`.
 
 ### New Features
-* None.
+* Added New Classes
+  * `StaticVarCompensator`: A facility for providing variable and controllable shunt reactive power. The SVC typically consists of a stepdown transformer,
+    filter, thyristor-controlled reactor, and thyristor-switched capacitor arms. The SVC may operate in fixed MVar output mode or in voltage control mode.
+    When in voltage control mode, the output of the SVC will be proportional to the deviation of voltage at the controlled bus from the voltage setpoint.
+    The SVC characteristic slope defines the proportion. If the voltage at the controlled bus is equal to the voltage setpoint, the SVC MVar output is zero.
+  * `SVCControlMode`: Static VAr Compensator control mode.
+  * `EndDeviceFunction`: Function performed by an end device such as a meter, communication equipment, controllers, etc.
+  * `PanDemandResponseFunction`: PAN function that an end device supports, distinguished by 'kind'.
+  * `ControlledAppliance`: Appliance controlled with a PAN device control.
+  * `EndDeviceFunctionKind`: Kind of end device function.
+  * `AssetFunction`: Function performed by an asset.
+  * `BatteryControl`: Describes behaviour specific to controlling batteries.
+  * `PerLengthPhaseImpedance`: Impedance and admittance parameters per unit length for n-wire unbalanced lines, in matrix form.
+  * `PhaseImpedanceData`: Impedance and conductance matrix element values. The diagonal elements are described by the elements having the same toPhase and fromPhase value an the off diagonal elements have different toPhase and fromPhase values.
 
 ### Enhancements
 * State update batches that are skipped/ignored because they have already been processed in the backlog processing can now return `BatchNotProcessed`.
 * Added `StateEventFailure.message` to provide a descriptive message of the failure.
 * Added new event failure type `StateEventUnsupportedMrid`, which can be used to indicate a valid element was found, but the operation isn't supported by the
   server. e.g. As of writing, you can't operate switches at the EHV level.
+* Added new attributes to `RegulatingControl`
+  * `ctPrimary`: Current rating of the CT, expressed in terms of the current (in Amperes) that flows in the Primary where the 'Primary' is the conductor being monitored.
+    It ensures proper operation of the regulating equipment by providing the necessary current references for control actions. An important side effect of this
+    current value is that it also defines the current value at which the full LDC R and X voltages are applied by the controller, where enabled.
+  * `minTargetDeadband`: This is the minimum allowable range for discrete control in regulating devices, used to prevent frequent control actions and promote
+    operational stability. This attribute sets a baseline range within which no adjustments are made, applicable across various devices like voltage regulators,
+    shunt compensators, or battery units.
+* Added repeated attribute of `batteryControls` to `BatteryUnit`.
+* Added repeated attribute of `endDeviceFunctions` to `EndDevice`.
 
 ### Fixes
 * None.

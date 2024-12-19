@@ -1,0 +1,55 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto";
+
+/**
+ * Impedance and conductance matrix element values. The diagonal elements are described by the elements having the same toPhase and fromPhase value and
+ * the off diagonal elements have different toPhase and fromPhase values.
+ */
+message PhaseImpedanceData {
+
+    /**
+     * Susceptance matrix element value, per length of unit.
+     */
+    double b = 1;
+
+    /**
+     * Refer to the class description.
+     */
+    SinglePhaseKind fromPhase = 2;
+
+    /**
+     * Refer to the class description.
+     */
+    SinglePhaseKind toPhase = 3;
+
+    /**
+     * Conductance matrix element value, per length of unit.
+     */
+    double g = 4;
+
+
+    /**
+     * Resistance matrix element value, per length of unit.
+     */
+    double r = 5;
+
+    /**
+     * Reactance matrix element value, per length of unit.
+     */
+    double x = 6;
+
+}

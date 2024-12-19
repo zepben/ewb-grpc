@@ -12,3 +12,9 @@ attributes:
   description: Amount of energy currently stored. The attribute shall be a positive value or zero and lower than BatteryUnit.ratedE.
 ancestors:
 - PowerElectronicsUnit
+associations:
+- source: BatteryUnit
+  target: BatteryControl
+  targetCardinality: 0..*
+  targetName: BatteryControls
+  targetDescription: All controls present on this battery.
