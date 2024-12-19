@@ -3,6 +3,7 @@
 ### Breaking Changes
 * Removed the `ProcessingPaused` current state status response due to pause/resume support being dropped.
 * Corrected `AcLineSegment.perLengthSequenceImpedanceMRID` to `AcLineSegment.perLengthImpedanceMRID`.
+* Removed `getCurrentEquipmentForFeeder` as its functionality is now incorporated in `getEquipmentForContainers`.
 
 ### New Features
 * Added New Classes
@@ -34,6 +35,8 @@
     shunt compensators, or battery units.
 * Added repeated attribute of `batteryControls` to `BatteryUnit`.
 * Added repeated attribute of `endDeviceFunctions` to `EndDevice`.
+* Added the energized relationship for the current state of network between `Feeder` and `LvFeeder`.
+* Updated `getEquipmentForContainers` to allow requesting normal, current or all equipments.
 
 ### Fixes
 * None.

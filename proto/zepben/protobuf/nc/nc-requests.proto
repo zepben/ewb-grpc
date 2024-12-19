@@ -31,6 +31,11 @@ enum IncludedEnergizedContainers {
     INCLUDE_ENERGIZED_FEEDERS = 1;
     INCLUDE_ENERGIZED_LV_FEEDERS = 2;
 }
+enum NetworkState {
+    ALL_NETWORK_STATE = 0;
+    NORMAL_NETWORK_STATE = 1;
+    CURRENT_NETWORK_STATE = 2;
+}
 message GetEquipmentForContainersRequest {
     int64 messageId = 1;
 
@@ -48,13 +53,9 @@ message GetEquipmentForContainersRequest {
     // all equipment belonging to that substation, its powered feeders, and those feeders' LV feeders are included
     // in the response.
     IncludedEnergizedContainers includeEnergizedContainers = 4;
-}
 
-message GetCurrentEquipmentForFeederRequest {
-    int64 messageId = 1;
-
-    // mRID of the Feeder to retrieve Equipment for.
-    string mrid = 2;
+    // Rule for equipments to return based on the state of the network
+    NetworkState networkState = 5;
 }
 
 message GetEquipmentForRestrictionRequest {

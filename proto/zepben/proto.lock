@@ -3998,6 +3998,12 @@
                 "name": "normalEnergizedLvFeederMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "currentlyEnergizedLvFeedersMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -10952,6 +10958,12 @@
                 "name": "normalEnergizingFeederMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "currentlyEnergizingFeederMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -14455,6 +14467,22 @@
                 "integer": 2
               }
             ]
+          },
+          {
+            "name": "NetworkState",
+            "enum_fields": [
+              {
+                "name": "ALL_NETWORK_STATE"
+              },
+              {
+                "name": "NORMAL_NETWORK_STATE",
+                "integer": 1
+              },
+              {
+                "name": "CURRENT_NETWORK_STATE",
+                "integer": 2
+              }
+            ]
           }
         ],
         "messages": [
@@ -14507,21 +14535,11 @@
                 "id": 4,
                 "name": "includeEnergizedContainers",
                 "type": "IncludedEnergizedContainers"
-              }
-            ]
-          },
-          {
-            "name": "GetCurrentEquipmentForFeederRequest",
-            "fields": [
-              {
-                "id": 1,
-                "name": "messageId",
-                "type": "int64"
               },
               {
-                "id": 2,
-                "name": "mrid",
-                "type": "string"
+                "id": 5,
+                "name": "networkState",
+                "type": "NetworkState"
               }
             ]
           },
@@ -14658,22 +14676,6 @@
             ]
           },
           {
-            "name": "GetCurrentEquipmentForFeederResponse",
-            "fields": [
-              {
-                "id": 1,
-                "name": "messageId",
-                "type": "int64"
-              },
-              {
-                "id": 2,
-                "name": "identifiedObjects",
-                "type": "NetworkIdentifiedObject",
-                "is_repeated": true
-              }
-            ]
-          },
-          {
             "name": "GetEquipmentForRestrictionResponse",
             "fields": [
               {
@@ -14774,12 +14776,6 @@
                 "in_type": "GetEquipmentForContainersRequest",
                 "out_type": "GetEquipmentForContainersResponse",
                 "in_streamed": true,
-                "out_streamed": true
-              },
-              {
-                "name": "getCurrentEquipmentForFeeder",
-                "in_type": "GetCurrentEquipmentForFeederRequest",
-                "out_type": "GetCurrentEquipmentForFeederResponse",
                 "out_streamed": true
               },
               {
