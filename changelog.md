@@ -1,5 +1,21 @@
 # Zepben Protobuf and GRPC definitions
-## [0.33.0] - UNRELEASED
+## [0.34.0] - UNRELEASED
+### Breaking Changes
+* None.
+
+### New Features
+* None.
+
+### Enhancements
+* None.
+
+### Fixes
+* None.
+
+### Notes
+* None.
+
+## [0.33.0] - 2025-01-05
 ### Breaking Changes
 * Removed the `ProcessingPaused` current state status response due to pause/resume support being dropped.
 * Corrected `AcLineSegment.perLengthSequenceImpedanceMRID` to `AcLineSegment.perLengthImpedanceMRID`.
