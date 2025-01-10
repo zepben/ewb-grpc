@@ -13,7 +13,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
-import "zepben/protobuf/cim/iec61970/base/wires/Switch.proto";
+import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
 
 /**
  * A Clamp is a galvanic connection at a line segment where other equipment is connected. A Clamp does not cut the line segment. A Clamp is ConductingEquipment
@@ -22,9 +22,9 @@ import "zepben/protobuf/cim/iec61970/base/wires/Switch.proto";
 message Clamp {
 
     /**
-     * Switch fields for this Clamp.
+     * ConductingEquipment fields for this Conductor.
      */
-    Switch sw = 1;
+    core.ConductingEquipment ce = 1;
 
     /**
      * The length to the place where the clamp is located starting from side one of the line segment, i.e. the line segment terminal with sequence number equal
