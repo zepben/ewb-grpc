@@ -7,7 +7,23 @@ ancestors:
 - Conductor
 associations:
 - source: ACLineSegment
+  target: Clamp
+  sourceCardinality: 0..1
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the clamp is connected.
+  targetCardinality: 0..*
+  targetName: Clamp
+  targetDescription: The clamps connected to the line segment.
+- source: ACLineSegment
   target: PerLengthImpedance
   targetCardinality: 0..1
   targetName: PerLengthImpedance
   targetDescription: Per-length impedance of this line segment.
+- source: ACLineSegment
+  target: Cut
+  sourceCardinality: 0..1
+  sourceName: ACLineSegment
+  sourceDescription: The line segment to which the cut is applied.
+  targetCardinality: 0..*
+  targetName: Cut
+  targetDescription: Cuts applied to the line segment.

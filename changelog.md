@@ -4,7 +4,15 @@
 * None.
 
 ### New Features
-* None.
+* Added New Classes
+  * `Clamp`: A Clamp is a galvanic connection at a line segment where other equipment is connected. A Clamp does not cut the line segment. A Clamp is
+    ConductingEquipment and has one Terminal with an associated ConnectivityNode. Any other ConductingEquipment can be connected to the Clamp ConnectivityNode.
+  * `Cut`: A cut separates a line segment into two parts. The cut appears as a switch inserted between these two parts and connects them together. As the cut is
+    normally open there is no galvanic connection between the two line segment parts. But it is possible to close the cut to get galvanic connection. The cut
+    terminals are oriented towards the line segment terminals with the same sequence number. Hence the cut terminal with sequence number equal to 1 is oriented
+    to the line segment's terminal with sequence number equal to 1. The cut terminals also act as connection points for jumpers and other equipment, e.g. a
+    mobile generator. To enable this, connectivity nodes are placed at the cut terminals. Once the connectivity nodes are in place any conducting equipment can
+    be connected at them.
 
 ### Enhancements
 * None.
@@ -35,7 +43,8 @@
   * `AssetFunction`: Function performed by an asset.
   * `BatteryControl`: Describes behaviour specific to controlling batteries.
   * `PerLengthPhaseImpedance`: Impedance and admittance parameters per unit length for n-wire unbalanced lines, in matrix form.
-  * `PhaseImpedanceData`: Impedance and conductance matrix element values. The diagonal elements are described by the elements having the same toPhase and fromPhase value an the off diagonal elements have different toPhase and fromPhase values.
+  * `PhaseImpedanceData`: Impedance and conductance matrix element values. The diagonal elements are described by the elements having the same toPhase and
+    fromPhase value an the off diagonal elements have different toPhase and fromPhase values.
 
 ### Enhancements
 * State update batches that are skipped/ignored because they have already been processed in the backlog processing can now return `BatchNotProcessed`.
@@ -43,9 +52,9 @@
 * Added new event failure type `StateEventUnsupportedMrid`, which can be used to indicate a valid element was found, but the operation isn't supported by the
   server. e.g. As of writing, you can't operate switches at the EHV level.
 * Added new attributes to `RegulatingControl`
-  * `ctPrimary`: Current rating of the CT, expressed in terms of the current (in Amperes) that flows in the Primary where the 'Primary' is the conductor being monitored.
-    It ensures proper operation of the regulating equipment by providing the necessary current references for control actions. An important side effect of this
-    current value is that it also defines the current value at which the full LDC R and X voltages are applied by the controller, where enabled.
+  * `ctPrimary`: Current rating of the CT, expressed in terms of the current (in Amperes) that flows in the Primary where the 'Primary' is the conductor being
+    monitored. It ensures proper operation of the regulating equipment by providing the necessary current references for control actions. An important side
+    effect of this current value is that it also defines the current value at which the full LDC R and X voltages are applied by the controller, where enabled.
   * `minTargetDeadband`: This is the minimum allowable range for discrete control in regulating devices, used to prevent frequent control actions and promote
     operational stability. This attribute sets a baseline range within which no adjustments are made, applicable across various devices like voltage regulators,
     shunt compensators, or battery units.
