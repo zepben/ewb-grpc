@@ -6709,6 +6709,18 @@
                 "id": 3,
                 "name": "perLengthImpedanceMRID",
                 "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "cutMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "clampMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -6821,6 +6833,55 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:Clamp.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Clamp",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ce",
+                "type": "core.ConductingEquipment"
+              },
+              {
+                "id": 2,
+                "name": "lengthFromTerminal1",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "acLineSegmentMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:Conductor.proto",
       "def": {
         "messages": [
@@ -6892,6 +6953,55 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.CIM.IEC61970.Base.Wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:Cut.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Cut",
+            "fields": [
+              {
+                "id": 1,
+                "name": "sw",
+                "type": "Switch"
+              },
+              {
+                "id": 2,
+                "name": "lengthFromTerminal1",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "acLineSegmentMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/Switch.proto"
           }
         ],
         "package": {
@@ -14148,6 +14258,18 @@
                 "oneof_parent": "identifiedObject"
               },
               {
+                "id": 86,
+                "name": "cut",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.Cut",
+                "oneof_parent": "identifiedObject"
+              },
+              {
+                "id": 87,
+                "name": "clamp",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.Clamp",
+                "oneof_parent": "identifiedObject"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any",
@@ -14159,6 +14281,12 @@
         "imports": [
           {
             "path": "google/protobuf/any.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61968/metering/PanDemandResponseFunction.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControl.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto"
@@ -14179,34 +14307,40 @@
             "path": "zepben/protobuf/cim/iec61968/assetinfo/ShortCircuitTest.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto"
-          },
-          {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/ShuntCompensatorInfo.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/SwitchInfo.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61968/common/Organisation.proto"
+            "path": "zepben/protobuf/cim/iec61968/assets/Pole.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/assets/Streetlight.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/common/Location.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61968/common/Organisation.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/CurrentTransformerInfo.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/RelayInfo.proto"
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/PotentialTransformerInfo.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/PotentialTransformerInfo.proto"
+            "path": "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/RelayInfo.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61968/metering/Meter.proto"
@@ -14251,7 +14385,49 @@
             "path": "zepben/protobuf/cim/iec61970/base/core/Terminal.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentBranch.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/protection/CurrentRelay.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/protection/DistanceRelay.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayScheme.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelaySystem.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/protection/VoltageRelay.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Accumulator.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Analog.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Control.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/AcLineSegment.proto"
@@ -14260,7 +14436,13 @@
             "path": "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/LoadBreakSwitch.proto"
+            "path": "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/Cut.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/Clamp.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Disconnector.proto"
@@ -14281,6 +14463,15 @@
             "path": "zepben/protobuf/cim/iec61970/base/wires/Fuse.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/Ground.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/GroundDisconnector.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/GroundingImpedance.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Jumper.proto"
           },
           {
@@ -14290,10 +14481,22 @@
             "path": "zepben/protobuf/cim/iec61970/base/wires/LinearShuntCompensator.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/LoadBreakSwitch.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/wires/PerLengthPhaseImpedance.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/PerLengthSequenceImpedance.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PetersenCoil.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnection.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnectionPhase.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/PowerTransformer.proto"
@@ -14305,10 +14508,25 @@
             "path": "zepben/protobuf/cim/iec61970/base/wires/RatioTapChanger.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/ReactiveCapabilityCurve.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Recloser.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/SeriesCompensator.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/StaticVarCompensator.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachine.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/wires/TapChangerControl.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto"
@@ -14320,97 +14538,7 @@
             "path": "zepben/protobuf/cim/iec61970/infiec61970/feeder/LvFeeder.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61968/assets/Pole.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61968/assets/Streetlight.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/meas/Control.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/meas/Analog.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/meas/Accumulator.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnection.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/PowerElectronicsConnectionPhase.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUnit.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentBranch.proto"
-          },
-          {
             "path": "zepben/protobuf/cim/iec61970/infiec61970/wires/generation/production/EvChargingUnit.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/SeriesCompensator.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/Ground.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/GroundDisconnector.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayScheme.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelaySystem.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/protection/VoltageRelay.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/protection/DistanceRelay.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachine.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/ReactiveCapabilityCurve.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/GroundingImpedance.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/PetersenCoil.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/iec61970/base/wires/StaticVarCompensator.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/extensions/iec61968/metering/PanDemandResponseFunction.proto"
-          },
-          {
-            "path": "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControl.proto"
           }
         ],
         "package": {
