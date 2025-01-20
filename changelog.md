@@ -13,6 +13,7 @@
     to the line segment's terminal with sequence number equal to 1. The cut terminals also act as connection points for jumpers and other equipment, e.g. a
     mobile generator. To enable this, connectivity nodes are placed at the cut terminals. Once the connectivity nodes are in place any conducting equipment can
     be connected at them.
+* Adds FeederDirection.CONNECTOR for single-terminal busbar support
 
 ### Enhancements
 * None.
