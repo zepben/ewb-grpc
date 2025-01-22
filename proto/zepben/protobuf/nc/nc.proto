@@ -13,6 +13,8 @@ option java_package = "com.zepben.protobuf.nc";
 option csharp_namespace = "Zepben.Protobuf.NC";
 package zepben.protobuf.nc;
 
+import "google/protobuf/empty.proto";
+import "zepben/protobuf/checkConnection/checkConnection-requests.proto";
 import "zepben/protobuf/nc/nc-requests.proto";
 import "zepben/protobuf/nc/nc-responses.proto";
 import "zepben/protobuf/metadata/metadata-requests.proto";
@@ -37,5 +39,8 @@ service NetworkConsumer {
 
     // Get Metadata related to the service
     rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
+
+    // Return an empty response for SDK connection tests
+    rpc checkConnection(checkConnection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }

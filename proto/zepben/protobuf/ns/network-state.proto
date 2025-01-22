@@ -13,6 +13,7 @@ option csharp_namespace = "Zepben.Protobuf.NS";
 package zepben.protobuf.ns;
 
 import "google/protobuf/empty.proto";
+import "zepben/protobuf/checkConnection/checkConnection-requests.proto";
 import "zepben/protobuf/ns/network-state-requests.proto";
 import "zepben/protobuf/ns/network-state-responses.proto";
 
@@ -26,6 +27,9 @@ service UpdateNetworkStateService {
      * batch and will be acknowledged. Separate requests may be processed together, but there is no guarantee.
      */
     rpc setCurrentStates(stream SetCurrentStatesRequest) returns (stream SetCurrentStatesResponse);
+
+    // Return an empty response for SDK connection tests
+    rpc checkConnection(checkConnection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }
 
@@ -43,5 +47,8 @@ service QueryNetworkStateService {
      * Send a stream of status responses, one for each message received in the GetCurrentStatesResponse.
      */
     rpc reportBatchStatus(stream SetCurrentStatesResponse) returns (google.protobuf.Empty);
+
+    // Return an empty response for SDK connection tests
+    rpc checkConnection(checkConnection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }

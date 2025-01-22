@@ -4,7 +4,7 @@
 * None.
 
 ### New Features
-* None.
+* Added `checkConnection` methods to all services. This will return an empty response for SDK connection tests. 
 
 ### Enhancements
 * None.
