@@ -227,16 +227,27 @@
                 "name": "getMetadata",
                 "in_type": "metadata.GetMetadataRequest",
                 "out_type": "metadata.GetMetadataResponse"
+              },
+              {
+                "name": "checkConnection",
+                "in_type": "connection.CheckConnectionRequest",
+                "out_type": "google.protobuf.Empty"
               }
             ]
           }
         ],
         "imports": [
           {
+            "path": "google/protobuf/empty.proto"
+          },
+          {
             "path": "zepben/protobuf/cc/cc-requests.proto"
           },
           {
             "path": "zepben/protobuf/cc/cc-responses.proto"
+          },
+          {
+            "path": "zepben/protobuf/connection/connection-requests.proto"
           },
           {
             "path": "zepben/protobuf/metadata/metadata-requests.proto"
@@ -11334,6 +11345,40 @@
       }
     },
     {
+      "protopath": "protobuf:/:connection:/:connection-requests.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "CheckConnectionRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.connection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.connection"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.Connection"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:dc:/:dc-data.proto",
       "def": {
         "messages": [
@@ -11533,11 +11578,22 @@
                 "name": "getMetadata",
                 "in_type": "metadata.GetMetadataRequest",
                 "out_type": "metadata.GetMetadataResponse"
+              },
+              {
+                "name": "checkConnection",
+                "in_type": "connection.CheckConnectionRequest",
+                "out_type": "google.protobuf.Empty"
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "google/protobuf/empty.proto"
+          },
+          {
+            "path": "zepben/protobuf/connection/connection-requests.proto"
+          },
           {
             "path": "zepben/protobuf/dc/dc-requests.proto"
           },
@@ -14922,11 +14978,22 @@
                 "name": "getMetadata",
                 "in_type": "metadata.GetMetadataRequest",
                 "out_type": "metadata.GetMetadataResponse"
+              },
+              {
+                "name": "checkConnection",
+                "in_type": "connection.CheckConnectionRequest",
+                "out_type": "google.protobuf.Empty"
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "google/protobuf/empty.proto"
+          },
+          {
+            "path": "zepben/protobuf/connection/connection-requests.proto"
+          },
           {
             "path": "zepben/protobuf/nc/nc-requests.proto"
           },
@@ -15129,12 +15196,12 @@
               },
               {
                 "id": 2,
-                "name": "from",
+                "name": "fromConnection",
                 "type": "JumperConnection"
               },
               {
                 "id": 3,
-                "name": "to",
+                "name": "toConnection",
                 "type": "JumperConnection"
               }
             ]
@@ -15455,6 +15522,11 @@
                 "out_type": "SetCurrentStatesResponse",
                 "in_streamed": true,
                 "out_streamed": true
+              },
+              {
+                "name": "checkConnection",
+                "in_type": "connection.CheckConnectionRequest",
+                "out_type": "google.protobuf.Empty"
               }
             ]
           },
@@ -15472,6 +15544,11 @@
                 "in_type": "SetCurrentStatesResponse",
                 "out_type": "google.protobuf.Empty",
                 "in_streamed": true
+              },
+              {
+                "name": "checkConnection",
+                "in_type": "connection.CheckConnectionRequest",
+                "out_type": "google.protobuf.Empty"
               }
             ]
           }
@@ -15479,6 +15556,9 @@
         "imports": [
           {
             "path": "google/protobuf/empty.proto"
+          },
+          {
+            "path": "zepben/protobuf/connection/connection-requests.proto"
           },
           {
             "path": "zepben/protobuf/ns/network-state-requests.proto"
