@@ -1,5 +1,10 @@
 # Zepben Protobuf and GRPC definitions
-## [0.34.0] - UNRELEASED
+## [0.34.1] - UNRELEASED
+### Fixes
+* Added `checkConnection` methods to all services. This will return an empty response for SDK connection tests. 
+* Changed AddJumperEvent to not use reserved words.
+
+## [0.34.0] - 2025-01-21
 ### Breaking Changes
 * None.
 

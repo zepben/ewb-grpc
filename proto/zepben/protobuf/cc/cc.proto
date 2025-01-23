@@ -12,8 +12,10 @@ option java_package = "com.zepben.protobuf.cc";
 option csharp_namespace = "Zepben.Protobuf.CC";
 package zepben.protobuf.cc;
 
+import "google/protobuf/empty.proto";
 import "zepben/protobuf/cc/cc-requests.proto";
 import "zepben/protobuf/cc/cc-responses.proto";
+import "zepben/protobuf/connection/connection-requests.proto";
 import "zepben/protobuf/metadata/metadata-requests.proto";
 import "zepben/protobuf/metadata/metadata-responses.proto";
 
@@ -27,5 +29,8 @@ service CustomerConsumer {
 
     // Get Metadata related to the service
     rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
+
+    // Return an empty response for SDK connection tests
+    rpc checkConnection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }
