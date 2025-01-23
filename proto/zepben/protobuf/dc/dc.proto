@@ -31,6 +31,6 @@ service DiagramConsumer {
     rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
 
     // Return an empty response for SDK connection tests
-    rpc connection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
+    rpc checkConnection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }
