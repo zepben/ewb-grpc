@@ -10,10 +10,17 @@
 * None.
 
 ### Fixes
-* None.
+* From 0.34.1:
+  * Added `checkConnection` methods to all services. This will return an empty response for SDK connection tests. 
+  * Changed AddJumperEvent to not use reserved words.
 
 ### Notes
 * None.
+
+## [0.34.1] - 2025-01-23
+### Fixes
+* Added `checkConnection` methods to all services. This will return an empty response for SDK connection tests. 
+* Changed AddJumperEvent to not use reserved words.
 
 ## [0.34.0] - 2025-01-21
 ### Breaking Changes

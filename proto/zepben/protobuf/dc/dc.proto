@@ -12,6 +12,8 @@ option java_package = "com.zepben.protobuf.dc";
 option csharp_namespace = "Zepben.Protobuf.DC";
 package zepben.protobuf.dc;
 
+import "google/protobuf/empty.proto";
+import "zepben/protobuf/connection/connection-requests.proto";
 import "zepben/protobuf/dc/dc-requests.proto";
 import "zepben/protobuf/dc/dc-responses.proto";
 import "zepben/protobuf/metadata/metadata-requests.proto";
@@ -27,5 +29,8 @@ service DiagramConsumer {
 
     // Get Metadata related to the service
     rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
+
+    // Return an empty response for SDK connection tests
+    rpc checkConnection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }
