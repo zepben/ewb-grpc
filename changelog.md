@@ -4,7 +4,7 @@
 * None.
 
 ### New Features
-* None.
+* Added relationships between `Assets` and `PowerSystemResources`.
 
 ### Enhancements
 * None.
