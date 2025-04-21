@@ -79,42 +79,6 @@ jobs:
           GPG_KEY_PASSWORD: ${{ secrets.GPG_KEY_PASSWORD }}
           POM_PATH: java/pom.xml
 
-  # CS deploy will deploy the built packages to our NUGET repository.
-  # NUGET_SETTINGS: is a link to our Nuget.Config configuration in ci-utils repository.
-  # ZEPBEN_NUGET_UPLOAD_FEED: is a link to our repository in form of https://<nexus-repo>/repository/nuget-releases/
-  # ZEPBEN_NUGET_FEED_USERNAME: a username for Nexus-Nuget repository, used in Nuget.Config
-  # ZEPBEN_NUGET_FEED_PASSWORD: a password for Nexus-Nuget repository, used in Nuget.Config
-  # ZEPBEN_NUGET_UPLOAD_KEY: a key to use with Nexus repository on package push. 
-  cs-deploy:
-    needs: licence-check-and-protolock-update
-    container: mcr.microsoft.com/dotnet/core/sdk:3.1
-    runs-on: ubuntu-latest
-    env:
-      NUGET_SETTINGS: ${{ secrets.NUGET_SETTINGS }}
-      ZEPBEN_NUGET_FEED_USERNAME: ${{ secrets.ZEPBEN_NUGET_FEED_USERNAME }}
-      ZEPBEN_NUGET_FEED_PASSWORD: ${{ secrets.ZEPBEN_NUGET_FEED_PASSWORD }}
-      ZEPBEN_NUGET_UPLOAD_KEY: ${{ secrets.ZEPBEN_NUGET_UPLOAD_KEY }}
-      ZEPBEN_NUGET_UPLOAD_FEED: ${{ secrets.ZEPBEN_NUGET_UPLOAD_FEED }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Cache C# deps
-        uses: actions/cache@v4
-        with:
-          path: /root/.nuget/packages
-          key: cs
-
-      - name: Deploy CSharp
-        run: |
-          apt install -y curl
-          cd cs
-          curl $NUGET_SETTINGS -o Nuget.Config
-          sed -i "s|ZEPBEN_NUGET_FEED_USERNAME|${ZEPBEN_NUGET_FEED_USERNAME}|g; s|ZEPBEN_NUGET_FEED_PASSWORD|${ZEPBEN_NUGET_FEED_PASSWORD}|g;" Nuget.Config
-          dotnet restore evolve-grpc.csproj --configfile Nuget.Config
-          dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
-          dotnet nuget push *.nupkg -k $ZEPBEN_NUGET_UPLOAD_KEY -s $ZEPBEN_NUGET_UPLOAD_FEED
-        shell: bash
-
   python-deploy:
     needs: licence-check-and-protolock-update
     container: python:3.9
@@ -161,7 +125,7 @@ jobs:
         shell: bash
 
   update-snapshot-version:
-    needs: [python-deploy, cs-deploy, java-deploy]
+    needs: [python-deploy, java-deploy]
     container: zepben/pipeline-basic
     runs-on: ubuntu-latest
     env:
@@ -187,11 +151,8 @@ jobs:
           git pull origin $GITHUB_REF
           source /scripts/common.sh
           cd python
-          /scripts/update-version.sh --python --snapshot --no-commit setup.cfg
-          /scripts/update-version.sh --python --snapshot --no-commit setup.py
+          /scripts/update-version.sh --python --snapshot --no-commit pyproject.toml
           cd ../java
           /scripts/update-version.sh --java --snapshot --maven --no-commit pom.xml
-          cd ../cs
-          /scripts/update-version.sh --csharp --snapshot --no-commit evolve-grpc.csproj
           commit_update_version ${GITHUB_REF/refs\/heads\//}
         shell: bash

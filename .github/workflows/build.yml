@@ -56,24 +56,6 @@ jobs:
           mvn clean package -f pom.xml -Dgpg.keyname=
         shell: bash
 
-  cs-build:
-    needs: licence-and-protolock-check
-    container: mcr.microsoft.com/dotnet/core/sdk:3.1
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Cache C# deps
-        uses: actions/cache@v4
-        with:
-          path: /root/.nuget/packages
-          key: cs
-
-      - name: Build CSharp
-        run: |
-          cd cs
-          dotnet build evolve-grpc.sln -c Release
-
   python-build:
     needs: licence-and-protolock-check
     container: python:3.9

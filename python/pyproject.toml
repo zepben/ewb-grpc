@@ -1,6 +1,37 @@
 [build-system]
 requires = [
-  "setuptools >= 40.9.0",
+  "setuptools >= 75.6.0",
+  "grpcio-tools==1.71.0",
+  "twine == 6.0.1",
   "wheel",
 ]
 build-backend = "setuptools.build_meta"
+[project]
+name = "zepben.protobuf"
+version="0.35.0b2"
+description="EWB Python Protobuf and gRPC definitions"
+license = "MPL-2.0"
+authors = [
+    {name = "Kurt Greaves", email = "kurt.greaves@zepben.com" }
+]
+maintainers = [
+    {name = "Kurt Greaves", email = "kurt.greaves@zepben.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "protobuf==6.30.2",
+    "grpcio==1.71.0",
+]
+
+classifiers=[
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+
+GitHub = "https://github.com/zepben/evolve-sdk-python"
