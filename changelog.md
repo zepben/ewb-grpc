@@ -1,5 +1,21 @@
 # Zepben Protobuf and GRPC definitions
-## [0.35.0] - UNRELEASED
+## [0.36.0] - UNRELEASED
+### Breaking Changes
+* None.
+
+### New Features
+* None.
+
+### Enhancements
+* None.
+
+### Fixes
+* None.
+
+### Notes
+* None.
+
+## [0.35.0] - 2025-04-24
 ### Breaking Changes
 * None.
 
