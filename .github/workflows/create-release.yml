@@ -139,7 +139,7 @@ jobs:
 
           # Output artifact-path to ENV
           version=$(grep version= pyproject.toml | cut -d= -f2 | tr -d '",')
-          artifact="zepben.protobuf-${version}-py3-none-any.whl"
+          artifact="zepben_protobuf-${version}-py3-none-any.whl"
           echo "artifact-path=$(echo python/dist/$artifact)" >> ${GITHUB_ENV}
           # and 'artifact' to OUTPUT
           echo "artifact=$(echo $artifact)" >> ${GITHUB_OUTPUT} 
