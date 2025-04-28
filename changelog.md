@@ -1,7 +1,9 @@
 # Zepben Protobuf and GRPC definitions
 ## [0.36.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Super pom updated to 0.38.0 which introduces:
+  * Latest versions of protobuf (4.30.2 for java and 5.26.2 for python)
+  * Latest versions of gRPC (1.71.0)
 
 ### New Features
 * None.
