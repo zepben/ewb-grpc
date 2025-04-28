@@ -13054,6 +13054,204 @@
       }
     },
     {
+      "protopath": "protobuf:/:mapbox:/:vector_tile.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "Tile.GeomType",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "POINT",
+                "integer": 1
+              },
+              {
+                "name": "LINESTRING",
+                "integer": 2
+              },
+              {
+                "name": "POLYGON",
+                "integer": 3
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "Tile",
+            "fields": [
+              {
+                "id": 3,
+                "name": "layers",
+                "type": "Layer",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "Value",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "string_value",
+                    "type": "string",
+                    "optional": true
+                  },
+                  {
+                    "id": 2,
+                    "name": "float_value",
+                    "type": "float",
+                    "optional": true
+                  },
+                  {
+                    "id": 3,
+                    "name": "double_value",
+                    "type": "double",
+                    "optional": true
+                  },
+                  {
+                    "id": 4,
+                    "name": "int_value",
+                    "type": "int64",
+                    "optional": true
+                  },
+                  {
+                    "id": 5,
+                    "name": "uint_value",
+                    "type": "uint64",
+                    "optional": true
+                  },
+                  {
+                    "id": 6,
+                    "name": "sint_value",
+                    "type": "sint64",
+                    "optional": true
+                  },
+                  {
+                    "id": 7,
+                    "name": "bool_value",
+                    "type": "bool",
+                    "optional": true
+                  }
+                ]
+              },
+              {
+                "name": "Feature",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "id",
+                    "type": "uint64",
+                    "optional": true,
+                    "options": [
+                      {
+                        "name": "default",
+                        "value": "0"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 2,
+                    "name": "tags",
+                    "type": "uint32",
+                    "is_repeated": true,
+                    "options": [
+                      {
+                        "name": "packed",
+                        "value": "true"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 3,
+                    "name": "type",
+                    "type": "GeomType",
+                    "optional": true,
+                    "options": [
+                      {
+                        "name": "default",
+                        "value": "UNKNOWN"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 4,
+                    "name": "geometry",
+                    "type": "uint32",
+                    "is_repeated": true,
+                    "options": [
+                      {
+                        "name": "packed",
+                        "value": "true"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Layer",
+                "fields": [
+                  {
+                    "id": 15,
+                    "name": "version",
+                    "type": "uint32",
+                    "required": true,
+                    "options": [
+                      {
+                        "name": "default",
+                        "value": "1"
+                      }
+                    ]
+                  },
+                  {
+                    "id": 1,
+                    "name": "name",
+                    "type": "string",
+                    "required": true
+                  },
+                  {
+                    "id": 2,
+                    "name": "features",
+                    "type": "Feature",
+                    "is_repeated": true
+                  },
+                  {
+                    "id": 3,
+                    "name": "keys",
+                    "type": "string",
+                    "is_repeated": true
+                  },
+                  {
+                    "id": 4,
+                    "name": "values",
+                    "type": "Value",
+                    "is_repeated": true
+                  },
+                  {
+                    "id": 5,
+                    "name": "extent",
+                    "type": "uint32",
+                    "optional": true,
+                    "options": [
+                      {
+                        "name": "default",
+                        "value": "4096"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "com.zepben.protobuf.mapbox"
+        }
+      }
+    },
+    {
       "protopath": "protobuf:/:mc:/:mc-requests.proto",
       "def": {
         "messages": [
