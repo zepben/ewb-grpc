@@ -69,6 +69,7 @@
   * `Control`
   * `Diagram`
   * `TransformerEnd`
+* Added new message `SamplePointReport` for sending sample point reports from the opendss jvm executor. It has been added to the `OpenDssReport`.
 
 ### New Features
 * None.

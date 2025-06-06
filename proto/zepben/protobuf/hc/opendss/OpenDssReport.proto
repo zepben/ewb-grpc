@@ -14,6 +14,7 @@ package zepben.protobuf.hc.opendss;
 
 import "zepben/protobuf/hc/opendss/EnergyMeter.proto";
 import "zepben/protobuf/hc/opendss/Diagnostics.proto";
+import "zepben/protobuf/hc/opendss/SamplePointReport.proto";
 
 /**
  * The message type we actually stream, which contains one of the EnergyMeter or Diagnostics reports.
@@ -34,7 +35,8 @@ message OpenDssReport {
         LossesTotals losses = 11;
         NodeMismatch nm = 12;
         KVBaseMismatch kvm = 13;
-        bool failure= 14;
+        bool failure = 14;
+        SamplePointReport spr = 15;
     }
 }
 
