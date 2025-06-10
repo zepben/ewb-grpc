@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [0.38.0] - UNRELEASED
 ### Breaking Changes
-* Added new message `TerminalDataReport` for sending node level results from the opendss jvm executor. It has been added to the `OpenDssReport`.
+* Added new message `SamplePointReport` for sending sample point reports from the opendss jvm executor. It has been added to the `OpenDssReport`.
 
 ### New Features
 * None.
