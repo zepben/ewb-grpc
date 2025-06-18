@@ -18,6 +18,9 @@ attributes:
 - name: approvedInverterCapacity
   type: Integer
   description: The approved inverter capacity at this UsagePoint in volt-amperes.
+- name: contacts
+  type: List<ContactDetails>
+  description: All contact details for this UsagePoint.
 ancestors:
 - IdentifiedObject
 associations:
@@ -42,3 +45,11 @@ associations:
   targetCardinality: 0..1
   targetName: UsagePointLocation
   targetDescription: Location of this usage point.
+- source: UsagePoint
+  target: CustomerAgreement
+  sourceCardinality: 0..*
+  sourceName: UsagePoint
+  sourceDescription: All service delivery points regulated by this customer agreement.
+  targetCardinality: 0..1
+  targetName: CustomerAgreement
+  targetDescription: Customer agreement regulating this service delivery point.
