@@ -13,10 +13,11 @@ option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
 package zepben.protobuf.cim.iec61968.common;
 
 import "zepben/protobuf/cim/iec61968/common/Document.proto";
+import "zepben/protobuf/cim/iec61970/base/domain/DateTimeInterval.proto";
 
 /**
- * Parent class for different groupings of information collected and managed as a part of a business process.
- * It will frequently contain references to other objects, such as assets, people and power system resources.
+ * Formal agreement between two parties defining the terms and conditions for a set of services. The specifics
+ * of the services are, in turn, defined via one or more service agreements.
  */
 message Agreement {
 
@@ -24,5 +25,10 @@ message Agreement {
      * The Document fields for this Agreement
      */
     Document doc = 1;
+
+    /**
+     * Date and time interval this agreement is valid (from going into effect to termination).
+     */
+    iec61970.domain.DateTimeInterval validity_interval = 2;
 
 }

@@ -1,0 +1,33 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.domain";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Domain";
+package zepben.protobuf.cim.iec61970.domain;
+
+import "google/protobuf/timestamp.proto";
+
+/**
+ * Interval between two date and time points, where the interval includes the start time but excludes end time.
+ */
+message DateTimeInterval {
+
+    /**
+     * End date and time of this interval. The end date and time where the interval is defined up to, but excluded.
+     */
+    google.protobuf.Timestamp end = 1;
+
+    /**
+     * Start date and time of this interval. The start date and time is included in the defined interval.
+     */
+    google.protobuf.Timestamp start = 2;
+
+}
