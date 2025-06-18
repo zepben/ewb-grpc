@@ -11,6 +11,7 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.metering";
 package zepben.protobuf.cim.iec61968.metering;
 
+import "zepben/protobuf/cim/extensions/iec61968/common/ContactDetails.proto";
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
 import "google/protobuf/struct.proto";
@@ -81,5 +82,10 @@ message UsagePoint {
      * s12n (splitSecondary12N) is single-phase, three-wire, and s1n and s2n are single-phase, two-wire.
      */
     iec61970.base.core.PhaseCode phaseCode = 13;
+
+    /**
+     * All contact details for this UsagePoint.
+     */
+    repeated common.ContactDetails contacts = 10;
 
 }

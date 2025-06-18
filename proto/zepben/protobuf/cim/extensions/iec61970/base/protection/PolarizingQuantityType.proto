@@ -1,0 +1,49 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protection";
+option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.IEC61970.Base.Protection";
+package zepben.protobuf.cim.extensions.iec61970.base.protection;
+
+
+/**
+ * [ZBEX] Defines the type of polarizing quantity used by the directional relay. This informs how the relay
+ * determines the reference voltage from the Voltage transformers associated with its parent ProtectionEquipment.
+ */
+enum PolarizingQuantityType {
+    /**
+     * Type is unknown
+     */
+    UNKNOWN = 0;
+
+    /**
+     * Uses the voltage of the same phase as the current element (e.g., Va for an Ia element).
+     */
+    SELF_PHASE_VOLTAGE = 1;
+    /**
+     * Uses a quadrature voltage (e.g., Vbc for an Ia element, specific convention applies).
+     */
+    QUADRATURE_VOLTAGE = 2;
+
+    /**
+     * Uses the zero sequence voltage (Vo), derived from three phase voltages.
+     */
+    ZERO_SEQUENCE_VOLTAGE = 3;
+    /**
+     * Uses the negative sequence voltage (V2), derived from three phase voltages.
+     */
+    NEGATIVE_SEQUENCE_VOLTAGE = 4;
+    /**
+     * Uses the positive sequence voltage (V1), derived from three phase voltages.
+     */
+    POSITIVE_SEQUENCE_VOLTAGE = 5;
+}
+

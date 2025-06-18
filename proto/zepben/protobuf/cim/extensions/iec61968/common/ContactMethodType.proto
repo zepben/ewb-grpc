@@ -1,0 +1,39 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.common";
+option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
+package zepben.protobuf.cim.iec61968.common;
+/**
+ * Enumeration of contact method types.
+ */
+enum ContactMethodType {
+
+    /**
+     * Unknown contact method type.
+     */
+    UNKNOWN = 0;
+
+    /**
+     * Email is the method of contact.
+     */
+    EMAIL = 1;
+
+    /**
+     * Phone number is the mehod of contact.
+     */
+    PHONE = 2;
+
+    /**
+     * Mail by post is the method of contact.
+     */
+    MAIL = 3;
+}
