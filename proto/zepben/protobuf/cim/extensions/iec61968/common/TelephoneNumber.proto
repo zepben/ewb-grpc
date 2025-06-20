@@ -17,6 +17,7 @@ package zepben.protobuf.cim.iec61968.common;
  * Telephone number.
  */
 message TelephoneNumber {
+
     /**
      * (if applicable) Area or region code.
      */
@@ -48,22 +49,18 @@ message TelephoneNumber {
     string internationalPrefix = 6;
 
     /**
-     * Phone number according to ITU E.164.
-     */
-    string ituPhone = 7;
-
-    /**
      * Main (local) part of this telephone number.
      */
-    string localNumber = 8;
+    string localNumber = 7;
 
     /**
      * Description for phone number, e.g: home, work, mobile.
      */
-    string description = 9;
+    string description = 8;
 
     /**
      * Is this phone number the primary number?
      */
-    bool isPrimary = 10;
+    bool isPrimary = 9;
+
 }
