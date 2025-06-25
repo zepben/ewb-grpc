@@ -31,13 +31,16 @@ class Generate : CliktCommand() {
             outputPath.deleteContents()
 
         profiles.forEach {
+            print("Generating $it profile...")
             val root = YamlFileSystem(inputModel).import(it)
             val resolvedOutputPath = outputPath.resolve(File(exportPathOverride.getOrDefault(it, "")))
             resolvedOutputPath.mkdirs()
             Docusaurus2Mdx(
                 resolvedOutputPath,
-                exportPathOverride.getOrDefault(it, "")
+                exportPathOverride.getOrDefault(it, ""),
+                validateAncestors = it == "ewb"
             ).export(root)
+            println("done.")
         }
     }
 

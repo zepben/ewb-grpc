@@ -18,29 +18,40 @@ class YamlFileSystem(inputSource: File) : Importer(inputSource) {
         return root
     }
 
-    private fun importInternal(root: Element, inputSource: File) {
-        inputSource.listFiles()?.forEach {
-            if(it.isDirectory) {
-                val p = packageInfo(it)
+    private fun importInternal(root: Element, path: File) {
+        path.listFiles()?.forEach { file ->
+            if (file.isDirectory) {
+                val p = packageInfo(file)
                 root.addChild(p)
-                importInternal(p, it)
+                importInternal(p, file)
             } else {
-                if (it.name == "__metadata.yaml") {
-                  return@forEach
+                if (file.name == "__metadata.yaml") {
+                    return@forEach
                 }
-                val c = Yaml.default.decodeFromString<Class>(it.readText())
-                root.addChild(c)
+                kotlin.runCatching {
+                    val c = Yaml.default.decodeFromString<Class>(file.readText())
+                    root.addChild(c)
+                }.onFailure { t ->
+                    println("Failed to process ${file.specRelativePath}: ${t.message}")
+                    throw t
+                }
             }
         }
 
     }
 
-    private fun packageInfo(inputSource: File): Package {
+    private fun packageInfo(path: File): Package {
         try {
-            val f = File(inputSource.absolutePath + File.separator + "__metadata.yaml")
+            val f = File(path.absolutePath + File.separator + "__metadata.yaml")
             return Yaml.default.decodeFromString<Package>(f.readText())
         } catch (e: FileNotFoundException) {
             return Package()
+        } catch (t: Throwable) {
+            println("Failed to read package infor for ${path.specRelativePath}: ${t.message}")
+            throw t
         }
     }
+
+    private val File.specRelativePath get() = toRelativeString(inputSource.absoluteFile)
+
 }
