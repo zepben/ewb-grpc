@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 /**
@@ -21,51 +19,51 @@ enum SinglePhaseKind {
     /**
      * no phase specified.
      */
-    NONE = 0;
+    SINGLE_PHASE_KIND_NONE = 0;
 
     /**
      * Phase A.
      */
-    A = 1;
+    SINGLE_PHASE_KIND_A = 1;
 
     /**
      * Phase B.
      */
-    B = 2;
+    SINGLE_PHASE_KIND_B = 2;
 
     /**
      * Phase C.
      */
-    C = 3;
+    SINGLE_PHASE_KIND_C = 3;
 
     /**
      * Neutral.
      */
-    N = 4;
+    SINGLE_PHASE_KIND_N = 4;
 
     /**
      * An unknown primary phase.
      */
-    X = 5;
+    SINGLE_PHASE_KIND_X = 5;
 
     /**
      * An unknown primary phase.
      */
-    Y = 6;
+    SINGLE_PHASE_KIND_Y = 6;
 
     /**
      * Secondary phase 1.
      */
-    s1 = 7;
+    SINGLE_PHASE_KIND_S1 = 7;
 
     /**
      * Secondary phase 2.
      */
-    s2 = 8;
+    SINGLE_PHASE_KIND_S2 = 8;
 
     /**
-     * Invalid phase. Caused by trying to energise with multiple phases simultaneously.
+     * [ZBEX] Invalid phase. Caused by trying to energise with multiple phases simultaneously.
      */
-    INVALID = 9;
+    SINGLE_PHASE_KIND_INVALID = 9;
 
 }

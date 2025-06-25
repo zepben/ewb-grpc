@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/Conductor.proto";
@@ -33,18 +31,18 @@ message AcLineSegment {
     Conductor cd = 1;
 
     /**
-     * mRID reference to per-length impedance of this line segment.
+     * Per-length impedance of this line segment.
      */
-    string perLengthImpedanceMRID = 3;
+    string perLengthImpedanceMRID = 2;
 
     /**
      * Cuts applied to the line segment.
      */
-    repeated string cutMRIDs = 4;
+    repeated string cutMRIDs = 3;
 
     /**
      * The clamps connected to the line segment.
      */
-    repeated string clampMRIDs = 5;
+    repeated string clampMRIDs = 4;
 
 }

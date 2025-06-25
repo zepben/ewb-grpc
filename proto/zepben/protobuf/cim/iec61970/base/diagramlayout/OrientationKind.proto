@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.diagramlayout";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.DiagramLayout";
 package zepben.protobuf.cim.iec61970.base.diagramlayout;
 
 /**
@@ -22,13 +20,13 @@ enum OrientationKind {
      * For 2D diagrams, a positive orientation will result in X values increasing from left to right and Y values increasing
      * from bottom to top.  This is also known as a right hand orientation.
      */
-    POSITIVE = 0;
+    ORIENTATION_KIND_POSITIVE = 0;
 
     /**
      * For 2D diagrams, a negative orientation gives the left-hand orientation (favoured by computer graphics displays)
      * with X values increasing from left to right and Y values increasing from top to bottom.   This is also known as
      * a left hand orientation.
      */
-    NEGATIVE = 1;
+    ORIENTATION_KIND_NEGATIVE = 1;
 
 }

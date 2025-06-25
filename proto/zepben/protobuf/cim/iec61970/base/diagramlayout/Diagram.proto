@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.diagramlayout";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.DiagramLayout";
 package zepben.protobuf.cim.iec61970.base.diagramlayout;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
@@ -30,16 +28,16 @@ message Diagram {
     /**
      * A Diagram may have a DiagramStyle.
      */
-    DiagramStyle diagramStyle = 3;
+    DiagramStyle diagramStyle = 2;
 
     /**
      * Coordinate system orientation of the diagram.
      */
-    OrientationKind orientationKind = 4;
+    OrientationKind orientationKind = 3;
 
     /**
      * A diagram is made up of multiple diagram objects.
      */
-    repeated string diagramObjectMRIDs = 5;
+    repeated string diagramObjectMRIDs = 4;
 
 }

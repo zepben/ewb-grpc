@@ -13,6 +13,9 @@ data class Class(@Transient override val id: Int = 0, override val name: String,
     private val descendants: MutableList<String> = mutableListOf()
     private val associations: MutableList<Link> = mutableListOf()
 
+    @Transient
+    val isEnum = attributes().all { it.type == null }
+
     fun addAssociation(link: Link) {
         if (link.sourceCardinality == null && link.targetCardinality == null) {
             if (link.source == this.name) {

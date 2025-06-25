@@ -73,17 +73,6 @@ cd python
 python3 build.py --package
 ```
 
-### C\#
-
-Restore the packages via VisualStudio with a correctly configured NuGet.
-
-```sh
-cd cs
--- edit evolve-grpc.csproj and change the version to <VERSION>-LOCAL# --
-dotnet pack evolve-grpc.csproj -c Release -o ./ --no-restore
-nuget init path/to/Zepben.Evolve.Grpc.<VERSION>.nupkg path/to/local/nuget/debug/repo
-```
-
 ### C
 
 There are 2 ways to build packages locally:
@@ -112,7 +101,7 @@ The model specification is found in the [spec](./spec/) folder. This folder cont
 
 ```text
 spec/
-├── Evolve/
+├── ewb/
 │   ├── extensions/
 │   │   ├── IEC61968/
 │   │   │   ├── .metadata.yaml

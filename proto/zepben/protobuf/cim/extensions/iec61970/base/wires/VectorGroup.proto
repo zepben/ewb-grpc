@@ -1,0 +1,454 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.wires";
+package zepben.protobuf.cim.extensions.iec61970.base.wires;
+
+/**
+ * [ZBEX] Vector group of the transformer for protective relaying, e.g., Dyn1. For unbalanced transformers, this may not be
+ * simply determined from the constituent winding connections and phase angle displacements.
+ * <br/>
+ * The vectorGroup string consists of the following components in the order listed: high voltage winding connection,
+ * mid voltage winding connection (for three winding transformers), phase displacement clock number from 0 to 11, low
+ * voltage winding connection phase displacement clock number from 0 to 11.
+ * <br/>
+ * The winding connections are D (delta), Y (wye), YN (wye with neutral), Z (zigzag), ZN (zigzag with neutral),
+ * A (auto transformer). Upper case means the high voltage, lower case mid or low. The high voltage winding always has
+ * clock position 0 and is not included in the vector group string.
+ * <br/>
+ * Some examples:
+ *                YNy0 (two winding wye to wye with no phase displacement),
+ *                YNd11 (two winding wye to delta with 330 degrees phase displacement),
+ *                YNyn0d5 (three winding transformer wye with neutral high voltage, wye with neutral mid
+ *                         voltage and no phase displacement, delta low voltage with 150 degrees displacement).
+ * <br/>
+ * Phase displacement is defined as the angular difference between the phasors representing the voltages between the
+ * neutral point (real or imaginary) and the corresponding terminals of two windings, a positive sequence voltage system
+ * being applied to the high-voltage terminals, following each other in alphabetical sequence if they are lettered, or
+ * in numerical sequence if they are numbered: the phasors are assumed to rotate in a counter-clockwise sense.
+ */
+enum VectorGroup {
+
+    /**
+     * [ZBEX] UNKNOWN.
+     */
+    VECTOR_GROUP_UNKNOWN = 0;
+
+    /**
+     * [ZBEX] Dd0.
+     */
+    VECTOR_GROUP_DD0 = 1;
+
+    /**
+     * [ZBEX] Dz0.
+     */
+    VECTOR_GROUP_DZ0 = 2;
+
+    /**
+     * [ZBEX] Dzn0.
+     */
+    VECTOR_GROUP_DZN0 = 3;
+
+    /**
+     * [ZBEX] YNy0.
+     */
+    VECTOR_GROUP_YNY0 = 4;
+
+    /**
+     * [ZBEX] YNyn0.
+     */
+    VECTOR_GROUP_YNYN0 = 5;
+
+    /**
+     * [ZBEX] Yy0.
+     */
+    VECTOR_GROUP_YY0 = 6;
+
+    /**
+     * [ZBEX] Yyn0.
+     */
+    VECTOR_GROUP_YYN0 = 7;
+
+    /**
+     * [ZBEX] Zd0.
+     */
+    VECTOR_GROUP_ZD0 = 8;
+
+    /**
+     * [ZBEX] ZNd0.
+     */
+    VECTOR_GROUP_ZND0 = 9;
+
+    /**
+     * [ZBEX] Dyn1.
+     */
+    VECTOR_GROUP_DYN1 = 10;
+
+    /**
+     * [ZBEX] Dz1.
+     */
+    VECTOR_GROUP_DZ1 = 11;
+
+    /**
+     * [ZBEX] Dzn1.
+     */
+    VECTOR_GROUP_DZN1 = 12;
+
+    /**
+     * [ZBEX] Yd1.
+     */
+    VECTOR_GROUP_YD1 = 13;
+
+    /**
+     * [ZBEX] YNd1.
+     */
+    VECTOR_GROUP_YND1 = 14;
+
+    /**
+     * [ZBEX] YNzn1.
+     */
+    VECTOR_GROUP_YNZN1 = 15;
+
+    /**
+     * [ZBEX] Yz1.
+     */
+    VECTOR_GROUP_YZ1 = 16;
+
+    /**
+     * [ZBEX] Yzn1.
+     */
+    VECTOR_GROUP_YZN1 = 17;
+
+    /**
+     * [ZBEX] Zd1.
+     */
+    VECTOR_GROUP_ZD1 = 18;
+
+    /**
+     * [ZBEX] ZNd1.
+     */
+    VECTOR_GROUP_ZND1 = 19;
+
+    /**
+     * [ZBEX] ZNyn1.
+     */
+    VECTOR_GROUP_ZNYN1 = 20;
+
+    /**
+     * [ZBEX] Zy1.
+     */
+    VECTOR_GROUP_ZY1 = 21;
+
+    /**
+     * [ZBEX] Zyn1.
+     */
+    VECTOR_GROUP_ZYN1 = 22;
+
+    /**
+     * [ZBEX] Dy5.
+     */
+    VECTOR_GROUP_DY5 = 23;
+
+    /**
+     * [ZBEX] Dyn5.
+     */
+    VECTOR_GROUP_DYN5 = 24;
+
+    /**
+     * [ZBEX] Yd5.
+     */
+    VECTOR_GROUP_YD5 = 25;
+
+    /**
+     * [ZBEX] YNd5.
+     */
+    VECTOR_GROUP_YND5 = 26;
+
+    /**
+     * [ZBEX] YNz5.
+     */
+    VECTOR_GROUP_YNZ5 = 27;
+
+    /**
+     * [ZBEX] YNzn5.
+     */
+    VECTOR_GROUP_YNZN5 = 28;
+
+    /**
+     * [ZBEX] Yz5.
+     */
+    VECTOR_GROUP_YZ5 = 29;
+
+    /**
+     * [ZBEX] Yzn5.
+     */
+    VECTOR_GROUP_YZN5 = 30;
+
+    /**
+     * [ZBEX] ZNy5.
+     */
+    VECTOR_GROUP_ZNY5 = 31;
+
+    /**
+     * [ZBEX] ZNyn5.
+     */
+    VECTOR_GROUP_ZNYN5 = 32;
+
+    /**
+     * [ZBEX] Zy5.
+     */
+    VECTOR_GROUP_ZY5 = 33;
+
+    /**
+     * [ZBEX] Zyn5.
+     */
+    VECTOR_GROUP_ZYN5 = 34;
+
+    /**
+     * [ZBEX] Dd6.
+     */
+    VECTOR_GROUP_DD6 = 35;
+
+    /**
+     * [ZBEX] Dz6.
+     */
+    VECTOR_GROUP_DZ6 = 36;
+
+    /**
+     * [ZBEX] Dzn6.
+     */
+    VECTOR_GROUP_DZN6 = 37;
+
+    /**
+     * [ZBEX] YNy6.
+     */
+    VECTOR_GROUP_YNY6 = 38;
+
+    /**
+     * [ZBEX] YNyn6.
+     */
+    VECTOR_GROUP_YNYN6 = 39;
+
+    /**
+     * [ZBEX] Yy6.
+     */
+    VECTOR_GROUP_YY6 = 40;
+
+    /**
+     * [ZBEX] Yyn6.
+     */
+    VECTOR_GROUP_YYN6 = 41;
+
+    /**
+     * [ZBEX] Zd6.
+     */
+    VECTOR_GROUP_ZD6 = 42;
+
+    /**
+     * [ZBEX] ZNd6.
+     */
+    VECTOR_GROUP_ZND6 = 43;
+
+    /**
+     * [ZBEX] Dy7.
+     */
+    VECTOR_GROUP_DY7 = 44;
+
+    /**
+     * [ZBEX] Dyn7.
+     */
+    VECTOR_GROUP_DYN7 = 45;
+
+    /**
+     * [ZBEX] Dz7.
+     */
+    VECTOR_GROUP_DZ7 = 46;
+
+    /**
+     * [ZBEX] Dzn7.
+     */
+    VECTOR_GROUP_DZN7 = 47;
+
+    /**
+     * [ZBEX] Yd7.
+     */
+    VECTOR_GROUP_YD7 = 48;
+
+    /**
+     * [ZBEX] YNd7.
+     */
+    VECTOR_GROUP_YND7 = 49;
+
+    /**
+     * [ZBEX] YNzn7.
+     */
+    VECTOR_GROUP_YNZN7 = 50;
+
+    /**
+     * [ZBEX] Yz7.
+     */
+    VECTOR_GROUP_YZ7 = 51;
+
+    /**
+     * [ZBEX] Yzn7.
+     */
+    VECTOR_GROUP_YZN7 = 52;
+
+    /**
+     * [ZBEX] Zd7.
+     */
+    VECTOR_GROUP_ZD7 = 53;
+
+    /**
+     * [ZBEX] ZNd7.
+     */
+    VECTOR_GROUP_ZND7 = 54;
+
+    /**
+     * [ZBEX] ZNyn7.
+     */
+    VECTOR_GROUP_ZNYN7 = 55;
+
+    /**
+     * [ZBEX] Zy7.
+     */
+    VECTOR_GROUP_ZY7 = 56;
+
+    /**
+     * [ZBEX] Zyn7.
+     */
+    VECTOR_GROUP_ZYN7 = 57;
+
+    /**
+     * [ZBEX] Dy11.
+     */
+    VECTOR_GROUP_DY11 = 58;
+
+    /**
+     * [ZBEX] Dyn11.
+     */
+    VECTOR_GROUP_DYN11 = 59;
+
+    /**
+     * [ZBEX] Yd11.
+     */
+    VECTOR_GROUP_YD11 = 60;
+
+    /**
+     * [ZBEX] YNd11.
+     */
+    VECTOR_GROUP_YND11 = 61;
+
+    /**
+     * [ZBEX] YNz11.
+     */
+    VECTOR_GROUP_YNZ11 = 62;
+
+    /**
+     * [ZBEX] YNzn11.
+     */
+    VECTOR_GROUP_YNZN11 = 63;
+
+    /**
+     * [ZBEX] Yz11.
+     */
+    VECTOR_GROUP_YZ11 = 64;
+
+    /**
+     * [ZBEX] Yzn11.
+     */
+    VECTOR_GROUP_YZN11 = 65;
+
+    /**
+     * [ZBEX] ZNy11.
+     */
+    VECTOR_GROUP_ZNY11 = 66;
+
+    /**
+     * [ZBEX] ZNyn11.
+     */
+    VECTOR_GROUP_ZNYN11 = 67;
+
+    /**
+     * [ZBEX] Zy11.
+     */
+    VECTOR_GROUP_ZY11 = 68;
+
+    /**
+     * [ZBEX] Zyn11.
+     */
+    VECTOR_GROUP_ZYN11 = 69;
+
+    /**
+     * [ZBEX] Dy1.
+     */
+    VECTOR_GROUP_DY1 = 70;
+
+    /**
+     * [ZBEX] Y0.
+     */
+    VECTOR_GROUP_Y0 = 71;
+
+    /**
+     * [ZBEX] YN0.
+     */
+    VECTOR_GROUP_YN0 = 72;
+
+    /**
+     * [ZBEX] D0.
+     */
+    VECTOR_GROUP_D0 = 73;
+
+    /**
+     * [ZBEX] ZNy1.
+     */
+    VECTOR_GROUP_ZNY1 = 74;
+
+    /**
+     * [ZBEX] ZNy7.
+     */
+    VECTOR_GROUP_ZNY7 = 75;
+
+    /**
+     * [ZBEX] Ddn0.
+     */
+    VECTOR_GROUP_DDN0 = 76;
+
+    /**
+     * [ZBEX] DNd0.
+     */
+    VECTOR_GROUP_DND0 = 77;
+
+    /**
+     * [ZBEX] DNyn1.
+     */
+    VECTOR_GROUP_DNYN1 = 78;
+
+    /**
+     * [ZBEX] DNyn11.
+     */
+    VECTOR_GROUP_DNYN11 = 79;
+
+    /**
+     * [ZBEX] YNdn1.
+     */
+    VECTOR_GROUP_YNDN1 = 80;
+
+    /**
+     * [ZBEX] YNdn11.
+     */
+    VECTOR_GROUP_YNDN11 = 81;
+
+    /**
+     * [ZBEX] Scott-T Transformer.
+     */
+    VECTOR_GROUP_TTN11 = 82;
+
+}

@@ -21,20 +21,12 @@ attributes:
 - name: toPhase
   type: SinglePhaseKind
   description: Refer to the class description.
-- name: row
-  type: Integer
-  description: The matrix element’s row number, in the range 1 to PerLengthPhaseImpedance.conductorCount. Only the lower triangle
-    needs to be stored. This row number matches ACLineSegmentPhase.sequenceNumber.
-- name: column
-  type: Integer
-  description: The matrix element's column number, in the range 1 to row. Only the lower triangle needs to be stored. This
-    column number matches ACLineSegmentPhase.sequenceNumber.
 associations:
 - source: PhaseImpedanceData
   target: PerLengthPhaseImpedance
-  sourceCardinality: 1..*
+  sourceCardinality: 0..*
   sourceName: PhaseImpedanceData
   sourceDescription: All data that belong to this conductor phase impedance.
-  targetCardinality: "1"
+  targetCardinality: 0..1
   targetName: PhaseImpedance
   targetDescription: Conductor phase impedance to which this data belongs.

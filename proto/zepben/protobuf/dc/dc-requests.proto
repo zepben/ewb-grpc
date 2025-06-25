@@ -9,15 +9,38 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.dc";
-option csharp_namespace = "Zepben.Protobuf.DC";
 package zepben.protobuf.dc;
 
+/**
+ * A request to get identified objects.
+ */
 message GetIdentifiedObjectsRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
+    /**
+     * The list of mRIDs to retrieve.
+     */
     repeated string mrids = 2;
+
 }
 
+/**
+ * A request to get diagram objects for other identified objects.
+ */
 message GetDiagramObjectsRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
+    /**
+     * The list of mRIDs to retrieve diagrams objects for.
+     */
     repeated string mrids = 2;
+
 }

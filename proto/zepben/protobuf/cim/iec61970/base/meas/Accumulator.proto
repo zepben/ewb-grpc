@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
 import "zepben/protobuf/cim/iec61970/base/meas/Measurement.proto";
@@ -20,8 +18,10 @@ import "zepben/protobuf/cim/iec61970/base/meas/Measurement.proto";
  * e.g. an energy value.
  */
 message Accumulator {
+
     /**
      * Measurement fields for this Accumulator.
      */
     Measurement measurement = 1;
+
 }

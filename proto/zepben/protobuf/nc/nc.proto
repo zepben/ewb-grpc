@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.nc";
-option csharp_namespace = "Zepben.Protobuf.NC";
 package zepben.protobuf.nc;
 
 import "google/protobuf/empty.proto";
@@ -20,27 +18,44 @@ import "zepben/protobuf/nc/nc-responses.proto";
 import "zepben/protobuf/metadata/metadata-requests.proto";
 import "zepben/protobuf/metadata/metadata-responses.proto";
 
+/**
+ * A service providing consumer access to the network model.
+ */
 service NetworkConsumer {
 
-    // Get identified objects
+    /**
+     * Get identified objects.
+     */
     rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
-    // Get a simplified view of the network hierarchy from the geographical region down to the feeder level
+    /**
+     * Get a simplified view of the network hierarchy from the geographical region down to the feeder level.
+     */
     rpc getNetworkHierarchy (GetNetworkHierarchyRequest) returns (GetNetworkHierarchyResponse);
 
-    // Get an EquipmentContainer's equipment
+    /**
+     * Get an EquipmentContainer's equipment.
+     */
     rpc getEquipmentForContainers (stream GetEquipmentForContainersRequest) returns (stream GetEquipmentForContainersResponse);
 
-    // Get an OperationalRestriction's equipment
+    /**
+     * Get an OperationalRestriction's equipment.
+     */
     rpc getEquipmentForRestriction (GetEquipmentForRestrictionRequest) returns (stream GetEquipmentForRestrictionResponse);
 
-    // Get a ConnectivityNodes Terminals
+    /**
+     * Get a ConnectivityNodes Terminals.
+     */
     rpc getTerminalsForNode (GetTerminalsForNodeRequest) returns (stream GetTerminalsForNodeResponse);
 
-    // Get Metadata related to the service
+    /**
+     * Get Metadata related to the service.
+     */
     rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
 
-    // Return an empty response for SDK connection tests
+    /**
+     * Return an empty response for SDK connection tests.
+     */
     rpc checkConnection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }

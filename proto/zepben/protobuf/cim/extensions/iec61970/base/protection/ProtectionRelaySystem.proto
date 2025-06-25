@@ -1,0 +1,40 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protection";
+package zepben.protobuf.cim.extensions.iec61970.base.protection;
+
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionKind.proto";
+import "zepben/protobuf/cim/iec61970/base/core/Equipment.proto";
+
+/**
+ * [ZBEX] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working
+ * group outcome is merged into the CIM model.
+ * <br/>
+ * A relay system for controlling ProtectedSwitches.
+ */
+message ProtectionRelaySystem {
+
+  /**
+   * The Equipment fields for this ProtectionRelaySystem.
+   */
+  cim.iec61970.base.core.Equipment eq = 1;
+
+  /**
+   * [ZBEX] The kind of protection being provided by this protection equipment.
+   */
+  ProtectionKind protectionKind = 2;
+
+  /**
+   * [ZBEX] The schemes implemented by this ProtectionRelaySystem.
+   */
+  repeated string schemeMRIDs = 3;
+
+}

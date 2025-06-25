@@ -9,7 +9,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.common";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
 package zepben.protobuf.cim.iec61968.common;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
@@ -25,7 +24,7 @@ message OrganisationRole {
     iec61970.base.core.IdentifiedObject io = 1;
 
     /**
-     * mRID reference to the Organisation this OrganisationRole belongs to.
+     * The Organisation this OrganisationRole belongs to.
      */
     string organisationMRID = 2;
 

@@ -9,65 +9,171 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.nc";
-option csharp_namespace = "Zepben.Protobuf.NC";
 package zepben.protobuf.nc;
 
+/**
+ * A request to get identified objects.
+ */
 message GetIdentifiedObjectsRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
+    /**
+     * The list of mRIDs to retrieve.
+     */
     repeated string mrids = 2;
+
 }
 
+/**
+ * A request to get the network hierarchy.
+ */
 message GetNetworkHierarchyRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
 }
 
+/**
+ * Indicates which energizing contains should be included when fetching a container.
+ */
 enum IncludedEnergizingContainers {
-    EXCLUDE_ENERGIZING_CONTAINERS = 0;
-    INCLUDE_ENERGIZING_FEEDERS = 1;
-    INCLUDE_ENERGIZING_SUBSTATIONS = 2;
+
+    /**
+     * All energizing containers should be excluded.
+     */
+    INCLUDED_ENERGIZING_CONTAINERS_NONE = 0;
+
+    /**
+     * Energizing feeders should be included.
+     */
+    INCLUDED_ENERGIZING_CONTAINERS_FEEDERS = 1;
+
+    /**
+     * Energizing feeders and substations should be included.
+     */
+    INCLUDED_ENERGIZING_CONTAINERS_SUBSTATIONS = 2;
+
 }
+
+/**
+ * Indicates which energized contains should be included when fetching a container.
+ */
 enum IncludedEnergizedContainers {
-    EXCLUDE_ENERGIZED_CONTAINERS = 0;
-    INCLUDE_ENERGIZED_FEEDERS = 1;
-    INCLUDE_ENERGIZED_LV_FEEDERS = 2;
+
+    /**
+     * All energized containers should be excluded.
+     */
+    INCLUDED_ENERGIZED_CONTAINERS_NONE = 0;
+
+    /**
+     * Energized HV feeders should be included.
+     */
+    INCLUDED_ENERGIZED_CONTAINERS_FEEDERS = 1;
+
+    /**
+     * Energized HV feeders and LV feeders should be included.
+     */
+    INCLUDED_ENERGIZED_CONTAINERS_LV_FEEDERS = 2;
+
 }
+
+/**
+ * Indicates which state of the network an operation should be performed on.
+ */
 enum NetworkState {
-    ALL_NETWORK_STATE = 0;
-    NORMAL_NETWORK_STATE = 1;
-    CURRENT_NETWORK_STATE = 2;
+
+    /**
+     * The operation should be performed on all states of the network.
+     */
+    NETWORK_STATE_ALL = 0;
+
+    /**
+     * The operation should be performed on the normal state of the network.
+     */
+    NETWORK_STATE_NORMAL = 1;
+
+    /**
+     * The operation should be performed on the current state of the network.
+     */
+    NETWORK_STATE_CURRENT = 2;
+
 }
+
+/**
+ * A request to get the equipment belonging to an equipment container.
+ */
 message GetEquipmentForContainersRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
 
-    // mRID of the EquipmentContainer to retrieve Equipment for.
+    /**
+     * mRID of the EquipmentContainer to retrieve Equipment for.
+     */
     repeated string mrids = 2;
 
-    // Rule for which energizing containers to include
-    // e.g. if a container mrid is for an LV feeder and this is set to INCLUDE_SUBSTATIONS,
-    // all equipment belonging to that LV feeder, its powering feeders, and those feeders' substations are included
-    // in the response.
+    /**
+     * Rule for which energizing containers to include
+     * e.g. if a container mrid is for an LV feeder and this is set to INCLUDED_ENERGIZING_CONTAINERS_SUBSTATIONS,
+     * all equipment belonging to that LV feeder, its powering feeders, and those feeders' substations are included
+     * in the response.
+     */
     IncludedEnergizingContainers includeEnergizingContainers = 3;
 
-    // Rule for which energized containers to include
-    // e.g. if a container mrid is for a substation and this is set to INCLUDE_LV_FEEDERS,
-    // all equipment belonging to that substation, its powered feeders, and those feeders' LV feeders are included
-    // in the response.
+    /**
+     * Rule for which energized containers to include
+     * e.g. if a container mrid is for a substation and this is set to INCLUDED_ENERGIZED_CONTAINERS_LV_FEEDERS,
+     * all equipment belonging to that substation, its powered feeders, and those feeders' LV feeders are included
+     * in the response.
+     */
     IncludedEnergizedContainers includeEnergizedContainers = 4;
 
-    // Rule for equipments to return based on the state of the network
+    /**
+     * Rule for equipments to return based on the state of the network
+     */
     NetworkState networkState = 5;
+
 }
 
+/**
+ * A request to get the equipment restrained by an operational restriction.
+ */
 message GetEquipmentForRestrictionRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
 
-    // mRID of the OperationalRestriction to retrieve Equipment for.
+    /**
+     * mRID of the OperationalRestriction to retrieve Equipment for.
+     */
     string mrid = 2;
+
 }
 
+/**
+ * A request to get the terminals for a connectivity node.
+ */
 message GetTerminalsForNodeRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
 
-    // mRID of the ConnectivityNode to retrieve Terminals for.
+    /**
+     * mRID of the ConnectivityNode to retrieve Terminals for.
+     */
     string mrid = 2;
+
 }

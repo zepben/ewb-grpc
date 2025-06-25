@@ -1,0 +1,74 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.wires";
+package zepben.protobuf.cim.extensions.iec61970.base.wires;
+
+/**
+ * [ZBEX] Transformer cooling types.
+ */
+enum TransformerCoolingType {
+
+    /**
+     * [ZBEX] Default
+     */
+    TRANSFORMER_COOLING_TYPE_UNKNOWN = 0;
+
+    /**
+     * [ZBEX] Oil natural, air natural
+     */
+    TRANSFORMER_COOLING_TYPE_ONAN = 1;
+
+    /**
+     * [ZBEX] Oil natural, air forced
+     */
+    TRANSFORMER_COOLING_TYPE_ONAF = 2;
+
+    /**
+     * [ZBEX] Oil forced, air forced
+     */
+    TRANSFORMER_COOLING_TYPE_OFAF = 3;
+
+    /**
+     * [ZBEX] Oil forced, water forced
+     */
+    TRANSFORMER_COOLING_TYPE_OFWF = 4;
+
+    /**
+     * [ZBEX] Oil directed, air forced
+     */
+    TRANSFORMER_COOLING_TYPE_ODAF = 5;
+
+    /**
+     * [ZBEX] Non-mineral oil natural, air natural
+     */
+    TRANSFORMER_COOLING_TYPE_KNAN = 6;
+
+    /**
+     * [ZBEX] Non-mineral oil natural, air forced
+     */
+    TRANSFORMER_COOLING_TYPE_KNAF = 7;
+
+    /**
+     * [ZBEX] Non-mineral oil forced, air forced
+     */
+    TRANSFORMER_COOLING_TYPE_KFAF = 8;
+
+    /**
+     * [ZBEX] Non-mineral oil forced, water forced
+     */
+    TRANSFORMER_COOLING_TYPE_KFWF = 9;
+
+    /**
+     * [ZBEX] Non-mineral oil directed, air forced
+     */
+    TRANSFORMER_COOLING_TYPE_KDAF = 10;
+
+}

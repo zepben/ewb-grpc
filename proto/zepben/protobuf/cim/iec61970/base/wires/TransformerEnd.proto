@@ -9,7 +9,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
@@ -44,28 +43,28 @@ message TransformerEnd {
     /**
      * The tap changer associated with this PowerTransformerEnd
      */
-    string ratioTapChangerMRID = 9;
+    string ratioTapChangerMRID = 5;
 
     /**
      * (for Yn and Zn connections) True if the neutral is solidly grounded.
      */
-    bool grounded = 10;
+    bool grounded = 6;
 
     /**
      * (for Yn and Zn connections) Resistance part of neutral impedance where 'grounded' is true.
      */
-    double rGround = 11;
+    double rGround = 7;
 
     /**
      * (for Yn and Zn connections) Reactive part of neutral impedance where 'grounded' is true.
      */
-    double xGround = 12;
+    double xGround = 8;
 
     /**
      * (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end.
      *  By convention, for a two winding transformer,
      * the full values of the transformer should be entered on the high voltage end (endNumber=1).
      */
-    string starImpedanceMRID = 13;
+    string starImpedanceMRID = 9;
 
 }

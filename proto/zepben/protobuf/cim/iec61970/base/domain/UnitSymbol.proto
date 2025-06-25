@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.domain";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Domain";
 package zepben.protobuf.cim.iec61970.base.domain;
 
 /**
@@ -19,219 +17,271 @@ package zepben.protobuf.cim.iec61970.base.domain;
  * however for ease-of-use we’ve converted our supported measurement types to an enum.
  */
 enum UnitSymbol {
+
     /**
      * Dimension less quantity, e.g. count, per unit, etc.
      */
-    NONE = 0;
+    UNIT_SYMBOL_NONE = 0;
+
     /**
      * Length in metres.
      */
-    METRES = 1;
+    UNIT_SYMBOL_METRES = 1;
+
     /**
      * Mass in kilograms. Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
      */
-    KG = 2;
+    UNIT_SYMBOL_KG = 2;
+
     /**
      * Time in seconds.
      */
-    SECONDS = 3;
+    UNIT_SYMBOL_SECONDS = 3;
+
     /**
      * Current in amperes.
      */
-    A = 4;
+    UNIT_SYMBOL_A = 4;
+
     /**
      * Temperature in kelvins.
      */
-    K = 5;
+    UNIT_SYMBOL_K = 5;
+
     /**
      * Amount of substance in moles.
      */
-    MOL = 6;
+    UNIT_SYMBOL_MOL = 6;
+
     /**
      * Luminous intensity in candelas.
      */
-    CD = 7;
+    UNIT_SYMBOL_CD = 7;
+
     /**
      * Plane angle in degrees.
      */
-    DEG = 8;
+    UNIT_SYMBOL_DEG = 8;
+
     /**
      * Plane angle in radians (m/m).
      */
-    RAD = 9;
+    UNIT_SYMBOL_RAD = 9;
+
     /**
      * Solid angle in steradians (m2/m2).
      */
-    SR = 10;
+    UNIT_SYMBOL_SR = 10;
+
     /**
      * Absorbed dose in grays (J/kg).
      */
-    GY = 11;
+    UNIT_SYMBOL_GY = 11;
+
     /**
      * Radioactivity in becquerels (1/s).
      */
-    BQ = 12;
+    UNIT_SYMBOL_BQ = 12;
+
     /**
      * Relative temperature in degrees Celsius.
      * In the SI unit system the symbol is °C. Electric charge is measured in coulomb that has the unit symbol C.
      * To distinguish degree Celsius from coulomb the symbol used in the UML is degC. The reason for not using °C is
      * that the special character ° is difficult to manage in software.
      */
-    DEGC = 13;
+    UNIT_SYMBOL_DEGC = 13;
+
     /**
      * Dose equivalent in sieverts (J/kg).
      */
-    SV = 14;
+    UNIT_SYMBOL_SV = 14;
+
     /**
      * Electric capacitance in farads (C/V).
      */
-    F = 15;
+    UNIT_SYMBOL_F = 15;
+
     /**
      * Electric charge in coulombs (A·s).
      */
-    C = 16;
+    UNIT_SYMBOL_C = 16;
+
     /**
      * Conductance in siemens.
      */
-    SIEMENS = 17;
+    UNIT_SYMBOL_SIEMENS = 17;
+
     /**
      * Electric inductance in henrys (Wb/A).
      */
-    HENRYS = 18;
+    UNIT_SYMBOL_HENRYS = 18;
+
     /**
      * Electric potential in volts (W/A).
      */
-    V = 19;
+    UNIT_SYMBOL_V = 19;
+
     /**
      * Electric resistance in ohms (V/A).
      */
-    OHM = 20;
+    UNIT_SYMBOL_OHM = 20;
+
     /**
      * Energy in joules (N·m = C·V = W·s).
      */
-    J = 21;
+    UNIT_SYMBOL_J = 21;
+
     /**
      * Force in newtons (kg·m/s²).
      */
-    N = 22;
+    UNIT_SYMBOL_N = 22;
+
     /**
      * Frequency in hertz (1/s).
      */
-    HZ = 23;
+    UNIT_SYMBOL_HZ = 23;
+
     /**
      * Illuminance in lux (lm/m²).
      */
-    LX = 24;
+    UNIT_SYMBOL_LX = 24;
+
     /**
      * Luminous flux in lumens (cd·sr).
      */
-    LM = 25;
+    UNIT_SYMBOL_LM = 25;
+
     /**
      * Magnetic flux in webers (V·s).
      */
-    WB = 26;
+    UNIT_SYMBOL_WB = 26;
+
     /**
      * Magnetic flux density in teslas (Wb/m2).
      */
-    T = 27;
+    UNIT_SYMBOL_T = 27;
+
     /**
      * Real power in watts (J/s). Electrical power may have real and reactive components.
      * The real portion of electrical power (I²R or VIcos(phi)), is expressed in Watts.
      * See also apparent power and reactive power.
      */
-    W = 28;
+    UNIT_SYMBOL_W = 28;
+
     /**
      * Pressure in pascals (N/m²).
      * Note: the absolute or relative measurement of pressure is implied with this entry.
      * See below for more explicit forms.
      */
-    PA = 29;
+    UNIT_SYMBOL_PA = 29;
+
     /**
      * Area in square metres (m²).
      */
-    M2 = 30;
+    UNIT_SYMBOL_M2 = 30;
+
     /**
      * Volume in cubic metres (m³).
      */
-    M3 = 31;
+    UNIT_SYMBOL_M3 = 31;
+
     /**
      * Velocity in metres per second (m/s).
      */
-    MPERS = 32;
+    UNIT_SYMBOL_MPERS = 32;
+
     /**
      * Acceleration in metres per second squared (m/s²).
      */
-    MPERS2 = 33;
+    UNIT_SYMBOL_MPERS2 = 33;
+
     /**
      * Volumetric flow rate in cubic metres per second (m³/s).
      */
-    M3PERS = 34;
+    UNIT_SYMBOL_M3PERS = 34;
+
     /**
      * Fuel efficiency in metres per cubic metres (m/m³).
      */
-    MPERM3 = 35;
+    UNIT_SYMBOL_MPERM3 = 35;
+
     /**
      * Moment of mass in kilogram metres (kg·m) (first moment of mass).
      * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
      */
-    KGM = 36;
+    UNIT_SYMBOL_KGM = 36;
+
     /**
      * Density in kilogram/cubic metres (kg/m³).
      * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
      */
-    KGPERM3 = 37;
+    UNIT_SYMBOL_KGPERM3 = 37;
+
     /**
      * Viscosity in square metres / second (m²/s).
      */
-    M2PERS = 38;
+    UNIT_SYMBOL_M2PERS = 38;
+
     /**
      * Thermal conductivity in watt/metres kelvin.
      */
-    WPERMK = 39;
+    UNIT_SYMBOL_WPERMK = 39;
+
     /**
      * Heat capacity in joules/kelvin.
      */
-    JPERK = 40;
+    UNIT_SYMBOL_JPERK = 40;
+
     /**
      * Concentration in parts per million.
      */
-    PPM = 41;
+    UNIT_SYMBOL_PPM = 41;
+
     /**
      * Rotations per second (1/s). See also Hz (1/s).
      */
-    ROTPERS = 42;
+    UNIT_SYMBOL_ROTPERS = 42;
+
     /**
      * Angular velocity in radians per second (rad/s).
      */
-    RADPERS = 43;
+    UNIT_SYMBOL_RADPERS = 43;
+
     /**
      * Heat flux density, irradiance, watts per square metre.
      */
-    WPERM2 = 44;
+    UNIT_SYMBOL_WPERM2 = 44;
+
     /**
      * Insulation energy density, joules per square metre or watt second per square metre.
      */
-    JPERM2 = 45;
+    UNIT_SYMBOL_JPERM2 = 45;
+
     /**
      * Conductance per length (F/m).
      */
-    SPERM = 46;
+    UNIT_SYMBOL_SPERM = 46;
+
     /**
      * Temperature change rate in kelvins per second.
      */
-    KPERS = 47;
+    UNIT_SYMBOL_KPERS = 47;
+
     /**
      * Pressure change rate in pascals per second.
      */
-    PAPERS = 48;
+    UNIT_SYMBOL_PAPERS = 48;
+
     /**
      * Specific heat capacity, specific entropy, joules per kilogram Kelvin.
      */
-    JPERKGK = 49;
+    UNIT_SYMBOL_JPERKGK = 49;
+
     /**
      * Apparent power in volt amperes. See also real power and reactive power.
      */
-    VA = 50;
+    UNIT_SYMBOL_VA = 50;
+
     /**
      * Reactive power in volt amperes reactive. The “reactive” or “imaginary” component of electrical power
      * (VIsin(phi)). (See also real power and apparent power).
@@ -240,7 +290,8 @@ enum UnitSymbol {
      *       The data consumer should determine the method in use and the suitability of the measurement for the
      *       intended purpose.
      */
-    VAR = 51;
+    UNIT_SYMBOL_VAR = 51;
+
     /**
      * Power factor, dimensionless.
      * Note 1: This definition of power factor only holds for balanced systems.
@@ -249,373 +300,462 @@ enum UnitSymbol {
      *          It is assumed that the data consumer understands the type of meter in use and the sign
      *          convention in use by the utility.
      */
-    COSPHI = 52;
+    UNIT_SYMBOL_COSPHI = 52;
+
     /**
      * Volt seconds (Ws/A).
      */
-    VS = 53;
+    UNIT_SYMBOL_VS = 53;
+
     /**
      * Volt squared (W²/A²).
      */
-    V2 = 54;
+    UNIT_SYMBOL_V2 = 54;
+
     /**
      * Ampere seconds (A·s).
      */
-    AS = 55;
+    UNIT_SYMBOL_AS = 55;
+
     /**
      * Amperes squared (A²).
      */
-    A2 = 56;
+    UNIT_SYMBOL_A2 = 56;
+
     /**
      * Ampere squared time in square amperes (A²s).
      */
-    A2S = 57;
+    UNIT_SYMBOL_A2S = 57;
+
     /**
      * Apparent energy in volt ampere hours.
      */
-    VAH = 58;
+    UNIT_SYMBOL_VAH = 58;
+
     /**
      * Real energy in watt hours.
      */
-    WH = 59;
+    UNIT_SYMBOL_WH = 59;
+
     /**
      * Reactive energy in volt ampere reactive hours.
      */
-    VARH = 60;
+    UNIT_SYMBOL_VARH = 60;
+
     /**
      * Magnetic flux in volt per hertz.
      */
-    VPERHZ = 61;
+    UNIT_SYMBOL_VPERHZ = 61;
+
     /**
      * Rate of change of frequency in hertz per second.
      */
-    HZPERS = 62;
+    UNIT_SYMBOL_HZPERS = 62;
+
     /**
      * Number of characters.
      */
-    CHARACTER = 63;
+    UNIT_SYMBOL_CHARACTER = 63;
+
     /**
      * Data rate (baud) in characters per second.
      */
-    CHARPERS = 64;
+    UNIT_SYMBOL_CHARPERS = 64;
+
     /**
      * Moment of mass in kilogram square metres (kg·m²) (Second moment of mass, commonly called the moment of inertia).
      * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
      */
-    KGM2 = 65;
+    UNIT_SYMBOL_KGM2 = 65;
+
     /**
      * Sound pressure level in decibels. Note: multiplier “d” is included in this unit symbol for
      * compatibility with IEC 61850-7-3.
      */
-    DB = 66;
+    UNIT_SYMBOL_DB = 66;
+
     /**
      * Ramp rate in watts per second.
      */
-    WPERS = 67;
+    UNIT_SYMBOL_WPERS = 67;
+
     /**
      * Volumetric flow rate in litres per second.
      */
-    LPERS = 68;
+    UNIT_SYMBOL_LPERS = 68;
+
     /**
      * Power level (logarithmic ratio of signal strength , Bel-mW), normalized to 1mW.
      * Note: multiplier “d” is included in this unit symbol for compatibility with IEC 61850-7-3.
      */
-    DBM = 69;
+    UNIT_SYMBOL_DBM = 69;
+
     /**
      * Time in hours, hour = 60 min = 3600 s.
      */
-    HOURS = 70;
+    UNIT_SYMBOL_HOURS = 70;
+
     /**
      * Time in minutes, minute = 60 s.
      */
-    MIN = 71;
+    UNIT_SYMBOL_MIN = 71;
+
     /**
      * Quantity power, Q.
      */
-    Q = 72;
+    UNIT_SYMBOL_Q = 72;
+
     /**
      * Quantity energy, Qh.
      */
-    QH = 73;
+    UNIT_SYMBOL_QH = 73;
+
     /**
      * Resistivity, ohm metres, (rho).
      */
-    OHMM = 74;
+    UNIT_SYMBOL_OHMM = 74;
+
     /**
      * A/m, magnetic field strength, amperes per metre.
      */
-    APERM = 75;
+    UNIT_SYMBOL_APERM = 75;
+
     /**
      * Volt-squared hour, volt-squared-hours.
      */
-    V2H = 76;
+    UNIT_SYMBOL_V2H = 76;
+
     /**
      * Ampere-squared hour, ampere-squared hour.
      */
-    A2H = 77;
+    UNIT_SYMBOL_A2H = 77;
+
     /**
      * Ampere-hours, ampere-hours.
      */
-    AH = 78;
+    UNIT_SYMBOL_AH = 78;
+
     /**
      * Amount of substance, Counter value.
      */
-    COUNT = 79;
+    UNIT_SYMBOL_COUNT = 79;
+
     /**
      * Volume, cubic feet.
      */
-    FT3 = 80;
+    UNIT_SYMBOL_FT3 = 80;
+
     /**
      * Volumetric flow rate, cubic metres per hour.
      */
-    M3PERH = 81;
+    UNIT_SYMBOL_M3PERH = 81;
+
     /**
      * Volume in gallons, US gallon (1 gal = 231 in3 = 128 fl ounce).
      */
-    GAL = 82;
+    UNIT_SYMBOL_GAL = 82;
+
     /**
      * Energy, British Thermal Units.
      */
-    BTU = 83;
+    UNIT_SYMBOL_BTU = 83;
+
     /**
      * Volume in litres, litre = dm3 = m3/1000.
      */
-    L = 84;
+    UNIT_SYMBOL_L = 84;
+
     /**
      * Volumetric flow rate, litres per hour.
      */
-    LPERH = 85;
+    UNIT_SYMBOL_LPERH = 85;
+
     /**
      * Concentration, The ratio of the volume of a solute divided by the volume of the solution.
      * Note: Users may need use a prefix such a ‘µ’ to express a quantity such as ‘µL/L’.
      */
-    LPERL = 86;
+    UNIT_SYMBOL_LPERL = 86;
+
     /**
      * Concentration, The ratio of the mass of a solute divided by the mass of the solution.
      * Note: Users may need use a prefix such a ‘µ’ to express a quantity such as ‘µg/g’.
      */
-    GPERG = 87;
+    UNIT_SYMBOL_GPERG = 87;
+
     /**
      * Concentration, The amount of substance concentration, (c),
      * the amount of solvent in moles divided by the volume of solution in m³.
      */
-    MOLPERM3 = 88;
+    UNIT_SYMBOL_MOLPERM3 = 88;
+
     /**
      * Concentration, Molar fraction,
      * the ratio of the molar amount of a solute divided by the molar amount of the solution.
      */
-    MOLPERMOL = 89;
+    UNIT_SYMBOL_MOLPERMOL = 89;
+
     /**
      * Concentration, Molality, the amount of solute in moles and the amount of solvent in kilograms.
      */
-    MOLPERKG = 90;
+    UNIT_SYMBOL_MOLPERKG = 90;
+
     /**
      * Time, Ratio of time. Note: Users may need to supply a prefix such as ‘µ’ to show rates such as ‘µs/s’.
      */
-    SPERS = 91;
+    UNIT_SYMBOL_SPERS = 91;
+
     /**
      * Frequency, rate of frequency change.
      * Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mHz/Hz’.
      */
-    HZPERHZ = 92;
+    UNIT_SYMBOL_HZPERHZ = 92;
+
     /**
      * Voltage, ratio of voltages. Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mV/V’.
      */
-    VPERV = 93;
+    UNIT_SYMBOL_VPERV = 93;
+
     /**
      * Current, ratio of amperages. Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mA/A’.
      */
-    APERA = 94;
+    UNIT_SYMBOL_APERA = 94;
+
     /**
      * Power factor, PF, the ratio of the active power to the apparent power.
      * Note: The sign convention used for power factor will differ between IEC meters and EEI (ANSI) meters.
      *       It is assumed that the data consumers understand the type of meter being used and agree on the
      *       sign convention in use at any given utility.
      */
-    VPERVA = 95;
+    UNIT_SYMBOL_VPERVA = 95;
+
     /**
      * Amount of rotation, revolutions.
      */
-    REV = 96;
+    UNIT_SYMBOL_REV = 96;
+
     /**
      * Catalytic activity, katal = mol / s.
      */
-    KAT = 97;
+    UNIT_SYMBOL_KAT = 97;
+
     /**
      * Specific energy, Joules / kg.
      */
-    JPERKG = 98;
+    UNIT_SYMBOL_JPERKG = 98;
+
     /**
      * Volume, cubic metres, with the value uncompensated for weather effects.
      */
-    M3UNCOMPENSATED = 99;
+    UNIT_SYMBOL_M3UNCOMPENSATED = 99;
+
     /**
      * Volume, cubic metres, with the value compensated for weather effects.
      */
-    M3COMPENSATED = 100;
+    UNIT_SYMBOL_M3COMPENSATED = 100;
+
     /**
      * Signal Strength, ratio of power.
      * Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mW/W’.
      */
-    WPERW = 101;
+    UNIT_SYMBOL_WPERW = 101;
+
     /**
      * Energy, therms.
      */
-    THERM = 102;
+    UNIT_SYMBOL_THERM = 102;
+
     /**
      * Wavenumber, reciprocal metres, (1/m).
      */
-    ONEPERM = 103;
+    UNIT_SYMBOL_ONEPERM = 103;
+
     /**
      * Specific volume, cubic metres per kilogram, v.
      */
-    M3PERKG = 104;
+    UNIT_SYMBOL_M3PERKG = 104;
+
     /**
      * Dynamic viscosity, pascal seconds.
      */
-    PAS = 105;
+    UNIT_SYMBOL_PAS = 105;
+
     /**
      * Moment of force, newton metres.
      */
-    NM = 106;
+    UNIT_SYMBOL_NM = 106;
+
     /**
      * Surface tension, newton per metre.
      */
-    NPERM = 107;
+    UNIT_SYMBOL_NPERM = 107;
+
     /**
      * Angular acceleration, radians per second squared.
      */
-    RADPERS2 = 108;
+    UNIT_SYMBOL_RADPERS2 = 108;
+
     /**
      * Energy density, joules per cubic metre.
      */
-    JPERM3 = 109;
+    UNIT_SYMBOL_JPERM3 = 109;
+
     /**
      * Electric field strength, volts per metre.
      */
-    VPERM = 110;
+    UNIT_SYMBOL_VPERM = 110;
+
     /**
      * Electric charge density, coulombs per cubic metre.
      */
-    CPERM3 = 111;
+    UNIT_SYMBOL_CPERM3 = 111;
+
     /**
      * Surface charge density, coulombs per square metre.
      */
-    CPERM2 = 112;
+    UNIT_SYMBOL_CPERM2 = 112;
+
     /**
      * Permittivity, farads per metre.
      */
-    FPERM = 113;
+    UNIT_SYMBOL_FPERM = 113;
+
     /**
      * Permeability, henrys per metre.
      */
-    HPERM = 114;
+    UNIT_SYMBOL_HPERM = 114;
+
     /**
      * Molar energy, joules per mole.
      */
-    JPERMOL = 115;
+    UNIT_SYMBOL_JPERMOL = 115;
+
     /**
      * Molar entropy, molar heat capacity, joules per mole kelvin.
      */
-    JPERMOLK = 116;
+    UNIT_SYMBOL_JPERMOLK = 116;
+
     /**
      * Exposure (x rays), coulombs per kilogram.
      */
-    CPERKG = 117;
+    UNIT_SYMBOL_CPERKG = 117;
+
     /**
      * Absorbed dose rate, grays per second.
      */
-    GYPERS = 118;
+    UNIT_SYMBOL_GYPERS = 118;
+
     /**
      * Radiant intensity, watts per steradian.
      */
-    WPERSR = 119;
+    UNIT_SYMBOL_WPERSR = 119;
+
     /**
      * Radiance, watts per square metre steradian.
      */
-    WPERM2SR = 120;
+    UNIT_SYMBOL_WPERM2SR = 120;
+
     /**
      * Catalytic activity concentration, katals per cubic metre.
      */
-    KATPERM3 = 121;
+    UNIT_SYMBOL_KATPERM3 = 121;
+
     /**
      * Time in days, day = 24 h = 86400 s.
      */
-    D = 122;
+    UNIT_SYMBOL_D = 122;
+
     /**
      * Plane angle, minutes.
      */
-    ANGLEMIN = 123;
+    UNIT_SYMBOL_ANGLEMIN = 123;
+
     /**
      * Plane angle, seconds.
      */
-    ANGLESEC = 124;
+    UNIT_SYMBOL_ANGLESEC = 124;
+
     /**
      * Area, hectares.
      */
-    HA = 125;
+    UNIT_SYMBOL_HA = 125;
+
     /**
      * Mass in tons, “tonne” or “metric ton” (1000 kg = 1 Mg).
      */
-    TONNE = 126;
+    UNIT_SYMBOL_TONNE = 126;
+
     /**
      * Pressure in bars, (1 bar = 100 kPa).
      */
-    BAR = 127;
+    UNIT_SYMBOL_BAR = 127;
+
     /**
      * Pressure, millimetres of mercury (1 mmHg is approximately 133.3 Pa).
      */
-    MMHG = 128;
+    UNIT_SYMBOL_MMHG = 128;
+
     /**
      * Length, nautical miles (1 M = 1852 m).
      */
-    MILES_NAUTICAL = 129;
+    UNIT_SYMBOL_MILES_NAUTICAL = 129;
+
     /**
      * Speed, knots (1 kn = 1852/3600) m/s.
      */
-    KN = 130;
+    UNIT_SYMBOL_KN = 130;
+
     /**
      * Magnetic flux, maxwells (1 Mx = 10-8 Wb).
      */
-    MX = 131;
+    UNIT_SYMBOL_MX = 131;
+
     /**
      * Magnetic flux density, gausses (1 G = 10-4 T).
      */
-    G = 132;
+    UNIT_SYMBOL_G = 132;
+
     /**
      * Magnetic field in oersteds, (1 Oe = (103/4p) A/m).
      */
-    OE = 133;
+    UNIT_SYMBOL_OE = 133;
+
     /**
      * Volt-hour, Volt hours.
      */
-    VH = 134;
+    UNIT_SYMBOL_VH = 134;
+
     /**
      * Active power per current flow, watts per Ampere.
      */
-    WPERA = 135;
+    UNIT_SYMBOL_WPERA = 135;
+
     /**
      * Reciprocal of frequency (1/Hz).
      */
-    ONEPERHZ = 136;
+    UNIT_SYMBOL_ONEPERHZ = 136;
+
     /**
      * Power factor, PF, the ratio of the active power to the apparent power.
      * Note: The sign convention used for power factor will differ between IEC meters and EEI (ANSI) meters.
      *       It is assumed that the data consumers understand the type of meter being used and agree on the sign
      *       convention in use at any given utility.
      */
-    VPERVAR = 137;
+    UNIT_SYMBOL_VPERVAR = 137;
+
     /**
      * Electric resistance per length in ohms per metre ((V/A)/m).
      */
-    OHMPERM = 138;
+    UNIT_SYMBOL_OHMPERM = 138;
+
     /**
      * Weight per energy in kilograms per joule (kg/J).
      * Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.
      */
-    KGPERJ = 139;
+    UNIT_SYMBOL_KGPERJ = 139;
+
     /**
      * Energy rate in joules per second (J/s).
      */
-    JPERS = 140;
+    UNIT_SYMBOL_JPERS = 140;
+
 }

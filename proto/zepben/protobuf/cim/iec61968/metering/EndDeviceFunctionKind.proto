@@ -9,7 +9,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.metering";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Metering";
 package zepben.protobuf.cim.iec61968.metering;
 
 /**
@@ -20,46 +19,46 @@ enum EndDeviceFunctionKind {
     /**
      * Unknown function kind.
      */
-    UNKNOWN = 0;
+    END_DEVICE_FUNCTION_KIND_UNKNOWN = 0;
 
     /**
      * Autonomous application of daylight saving time (DST).
      */
-    autonomousDst = 1;
+    END_DEVICE_FUNCTION_KIND_AUTONOMOUS_DST = 1;
 
     /**
      * Demand response functions.
      */
-    demandResponse = 2;
+    END_DEVICE_FUNCTION_KIND_DEMAND_RESPONSE = 2;
 
     /**
      * Electricity metering.
      */
-    electricMetering = 3;
+    END_DEVICE_FUNCTION_KIND_ELECTRIC_METERING = 3;
 
     /**
      * Presentation of metered values to a user or another system (always a function of a meter, but might not be supported by a load control unit).
      */
-    metrology = 4;
+    END_DEVICE_FUNCTION_KIND_METROLOGY = 4;
 
     /**
      * On-request reads.
      */
-    onRequestRead = 5;
+    END_DEVICE_FUNCTION_KIND_ON_REQUEST_READ = 5;
 
     /**
      * Reporting historical power interruption data.
      */
-    outageHistory = 6;
+    END_DEVICE_FUNCTION_KIND_OUTAGE_HISTORY = 6;
 
     /**
      * Support for one or more relays that may be programmable in the meter (and tied to TOU, time pulse, load control or other functions).
      */
-    relaysProgramming = 7;
+    END_DEVICE_FUNCTION_KIND_RELAYS_PROGRAMMING = 7;
 
     /**
      * Detection and monitoring of reverse flow.
      */
-    reverseFlow = 8;
+    END_DEVICE_FUNCTION_KIND_REVERSE_FLOW = 8;
 
 }

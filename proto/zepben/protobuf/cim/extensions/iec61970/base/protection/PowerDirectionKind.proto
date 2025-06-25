@@ -1,0 +1,42 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protection";
+package zepben.protobuf.cim.extensions.iec61970.base.protection;
+
+/**
+ * [ZBEX] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working
+ * group outcome is merged into the CIM model.
+ * <br/>
+ * The flow of power direction used by a ProtectionEquipment.
+ */
+enum PowerDirectionKind {
+
+  /**
+   * [ZBEX] Default. Unknown power direction flow.
+   */
+  POWER_DIRECTION_KIND_UNKNOWN = 0;
+
+  /**
+   * [ZBEX] Power direction flow type is not specified.
+   */
+  POWER_DIRECTION_KIND_UNDIRECTED = 1;
+
+  /**
+   * [ZBEX] Power direction forward flow is used.
+   */
+  POWER_DIRECTION_KIND_FORWARD = 2;
+
+  /**
+   * [ZBEX] Power direction reverse flow is used.
+   */
+  POWER_DIRECTION_KIND_REVERSE = 3;
+
+}

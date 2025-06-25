@@ -9,7 +9,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cc";
-option csharp_namespace = "Zepben.Protobuf.CC";
 package zepben.protobuf.cc;
 
 import "google/protobuf/any.proto";
@@ -19,8 +18,14 @@ import "zepben/protobuf/cim/iec61968/customers/CustomerAgreement.proto";
 import "zepben/protobuf/cim/iec61968/customers/PricingStructure.proto";
 import "zepben/protobuf/cim/iec61968/customers/Tariff.proto";
 
-// The set of leaf identified objects that the customer service manages.
+/**
+ * The set of leaf identified objects that the customer service manages.
+ */
 message CustomerIdentifiedObject {
+
+    /**
+     * The type of identified object being returned.
+     */
     oneof identifiedObject {
         zepben.protobuf.cim.iec61968.common.Organisation organisation = 1;
         zepben.protobuf.cim.iec61968.customers.Customer customer = 2;
@@ -30,4 +35,5 @@ message CustomerIdentifiedObject {
 
         google.protobuf.Any other = 999;
     }
+
 }

@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 /**
@@ -18,46 +16,48 @@ package zepben.protobuf.cim.iec61970.base.wires;
  */
 enum RegulatingControlModeKind {
 
-    // Default
-    UNKNOWN_CONTROL_MODE = 0;
+    /**
+     * Default, unknown.
+     */
+    REGULATING_CONTROL_MODE_KIND_UNKNOWN = 0;
 
     /*
      * Voltage is specified.
      */
-    voltage = 1;
+    REGULATING_CONTROL_MODE_KIND_VOLTAGE = 1;
     /*
      * Active power is specified.
      */
-    activePower = 2;
+    REGULATING_CONTROL_MODE_KIND_ACTIVE_POWER = 2;
 
     /*
      * Reactive power is specified.
      */
-    reactivePower = 3;
+    REGULATING_CONTROL_MODE_KIND_REACTIVE_POWER = 3;
 
     /*
      * Current flow is specified.
      */
-    currentFlow = 4;
+    REGULATING_CONTROL_MODE_KIND_CURRENT_FLOW = 4;
 
     /*
      * Admittance is specified.
      */
-    admittance = 5;
+    REGULATING_CONTROL_MODE_KIND_ADMITTANCE = 5;
 
     /*
      * Control switches on/off by time of day. The times may change on the weekend, or in different seasons.
      */
-    timeScheduled = 6;
+    REGULATING_CONTROL_MODE_KIND_TIME_SCHEDULED = 6;
 
     /*
      * Control switches on/off based on the local temperature (i.e., a thermostat).
      */
-    temperature = 7;
+    REGULATING_CONTROL_MODE_KIND_TEMPERATURE = 7;
 
     /*
      * Power factor is specified.
      */
-    powerFactor	= 8;
+    REGULATING_CONTROL_MODE_KIND_POWER_FACTOR = 8;
 
 }

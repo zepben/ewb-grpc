@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 /**
@@ -28,141 +26,141 @@ enum PhaseCode {
     /**
      * No phases specified.
      */
-    NONE = 0;
+    PHASE_CODE_NONE = 0;
 
     /**
      * Phase A.
      */
-    A = 1;
+    PHASE_CODE_A = 1;
 
     /**
      * Phase B.
      */
-    B = 2;
+    PHASE_CODE_B = 2;
 
     /**
      * Phase C.
      */
-    C = 3;
+    PHASE_CODE_C = 3;
 
     /**
      * Neutral phase.
      */
-    N = 4;
+    PHASE_CODE_N = 4;
 
     /**
      * Phases A and B.
      */
-    AB = 5;
+    PHASE_CODE_AB = 5;
 
     /**
      * Phases A and C.
      */
-    AC = 6;
+    PHASE_CODE_AC = 6;
 
     /**
      * Phases A and neutral.
      */
-    AN = 7;
+    PHASE_CODE_AN = 7;
 
     /**
      * Phases B and C.
      */
-    BC = 8;
+    PHASE_CODE_BC = 8;
 
     /**
      * Phases B and neutral.
      */
-    BN = 9;
+    PHASE_CODE_BN = 9;
 
     /**
      * Phases C and neutral.
      */
-    CN = 10;
+    PHASE_CODE_CN = 10;
 
     /**
      * Phases A, B, and C.
      */
-    ABC = 11;
+    PHASE_CODE_ABC = 11;
 
     /**
      * Phases A, B, and neutral.
      */
-    ABN = 12;
+    PHASE_CODE_ABN = 12;
 
     /**
      * Phases A, C and neutral.
      */
-    ACN = 13;
+    PHASE_CODE_ACN = 13;
 
     /**
      * Phases B, C, and neutral.
      */
-    BCN = 14;
+    PHASE_CODE_BCN = 14;
 
     /**
      * Phases A, B, C, and N.
      */
-    ABCN = 15;
+    PHASE_CODE_ABCN = 15;
 
     /**
      * Unknown non-neutral phase.
      */
-    X = 16;
+    PHASE_CODE_X = 16;
 
     /**
      * Unknown non-neutral phase plus neutral.
      */
-    XN = 17;
+    PHASE_CODE_XN = 17;
 
     /**
      * Two unknown non-neutral phases.
      */
-    XY = 18;
+    PHASE_CODE_XY = 18;
 
     /**
      * Two unknown non-neutral phases plus neutral.
      */
-    XYN = 19;
+    PHASE_CODE_XYN = 19;
     
     /**
-     * Unknown non-neutral phase.
+     * [ZBEX] Unknown non-neutral phase.
      */
-    Y = 20;
+    PHASE_CODE_Y = 20;
     
     /**
-     * Unknown non-neutral phase plus neutral.
+     * [ZBEX] Unknown non-neutral phase plus neutral.
      */
-    YN = 21;
+    PHASE_CODE_YN = 21;
 
     /**
      * Secondary phase 1.
      */
-    s1 = 22;
+    PHASE_CODE_S1 = 22;
 
     /**
      * Secondary phase 1 and neutral.
      */
-    s1N = 23;
+    PHASE_CODE_S1N = 23;
 
     /**
      * Secondary phase 1 and 2.
      */
-    s12 = 24;
+    PHASE_CODE_S12 = 24;
 
     /**
      * Secondary phases 1, 2, and neutral.
      */
-    s12N = 25;
+    PHASE_CODE_S12N = 25;
 
     /**
      * Secondary phase 2.
      */
-    s2 = 26;
+    PHASE_CODE_S2 = 26;
 
     /**
      * Secondary phase 2 and neutral.
      */
-    s2N = 27;
+    PHASE_CODE_S2N = 27;
 
 }

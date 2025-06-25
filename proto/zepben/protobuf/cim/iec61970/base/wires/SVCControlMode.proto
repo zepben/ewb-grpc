@@ -9,33 +9,26 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 /**
  * Static VAr Compensator control mode.
  */
-message SVCControlMode {
+enum SVCControlMode {
 
     /**
-     * NOTE: This enum is wrapped in a message due to a c98 naming conflict with RegulatingControlModeKind
+     * [ZBEX] Unknown control.
      */
-    enum Enum {
+    SVC_CONTROL_MODE_UNKNOWN = 0;
 
-        /**
-         * [ZBEX] Unknown control.
-         */
-        UNKNOWN = 0;
+    /**
+     * Reactive power control.
+     */
+    SVC_CONTROL_MODE_REACTIVE_POWER = 1;
 
-        /**
-         * Reactive power control.
-         */
-        reactivePower = 1;
-
-        /**
-         * Voltage control.
-         */
-        voltage = 2;
-    }
+    /**
+     * Voltage control.
+     */
+    SVC_CONTROL_MODE_VOLTAGE = 2;
 
 }

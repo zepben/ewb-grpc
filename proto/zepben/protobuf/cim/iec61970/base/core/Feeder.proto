@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
@@ -30,22 +28,22 @@ message Feeder {
     EquipmentContainer ec = 1;
 
     /**
-     * mRID reference to the normal head terminal or terminals of the feeder.
+     * The normal head terminal or terminals of the feeder.
      */
     string normalHeadTerminalMRID = 2;
 
     /**
-     * mRID reference to the normal energizing substation of the feeder.
+     * The normal energizing substation of the feeder.
      */
     string normalEnergizingSubstationMRID = 3;
 
     /**
-     * mRID references to the LV feeders that are normally energized by the feeder.
+     * The LV feeders that are normally energized by the feeder.
      */
     repeated string normalEnergizedLvFeederMRIDs = 4;
 
     /**
-     * mRID references to the LV feeders that are currently energized by the feeder.
+     * The LV feeders that are currently energized by the feeder.
      */
     repeated string currentlyEnergizedLvFeedersMRIDs = 5;
 
