@@ -112,7 +112,7 @@ The model specification is found in the [spec](./spec/) folder. This folder cont
 
 ```text
 spec/
-├── Evolve/
+├── ewb/
 │   ├── extensions/
 │   │   ├── IEC61968/
 │   │   │   ├── .metadata.yaml
