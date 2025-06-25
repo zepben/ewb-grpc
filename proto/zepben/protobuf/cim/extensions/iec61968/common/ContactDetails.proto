@@ -26,17 +26,17 @@ message ContactDetails {
     /**
      * [ZBEX] Phone numbers.
      */
-    repeated iec61968.common.TelephoneNumber phoneNumbers = 1;
+    repeated extensions.iec61968.common.TelephoneNumber phoneNumbers = 1;
 
     /**
      * [ZBEX] Contact address, potentially different than 'streetAddress' (e.g., another city).
      */
-    iec61968.common.StreetAddress contactAddress = 2;
+    zepben.protobuf.cim.iec61968.common.StreetAddress contactAddress = 2;
 
     /**
      * [ZBEX] Electronic addresses.
      */
-    repeated iec61968.common.ElectronicAddress electronicAddresses = 3;
+    repeated zepben.protobuf.cim.iec61968.common.ElectronicAddress electronicAddresses = 3;
 
     /**
      * [ZBEX] The type of contact, e.g Account Owner.
