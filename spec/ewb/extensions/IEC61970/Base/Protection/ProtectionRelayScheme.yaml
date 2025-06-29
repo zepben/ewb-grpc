@@ -1,21 +1,24 @@
 name: ProtectionRelayScheme
-description: A scheme that a group of relay functions implement. For example, typically schemes are primary and secondary, or main and failsafe.
+description: \[ZBEX\] This extension is in-line with the CIM working group for replacing the `protection` package, can
+  be replaced when the working group outcome is merged into the CIM model.
+  <br/>
+  A scheme that a group of relay functions implement. For example, typically schemes are primary and secondary, or main and failsafe.
 ancestors:
 - IdentifiedObject
 associations:
 - source: ProtectionRelayScheme
   target: ProtectionRelaySystem
-  sourceCardinality: 1..*
+  sourceCardinality: 0..*
   sourceName: Schemes
-  sourceDescription: The schemes implemented by this ProtectionRelaySystem.
+  sourceDescription: \[ZBEX\] The schemes implemented by this ProtectionRelaySystem.
   targetCardinality: 0..1
   targetName: System
-  targetDescription: The system this scheme belongs to.
+  targetDescription: \[ZBEX\] The system this scheme belongs to.
 - source: ProtectionRelayScheme
   target: ProtectionRelayFunction
-  sourceCardinality: 1..*
+  sourceCardinality: 0..*
   sourceName: Schemes
-  sourceDescription: The schemes this function operates under.
+  sourceDescription: \[ZBEX\] The schemes this function operates under.
   targetCardinality: 0..*
   targetName: Functions
-  targetDescription: The functions operated as part of this protection scheme.
+  targetDescription: \[ZBEX\] The functions operated as part of this protection scheme.
