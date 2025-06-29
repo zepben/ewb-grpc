@@ -5,9 +5,11 @@ description: |-
 ancestors:
 - Equipment
 descendants:
+- FaultIndicator
 - Sensor
 associations:
-- source: AuxilaryEquipment
+- source: AuxiliaryEquipment
   target: Terminal
   targetCardinality: 0..1
   targetName: Terminal
+  targetDescription: The Terminal at the equipment where the AuxiliaryEquipment is attached.

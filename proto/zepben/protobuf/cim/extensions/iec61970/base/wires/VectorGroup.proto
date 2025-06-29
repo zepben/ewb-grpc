@@ -1,0 +1,129 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.wires";
+option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.IEC61970.Base.Wires";
+package zepben.protobuf.cim.extensions.iec61970.base.wires;
+
+/**
+ * [ZBEX] Vector group of the transformer for protective relaying, e.g., Dyn1. For unbalanced transformers, this may not be
+ * simply determined from the constituent winding connections and phase angle displacements.
+ * <p>
+ * The vectorGroup string consists of the following components in the order listed: high voltage winding connection,
+ * mid voltage winding connection (for three winding transformers), phase displacement clock number from 0 to 11, low
+ * voltage winding connection phase displacement clock number from 0 to 11.
+ * <p>
+ * The winding connections are D (delta), Y (wye), YN (wye with neutral), Z (zigzag), ZN (zigzag with neutral),
+ * A (auto transformer). Upper case means the high voltage, lower case mid or low. The high voltage winding always has
+ * clock position 0 and is not included in the vector group string.
+ * <p>
+ * Some examples:
+ *                YNy0 (two winding wye to wye with no phase displacement),
+ *                YNd11 (two winding wye to delta with 330 degrees phase displacement),
+ *                YNyn0d5 (three winding transformer wye with neutral high voltage, wye with neutral mid
+ *                         voltage and no phase displacement, delta low voltage with 150 degrees displacement).
+ * <p>
+ * Phase displacement is defined as the angular difference between the phasors representing the voltages between the
+ * neutral point (real or imaginary) and the corresponding terminals of two windings, a positive sequence voltage system
+ * being applied to the high-voltage terminals, following each other in alphabetical sequence if they are lettered, or
+ * in numerical sequence if they are numbered: the phasors are assumed to rotate in a counter-clockwise sense.
+ */
+enum VectorGroup {
+
+    VECTOR_GROUP_UNKNOWN = 0;
+    VECTOR_GROUP_DD0 = 1;
+    VECTOR_GROUP_DZ0 = 2;
+    VECTOR_GROUP_DZN0 = 3;
+    VECTOR_GROUP_YNY0 = 4;
+    VECTOR_GROUP_YNYN0 = 5;
+    VECTOR_GROUP_YY0 = 6;
+    VECTOR_GROUP_YYN0 = 7;
+    VECTOR_GROUP_ZD0 = 8;
+    VECTOR_GROUP_ZND0 = 9;
+    VECTOR_GROUP_DYN1 = 10;
+    VECTOR_GROUP_DZ1 = 11;
+    VECTOR_GROUP_DZN1 = 12;
+    VECTOR_GROUP_YD1 = 13;
+    VECTOR_GROUP_YND1 = 14;
+    VECTOR_GROUP_YNZN1 = 15;
+    VECTOR_GROUP_YZ1 = 16;
+    VECTOR_GROUP_YZN1 = 17;
+    VECTOR_GROUP_ZD1 = 18;
+    VECTOR_GROUP_ZND1 = 19;
+    VECTOR_GROUP_ZNYN1 = 20;
+    VECTOR_GROUP_ZY1 = 21;
+    VECTOR_GROUP_ZYN1 = 22;
+    VECTOR_GROUP_DY5 = 23;
+    VECTOR_GROUP_DYN5 = 24;
+    VECTOR_GROUP_YD5 = 25;
+    VECTOR_GROUP_YND5 = 26;
+    VECTOR_GROUP_YNZ5 = 27;
+    VECTOR_GROUP_YNZN5 = 28;
+    VECTOR_GROUP_YZ5 = 29;
+    VECTOR_GROUP_YZN5 = 30;
+    VECTOR_GROUP_ZNY5 = 31;
+    VECTOR_GROUP_ZNYN5 = 32;
+    VECTOR_GROUP_ZY5 = 33;
+    VECTOR_GROUP_ZYN5 = 34;
+    VECTOR_GROUP_DD6 = 35;
+    VECTOR_GROUP_DZ6 = 36;
+    VECTOR_GROUP_DZN6 = 37;
+    VECTOR_GROUP_YNY6 = 38;
+    VECTOR_GROUP_YNYN6 = 39;
+    VECTOR_GROUP_YY6 = 40;
+    VECTOR_GROUP_YYN6 = 41;
+    VECTOR_GROUP_ZD6 = 42;
+    VECTOR_GROUP_ZND6 = 43;
+    VECTOR_GROUP_DY7 = 44;
+    VECTOR_GROUP_DYN7 = 45;
+    VECTOR_GROUP_DZ7 = 46;
+    VECTOR_GROUP_DZN7 = 47;
+    VECTOR_GROUP_YD7 = 48;
+    VECTOR_GROUP_YND7 = 49;
+    VECTOR_GROUP_YNZN7 = 50;
+    VECTOR_GROUP_YZ7 = 51;
+    VECTOR_GROUP_YZN7 = 52;
+    VECTOR_GROUP_ZD7 = 53;
+    VECTOR_GROUP_ZND7 = 54;
+    VECTOR_GROUP_ZNYN7 = 55;
+    VECTOR_GROUP_ZY7 = 56;
+    VECTOR_GROUP_ZYN7 = 57;
+    VECTOR_GROUP_DY11 = 58;
+    VECTOR_GROUP_DYN11 = 59;
+    VECTOR_GROUP_YD11 = 60;
+    VECTOR_GROUP_YND11 = 61;
+    VECTOR_GROUP_YNZ11 = 62;
+    VECTOR_GROUP_YNZN11 = 63;
+    VECTOR_GROUP_YZ11 = 64;
+    VECTOR_GROUP_YZN11 = 65;
+    VECTOR_GROUP_ZNY11 = 66;
+    VECTOR_GROUP_ZNYN11 = 67;
+    VECTOR_GROUP_ZY11 = 68;
+    VECTOR_GROUP_ZYN11 = 69;
+    VECTOR_GROUP_DY1 = 70;
+    VECTOR_GROUP_Y0 = 71;
+    VECTOR_GROUP_YN0 = 72;
+    VECTOR_GROUP_D0 = 73;
+    VECTOR_GROUP_ZNY1 = 74;
+    VECTOR_GROUP_ZNY7 = 75;
+    VECTOR_GROUP_DDN0 = 76;
+    VECTOR_GROUP_DND0 = 77;
+    VECTOR_GROUP_DNYN1 = 78;
+    VECTOR_GROUP_DNYN11 = 79;
+    VECTOR_GROUP_YNDN1 = 80;
+    VECTOR_GROUP_YNDN11 = 81;
+
+    /**
+     * Scott-T Transformer
+     */
+    VECTOR_GROUP_TTN11 = 82;
+
+}
