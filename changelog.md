@@ -18,13 +18,31 @@
   * `TransformerEndRatedS`: `cim.iec61970.base.wires` -> `cim.extensions.iec61970.base.wires`.
   * `VectorGroup`: `cim.iec61970.base.wires` -> `cim.extensions.iec61970.base.wires`.
   * `VoltageRelay`: `cim.iec61970.base.protection` -> `cim.extensions.iec61970.base.protection`.
+  * `WindingConnection`: `cim.iec61970.base.wires.winding` -> `cim.iec61970.base.wires`.
 * Updated the values of the following enums to conform to Protobuf standard naming:
   * `BatteryControlMode`
+  * `BatteryStateKind`
+  * `CustomerKind`
+  * `DiagramStyle`
+  * `EndDeviceFunctionKind`
+  * `OrientationKind`
+  * `PhaseCode`
+  * `PhaseShuntConnectionKind`
+  * `PotentialTransformerKind`
   * `PowerDirectionKind`
   * `ProtectionKind`
+  * `RegulatingControlModeKind`
+  * `SinglePhaseKind`
   * `StreetlightLampKind`
+  * `SVCControlMode`
+  * `SynchronousMachineKind`
+  * `TransformerConstructionKind`
   * `TransformerCoolingType`
+  * `TransformerFunctionKind`
+  * `UnitSymbol`
   * `VectorGroup`
+  * `WindingConnection`
+  * `WireMaterialKind`
 * Relocated the following classes that were in the wrong packages:
   * `Pole`: `cim.iec61968.assets` -> `cim.iec61968.infiec61968.infassets`.
   * `StreetlightLampKind`: `cim.iec61968.assets` -> `cim.iec61968.infiec61968.infassets`.
