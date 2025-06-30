@@ -38,6 +38,9 @@ done this before) - you then probably want to edit the `python`, `java`, and `c`
   - Any attr or class that deviates from CIM is [ZBEX]
 
 ### spec files ###
+
+  If you are adding any folders, they should be named in PascalCase.
+  
   - TC57CIM
     - The base CIM100 model
     - Gets updated when we rebase CIM onto a new standard
@@ -59,28 +62,36 @@ done this before) - you then probably want to edit the `python`, `java`, and `c`
           
             ```yaml
             name: ContactMethodType
-            description: [ZBEX] The method to use to make contact with a person or company.
+            description: \[ZBEX\] The method to use to make contact with a person or company.
             attributes:
             - name: UNKNOWN
-              description: [ZBEX] Unknown contact method type.
+              description: \[ZBEX\] Unknown contact method type.
             - name: EMAIL
-              description: [ZBEX] Contact via email using the primary address.
+              description: \[ZBEX\] Contact via email using the primary address.
             - name: PHONE
-              description: [ZBEX] Contact by call using the primary phone number.
+              description: \[ZBEX\] Contact by call using the primary phone number.
             - name: MAIL
-              description: [ZBEX] Letter by post to the contact address is the method of contact.
+              description: \[ZBEX\] Letter by post to the contact address is the method of contact.
             ```
         [//]: # (TODO: needs more info, also whats here is probably inaccurate)
     - attributes:
       - name: `nameOfTheAttributeInSnakeCase`.
-      - type: `String`, `Boolean`, `List<MyCustomType>`. regardless of if it's optional, don't put 
-        `AttrType?` here, you're not at that point in your change yet.
+      - type: `String`, `Boolean`, `MyCustomType List`. regardless of if it's optional, don't put 
+        `AttrType?` here, you're not at that point in your change yet. Only put lists here if the
+        order in the list matters, otherwise it should be an association.
       - description: `[ZBEX] ` annotation prepends the description if this is a CIM extension.
     - associations:
       - `source` - Usually the class your defining in this `spec`.
       - `target` - The class we are associating with.
+      - `sourceDescription`: `[ZBEX] ` annotation prepends the description if source or target is a
+        CIM extension.
+      - `targetDescription`: `[ZBEX] ` annotation prepends the description if source or target is a
+        CIM extension.
         
 ### proto files ###
+
+  If you are adding any folders, they should be named in lowercase.
+ 
   - Optionals:
     - `oneof`: Expected to be one of `n` options:
       ``` protobuf
