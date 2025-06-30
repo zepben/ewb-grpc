@@ -4,10 +4,22 @@
 * None.
 
 ### New Features
-* None.
+* Added the following CIM classes:
+  * `ContactDetails`: [ZBEX] The details required to contact a person or company.
+  * `ContactMethodType`: [ZBEX] The method to use to make contact with a person or company.
+  * `DateTimeInterval`: Interval between two date and time points, where the interval includes the start time but excludes end time.
+  * `DirectionalCurrentRelay`: [ZBEX] A Directional Current Relay is a type of protective relay used in electrical power systems to detect the direction of current flow and operate only when the current exceeds a certain threshold in a specified direction.
+  * `ElectronicAddress`: Electronic address information.
+  * `PolarizingQuantityType`: [ZBEX] Defines the type of polarizing quantity used by the directional relay. This informs how the relay determines the reference voltage from the Voltage transformers associated with its parent ProtectionEquipment.
+  * `TelephoneNumber`: Telephone number.
 
 ### Enhancements
-* None.
+* Added the following properties from the base CIM profile:
+  * `Agreement.validityInterval`.
+  * `TownDetail.country`.
+* Added the following extensions properties/associations:
+  * `StreetDetail.buildingNumber`.
+  * `UsagePoint.contacts`.
 
 ### Fixes
 * None.
