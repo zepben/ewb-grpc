@@ -17,7 +17,7 @@
 
 ## [0.37.0] - 2025-05-07
 ### Breaking Changes
-* None.
+* Downgrade python grpcio/protobuf versions (grpcio to `1.61.3`, protobuf to `4.25.7`).
 
 ### New Features
 * None.
