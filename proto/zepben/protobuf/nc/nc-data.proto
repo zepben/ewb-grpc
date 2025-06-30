@@ -14,6 +14,7 @@ package zepben.protobuf.nc;
 
 import "google/protobuf/any.proto";
 import "zepben/protobuf/cim/extensions/iec61968/metering/PanDemandResponseFunction.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/DirectionalCurrentRelay.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControl.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/NoLoadTest.proto";
@@ -191,6 +192,7 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.PerLengthPhaseImpedance perLengthPhaseImpedance = 85;
         zepben.protobuf.cim.iec61970.base.wires.Cut cut = 86;
         zepben.protobuf.cim.iec61970.base.wires.Clamp clamp = 87;
+        zepben.protobuf.cim.extensions.iec61970.base.protection.DirectionalCurrentRelay directionalCurrentRelay = 88;
 
 
         google.protobuf.Any other = 999;
