@@ -103,8 +103,14 @@ import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto";
 
 
 
-// The set of leaf identified objects that the network service manages.
+/**
+ * The set of leaf identified objects that the network service manages.
+ */
 message NetworkIdentifiedObject {
+
+    /**
+     * The type of identified object being returned.
+     */
     oneof identifiedObject {
         zepben.protobuf.cim.iec61968.assetinfo.CableInfo cableInfo = 1;
         zepben.protobuf.cim.iec61968.assetinfo.OverheadWireInfo overheadWireInfo = 2;
@@ -193,7 +199,7 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.Cut cut = 86;
         zepben.protobuf.cim.iec61970.base.wires.Clamp clamp = 87;
 
-
         google.protobuf.Any other = 999;
     }
+
 }

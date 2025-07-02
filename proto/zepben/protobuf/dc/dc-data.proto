@@ -17,12 +17,19 @@ import "google/protobuf/any.proto";
 import "zepben/protobuf/cim/iec61970/base/diagramlayout/Diagram.proto";
 import "zepben/protobuf/cim/iec61970/base/diagramlayout/DiagramObject.proto";
 
-// The set of leaf identified objects that the diagram service manages.
+/**
+ * The set of leaf identified objects that the diagram service manages.
+ */
 message DiagramIdentifiedObject {
+
+    /**
+     * The type of identified object being returned.
+     */
     oneof identifiedObject {
         zepben.protobuf.cim.iec61970.base.diagramlayout.Diagram diagram = 1;
         zepben.protobuf.cim.iec61970.base.diagramlayout.DiagramObject diagramObject = 2;
 
         google.protobuf.Any other = 999;
     }
+
 }

@@ -15,10 +15,19 @@ package zepben.protobuf.metadata;
 
 import "zepben/protobuf/metadata/metadata-data.proto";
 
+/**
+ * The response to a getMetadata request.
+ */
 message GetMetadataResponse {
 
+  /**
+   * An identifier for this message. Currently unused.
+   */
   int64 messageId = 1;
 
+  /**
+   * The information about the service.
+   */
   ServiceInfo serviceInfo = 2;
 
 }

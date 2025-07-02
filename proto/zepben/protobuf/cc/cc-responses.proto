@@ -15,13 +15,37 @@ package zepben.protobuf.cc;
 
 import "zepben/protobuf/cc/cc-data.proto";
 
+/**
+ * The response to a getIdentifiedObjects request.
+ */
 message GetIdentifiedObjectsResponse {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
+    /**
+     * The requested identified objects.
+     */
     repeated CustomerIdentifiedObject identifiedObjects = 2;
+
 }
 
 
+/**
+ * The response to a getCustomersForContainer request.
+ */
 message GetCustomersForContainerResponse {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
+    /**
+     * The customers contained in by the requested equipment containers.
+     */
     repeated CustomerIdentifiedObject identifiedObjects = 2;
+
 }
