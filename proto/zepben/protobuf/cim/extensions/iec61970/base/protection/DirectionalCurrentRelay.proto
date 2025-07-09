@@ -10,11 +10,10 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protection";
-option csharp_namespace = "Zepben.Protobuf.CIM.Extensions.IEC61970.Base.Protection";
 package zepben.protobuf.cim.extensions.iec61970.base.protection;
 
 import "zepben/protobuf/cim/extensions/iec61970/base/protection/PolarizingQuantityType.proto";
-import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayFunction.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayFunction.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
 import "google/protobuf/struct.proto";
 
@@ -26,7 +25,7 @@ message DirectionalCurrentRelay {
     /**
      * The ProtectionRelayFunction fields for this DirectionalCurrentRelay.
      */
-    cim.iec61970.base.protection.ProtectionRelayFunction prf = 1;
+    ProtectionRelayFunction prf = 1;
 
     /**
      * [ZBEX] The characteristic angle (in degrees) that defines the boundary between the operate and restrain regions of the directional element, relative to the polarizing quantity. Often referred to as Maximum Torque Angle (MTA) or Relay Characteristic Angle (RCA).
