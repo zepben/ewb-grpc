@@ -1,0 +1,36 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+
+
+message ComplexResult {
+  double real = 1;
+  double imaginary = 2;
+}
+
+/**
+ * Message for streaming the node level sample point reports from the opendss jvm executor.
+ */
+
+message SamplePointReport {
+  string sampleId = 1;
+  double hour = 2;
+  ComplexResult voltageA = 3;
+  ComplexResult voltageB = 4;
+  ComplexResult voltageC = 5;
+  ComplexResult currentA = 6;
+  ComplexResult currentB = 7;
+  ComplexResult currentC = 8;
+  ComplexResult powerTotal = 9;
+}
+
