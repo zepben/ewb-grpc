@@ -1,0 +1,39 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protection";
+package zepben.protobuf.cim.extensions.iec61970.base.protection;
+
+import "zepben/protobuf/cim/iec61970/base/domain/UnitSymbol.proto";
+
+/**
+ * [ZBEX] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working
+ * group outcome is merged into the CIM model.
+ * <br/>
+ * The threshold settings for a given relay.
+ */
+message RelaySetting {
+
+  /**
+   * [ZBEX] The name of the setting.
+   */
+  string name = 1;
+
+  /**
+   * [ZBEX] The unit of the value.
+   */
+  cim.iec61970.base.domain.UnitSymbol unitSymbol = 2;
+
+  /**
+   * [ZBEX] The value of the setting, e.g voltage, current, etc.
+   */
+  double value = 3;
+
+}

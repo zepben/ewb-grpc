@@ -1,0 +1,95 @@
+/*
+ * Copyright 2024 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protection";
+package zepben.protobuf.cim.extensions.iec61970.base.protection;
+
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/RelaySetting.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/PowerDirectionKind.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionKind.proto";
+import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
+import "google/protobuf/struct.proto";
+
+/**
+ * [ZBEX] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working
+ * group outcome is merged into the CIM model.
+ * <br/>
+ * A function that a relay implements to protect equipment.
+ */
+message ProtectionRelayFunction {
+
+  /**
+   * The PowerSystemResource fields for this ProtectionRelayFunction.
+   */
+  cim.iec61970.base.core.PowerSystemResource psr = 1;
+
+  /**
+   * [ZBEX] The protection equipment type name (manufacturer information)
+   */
+  string model = 2;
+
+  /**
+   * [ZBEX] True if the protection equipment is reclosing or False otherwise.
+   */
+  oneof reclosing {
+    google.protobuf.NullValue reclosingNull = 3;
+    bool reclosingSet = 4;
+  }
+
+  /**
+   * [ZBEX] The time limits (in seconds) for this relay function.
+   * Order of entries corresponds to the order of entries in thresholds.
+   */
+  repeated double timeLimits = 5;
+
+  /**
+   * [ZBEX] The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
+   */
+  repeated RelaySetting thresholds = 6;
+
+  /**
+   * [ZBEX] The time delay from detection of abnormal conditions to relay operation in seconds.
+   */
+  double relayDelayTime = 7;
+
+  /**
+   * [ZBEX] The kind of protection being provided by this ProtectionRelayFunction.
+   */
+  ProtectionKind protectionKind = 8;
+
+  /**
+   * [ZBEX] The ProtectedSwitches operated by this ProtectionRelayFunction.
+   */
+  repeated string protectedSwitchMRIDs = 9;
+
+  /**
+   * [ZBEX] Whether this ProtectionRelayFunction responds to power flow in a given direction.
+   */
+  oneof directable {
+    google.protobuf.NullValue directableNull = 10;
+    bool directableSet = 11;
+  }
+
+  /**
+   * [ZBEX] The flow of power direction used by this ProtectionRelayFunction.
+   */
+  PowerDirectionKind powerDirection = 12;
+
+  /**
+   * [ZBEX] The Sensors for this relay function.
+   */
+  repeated string sensorMRIDs = 13;
+
+  /**
+   * [ZBEX] The schemes this function operates under.
+   */
+  repeated string schemeMRIDs = 14;
+
+}

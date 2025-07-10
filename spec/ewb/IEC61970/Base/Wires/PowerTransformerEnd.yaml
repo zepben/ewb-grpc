@@ -66,3 +66,8 @@ associations:
   targetCardinality: 0..1
   targetName: PowerTransformer
   targetDescription: The power transformer of this power transformer end.
+- source: PowerTransformerEnd
+  target: TransformerEndRatedS
+  targetCardinality: 0..*
+  targetName: Ratings
+  targetDescription: \[ZBEX\] The normal apparent power ratings for this PowerTransformerEnd.

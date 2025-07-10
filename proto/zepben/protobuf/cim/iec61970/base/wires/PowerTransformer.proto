@@ -6,17 +6,15 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
+import "zepben/protobuf/cim/extensions/iec61970/base/wires/VectorGroup.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerConstructionKind.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerFunctionKind.proto";
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
-import "zepben/protobuf/cim/iec61970/base/wires/VectorGroup.proto";
 
 /**
  * An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling
@@ -47,7 +45,7 @@ message PowerTransformer {
      * Vector group of the transformer for protective relaying. For unbalanced transformers, this may not be simply
      * determined from the constituent winding connections and phase angle displacements.
      */
-    VectorGroup vectorGroup = 3;
+    cim.extensions.iec61970.base.wires.VectorGroup vectorGroup = 3;
 
     /**
      * The fraction of the transformer’s normal capacity (nameplate rating) that is in use. It may be expressed as the

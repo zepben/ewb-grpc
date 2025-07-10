@@ -4,16 +4,20 @@ description: The parts of the AC power system that are designed to carry current
 ancestors:
 - Equipment
 descendants:
-- Conductor
-- Connector
-- EnergyConnection
 - PowerTransformer
 - Switch
+- Clamp
+- Conductor
 - EquivalentEquipment
+- SeriesCompensator
+- Ground
+- Connector
+- EarthFaultCompensator
+- EnergyConnection
 associations:
 - source: ConductingEquipment
   target: Terminal
-  sourceCardinality: "1"
+  sourceCardinality: 0..1
   sourceName: ConductingEquipment
   sourceDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
     to other conducting equipment terminals via connectivity nodes or topological nodes.

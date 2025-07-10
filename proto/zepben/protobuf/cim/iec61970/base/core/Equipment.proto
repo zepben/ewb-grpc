@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "google/protobuf/timestamp.proto";
@@ -37,22 +35,22 @@ message Equipment {
     bool normallyInService = 3;
 
     /**
-     * mRID reference to the EquipmentContainer this equipment belongs to.
+     * The EquipmentContainer this equipment belongs to.
      */
     repeated string equipmentContainerMRIDs = 4;
 
     /**
-     * mRID references to all UsagePoint's for this equipment.
+     * All UsagePoint's for this equipment.
      */
     repeated string usagePointMRIDs = 5;
 
     /**
-     * mRID references to all operational restrictions for this equipment.
+     * All operational restrictions for this equipment.
      */
     repeated string operationalRestrictionMRIDs = 6;
 
     /**
-     * mRID references to all current containers for this equipment.
+     * All current containers for this equipment.
      */
     repeated string currentContainerMRIDs = 7;
 

@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.customers";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Customers";
 package zepben.protobuf.cim.iec61968.customers;
 
 /**
@@ -18,82 +16,84 @@ package zepben.protobuf.cim.iec61968.customers;
  */
 enum CustomerKind {
 
-    // Default
-    UNKNOWN = 0;
+    /**
+     * Default
+     */
+    CUSTOMER_KIND_UNKNOWN = 0;
 
     /**
      * Commercial industrial customer.
      */
-    commercialIndustrial = 1;
+    CUSTOMER_KIND_COMMERCIAL_INDUSTRIAL = 1;
 
     /**
      * Customer as energy service scheduler.
      */
-    energyServiceScheduler = 2;
+    CUSTOMER_KIND_ENERGY_SERVICE_SCHEDULER = 2;
 
     /**
      * Customer as energy service supplier.
      */
-    energyServiceSupplier = 3;
+    CUSTOMER_KIND_ENERGY_SERVICE_SUPPLIER = 3;
 
     /**
      * --- Missing form CIM ---
      */
-    enterprise = 4;
+    CUSTOMER_KIND_ENTERPRISE = 4;
 
     /**
      * Internal use customer.
      */
-    internalUse = 5;
+    CUSTOMER_KIND_INTERNAL_USE = 5;
 
     /**
      * Other kind of customer.
      */
-    other = 6;
+    CUSTOMER_KIND_OTHER = 6;
 
     /**
      * Pumping load customer.
      */
-    pumpingLoad = 7;
+    CUSTOMER_KIND_PUMPING_LOAD = 7;
 
     /**
      * --- Missing form CIM ---
      */
-    regionalOperator = 8;
+    CUSTOMER_KIND_REGIONAL_OPERATOR = 8;
 
     /**
      * Residential customer.
      */
-    residential = 9;
+    CUSTOMER_KIND_RESIDENTIAL = 9;
 
     /**
      * Residential and commercial customer.
      */
-    residentialAndCommercial = 10;
+    CUSTOMER_KIND_RESIDENTIAL_AND_COMMERCIAL = 10;
 
     /**
      * Residential and streetlight customer.
      */
-    residentialAndStreetlight = 11;
+    CUSTOMER_KIND_RESIDENTIAL_AND_STREETLIGHT = 11;
 
     /**
      * Residential farm service customer.
      */
-    residentialFarmService = 12;
+    CUSTOMER_KIND_RESIDENTIAL_FARM_SERVICE = 12;
 
     /**
      * Residential streetlight or other related customer.
      */
-    residentialStreetlightOthers = 13;
+    CUSTOMER_KIND_RESIDENTIAL_STREETLIGHT_OTHERS = 13;
 
     /**
      * --- Missing form CIM ---
      */
-    subsidiary = 14;
+    CUSTOMER_KIND_SUBSIDIARY = 14;
 
     /**
      * Wind machine customer.
      */
-    windMachine = 15;
+    CUSTOMER_KIND_WIND_MACHINE = 15;
 
 }

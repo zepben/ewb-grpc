@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.AssetInfo";
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 /**
@@ -18,62 +16,64 @@ package zepben.protobuf.cim.iec61968.assetinfo;
  */
 enum WireMaterialKind {
 
-    // Default
-    UNKNOWN = 0;
+    /**
+     * Default
+     */
+    WIRE_MATERIAL_KIND_UNKNOWN = 0;
 
     /**
      * Aluminum-alloy conductor steel reinforced.
      */
-    aaac = 1;
+    WIRE_MATERIAL_KIND_AAAC = 1;
 
     /**
      * Aluminum conductor steel reinforced.
      */
-    acsr = 2;
+    WIRE_MATERIAL_KIND_ACSR = 2;
 
     /**
      * Aluminum conductor steel reinforced, aluminumized steel core
      */
-    acsrAz = 3;
+    WIRE_MATERIAL_KIND_ACSR_AZ = 3;
 
     /**
      * Aluminum wire.
      */
-    aluminum = 4;
+    WIRE_MATERIAL_KIND_ALUMINUM = 4;
 
     /**
      * Aluminum-alloy wire.
      */
-    aluminumAlloy = 5;
+    WIRE_MATERIAL_KIND_ALUMINUM_ALLOY = 5;
 
     /**
      * Aluminum-alloy-steel wire.
      */
-    aluminumAlloySteel = 6;
+    WIRE_MATERIAL_KIND_ALUMINUM_ALLOY_STEEL = 6;
 
     /**
      * Aluminum-steel wire.
      */
-    aluminumSteel = 7;
+    WIRE_MATERIAL_KIND_ALUMINUM_STEEL = 7;
 
     /**
      * Copper wire.
      */
-    copper = 8;
+    WIRE_MATERIAL_KIND_COPPER = 8;
 
     /**
      * Copper cadmium wire.
      */
-    copperCadmium = 9;
+    WIRE_MATERIAL_KIND_COPPER_CADMIUM = 9;
 
     /**
      * Other wire material.
      */
-    other = 10;
+    WIRE_MATERIAL_KIND_OTHER = 10;
 
     /**
      * Steel wire.
      */
-    steel = 11;
+    WIRE_MATERIAL_KIND_STEEL = 11;
 
 }

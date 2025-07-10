@@ -9,7 +9,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.network.model";
-option csharp_namespace = "Zepben.Protobuf.Network.Model";
 package zepben.protobuf.network.model;
 
 /**
@@ -20,23 +19,23 @@ enum FeederDirection {
     /**
      * The terminal is not on a feeder.
      */
-    NONE = 0;
+    FEEDER_DIRECTION_NONE = 0;
 
     /**
      * The terminal can be used to trace upstream towards the feeder head.
      */
-    UPSTREAM = 1;
+    FEEDER_DIRECTION_UPSTREAM = 1;
 
     /**
      * The terminal can be used to trace downstream away from the feeder head.
      */
-    DOWNSTREAM = 2;
+    FEEDER_DIRECTION_DOWNSTREAM = 2;
 
     /**
      * The terminal is part of a loop on the feeder and tracing in either direction will allow you
      * to trace upstream towards the feeder head, or downstream away from the feeder head.
      */
-    BOTH = 3;
+    FEEDER_DIRECTION_BOTH = 3;
 
     /**
      * The terminal belongs to a Connector that is modelled with only a single terminal.
@@ -46,6 +45,6 @@ enum FeederDirection {
      * means you can't tell if a terminal with CONNECTOR is part of a loop directly, you need
      * to check its connected terminals and check for BOTH to determine if it is in a loop.
      */
-    CONNECTOR = 4;
+    FEEDER_DIRECTION_CONNECTOR = 4;
 
 }

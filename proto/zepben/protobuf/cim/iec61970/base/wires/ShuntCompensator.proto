@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/PhaseShuntConnectionKind.proto";
@@ -50,6 +48,6 @@ message ShuntCompensator {
     /**
      * The type of phase connection, such as wye or delta.
      */
-    PhaseShuntConnectionKind.Enum phaseConnection = 5;
+    PhaseShuntConnectionKind phaseConnection = 5;
 
 }

@@ -9,15 +9,38 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cc";
-option csharp_namespace = "Zepben.Protobuf.CC";
 package zepben.protobuf.cc;
 
+/**
+ * A request to get identified objects.
+ */
 message GetIdentifiedObjectsRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
+    /**
+     * The list of mRIDs to retrieve.
+     */
     repeated string mrids = 2;
+
 }
 
+/**
+ * A request to get customers for an equipment container.
+ */
 message GetCustomersForContainerRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
     int64 messageId = 1;
+
+    /**
+     * mRIDs of the EquipmentContainers to retrieve Customers for.
+     */
     repeated string mrids = 2;
+
 }

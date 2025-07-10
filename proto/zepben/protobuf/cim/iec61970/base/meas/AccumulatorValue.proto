@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
 import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
@@ -19,6 +17,7 @@ import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
  * AccumulatorValue represents an accumulated (counted) MeasurementValue.
  */
  message AccumulatorValue {
+
     /**
      * MeasurementValue fields for this AccumulatorValue.
      */
@@ -33,4 +32,5 @@ import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
      * The value to supervise. The value is positive.
      */
     uint32 value = 3;
- }
+
+}

@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.AuxiliaryEquipment";
 package zepben.protobuf.cim.iec61970.base.auxiliaryequipment;
 
 /**
@@ -21,16 +19,16 @@ enum PotentialTransformerKind {
     /**
      * The construction type of the potential transformer is unknown.
      */
-    UNKNOWN = 0;
+    POTENTIAL_TRANSFORMER_KIND_UNKNOWN = 0;
 
     /**
      * The potential transformer is using induction coils to create secondary voltage.
      */
-    inductive = 1;
+    POTENTIAL_TRANSFORMER_KIND_INDUCTIVE = 1;
 
     /**
      * The potential transformer is using capacitive coupling to create secondary voltage.
      */
-    capacitiveCoupling = 2;
+    POTENTIAL_TRANSFORMER_KIND_CAPACITIVE_COUPLING = 2;
 
 }

@@ -1,0 +1,34 @@
+name: LvFeeder
+description: \[ZBEX\] A branch of LV network starting at a distribution substation and continuing until the end of the LV network.
+ancestors:
+- EquipmentContainer
+associations:
+- source: LvFeeder
+  target: Feeder
+  sourceCardinality: 0..*
+  sourceName: NormalEnergizedLvFeeders
+  sourceDescription: \[ZBEX\] The LV feeders that are normally energized by the feeder.
+  targetCardinality: 0..*
+  targetName: NormalEnergizingFeeders
+  targetDescription: \[ZBEX\] The HV/MV feeders that energize this LV feeder.
+- source: LvFeeder
+  target: Feeder
+  sourceCardinality: 0..*
+  sourceName: CurrentlyEnergizedLvFeeders
+  sourceDescription: \[ZBEX\] The LV feeders that are currently energized by the feeder.
+  targetCardinality: 0..*
+  targetName: CurrentlyEnergizingFeeders
+  targetDescription: \[ZBEX\] The HV/MV feeders that energize this LV feeder in the current state of the network.
+- source: LvFeeder
+  target: Equipment
+  sourceCardinality: 0..*
+  sourceName: NormalLvFeeders
+  sourceDescription: \[ZBEX\] The LV feeders that are normally energized by the feeder.
+  targetCardinality: 0..*
+  targetName: CurrentEquipment
+  targetDescription: \[ZBEX\] Contained equipment using the current state of the network.
+- source: LvFeeder
+  target: Terminal
+  targetCardinality: 0..1
+  targetName: NormalHeadTerminal
+  targetDescription: \[ZBEX\] The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.

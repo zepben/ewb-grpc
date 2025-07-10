@@ -6,15 +6,13 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
+import "zepben/protobuf/cim/extensions/iec61970/base/wires/TransformerEndRatedS.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TransformerEnd.proto";
-import "zepben/protobuf/cim/iec61970/base/wires/TransformerEndRatedS.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto";
 
 /**
@@ -78,7 +76,7 @@ message PowerTransformerEnd {
     /**
      * Kind of connection.
      */
-    winding.WindingConnection connectionKind = 9;
+    WindingConnection connectionKind = 9;
 
     /**
      * Magnetizing branch susceptance (B mag).  The value can be positive or negative.
@@ -110,8 +108,8 @@ message PowerTransformerEnd {
     int32 phaseAngleClock = 14;
 
     /**
-     * The normal apparent power ratings for this PowerTransformerEnd.
+     * [ZBEX] The normal apparent power ratings for this PowerTransformerEnd.
      */
-    repeated TransformerEndRatedS ratings = 15;
+    repeated cim.extensions.iec61970.base.wires.TransformerEndRatedS ratings = 15;
 
 }

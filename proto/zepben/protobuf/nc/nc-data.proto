@@ -9,11 +9,19 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.nc";
-option csharp_namespace = "Zepben.Protobuf.NC";
 package zepben.protobuf.nc;
 
 import "google/protobuf/any.proto";
+import "zepben/protobuf/cim/extensions/iec61968/assetinfo/RelayInfo.proto";
 import "zepben/protobuf/cim/extensions/iec61968/metering/PanDemandResponseFunction.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/core/Site.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/feeder/Loop.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvFeeder.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/generation/production/EvChargingUnit.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/DistanceRelay.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayScheme.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelaySystem.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/VoltageRelay.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControl.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/NoLoadTest.proto";
@@ -26,13 +34,12 @@ import "zepben/protobuf/cim/iec61968/assetinfo/SwitchInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerEndInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTankInfo.proto";
 import "zepben/protobuf/cim/iec61968/assets/AssetOwner.proto";
-import "zepben/protobuf/cim/iec61968/assets/Pole.proto";
+import "zepben/protobuf/cim/iec61968/infiec61968/infassets/Pole.proto";
 import "zepben/protobuf/cim/iec61968/assets/Streetlight.proto";
 import "zepben/protobuf/cim/iec61968/common/Location.proto";
 import "zepben/protobuf/cim/iec61968/common/Organisation.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/CurrentTransformerInfo.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/PotentialTransformerInfo.proto";
-import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/RelayInfo.proto";
 import "zepben/protobuf/cim/iec61968/metering/Meter.proto";
 import "zepben/protobuf/cim/iec61968/metering/UsagePoint.proto";
 import "zepben/protobuf/cim/iec61968/operations/OperationalRestriction.proto";
@@ -43,25 +50,20 @@ import "zepben/protobuf/cim/iec61970/base/core/BaseVoltage.proto";
 import "zepben/protobuf/cim/iec61970/base/core/ConnectivityNode.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Feeder.proto";
 import "zepben/protobuf/cim/iec61970/base/core/GeographicalRegion.proto";
-import "zepben/protobuf/cim/iec61970/base/core/Site.proto";
 import "zepben/protobuf/cim/iec61970/base/core/SubGeographicalRegion.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Substation.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Terminal.proto";
 import "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentBranch.proto";
+import "zepben/protobuf/cim/iec61970/base/generation/production/BatteryUnit.proto";
+import "zepben/protobuf/cim/iec61970/base/generation/production/PhotoVoltaicUnit.proto";
+import "zepben/protobuf/cim/iec61970/base/generation/production/PowerElectronicsWindUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/protection/CurrentRelay.proto";
-import "zepben/protobuf/cim/iec61970/base/protection/DistanceRelay.proto";
-import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayScheme.proto";
-import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelaySystem.proto";
-import "zepben/protobuf/cim/iec61970/base/protection/VoltageRelay.proto";
 import "zepben/protobuf/cim/iec61970/base/meas/Accumulator.proto";
 import "zepben/protobuf/cim/iec61970/base/meas/Analog.proto";
 import "zepben/protobuf/cim/iec61970/base/meas/Control.proto";
 import "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto";
 import "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto";
 import "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto";
-import "zepben/protobuf/cim/iec61970/base/wires/generation/production/BatteryUnit.proto";
-import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PhotoVoltaicUnit.proto";
-import "zepben/protobuf/cim/iec61970/base/wires/generation/production/PowerElectronicsWindUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/AcLineSegment.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto";
@@ -96,14 +98,17 @@ import "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachine.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TapChangerControl.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto";
-import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Loop.proto";
-import "zepben/protobuf/cim/iec61970/infiec61970/feeder/LvFeeder.proto";
-import "zepben/protobuf/cim/iec61970/infiec61970/wires/generation/production/EvChargingUnit.proto";
 
 
 
-// The set of leaf identified objects that the network service manages.
+/**
+ * The set of leaf identified objects that the network service manages.
+ */
 message NetworkIdentifiedObject {
+
+    /**
+     * The type of identified object being returned.
+     */
     oneof identifiedObject {
         zepben.protobuf.cim.iec61968.assetinfo.CableInfo cableInfo = 1;
         zepben.protobuf.cim.iec61968.assetinfo.OverheadWireInfo overheadWireInfo = 2;
@@ -118,7 +123,7 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.core.ConnectivityNode connectivityNode = 11;
         zepben.protobuf.cim.iec61970.base.core.Feeder feeder = 12;
         zepben.protobuf.cim.iec61970.base.core.GeographicalRegion geographicalRegion = 13;
-        zepben.protobuf.cim.iec61970.base.core.Site site = 14;
+        zepben.protobuf.cim.extensions.iec61970.base.core.Site site = 14;
         zepben.protobuf.cim.iec61970.base.core.SubGeographicalRegion subGeographicalRegion = 15;
         zepben.protobuf.cim.iec61970.base.core.Substation substation = 16;
         zepben.protobuf.cim.iec61970.base.core.Terminal terminal = 17;
@@ -139,8 +144,8 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.RatioTapChanger ratioTapChanger = 32;
         zepben.protobuf.cim.iec61970.base.wires.Recloser recloser = 33;
         zepben.protobuf.cim.iec61970.infiec61970.feeder.Circuit circuit = 34;
-        zepben.protobuf.cim.iec61970.infiec61970.feeder.Loop loop = 35;
-        zepben.protobuf.cim.iec61968.assets.Pole pole = 36;
+        zepben.protobuf.cim.extensions.iec61970.base.feeder.Loop loop = 35;
+        zepben.protobuf.cim.iec61968.infiec61968.infassets.Pole pole = 36;
         zepben.protobuf.cim.iec61968.assets.Streetlight streetlight = 37;
         zepben.protobuf.cim.iec61970.base.meas.Accumulator accumulator = 38;
         zepben.protobuf.cim.iec61970.base.meas.Analog analog = 39;
@@ -151,9 +156,9 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61968.assetinfo.PowerTransformerInfo powerTransformerInfo = 44;
         zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnection powerElectronicsConnection = 45;
         zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnectionPhase powerElectronicsConnectionPhase = 46;
-        zepben.protobuf.cim.iec61970.base.wires.generation.production.BatteryUnit batteryUnit = 47;
-        zepben.protobuf.cim.iec61970.base.wires.generation.production.PhotoVoltaicUnit photoVoltaicUnit = 48;
-        zepben.protobuf.cim.iec61970.base.wires.generation.production.PowerElectronicsWindUnit powerElectronicsWindUnit = 49;
+        zepben.protobuf.cim.iec61970.base.generation.production.BatteryUnit batteryUnit = 47;
+        zepben.protobuf.cim.iec61970.base.generation.production.PhotoVoltaicUnit photoVoltaicUnit = 48;
+        zepben.protobuf.cim.iec61970.base.generation.production.PowerElectronicsWindUnit powerElectronicsWindUnit = 49;
         zepben.protobuf.cim.iec61970.base.wires.BusbarSection busbarSection = 50;
         zepben.protobuf.cim.iec61970.base.wires.LoadBreakSwitch loadBreakSwitch = 51;
         zepben.protobuf.cim.iec61970.base.wires.TransformerStarImpedance transformerStarImpedance = 52;
@@ -164,23 +169,23 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61968.assetinfo.ShortCircuitTest shortCircuitTest = 57;
         zepben.protobuf.cim.iec61970.base.equivalents.EquivalentBranch equivalentBranch = 58;
         zepben.protobuf.cim.iec61968.assetinfo.ShuntCompensatorInfo shuntCompensatorInfo = 59;
-        zepben.protobuf.cim.iec61970.infiec61970.feeder.LvFeeder lvFeeder = 60;
+        zepben.protobuf.cim.extensions.iec61970.base.feeder.LvFeeder lvFeeder = 60;
         zepben.protobuf.cim.iec61970.base.auxiliaryequipment.CurrentTransformer currentTransformer = 61;
         zepben.protobuf.cim.iec61970.base.auxiliaryequipment.PotentialTransformer potentialTransformer = 62;
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentTransformerInfo currentTransformerInfo = 63;
         zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.PotentialTransformerInfo potentialTransformerInfo = 64;
         zepben.protobuf.cim.iec61968.assetinfo.SwitchInfo switchInfo = 65;
-        zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.RelayInfo relayInfo = 66;
+        zepben.protobuf.cim.extensions.iec61968.assetinfo.RelayInfo relayInfo = 66;
         zepben.protobuf.cim.iec61970.base.protection.CurrentRelay currentRelay = 68;
         zepben.protobuf.cim.iec61970.base.wires.TapChangerControl tapChangerControl = 69;
-        zepben.protobuf.cim.iec61970.infiec61970.wires.generation.production.EvChargingUnit evChargingUnit = 70;
+        zepben.protobuf.cim.extensions.iec61970.base.generation.production.EvChargingUnit evChargingUnit = 70;
         zepben.protobuf.cim.iec61970.base.wires.SeriesCompensator seriesCompensator = 71;
         zepben.protobuf.cim.iec61970.base.wires.Ground ground = 72;
         zepben.protobuf.cim.iec61970.base.wires.GroundDisconnector groundDisconnector = 73;
-        zepben.protobuf.cim.iec61970.base.protection.ProtectionRelayScheme protectionRelayScheme = 74;
-        zepben.protobuf.cim.iec61970.base.protection.ProtectionRelaySystem protectionRelaySystem = 75;
-        zepben.protobuf.cim.iec61970.base.protection.VoltageRelay voltageRelay = 76;
-        zepben.protobuf.cim.iec61970.base.protection.DistanceRelay distanceRelay = 77;
+        zepben.protobuf.cim.extensions.iec61970.base.protection.ProtectionRelayScheme protectionRelayScheme = 74;
+        zepben.protobuf.cim.extensions.iec61970.base.protection.ProtectionRelaySystem protectionRelaySystem = 75;
+        zepben.protobuf.cim.extensions.iec61970.base.protection.VoltageRelay voltageRelay = 76;
+        zepben.protobuf.cim.extensions.iec61970.base.protection.DistanceRelay distanceRelay = 77;
         zepben.protobuf.cim.iec61970.base.wires.SynchronousMachine synchronousMachine = 78;
         zepben.protobuf.cim.iec61970.base.wires.ReactiveCapabilityCurve reactiveCapabilityCurve = 79;
         zepben.protobuf.cim.iec61970.base.wires.GroundingImpedance groundingImpedance = 80;
@@ -192,7 +197,7 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.Cut cut = 86;
         zepben.protobuf.cim.iec61970.base.wires.Clamp clamp = 87;
 
-
         google.protobuf.Any other = 999;
     }
+
 }

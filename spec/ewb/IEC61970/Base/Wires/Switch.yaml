@@ -11,13 +11,15 @@ attributes:
   type: Boolean
   description: The attribute tells if the switch is considered open when used as input to topology processing.
 - name: ratedCurrent
-  type: Float
+  type: CurrentFlow
   description: The maximum continuous current carrying capacity in amps governed by the device material and construction.
     The attribute shall be a positive value.
 ancestors:
 - ConductingEquipment
 descendants:
-- Disconnector
-- Fuse
-- Jumper
 - ProtectedSwitch
+- Cut
+- Fuse
+- GroundDisconnector
+- Jumper
+- Disconnector

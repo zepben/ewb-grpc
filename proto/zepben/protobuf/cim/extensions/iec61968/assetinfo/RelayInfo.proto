@@ -1,0 +1,46 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61968.assetinfo";
+package zepben.protobuf.cim.extensions.iec61968.assetinfo;
+
+import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
+import "google/protobuf/struct.proto";
+
+/**
+ * [ZBEX] Relay Datasheet Information.
+ */
+message RelayInfo {
+
+  /**
+   * The AssetInfo fields for this RelayInfo.
+   */
+  cim.iec61968.assets.AssetInfo ai = 1;
+
+  /**
+   * [ZBEX] The type of curve used for the Relay.
+   */
+  string curveSetting = 2;
+
+  /**
+   * [ZBEX] The reclose delays for this curve and relay type (in seconds). The index of the list is the reclose step, and the
+   * value is the overall delay time.
+   */
+  repeated double recloseDelays = 3;
+
+  /**
+   * [ZBEX] True if recloseDelays are associated with a fast Curve, False otherwise.
+   */
+  oneof recloseFast {
+    google.protobuf.NullValue recloseFastNull = 4;
+    bool recloseFastSet = 5;
+  }
+
+}

@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "google/protobuf/struct.proto";
@@ -76,29 +74,28 @@ message PowerElectronicsConnection {
   */
   repeated string powerElectronicsConnectionPhaseMRIDs = 10;
 
-
   /**
-   * The standard this inverter follows, such as AS4777.2:2020
+   * [ZBEX] The standard this inverter follows, such as AS4777.2:2020
    */
   string inverterStandard = 11;
 
   /**
-   * Indicates the sustained operation overvoltage limit in volts, when the average voltage for a 10-minute period exceeds the V¬nom-max.
+   * [ZBEX] Indicates the sustained operation overvoltage limit in volts, when the average voltage for a 10-minute period exceeds the V¬nom-max.
    */
   int32 sustainOpOvervoltLimit = 12;
 
   /**
-   * Over frequency (stop) in Hz. Permitted range is between 51 and 52 (inclusive)
+   * [ZBEX] Over frequency (stop) in Hz. Permitted range is between 51 and 52 (inclusive)
    */
   float stopAtOverFreq = 13;
 
   /**
-   * Under frequency (stop) in Hz Permitted range is between 47 and 49 (inclusive)
+   * [ZBEX] Under frequency (stop) in Hz Permitted range is between 47 and 49 (inclusive)
    */
   float stopAtUnderFreq = 14;
 
   /**
-   * Volt-Watt response mode allows an inverter to reduce is real power output depending on the measured voltage.
+   * [ZBEX] Volt-Watt response mode allows an inverter to reduce is real power output depending on the measured voltage.
    * This mode is further described in AS4777.2:2015, section 6.3.2.2. True implies the mode is enabled.
    */
   oneof invVoltWattRespMode {
@@ -107,47 +104,47 @@ message PowerElectronicsConnection {
   }
 
   /**
-   * Set point 1 in volts for inverter Volt-Watt response mode. Permitted range is between 200 and 300 (inclusive).
+   * [ZBEX] Set point 1 in volts for inverter Volt-Watt response mode. Permitted range is between 200 and 300 (inclusive).
    */
   int32 invWattRespV1 = 17;
 
   /**
-   * Set point 2 in volts for inverter Volt-Watt response mode. Permitted range is between 216 and 230 (inclusive).
+   * [ZBEX] Set point 2 in volts for inverter Volt-Watt response mode. Permitted range is between 216 and 230 (inclusive).
    */
   int32 invWattRespV2 = 18;
 
   /**
-   * Set point 3 in volts for inverter Volt-Watt response mode. Permitted range is between 235 and 255 (inclusive).
+   * [ZBEX] Set point 3 in volts for inverter Volt-Watt response mode. Permitted range is between 235 and 255 (inclusive).
    */
   int32 invWattRespV3 = 19;
 
   /**
-   * Set point 4 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+   * [ZBEX] Set point 4 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
    */
   int32 invWattRespV4 = 20;
 
   /**
-   * Power output set point 1 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
+   * [ZBEX] Power output set point 1 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
    */
   float invWattRespPAtV1 = 21;
 
   /**
-   * Power output set point 2 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
+   * [ZBEX] Power output set point 2 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
    */
   float invWattRespPAtV2 = 22;
 
   /**
-   * Power output set point 3 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
+   * [ZBEX] Power output set point 3 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
    */
   float invWattRespPAtV3 = 23;
 
   /**
-   * Power output set point 4 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+   * [ZBEX] Power output set point 4 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
    */
   float invWattRespPAtV4 = 24;
 
   /**
-   * Volt-VAr response mode allows an inverter to consume (sink) or produce (source) reactive power depending on the measured voltage.
+   * [ZBEX] Volt-VAr response mode allows an inverter to consume (sink) or produce (source) reactive power depending on the measured voltage.
    * This mode is further described in AS4777.2:2015, section 6.3.2.3. True implies the mode is enabled.
    */
   oneof invVoltVarRespMode {
@@ -156,50 +153,50 @@ message PowerElectronicsConnection {
   }
 
   /**
-   * Set point 1 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+   * [ZBEX] Set point 1 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
   int32 invVarRespV1 = 27;
 
   /**
-   * Set point 2 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+   * [ZBEX] Set point 2 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
   int32 invVarRespV2 = 28;
 
   /**
-   * Set point 3 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+   * [ZBEX] Set point 3 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
   int32 invVarRespV3 = 29;
 
   /**
-   * Set point 4 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+   * [ZBEX] Set point 4 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
   int32 invVarRespV4 = 30;
 
   /**
-   * Power output set point 1 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between 0 and 0.6 (inclusive).
+   * [ZBEX] Power output set point 1 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between 0 and 0.6 (inclusive).
    */
   float invVarRespQAtV1 = 31;
 
   /**
-   * Power output set point 2 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
+   * [ZBEX] Power output set point 2 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
    * negative number referring to a sink.
    */
   float invVarRespQAtV2 = 32;
 
   /**
-   * Power output set point 3 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
+   * [ZBEX] Power output set point 3 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
    * negative number referring to a sink.
    */
   float invVarRespQAtV3 = 33;
 
   /**
-   * Power output set point 4 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
+   * [ZBEX] Power output set point 4 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
    * negative number referring to a sink.
    */
   float invVarRespQAtV4 = 34;
 
   /**
-   * If true, enables Static Reactive Power mode on the inverter.
+   * [ZBEX] If true, enables Static Reactive Power mode on the inverter.
    * Note: It must be false if invVoltVarRespMode or InvVoltWattRespMode is true.
    */
   oneof invReactivePowerMode {
@@ -208,7 +205,7 @@ message PowerElectronicsConnection {
   }
 
   /**
-   * Static Reactive Power, specified in a percentage output of the system. Permitted range is between -1.0 and 1.0 (inclusive), with a negative
+   * [ZBEX] Static Reactive Power, specified in a percentage output of the system. Permitted range is between -1.0 and 1.0 (inclusive), with a negative
    * sign referring to “sink”.
    */
   float invFixReactivePower = 37;

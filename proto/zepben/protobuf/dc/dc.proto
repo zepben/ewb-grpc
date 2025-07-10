@@ -9,7 +9,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.dc";
-option csharp_namespace = "Zepben.Protobuf.DC";
 package zepben.protobuf.dc;
 
 import "google/protobuf/empty.proto";
@@ -19,18 +18,29 @@ import "zepben/protobuf/dc/dc-responses.proto";
 import "zepben/protobuf/metadata/metadata-requests.proto";
 import "zepben/protobuf/metadata/metadata-responses.proto";
 
+/**
+ * A service providing consumer access to the diagram details.
+ */
 service DiagramConsumer {
 
-    // Get identified objects
+    /**
+     * Get identified objects
+     */
     rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
-    // Get diagram objects
+    /**
+     * Get diagram objects
+     */
     rpc getDiagramObjects(stream GetDiagramObjectsRequest) returns (stream GetDiagramObjectsResponse);
 
-    // Get Metadata related to the service
+    /**
+     * Get Metadata related to the service
+     */
     rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
 
-    // Return an empty response for SDK connection tests
+    /**
+     * Return an empty response for SDK connection tests
+     */
     rpc checkConnection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
 }

@@ -9,10 +9,9 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.protection";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Protection";
 package zepben.protobuf.cim.iec61970.base.protection;
 
-import "zepben/protobuf/cim/iec61970/base/protection/ProtectionRelayFunction.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayFunction.proto";
 import "google/protobuf/struct.proto";
 
 
@@ -24,7 +23,7 @@ message CurrentRelay {
   /**
    * The ProtectionRelayFunction fields for this CurrentRelay.
    */
-  ProtectionRelayFunction prf = 1;
+  cim.extensions.iec61970.base.protection.ProtectionRelayFunction prf = 1;
 
   /**
    * Current limit number one 1 for inverse time pickup in amperes.

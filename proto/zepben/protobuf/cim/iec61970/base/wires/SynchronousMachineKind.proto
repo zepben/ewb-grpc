@@ -9,56 +9,51 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 /**
  * Synchronous machine type.
  */
-message SynchronousMachineKind {
+enum SynchronousMachineKind {
 
     /**
-     * NOTE: This enum is wrapped in a message due to a c98 naming conflict with UNKNOWN
+     * Indicates the synchronous machine operates in an unknown manner.
      */
-    enum Enum {
+    SYNCHRONOUS_MACHINE_KIND_UNKNOWN = 0;
 
-        UNKNOWN = 0;
+    /**
+     * Indicates the synchronous machine can operate as a generator.
+     */
+    SYNCHRONOUS_MACHINE_KIND_GENERATOR = 1;
 
-        /**
-         * Indicates the synchronous machine can operate as a generator.
-         */
-        generator = 1;
+    /**
+     * Indicates the synchronous machine can operate as a condenser.
+     */
+    SYNCHRONOUS_MACHINE_KIND_CONDENSER = 2;
 
-        /**
-         * Indicates the synchronous machine can operate as a condenser.
-         */
-        condenser = 2;
+    /**
+     * Indicates the synchronous machine can operate as a generator or as a condenser.
+     */
+    SYNCHRONOUS_MACHINE_KIND_GENERATOR_OR_CONDENSER = 3;
 
-        /**
-         * Indicates the synchronous machine can operate as a generator or as a condenser.
-         */
-        generatorOrCondenser = 3;
+    /**
+     * Indicates the synchronous machine can operate as a motor.
+     */
+    SYNCHRONOUS_MACHINE_KIND_MOTOR = 4;
 
-        /**
-         * Indicates the synchronous machine can operate as a motor.
-         */
-        motor = 4;
+    /**
+     * Indicates the synchronous machine can operate as a generator or as a motor.
+     */
+    SYNCHRONOUS_MACHINE_KIND_GENERATOR_OR_MOTOR = 5;
 
-        /**
-         * Indicates the synchronous machine can operate as a generator or as a motor.
-         */
-        generatorOrMotor = 5;
+    /**
+     * Indicates the synchronous machine can operate as a motor or as a condenser.
+     */
+    SYNCHRONOUS_MACHINE_KIND_MOTOR_OR_CONDENSER = 6;
 
-        /**
-         * Indicates the synchronous machine can operate as a motor or as a condenser.
-         */
-        motorOrCondenser = 6;
-
-        /**
-         * Indicates the synchronous machine can operate as a generator or as a condenser or as a motor.
-         */
-        generatorOrCondenserOrMotor = 7;
-
-    }
+    /**
+     * Indicates the synchronous machine can operate as a generator or as a condenser or as a motor.
+     */
+    SYNCHRONOUS_MACHINE_KIND_GENERATOR_OR_CONDENSER_OR_MOTOR = 7;
 
 }

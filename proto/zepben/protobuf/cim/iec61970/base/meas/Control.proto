@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
 import "zepben/protobuf/cim/iec61970/base/meas/IoPoint.proto";
@@ -29,12 +27,12 @@ message Control {
     /**
      * Regulating device governed by this control output.
      */
-    string powerSystemResourceMRID = 3;
+    string powerSystemResourceMRID = 2;
 
     /**
      * The remote point controlling the physical actuator.
      * The presence of a remoteControl indicates that the actuator is remotely controllable (i.e: remoteControlled = True)
      */
-    string remoteControlMRID = 4;
+    string remoteControlMRID = 3;
 
 }

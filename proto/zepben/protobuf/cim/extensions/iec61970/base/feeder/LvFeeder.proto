@@ -1,0 +1,41 @@
+/*
+ * Copyright 2022 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.feeder";
+package zepben.protobuf.cim.extensions.iec61970.base.feeder;
+
+import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+
+/**
+ * [ZBEX] A branch of LV network starting at a distribution substation and continuing until the end of the LV network.
+ */
+message LvFeeder {
+
+    /**
+     * EquipmentContainer fields for this LvFeeder.
+     */
+    cim.iec61970.base.core.EquipmentContainer ec = 1;
+
+    /**
+     * [ZBEX] The normal head terminal of this LvFeeder, typically the LV terminal of a distribution substation.
+     */
+    string normalHeadTerminalMRID = 2;
+
+    /**
+     * [ZBEX] The HV/MV feeders that energize this LvFeeder.
+     */
+    repeated string normalEnergizingFeederMRIDs = 3;
+
+    /**
+     * [ZBEX] The HV/MV feeders that energize this LV feeder in the current state of the network.
+     */
+    repeated string currentlyEnergizingFeederMRIDs = 4;
+
+}

@@ -9,9 +9,16 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.connection";
-option csharp_namespace = "Zepben.Protobuf.Connection";
 package zepben.protobuf.connection;
 
+/**
+ * A simple request object sent to check that a connection is active.
+ */
 message CheckConnectionRequest {
+
+  /**
+   * An identifier for this message. Currently unused.
+   */
   int64 messageId = 1;
+
 }

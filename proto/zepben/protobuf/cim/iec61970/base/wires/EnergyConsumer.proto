@@ -6,11 +6,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
-option csharp_namespace = "Zepben.Protobuf.CIM.IEC61970.Base.Wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/EnergyConnection.proto";
@@ -57,7 +55,7 @@ message EnergyConsumer {
     /**
      * The configuration of phase connections for a single terminal device such as a load or capacitor.
      */
-    PhaseShuntConnectionKind.Enum phaseConnection = 7;
+    PhaseShuntConnectionKind phaseConnection = 7;
 
     /**
      * Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.

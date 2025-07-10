@@ -2,11 +2,20 @@ name: ProtectedSwitch
 description: A ProtectedSwitch is a switching device that can be operated by ProtectionEquipment.
 attributes:
 - name: breakingCapacity
-  type: Integer
+  type: CurrentFlow
   description: The maximum fault current in amps a breaking device can break safely under prescribed conditions of use.
 ancestors:
 - Switch
 descendants:
 - Breaker
 - LoadBreakSwitch
-- Recolser
+- Recloser
+associations:
+- source: ProtectedSwitch
+  target: ProtectionRelayFunction
+  sourceCardinality: 0..*
+  sourceName: ProtectedSwitches
+  sourceDescription: \[ZBEX\] The ProtectedSwitches operated by this ProtectionRelayFunction.
+  targetCardinality: 0..*
+  targetName: RelayFunctions
+  targetDescription: \[ZBEX\] The ProtectionRelayFunctions operating this ProtectedSwitch.
