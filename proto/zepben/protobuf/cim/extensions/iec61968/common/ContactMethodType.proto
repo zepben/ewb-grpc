@@ -1,0 +1,40 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61968.common";
+package zepben.protobuf.cim.extensions.iec61968.common;
+
+/**
+ * [ZBEX] The method to use to make contact with a person or company.
+ */
+enum ContactMethodType {
+
+    /**
+     * [ZBEX] Unknown contact method type.
+     */
+    CONTACT_METHOD_TYPE_UNKNOWN = 0;
+
+    /**
+     * [ZBEX] Contact via email using the primary email address.
+     */
+    CONTACT_METHOD_TYPE_EMAIL = 1;
+
+    /**
+     * [ZBEX] Contact by call using the primary phone number.
+     */
+    CONTACT_METHOD_TYPE_CALL = 2;
+
+    /**
+     * [ZBEX] Letter by post to the contact address is the method of contact.
+     */
+    CONTACT_METHOD_TYPE_LETTER = 3;
+
+}
