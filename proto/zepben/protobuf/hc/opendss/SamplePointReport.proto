@@ -11,26 +11,73 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.hc.opendss";
 option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+package zepben.protobuf.hc.opendss;
 
 
 message ComplexResult {
-  double real = 1;
-  double imaginary = 2;
+
+    /**
+     * The real component of the complex number.
+     */
+    double real = 1;
+
+
+    /**
+     * The imaginary component of the complex number.
+     */
+    double imaginary = 2;
+
 }
 
 /**
  * Message for streaming the node level sample point reports from the opendss jvm executor.
  */
-
 message SamplePointReport {
-  string sampleId = 1;
-  double hour = 2;
-  ComplexResult voltageA = 3;
-  ComplexResult voltageB = 4;
-  ComplexResult voltageC = 5;
-  ComplexResult currentA = 6;
-  ComplexResult currentB = 7;
-  ComplexResult currentC = 8;
-  ComplexResult powerTotal = 9;
+
+    /**
+     * The ID of the sample.
+     */
+    string sampleId = 1;
+
+    /**
+     * The interval of the sample, from 0.
+     */
+    double hour = 2;
+
+    /**
+     * Voltage on phase A
+     */
+    ComplexResult voltageA = 3;
+
+
+    /**
+     * Voltage on phase B
+     */
+    ComplexResult voltageB = 4;
+
+    /**
+     * Voltage on phase C
+     */
+    ComplexResult voltageC = 5;
+
+    /**
+     * Current on phase A
+     */
+    ComplexResult currentA = 6;
+
+    /**
+     * Current on phase B
+     */
+    ComplexResult currentB = 7;
+
+    /**
+     * Current on phase C
+     */
+    ComplexResult currentC = 8;
+
+    /**
+     * Active power aggregated across all phases.
+     */
+    ComplexResult powerTotal = 9;
 }
 
