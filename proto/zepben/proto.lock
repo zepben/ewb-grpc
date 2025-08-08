@@ -12224,6 +12224,12 @@
                 "name": "failure",
                 "type": "bool",
                 "oneof_parent": "report"
+              },
+              {
+                "id": 15,
+                "name": "spr",
+                "type": "SamplePointReport",
+                "oneof_parent": "report"
               }
             ]
           },
@@ -12245,6 +12251,9 @@
           },
           {
             "path": "zepben/protobuf/hc/opendss/Diagnostics.proto"
+          },
+          {
+            "path": "zepben/protobuf/hc/opendss/SamplePointReport.proto"
           }
         ],
         "package": {
@@ -12258,6 +12267,95 @@
           {
             "name": "java_package",
             "value": "com.zepben.protobuf.hc.opendss"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:hc:/:opendss:/:SamplePointReport.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ComplexResult",
+            "fields": [
+              {
+                "id": 1,
+                "name": "real",
+                "type": "double"
+              },
+              {
+                "id": 2,
+                "name": "imaginary",
+                "type": "double"
+              }
+            ]
+          },
+          {
+            "name": "SamplePointReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "sampleId",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "hour",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "voltageA",
+                "type": "ComplexResult"
+              },
+              {
+                "id": 4,
+                "name": "voltageB",
+                "type": "ComplexResult"
+              },
+              {
+                "id": 5,
+                "name": "voltageC",
+                "type": "ComplexResult"
+              },
+              {
+                "id": 6,
+                "name": "currentA",
+                "type": "ComplexResult"
+              },
+              {
+                "id": 7,
+                "name": "currentB",
+                "type": "ComplexResult"
+              },
+              {
+                "id": 8,
+                "name": "currentC",
+                "type": "ComplexResult"
+              },
+              {
+                "id": 9,
+                "name": "powerTotal",
+                "type": "ComplexResult"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc.opendss"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc.opendss"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC.OpenDSS"
           }
         ]
       }
