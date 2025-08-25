@@ -27,17 +27,11 @@ import "google/protobuf/struct.proto";
     /**
      * An analog value object is part of an analog.
      */
-    oneof analogMRID {
-      google.protobuf.NullValue analogMRIDNull = 2;
-      string analogMRIDSet = 3;
-    }
+    string analogMRID = 2;
 
     /**
      * The value to supervise.
      */
-    oneof value {
-      google.protobuf.NullValue valueNull = 4;
-      double valueSet = 5;
-    }
+    double value = 3;
 
 }
