@@ -15,6 +15,7 @@ import "zepben/protobuf/cim/extensions/iec61970/base/wires/VectorGroup.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerConstructionKind.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassetinfo/TransformerFunctionKind.proto";
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling
@@ -51,16 +52,19 @@ message PowerTransformer {
      * The fraction of the transformer’s normal capacity (nameplate rating) that is in use. It may be expressed as the
      * result of the calculation S/Sn, where S = Load on Transformer (in VA), Sn = Transformer Nameplate Rating (in VA).
      */
-    double transformerUtilisation = 4;
+    oneof transformerUtilisation {
+      google.protobuf.NullValue transformerUtilisationNull = 4;
+      double transformerUtilisationSet = 5;
+    }
 
     /**
      * The construction kind of this transformer
      */
-    iec61968.infiec61968.infassetinfo.TransformerConstructionKind constructionKind = 5;
+    iec61968.infiec61968.infassetinfo.TransformerConstructionKind constructionKind = 6;
 
     /**
      * The function of this transformer
      */
-    iec61968.infiec61968.infassetinfo.TransformerFunctionKind function = 6;
+    iec61968.infiec61968.infassetinfo.TransformerFunctionKind function = 7;
 
 }

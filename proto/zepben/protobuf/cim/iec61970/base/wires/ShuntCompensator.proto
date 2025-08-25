@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/PhaseShuntConnectionKind.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A shunt capacitor or reactor or switchable bank of shunt capacitors or reactors. A section of a shunt compensator is an individual
@@ -33,21 +34,30 @@ message ShuntCompensator {
      * designed, a solutions where a narrow voltage band force the sections to oscillate or accommodate for a continuous
      * solution as input.
      */
-    double sections = 2;
+    oneof sections {
+      google.protobuf.NullValue sectionsNull = 2;
+      double sectionsSet = 3;
+    }
 
     /**
      * Used for Yn and Zn connections. True if the neutral is solidly grounded.
      */
-    bool grounded = 3;
+    oneof grounded {
+      google.protobuf.NullValue groundedNull = 4;
+      bool groundedSet = 5;
+    }
 
     /**
      * The voltage at which the nominal reactive power may be calculated. This should normally be within 10% of the voltage at which the capacitor is connected to the network.
      */
-    int32 nomU = 4;
+    oneof nomU {
+      google.protobuf.NullValue nomUNull = 6;
+      int32 nomUSet = 7;
+    }
 
     /**
      * The type of phase connection, such as wye or delta.
      */
-    PhaseShuntConnectionKind phaseConnection = 5;
+    PhaseShuntConnectionKind phaseConnection = 8;
 
 }

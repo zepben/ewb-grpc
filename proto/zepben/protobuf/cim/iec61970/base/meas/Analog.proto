@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
 import "zepben/protobuf/cim/iec61970/base/meas/Measurement.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Analog represents an analog Measurement.
@@ -29,6 +30,9 @@ message Analog {
      * positive value measured at the Terminal means power is 
      * flowing into the related PowerSystemResource.
      */
-    bool positiveFlowIn = 3;
+    oneof positiveFlowIn {
+      google.protobuf.NullValue positiveFlowInNull = 2;
+      bool positiveFlowInSet = 3;
+    }
 
 }

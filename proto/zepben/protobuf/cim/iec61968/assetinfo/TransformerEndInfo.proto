@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Transformer end data.
@@ -32,80 +33,125 @@ message TransformerEndInfo {
   /**
    * Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
    */
-  int32 emergencyS = 3;
+  oneof emergencyS {
+    google.protobuf.NullValue emergencySNull = 3;
+    int32 emergencySSet = 4;
+  }
 
   /**
    * Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
    * Highest voltage winding should be 1.
    */
-  int32 endNumber = 4;
+  oneof endNumber {
+    google.protobuf.NullValue endNumberNull = 5;
+    int32 endNumberSet = 6;
+  }
 
   /**
    * Basic insulation level voltage rating.
    */
-  int32 insulationU = 5;
+  oneof insulationU {
+    google.protobuf.NullValue insulationUNull = 7;
+    int32 insulationUSet = 8;
+  }
 
   /**
    * Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}.
    * For example, to express the second winding in code 'Dyn11',
    * set attributes as follows: 'endNumber'=2, 'connectionKind' = Yn and 'phaseAngleClock' = 11.
    */
-  int32 phaseAngleClock = 6;
+  oneof phaseAngleClock {
+    google.protobuf.NullValue phaseAngleClockNull = 9;
+    int32 phaseAngleClockSet = 10;
+  }
 
   /**
    * DC resistance.
    */
-  double r = 7;
+  oneof r {
+    google.protobuf.NullValue rNull = 11;
+    double rSet = 12;
+  }
 
   /**
    * Normal apparent power rating.
    */
-  int32 ratedS = 8;
+  oneof ratedS {
+    google.protobuf.NullValue ratedSNull = 13;
+    int32 ratedSSet = 14;
+  }
 
   /**
    * Rated voltage: phase-phase for three-phase windings, and either phase-phase
    * or phase-neutral for single-phase windings.
    */
-  int32 ratedU = 9;
+  oneof ratedU {
+    google.protobuf.NullValue ratedUNull = 15;
+    int32 ratedUSet = 16;
+  }
 
   /**
    * Apparent power that this winding can carry for a short period of time (in emergency).
    */
-  int32 shortTermS = 10;
+  oneof shortTermS {
+    google.protobuf.NullValue shortTermSNull = 17;
+    int32 shortTermSSet = 18;
+  }
 
   /**
    * Transformer tank data that this end description is part of.
    */
-  string transformerTankInfoMRID = 11;
+  oneof transformerTankInfoMRID {
+    google.protobuf.NullValue transformerTankInfoMRIDNull = 19;
+    string transformerTankInfoMRIDSet = 20;
+  }
 
   /**
    * Transformer star impedance calculated from this transformer end datasheet.
    */
-  string transformerStarImpedanceMRID = 12;
+  oneof transformerStarImpedanceMRID {
+    google.protobuf.NullValue transformerStarImpedanceMRIDNull = 21;
+    string transformerStarImpedanceMRIDSet = 22;
+  }
 
   /**
    * All no-load test measurements in which this transformer end was energised.
    */
-  string energisedEndNoLoadTestsMRID = 13;
+  oneof energisedEndNoLoadTestsMRID {
+    google.protobuf.NullValue energisedEndNoLoadTestsMRIDNull = 23;
+    string energisedEndNoLoadTestsMRIDSet = 24;
+  }
 
   /**
    * All short-circuit test measurements in which this transformer end was short-circuited.
    */
-  string energisedEndShortCircuitTestsMRID = 14;
+  oneof energisedEndShortCircuitTestsMRID {
+    google.protobuf.NullValue energisedEndShortCircuitTestsMRIDNull = 25;
+    string energisedEndShortCircuitTestsMRIDSet = 26;
+  }
 
   /**
    * All short-circuit test measurements in which this transformer end was energised.
    */
-  string groundedEndShortCircuitTestsMRID = 15;
+  oneof groundedEndShortCircuitTestsMRID {
+    google.protobuf.NullValue groundedEndShortCircuitTestsMRIDNull = 27;
+    string groundedEndShortCircuitTestsMRIDSet = 28;
+  }
 
   /**
    * All open-circuit test measurements in which this transformer end was not excited.
    */
-  string openEndOpenCircuitTestsMRID = 16;
+  oneof openEndOpenCircuitTestsMRID {
+    google.protobuf.NullValue openEndOpenCircuitTestsMRIDNull = 29;
+    string openEndOpenCircuitTestsMRIDSet = 30;
+  }
 
   /**
    * All open-circuit test measurements in which this transformer end was excited.
    */
-  string energisedEndOpenCircuitTestsMRID = 17;
+  oneof energisedEndOpenCircuitTestsMRID {
+    google.protobuf.NullValue energisedEndOpenCircuitTestsMRIDNull = 31;
+    string energisedEndOpenCircuitTestsMRIDSet = 32;
+  }
 
 }

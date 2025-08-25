@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Properties of shunt capacitor, shunt reactor or switchable bank of shunt capacitor or reactor assets.
@@ -26,21 +27,33 @@ message ShuntCompensatorInfo {
   /**
    * Maximum allowed apparent power loss in watts.
    */
-  int32 maxPowerLoss = 2;
+  oneof maxPowerLoss {
+    google.protobuf.NullValue maxPowerLossNull = 2;
+    int32 maxPowerLossSet = 3;
+  }
 
   /**
    * Rated current in amperes.
    */
-  int32 ratedCurrent = 3;
+  oneof ratedCurrent {
+    google.protobuf.NullValue ratedCurrentNull = 4;
+    int32 ratedCurrentSet = 5;
+  }
 
   /**
    * Rated reactive power in volt-amperes reactive.
    */
-  int32 ratedReactivePower = 4;
+  oneof ratedReactivePower {
+    google.protobuf.NullValue ratedReactivePowerNull = 6;
+    int32 ratedReactivePowerSet = 7;
+  }
 
   /**
    * Rated voltage in volts.
    */
-  int32 ratedVoltage = 5;
+  oneof ratedVoltage {
+    google.protobuf.NullValue ratedVoltageNull = 8;
+    int32 ratedVoltageSet = 9;
+  }
 
 }

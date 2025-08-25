@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTest.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Sub-transmission circuits are usually arranged in loops so that a single line failure does not cut off
@@ -27,51 +28,81 @@ message ShortCircuitTest {
   /**
    * Short circuit current in amps.
    */
-  double current = 2;
+  oneof current {
+    google.protobuf.NullValue currentNull = 2;
+    double currentSet = 3;
+  }
 
   /**
    * Tap step number for the energised end of the test pair.
    */
-  int32 energisedEndStep = 3;
+  oneof energisedEndStep {
+    google.protobuf.NullValue energisedEndStepNull = 4;
+    int32 energisedEndStepSet = 5;
+  }
 
   /**
    * Tap step number for the grounded end of the test pair.
    */
-  int32 groundedEndStep = 4;
+  oneof groundedEndStep {
+    google.protobuf.NullValue groundedEndStepNull = 6;
+    int32 groundedEndStepSet = 7;
+  }
 
   /**
    * Leakage impedance measured from a positive-sequence or single-phase short-circuit test in ohms.
    */
-  double leakageImpedance = 5;
+  oneof leakageImpedance {
+    google.protobuf.NullValue leakageImpedanceNull = 8;
+    double leakageImpedanceSet = 9;
+  }
 
   /**
    * Leakage impedance measured from a zero-sequence short-circuit test in ohms.
    */
-  double leakageImpedanceZero = 6;
+  oneof leakageImpedanceZero {
+    google.protobuf.NullValue leakageImpedanceZeroNull = 10;
+    double leakageImpedanceZeroSet = 11;
+  }
 
   /**
    * Load losses from a positive-sequence or single-phase short-circuit test in watts.
    */
-  int32 loss = 7;
+  oneof loss {
+    google.protobuf.NullValue lossNull = 12;
+    int32 lossSet = 13;
+  }
 
   /**
    * Load losses from a zero-sequence short-circuit test in watts.
    */
-  int32 lossZero = 8;
+  oneof lossZero {
+    google.protobuf.NullValue lossZeroNull = 14;
+    int32 lossZeroSet = 15;
+  }
 
   /**
    * Short circuit apparent power in watts.
    */
-  int32 power = 9;
+  oneof power {
+    google.protobuf.NullValue powerNull = 16;
+    int32 powerSet = 17;
+  }
 
   /**
    * Short circuit voltage as a percentage.
    */
-  double voltage = 10;
+  oneof voltage {
+    google.protobuf.NullValue voltageNull = 18;
+    double voltageSet = 19;
+  }
 
   /**
    * Short Circuit Voltage – Ohmic Part as a percentage.
    */
-  double voltageOhmicPart = 11;
+  oneof voltageOhmicPart {
+    google.protobuf.NullValue voltageOhmicPartNull = 20;
+    double voltageOhmicPartSet = 21;
+  }
 
 }

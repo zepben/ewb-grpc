@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.customers";
 package zepben.protobuf.cim.iec61968.customers;
 
 import "zepben/protobuf/cim/iec61968/common/Agreement.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Agreement between the customer and the service supplier to pay for service at a specific service location. It
@@ -28,11 +29,14 @@ message CustomerAgreement {
     /**
      * Customer for this agreement.
      */
-    string customerMRID = 2;
+    oneof customerMRID {
+      google.protobuf.NullValue customerMRIDNull = 2;
+      string customerMRIDSet = 3;
+    }
 
     /**
      * All pricing structures applicable to this customer agreement.
      */
-    repeated string pricingStructureMRIDs = 3;
+    repeated string pricingStructureMRIDs = 4;
 
 }

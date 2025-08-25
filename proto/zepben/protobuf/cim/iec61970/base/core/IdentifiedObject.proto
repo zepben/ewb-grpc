@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/Name.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * This is a root class to provide common identification for all classes needing identification and naming attributes.
@@ -30,22 +31,31 @@ message IdentifiedObject {
     /**
      * The name is any free human readable and possibly non unique text naming the object.
      */
-    string name = 2;
+    oneof name {
+      google.protobuf.NullValue nameNull = 2;
+      string nameSet = 3;
+    }
 
     /**
      * Count of the DiagramObject's that are associated with this IdentifiedObject
      */
-    int32 numDiagramObjects = 3;
+    oneof numDiagramObjects {
+      google.protobuf.NullValue numDiagramObjectsNull = 4;
+      int32 numDiagramObjectsSet = 5;
+    }
 
     /**
      * The description is a free human readable text describing or naming the object.
      * It may be non unique and may not correlate to a naming hierarchy.
      */
-    string description = 4;
+    oneof description {
+      google.protobuf.NullValue descriptionNull = 6;
+      string descriptionSet = 7;
+    }
 
     /**
      * All names of this identified object.
      */
-    repeated Name names = 5;
+    repeated Name names = 8;
 
 }

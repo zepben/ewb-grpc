@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.generation.producti
 package zepben.protobuf.cim.iec61970.base.generation.production;
 
 import "zepben/protobuf/cim/iec61970/base/core/Equipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A generating unit or battery or aggregation that connects to the AC network using power electronics rather than
@@ -27,16 +28,22 @@ message PowerElectronicsUnit {
   /**
    * Maximum active power limit. This is the maximum (nameplate) limit for the unit.
    */
-  int32 maxP = 2;
+  oneof maxP {
+    google.protobuf.NullValue maxPNull = 2;
+    int32 maxPSet = 3;
+  }
 
   /**
    * Minimum active power limit. This is the minimum (nameplate) limit for the unit.
    */
-  int32 minP = 3;
+  oneof minP {
+    google.protobuf.NullValue minPNull = 4;
+    int32 minPSet = 5;
+  }
 
   /**
    * A power electronics unit has a connection to the AC network.
    */
-  string powerElectronicsConnectionMRID = 4;
+  string powerElectronicsConnectionMRID = 6;
 
 }

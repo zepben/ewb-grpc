@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
 import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * AccumulatorValue represents an accumulated (counted) MeasurementValue.
@@ -31,6 +32,9 @@ import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
     /**
      * The value to supervise. The value is positive.
      */
-    uint32 value = 3;
+    oneof value {
+      google.protobuf.NullValue valueNull = 3;
+      uint32 valueSet = 4;
+    }
 
 }

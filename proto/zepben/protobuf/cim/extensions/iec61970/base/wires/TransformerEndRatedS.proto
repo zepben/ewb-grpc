@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.wires";
 package zepben.protobuf.cim.extensions.iec61970.base.wires;
 
 import "zepben/protobuf/cim/extensions/iec61970/base/wires/TransformerCoolingType.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] Normal apparent power rating for a PowerTransformerEnd based on their cooling types.
@@ -26,6 +27,9 @@ message TransformerEndRatedS {
     /**
      * [ZBEX] The normal apparent power rating for this cooling type.
      */
-    int32 ratedS = 2;
+    oneof ratedS {
+      google.protobuf.NullValue ratedSNull = 2;
+      int32 ratedSSet = 3;
+    }
 
 }

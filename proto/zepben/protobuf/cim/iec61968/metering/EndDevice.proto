@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.metering";
 package zepben.protobuf.cim.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetContainer.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Asset container that performs one or more end device functions. One type of end device is a meter which can
@@ -41,16 +42,22 @@ message EndDevice {
     /**
      * Reference to customer owning this end device.
      */
-    string customerMRID = 3;
+    oneof customerMRID {
+      google.protobuf.NullValue customerMRIDNull = 3;
+      string customerMRIDSet = 4;
+    }
 
     /**
      * Service location whose service delivery is measured by this end device.
      */
-    string serviceLocationMRID = 4;
+    oneof serviceLocationMRID {
+      google.protobuf.NullValue serviceLocationMRIDNull = 5;
+      string serviceLocationMRIDSet = 6;
+    }
 
     /**
      * All end device functions this end device performs.
      */
-    repeated string endDeviceFunctionMRIDs = 5;
+    repeated string endDeviceFunctionMRIDs = 7;
 
 }

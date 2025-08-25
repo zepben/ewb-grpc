@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/ProtectedSwitch.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A mechanical switching device capable of making, carrying, and breaking currents under normal circuit conditions
@@ -28,6 +29,9 @@ message Breaker {
     /**
      * The transition time from open to close in seconds.
      */
-    double inTransitTime = 2;
+    oneof inTransitTime {
+      google.protobuf.NullValue inTransitTimeNull = 2;
+      double inTransitTimeSet = 3;
+    }
 
 }

@@ -11,6 +11,8 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.infiec61968.infcommon";
 package zepben.protobuf.cim.iec61968.infiec61968.infcommon;
 
+import "google/protobuf/struct.proto";
+
 /**
  * Fraction specified explicitly with a numerator and denominator, which can be used to calculate the quotient.
  */
@@ -19,11 +21,17 @@ message Ratio {
     /**
      * The part of a fraction that is below the line and that functions as the divisor of the numerator.
      */
-    double denominator = 1;
+    oneof denominator {
+      google.protobuf.NullValue denominatorNull = 1;
+      double denominatorSet = 2;
+    }
 
     /**
      * The part of a fraction that is above the line and signifies the number to be divided by the denominator.
      */
-    double numerator = 2;
+    oneof numerator {
+      google.protobuf.NullValue numeratorNull = 3;
+      double numeratorSet = 4;
+    }
 
 }

@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A single phase of an energy consumer.
@@ -34,30 +35,42 @@ message EnergyConsumerPhase {
      * For voltage dependent loads the value is at rated voltage.
      * Starting value for a steady state solution.
      */
-    double p = 3;
+    oneof p {
+      google.protobuf.NullValue pNull = 3;
+      double pSet = 4;
+    }
 
     /**
      * Active power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means flow out from a node.
      */
-    double pFixed = 4;
+    oneof pFixed {
+      google.protobuf.NullValue pFixedNull = 5;
+      double pFixedSet = 6;
+    }
 
     /**
      * Phase of this energy consumer component. If the energy consumer is wye connected, the connection is from the indicated phase
      * to the central ground or neutral point. If the energy consumer is delta connected, the phase indicates an energy consumer
      * connected from the indicated phase to the next logical non-neutral phase.
      */
-    SinglePhaseKind phase = 5;
+    SinglePhaseKind phase = 7;
 
     /**
      * Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
      * For voltage dependent loads the value is at rated voltage.
      * Starting value for a steady state solution.
      */
-    double q = 6;
+    oneof q {
+      google.protobuf.NullValue qNull = 8;
+      double qSet = 9;
+    }
 
     /**
      * Reactive power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means flow out from a node.
      */
-    double qFixed = 7;
+    oneof qFixed {
+      google.protobuf.NullValue qFixedNull = 10;
+      double qFixedSet = 11;
+    }
 
 }

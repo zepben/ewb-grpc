@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
 package zepben.protobuf.cim.iec61970.base.auxiliaryequipment;
 
 import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/Sensor.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Instrument transformer used to measure electrical qualities of the circuit that is being protected and/or monitored.
@@ -28,6 +29,9 @@ message CurrentTransformer {
     /**
      * Power burden of the CT core in watts.
      */
-    int32 coreBurden = 2;
+    oneof coreBurden {
+      google.protobuf.NullValue coreBurdenNull = 2;
+      int32 coreBurdenSet = 3;
+    }
 
 }

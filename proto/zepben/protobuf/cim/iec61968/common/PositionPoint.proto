@@ -9,7 +9,9 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.common";
-package zepben.protobuf.cim.iec61968.common;
+package zepben.prootobuf.cim.iec61968.common;
+
+import "google/protobuf/struct.proto";
 
 /**
  * Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'.
@@ -22,11 +24,17 @@ message PositionPoint {
     /**
      * X axis position.
      */
-    double xPosition = 1;
+    oneof xPosition {
+      google.protobuf.NullValue xPositionNull = 1;
+      double xPositionSet = 2;
+    }
 
     /**
      * Y axis position.
      */
-    double yPosition = 2;
+    oneof yPosition {
+      google.protobuf.NullValue yPositionNull = 3;
+      double yPositionSet = 4;
+    }
 
 }

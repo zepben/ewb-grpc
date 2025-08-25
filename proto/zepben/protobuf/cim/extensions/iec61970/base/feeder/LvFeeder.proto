@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.feeder";
 package zepben.protobuf.cim.extensions.iec61970.base.feeder;
 
 import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] A branch of LV network starting at a distribution substation and continuing until the end of the LV network.
@@ -26,16 +27,19 @@ message LvFeeder {
     /**
      * [ZBEX] The normal head terminal of this LvFeeder, typically the LV terminal of a distribution substation.
      */
-    string normalHeadTerminalMRID = 2;
+    oneof normalHeadTerminalMRID {
+      google.protobuf.NullValue normalHeadTerminalMRIDNull = 2;
+      string normalHeadTerminalMRIDSet = 3;
+    }
 
     /**
      * [ZBEX] The HV/MV feeders that energize this LvFeeder.
      */
-    repeated string normalEnergizingFeederMRIDs = 3;
+    repeated string normalEnergizingFeederMRIDs = 4;
 
     /**
      * [ZBEX] The HV/MV feeders that energize this LV feeder in the current state of the network.
      */
-    repeated string currentlyEnergizingFeederMRIDs = 4;
+    repeated string currentlyEnergizingFeederMRIDs = 5;
 
 }

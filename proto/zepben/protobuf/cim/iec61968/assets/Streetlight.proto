@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.assets;
 
 import "zepben/protobuf/cim/iec61968/assets/Asset.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassets/StreetlightLampKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A Streetlight asset.
@@ -27,16 +28,22 @@ message Streetlight {
     /**
      * The Pole this Streetlight is attached to.
      */
-    string poleMRID = 2;
+    oneof poleMRID {
+      google.protobuf.NullValue poleMRIDNull = 2;
+      string poleMRIDSet = 3;
+    }
 
     /**
      * The kind of lamp for this Streetlight
      */
-    infiec61968.infassets.StreetlightLampKind lampKind = 3;
+    infiec61968.infassets.StreetlightLampKind lampKind = 4;
 
     /**
      * The power rating of the light.
      */
-    uint32 lightRating = 4;
+    oneof lightRating {
+      google.protobuf.NullValue lightRatingNull = 5;
+      uint32 lightRatingSet = 6;
+    }
 
 }

@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protecti
 package zepben.protobuf.cim.extensions.iec61970.base.protection;
 
 import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayFunction.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working
@@ -32,50 +33,77 @@ message DistanceRelay {
    * [ZBEX] The reverse blind impedance (in ohms) that defines the area to be blinded in the opposite direction of the power
    * flow.
    */
-  double backwardBlind = 2;
+  oneof backwardBlind {
+    google.protobuf.NullValue backwardBlindNull = 2;
+    double backwardBlindSet = 3;
+  }
 
   /**
    * [ZBEX] The reverse reach impedance (in ohms) that determines the maximum distance along the transmission line in the
    * opposite direction of power flow for which the relay will provide protection.
    */
-  double backwardReach = 3;
+  oneof backwardReach {
+    google.protobuf.NullValue backwardReachNull = 4;
+    double backwardReachSet = 5;
+  }
 
   /**
    * [ZBEX] The reverse reactance (in ohms) that determines the maximum distance along the transmission line in the opposite
    * direction of power flow for which the relay will provide protection.
    */
-  double backwardReactance = 4;
+  oneof backwardReactance {
+    google.protobuf.NullValue backwardReactanceNull = 6;
+    double backwardReactanceSet = 7;
+  }
 
   /**
    * [ZBEX] The forward blind impedance (in ohms) that defines the area to be blinded in the direction of the power flow.
    */
-  double forwardBlind = 5;
+  oneof forwardBlind {
+    google.protobuf.NullValue forwardBlindNull = 8;
+    double forwardBlindSet = 9;
+  }
 
   /**
    * [ZBEX] The forward reach impedance (in ohms) that determines the maximum distance along the transmission line in the
    * direction of power flow for which the relay will provide protection.
    */
-  double forwardReach = 6;
+  oneof forwardReach {
+    google.protobuf.NullValue forwardReachNull = 10;
+    double forwardReachSet = 11;
+  }
 
   /**
    * [ZBEX] The forward reactance (in ohms) that determines the maximum distance along the transmission line in the direction
    * of power flow for which the relay will provide protection.
    */
-  double forwardReactance = 7;
+  oneof forwardReactance {
+    google.protobuf.NullValue forwardReactanceNull = 12;
+    double forwardReactanceSet = 13;
+  }
 
   /**
    * [ZBEX] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 1 relay.
    */
-  double operationPhaseAngle1 = 8;
+  oneof operationPhaseAngle1 {
+    google.protobuf.NullValue operationPhaseAngle1Null = 14;
+    double operationPhaseAngle1Set = 15;
+  }
 
   /**
    * [ZBEX] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 2 relay.
    */
-  double operationPhaseAngle2 = 9;
+  oneof operationPhaseAngle2 {
+    google.protobuf.NullValue operationPhaseAngle2Null = 16;
+    double operationPhaseAngle2Set = 17;
+  }
 
   /**
    * [ZBEX] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 3 relay.
    */
-  double operationPhaseAngle3 = 10;
+  oneof operationPhaseAngle3 {
+    google.protobuf.NullValue operationPhaseAngle3Null = 18;
+    double operationPhaseAngle3Set = 19;
+  }
 
 }

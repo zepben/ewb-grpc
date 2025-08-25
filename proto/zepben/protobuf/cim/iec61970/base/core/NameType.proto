@@ -11,6 +11,8 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
+import "google/protobuf/struct.proto";
+
 /**
  * Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify
  * types. An enterprise may have multiple IT systems each having its own local name for the same object,
@@ -25,11 +27,17 @@ message NameType {
   /**
    * Name of the name type.
    */
-  string name = 1;
+  oneof name {
+    google.protobuf.NullValue nameNull = 1;
+    string nameSet = 2;
+  }
 
   /**
    * Description of the name type.
    */
-  string description = 2;
+  oneof description {
+    google.protobuf.NullValue descriptionNull = 3;
+    string descriptionSet = 4;
+  }
 
 }

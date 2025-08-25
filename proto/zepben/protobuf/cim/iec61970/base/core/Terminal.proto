@@ -14,6 +14,7 @@ package zepben.protobuf.cim.iec61970.base.core;
 import "zepben/protobuf/cim/iec61970/base/core/AcDcTerminal.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
 import "zepben/protobuf/network/model/FeederDirection.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.
@@ -62,16 +63,19 @@ message Terminal {
     /**
      * This Terminal's sequence number.
      */
-    uint32 sequenceNumber = 6;
+    oneof sequenceNumber {
+      google.protobuf.NullValue sequenceNumberNull = 6;
+      uint32 sequenceNumberSet = 7;
+    }
 
     /**
      * Stores the direction of the feeder head relative to this terminal in the normal state of the network.
      */
-    network.model.FeederDirection normalFeederDirection = 7;
+    network.model.FeederDirection normalFeederDirection = 8;
 
     /**
      * Stores the direction of the feeder head relative to this terminal in the current state of the network.
      */
-    network.model.FeederDirection currentFeederDirection = 8;
+    network.model.FeederDirection currentFeederDirection = 9;
 
 }

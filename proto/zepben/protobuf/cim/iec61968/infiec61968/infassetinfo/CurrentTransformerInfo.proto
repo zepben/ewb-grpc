@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.infiec61968.infassetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infcommon/Ratio.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Properties of current transformer asset.
@@ -27,61 +28,91 @@ message CurrentTransformerInfo {
     /**
      * CT accuracy classification.
      */
-    string accuracyClass = 2;
+    oneof accuracyClass {
+      google.protobuf.NullValue accuracyClassNull = 2;
+      string accuracyClassSet = 3;
+    }
 
     /**
      * Accuracy limit.
      */
-    double accuracyLimit = 3;
+    oneof accuracyLimit {
+      google.protobuf.NullValue accuracyLimitNull = 4;
+      double accuracyLimitSet = 5;
+    }
 
     /**
      * Number of cores.
      */
-    int32 coreCount = 4;
+    oneof coreCount {
+      google.protobuf.NullValue coreCountNull = 6;
+      int32 coreCountSet = 7;
+    }
 
     /**
      * CT classification; i.e. class 10P.
      */
-    string ctClass = 5;
+    oneof ctClass {
+      google.protobuf.NullValue ctClassNull = 8;
+      string ctClassSet = 9;
+    }
 
     /**
      * Maximum voltage in volts across the secondary terminals where the CT still displays linear characteristicts.
      */
-    int32 kneePointVoltage = 6;
+    oneof kneePointVoltage {
+      google.protobuf.NullValue kneePointVoltageNull = 10;
+      int32 kneePointVoltageSet = 11;
+    }
 
     /**
      * Maximum ratio between the primary and secondary current.
      */
-    infcommon.Ratio maxRatio = 7;
+    infcommon.Ratio maxRatio = 12;
 
     /**
      * Nominal ratio between the primary and secondary current; i.e. 100:5
      */
-    infcommon.Ratio nominalRatio = 8;
+    infcommon.Ratio nominalRatio = 13;
 
     /**
      * Ratio for the primary winding tap changer (numerator).
      */
-    double primaryRatio = 9;
+    oneof primaryRatio {
+      google.protobuf.NullValue primaryRatioNull = 14;
+      double primaryRatioSet = 15;
+    }
 
     /**
      * Rated current on the primary side in amperes.
      */
-    int32 ratedCurrent = 10;
+    oneof ratedCurrent {
+      google.protobuf.NullValue ratedCurrentNull = 16;
+      int32 ratedCurrentSet = 17;
+    }
 
     /**
      * Full load secondary (FLS) rating for secondary winding in amperes.
      */
-    int32 secondaryFlsRating = 11;
+    oneof secondaryFlsRating {
+      google.protobuf.NullValue secondaryFlsRatingNull = 18;
+      int32 secondaryFlsRatingSet = 19;
+    }
 
     /**
      * Ratio for the secondary winding tap changer (denominator).
      */
-    double secondaryRatio = 12;
+    oneof secondaryRatio {
+      google.protobuf.NullValue secondaryRatioNull = 20;
+      double secondaryRatioSet = 21;
+    }
 
     /**
      * Intended usage of the CT; i.e. metering, protection.
      */
-    string usage = 13;
+    oneof usage {
+      google.protobuf.NullValue usageNull = 22;
+      string usageSet = 23;
+    }
 
 }

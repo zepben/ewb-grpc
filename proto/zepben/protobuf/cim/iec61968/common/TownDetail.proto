@@ -11,6 +11,8 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.common";
 package zepben.protobuf.cim.iec61968.common;
 
+import "google/protobuf/struct.proto";
+
 /**
  * Town details, in the context of address.
  */
@@ -19,11 +21,17 @@ message TownDetail {
     /**
      * Town name.
      */
-    string name = 1;
+    oneof name {
+      google.protobuf.NullValue nameNull = 1;
+      string nameSet = 2;
+    }
 
     /**
      * Name of the state or province.
      */
-    string stateOrProvince = 2;
+    oneof stateOrProvince {
+      google.protobuf.NullValue stateOrProvinceNull = 3;
+      string stateOrProvinceSet = 4;
+    }
 
 }

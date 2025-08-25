@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal devices including grounding switches.
@@ -27,17 +28,26 @@ message Switch {
      * The attribute is used in cases when no Measurement for the status value is present. If the Switch has a status measurement
      * the Discrete.normalValue is expected to match with the Switch.normalOpen.
      */
-    bool normalOpen = 2;
+    oneof normalOpen {
+      google.protobuf.NullValue normalOpenNull = 2;
+      bool normalOpenSet = 3;
+    }
 
     /**
      * The attribute tells if the switch is considered open when used as input to topology processing.
      */
-    bool open = 3;
+    oneof open {
+      google.protobuf.NullValue openNull = 4;
+      bool openSet = 5;
+    }
 
     /**
      * The maximum continuous current carrying capacity in amps governed by the device material and construction.
      * The attribute shall be a positive value.
      */
-    double ratedCurrent = 4;
+    oneof ratedCurrent {
+      google.protobuf.NullValue ratedCurrentNull = 6;
+      double ratedCurrentSet = 7;
+    }
 
 }

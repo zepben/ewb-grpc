@@ -11,6 +11,8 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
+import "google/protobuf/struct.proto";
+
 /**
  * The Name class provides the means to define any number of human readable names for an object. A name is **not** to
  * be used for defining inter-object relationships. For inter-object relationships instead use the object
@@ -21,11 +23,17 @@ message Name {
   /**
    * Any free text that name the object.
    */
-  string name = 1;
+  oneof name {
+    google.protobuf.NullValue nameNull = 1;
+    string nameSet = 2;
+  }
 
   /**
    * Type of this name.
    */
-  string type = 2;
+  oneof type {
+    google.protobuf.NullValue typeNull = 3;
+    string typeSet = 4;
+  }
 
 }

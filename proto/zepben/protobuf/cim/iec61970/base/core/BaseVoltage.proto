@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Defines a system base voltage which is referenced.
@@ -26,6 +27,9 @@ message BaseVoltage {
     /**
      * The power system resource's base voltage.
      */
-    int32 nominalVoltage = 2;
+    oneof nominalVoltage {
+      google.protobuf.NullValue nominalVoltageNull = 2;
+      int32 nominalVoltageSet = 3;
+    }
 
 }

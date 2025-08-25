@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Switch datasheet information.
@@ -26,6 +27,9 @@ message SwitchInfo {
   /**
    * Switch rated interrupting time in seconds.
    */
-  double ratedInterruptingTime = 2;
+  oneof ratedInterruptingTime {
+    google.protobuf.NullValue ratedInterruptingTimeNull = 2;
+    double ratedInterruptingTimeSet = 3;
+  }
 
 }

@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.metering";
 package zepben.protobuf.cim.iec61968.metering;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Specific value measured by a meter or other asset, or calculated by a system.
@@ -29,6 +30,9 @@ message Reading {
     /**
      * Value of this Reading
      */
-    double value = 2;
+    oneof value {
+      google.protobuf.NullValue valueNull = 2;
+      double valueSet = 3;
+    }
 
 }

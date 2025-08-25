@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A Series Compensator is a series capacitor or reactor or an AC transmission line without charging susceptance.
@@ -27,34 +28,52 @@ message SeriesCompensator {
   /**
    * Positive sequence resistance.
    */
-  double r = 2;
+  oneof r {
+    google.protobuf.NullValue rNull = 2;
+    double rSet = 3;
+  }
 
   /**
    * Zero sequence resistance.
    */
-  double r0 = 3;
+  oneof r0 {
+    google.protobuf.NullValue r0Null = 4;
+    double r0Set = 5;
+  }
 
   /**
    * Positive sequence reactance.
    */
-  double x = 4;
+  oneof x {
+    google.protobuf.NullValue xNull = 6;
+    double xSet = 7;
+  }
 
   /**
    * Zero sequence reactance.
    */
-  double x0 = 5;
+  oneof x0 {
+    google.protobuf.NullValue x0Null = 8;
+    double x0Set = 9;
+  }
 
   /**
    * The maximum current the varistor is designed to handle at specified duration. It is used for short circuit
    * calculations and exchanged only if SeriesCompensator.varistorPresent is true. The attribute shall be a positive
    * value.
    */
-  int32 varistorRatedCurrent = 6;
+  oneof varistorRatedCurrent {
+    google.protobuf.NullValue varistorRatedCurrentNull = 10;
+    int32 varistorRatedCurrentSet = 11;
+  }
 
   /**
    * The dc voltage at which the varistor starts conducting. It is used for short circuit calculations and exchanged
    * only if SeriesCompensator.varistorPresent is true.
    */
-  int32 varistorVoltageThreshold = 7;
+  oneof varistorVoltageThreshold {
+    google.protobuf.NullValue varistorVoltageThresholdNull = 12;
+    int32 varistorVoltageThresholdSet = 13;
+  }
 
 }

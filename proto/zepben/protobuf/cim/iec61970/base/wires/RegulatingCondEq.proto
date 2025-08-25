@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/EnergyConnection.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A shunt capacitor or reactor or switchable bank of shunt capacitors or reactors. A section of a shunt compensator is an individual
@@ -28,11 +29,14 @@ message RegulatingCondEq {
     /**
      * Specifies the regulation status of the equipment.  True is regulating, false is not regulating.
      */
-    bool controlEnabled = 2;
+    oneof controlEnabled {
+      google.protobuf.NullValue controlEnabledNull = 2;
+      bool controlEnabledSet = 3;
+    }
 
     /**
      * The MRID of the regulating control scheme in which this equipment participates.
      */
-    string regulatingControlMRID = 3;
+    string regulatingControlMRID = 4;
 
 }

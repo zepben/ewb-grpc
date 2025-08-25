@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A Clamp is a galvanic connection at a line segment where other equipment is connected. A Clamp does not cut the line segment. A Clamp is ConductingEquipment
@@ -28,11 +29,14 @@ message Clamp {
      * The length to the place where the clamp is located starting from side one of the line segment, i.e. the line segment terminal with sequence number equal
      * to 1.
      */
-    double lengthFromTerminal1 = 2;
+    oneof lengthFromTerminal1 {
+      google.protobuf.NullValue lengthFromTerminal1Null = 2;
+      double lengthFromTerminal1Set = 3;
+    }
 
     /**
      * The line segment to which the clamp is connected.
      */
-    string acLineSegmentMRID = 3;
+    string acLineSegmentMRID = 4;
 
 }

@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protecti
 package zepben.protobuf.cim.extensions.iec61970.base.protection;
 
 import "zepben/protobuf/cim/iec61970/base/domain/UnitSymbol.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working
@@ -24,16 +25,22 @@ message RelaySetting {
   /**
    * [ZBEX] The name of the setting.
    */
-  string name = 1;
+  oneof name {
+    google.protobuf.NullValue nameNull = 1;
+    string nameSet = 2;
+  }
 
   /**
    * [ZBEX] The unit of the value.
    */
-  cim.iec61970.base.domain.UnitSymbol unitSymbol = 2;
+  cim.iec61970.base.domain.UnitSymbol unitSymbol = 3;
 
   /**
    * [ZBEX] The value of the setting, e.g voltage, current, etc.
    */
-  double value = 3;
+  oneof value {
+    google.protobuf.NullValue valueNull = 4;
+    double valueSet = 5;
+  }
 
 }

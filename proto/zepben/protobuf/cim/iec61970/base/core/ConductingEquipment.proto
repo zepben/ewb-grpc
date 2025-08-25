@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/Equipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.
@@ -33,6 +34,6 @@ message ConductingEquipment {
      * Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes
      * or topological nodes.
      */
-    repeated string terminalMRIDs = 3;
+    repeated string terminalMRIDs = 4;
 
 }

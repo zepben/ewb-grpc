@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Mechanism for changing transformer winding tap positions.
@@ -28,13 +29,19 @@ message TapChanger {
      * The attribute shall be greater than lowStep.
      * This tap position results in the maximum voltage boost on secondary winding(s).
      */
-    int32 highStep = 2;
+    oneof highStep {
+      google.protobuf.NullValue highStepNull = 2;
+      int32 highStepSet = 3;
+    }
 
     /**
      * Lowest possible tap step position, retard from neutral.
      * This tap position results in the maximum voltage buck on secondary winding(s).
      */
-    int32 lowStep = 3;
+    oneof lowStep {
+      google.protobuf.NullValue lowStepNull = 4;
+      int32 lowStepSet = 5;
+    }
 
     /**
      * Tap changer position.
@@ -43,34 +50,49 @@ message TapChanger {
      * a solutions where a narrow voltage band force the tap step to oscillate or accommodate for a continuous solution as input.
      * The attribute shall be equal or greater than lowStep and equal or less than highStep.
      */
-    double step = 4;
+    oneof step {
+      google.protobuf.NullValue stepNull = 6;
+      double stepSet = 7;
+    }
 
     /**
      * The neutral tap step position for this winding.
      * The attribute shall be equal or greater than lowStep and equal or less than highStep
      */
-    int32 neutralStep = 5;
+    oneof neutralStep {
+      google.protobuf.NullValue neutralStepNull = 8;
+      int32 neutralStepSet = 9;
+    }
 
     /**
      * Voltage at which the winding operates at the neutral tap setting.
      */
-    int32 neutralU = 6;
+    oneof neutralU {
+      google.protobuf.NullValue neutralUNull = 10;
+      int32 neutralUSet = 11;
+    }
 
     /**
      * The tap step position used in "normal" network operation for this winding.
      * For a "Fixed" tap changer indicates the current physical tap setting.
      * The attribute shall be equal or greater than lowStep and equal or less than highStep.
      */
-    int32 normalStep = 7;
+    oneof normalStep {
+      google.protobuf.NullValue normalStepNull = 12;
+      int32 normalStepSet = 13;
+    }
 
     /**
      * Specifies the regulation status of the equipment.  True is regulating, false is not regulating.
      */
-    bool controlEnabled = 8;
+    oneof controlEnabled {
+      google.protobuf.NullValue controlEnabledNull = 14;
+      bool controlEnabledSet = 15;
+    }
 
     /**
      * The regulating control scheme in which this tap changer participates.
      */
-    string tapChangerControlMRID = 9;
+    string tapChangerControlMRID = 16;
 
 }

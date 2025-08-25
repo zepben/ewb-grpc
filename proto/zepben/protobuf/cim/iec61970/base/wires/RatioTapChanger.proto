@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/TapChanger.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A tap changer that changes the voltage ratio impacting the voltage magnitude but not the phase angle across the transformer.
@@ -26,11 +27,14 @@ message RatioTapChanger {
     /**
      * Tap step increment, in per cent of neutral voltage, per step position.
      */
-    double stepVoltageIncrement = 2;
+    oneof stepVoltageIncrement {
+      google.protobuf.NullValue stepVoltageIncrementNull = 2;
+      double stepVoltageIncrementSet = 3;
+    }
 
     /**
      * Transformer end to which this ratio tap changer belongs.
      */
-    string transformerEndMRID = 3;
+    string transformerEndMRID = 4;
 
 }

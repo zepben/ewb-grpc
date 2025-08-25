@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.infiec61968.infassetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infcommon/Ratio.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Properties of potential transformer asset.
@@ -27,31 +28,46 @@ message PotentialTransformerInfo {
     /**
      * PT accuracy classification.
      */
-    string accuracyClass = 2;
+    oneof accuracyClass {
+      google.protobuf.NullValue accuracyClassNull = 2;
+      string accuracyClassSet = 3;
+    }
 
     /**
      * Nominal ratio between the primary and secondary voltage.
      */
-    infcommon.Ratio nominalRatio = 3;
+    infcommon.Ratio nominalRatio = 4;
 
     /**
      * Ratio for the primary winding tap changer (numerator).
      */
-    double primaryRatio = 4;
+    oneof primaryRatio {
+      google.protobuf.NullValue primaryRatioNull = 5;
+      double primaryRatioSet = 6;
+    }
 
     /**
      * Potential transformer (PT) classification covering burden.
      */
-    string ptClass = 5;
+    oneof ptClass {
+      google.protobuf.NullValue ptClassNull = 7;
+      string ptClassSet = 8;
+    }
 
     /**
      * Rated voltage on the primary side in Volts.
      */
-    int32 ratedVoltage = 6;
+    oneof ratedVoltage {
+      google.protobuf.NullValue ratedVoltageNull = 9:
+      int32 ratedVoltageSet = 10;
+    }
 
     /**
      * Ratio for the secondary winding tap changer (denominator).
      */
-    double secondaryRatio = 7;
+    oneof secondaryRatio {
+      google.protobuf.NullValue secondaryRatioNull = 11;
+      double secondaryRatioSet = 12;
+    }
 
 }

@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A variable impedance device normally used to offset line charging during single line faults in an ungrounded section of network.
@@ -27,6 +28,9 @@ message PetersenCoil {
      * The nominal reactance. This is the operating point (normally over compensation) that is defined based on the resonance point in the healthy network
      * condition. The impedance is calculated based on nominal voltage divided by position current.
      */
-    double xGroundNominal = 2;
+    oneof xGroundNominal {
+      google.protobuf.NullValue xGroundNominalNull = 2;
+      double xGroundNominalSet = 3;
+    }
 
 }

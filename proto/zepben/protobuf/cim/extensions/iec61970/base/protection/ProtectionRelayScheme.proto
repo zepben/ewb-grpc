@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protecti
 package zepben.protobuf.cim.extensions.iec61970.base.protection;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working
@@ -30,11 +31,14 @@ message ProtectionRelayScheme {
   /**
    * [ZBEX] The system this scheme belongs to.
    */
-  string systemMRID = 2;
+  oneof systemMRID {
+    google.protobuf.NullValue systemMRIDNull = 2;
+    string systemMRIDSet = 3;
+  }
 
   /**
    * [ZBEX] The functions operated as part of this protection scheme.
    */
-  repeated string functionMRIDs = 3;
+  repeated string functionMRIDs = 4;
 
 }

@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical
@@ -28,17 +29,20 @@ message UsagePoint {
     /**
      * Service location where the service delivered by this usage point is consumed.
      */
-    string usagePointLocationMRID = 2;
+    oneof usagePointLocationMRID {
+      google.protobuf.NullValue usagePointLocationMRIDNull = 2;
+      string usagePointLocationMRIDSet = 3;
+    }
 
     /**
      * All equipment connecting this usage point to the electrical grid.
      */
-    repeated string equipmentMRIDs = 3;
+    repeated string equipmentMRIDs = 4;
 
     /**
      * All end devices at this usage point.
      */
-    repeated string endDeviceMRIDs = 4;
+    repeated string endDeviceMRIDs = 5;
 
     /**
      * If true, this usage point is virtual, i.e., no physical location exists in the network where a meter could be located to
@@ -46,22 +50,34 @@ message UsagePoint {
      * of a company's premises distributed widely across the distribution territory. Otherwise, the usage point is physical,
      * i.e., there is a logical point in the network where a meter could be located to collect meter readings.
      */
-    bool isVirtual = 5;
+    oneof isVirtual {
+      google.protobuf.NullValue isVirtualNull = 6;
+      bool isVirtualSet = 7;
+    }
 
     /**
      * A code used to specify the connection category, e.g., low voltage or low pressure, where the usage point is defined.
      */
-    string connectionCategory = 6;
+    oneof connectionCategory {
+      google.protobuf.NullValue connectionCategoryNull = 8;
+      string connectionCategorySet = 9;
+    }
 
     /**
      * Active power that this usage point is configured to deliver in watts.
      */
-    int32 ratedPower = 7;
+    oneof ratedPower {
+      google.protobuf.NullValue ratedPowerNull = 10;
+      int32 ratedPowerSet = 11;
+    }
 
     /**
      * [ZBEX] The approved inverter capacity at this UsagePoint in volt-amperes.
      */
-    int32 approvedInverterCapacity = 8;
+    oneof approvedInverterCapacity {
+      google.protobuf.NullValue approvedInverterCapacityNull = 12;
+      int32 approvedInverterCapacitySet = 13;
+    }
 
     /**
      * Phase code. Number of wires and specific nominal phases can be deduced from enumeration literal values. For example, ABCN is three-phase, four-wire,

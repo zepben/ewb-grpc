@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61968/metering/Reading.proto";
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Set of values obtained from the meter.
@@ -27,11 +28,14 @@ message MeterReading {
     /**
      * The mRID of the associated meter.
      */
-    string meterMRID = 2;
+    oneof meterMRID {
+      google.protobuf.NullValue meterMRIDNull = 2;
+      string meterMRIDSet = 3;
+    }
 
     /**
      * Specific value measured by a meter or other asset, or calculated by a system.
      */
-    repeated Reading readings = 3;
+    repeated Reading readings = 4;
 
 }

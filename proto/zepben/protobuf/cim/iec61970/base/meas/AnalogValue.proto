@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
 import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * AnalogValue represents an analog MeasurementValue.
@@ -26,11 +27,17 @@ import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
     /**
      * An analog value object is part of an analog.
      */
-    string analogMRID = 2;
+    oneof analogMRID {
+      google.protobuf.NullValue analogMRIDNull = 2;
+      string analogMRIDSet = 3;
+    }
 
     /**
      * The value to supervise.
      */
-    double value = 3;
+    oneof value {
+      google.protobuf.NullValue valueNull = 4;
+      double valueSet = 5;
+    }
 
 }

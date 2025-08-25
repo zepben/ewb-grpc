@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTest.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * No-load test results determine core admittance parameters. They include exciting current and core loss measurements from
@@ -28,26 +29,41 @@ message NoLoadTest {
   /**
    * Voltage applied to the winding (end) during test in volts.
    */
-  int32 energisedEndVoltage = 2;
+  oneof energisedEndVoltage {
+    google.protobuf.NullValue energisedEndVoltageNull = 2;
+    int32 energisedEndVoltageSet = 3;
+  }
 
   /**
    * Exciting current measured from a positive-sequence or single-phase excitation test as percentage.
    */
-  double excitingCurrent = 3;
+  oneof excitingCurrent {
+    google.protobuf.NullValue excitingCurrentNull = 4;
+    double excitingCurrentSet = 5;
+  }
 
   /**
    * Exciting current measured from a zero-sequence open-circuit excitation test as percentage.
    */
-  double excitingCurrentZero = 4;
+  oneof excitingCurrentZero {
+    google.protobuf.NullValue excitingCurrentZeroNull = 6;
+    double excitingCurrentZeroSet = 7;
+  }
 
   /**
    * Losses measured from a positive-sequence or single-phase excitation test in watts.
    */
-  int32 loss = 5;
+  oneof loss {
+    google.protobuf.NullValue lossNull = 8;
+    int32 lossSet = 9;
+  }
 
   /**
    * Losses measured from a zero-sequence excitation test as watts.
    */
-  int32 lossZero = 6;
+  oneof lossZero {
+    google.protobuf.NullValue lossZeroNull = 10;
+    int32 lossZeroSet = 11;
+  }
 
 }

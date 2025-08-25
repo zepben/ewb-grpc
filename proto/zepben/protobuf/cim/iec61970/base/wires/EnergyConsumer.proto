@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/EnergyConnection.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/PhaseShuntConnectionKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Generic user of energy - a point of consumption on the power system model.
@@ -32,42 +33,57 @@ message EnergyConsumer {
     /**
      * Number of individual customers represented by this demand.
      */
-    int32 customerCount = 3;
+    oneof customerCount {
+      google.protobuf.NullValue customerCountNull = 3;
+      int32 customerCountSet = 4;
+    }
 
     /**
      * Used for Yn and Zn connections. True if the neutral is solidly grounded.
      */
-    bool grounded = 4;
+    oneof grounded {
+      google.protobuf.NullValue groundedNull = 5;
+      bool groundedSet = 6;
+    }
 
     /**
      * Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
      * For voltage dependent loads the value is at rated voltage.
      * Starting value for a steady state solution.
      */
-    double p = 5;
+    double p = 7;
 
     /**
      * Active power of the load that is a fixed quantity.
      * Load sign convention is used, i.e. positive sign means flow out from a node.
      */
-    double pFixed = 6;
+    oneof pFixed {
+      google.protobuf.NullValue pFixedNull = 8;
+      double pFixedSet = 9;
+    }
 
     /**
      * The configuration of phase connections for a single terminal device such as a load or capacitor.
      */
-    PhaseShuntConnectionKind phaseConnection = 7;
+    PhaseShuntConnectionKind phaseConnection = 10;
 
     /**
      * Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
      * For voltage dependent loads the value is at rated voltage.
      * Starting value for a steady state solution.
      */
-    double q = 8;
+    oneof q {
+      google.protobuf.NullValue qNull = 11;
+      double qSet = 12;
+    }
 
     /**
      * Reactive power of the load that is a fixed quantity.
      * Load sign convention is used, i.e. positive sign means flow out from a node.
      */
-    double qFixed = 9;
+    oneof qFixed {
+      google.protobuf.NullValue qFixedNull = 13;
+      double qFixedSet = 14;
+    }
 
 }

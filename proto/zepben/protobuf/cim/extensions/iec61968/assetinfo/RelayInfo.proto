@@ -27,7 +27,10 @@ message RelayInfo {
   /**
    * [ZBEX] The type of curve used for the Relay.
    */
-  string curveSetting = 2;
+  oneof curveSetting {
+    google.protobuf.NullValue curveSettingNull = 2;
+    string curveSettingSet = 3;
+  }
 
   /**
    * [ZBEX] The reclose delays for this curve and relay type (in seconds). The index of the list is the reclose step, and the

@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.auxiliaryequipment"
 package zepben.protobuf.cim.iec61970.base.auxiliaryequipment;
 
 import "zepben/protobuf/cim/iec61970/base/core/Equipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * AuxiliaryEquipment describe equipment that is not performing any primary functions but support for the equipment performing the primary function.
@@ -27,6 +28,9 @@ message AuxiliaryEquipment {
     /**
      * The Terminal at the equipment where the AuxiliaryEquipment is attached.
      */
-    string terminalMRID = 2;
+   oneof  terminalMRID {
+     google.protobuf.NullValue terminalMRIDNull = 2;
+     string terminalMRIDSet = 3;
+   }
 
 }

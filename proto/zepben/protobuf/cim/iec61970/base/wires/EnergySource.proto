@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/EnergyConnection.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A generic equivalent for an energy supplier on a transmission or distribution voltage level.
@@ -32,134 +33,209 @@ message EnergySource {
      * High voltage source active injection. Load sign convention is used, i.e. positive sign means flow out from a node.
      * Starting value for steady state solutions.
      */
-    double activePower = 3;
+    oneof activePower {
+      google.protobuf.NullValue activePowerNull = 3;
+      double activePowerSet = 4;
+    }
 
     /**
      * High voltage source reactive injection. Load sign convention is used, i.e. positive sign means flow out from a node.
      * Starting value for steady state solutions.
      */
-    double reactivePower = 4;
+    oneof reactivePower {
+      google.protobuf.NullValue reactivePowerNull = 5;
+      double reactivePowerSet = 6;
+    }
 
     /**
      * Phase angle of a-phase open circuit used when voltage characteristics need to be imposed at the node associated with
      * the terminal of the energy source, such as when voltages and angles from the transmission level are used as input to
      * the distribution network. The attribute shall be a positive value or zero.
      */
-    double voltageAngle = 5;
+    oneof voltageAngle {
+      google.protobuf.NullValue voltageAngleNull = 7;
+      double voltageAngleSet = 8;
+    }
 
     /**
      * Phase-to-phase open circuit voltage magnitude used when voltage characteristics need to be imposed at the node
      * associated with the terminal of the energy source, such as when voltages and angles from the transmission level
      * are used as input to the distribution network. The attribute shall be a positive value or zero.
      */
-    double voltageMagnitude = 6;
+    oneof voltageMagnitude {
+      google.protobuf.NullValue voltageMagnitudeNull = 9;
+      double voltageMagnitudeSet = 10;
+    }
 
     /**
      * Positive sequence Thevenin resistance.
      */
-    double r = 7;
+    oneof r {
+      google.protobuf.NullValue rNull = 11;
+      double rSet = 12;
+    }
 
     /**
      * Positive sequence Thevenin reactance.
      */
-    double x = 8;
+    oneof x {
+      google.protobuf.NullValue xNull = 13;
+      double xSet = 14;
+    }
 
     /**
     * This is the maximum active power that can be produced by the source. Load sign convention is used,
     * i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
     */
-    double pMax = 9;
+    oneof pMax {
+      google.protobuf.NullValue pMaxNull = 15;
+      double pMaxSet = 16;
+    }
 
     /**
     * This is the minimum active power that can be produced by the source. Load sign convention is used,
     * i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
     */
-    double pMin = 10;
+    oneof pMin {
+      google.protobuf.NullValue pMinNull = 17;
+      double pMinSet = 18;
+    }
 
     /**
     * Zero sequence Thevenin resistance.
     */
-    double r0 = 11;
+    oneof r0 {
+      google.protobuf.NullValue r0Null = 19;
+      double r0Set = 20;
+    }
 
     /**
     * Negative sequence Thevenin resistance.
     */
-    double rn = 12;
+    oneof rn {
+      google.protobuf.NullValue rnNull = 21;
+      double rnSet = 22;
+    }
 
     /**
     * Zero sequence Thevenin reactance.
     */
-    double x0 = 13;
+    oneof x0 {
+      google.protobuf.NullValue x0Null = 23;
+      double x0Set = 24;
+    }
 
     /**
     * Negative sequence Thevenin reactance.
     */
-    double xn = 14;
+    oneof xn {
+      google.protobuf.NullValue xnNull = 25;
+      double xnSet = 26;
+    }
 
     /**
      * True if this energy source represents the higher-level power grid connection to an external grid
      * that normally is modelled as the slack bus for power flow calculations.
      */
-    bool isExternalGrid = 15;
+    oneof isExternalGrid {
+      google.protobuf.NullValue isExternalGridNull = 27;
+      bool isExternalGridSet = 28;
+    }
 
     /**
      * Minimum positive sequence Thevenin resistance.
      */
-    double rMin = 16;
+    oneof rMin {
+      google.protobuf.NullValue rMinNull = 29;
+      double rMinSet = 30;
+    }
 
     /**
      * Minimum negative sequence Thevenin resistance
      */
-    double rnMin = 17;
+    oneof rnMin {
+      google.protobuf.NullValue rnMinNull = 31;
+      double rnMinSet = 32;
+    }
 
     /**
      * Minimum zero sequence Thevenin resistance.
      */
-    double r0Min = 18;
+    oneof r0Min {
+      google.protobuf.NullValue r0MinNull = 33;
+      double r0MinSet = 34;
+    }
 
     /**
      * Minimum positive sequence Thevenin reactance.
      */
-    double xMin = 19;
+    oneof xMin {
+      google.protobuf.NullValue xMinNull = 35;
+      double xMinSet = 36;
+    }
 
     /**
      * Minimum negative sequence Thevenin reactance.
      */
-    double xnMin = 20;
+    oneof xnMin {
+      google.protobuf.NullValue xnMinNull = 37;
+      double xnMinSet = 38;
+    }
 
     /**
      * Minimum zero sequence Thevenin reactance.
      */
-    double x0Min = 21;
+    oneof x0Min {
+      google.protobuf.NullValue x0MinNull = 39;
+      double x0MinSet = 40;
+    }
 
     /**
      * Maximum positive sequence Thevenin resistance.
      */
-    double rMax = 22;
+    oneof rMax {
+      google.protobuf.NullValue rMaxNull = 1;
+      double rMaxSet = 42;
+    }
 
     /**
      * Maximum negative sequence Thevenin resistance.
      */
-    double rnMax = 23;
+    oneof rnMax {
+      google.protobuf.NullValue rnMaxNull = 43;
+      double rnMaxSet = 44;
+    }
 
     /**
      * Maximum zero sequence Thevenin resistance.
      */
-    double r0Max = 24;
+    oneof r0Max {
+      google.protobuf.NullValue r0MaxNull = 45;
+      double r0MaxSet = 46;
+    }
 
     /**
      * Maximum positive sequence Thevenin reactance.
      */
-    double xMax = 25;
+    oneof xMax {
+      google.protobuf.NullValue xMaxNull = 47;
+      double xMaxSet = 48;
+    }
 
     /**
      * Maximum negative sequence Thevenin resistance.
      */
-    double xnMax = 26;
+    oneof xnMax {
+      google.protobuf.NullValue xnMaxNull = 49;
+      double xnMaxSet = 50;
+    }
 
     /**
      * Maximum zero sequence Thevenin reactance.
      */
-    double x0Max = 27;
+    oneof x0Max {
+      google.protobuf.NullValue x0MaxNull = 51;
+      double x0MaxSet = 52;
+    }
 
 }

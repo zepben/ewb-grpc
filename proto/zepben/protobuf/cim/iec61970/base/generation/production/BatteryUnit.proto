@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61970.base.generation.production;
 
 import "zepben/protobuf/cim/iec61970/base/generation/production/PowerElectronicsUnit.proto";
 import "zepben/protobuf/cim/iec61970/base/generation/production/BatteryStateKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * An electrochemical energy storage device.
@@ -32,17 +33,23 @@ message BatteryUnit {
   /**
    * Full energy storage capacity of the battery in Watt hours (Wh). The attribute shall be a positive value.
    */
-  int64 ratedE = 3;
+  oneof ratedE {
+    google.protobuf.NullValue ratedENull = 3;
+    int64 ratedESet = 4;
+  }
 
   /**
    * Amount of energy currently stored in Watt hours (Wh). The attribute shall be a positive value or zero and lower than
    * BatteryUnit.ratedE.
    */
-  int64 storedE = 4;
+  oneof storedE {
+    google.protobuf.NullValue storedENull = 5;
+    int64 storedESet = 6;
+  }
 
   /**
    * [ZBEX] All controls present on this battery.
    */
-  repeated string batteryControlMRIDs = 5;
+  repeated string batteryControlMRIDs = 7;
 
 }

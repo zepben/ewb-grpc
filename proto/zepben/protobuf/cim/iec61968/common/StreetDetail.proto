@@ -11,6 +11,8 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.common";
 package zepben.protobuf.cim.iec61968.common;
 
+import "google/protobuf/struct.proto";
+
 /**
  * Street details, in the context of address.
  */
@@ -21,36 +23,57 @@ message StreetDetail {
      * entry from the street, but may be located inside a larger structure such as a building, complex, office block,
      * apartment, etc.
      */
-    string buildingName = 1;
+    oneof buildingName {
+      google.protobuf.NullValue buildingNameNull = 1;
+      string buildingNameSet = 2;
+    }
 
     /**
      * The identification by name or number, expressed as text, of the floor in the building as part of this address.
      */
-    string floorIdentification = 2;
+    oneof floorIdentification {
+      google.protobuf.NullValue floorIdentificationNull = 3;
+      string floorIdentificationSet = 4;
+    }
 
     /**
      * Name of the street.
      */
-    string name = 3;
+    oneof name {
+      google.protobuf.NullValue nameNull = 5;
+      string nameSet = 6;
+    }
 
     /**
      * Designator of the specific location on the street.
      */
-    string number = 4;
+    oneof number {
+      google.protobuf.NullValue numberNull = 7;
+      string numberSet = 8;
+    }
 
     /**
      * Number of the apartment or suite.
      */
-    string suiteNumber = 5;
+    oneof suiteNumber {
+      google.protobuf.NullValue suiteNumberNull = 9;
+      string suiteNumberSet = 10;
+    }
 
     /**
      * Type of street. Examples include: street, circle, boulevard, avenue, road, drive, etc.
      */
-    string type = 6;
+    oneof type {
+      google.protobuf.NullValue typeNull = 11;
+      string typeSet = 12;
+    }
 
     /**
      * The address as it should be displayed to a user.
      */
-    string displayAddress = 7;
+    oneof displayAddress {
+      google.protobuf.NullValue displayAddressNull = 13;
+      string displayAddressSet = 14;
+    }
 
 }
