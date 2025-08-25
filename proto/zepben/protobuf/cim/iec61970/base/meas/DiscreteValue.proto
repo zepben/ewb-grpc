@@ -32,6 +32,9 @@ import "google/protobuf/struct.proto";
     /**
      * The value to supervise.
      */
-    int32 value = 3;
+    oneof value {
+      google.protobuf.NullValue valueNull = 3;
+      int32 valueSet = 4;
+    }
 
 }
