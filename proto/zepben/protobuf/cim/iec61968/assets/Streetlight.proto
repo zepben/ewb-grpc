@@ -28,22 +28,19 @@ message Streetlight {
     /**
      * The Pole this Streetlight is attached to.
      */
-    oneof poleMRID {
-      google.protobuf.NullValue poleMRIDNull = 2;
-      string poleMRIDSet = 3;
-    }
+    string poleMRID = 2;
 
     /**
      * The kind of lamp for this Streetlight
      */
-    infiec61968.infassets.StreetlightLampKind lampKind = 4;
+    infiec61968.infassets.StreetlightLampKind lampKind = 3;
 
     /**
      * The power rating of the light.
      */
     oneof lightRating {
-      google.protobuf.NullValue lightRatingNull = 5;
-      uint32 lightRatingSet = 6;
+      google.protobuf.NullValue lightRatingNull = 4;
+      uint32 lightRatingSet = 5;
     }
 
 }

@@ -21,17 +21,11 @@ message Ratio {
     /**
      * The part of a fraction that is below the line and that functions as the divisor of the numerator.
      */
-    oneof denominator {
-      google.protobuf.NullValue denominatorNull = 1;
-      double denominatorSet = 2;
-    }
+    double denominator = 1;
 
     /**
      * The part of a fraction that is above the line and signifies the number to be divided by the denominator.
      */
-    oneof numerator {
-      google.protobuf.NullValue numeratorNull = 3;
-      double numeratorSet = 4;
-    }
+    double numeratorSet = 2;
 
 }
