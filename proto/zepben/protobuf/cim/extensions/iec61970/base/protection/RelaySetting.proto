@@ -38,9 +38,6 @@ message RelaySetting {
   /**
    * [ZBEX] The value of the setting, e.g voltage, current, etc.
    */
-  oneof value {
-    google.protobuf.NullValue valueNull = 4;
-    double valueSet = 5;
-  }
+  double value = 4;
 
 }
