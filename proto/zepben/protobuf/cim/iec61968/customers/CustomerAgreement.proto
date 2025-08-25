@@ -29,14 +29,11 @@ message CustomerAgreement {
     /**
      * Customer for this agreement.
      */
-    oneof customerMRID {
-      google.protobuf.NullValue customerMRIDNull = 2;
-      string customerMRIDSet = 3;
-    }
+    string customerMRID = 2;
 
     /**
      * All pricing structures applicable to this customer agreement.
      */
-    repeated string pricingStructureMRIDs = 4;
+    repeated string pricingStructureMRIDs = 3;
 
 }
