@@ -63,19 +63,16 @@ message Terminal {
     /**
      * This Terminal's sequence number.
      */
-    oneof sequenceNumber {
-      google.protobuf.NullValue sequenceNumberNull = 6;
-      uint32 sequenceNumberSet = 7;
-    }
+    uint32 sequenceNumberSet = 6;
 
     /**
      * Stores the direction of the feeder head relative to this terminal in the normal state of the network.
      */
-    network.model.FeederDirection normalFeederDirection = 8;
+    network.model.FeederDirection normalFeederDirection = 7;
 
     /**
      * Stores the direction of the feeder head relative to this terminal in the current state of the network.
      */
-    network.model.FeederDirection currentFeederDirection = 9;
+    network.model.FeederDirection currentFeederDirection = 8;
 
 }

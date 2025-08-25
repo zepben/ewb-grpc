@@ -42,22 +42,16 @@ message EndDevice {
     /**
      * Reference to customer owning this end device.
      */
-    oneof customerMRID {
-      google.protobuf.NullValue customerMRIDNull = 3;
-      string customerMRIDSet = 4;
-    }
+    string customerMRID = 3;
 
     /**
      * Service location whose service delivery is measured by this end device.
      */
-    oneof serviceLocationMRID {
-      google.protobuf.NullValue serviceLocationMRIDNull = 5;
-      string serviceLocationMRIDSet = 6;
-    }
+    string serviceLocationMRID = 4;
 
     /**
      * All end device functions this end device performs.
      */
-    repeated string endDeviceFunctionMRIDs = 7;
+    repeated string endDeviceFunctionMRIDs = 5;
 
 }

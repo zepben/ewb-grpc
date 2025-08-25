@@ -27,9 +27,6 @@ message BaseVoltage {
     /**
      * The power system resource's base voltage.
      */
-    oneof nominalVoltage {
-      google.protobuf.NullValue nominalVoltageNull = 2;
-      int32 nominalVoltageSet = 3;
-    }
+    int32 nominalVoltage = 2;
 
 }

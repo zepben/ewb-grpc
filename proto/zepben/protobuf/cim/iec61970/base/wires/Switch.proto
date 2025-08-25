@@ -28,26 +28,20 @@ message Switch {
      * The attribute is used in cases when no Measurement for the status value is present. If the Switch has a status measurement
      * the Discrete.normalValue is expected to match with the Switch.normalOpen.
      */
-    oneof normalOpen {
-      google.protobuf.NullValue normalOpenNull = 2;
-      bool normalOpenSet = 3;
-    }
+    bool normalOpen = 2;
 
     /**
      * The attribute tells if the switch is considered open when used as input to topology processing.
      */
-    oneof open {
-      google.protobuf.NullValue openNull = 4;
-      bool openSet = 5;
-    }
+    bool open = 3;
 
     /**
      * The maximum continuous current carrying capacity in amps governed by the device material and construction.
      * The attribute shall be a positive value.
      */
     oneof ratedCurrent {
-      google.protobuf.NullValue ratedCurrentNull = 6;
-      double ratedCurrentSet = 7;
+      google.protobuf.NullValue ratedCurrentNull = 4;
+      double ratedCurrentSet = 5;
     }
 
 }

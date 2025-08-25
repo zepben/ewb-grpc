@@ -29,20 +29,17 @@ message UsagePoint {
     /**
      * Service location where the service delivered by this usage point is consumed.
      */
-    oneof usagePointLocationMRID {
-      google.protobuf.NullValue usagePointLocationMRIDNull = 2;
-      string usagePointLocationMRIDSet = 3;
-    }
+    string usagePointLocationMRID = 2;
 
     /**
      * All equipment connecting this usage point to the electrical grid.
      */
-    repeated string equipmentMRIDs = 4;
+    repeated string equipmentMRIDs = 3;
 
     /**
      * All end devices at this usage point.
      */
-    repeated string endDeviceMRIDs = 5;
+    repeated string endDeviceMRIDs = 4;
 
     /**
      * If true, this usage point is virtual, i.e., no physical location exists in the network where a meter could be located to
@@ -51,38 +48,38 @@ message UsagePoint {
      * i.e., there is a logical point in the network where a meter could be located to collect meter readings.
      */
     oneof isVirtual {
-      google.protobuf.NullValue isVirtualNull = 6;
-      bool isVirtualSet = 7;
+      google.protobuf.NullValue isVirtualNull = 5;
+      bool isVirtualSet = 6;
     }
 
     /**
      * A code used to specify the connection category, e.g., low voltage or low pressure, where the usage point is defined.
      */
     oneof connectionCategory {
-      google.protobuf.NullValue connectionCategoryNull = 8;
-      string connectionCategorySet = 9;
+      google.protobuf.NullValue connectionCategoryNull = 7;
+      string connectionCategorySet = 8;
     }
 
     /**
      * Active power that this usage point is configured to deliver in watts.
      */
     oneof ratedPower {
-      google.protobuf.NullValue ratedPowerNull = 10;
-      int32 ratedPowerSet = 11;
+      google.protobuf.NullValue ratedPowerNull = 9;
+      int32 ratedPowerSet = 10;
     }
 
     /**
      * [ZBEX] The approved inverter capacity at this UsagePoint in volt-amperes.
      */
     oneof approvedInverterCapacity {
-      google.protobuf.NullValue approvedInverterCapacityNull = 12;
-      int32 approvedInverterCapacitySet = 13;
+      google.protobuf.NullValue approvedInverterCapacityNull = 11;
+      int32 approvedInverterCapacitySet = 12;
     }
 
     /**
      * Phase code. Number of wires and specific nominal phases can be deduced from enumeration literal values. For example, ABCN is three-phase, four-wire,
      * s12n (splitSecondary12N) is single-phase, three-wire, and s1n and s2n are single-phase, two-wire.
      */
-    iec61970.base.core.PhaseCode phaseCode = 14;
+    iec61970.base.core.PhaseCode phaseCode = 13;
 
 }

@@ -22,33 +22,27 @@ message CurveData {
     /**
      * The data value of the X-axis variable, depending on the X-axis units.
      */
-    oneof xValue {
-      google.protobuf.NullValue xValueNull = 1;
-      float xValueSet = 2;
-    }
+    float xValue = 1;
 
     /**
      * The data value of the first Y-axis variable, depending on the Y-axis units.
      */
-    oneof y1Value {
-      google.protobuf.NullValue y1ValueNull = 3;
-      float y1ValueSet = 4;
-    }
+    float y1Value = 2;
 
     /**
      * The data value of the second Y-axis variable (if present), depending on the Y-axis units.
      */
     oneof y2Value {
-      google.protobuf.NullValue y2ValueNull = 5;
-      float y2ValueSet = 6;
+      google.protobuf.NullValue y2ValueNull = 3;
+      float y2ValueSet = 4;
     }
 
     /**
      * The data value of the third Y-axis variable (if present), depending on the Y-axis units.
      */
     oneof y3Value {
-      google.protobuf.NullValue y3ValueNull = 7;
-      float y3ValueSet = 8;
+      google.protobuf.NullValue y3ValueNull = 5;
+      float y3ValueSet = 6;
     }
 
 }

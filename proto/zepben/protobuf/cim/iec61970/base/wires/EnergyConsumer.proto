@@ -51,21 +51,24 @@ message EnergyConsumer {
      * For voltage dependent loads the value is at rated voltage.
      * Starting value for a steady state solution.
      */
-    double p = 7;
+    oneof p {
+      google.protobuf.NullValue pNull = 7;
+      double pSet = 8;
+    }
 
     /**
      * Active power of the load that is a fixed quantity.
      * Load sign convention is used, i.e. positive sign means flow out from a node.
      */
     oneof pFixed {
-      google.protobuf.NullValue pFixedNull = 8;
-      double pFixedSet = 9;
+      google.protobuf.NullValue pFixedNull = 9;
+      double pFixedSet = 10;
     }
 
     /**
      * The configuration of phase connections for a single terminal device such as a load or capacitor.
      */
-    PhaseShuntConnectionKind phaseConnection = 10;
+    PhaseShuntConnectionKind phaseConnection = 11;
 
     /**
      * Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
@@ -73,8 +76,8 @@ message EnergyConsumer {
      * Starting value for a steady state solution.
      */
     oneof q {
-      google.protobuf.NullValue qNull = 11;
-      double qSet = 12;
+      google.protobuf.NullValue qNull = 12;
+      double qSet = 13;
     }
 
     /**
@@ -82,8 +85,8 @@ message EnergyConsumer {
      * Load sign convention is used, i.e. positive sign means flow out from a node.
      */
     oneof qFixed {
-      google.protobuf.NullValue qFixedNull = 13;
-      double qFixedSet = 14;
+      google.protobuf.NullValue qFixedNull = 14;
+      double qFixedSet = 15;
     }
 
 }

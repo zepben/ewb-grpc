@@ -39,38 +39,35 @@ message TransformerEnd {
     /**
      * This TransformerEnds number.
      */
-    oneof endNumber {
-      google.protobuf.NullValue endNumberNull = 4;
-      uint32 endNumberSet = 5;
-    }
+    uint32 endNumberSet = 4;
 
     /**
      * The tap changer associated with this PowerTransformerEnd
      */
-    string ratioTapChangerMRID = 6;
+    string ratioTapChangerMRID = 5;
 
     /**
      * (for Yn and Zn connections) True if the neutral is solidly grounded.
      */
     oneof grounded {
-      google.protobuf.NullValue groundedNull = 7;
-      bool groundedSet = 8;
+      google.protobuf.NullValue groundedNull = 6;
+      bool groundedSet = 7;
     }
 
     /**
      * (for Yn and Zn connections) Resistance part of neutral impedance where 'grounded' is true.
      */
     oneof rGround {
-      google.protobuf.NullValue rGroundNull = 9;
-      double rGroundSet = 10;
+      google.protobuf.NullValue rGroundNull = 8;
+      double rGroundSet = 9;
     }
 
     /**
      * (for Yn and Zn connections) Reactive part of neutral impedance where 'grounded' is true.
      */
     oneof xGround {
-      google.protobuf.NullValue xGroundNull = 11;
-      double xGroundSet = 12;
+      google.protobuf.NullValue xGroundNull = 10;
+      double xGroundSet = 11;
     }
 
     /**

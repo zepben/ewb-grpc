@@ -28,18 +28,12 @@ message Equipment {
     /**
      * If true, the equipment is in service.
      */
-    oneof inService {
-      google.protobuf.NullValue inServiceNull = 2;
-      bool inServiceSet = 3;
-    }
+    bool inService = 2;
 
     /**
      * If true, the equipment is normally in service.
      */
-    oneof normallyInService {
-      google.protobuf.NullValue normallyInServiceNull = 4;
-      bool normallyInServiceSet = 5;
-    }
+    bool normallyInService = 5;
 
     /**
      * The EquipmentContainer this equipment belongs to.
