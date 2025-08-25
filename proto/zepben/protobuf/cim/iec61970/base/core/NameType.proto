@@ -27,17 +27,14 @@ message NameType {
   /**
    * Name of the name type.
    */
-  oneof name {
-    google.protobuf.NullValue nameNull = 1;
-    string nameSet = 2;
-  }
+  string name = 1;
 
   /**
    * Description of the name type.
    */
   oneof description {
-    google.protobuf.NullValue descriptionNull = 3;
-    string descriptionSet = 4;
+    google.protobuf.NullValue descriptionNull = 2;
+    string descriptionSet = 3;
   }
 
 }
