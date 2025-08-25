@@ -27,10 +27,7 @@ message LvFeeder {
     /**
      * [ZBEX] The normal head terminal of this LvFeeder, typically the LV terminal of a distribution substation.
      */
-    oneof normalHeadTerminalMRID {
-      google.protobuf.NullValue normalHeadTerminalMRIDNull = 2;
-      string normalHeadTerminalMRIDSet = 3;
-    }
+    string normalHeadTerminalMRID = 3;
 
     /**
      * [ZBEX] The HV/MV feeders that energize this LvFeeder.
