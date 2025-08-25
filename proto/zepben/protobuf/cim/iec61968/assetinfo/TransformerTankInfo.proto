@@ -27,14 +27,11 @@ message TransformerTankInfo {
   /**
    * Power transformer data that this tank description is part of.
    */
-  oneof powerTransformerInfoMRID {
-    google.protobuf.NullValue powerTransformerInfoMRIDNull = 2;
-    string powerTransformerInfoMRIDSet = 3;
-  }
+  string powerTransformerInfoMRID = 2;
 
   /**
    * Data for all the ends described by this transformer tank data.
    */
-  repeated string transformerEndInfoMRIDs = 4;
+  repeated string transformerEndInfoMRIDs = 3;
 
 }
