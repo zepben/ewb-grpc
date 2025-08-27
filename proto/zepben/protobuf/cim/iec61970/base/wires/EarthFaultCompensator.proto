@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A conducting equipment used to represent a connection to ground which is typically used to compensate earth faults. An earth fault compensator device
@@ -28,6 +29,9 @@ message EarthFaultCompensator {
     /**
      * Nominal resistance of device in ohms.
      */
-    double r = 2;
+    oneof r {
+      google.protobuf.NullValue rNull = 2;
+      double rSet = 3;
+    }
 
 }

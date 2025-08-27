@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Transformer end data.
@@ -32,80 +33,101 @@ message TransformerEndInfo {
   /**
    * Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
    */
-  int32 emergencyS = 3;
+  oneof emergencyS {
+    google.protobuf.NullValue emergencySNull = 3;
+    int32 emergencySSet = 4;
+  }
 
   /**
    * Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
    * Highest voltage winding should be 1.
    */
-  int32 endNumber = 4;
+  int32 endNumber = 5;
 
   /**
    * Basic insulation level voltage rating.
    */
-  int32 insulationU = 5;
+  oneof insulationU {
+    google.protobuf.NullValue insulationUNull = 6;
+    int32 insulationUSet = 7;
+  }
 
   /**
    * Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}.
    * For example, to express the second winding in code 'Dyn11',
    * set attributes as follows: 'endNumber'=2, 'connectionKind' = Yn and 'phaseAngleClock' = 11.
    */
-  int32 phaseAngleClock = 6;
+  oneof phaseAngleClock {
+    google.protobuf.NullValue phaseAngleClockNull = 8;
+    int32 phaseAngleClockSet = 9;
+  }
 
   /**
    * DC resistance.
    */
-  double r = 7;
+  oneof r {
+    google.protobuf.NullValue rNull = 10;
+    double rSet = 11;
+  }
 
   /**
    * Normal apparent power rating.
    */
-  int32 ratedS = 8;
+  oneof ratedS {
+    google.protobuf.NullValue ratedSNull = 12;
+    int32 ratedSSet = 13;
+  }
 
   /**
    * Rated voltage: phase-phase for three-phase windings, and either phase-phase
    * or phase-neutral for single-phase windings.
    */
-  int32 ratedU = 9;
+  oneof ratedU {
+    google.protobuf.NullValue ratedUNull = 14;
+    int32 ratedUSet = 15;
+  }
 
   /**
    * Apparent power that this winding can carry for a short period of time (in emergency).
    */
-  int32 shortTermS = 10;
+  oneof shortTermS {
+    google.protobuf.NullValue shortTermSNull = 16;
+    int32 shortTermSSet = 17;
+  }
 
   /**
    * Transformer tank data that this end description is part of.
    */
-  string transformerTankInfoMRID = 11;
+  string transformerTankInfoMRID = 18;
 
   /**
    * Transformer star impedance calculated from this transformer end datasheet.
    */
-  string transformerStarImpedanceMRID = 12;
+  string transformerStarImpedanceMRID = 19;
 
   /**
    * All no-load test measurements in which this transformer end was energised.
    */
-  string energisedEndNoLoadTestsMRID = 13;
+  string energisedEndNoLoadTestsMRID = 20;
 
   /**
    * All short-circuit test measurements in which this transformer end was short-circuited.
    */
-  string energisedEndShortCircuitTestsMRID = 14;
+  string energisedEndShortCircuitTestsMRID = 21;
 
   /**
    * All short-circuit test measurements in which this transformer end was energised.
    */
-  string groundedEndShortCircuitTestsMRID = 15;
+  string groundedEndShortCircuitTestsMRID = 22;
 
   /**
    * All open-circuit test measurements in which this transformer end was not excited.
    */
-  string openEndOpenCircuitTestsMRID = 16;
+  string openEndOpenCircuitTestsMRID = 23;
 
   /**
    * All open-circuit test measurements in which this transformer end was excited.
    */
-  string energisedEndOpenCircuitTestsMRID = 17;
+  string energisedEndOpenCircuitTestsMRID = 24;
 
 }

@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61970.base.diagramlayout;
 
 import "zepben/protobuf/cim/iec61970/base/diagramlayout/DiagramObjectPoint.proto";
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * An object that defines one or more points in a given space. This object can be associated with anything
@@ -39,18 +40,21 @@ message DiagramObject {
     /**
      * A diagram object has a style associated that provides a reference for the style used in the originating system.
      */
-    string diagramObjectStyle = 4;
+    oneof diagramObjectStyle {
+      google.protobuf.NullValue diagramObjectStyleNull = 4;
+      string diagramObjectStyleSet = 5;
+    }
 
     /**
      * Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation is clockwise.
      */
-    double rotation = 5;
+    double rotation = 6;
 
     /**
      * The diagram objects that are associated with the domain object.
      * <p>
      * The diagram objects are returned in a map sorted by the diagram they live in.
      */
-    repeated DiagramObjectPoint diagramObjectPoints = 6;
+    repeated DiagramObjectPoint diagramObjectPoints = 7;
 
 }

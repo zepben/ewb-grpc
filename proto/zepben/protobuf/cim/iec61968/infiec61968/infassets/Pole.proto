@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.infiec61968.infassets";
 package zepben.protobuf.cim.iec61968.infiec61968.infassets;
 
 import "zepben/protobuf/cim/iec61968/assets/Structure.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A Pole asset.
@@ -31,6 +32,9 @@ message Pole {
    /**
     * Pole class: 1, 2, 3, 4, 5, 6, 7, H1, H2, Other, Unknown.
     */
-    string classification = 3;
+    oneof classification {
+      google.protobuf.NullValue classificationNull = 3;
+      string classificationSet = 4;
+    }
 
 }

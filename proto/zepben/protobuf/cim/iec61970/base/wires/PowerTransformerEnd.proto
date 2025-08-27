@@ -14,6 +14,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 import "zepben/protobuf/cim/extensions/iec61970/base/wires/TransformerEndRatedS.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TransformerEnd.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.
@@ -43,60 +44,90 @@ message PowerTransformerEnd {
      * Normal apparent power rating. The attribute shall be a positive value. For a two-winding transformer the values
      * for the high and low voltage sides shall be identical.
      */
-    int32 ratedS = 3;
+    oneof ratedS {
+      google.protobuf.NullValue ratedSNull = 3;
+      int32 ratedSSet = 4;
+    }
 
     /**
      * Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings.
      * A high voltage side, as given by TransformerEnd.endNumber, shall have a ratedU that is greater or equal than
      * ratedU for the lower voltage sides
      */
-    int32 ratedU = 4;
+    oneof ratedU {
+      google.protobuf.NullValue ratedUNull = 5;
+      int32 ratedUSet = 6;
+    }
 
     /**
      * Resistance (star-model) of the transformer end.
      * The attribute shall be equal or greater than zero for non-equivalent transformers.
      */
-    double r = 5;
+    oneof r {
+      google.protobuf.NullValue rNull = 7;
+      double rSet = 8;
+    }
 
     /**
      * Positive sequence series reactance (star-model) of the transformer end.
      */
-    double x = 6;
+    oneof x {
+      google.protobuf.NullValue xNull = 9;
+      double xSet = 10;
+    }
 
     /**
      * Zero sequence series resistance (star-model) of the transformer end.
      */
-    double r0 = 7;
+    oneof r0 {
+      google.protobuf.NullValue r0Null = 11;
+      double r0Set = 12;
+    }
 
     /**
      * Zero sequence series reactance of the transformer end.
      */
-    double x0 = 8;
+    oneof x0 {
+      google.protobuf.NullValue x0Null = 13;
+      double x0Set = 14;
+    }
 
     /**
      * Kind of connection.
      */
-    WindingConnection connectionKind = 9;
+    WindingConnection connectionKind = 15;
 
     /**
      * Magnetizing branch susceptance (B mag).  The value can be positive or negative.
      */
-    double b = 10;
+    oneof b {
+      google.protobuf.NullValue bNull = 16;
+      double bSet = 17;
+    }
 
     /**
      * Zero sequence magnetizing branch susceptance.
      */
-    double b0 = 11;
+    oneof b0 {
+      google.protobuf.NullValue b0Null = 18;
+      double b0Set = 19;
+    }
 
     /**
      * Magnetizing branch conductance.
      */
-    double g = 12;
+    oneof g {
+      google.protobuf.NullValue gNull = 20;
+      double gSet = 21;
+    }
 
     /**
      * Zero sequence magnetizing branch conductance (star-model).
      */
-    double g0 = 13;
+    oneof g0 {
+      google.protobuf.NullValue g0Null = 22;
+      double g0Set = 23;
+    }
 
     /**
     * Terminal voltage phase angle displacement where 360 degrees are represented with clock hours.
@@ -105,11 +136,14 @@ message PowerTransformerEnd {
     * The clock value of the transformer end number specified as 1, is assumed to be zero.
     * Note the transformer end number is not assumed to be the same as the terminal sequence number.
     */
-    int32 phaseAngleClock = 14;
+    oneof phaseAngleClock {
+      google.protobuf.NullValue phaseAngleClockNull = 24;
+      int32 phaseAngleClockSet = 25;
+    }
 
     /**
      * [ZBEX] The normal apparent power ratings for this PowerTransformerEnd.
      */
-    repeated cim.extensions.iec61970.base.wires.TransformerEndRatedS ratings = 15;
+    repeated cim.extensions.iec61970.base.wires.TransformerEndRatedS ratings = 26;
 
 }

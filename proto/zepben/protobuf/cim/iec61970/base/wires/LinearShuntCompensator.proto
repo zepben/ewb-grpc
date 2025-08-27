@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/ShuntCompensator.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A linear shunt compensator has banks or sections with equal admittance values.
@@ -26,21 +27,33 @@ message LinearShuntCompensator {
     /**
      * Zero sequence shunt (charging) susceptance per section
      */
-    double b0PerSection = 2;
+    oneof b0PerSection {
+      google.protobuf.NullValue b0PerSectionNull = 2;
+      double b0PerSectionSet = 3;
+    }
 
     /**
      * Positive sequence shunt (charging) susceptance per section
      */
-    double bPerSection = 3;
+    oneof bPerSection {
+      google.protobuf.NullValue bPerSectionNull = 4;
+      double bPerSectionSet = 5;
+    }
 
     /**
      * Zero sequence shunt (charging) conductance per section
      */
-    double g0PerSection = 4;
+    oneof g0PerSection {
+      google.protobuf.NullValue g0PerSectionNull = 6;
+      double g0PerSectionSet = 7;
+    }
 
     /**
      * Positive sequence shunt (charging) conductance per section
      */
-    double gPerSection = 5;
+    oneof gPerSection {
+      google.protobuf.NullValue gPerSectionNull = 8;
+      double gPerSectionSet = 9;
+    }
 
 }

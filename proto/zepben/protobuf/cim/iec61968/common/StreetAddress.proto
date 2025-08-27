@@ -14,6 +14,8 @@ package zepben.protobuf.cim.iec61968.common;
 import "zepben/protobuf/cim/iec61968/common/StreetDetail.proto";
 import "zepben/protobuf/cim/iec61968/common/TownDetail.proto";
 
+import "google/protobuf/struct.proto";
+
 /**
  * General purpose street and postal address information.
  */
@@ -22,21 +24,27 @@ message StreetAddress {
     /**
      * Postal code for the address.
      */
-    string postalCode = 1;
+    oneof postalCode {
+      google.protobuf.NullValue postalCodeNull = 1;
+      string postalCodeSet = 2;
+    }
 
     /**
      * Town detail.
      */
-    TownDetail townDetail = 2;
+    TownDetail townDetail = 3;
 
     /**
      * Post office box.
      */
-    string poBox = 3;
+    oneof poBox {
+      google.protobuf.NullValue poBoxNull = 4;
+      string poBoxSet = 5;
+    }
 
     /**
      * Street detail.
      */
-    StreetDetail streetDetail = 4;
+    StreetDetail streetDetail = 6;
 
 }

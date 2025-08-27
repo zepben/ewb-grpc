@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/SVCControlMode.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A facility for providing variable and controllable shunt reactive power.
@@ -32,27 +33,39 @@ message StaticVarCompensator {
     /**
      * Capacitive reactance in Ohms at maximum capacitive reactive power. Shall always be positive.
      */
-    double capacitiveRating = 2;
+    oneof capacitiveRating {
+      google.protobuf.NullValue capacitiveRatingNull = 2;
+      double capacitiveRatingSet = 3;
+    }
 
     /**
      * Inductive reactance in Ohms at maximum inductive reactive power. Shall always be negative.
      */
-    double inductiveRating = 3;
+    oneof inductiveRating {
+      google.protobuf.NullValue inductiveRatingNull = 4;
+      double inductiveRatingSet = 5;
+    }
 
     /**
      * Reactive power injection in VAr. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
      */
-    double q = 4;
+    oneof q {
+      google.protobuf.NullValue qNull = 6;
+      double qSet = 7;
+    }
 
     /**
      * SVC control mode.
      */
-    SVCControlMode svcControlMode = 5;
+    SVCControlMode svcControlMode = 8;
 
     /**
      * The reactive power output of the SVC is proportional to the difference between the voltage at the regulated bus and the voltage setpoint.
      * When the regulated bus voltage is equal to the voltage set-point, the reactive power output is zero. Must be in volts.
      */
-    int32 voltageSetPoint = 6;
+    oneof voltageSetPoint {
+      google.protobuf.NullValue voltageSetPointNull = 9;
+      int32 voltageSetPointSet = 10;
+    }
 
 }

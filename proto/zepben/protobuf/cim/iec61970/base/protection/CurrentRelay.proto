@@ -28,19 +28,25 @@ message CurrentRelay {
   /**
    * Current limit number one 1 for inverse time pickup in amperes.
    */
-  double currentLimit1 = 2;
+  oneof currentLimit1 {
+    google.protobuf.NullValue currentLimit1Null = 2;
+    double currentLimit1Set = 3;
+  }
 
   /**
    * Set true if the current relay has inverse time characteristic.
    */
   oneof inverseTimeFlag {
-      google.protobuf.NullValue inverseTimeFlagNull = 3;
-      bool inverseTimeFlagSet = 4;
+      google.protobuf.NullValue inverseTimeFlagNull = 4;
+      bool inverseTimeFlagSet = 5;
   }
 
   /**
    * Inverse time delay number 1 for current limit number 1 in seconds.
    */
-  double timeDelay1 = 5;
+  oneof timeDelay1 {
+    google.protobuf.NullValue timeDelay1Null = 6;
+    double timeDelay1Set = 7;
+  }
 
 }

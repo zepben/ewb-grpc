@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A fixed impedance device used for grounding.
@@ -26,6 +27,9 @@ message GroundingImpedance {
     /**
      * Reactance of device in ohms.
      */
-    double x = 2;
+    oneof x {
+      google.protobuf.NullValue xNull = 2;
+      double xSet = 3;
+    }
 
 }

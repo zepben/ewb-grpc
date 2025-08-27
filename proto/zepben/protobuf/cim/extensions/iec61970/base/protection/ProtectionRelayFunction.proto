@@ -33,63 +33,69 @@ message ProtectionRelayFunction {
   /**
    * [ZBEX] The protection equipment type name (manufacturer information)
    */
-  string model = 2;
+  oneof model {
+    google.protobuf.NullValue modelNull = 2;
+    string modelSet = 3;
+  }
 
   /**
    * [ZBEX] True if the protection equipment is reclosing or False otherwise.
    */
   oneof reclosing {
-    google.protobuf.NullValue reclosingNull = 3;
-    bool reclosingSet = 4;
+    google.protobuf.NullValue reclosingNull = 4;
+    bool reclosingSet = 5;
   }
 
   /**
    * [ZBEX] The time limits (in seconds) for this relay function.
    * Order of entries corresponds to the order of entries in thresholds.
    */
-  repeated double timeLimits = 5;
+  repeated double timeLimits = 6;
 
   /**
    * [ZBEX] The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
    */
-  repeated RelaySetting thresholds = 6;
+  repeated RelaySetting thresholds = 7;
 
   /**
    * [ZBEX] The time delay from detection of abnormal conditions to relay operation in seconds.
    */
-  double relayDelayTime = 7;
+  oneof relayDelayTime {
+    google.protobuf.NullValue relayDelayTimeNull = 8;
+    double relayDelayTimeSet = 9;
+  }
 
   /**
    * [ZBEX] The kind of protection being provided by this ProtectionRelayFunction.
    */
-  ProtectionKind protectionKind = 8;
+  ProtectionKind protectionKind = 10;
 
   /**
    * [ZBEX] The ProtectedSwitches operated by this ProtectionRelayFunction.
    */
-  repeated string protectedSwitchMRIDs = 9;
+  repeated string protectedSwitchMRIDs = 11;
 
   /**
    * [ZBEX] Whether this ProtectionRelayFunction responds to power flow in a given direction.
    */
   oneof directable {
-    google.protobuf.NullValue directableNull = 10;
-    bool directableSet = 11;
+    google.protobuf.NullValue directableNull = 12;
+    bool directableSet = 13;
   }
 
   /**
    * [ZBEX] The flow of power direction used by this ProtectionRelayFunction.
    */
-  PowerDirectionKind powerDirection = 12;
+  PowerDirectionKind powerDirection = 14;
 
   /**
    * [ZBEX] The Sensors for this relay function.
    */
-  repeated string sensorMRIDs = 13;
+  repeated string sensorMRIDs = 15;
 
   /**
    * [ZBEX] The schemes this function operates under.
    */
-  repeated string schemeMRIDs = 14;
+  repeated string schemeMRIDs = 16;
 
 }

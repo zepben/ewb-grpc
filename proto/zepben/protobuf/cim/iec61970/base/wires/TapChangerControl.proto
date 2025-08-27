@@ -27,57 +27,75 @@ message TapChangerControl {
     /**
      * Maximum allowed regulated voltage on the PT secondary, regardless of line drop compensation. Sometimes referred to as first-house protection.
      */
-    int32 limitVoltage = 2;
+    oneof limitVoltage {
+      google.protobuf.NullValue limitVoltageNull = 2;
+      int32 limitVoltageSet = 3;
+    }
 
     /**
      * If true, then line drop compensation is to be applied.
      */
     oneof lineDropCompensation {
-        google.protobuf.NullValue lineDropCompensationNull = 3;
-        bool lineDropCompensationSet = 4;
+        google.protobuf.NullValue lineDropCompensationNull = 4;
+        bool lineDropCompensationSet = 5;
     }
 
     /**
      * Line drop compensator resistance setting for normal (forward) power flow in Ohms.
      */
-    double lineDropR = 5;
+    oneof lineDropR {
+      google.protobuf.NullValue lineDropRNull = 6;
+      double lineDropRSet = 7;
+    }
 
     /**
      * Line drop compensator reactance setting for normal (forward) power flow in Ohms.
      */
-    double lineDropX = 6;
+    oneof lineDropX {
+      google.protobuf.NullValue lineDropXNull = 8;
+      double lineDropXSet = 9;
+    }
 
     /**
      * Line drop compensator resistance setting for reverse power flow in Ohms.
      */
-    double reverseLineDropR = 7;
+    oneof reverseLineDropR {
+      google.protobuf.NullValue reverseLineDropRNull = 10;
+      double reverseLineDropRSet = 11;
+    }
 
     /**
      * Line drop compensator reactance setting for reverse power flow in Ohms.
      */
-    double reverseLineDropX = 8;
+    oneof reverseLineDropX {
+      google.protobuf.NullValue reverseLineDropXNull = 12;
+      double reverseLineDropXSet = 13;
+    }
 
     /**
      * True implies this tap changer turns off/ignores reverse current flows for line drop compensation when
      * power flow is reversed and no reverse line drop is set.
      */
     oneof forwardLDCBlocking {
-        google.protobuf.NullValue forwardLDCBlockingNull = 9;
-        bool forwardLDCBlockingSet = 10;
+        google.protobuf.NullValue forwardLDCBlockingNull = 14;
+        bool forwardLDCBlockingSet = 15;
     }
 
     /**
      * The time delay for the tap changer in seconds.
      */
-    double timeDelay = 11;
+    oneof timeDelay {
+      google.protobuf.NullValue timeDelayNull = 16;
+      double timeDelaySet = 17;
+    }
 
     /**
      * True implies cogeneration mode is enabled and that the control will regulate to the new source bushing (downline bushing),
      * keeping locations downline from experiencing overvoltage situations.
      */
     oneof coGenerationEnabled {
-        google.protobuf.NullValue coGenerationEnabledNull = 12;
-        bool coGenerationEnabledSet = 13;
+        google.protobuf.NullValue coGenerationEnabledNull = 18;
+        bool coGenerationEnabledSet = 19;
     }
 
 }

@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Test result for transformer ends, such as short-circuit, open-circuit (excitation) or no-load test.
@@ -26,11 +27,17 @@ message TransformerTest {
   /**
    * Base power at which the tests are conducted, usually equal to the ratedS of one of the involved transformer ends.
    */
-  int32 basePower = 2;
+  oneof basePower {
+    google.protobuf.NullValue basePowerNull = 2;
+    int32 basePowerSet = 3;
+  }
 
   /**
    * Temperature at which the test is conducted.
    */
-  double temperature = 3;
+  oneof temperature {
+    google.protobuf.NullValue temperatureNull = 4;
+    double temperatureSet = 5;
+  }
 
 }

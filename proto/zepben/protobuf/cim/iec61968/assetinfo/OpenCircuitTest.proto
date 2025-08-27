@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61968.assetinfo";
 package zepben.protobuf.cim.iec61968.assetinfo;
 
 import "zepben/protobuf/cim/iec61968/assetinfo/TransformerTest.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Open-circuit test results verify winding turn ratios and phase shifts. They include induced voltage and
@@ -28,26 +29,41 @@ message OpenCircuitTest {
   /**
    * Tap step number for the energised end of the test pair.
    */
-  int32 energisedEndStep = 2;
+  oneof energisedEndStep {
+    google.protobuf.NullValue energisedEndStepNull = 2;
+    int32 energisedEndStepSet = 3;
+  }
 
   /**
    * Voltage applied to the winding (end) during test in volts.
    */
-  int32 energisedEndVoltage = 3;
+  oneof energisedEndVoltage {
+    google.protobuf.NullValue energisedEndVoltageNull = 4;
+    int32 energisedEndVoltageSet = 5;
+  }
 
   /**
    * Tap step number for the open end of the test pair.
    */
-  int32 openEndStep = 4;
+  oneof openEndStep {
+    google.protobuf.NullValue openEndStepNull = 6;
+    int32 openEndStepSet = 7;
+  }
 
   /**
    * Voltage measured at the open-circuited end, with the energised end set to rated voltage and all other ends open in volts.
    */
-  int32 openEndVoltage = 5;
+  oneof openEndVoltage {
+    google.protobuf.NullValue openEndVoltageNull = 8;
+    int32 openEndVoltageSet = 9;
+  }
 
   /**
    * Phase shift measured at the open end with the energised end set to rated voltage and all other ends open in angle degrees.
    */
-  double phaseShift = 6;
+  oneof phaseShift {
+    google.protobuf.NullValue phaseShiftNull = 10;
+    double phaseShiftSet = 11;
+  }
 
 }

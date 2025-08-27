@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Combination of conducting material with consistent electrical characteristics, building a single electrical system,
@@ -27,17 +28,26 @@ message Conductor {
     /**
      * Segment length for calculating line section capabilities.
      */
-    double length = 2;
+    oneof length {
+      google.protobuf.NullValue lengthNull = 2;
+      double lengthSet = 3;
+    }
 
     /**
      * [ZBEX] The temperature in degrees Celsius for the network design of this conductor.
      */
-    int32 designTemperature = 3;
+    oneof designTemperature {
+      google.protobuf.NullValue designTemperatureNull = 4;
+      int32 designTemperatureSet = 5;
+    }
 
     /**
      * [ZBEX] The current rating in Amperes at the specified design temperature that can be used without the conductor
      * breaching physical network design limits.
      */
-    double designRating = 4;
+    oneof designRating {
+      google.protobuf.NullValue designRatingNull = 6;
+      double designRatingSet = 7;
+    }
 
 }

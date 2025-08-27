@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A single phase of a power electronics connection.
@@ -28,24 +29,30 @@ message PowerElectronicsConnectionPhase {
    * Active power injection. Load sign convention is used, i.e. positive sign means flow into the equipment from the
    * network.
    */
-  double p = 2;
+  oneof p {
+    google.protobuf.NullValue pNull = 2;
+    double pSet = 3;
+  }
 
   /**
    * Phase of this energy producer component. If the energy producer is wye connected, the connection is from the
    * indicated phase to the central ground or neutral point. If the energy producer is delta connected, the phase
    * indicates an energy producer connected from the indicated phase to the next logical non-neutral phase.
    */
-  SinglePhaseKind phase = 3;
+  SinglePhaseKind phase = 4;
 
   /**
    * Reactive power injection. Load sign convention is used, i.e. positive sign means flow into the equipment from the
    * network.
    */
-  double q = 4;
+  oneof q {
+    google.protobuf.NullValue qNull = 5;
+    double qSet = 6;
+  }
 
   /**
   * Power electronics connection of this power electronics connection phase.
   */
-  string powerElectronicsConnectionMRID = 5;
+  string powerElectronicsConnectionMRID = 7;
 
 }

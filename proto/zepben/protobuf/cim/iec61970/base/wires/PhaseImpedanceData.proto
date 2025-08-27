@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Impedance and conductance matrix element values. The diagonal elements are described by the elements having the same toPhase and fromPhase value and
@@ -22,32 +23,43 @@ message PhaseImpedanceData {
     /**
      * Susceptance matrix element value, per length of unit.
      */
-    double b = 1;
+    oneof b {
+      google.protobuf.NullValue bNull = 1;
+      double bSet = 2;
+    }
 
     /**
      * Refer to the class description.
      */
-    SinglePhaseKind fromPhase = 2;
+    SinglePhaseKind fromPhase = 3;
 
     /**
      * Refer to the class description.
      */
-    SinglePhaseKind toPhase = 3;
+    SinglePhaseKind toPhase = 4;
 
     /**
      * Conductance matrix element value, per length of unit.
      */
-    double g = 4;
-
+    oneof g {
+      google.protobuf.NullValue gNull = 5;
+      double gSet = 6;
+    }
 
     /**
      * Resistance matrix element value, per length of unit.
      */
-    double r = 5;
+    oneof r {
+      google.protobuf.NullValue rNull = 7;
+      double rSet = 8;
+    }
 
     /**
      * Reactance matrix element value, per length of unit.
      */
-    double x = 6;
+    oneof x {
+      google.protobuf.NullValue xNull = 9;
+      double xSet = 10;
+    }
 
 }

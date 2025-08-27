@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.equivalents";
 package zepben.protobuf.cim.iec61970.base.equivalents;
 
 import "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * The class represents equivalent branches. In cases where a transformer phase shift is modelled and the EquivalentBranch is spanning
@@ -28,96 +29,144 @@ message EquivalentBranch {
      * Negative sequence series resistance from terminal sequence 1 to terminal sequence 2. Used for short circuit data exchange according
      * to IEC 60909. EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double negativeR12 = 2;
+    oneof negativeR12 {
+      google.protobuf.NullValue negativeR12Null = 2;
+      double negativeR12Set = 3;
+    }
 
     /*
      * Negative sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according
      * to IEC 60909. EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double negativeR21 = 3;
+    oneof negativeR21 {
+      google.protobuf.NullValue negativeR21Null = 4;
+      double negativeR21Set = 5;
+    }
 
     /*
      * Negative sequence series reactance from terminal sequence 1 to terminal sequence 2. Used for short circuit data exchange according
      * to IEC 60909. Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double negativeX12 = 4;
+    oneof negativeX12 {
+      google.protobuf.NullValue negativeX12Null = 6;
+      double negativeX12Set = 7;
+    }
 
     /*
      * Negative sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according
      * to IEC 60909. Usage: EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double negativeX21 = 5;
+    oneof negativeX21 {
+      google.protobuf.NullValue negativeX21Null = 8;
+      double negativeX21Set = 9;
+    }
 
     /*
      * Positive sequence series resistance from terminal sequence 1 to terminal sequence 2 . Used for short circuit data exchange according
      * to IEC 60909. EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double positiveR12 = 6;
+    oneof positiveR12 {
+      google.protobuf.NullValue positiveR12Null = 10;
+      double positiveR12Set = 11;
+    }
 
     /*
      * Positive sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according
      * to IEC 60909. EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double positiveR21 = 7;
+    oneof positiveR21 {
+      google.protobuf.NullValue positiveR21Null = 12;
+      double positiveR21Set = 13;
+    }
 
     /*
      * Positive sequence series reactance from terminal sequence 1 to terminal sequence 2. Used for short circuit data exchange according
      * to IEC 60909. Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double positiveX12 = 8;
+    oneof positiveX12 {
+      google.protobuf.NullValue positiveX12Null = 14;
+      double positiveX12Set = 15;
+    }
 
     /*
      * Positive sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according
      * to IEC 60909. Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double positiveX21 = 9;
+    oneof positiveX21 {
+      google.protobuf.NullValue positiveX21Null = 16;
+      double positiveX21Set = 17;
+    }
 
     /*
      * Positive sequence series resistance of the reduced branch.
      */
-    double r = 10;
+    oneof r {
+      google.protobuf.NullValue rNull = 18;
+      double rSet = 19;
+    }
 
     /*
      * Resistance from terminal sequence 2 to terminal sequence 1 .Used for steady state power flow. This attribute is optional and represent
      * unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.r is given, then EquivalentBranch.r21 is assumed equal
      * to EquivalentBranch.r. Usage rule : EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double r21 = 11;
+    oneof r21 {
+      google.protobuf.NullValue r21Null = 120;
+      double r21Set = 21;
+    }
 
     /*
      * Positive sequence series reactance of the reduced branch.
      */
-    double x = 12;
+    oneof x {
+      google.protobuf.NullValue xNull = 22;
+      double xSet = 23;
+    }
 
     /*
      * Reactance from terminal sequence 2 to terminal sequence 1. Used for steady state power flow. This attribute is optional and represents
      * an unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.x is given, then EquivalentBranch.x21 is assumed
      * equal to EquivalentBranch.x. Usage rule: EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double x21 = 13;
+    oneof x21 {
+      google.protobuf.NullValue x21Null = 24;
+      double x21Set = 25;
+    }
 
     /*
      * Zero sequence series resistance from terminal sequence 1 to terminal sequence 2. Used for short circuit data exchange according to
      * IEC 60909. EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double zeroR12 = 14;
+    oneof zeroR12 {
+      google.protobuf.NullValue zeroR12Null = 26;
+      double zeroR12Set = 27;
+    }
 
     /*
      * Zero sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to
      * IEC 60909. Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double zeroR21 = 15;
+    oneof zeroR21 {
+      google.protobuf.NullValue zeroR21Null = 28;
+      double zeroR21Set = 29;
+    }
 
     /*
      * Zero sequence series reactance from terminal sequence 1 to terminal sequence 2. Used for short circuit data exchange according to
      * IEC 60909. Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double zeroX12 = 16;
+    oneof zeroX12 {
+      google.protobuf.NullValue zeroX12Null = 30;
+      double zeroX12Set = 31;
+    }
 
     /*
      * Zero sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to
      * IEC 60909. Usage : EquivalentBranch is a result of network reduction prior to the data exchange.
      */
-    double zeroX21 = 17;
+    oneof zeroX21 {
+      google.protobuf.NullValue zeroX21Null = 32;
+      double zeroX21Set = 33;
+    }
 
 }

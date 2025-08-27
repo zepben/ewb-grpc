@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Transformer star impedance (Pi-model) that accurately reflects impedance for transformers with 2 or 3 windings.
@@ -28,26 +29,38 @@ message TransformerStarImpedance {
   /**
    * Resistance of the transformer end. Value in ohms (ohm)
    */
-  double r = 2;
+  oneof r {
+    google.protobuf.NullValue rNull = 2;
+    double rSet = 3;
+  }
 
   /**
    * Zero sequence series resistance of the transformer end.  Value in ohms (ohm)
    */
-  double r0 = 3;
+  oneof r0 {
+    google.protobuf.NullValue r0Null = 4;
+    double r0Set = 5;
+  }
 
   /**
    * Positive sequence series reactance of the transformer end. Value in ohms (ohm)
    */
-  double x = 4;
+  oneof x {
+    google.protobuf.NullValue xNull = 6;
+    double xSet = 7;
+  }
 
   /**
    * Zero sequence series reactance of the transformer end. Value in ohms (ohm)
    */
-  double x0 = 5;
+  oneof x0 {
+    google.protobuf.NullValue x0Null = 8;
+    double x0Set = 9;
+  }
 
   /**
    * Transformer end datasheet used to calculate this transformer star impedance.
    */
-  string transformerEndInfoMRID = 6;
+  string transformerEndInfoMRID = 11;
 
 }

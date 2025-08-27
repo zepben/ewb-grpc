@@ -273,23 +273,30 @@
               },
               {
                 "id": 2,
-                "name": "curveSetting",
-                "type": "string"
+                "name": "curveSettingNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "curveSetting"
               },
               {
                 "id": 3,
+                "name": "curveSettingSet",
+                "type": "string",
+                "oneof_parent": "curveSetting"
+              },
+              {
+                "id": 4,
                 "name": "recloseDelays",
                 "type": "double",
                 "is_repeated": true
               },
               {
-                "id": 4,
+                "id": 5,
                 "name": "recloseFastNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "recloseFast"
               },
               {
-                "id": 5,
+                "id": 6,
                 "name": "recloseFastSet",
                 "type": "bool",
                 "oneof_parent": "recloseFast"
@@ -339,8 +346,15 @@
               },
               {
                 "id": 3,
-                "name": "appliance",
-                "type": "int32"
+                "name": "applianceNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "appliance"
+              },
+              {
+                "id": 4,
+                "name": "applianceSet",
+                "type": "int32",
+                "oneof_parent": "appliance"
               }
             ]
           }
@@ -351,6 +365,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/metering/EndDeviceFunctionKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -557,48 +574,111 @@
               },
               {
                 "id": 2,
-                "name": "backwardBlind",
-                "type": "double"
+                "name": "backwardBlindNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "backwardBlind"
               },
               {
                 "id": 3,
-                "name": "backwardReach",
-                "type": "double"
+                "name": "backwardBlindSet",
+                "type": "double",
+                "oneof_parent": "backwardBlind"
               },
               {
                 "id": 4,
-                "name": "backwardReactance",
-                "type": "double"
+                "name": "backwardReachNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "backwardReach"
               },
               {
                 "id": 5,
-                "name": "forwardBlind",
-                "type": "double"
+                "name": "backwardReachSet",
+                "type": "double",
+                "oneof_parent": "backwardReach"
               },
               {
                 "id": 6,
-                "name": "forwardReach",
-                "type": "double"
+                "name": "backwardReactanceNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "backwardReactance"
               },
               {
                 "id": 7,
-                "name": "forwardReactance",
-                "type": "double"
+                "name": "backwardReactanceSet",
+                "type": "double",
+                "oneof_parent": "backwardReactance"
               },
               {
                 "id": 8,
-                "name": "operationPhaseAngle1",
-                "type": "double"
+                "name": "forwardBlindNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "forwardBlind"
               },
               {
                 "id": 9,
-                "name": "operationPhaseAngle2",
-                "type": "double"
+                "name": "forwardBlindSet",
+                "type": "double",
+                "oneof_parent": "forwardBlind"
               },
               {
                 "id": 10,
-                "name": "operationPhaseAngle3",
-                "type": "double"
+                "name": "forwardReachNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "forwardReach"
+              },
+              {
+                "id": 11,
+                "name": "forwardReachSet",
+                "type": "double",
+                "oneof_parent": "forwardReach"
+              },
+              {
+                "id": 12,
+                "name": "forwardReactanceNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "forwardReactance"
+              },
+              {
+                "id": 13,
+                "name": "forwardReactanceSet",
+                "type": "double",
+                "oneof_parent": "forwardReactance"
+              },
+              {
+                "id": 14,
+                "name": "operationPhaseAngle1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "operationPhaseAngle1"
+              },
+              {
+                "id": 15,
+                "name": "operationPhaseAngle1Set",
+                "type": "double",
+                "oneof_parent": "operationPhaseAngle1"
+              },
+              {
+                "id": 16,
+                "name": "operationPhaseAngle2Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "operationPhaseAngle2"
+              },
+              {
+                "id": 17,
+                "name": "operationPhaseAngle2Set",
+                "type": "double",
+                "oneof_parent": "operationPhaseAngle2"
+              },
+              {
+                "id": 18,
+                "name": "operationPhaseAngle3Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "operationPhaseAngle3"
+              },
+              {
+                "id": 19,
+                "name": "operationPhaseAngle3Set",
+                "type": "double",
+                "oneof_parent": "operationPhaseAngle3"
               }
             ]
           }
@@ -606,6 +686,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayFunction.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -821,74 +904,88 @@
               },
               {
                 "id": 2,
-                "name": "model",
-                "type": "string"
+                "name": "modelNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "model"
               },
               {
                 "id": 3,
+                "name": "modelSet",
+                "type": "string",
+                "oneof_parent": "model"
+              },
+              {
+                "id": 4,
                 "name": "reclosingNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "reclosing"
               },
               {
-                "id": 4,
+                "id": 5,
                 "name": "reclosingSet",
                 "type": "bool",
                 "oneof_parent": "reclosing"
               },
               {
-                "id": 5,
+                "id": 6,
                 "name": "timeLimits",
                 "type": "double",
                 "is_repeated": true
               },
               {
-                "id": 6,
+                "id": 7,
                 "name": "thresholds",
                 "type": "RelaySetting",
                 "is_repeated": true
               },
               {
-                "id": 7,
-                "name": "relayDelayTime",
-                "type": "double"
+                "id": 8,
+                "name": "relayDelayTimeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "relayDelayTime"
               },
               {
-                "id": 8,
+                "id": 9,
+                "name": "relayDelayTimeSet",
+                "type": "double",
+                "oneof_parent": "relayDelayTime"
+              },
+              {
+                "id": 10,
                 "name": "protectionKind",
                 "type": "ProtectionKind"
               },
               {
-                "id": 9,
+                "id": 11,
                 "name": "protectedSwitchMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 10,
+                "id": 12,
                 "name": "directableNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "directable"
               },
               {
-                "id": 11,
+                "id": 13,
                 "name": "directableSet",
                 "type": "bool",
                 "oneof_parent": "directable"
               },
               {
-                "id": 12,
+                "id": 14,
                 "name": "powerDirection",
                 "type": "PowerDirectionKind"
               },
               {
-                "id": 13,
+                "id": 15,
                 "name": "sensorMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 14,
+                "id": 16,
                 "name": "schemeMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -1032,16 +1129,23 @@
             "fields": [
               {
                 "id": 1,
-                "name": "name",
-                "type": "string"
+                "name": "nameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "name"
               },
               {
                 "id": 2,
+                "name": "nameSet",
+                "type": "string",
+                "oneof_parent": "name"
+              },
+              {
+                "id": 3,
                 "name": "unitSymbol",
                 "type": "cim.iec61970.base.domain.UnitSymbol"
               },
               {
-                "id": 3,
+                "id": 4,
                 "name": "value",
                 "type": "double"
               }
@@ -1051,6 +1155,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/domain/UnitSymbol.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -1117,21 +1224,42 @@
               },
               {
                 "id": 2,
-                "name": "chargingRate",
-                "type": "double"
+                "name": "chargingRateNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "chargingRate"
               },
               {
                 "id": 3,
-                "name": "dischargingRate",
-                "type": "double"
+                "name": "chargingRateSet",
+                "type": "double",
+                "oneof_parent": "chargingRate"
               },
               {
                 "id": 4,
-                "name": "reservePercent",
-                "type": "double"
+                "name": "dischargingRateNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "dischargingRate"
               },
               {
                 "id": 5,
+                "name": "dischargingRateSet",
+                "type": "double",
+                "oneof_parent": "dischargingRate"
+              },
+              {
+                "id": 6,
+                "name": "reservePercentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "reservePercent"
+              },
+              {
+                "id": 7,
+                "name": "reservePercentSet",
+                "type": "double",
+                "oneof_parent": "reservePercent"
+              },
+              {
+                "id": 8,
                 "name": "controlMode",
                 "type": "BatteryControlMode"
               }
@@ -1144,6 +1272,9 @@
           },
           {
             "path": "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControlMode.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -1738,28 +1869,63 @@
               },
               {
                 "id": 2,
-                "name": "energisedEndVoltage",
-                "type": "int32"
+                "name": "energisedEndVoltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "energisedEndVoltage"
               },
               {
                 "id": 3,
-                "name": "excitingCurrent",
-                "type": "double"
+                "name": "energisedEndVoltageSet",
+                "type": "int32",
+                "oneof_parent": "energisedEndVoltage"
               },
               {
                 "id": 4,
-                "name": "excitingCurrentZero",
-                "type": "double"
+                "name": "excitingCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "excitingCurrent"
               },
               {
                 "id": 5,
-                "name": "loss",
-                "type": "int32"
+                "name": "excitingCurrentSet",
+                "type": "double",
+                "oneof_parent": "excitingCurrent"
               },
               {
                 "id": 6,
-                "name": "lossZero",
-                "type": "int32"
+                "name": "excitingCurrentZeroNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "excitingCurrentZero"
+              },
+              {
+                "id": 7,
+                "name": "excitingCurrentZeroSet",
+                "type": "double",
+                "oneof_parent": "excitingCurrentZero"
+              },
+              {
+                "id": 8,
+                "name": "lossNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "loss"
+              },
+              {
+                "id": 9,
+                "name": "lossSet",
+                "type": "int32",
+                "oneof_parent": "loss"
+              },
+              {
+                "id": 10,
+                "name": "lossZeroNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lossZero"
+              },
+              {
+                "id": 11,
+                "name": "lossZeroSet",
+                "type": "int32",
+                "oneof_parent": "lossZero"
               }
             ]
           }
@@ -1767,6 +1933,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTest.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -1798,28 +1967,63 @@
               },
               {
                 "id": 2,
-                "name": "energisedEndStep",
-                "type": "int32"
+                "name": "energisedEndStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "energisedEndStep"
               },
               {
                 "id": 3,
-                "name": "energisedEndVoltage",
-                "type": "int32"
+                "name": "energisedEndStepSet",
+                "type": "int32",
+                "oneof_parent": "energisedEndStep"
               },
               {
                 "id": 4,
-                "name": "openEndStep",
-                "type": "int32"
+                "name": "energisedEndVoltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "energisedEndVoltage"
               },
               {
                 "id": 5,
-                "name": "openEndVoltage",
-                "type": "int32"
+                "name": "energisedEndVoltageSet",
+                "type": "int32",
+                "oneof_parent": "energisedEndVoltage"
               },
               {
                 "id": 6,
-                "name": "phaseShift",
-                "type": "double"
+                "name": "openEndStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "openEndStep"
+              },
+              {
+                "id": 7,
+                "name": "openEndStepSet",
+                "type": "int32",
+                "oneof_parent": "openEndStep"
+              },
+              {
+                "id": 8,
+                "name": "openEndVoltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "openEndVoltage"
+              },
+              {
+                "id": 9,
+                "name": "openEndVoltageSet",
+                "type": "int32",
+                "oneof_parent": "openEndVoltage"
+              },
+              {
+                "id": 10,
+                "name": "phaseShiftNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "phaseShift"
+              },
+              {
+                "id": 11,
+                "name": "phaseShiftSet",
+                "type": "double",
+                "oneof_parent": "phaseShift"
               }
             ]
           }
@@ -1827,6 +2031,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTest.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -1934,53 +2141,123 @@
               },
               {
                 "id": 2,
-                "name": "current",
-                "type": "double"
+                "name": "currentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "current"
               },
               {
                 "id": 3,
-                "name": "energisedEndStep",
-                "type": "int32"
+                "name": "currentSet",
+                "type": "double",
+                "oneof_parent": "current"
               },
               {
                 "id": 4,
-                "name": "groundedEndStep",
-                "type": "int32"
+                "name": "energisedEndStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "energisedEndStep"
               },
               {
                 "id": 5,
-                "name": "leakageImpedance",
-                "type": "double"
+                "name": "energisedEndStepSet",
+                "type": "int32",
+                "oneof_parent": "energisedEndStep"
               },
               {
                 "id": 6,
-                "name": "leakageImpedanceZero",
-                "type": "double"
+                "name": "groundedEndStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "groundedEndStep"
               },
               {
                 "id": 7,
-                "name": "loss",
-                "type": "int32"
+                "name": "groundedEndStepSet",
+                "type": "int32",
+                "oneof_parent": "groundedEndStep"
               },
               {
                 "id": 8,
-                "name": "lossZero",
-                "type": "int32"
+                "name": "leakageImpedanceNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "leakageImpedance"
               },
               {
                 "id": 9,
-                "name": "power",
-                "type": "int32"
+                "name": "leakageImpedanceSet",
+                "type": "double",
+                "oneof_parent": "leakageImpedance"
               },
               {
                 "id": 10,
-                "name": "voltage",
-                "type": "double"
+                "name": "leakageImpedanceZeroNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "leakageImpedanceZero"
               },
               {
                 "id": 11,
-                "name": "voltageOhmicPart",
-                "type": "double"
+                "name": "leakageImpedanceZeroSet",
+                "type": "double",
+                "oneof_parent": "leakageImpedanceZero"
+              },
+              {
+                "id": 12,
+                "name": "lossNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "loss"
+              },
+              {
+                "id": 13,
+                "name": "lossSet",
+                "type": "int32",
+                "oneof_parent": "loss"
+              },
+              {
+                "id": 14,
+                "name": "lossZeroNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lossZero"
+              },
+              {
+                "id": 15,
+                "name": "lossZeroSet",
+                "type": "int32",
+                "oneof_parent": "lossZero"
+              },
+              {
+                "id": 16,
+                "name": "powerNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "power"
+              },
+              {
+                "id": 17,
+                "name": "powerSet",
+                "type": "int32",
+                "oneof_parent": "power"
+              },
+              {
+                "id": 18,
+                "name": "voltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "voltage"
+              },
+              {
+                "id": 19,
+                "name": "voltageSet",
+                "type": "double",
+                "oneof_parent": "voltage"
+              },
+              {
+                "id": 20,
+                "name": "voltageOhmicPartNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "voltageOhmicPart"
+              },
+              {
+                "id": 21,
+                "name": "voltageOhmicPartSet",
+                "type": "double",
+                "oneof_parent": "voltageOhmicPart"
               }
             ]
           }
@@ -1988,6 +2265,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/assetinfo/TransformerTest.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -2019,23 +2299,51 @@
               },
               {
                 "id": 2,
-                "name": "maxPowerLoss",
-                "type": "int32"
+                "name": "maxPowerLossNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "maxPowerLoss"
               },
               {
                 "id": 3,
-                "name": "ratedCurrent",
-                "type": "int32"
+                "name": "maxPowerLossSet",
+                "type": "int32",
+                "oneof_parent": "maxPowerLoss"
               },
               {
                 "id": 4,
-                "name": "ratedReactivePower",
-                "type": "int32"
+                "name": "ratedCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedCurrent"
               },
               {
                 "id": 5,
-                "name": "ratedVoltage",
-                "type": "int32"
+                "name": "ratedCurrentSet",
+                "type": "int32",
+                "oneof_parent": "ratedCurrent"
+              },
+              {
+                "id": 6,
+                "name": "ratedReactivePowerNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedReactivePower"
+              },
+              {
+                "id": 7,
+                "name": "ratedReactivePowerSet",
+                "type": "int32",
+                "oneof_parent": "ratedReactivePower"
+              },
+              {
+                "id": 8,
+                "name": "ratedVoltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedVoltage"
+              },
+              {
+                "id": 9,
+                "name": "ratedVoltageSet",
+                "type": "int32",
+                "oneof_parent": "ratedVoltage"
               }
             ]
           }
@@ -2043,6 +2351,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -2074,8 +2385,15 @@
               },
               {
                 "id": 2,
-                "name": "ratedInterruptingTime",
-                "type": "double"
+                "name": "ratedInterruptingTimeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedInterruptingTime"
+              },
+              {
+                "id": 3,
+                "name": "ratedInterruptingTimeSet",
+                "type": "double",
+                "oneof_parent": "ratedInterruptingTime"
               }
             ]
           }
@@ -2083,6 +2401,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -2119,76 +2440,125 @@
               },
               {
                 "id": 3,
-                "name": "emergencyS",
-                "type": "int32"
+                "name": "emergencySNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "emergencyS"
               },
               {
                 "id": 4,
+                "name": "emergencySSet",
+                "type": "int32",
+                "oneof_parent": "emergencyS"
+              },
+              {
+                "id": 5,
                 "name": "endNumber",
                 "type": "int32"
               },
               {
-                "id": 5,
-                "name": "insulationU",
-                "type": "int32"
-              },
-              {
                 "id": 6,
-                "name": "phaseAngleClock",
-                "type": "int32"
+                "name": "insulationUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "insulationU"
               },
               {
                 "id": 7,
-                "name": "r",
-                "type": "double"
+                "name": "insulationUSet",
+                "type": "int32",
+                "oneof_parent": "insulationU"
               },
               {
                 "id": 8,
-                "name": "ratedS",
-                "type": "int32"
+                "name": "phaseAngleClockNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "phaseAngleClock"
               },
               {
                 "id": 9,
-                "name": "ratedU",
-                "type": "int32"
+                "name": "phaseAngleClockSet",
+                "type": "int32",
+                "oneof_parent": "phaseAngleClock"
               },
               {
                 "id": 10,
-                "name": "shortTermS",
-                "type": "int32"
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
               },
               {
                 "id": 11,
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 12,
+                "name": "ratedSNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedS"
+              },
+              {
+                "id": 13,
+                "name": "ratedSSet",
+                "type": "int32",
+                "oneof_parent": "ratedS"
+              },
+              {
+                "id": 14,
+                "name": "ratedUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedU"
+              },
+              {
+                "id": 15,
+                "name": "ratedUSet",
+                "type": "int32",
+                "oneof_parent": "ratedU"
+              },
+              {
+                "id": 16,
+                "name": "shortTermSNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "shortTermS"
+              },
+              {
+                "id": 17,
+                "name": "shortTermSSet",
+                "type": "int32",
+                "oneof_parent": "shortTermS"
+              },
+              {
+                "id": 18,
                 "name": "transformerTankInfoMRID",
                 "type": "string"
               },
               {
-                "id": 12,
+                "id": 19,
                 "name": "transformerStarImpedanceMRID",
                 "type": "string"
               },
               {
-                "id": 13,
+                "id": 20,
                 "name": "energisedEndNoLoadTestsMRID",
                 "type": "string"
               },
               {
-                "id": 14,
+                "id": 21,
                 "name": "energisedEndShortCircuitTestsMRID",
                 "type": "string"
               },
               {
-                "id": 15,
+                "id": 22,
                 "name": "groundedEndShortCircuitTestsMRID",
                 "type": "string"
               },
               {
-                "id": 16,
+                "id": 23,
                 "name": "openEndOpenCircuitTestsMRID",
                 "type": "string"
               },
               {
-                "id": 17,
+                "id": 24,
                 "name": "energisedEndOpenCircuitTestsMRID",
                 "type": "string"
               }
@@ -2201,6 +2571,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -2278,13 +2651,27 @@
               },
               {
                 "id": 2,
-                "name": "basePower",
-                "type": "int32"
+                "name": "basePowerNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "basePower"
               },
               {
                 "id": 3,
-                "name": "temperature",
-                "type": "double"
+                "name": "basePowerSet",
+                "type": "int32",
+                "oneof_parent": "basePower"
+              },
+              {
+                "id": 4,
+                "name": "temperatureNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "temperature"
+              },
+              {
+                "id": 5,
+                "name": "temperatureSet",
+                "type": "double",
+                "oneof_parent": "temperature"
               }
             ]
           }
@@ -2292,6 +2679,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -2323,11 +2713,18 @@
               },
               {
                 "id": 2,
-                "name": "ratedCurrent",
-                "type": "int32"
+                "name": "ratedCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedCurrent"
               },
               {
                 "id": 3,
+                "name": "ratedCurrentSet",
+                "type": "int32",
+                "oneof_parent": "ratedCurrent"
+              },
+              {
+                "id": 4,
                 "name": "material",
                 "type": "WireMaterialKind"
               }
@@ -2340,6 +2737,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -2680,8 +3080,15 @@
               },
               {
                 "id": 4,
-                "name": "lightRating",
-                "type": "uint32"
+                "name": "lightRatingNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lightRating"
+              },
+              {
+                "id": 5,
+                "name": "lightRatingSet",
+                "type": "uint32",
+                "oneof_parent": "lightRating"
               }
             ]
           }
@@ -2692,6 +3099,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/infiec61968/infassets/StreetlightLampKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -2793,33 +3203,68 @@
               },
               {
                 "id": 2,
-                "name": "title",
-                "type": "string"
+                "name": "titleNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "title"
               },
               {
                 "id": 3,
+                "name": "titleSet",
+                "type": "string",
+                "oneof_parent": "title"
+              },
+              {
+                "id": 4,
                 "name": "createdDateTime",
                 "type": "google.protobuf.Timestamp"
               },
               {
-                "id": 4,
-                "name": "authorName",
-                "type": "string"
-              },
-              {
                 "id": 5,
-                "name": "type",
-                "type": "string"
+                "name": "authorNameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "authorName"
               },
               {
                 "id": 6,
-                "name": "status",
-                "type": "string"
+                "name": "authorNameSet",
+                "type": "string",
+                "oneof_parent": "authorName"
               },
               {
                 "id": 7,
-                "name": "comment",
-                "type": "string"
+                "name": "typeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "type"
+              },
+              {
+                "id": 8,
+                "name": "typeSet",
+                "type": "string",
+                "oneof_parent": "type"
+              },
+              {
+                "id": 9,
+                "name": "statusNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "status"
+              },
+              {
+                "id": 10,
+                "name": "statusSet",
+                "type": "string",
+                "oneof_parent": "status"
+              },
+              {
+                "id": 11,
+                "name": "commentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "comment"
+              },
+              {
+                "id": 12,
+                "name": "commentSet",
+                "type": "string",
+                "oneof_parent": "comment"
               }
             ]
           }
@@ -2830,6 +3275,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3018,21 +3466,35 @@
             "fields": [
               {
                 "id": 1,
-                "name": "postalCode",
-                "type": "string"
+                "name": "postalCodeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "postalCode"
               },
               {
                 "id": 2,
+                "name": "postalCodeSet",
+                "type": "string",
+                "oneof_parent": "postalCode"
+              },
+              {
+                "id": 3,
                 "name": "townDetail",
                 "type": "TownDetail"
               },
               {
-                "id": 3,
-                "name": "poBox",
-                "type": "string"
+                "id": 4,
+                "name": "poBoxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "poBox"
               },
               {
-                "id": 4,
+                "id": 5,
+                "name": "poBoxSet",
+                "type": "string",
+                "oneof_parent": "poBox"
+              },
+              {
+                "id": 6,
                 "name": "streetDetail",
                 "type": "StreetDetail"
               }
@@ -3045,6 +3507,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/common/TownDetail.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3071,40 +3536,94 @@
             "fields": [
               {
                 "id": 1,
-                "name": "buildingName",
-                "type": "string"
+                "name": "buildingNameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "buildingName"
               },
               {
                 "id": 2,
-                "name": "floorIdentification",
-                "type": "string"
+                "name": "buildingNameSet",
+                "type": "string",
+                "oneof_parent": "buildingName"
               },
               {
                 "id": 3,
-                "name": "name",
-                "type": "string"
+                "name": "floorIdentificationNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "floorIdentification"
               },
               {
                 "id": 4,
-                "name": "number",
-                "type": "string"
+                "name": "floorIdentificationSet",
+                "type": "string",
+                "oneof_parent": "floorIdentification"
               },
               {
                 "id": 5,
-                "name": "suiteNumber",
-                "type": "string"
+                "name": "nameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "name"
               },
               {
                 "id": 6,
-                "name": "type",
-                "type": "string"
+                "name": "nameSet",
+                "type": "string",
+                "oneof_parent": "name"
               },
               {
                 "id": 7,
-                "name": "displayAddress",
-                "type": "string"
+                "name": "numberNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "number"
+              },
+              {
+                "id": 8,
+                "name": "numberSet",
+                "type": "string",
+                "oneof_parent": "number"
+              },
+              {
+                "id": 9,
+                "name": "suiteNumberNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "suiteNumber"
+              },
+              {
+                "id": 10,
+                "name": "suiteNumberSet",
+                "type": "string",
+                "oneof_parent": "suiteNumber"
+              },
+              {
+                "id": 11,
+                "name": "typeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "type"
+              },
+              {
+                "id": 12,
+                "name": "typeSet",
+                "type": "string",
+                "oneof_parent": "type"
+              },
+              {
+                "id": 13,
+                "name": "displayAddressNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "displayAddress"
+              },
+              {
+                "id": 14,
+                "name": "displayAddressSet",
+                "type": "string",
+                "oneof_parent": "displayAddress"
               }
             ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3131,15 +3650,34 @@
             "fields": [
               {
                 "id": 1,
-                "name": "name",
-                "type": "string"
+                "name": "nameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "name"
               },
               {
                 "id": 2,
-                "name": "stateOrProvince",
-                "type": "string"
+                "name": "nameSet",
+                "type": "string",
+                "oneof_parent": "name"
+              },
+              {
+                "id": 3,
+                "name": "stateOrProvinceNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "stateOrProvince"
+              },
+              {
+                "id": 4,
+                "name": "stateOrProvinceSet",
+                "type": "string",
+                "oneof_parent": "stateOrProvince"
               }
             ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3182,13 +3720,27 @@
               },
               {
                 "id": 4,
-                "name": "numEndDevices",
-                "type": "int32"
+                "name": "numEndDevicesNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "numEndDevices"
               },
               {
                 "id": 5,
-                "name": "specialNeed",
-                "type": "string"
+                "name": "numEndDevicesSet",
+                "type": "int32",
+                "oneof_parent": "numEndDevices"
+              },
+              {
+                "id": 6,
+                "name": "specialNeedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "specialNeed"
+              },
+              {
+                "id": 7,
+                "name": "specialNeedSet",
+                "type": "string",
+                "oneof_parent": "specialNeed"
               }
             ]
           }
@@ -3199,6 +3751,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/customers/CustomerKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3440,63 +3995,133 @@
               },
               {
                 "id": 2,
-                "name": "accuracyClass",
-                "type": "string"
+                "name": "accuracyClassNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "accuracyClass"
               },
               {
                 "id": 3,
-                "name": "accuracyLimit",
-                "type": "double"
+                "name": "accuracyClassSet",
+                "type": "string",
+                "oneof_parent": "accuracyClass"
               },
               {
                 "id": 4,
-                "name": "coreCount",
-                "type": "int32"
+                "name": "accuracyLimitNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "accuracyLimit"
               },
               {
                 "id": 5,
-                "name": "ctClass",
-                "type": "string"
+                "name": "accuracyLimitSet",
+                "type": "double",
+                "oneof_parent": "accuracyLimit"
               },
               {
                 "id": 6,
-                "name": "kneePointVoltage",
-                "type": "int32"
+                "name": "coreCountNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "coreCount"
               },
               {
                 "id": 7,
+                "name": "coreCountSet",
+                "type": "int32",
+                "oneof_parent": "coreCount"
+              },
+              {
+                "id": 8,
+                "name": "ctClassNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ctClass"
+              },
+              {
+                "id": 9,
+                "name": "ctClassSet",
+                "type": "string",
+                "oneof_parent": "ctClass"
+              },
+              {
+                "id": 10,
+                "name": "kneePointVoltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "kneePointVoltage"
+              },
+              {
+                "id": 11,
+                "name": "kneePointVoltageSet",
+                "type": "int32",
+                "oneof_parent": "kneePointVoltage"
+              },
+              {
+                "id": 12,
                 "name": "maxRatio",
                 "type": "infcommon.Ratio"
               },
               {
-                "id": 8,
+                "id": 13,
                 "name": "nominalRatio",
                 "type": "infcommon.Ratio"
               },
               {
-                "id": 9,
-                "name": "primaryRatio",
-                "type": "double"
+                "id": 14,
+                "name": "primaryRatioNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "primaryRatio"
               },
               {
-                "id": 10,
-                "name": "ratedCurrent",
-                "type": "int32"
+                "id": 15,
+                "name": "primaryRatioSet",
+                "type": "double",
+                "oneof_parent": "primaryRatio"
               },
               {
-                "id": 11,
-                "name": "secondaryFlsRating",
-                "type": "int32"
+                "id": 16,
+                "name": "ratedCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedCurrent"
               },
               {
-                "id": 12,
-                "name": "secondaryRatio",
-                "type": "double"
+                "id": 17,
+                "name": "ratedCurrentSet",
+                "type": "int32",
+                "oneof_parent": "ratedCurrent"
               },
               {
-                "id": 13,
-                "name": "usage",
-                "type": "string"
+                "id": 18,
+                "name": "secondaryFlsRatingNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "secondaryFlsRating"
+              },
+              {
+                "id": 19,
+                "name": "secondaryFlsRatingSet",
+                "type": "int32",
+                "oneof_parent": "secondaryFlsRating"
+              },
+              {
+                "id": 20,
+                "name": "secondaryRatioNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "secondaryRatio"
+              },
+              {
+                "id": 21,
+                "name": "secondaryRatioSet",
+                "type": "double",
+                "oneof_parent": "secondaryRatio"
+              },
+              {
+                "id": 22,
+                "name": "usageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "usage"
+              },
+              {
+                "id": 23,
+                "name": "usageSet",
+                "type": "string",
+                "oneof_parent": "usage"
               }
             ]
           }
@@ -3507,6 +4132,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/infiec61968/infcommon/Ratio.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3538,33 +4166,68 @@
               },
               {
                 "id": 2,
-                "name": "accuracyClass",
-                "type": "string"
+                "name": "accuracyClassNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "accuracyClass"
               },
               {
                 "id": 3,
+                "name": "accuracyClassSet",
+                "type": "string",
+                "oneof_parent": "accuracyClass"
+              },
+              {
+                "id": 4,
                 "name": "nominalRatio",
                 "type": "infcommon.Ratio"
               },
               {
-                "id": 4,
-                "name": "primaryRatio",
-                "type": "double"
-              },
-              {
                 "id": 5,
-                "name": "ptClass",
-                "type": "string"
+                "name": "primaryRatioNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "primaryRatio"
               },
               {
                 "id": 6,
-                "name": "ratedVoltage",
-                "type": "int32"
+                "name": "primaryRatioSet",
+                "type": "double",
+                "oneof_parent": "primaryRatio"
               },
               {
                 "id": 7,
-                "name": "secondaryRatio",
-                "type": "double"
+                "name": "ptClassNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ptClass"
+              },
+              {
+                "id": 8,
+                "name": "ptClassSet",
+                "type": "string",
+                "oneof_parent": "ptClass"
+              },
+              {
+                "id": 9,
+                "name": "ratedVoltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedVoltage"
+              },
+              {
+                "id": 10,
+                "name": "ratedVoltageSet",
+                "type": "int32",
+                "oneof_parent": "ratedVoltage"
+              },
+              {
+                "id": 11,
+                "name": "secondaryRatioNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "secondaryRatio"
+              },
+              {
+                "id": 12,
+                "name": "secondaryRatioSet",
+                "type": "double",
+                "oneof_parent": "secondaryRatio"
               }
             ]
           }
@@ -3575,6 +4238,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61968/infiec61968/infcommon/Ratio.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3756,8 +4422,15 @@
               },
               {
                 "id": 3,
-                "name": "classification",
-                "type": "string"
+                "name": "classificationNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "classification"
+              },
+              {
+                "id": 4,
+                "name": "classificationSet",
+                "type": "string",
+                "oneof_parent": "classification"
               }
             ]
           }
@@ -3765,6 +4438,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/assets/Structure.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -4077,11 +4753,18 @@
               },
               {
                 "id": 2,
-                "name": "meterMRID",
-                "type": "string"
+                "name": "meterMRIDNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "meterMRID"
               },
               {
                 "id": 3,
+                "name": "meterMRIDSet",
+                "type": "string",
+                "oneof_parent": "meterMRID"
+              },
+              {
+                "id": 4,
                 "name": "readings",
                 "type": "Reading",
                 "is_repeated": true
@@ -4095,6 +4778,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -4126,8 +4812,15 @@
               },
               {
                 "id": 2,
-                "name": "value",
-                "type": "double"
+                "name": "valueNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "value"
+              },
+              {
+                "id": 3,
+                "name": "valueSet",
+                "type": "double",
+                "oneof_parent": "value"
               }
             ]
           }
@@ -4135,6 +4828,9 @@
         "imports": [
           {
             "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -4183,26 +4879,54 @@
               },
               {
                 "id": 5,
-                "name": "isVirtual",
-                "type": "bool"
+                "name": "isVirtualNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "isVirtual"
               },
               {
                 "id": 6,
-                "name": "connectionCategory",
-                "type": "string"
+                "name": "isVirtualSet",
+                "type": "bool",
+                "oneof_parent": "isVirtual"
               },
               {
                 "id": 7,
-                "name": "ratedPower",
-                "type": "int32"
+                "name": "connectionCategoryNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "connectionCategory"
               },
               {
                 "id": 8,
-                "name": "approvedInverterCapacity",
-                "type": "int32"
+                "name": "connectionCategorySet",
+                "type": "string",
+                "oneof_parent": "connectionCategory"
               },
               {
                 "id": 9,
+                "name": "ratedPowerNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedPower"
+              },
+              {
+                "id": 10,
+                "name": "ratedPowerSet",
+                "type": "int32",
+                "oneof_parent": "ratedPower"
+              },
+              {
+                "id": 11,
+                "name": "approvedInverterCapacityNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "approvedInverterCapacity"
+              },
+              {
+                "id": 12,
+                "name": "approvedInverterCapacitySet",
+                "type": "int32",
+                "oneof_parent": "approvedInverterCapacity"
+              },
+              {
+                "id": 13,
                 "name": "phaseCode",
                 "type": "iec61970.base.core.PhaseCode"
               }
@@ -4215,6 +4939,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -4321,8 +5048,15 @@
               },
               {
                 "id": 2,
-                "name": "coreBurden",
-                "type": "int32"
+                "name": "coreBurdenNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "coreBurden"
+              },
+              {
+                "id": 3,
+                "name": "coreBurdenSet",
+                "type": "int32",
+                "oneof_parent": "coreBurden"
               }
             ]
           }
@@ -4330,6 +5064,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/Sensor.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -4516,8 +5253,15 @@
               },
               {
                 "id": 2,
-                "name": "connected",
-                "type": "bool"
+                "name": "connectedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "connected"
+              },
+              {
+                "id": 3,
+                "name": "connectedSet",
+                "type": "bool",
+                "oneof_parent": "connected"
               }
             ]
           }
@@ -4525,6 +5269,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -4600,7 +5347,7 @@
                 "type": "string"
               },
               {
-                "id": 3,
+                "id": 4,
                 "name": "terminalMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -4761,15 +5508,34 @@
               },
               {
                 "id": 3,
-                "name": "y2Value",
-                "type": "float"
+                "name": "y2ValueNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "y2Value"
               },
               {
                 "id": 4,
-                "name": "y3Value",
-                "type": "float"
+                "name": "y2ValueSet",
+                "type": "float",
+                "oneof_parent": "y2Value"
+              },
+              {
+                "id": 5,
+                "name": "y3ValueNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "y3Value"
+              },
+              {
+                "id": 6,
+                "name": "y3ValueSet",
+                "type": "float",
+                "oneof_parent": "y3Value"
               }
             ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -4805,36 +5571,36 @@
                 "type": "bool"
               },
               {
-                "id": 3,
+                "id": 5,
                 "name": "normallyInService",
                 "type": "bool"
               },
               {
-                "id": 4,
+                "id": 6,
                 "name": "equipmentContainerMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 5,
+                "id": 7,
                 "name": "usagePointMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 6,
+                "id": 8,
                 "name": "operationalRestrictionMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 7,
+                "id": 9,
                 "name": "currentContainerMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 8,
+                "id": 10,
                 "name": "commissionedDate",
                 "type": "google.protobuf.Timestamp"
               }
@@ -4922,13 +5688,13 @@
                 "type": "string"
               },
               {
-                "id": 4,
+                "id": 6,
                 "name": "normalEnergizedLvFeederMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 5,
+                "id": 7,
                 "name": "currentlyEnergizedLvFeedersMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -5011,21 +5777,42 @@
               },
               {
                 "id": 2,
-                "name": "name",
-                "type": "string"
+                "name": "nameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "name"
               },
               {
                 "id": 3,
-                "name": "numDiagramObjects",
-                "type": "int32"
+                "name": "nameSet",
+                "type": "string",
+                "oneof_parent": "name"
               },
               {
                 "id": 4,
-                "name": "description",
-                "type": "string"
+                "name": "numDiagramObjectsNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "numDiagramObjects"
               },
               {
                 "id": 5,
+                "name": "numDiagramObjectsSet",
+                "type": "int32",
+                "oneof_parent": "numDiagramObjects"
+              },
+              {
+                "id": 6,
+                "name": "descriptionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "description"
+              },
+              {
+                "id": 7,
+                "name": "descriptionSet",
+                "type": "string",
+                "oneof_parent": "description"
+              },
+              {
+                "id": 8,
                 "name": "names",
                 "type": "Name",
                 "is_repeated": true
@@ -5036,6 +5823,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/Name.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -5102,10 +5892,22 @@
               },
               {
                 "id": 2,
-                "name": "description",
-                "type": "string"
+                "name": "descriptionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "description"
+              },
+              {
+                "id": 3,
+                "name": "descriptionSet",
+                "type": "string",
+                "oneof_parent": "description"
               }
             ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -5283,11 +6085,18 @@
               },
               {
                 "id": 4,
-                "name": "numControls",
-                "type": "int32"
+                "name": "numControlsNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "numControls"
               },
               {
                 "id": 5,
+                "name": "numControlsSet",
+                "type": "int32",
+                "oneof_parent": "numControls"
+              },
+              {
+                "id": 6,
                 "name": "assetMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -5298,6 +6107,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -5484,6 +6296,9 @@
           },
           {
             "path": "zepben/protobuf/network/model/FeederDirection.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -5582,16 +6397,23 @@
               },
               {
                 "id": 4,
-                "name": "diagramObjectStyle",
-                "type": "string"
+                "name": "diagramObjectStyleNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "diagramObjectStyle"
               },
               {
                 "id": 5,
+                "name": "diagramObjectStyleSet",
+                "type": "string",
+                "oneof_parent": "diagramObjectStyle"
+              },
+              {
+                "id": 6,
                 "name": "rotation",
                 "type": "double"
               },
               {
-                "id": 6,
+                "id": 7,
                 "name": "diagramObjectPoints",
                 "type": "DiagramObjectPoint",
                 "is_repeated": true
@@ -5605,6 +6427,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6323,83 +7148,195 @@
               },
               {
                 "id": 2,
-                "name": "negativeR12",
-                "type": "double"
+                "name": "negativeR12Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "negativeR12"
               },
               {
                 "id": 3,
-                "name": "negativeR21",
-                "type": "double"
+                "name": "negativeR12Set",
+                "type": "double",
+                "oneof_parent": "negativeR12"
               },
               {
                 "id": 4,
-                "name": "negativeX12",
-                "type": "double"
+                "name": "negativeR21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "negativeR21"
               },
               {
                 "id": 5,
-                "name": "negativeX21",
-                "type": "double"
+                "name": "negativeR21Set",
+                "type": "double",
+                "oneof_parent": "negativeR21"
               },
               {
                 "id": 6,
-                "name": "positiveR12",
-                "type": "double"
+                "name": "negativeX12Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "negativeX12"
               },
               {
                 "id": 7,
-                "name": "positiveR21",
-                "type": "double"
+                "name": "negativeX12Set",
+                "type": "double",
+                "oneof_parent": "negativeX12"
               },
               {
                 "id": 8,
-                "name": "positiveX12",
-                "type": "double"
+                "name": "negativeX21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "negativeX21"
               },
               {
                 "id": 9,
-                "name": "positiveX21",
-                "type": "double"
+                "name": "negativeX21Set",
+                "type": "double",
+                "oneof_parent": "negativeX21"
               },
               {
                 "id": 10,
-                "name": "r",
-                "type": "double"
+                "name": "positiveR12Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "positiveR12"
               },
               {
                 "id": 11,
-                "name": "r21",
-                "type": "double"
+                "name": "positiveR12Set",
+                "type": "double",
+                "oneof_parent": "positiveR12"
               },
               {
                 "id": 12,
-                "name": "x",
-                "type": "double"
+                "name": "positiveR21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "positiveR21"
               },
               {
                 "id": 13,
-                "name": "x21",
-                "type": "double"
+                "name": "positiveR21Set",
+                "type": "double",
+                "oneof_parent": "positiveR21"
               },
               {
                 "id": 14,
-                "name": "zeroR12",
-                "type": "double"
+                "name": "positiveX12Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "positiveX12"
               },
               {
                 "id": 15,
-                "name": "zeroR21",
-                "type": "double"
+                "name": "positiveX12Set",
+                "type": "double",
+                "oneof_parent": "positiveX12"
               },
               {
                 "id": 16,
-                "name": "zeroX12",
-                "type": "double"
+                "name": "positiveX21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "positiveX21"
               },
               {
                 "id": 17,
-                "name": "zeroX21",
-                "type": "double"
+                "name": "positiveX21Set",
+                "type": "double",
+                "oneof_parent": "positiveX21"
+              },
+              {
+                "id": 18,
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 19,
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 120,
+                "name": "r21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r21"
+              },
+              {
+                "id": 21,
+                "name": "r21Set",
+                "type": "double",
+                "oneof_parent": "r21"
+              },
+              {
+                "id": 22,
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 23,
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 24,
+                "name": "x21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x21"
+              },
+              {
+                "id": 25,
+                "name": "x21Set",
+                "type": "double",
+                "oneof_parent": "x21"
+              },
+              {
+                "id": 26,
+                "name": "zeroR12Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "zeroR12"
+              },
+              {
+                "id": 27,
+                "name": "zeroR12Set",
+                "type": "double",
+                "oneof_parent": "zeroR12"
+              },
+              {
+                "id": 28,
+                "name": "zeroR21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "zeroR21"
+              },
+              {
+                "id": 29,
+                "name": "zeroR21Set",
+                "type": "double",
+                "oneof_parent": "zeroR21"
+              },
+              {
+                "id": 30,
+                "name": "zeroX12Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "zeroX12"
+              },
+              {
+                "id": 31,
+                "name": "zeroX12Set",
+                "type": "double",
+                "oneof_parent": "zeroX12"
+              },
+              {
+                "id": 32,
+                "name": "zeroX21Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "zeroX21"
+              },
+              {
+                "id": 33,
+                "name": "zeroX21Set",
+                "type": "double",
+                "oneof_parent": "zeroX21"
               }
             ]
           }
@@ -6407,6 +7344,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentEquipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6526,16 +7466,30 @@
               },
               {
                 "id": 3,
-                "name": "ratedE",
-                "type": "int64"
+                "name": "ratedENull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedE"
               },
               {
                 "id": 4,
-                "name": "storedE",
-                "type": "int64"
+                "name": "ratedESet",
+                "type": "int64",
+                "oneof_parent": "ratedE"
               },
               {
                 "id": 5,
+                "name": "storedENull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "storedE"
+              },
+              {
+                "id": 6,
+                "name": "storedESet",
+                "type": "int64",
+                "oneof_parent": "storedE"
+              },
+              {
+                "id": 7,
                 "name": "batteryControlMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -6549,6 +7503,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/generation/production/BatteryStateKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6615,16 +7572,30 @@
               },
               {
                 "id": 2,
-                "name": "maxP",
-                "type": "int32"
+                "name": "maxPNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "maxP"
               },
               {
                 "id": 3,
-                "name": "minP",
-                "type": "int32"
+                "name": "maxPSet",
+                "type": "int32",
+                "oneof_parent": "maxP"
               },
               {
                 "id": 4,
+                "name": "minPNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "minP"
+              },
+              {
+                "id": 5,
+                "name": "minPSet",
+                "type": "int32",
+                "oneof_parent": "minP"
+              },
+              {
+                "id": 6,
                 "name": "powerElectronicsConnectionMRID",
                 "type": "string"
               }
@@ -6634,6 +7605,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/Equipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6749,6 +7723,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6779,9 +7756,16 @@
                 "type": "Measurement"
               },
               {
+                "id": 2,
+                "name": "positiveFlowInNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "positiveFlowIn"
+              },
+              {
                 "id": 3,
-                "name": "positiveFlowIn",
-                "type": "bool"
+                "name": "positiveFlowInSet",
+                "type": "bool",
+                "oneof_parent": "positiveFlowIn"
               }
             ]
           }
@@ -6789,6 +7773,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/Measurement.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6834,6 +7821,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6959,6 +7949,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7126,25 +8119,39 @@
               },
               {
                 "id": 2,
-                "name": "currentLimit1",
-                "type": "double"
+                "name": "currentLimit1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "currentLimit1"
               },
               {
                 "id": 3,
+                "name": "currentLimit1Set",
+                "type": "double",
+                "oneof_parent": "currentLimit1"
+              },
+              {
+                "id": 4,
                 "name": "inverseTimeFlagNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "inverseTimeFlag"
               },
               {
-                "id": 4,
+                "id": 5,
                 "name": "inverseTimeFlagSet",
                 "type": "bool",
                 "oneof_parent": "inverseTimeFlag"
               },
               {
-                "id": 5,
-                "name": "timeDelay1",
-                "type": "double"
+                "id": 6,
+                "name": "timeDelay1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "timeDelay1"
+              },
+              {
+                "id": 7,
+                "name": "timeDelay1Set",
+                "type": "double",
+                "oneof_parent": "timeDelay1"
               }
             ]
           }
@@ -7353,8 +8360,15 @@
               },
               {
                 "id": 2,
-                "name": "inTransitTime",
-                "type": "double"
+                "name": "inTransitTimeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "inTransitTime"
+              },
+              {
+                "id": 3,
+                "name": "inTransitTimeSet",
+                "type": "double",
+                "oneof_parent": "inTransitTime"
               }
             ]
           }
@@ -7362,6 +8376,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/ProtectedSwitch.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7428,11 +8445,18 @@
               },
               {
                 "id": 2,
-                "name": "lengthFromTerminal1",
-                "type": "double"
+                "name": "lengthFromTerminal1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lengthFromTerminal1"
               },
               {
                 "id": 3,
+                "name": "lengthFromTerminal1Set",
+                "type": "double",
+                "oneof_parent": "lengthFromTerminal1"
+              },
+              {
+                "id": 4,
                 "name": "acLineSegmentMRID",
                 "type": "string"
               }
@@ -7442,6 +8466,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7473,18 +8500,39 @@
               },
               {
                 "id": 2,
-                "name": "length",
-                "type": "double"
+                "name": "lengthNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "length"
               },
               {
                 "id": 3,
-                "name": "designTemperature",
-                "type": "int32"
+                "name": "lengthSet",
+                "type": "double",
+                "oneof_parent": "length"
               },
               {
                 "id": 4,
-                "name": "designRating",
-                "type": "double"
+                "name": "designTemperatureNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "designTemperature"
+              },
+              {
+                "id": 5,
+                "name": "designTemperatureSet",
+                "type": "int32",
+                "oneof_parent": "designTemperature"
+              },
+              {
+                "id": 6,
+                "name": "designRatingNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "designRating"
+              },
+              {
+                "id": 7,
+                "name": "designRatingSet",
+                "type": "double",
+                "oneof_parent": "designRating"
               }
             ]
           }
@@ -7492,6 +8540,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7558,11 +8609,18 @@
               },
               {
                 "id": 2,
-                "name": "lengthFromTerminal1",
-                "type": "double"
+                "name": "lengthFromTerminal1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lengthFromTerminal1"
               },
               {
                 "id": 3,
+                "name": "lengthFromTerminal1Set",
+                "type": "double",
+                "oneof_parent": "lengthFromTerminal1"
+              },
+              {
+                "id": 4,
                 "name": "acLineSegmentMRID",
                 "type": "string"
               }
@@ -7572,6 +8630,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Switch.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7638,8 +8699,15 @@
               },
               {
                 "id": 2,
-                "name": "r",
-                "type": "double"
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 3,
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
               }
             ]
           }
@@ -7647,6 +8715,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7719,38 +8790,80 @@
               },
               {
                 "id": 3,
-                "name": "customerCount",
-                "type": "int32"
+                "name": "customerCountNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "customerCount"
               },
               {
                 "id": 4,
-                "name": "grounded",
-                "type": "bool"
+                "name": "customerCountSet",
+                "type": "int32",
+                "oneof_parent": "customerCount"
               },
               {
                 "id": 5,
-                "name": "p",
-                "type": "double"
+                "name": "groundedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "grounded"
               },
               {
                 "id": 6,
-                "name": "pFixed",
-                "type": "double"
+                "name": "groundedSet",
+                "type": "bool",
+                "oneof_parent": "grounded"
               },
               {
                 "id": 7,
+                "name": "pNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "p"
+              },
+              {
+                "id": 8,
+                "name": "pSet",
+                "type": "double",
+                "oneof_parent": "p"
+              },
+              {
+                "id": 9,
+                "name": "pFixedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "pFixed"
+              },
+              {
+                "id": 10,
+                "name": "pFixedSet",
+                "type": "double",
+                "oneof_parent": "pFixed"
+              },
+              {
+                "id": 11,
                 "name": "phaseConnection",
                 "type": "PhaseShuntConnectionKind"
               },
               {
-                "id": 8,
-                "name": "q",
-                "type": "double"
+                "id": 12,
+                "name": "qNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "q"
               },
               {
-                "id": 9,
-                "name": "qFixed",
-                "type": "double"
+                "id": 13,
+                "name": "qSet",
+                "type": "double",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 14,
+                "name": "qFixedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "qFixed"
+              },
+              {
+                "id": 15,
+                "name": "qFixedSet",
+                "type": "double",
+                "oneof_parent": "qFixed"
               }
             ]
           }
@@ -7761,6 +8874,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/PhaseShuntConnectionKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7797,28 +8913,56 @@
               },
               {
                 "id": 3,
-                "name": "p",
-                "type": "double"
+                "name": "pNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "p"
               },
               {
                 "id": 4,
-                "name": "pFixed",
-                "type": "double"
+                "name": "pSet",
+                "type": "double",
+                "oneof_parent": "p"
               },
               {
                 "id": 5,
+                "name": "pFixedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "pFixed"
+              },
+              {
+                "id": 6,
+                "name": "pFixedSet",
+                "type": "double",
+                "oneof_parent": "pFixed"
+              },
+              {
+                "id": 7,
                 "name": "phase",
                 "type": "SinglePhaseKind"
               },
               {
-                "id": 6,
-                "name": "q",
-                "type": "double"
+                "id": 8,
+                "name": "qNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "q"
               },
               {
-                "id": 7,
-                "name": "qFixed",
-                "type": "double"
+                "id": 9,
+                "name": "qSet",
+                "type": "double",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 10,
+                "name": "qFixedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "qFixed"
+              },
+              {
+                "id": 11,
+                "name": "qFixedSet",
+                "type": "double",
+                "oneof_parent": "qFixed"
               }
             ]
           }
@@ -7829,6 +8973,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7866,128 +9013,303 @@
               },
               {
                 "id": 3,
-                "name": "activePower",
-                "type": "double"
+                "name": "activePowerNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "activePower"
               },
               {
                 "id": 4,
-                "name": "reactivePower",
-                "type": "double"
+                "name": "activePowerSet",
+                "type": "double",
+                "oneof_parent": "activePower"
               },
               {
                 "id": 5,
-                "name": "voltageAngle",
-                "type": "double"
+                "name": "reactivePowerNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "reactivePower"
               },
               {
                 "id": 6,
-                "name": "voltageMagnitude",
-                "type": "double"
+                "name": "reactivePowerSet",
+                "type": "double",
+                "oneof_parent": "reactivePower"
               },
               {
                 "id": 7,
-                "name": "r",
-                "type": "double"
+                "name": "voltageAngleNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "voltageAngle"
               },
               {
                 "id": 8,
-                "name": "x",
-                "type": "double"
+                "name": "voltageAngleSet",
+                "type": "double",
+                "oneof_parent": "voltageAngle"
               },
               {
                 "id": 9,
-                "name": "pMax",
-                "type": "double"
+                "name": "voltageMagnitudeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "voltageMagnitude"
               },
               {
                 "id": 10,
-                "name": "pMin",
-                "type": "double"
+                "name": "voltageMagnitudeSet",
+                "type": "double",
+                "oneof_parent": "voltageMagnitude"
               },
               {
                 "id": 11,
-                "name": "r0",
-                "type": "double"
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
               },
               {
                 "id": 12,
-                "name": "rn",
-                "type": "double"
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
               },
               {
                 "id": 13,
-                "name": "x0",
-                "type": "double"
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
               },
               {
                 "id": 14,
-                "name": "xn",
-                "type": "double"
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
               },
               {
                 "id": 15,
-                "name": "isExternalGrid",
-                "type": "bool"
+                "name": "pMaxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "pMax"
               },
               {
                 "id": 16,
-                "name": "rMin",
-                "type": "double"
+                "name": "pMaxSet",
+                "type": "double",
+                "oneof_parent": "pMax"
               },
               {
                 "id": 17,
-                "name": "rnMin",
-                "type": "double"
+                "name": "pMinNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "pMin"
               },
               {
                 "id": 18,
-                "name": "r0Min",
-                "type": "double"
+                "name": "pMinSet",
+                "type": "double",
+                "oneof_parent": "pMin"
               },
               {
                 "id": 19,
-                "name": "xMin",
-                "type": "double"
+                "name": "r0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0"
               },
               {
                 "id": 20,
-                "name": "xnMin",
-                "type": "double"
+                "name": "r0Set",
+                "type": "double",
+                "oneof_parent": "r0"
               },
               {
                 "id": 21,
-                "name": "x0Min",
-                "type": "double"
+                "name": "rnNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "rn"
               },
               {
                 "id": 22,
-                "name": "rMax",
-                "type": "double"
+                "name": "rnSet",
+                "type": "double",
+                "oneof_parent": "rn"
               },
               {
                 "id": 23,
-                "name": "rnMax",
-                "type": "double"
+                "name": "x0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0"
               },
               {
                 "id": 24,
-                "name": "r0Max",
-                "type": "double"
+                "name": "x0Set",
+                "type": "double",
+                "oneof_parent": "x0"
               },
               {
                 "id": 25,
-                "name": "xMax",
-                "type": "double"
+                "name": "xnNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "xn"
               },
               {
                 "id": 26,
-                "name": "xnMax",
-                "type": "double"
+                "name": "xnSet",
+                "type": "double",
+                "oneof_parent": "xn"
               },
               {
                 "id": 27,
-                "name": "x0Max",
-                "type": "double"
+                "name": "isExternalGridNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "isExternalGrid"
+              },
+              {
+                "id": 28,
+                "name": "isExternalGridSet",
+                "type": "bool",
+                "oneof_parent": "isExternalGrid"
+              },
+              {
+                "id": 29,
+                "name": "rMinNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "rMin"
+              },
+              {
+                "id": 30,
+                "name": "rMinSet",
+                "type": "double",
+                "oneof_parent": "rMin"
+              },
+              {
+                "id": 31,
+                "name": "rnMinNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "rnMin"
+              },
+              {
+                "id": 32,
+                "name": "rnMinSet",
+                "type": "double",
+                "oneof_parent": "rnMin"
+              },
+              {
+                "id": 33,
+                "name": "r0MinNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0Min"
+              },
+              {
+                "id": 34,
+                "name": "r0MinSet",
+                "type": "double",
+                "oneof_parent": "r0Min"
+              },
+              {
+                "id": 35,
+                "name": "xMinNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "xMin"
+              },
+              {
+                "id": 36,
+                "name": "xMinSet",
+                "type": "double",
+                "oneof_parent": "xMin"
+              },
+              {
+                "id": 37,
+                "name": "xnMinNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "xnMin"
+              },
+              {
+                "id": 38,
+                "name": "xnMinSet",
+                "type": "double",
+                "oneof_parent": "xnMin"
+              },
+              {
+                "id": 39,
+                "name": "x0MinNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0Min"
+              },
+              {
+                "id": 40,
+                "name": "x0MinSet",
+                "type": "double",
+                "oneof_parent": "x0Min"
+              },
+              {
+                "id": 41,
+                "name": "rMaxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "rMax"
+              },
+              {
+                "id": 42,
+                "name": "rMaxSet",
+                "type": "double",
+                "oneof_parent": "rMax"
+              },
+              {
+                "id": 43,
+                "name": "rnMaxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "rnMax"
+              },
+              {
+                "id": 44,
+                "name": "rnMaxSet",
+                "type": "double",
+                "oneof_parent": "rnMax"
+              },
+              {
+                "id": 45,
+                "name": "r0MaxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0Max"
+              },
+              {
+                "id": 46,
+                "name": "r0MaxSet",
+                "type": "double",
+                "oneof_parent": "r0Max"
+              },
+              {
+                "id": 47,
+                "name": "xMaxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "xMax"
+              },
+              {
+                "id": 48,
+                "name": "xMaxSet",
+                "type": "double",
+                "oneof_parent": "xMax"
+              },
+              {
+                "id": 49,
+                "name": "xnMaxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "xnMax"
+              },
+              {
+                "id": 50,
+                "name": "xnMaxSet",
+                "type": "double",
+                "oneof_parent": "xnMax"
+              },
+              {
+                "id": 51,
+                "name": "x0MaxNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0Max"
+              },
+              {
+                "id": 52,
+                "name": "x0MaxSet",
+                "type": "double",
+                "oneof_parent": "x0Max"
               }
             ]
           }
@@ -7995,6 +9317,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/EnergyConnection.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8030,7 +9355,7 @@
                 "type": "string"
               },
               {
-                "id": 3,
+                "id": 4,
                 "name": "phase",
                 "type": "SinglePhaseKind"
               }
@@ -8184,8 +9509,15 @@
               },
               {
                 "id": 2,
-                "name": "x",
-                "type": "double"
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 3,
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
               }
             ]
           }
@@ -8193,6 +9525,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8329,23 +9664,51 @@
               },
               {
                 "id": 2,
-                "name": "b0PerSection",
-                "type": "double"
+                "name": "b0PerSectionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "b0PerSection"
               },
               {
                 "id": 3,
-                "name": "bPerSection",
-                "type": "double"
+                "name": "b0PerSectionSet",
+                "type": "double",
+                "oneof_parent": "b0PerSection"
               },
               {
                 "id": 4,
-                "name": "g0PerSection",
-                "type": "double"
+                "name": "bPerSectionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "bPerSection"
               },
               {
                 "id": 5,
-                "name": "gPerSection",
-                "type": "double"
+                "name": "bPerSectionSet",
+                "type": "double",
+                "oneof_parent": "bPerSection"
+              },
+              {
+                "id": 6,
+                "name": "g0PerSectionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "g0PerSection"
+              },
+              {
+                "id": 7,
+                "name": "g0PerSectionSet",
+                "type": "double",
+                "oneof_parent": "g0PerSection"
+              },
+              {
+                "id": 8,
+                "name": "gPerSectionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "gPerSection"
+              },
+              {
+                "id": 9,
+                "name": "gPerSectionSet",
+                "type": "double",
+                "oneof_parent": "gPerSection"
               }
             ]
           }
@@ -8353,6 +9716,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/ShuntCompensator.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8533,43 +9899,99 @@
               },
               {
                 "id": 2,
-                "name": "r",
-                "type": "double"
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
               },
               {
                 "id": 3,
-                "name": "x",
-                "type": "double"
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
               },
               {
                 "id": 4,
-                "name": "r0",
-                "type": "double"
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
               },
               {
                 "id": 5,
-                "name": "x0",
-                "type": "double"
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
               },
               {
                 "id": 6,
-                "name": "bch",
-                "type": "double"
+                "name": "r0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0"
               },
               {
                 "id": 7,
-                "name": "b0ch",
-                "type": "double"
+                "name": "r0Set",
+                "type": "double",
+                "oneof_parent": "r0"
               },
               {
                 "id": 8,
-                "name": "gch",
-                "type": "double"
+                "name": "x0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0"
               },
               {
                 "id": 9,
-                "name": "g0ch",
-                "type": "double"
+                "name": "x0Set",
+                "type": "double",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 10,
+                "name": "bchNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "bch"
+              },
+              {
+                "id": 11,
+                "name": "bchSet",
+                "type": "double",
+                "oneof_parent": "bch"
+              },
+              {
+                "id": 12,
+                "name": "b0chNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "b0ch"
+              },
+              {
+                "id": 13,
+                "name": "b0chSet",
+                "type": "double",
+                "oneof_parent": "b0ch"
+              },
+              {
+                "id": 14,
+                "name": "gchNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "gch"
+              },
+              {
+                "id": 15,
+                "name": "gchSet",
+                "type": "double",
+                "oneof_parent": "gch"
+              },
+              {
+                "id": 16,
+                "name": "g0chNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "g0ch"
+              },
+              {
+                "id": 17,
+                "name": "g0chSet",
+                "type": "double",
+                "oneof_parent": "g0ch"
               }
             ]
           }
@@ -8577,6 +9999,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/PerLengthImpedance.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8608,8 +10033,15 @@
               },
               {
                 "id": 2,
-                "name": "xGroundNominal",
-                "type": "double"
+                "name": "xGroundNominalNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "xGroundNominal"
+              },
+              {
+                "id": 3,
+                "name": "xGroundNominalSet",
+                "type": "double",
+                "oneof_parent": "xGroundNominal"
               }
             ]
           }
@@ -8617,6 +10049,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/EarthFaultCompensator.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8643,33 +10078,61 @@
             "fields": [
               {
                 "id": 1,
-                "name": "b",
-                "type": "double"
+                "name": "bNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "b"
               },
               {
                 "id": 2,
+                "name": "bSet",
+                "type": "double",
+                "oneof_parent": "b"
+              },
+              {
+                "id": 3,
                 "name": "fromPhase",
                 "type": "SinglePhaseKind"
               },
               {
-                "id": 3,
+                "id": 4,
                 "name": "toPhase",
                 "type": "SinglePhaseKind"
               },
               {
-                "id": 4,
-                "name": "g",
-                "type": "double"
-              },
-              {
                 "id": 5,
-                "name": "r",
-                "type": "double"
+                "name": "gNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "g"
               },
               {
                 "id": 6,
-                "name": "x",
-                "type": "double"
+                "name": "gSet",
+                "type": "double",
+                "oneof_parent": "g"
+              },
+              {
+                "id": 7,
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 8,
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 9,
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 10,
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
               }
             ]
           }
@@ -8677,6 +10140,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8756,191 +10222,387 @@
               },
               {
                 "id": 2,
-                "name": "maxIFault",
-                "type": "int32"
+                "name": "maxIFaultNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "maxIFault"
               },
               {
                 "id": 3,
-                "name": "maxQ",
-                "type": "double"
+                "name": "maxIFaultSet",
+                "type": "int32",
+                "oneof_parent": "maxIFault"
               },
               {
                 "id": 4,
-                "name": "minQ",
-                "type": "double"
+                "name": "maxQNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "maxQ"
               },
               {
                 "id": 5,
-                "name": "p",
-                "type": "double"
+                "name": "maxQSet",
+                "type": "double",
+                "oneof_parent": "maxQ"
               },
               {
                 "id": 6,
-                "name": "q",
-                "type": "double"
+                "name": "minQNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "minQ"
               },
               {
                 "id": 7,
-                "name": "ratedS",
-                "type": "int32"
+                "name": "minQSet",
+                "type": "double",
+                "oneof_parent": "minQ"
               },
               {
                 "id": 8,
-                "name": "ratedU",
-                "type": "int32"
+                "name": "pNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "p"
               },
               {
                 "id": 9,
+                "name": "pSet",
+                "type": "double",
+                "oneof_parent": "p"
+              },
+              {
+                "id": 10,
+                "name": "qNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 11,
+                "name": "qSet",
+                "type": "double",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 12,
+                "name": "ratedSNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedS"
+              },
+              {
+                "id": 13,
+                "name": "ratedSSet",
+                "type": "int32",
+                "oneof_parent": "ratedS"
+              },
+              {
+                "id": 14,
+                "name": "ratedUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedU"
+              },
+              {
+                "id": 15,
+                "name": "ratedUSet",
+                "type": "int32",
+                "oneof_parent": "ratedU"
+              },
+              {
+                "id": 16,
                 "name": "powerElectronicsUnitMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 10,
+                "id": 17,
                 "name": "powerElectronicsConnectionPhaseMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 11,
-                "name": "inverterStandard",
-                "type": "string"
+                "id": 18,
+                "name": "inverterStandardNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "inverterStandard"
               },
               {
-                "id": 12,
-                "name": "sustainOpOvervoltLimit",
-                "type": "int32"
+                "id": 19,
+                "name": "inverterStandardSet",
+                "type": "string",
+                "oneof_parent": "inverterStandard"
               },
               {
-                "id": 13,
-                "name": "stopAtOverFreq",
-                "type": "float"
+                "id": 20,
+                "name": "sustainOpOvervoltLimitNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "sustainOpOvervoltLimit"
               },
               {
-                "id": 14,
-                "name": "stopAtUnderFreq",
-                "type": "float"
+                "id": 21,
+                "name": "sustainOpOvervoltLimitSet",
+                "type": "int32",
+                "oneof_parent": "sustainOpOvervoltLimit"
               },
               {
-                "id": 15,
+                "id": 22,
+                "name": "stopAtOverFreqNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "stopAtOverFreq"
+              },
+              {
+                "id": 23,
+                "name": "stopAtOverFreqSet",
+                "type": "float",
+                "oneof_parent": "stopAtOverFreq"
+              },
+              {
+                "id": 24,
+                "name": "stopAtUnderFreqNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "stopAtUnderFreq"
+              },
+              {
+                "id": 25,
+                "name": "stopAtUnderFreqSet",
+                "type": "float",
+                "oneof_parent": "stopAtUnderFreq"
+              },
+              {
+                "id": 26,
                 "name": "invVoltWattRespModeNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "invVoltWattRespMode"
               },
               {
-                "id": 16,
+                "id": 27,
                 "name": "invVoltWattRespModeSet",
                 "type": "bool",
                 "oneof_parent": "invVoltWattRespMode"
               },
               {
-                "id": 17,
-                "name": "invWattRespV1",
-                "type": "int32"
+                "id": 28,
+                "name": "invWattRespV1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespV1"
               },
               {
-                "id": 18,
-                "name": "invWattRespV2",
-                "type": "int32"
+                "id": 29,
+                "name": "invWattRespV1Set",
+                "type": "int32",
+                "oneof_parent": "invWattRespV1"
               },
               {
-                "id": 19,
-                "name": "invWattRespV3",
-                "type": "int32"
+                "id": 30,
+                "name": "invWattRespV2Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespV2"
               },
               {
-                "id": 20,
-                "name": "invWattRespV4",
-                "type": "int32"
+                "id": 31,
+                "name": "invWattRespV2Set",
+                "type": "int32",
+                "oneof_parent": "invWattRespV2"
               },
               {
-                "id": 21,
-                "name": "invWattRespPAtV1",
-                "type": "float"
+                "id": 32,
+                "name": "invWattRespV3Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespV3"
               },
               {
-                "id": 22,
-                "name": "invWattRespPAtV2",
-                "type": "float"
+                "id": 33,
+                "name": "invWattRespV3Set",
+                "type": "int32",
+                "oneof_parent": "invWattRespV3"
               },
               {
-                "id": 23,
-                "name": "invWattRespPAtV3",
-                "type": "float"
+                "id": 34,
+                "name": "invWattRespV4Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespV4"
               },
               {
-                "id": 24,
-                "name": "invWattRespPAtV4",
-                "type": "float"
+                "id": 35,
+                "name": "invWattRespV4Set",
+                "type": "int32",
+                "oneof_parent": "invWattRespV4"
               },
               {
-                "id": 25,
+                "id": 36,
+                "name": "invWattRespPAtV1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespPAtV1"
+              },
+              {
+                "id": 37,
+                "name": "invWattRespPAtV1Set",
+                "type": "float",
+                "oneof_parent": "invWattRespPAtV1"
+              },
+              {
+                "id": 38,
+                "name": "invWattRespPAtV2Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespPAtV2"
+              },
+              {
+                "id": 39,
+                "name": "invWattRespPAtV2Set",
+                "type": "float",
+                "oneof_parent": "invWattRespPAtV2"
+              },
+              {
+                "id": 40,
+                "name": "invWattRespPAtV3Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespPAtV3"
+              },
+              {
+                "id": 41,
+                "name": "invWattRespPAtV3Set",
+                "type": "float",
+                "oneof_parent": "invWattRespPAtV3"
+              },
+              {
+                "id": 42,
+                "name": "invWattRespPAtV4Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invWattRespPAtV4"
+              },
+              {
+                "id": 43,
+                "name": "invWattRespPAtV4Set",
+                "type": "float",
+                "oneof_parent": "invWattRespPAtV4"
+              },
+              {
+                "id": 44,
                 "name": "invVoltVarRespModeNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "invVoltVarRespMode"
               },
               {
-                "id": 26,
+                "id": 45,
                 "name": "invVoltVarRespModeSet",
                 "type": "bool",
                 "oneof_parent": "invVoltVarRespMode"
               },
               {
-                "id": 27,
-                "name": "invVarRespV1",
-                "type": "int32"
+                "id": 46,
+                "name": "invVarRespV1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespV1"
               },
               {
-                "id": 28,
-                "name": "invVarRespV2",
-                "type": "int32"
+                "id": 47,
+                "name": "invVarRespV1Set",
+                "type": "int32",
+                "oneof_parent": "invVarRespV1"
               },
               {
-                "id": 29,
-                "name": "invVarRespV3",
-                "type": "int32"
+                "id": 48,
+                "name": "invVarRespV2Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespV2"
               },
               {
-                "id": 30,
-                "name": "invVarRespV4",
-                "type": "int32"
+                "id": 49,
+                "name": "invVarRespV2Set",
+                "type": "int32",
+                "oneof_parent": "invVarRespV2"
               },
               {
-                "id": 31,
-                "name": "invVarRespQAtV1",
-                "type": "float"
+                "id": 50,
+                "name": "invVarRespV3Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespV3"
               },
               {
-                "id": 32,
-                "name": "invVarRespQAtV2",
-                "type": "float"
+                "id": 51,
+                "name": "invVarRespV3Set",
+                "type": "int32",
+                "oneof_parent": "invVarRespV3"
               },
               {
-                "id": 33,
-                "name": "invVarRespQAtV3",
-                "type": "float"
+                "id": 52,
+                "name": "invVarRespV4Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespV4"
               },
               {
-                "id": 34,
-                "name": "invVarRespQAtV4",
-                "type": "float"
+                "id": 53,
+                "name": "invVarRespV4Set",
+                "type": "int32",
+                "oneof_parent": "invVarRespV4"
               },
               {
-                "id": 35,
+                "id": 54,
+                "name": "invVarRespQAtV1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespQAtV1"
+              },
+              {
+                "id": 55,
+                "name": "invVarRespQAtV1Set",
+                "type": "float",
+                "oneof_parent": "invVarRespQAtV1"
+              },
+              {
+                "id": 56,
+                "name": "invVarRespQAtV2Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespQAtV2"
+              },
+              {
+                "id": 57,
+                "name": "invVarRespQAtV2Set",
+                "type": "float",
+                "oneof_parent": "invVarRespQAtV2"
+              },
+              {
+                "id": 58,
+                "name": "invVarRespQAtV3Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespQAtV3"
+              },
+              {
+                "id": 59,
+                "name": "invVarRespQAtV3Set",
+                "type": "float",
+                "oneof_parent": "invVarRespQAtV3"
+              },
+              {
+                "id": 60,
+                "name": "invVarRespQAtV4Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invVarRespQAtV4"
+              },
+              {
+                "id": 61,
+                "name": "invVarRespQAtV4Set",
+                "type": "float",
+                "oneof_parent": "invVarRespQAtV4"
+              },
+              {
+                "id": 62,
                 "name": "invReactivePowerModeNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "invReactivePowerMode"
               },
               {
-                "id": 36,
+                "id": 63,
                 "name": "invReactivePowerModeSet",
                 "type": "bool",
                 "oneof_parent": "invReactivePowerMode"
               },
               {
-                "id": 37,
-                "name": "invFixReactivePower",
-                "type": "float"
+                "id": 64,
+                "name": "invFixReactivePowerNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "invFixReactivePower"
+              },
+              {
+                "id": 65,
+                "name": "invFixReactivePowerSet",
+                "type": "float",
+                "oneof_parent": "invFixReactivePower"
               }
             ]
           }
@@ -8982,21 +10644,35 @@
               },
               {
                 "id": 2,
-                "name": "p",
-                "type": "double"
+                "name": "pNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "p"
               },
               {
                 "id": 3,
+                "name": "pSet",
+                "type": "double",
+                "oneof_parent": "p"
+              },
+              {
+                "id": 4,
                 "name": "phase",
                 "type": "SinglePhaseKind"
               },
               {
-                "id": 4,
-                "name": "q",
-                "type": "double"
+                "id": 5,
+                "name": "qNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "q"
               },
               {
-                "id": 5,
+                "id": 6,
+                "name": "qSet",
+                "type": "double",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 7,
                 "name": "powerElectronicsConnectionMRID",
                 "type": "string"
               }
@@ -9009,6 +10685,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9051,16 +10730,23 @@
               },
               {
                 "id": 4,
-                "name": "transformerUtilisation",
-                "type": "double"
+                "name": "transformerUtilisationNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "transformerUtilisation"
               },
               {
                 "id": 5,
+                "name": "transformerUtilisationSet",
+                "type": "double",
+                "oneof_parent": "transformerUtilisation"
+              },
+              {
+                "id": 6,
                 "name": "constructionKind",
                 "type": "iec61968.infiec61968.infassetinfo.TransformerConstructionKind"
               },
               {
-                "id": 6,
+                "id": 7,
                 "name": "function",
                 "type": "iec61968.infiec61968.infassetinfo.TransformerFunctionKind"
               }
@@ -9079,6 +10765,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9115,66 +10804,143 @@
               },
               {
                 "id": 3,
-                "name": "ratedS",
-                "type": "int32"
+                "name": "ratedSNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedS"
               },
               {
                 "id": 4,
-                "name": "ratedU",
-                "type": "int32"
+                "name": "ratedSSet",
+                "type": "int32",
+                "oneof_parent": "ratedS"
               },
               {
                 "id": 5,
-                "name": "r",
-                "type": "double"
+                "name": "ratedUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedU"
               },
               {
                 "id": 6,
-                "name": "x",
-                "type": "double"
+                "name": "ratedUSet",
+                "type": "int32",
+                "oneof_parent": "ratedU"
               },
               {
                 "id": 7,
-                "name": "r0",
-                "type": "double"
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
               },
               {
                 "id": 8,
-                "name": "x0",
-                "type": "double"
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
               },
               {
                 "id": 9,
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 10,
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 11,
+                "name": "r0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0"
+              },
+              {
+                "id": 12,
+                "name": "r0Set",
+                "type": "double",
+                "oneof_parent": "r0"
+              },
+              {
+                "id": 13,
+                "name": "x0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 14,
+                "name": "x0Set",
+                "type": "double",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 15,
                 "name": "connectionKind",
                 "type": "WindingConnection"
               },
               {
-                "id": 10,
-                "name": "b",
-                "type": "double"
+                "id": 16,
+                "name": "bNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "b"
               },
               {
-                "id": 11,
-                "name": "b0",
-                "type": "double"
+                "id": 17,
+                "name": "bSet",
+                "type": "double",
+                "oneof_parent": "b"
               },
               {
-                "id": 12,
-                "name": "g",
-                "type": "double"
+                "id": 18,
+                "name": "b0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "b0"
               },
               {
-                "id": 13,
-                "name": "g0",
-                "type": "double"
+                "id": 19,
+                "name": "b0Set",
+                "type": "double",
+                "oneof_parent": "b0"
               },
               {
-                "id": 14,
-                "name": "phaseAngleClock",
-                "type": "int32"
+                "id": 20,
+                "name": "gNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "g"
               },
               {
-                "id": 15,
+                "id": 21,
+                "name": "gSet",
+                "type": "double",
+                "oneof_parent": "g"
+              },
+              {
+                "id": 22,
+                "name": "g0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "g0"
+              },
+              {
+                "id": 23,
+                "name": "g0Set",
+                "type": "double",
+                "oneof_parent": "g0"
+              },
+              {
+                "id": 24,
+                "name": "phaseAngleClockNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "phaseAngleClock"
+              },
+              {
+                "id": 25,
+                "name": "phaseAngleClockSet",
+                "type": "int32",
+                "oneof_parent": "phaseAngleClock"
+              },
+              {
+                "id": 26,
                 "name": "ratings",
                 "type": "cim.extensions.iec61970.base.wires.TransformerEndRatedS",
                 "is_repeated": true
@@ -9191,6 +10957,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/WindingConnection.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9222,11 +10991,18 @@
               },
               {
                 "id": 2,
-                "name": "breakingCapacity",
-                "type": "int32"
+                "name": "breakingCapacityNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "breakingCapacity"
               },
               {
                 "id": 3,
+                "name": "breakingCapacitySet",
+                "type": "int32",
+                "oneof_parent": "breakingCapacity"
+              },
+              {
+                "id": 4,
                 "name": "relayFunctionMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -9237,6 +11013,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Switch.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9268,11 +11047,18 @@
               },
               {
                 "id": 2,
-                "name": "stepVoltageIncrement",
-                "type": "double"
+                "name": "stepVoltageIncrementNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "stepVoltageIncrement"
               },
               {
                 "id": 3,
+                "name": "stepVoltageIncrementSet",
+                "type": "double",
+                "oneof_parent": "stepVoltageIncrement"
+              },
+              {
+                "id": 4,
                 "name": "transformerEndMRID",
                 "type": "string"
               }
@@ -9282,6 +11068,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/TapChanger.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9383,11 +11172,18 @@
               },
               {
                 "id": 2,
-                "name": "controlEnabled",
-                "type": "bool"
+                "name": "controlEnabledNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "controlEnabled"
               },
               {
                 "id": 3,
+                "name": "controlEnabledSet",
+                "type": "bool",
+                "oneof_parent": "controlEnabled"
+              },
+              {
+                "id": 4,
                 "name": "regulatingControlMRID",
                 "type": "string"
               }
@@ -9397,6 +11193,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/EnergyConnection.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9450,61 +11249,110 @@
               },
               {
                 "id": 6,
-                "name": "targetDeadband",
-                "type": "float"
+                "name": "targetDeadbandNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "targetDeadband"
               },
               {
                 "id": 7,
-                "name": "targetValue",
-                "type": "double"
+                "name": "targetDeadbandSet",
+                "type": "float",
+                "oneof_parent": "targetDeadband"
               },
               {
                 "id": 8,
+                "name": "targetValueNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "targetValue"
+              },
+              {
+                "id": 9,
+                "name": "targetValueSet",
+                "type": "double",
+                "oneof_parent": "targetValue"
+              },
+              {
+                "id": 10,
                 "name": "enabledNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "enabled"
               },
               {
-                "id": 9,
+                "id": 11,
                 "name": "enabledSet",
                 "type": "bool",
                 "oneof_parent": "enabled"
               },
               {
-                "id": 10,
-                "name": "maxAllowedTargetValue",
-                "type": "double"
-              },
-              {
-                "id": 11,
-                "name": "minAllowedTargetValue",
-                "type": "double"
-              },
-              {
                 "id": 12,
+                "name": "maxAllowedTargetValueNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "maxAllowedTargetValue"
+              },
+              {
+                "id": 13,
+                "name": "maxAllowedTargetValueSet",
+                "type": "double",
+                "oneof_parent": "maxAllowedTargetValue"
+              },
+              {
+                "id": 14,
+                "name": "minAllowedTargetValueNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "minAllowedTargetValue"
+              },
+              {
+                "id": 15,
+                "name": "minAllowedTargetValueSet",
+                "type": "double",
+                "oneof_parent": "minAllowedTargetValue"
+              },
+              {
+                "id": 16,
                 "name": "terminalMRID",
                 "type": "string"
               },
               {
-                "id": 13,
+                "id": 17,
                 "name": "regulatingCondEqMRIDs",
                 "type": "string",
                 "is_repeated": true
               },
               {
-                "id": 14,
-                "name": "ratedCurrent",
-                "type": "double"
+                "id": 18,
+                "name": "ratedCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedCurrent"
               },
               {
-                "id": 15,
-                "name": "ctPrimary",
-                "type": "double"
+                "id": 19,
+                "name": "ratedCurrentSet",
+                "type": "double",
+                "oneof_parent": "ratedCurrent"
               },
               {
-                "id": 16,
-                "name": "minTargetDeadband",
-                "type": "double"
+                "id": 20,
+                "name": "ctPrimaryNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ctPrimary"
+              },
+              {
+                "id": 21,
+                "name": "ctPrimarySet",
+                "type": "double",
+                "oneof_parent": "ctPrimary"
+              },
+              {
+                "id": 22,
+                "name": "minTargetDeadbandNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "minTargetDeadband"
+              },
+              {
+                "id": 23,
+                "name": "minTargetDeadbandSet",
+                "type": "double",
+                "oneof_parent": "minTargetDeadband"
               }
             ]
           }
@@ -9612,28 +11460,63 @@
               },
               {
                 "id": 2,
-                "name": "ratedPowerFactor",
-                "type": "double"
+                "name": "ratedPowerFactorNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedPowerFactor"
               },
               {
                 "id": 3,
-                "name": "ratedS",
-                "type": "double"
+                "name": "ratedPowerFactorSet",
+                "type": "double",
+                "oneof_parent": "ratedPowerFactor"
               },
               {
                 "id": 4,
-                "name": "ratedU",
-                "type": "int32"
+                "name": "ratedSNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedS"
               },
               {
                 "id": 5,
-                "name": "p",
-                "type": "double"
+                "name": "ratedSSet",
+                "type": "double",
+                "oneof_parent": "ratedS"
               },
               {
                 "id": 6,
-                "name": "q",
-                "type": "double"
+                "name": "ratedUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedU"
+              },
+              {
+                "id": 7,
+                "name": "ratedUSet",
+                "type": "int32",
+                "oneof_parent": "ratedU"
+              },
+              {
+                "id": 8,
+                "name": "pNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "p"
+              },
+              {
+                "id": 9,
+                "name": "pSet",
+                "type": "double",
+                "oneof_parent": "p"
+              },
+              {
+                "id": 10,
+                "name": "qNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 11,
+                "name": "qSet",
+                "type": "double",
+                "oneof_parent": "q"
               }
             ]
           }
@@ -9641,6 +11524,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9708,33 +11594,75 @@
               },
               {
                 "id": 2,
-                "name": "r",
-                "type": "double"
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
               },
               {
                 "id": 3,
-                "name": "r0",
-                "type": "double"
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
               },
               {
                 "id": 4,
-                "name": "x",
-                "type": "double"
+                "name": "r0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0"
               },
               {
                 "id": 5,
-                "name": "x0",
-                "type": "double"
+                "name": "r0Set",
+                "type": "double",
+                "oneof_parent": "r0"
               },
               {
                 "id": 6,
-                "name": "varistorRatedCurrent",
-                "type": "int32"
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
               },
               {
                 "id": 7,
-                "name": "varistorVoltageThreshold",
-                "type": "int32"
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 8,
+                "name": "x0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 9,
+                "name": "x0Set",
+                "type": "double",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 10,
+                "name": "varistorRatedCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "varistorRatedCurrent"
+              },
+              {
+                "id": 11,
+                "name": "varistorRatedCurrentSet",
+                "type": "int32",
+                "oneof_parent": "varistorRatedCurrent"
+              },
+              {
+                "id": 12,
+                "name": "varistorVoltageThresholdNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "varistorVoltageThreshold"
+              },
+              {
+                "id": 13,
+                "name": "varistorVoltageThresholdSet",
+                "type": "int32",
+                "oneof_parent": "varistorVoltageThreshold"
               }
             ]
           }
@@ -9742,6 +11670,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9773,21 +11704,42 @@
               },
               {
                 "id": 2,
-                "name": "sections",
-                "type": "double"
+                "name": "sectionsNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "sections"
               },
               {
                 "id": 3,
-                "name": "grounded",
-                "type": "bool"
+                "name": "sectionsSet",
+                "type": "double",
+                "oneof_parent": "sections"
               },
               {
                 "id": 4,
-                "name": "nomU",
-                "type": "int32"
+                "name": "groundedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "grounded"
               },
               {
                 "id": 5,
+                "name": "groundedSet",
+                "type": "bool",
+                "oneof_parent": "grounded"
+              },
+              {
+                "id": 6,
+                "name": "nomUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "nomU"
+              },
+              {
+                "id": 7,
+                "name": "nomUSet",
+                "type": "int32",
+                "oneof_parent": "nomU"
+              },
+              {
+                "id": 8,
                 "name": "phaseConnection",
                 "type": "PhaseShuntConnectionKind"
               }
@@ -9800,6 +11752,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9895,28 +11850,56 @@
               },
               {
                 "id": 2,
-                "name": "capacitiveRating",
-                "type": "double"
+                "name": "capacitiveRatingNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "capacitiveRating"
               },
               {
                 "id": 3,
-                "name": "inductiveRating",
-                "type": "double"
+                "name": "capacitiveRatingSet",
+                "type": "double",
+                "oneof_parent": "capacitiveRating"
               },
               {
                 "id": 4,
-                "name": "q",
-                "type": "double"
+                "name": "inductiveRatingNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "inductiveRating"
               },
               {
                 "id": 5,
+                "name": "inductiveRatingSet",
+                "type": "double",
+                "oneof_parent": "inductiveRating"
+              },
+              {
+                "id": 6,
+                "name": "qNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 7,
+                "name": "qSet",
+                "type": "double",
+                "oneof_parent": "q"
+              },
+              {
+                "id": 8,
                 "name": "svcControlMode",
                 "type": "SVCControlMode"
               },
               {
-                "id": 6,
-                "name": "voltageSetPoint",
-                "type": "int32"
+                "id": 9,
+                "name": "voltageSetPointNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "voltageSetPoint"
+              },
+              {
+                "id": 10,
+                "name": "voltageSetPointSet",
+                "type": "int32",
+                "oneof_parent": "voltageSetPoint"
               }
             ]
           }
@@ -9927,6 +11910,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/SVCControlMode.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -9968,8 +11954,15 @@
               },
               {
                 "id": 4,
-                "name": "ratedCurrent",
-                "type": "double"
+                "name": "ratedCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ratedCurrent"
+              },
+              {
+                "id": 5,
+                "name": "ratedCurrentSet",
+                "type": "double",
+                "oneof_parent": "ratedCurrent"
               }
             ]
           }
@@ -9977,6 +11970,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -10008,111 +12004,244 @@
               },
               {
                 "id": 2,
-                "name": "baseQ",
-                "type": "double"
+                "name": "baseQNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "baseQ"
               },
               {
                 "id": 3,
-                "name": "condenserP",
-                "type": "int32"
+                "name": "baseQSet",
+                "type": "double",
+                "oneof_parent": "baseQ"
               },
               {
                 "id": 4,
-                "name": "earthing",
-                "type": "bool"
+                "name": "condenserPNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "condenserP"
               },
               {
                 "id": 5,
-                "name": "earthingStarPointR",
-                "type": "double"
+                "name": "condenserPSet",
+                "type": "int32",
+                "oneof_parent": "condenserP"
               },
               {
                 "id": 6,
-                "name": "earthingStarPointX",
-                "type": "double"
+                "name": "earthingNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "earthing"
               },
               {
                 "id": 7,
-                "name": "ikk",
-                "type": "double"
+                "name": "earthingSet",
+                "type": "bool",
+                "oneof_parent": "earthing"
               },
               {
                 "id": 8,
-                "name": "maxQ",
-                "type": "double"
+                "name": "earthingStarPointRNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "earthingStarPointR"
               },
               {
                 "id": 9,
-                "name": "maxU",
-                "type": "int32"
+                "name": "earthingStarPointRSet",
+                "type": "double",
+                "oneof_parent": "earthingStarPointR"
               },
               {
                 "id": 10,
-                "name": "minQ",
-                "type": "double"
+                "name": "earthingStarPointXNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "earthingStarPointX"
               },
               {
                 "id": 11,
-                "name": "minU",
-                "type": "int32"
+                "name": "earthingStarPointXSet",
+                "type": "double",
+                "oneof_parent": "earthingStarPointX"
               },
               {
                 "id": 12,
-                "name": "mu",
-                "type": "double"
+                "name": "ikkNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "ikk"
               },
               {
                 "id": 13,
-                "name": "r",
-                "type": "double"
+                "name": "ikkSet",
+                "type": "double",
+                "oneof_parent": "ikk"
               },
               {
                 "id": 14,
-                "name": "r0",
-                "type": "double"
+                "name": "maxQNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "maxQ"
               },
               {
                 "id": 15,
-                "name": "r2",
-                "type": "double"
+                "name": "maxQSet",
+                "type": "double",
+                "oneof_parent": "maxQ"
               },
               {
                 "id": 16,
-                "name": "satDirectSubtransX",
-                "type": "double"
+                "name": "maxUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "maxU"
               },
               {
                 "id": 17,
-                "name": "satDirectSyncX",
-                "type": "double"
+                "name": "maxUSet",
+                "type": "int32",
+                "oneof_parent": "maxU"
               },
               {
                 "id": 18,
-                "name": "satDirectTransX",
-                "type": "double"
+                "name": "minQNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "minQ"
               },
               {
                 "id": 19,
-                "name": "x0",
-                "type": "double"
+                "name": "minQSet",
+                "type": "double",
+                "oneof_parent": "minQ"
               },
               {
                 "id": 20,
-                "name": "x2",
-                "type": "double"
+                "name": "minUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "minU"
               },
               {
                 "id": 21,
+                "name": "minUSet",
+                "type": "int32",
+                "oneof_parent": "minU"
+              },
+              {
+                "id": 22,
+                "name": "muNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "mu"
+              },
+              {
+                "id": 23,
+                "name": "muSet",
+                "type": "double",
+                "oneof_parent": "mu"
+              },
+              {
+                "id": 24,
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 25,
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
+              },
+              {
+                "id": 26,
+                "name": "r0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0"
+              },
+              {
+                "id": 27,
+                "name": "r0Set",
+                "type": "double",
+                "oneof_parent": "r0"
+              },
+              {
+                "id": 28,
+                "name": "r2Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r2"
+              },
+              {
+                "id": 29,
+                "name": "r2Set",
+                "type": "double",
+                "oneof_parent": "r2"
+              },
+              {
+                "id": 30,
+                "name": "satDirectSubtransXNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "satDirectSubtransX"
+              },
+              {
+                "id": 31,
+                "name": "satDirectSubtransXSet",
+                "type": "double",
+                "oneof_parent": "satDirectSubtransX"
+              },
+              {
+                "id": 32,
+                "name": "satDirectSyncXNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "satDirectSyncX"
+              },
+              {
+                "id": 33,
+                "name": "satDirectSyncXSet",
+                "type": "double",
+                "oneof_parent": "satDirectSyncX"
+              },
+              {
+                "id": 34,
+                "name": "satDirectTransXNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "satDirectTransX"
+              },
+              {
+                "id": 35,
+                "name": "satDirectTransXSet",
+                "type": "double",
+                "oneof_parent": "satDirectTransX"
+              },
+              {
+                "id": 36,
+                "name": "x0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 37,
+                "name": "x0Set",
+                "type": "double",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 38,
+                "name": "x2Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x2"
+              },
+              {
+                "id": 39,
+                "name": "x2Set",
+                "type": "double",
+                "oneof_parent": "x2"
+              },
+              {
+                "id": 40,
                 "name": "type",
                 "type": "SynchronousMachineKind"
               },
               {
-                "id": 22,
+                "id": 41,
                 "name": "operatingMode",
                 "type": "SynchronousMachineKind"
               },
               {
-                "id": 23,
+                "id": 42,
                 "name": "reactiveCapabilityCurveMRIDs",
                 "type": "string",
                 "is_repeated": true
@@ -10126,6 +12255,9 @@
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachineKind.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -10213,41 +12345,90 @@
               },
               {
                 "id": 2,
-                "name": "highStep",
-                "type": "int32"
+                "name": "highStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "highStep"
               },
               {
                 "id": 3,
-                "name": "lowStep",
-                "type": "int32"
+                "name": "highStepSet",
+                "type": "int32",
+                "oneof_parent": "highStep"
               },
               {
                 "id": 4,
-                "name": "step",
-                "type": "double"
+                "name": "lowStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lowStep"
               },
               {
                 "id": 5,
-                "name": "neutralStep",
-                "type": "int32"
+                "name": "lowStepSet",
+                "type": "int32",
+                "oneof_parent": "lowStep"
               },
               {
                 "id": 6,
-                "name": "neutralU",
-                "type": "int32"
+                "name": "stepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "step"
               },
               {
                 "id": 7,
-                "name": "normalStep",
-                "type": "int32"
+                "name": "stepSet",
+                "type": "double",
+                "oneof_parent": "step"
               },
               {
                 "id": 8,
-                "name": "controlEnabled",
-                "type": "bool"
+                "name": "neutralStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "neutralStep"
               },
               {
                 "id": 9,
+                "name": "neutralStepSet",
+                "type": "int32",
+                "oneof_parent": "neutralStep"
+              },
+              {
+                "id": 10,
+                "name": "neutralUNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "neutralU"
+              },
+              {
+                "id": 11,
+                "name": "neutralUSet",
+                "type": "int32",
+                "oneof_parent": "neutralU"
+              },
+              {
+                "id": 12,
+                "name": "normalStepNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "normalStep"
+              },
+              {
+                "id": 13,
+                "name": "normalStepSet",
+                "type": "int32",
+                "oneof_parent": "normalStep"
+              },
+              {
+                "id": 14,
+                "name": "controlEnabledNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "controlEnabled"
+              },
+              {
+                "id": 15,
+                "name": "controlEnabledSet",
+                "type": "bool",
+                "oneof_parent": "controlEnabled"
+              },
+              {
+                "id": 16,
                 "name": "tapChangerControlMRID",
                 "type": "string"
               }
@@ -10257,6 +12438,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -10288,66 +12472,108 @@
               },
               {
                 "id": 2,
-                "name": "limitVoltage",
-                "type": "int32"
+                "name": "limitVoltageNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "limitVoltage"
               },
               {
                 "id": 3,
+                "name": "limitVoltageSet",
+                "type": "int32",
+                "oneof_parent": "limitVoltage"
+              },
+              {
+                "id": 4,
                 "name": "lineDropCompensationNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "lineDropCompensation"
               },
               {
-                "id": 4,
+                "id": 5,
                 "name": "lineDropCompensationSet",
                 "type": "bool",
                 "oneof_parent": "lineDropCompensation"
               },
               {
-                "id": 5,
-                "name": "lineDropR",
-                "type": "double"
-              },
-              {
                 "id": 6,
-                "name": "lineDropX",
-                "type": "double"
+                "name": "lineDropRNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lineDropR"
               },
               {
                 "id": 7,
-                "name": "reverseLineDropR",
-                "type": "double"
+                "name": "lineDropRSet",
+                "type": "double",
+                "oneof_parent": "lineDropR"
               },
               {
                 "id": 8,
-                "name": "reverseLineDropX",
-                "type": "double"
+                "name": "lineDropXNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lineDropX"
               },
               {
                 "id": 9,
+                "name": "lineDropXSet",
+                "type": "double",
+                "oneof_parent": "lineDropX"
+              },
+              {
+                "id": 10,
+                "name": "reverseLineDropRNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "reverseLineDropR"
+              },
+              {
+                "id": 11,
+                "name": "reverseLineDropRSet",
+                "type": "double",
+                "oneof_parent": "reverseLineDropR"
+              },
+              {
+                "id": 12,
+                "name": "reverseLineDropXNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "reverseLineDropX"
+              },
+              {
+                "id": 13,
+                "name": "reverseLineDropXSet",
+                "type": "double",
+                "oneof_parent": "reverseLineDropX"
+              },
+              {
+                "id": 14,
                 "name": "forwardLDCBlockingNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "forwardLDCBlocking"
               },
               {
-                "id": 10,
+                "id": 15,
                 "name": "forwardLDCBlockingSet",
                 "type": "bool",
                 "oneof_parent": "forwardLDCBlocking"
               },
               {
-                "id": 11,
-                "name": "timeDelay",
-                "type": "double"
+                "id": 16,
+                "name": "timeDelayNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "timeDelay"
               },
               {
-                "id": 12,
+                "id": 17,
+                "name": "timeDelaySet",
+                "type": "double",
+                "oneof_parent": "timeDelay"
+              },
+              {
+                "id": 18,
                 "name": "coGenerationEnabledNull",
                 "type": "google.protobuf.NullValue",
                 "oneof_parent": "coGenerationEnabled"
               },
               {
-                "id": 13,
+                "id": 19,
                 "name": "coGenerationEnabledSet",
                 "type": "bool",
                 "oneof_parent": "coGenerationEnabled"
@@ -10412,21 +12638,42 @@
               },
               {
                 "id": 6,
-                "name": "grounded",
-                "type": "bool"
+                "name": "groundedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "grounded"
               },
               {
                 "id": 7,
-                "name": "rGround",
-                "type": "double"
+                "name": "groundedSet",
+                "type": "bool",
+                "oneof_parent": "grounded"
               },
               {
                 "id": 8,
-                "name": "xGround",
-                "type": "double"
+                "name": "rGroundNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "rGround"
               },
               {
                 "id": 9,
+                "name": "rGroundSet",
+                "type": "double",
+                "oneof_parent": "rGround"
+              },
+              {
+                "id": 10,
+                "name": "xGroundNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "xGround"
+              },
+              {
+                "id": 11,
+                "name": "xGroundSet",
+                "type": "double",
+                "oneof_parent": "xGround"
+              },
+              {
+                "id": 13,
                 "name": "starImpedanceMRID",
                 "type": "string"
               }
@@ -10436,6 +12683,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -10467,26 +12717,54 @@
               },
               {
                 "id": 2,
-                "name": "r",
-                "type": "double"
+                "name": "rNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r"
               },
               {
                 "id": 3,
-                "name": "r0",
-                "type": "double"
+                "name": "rSet",
+                "type": "double",
+                "oneof_parent": "r"
               },
               {
                 "id": 4,
-                "name": "x",
-                "type": "double"
+                "name": "r0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "r0"
               },
               {
                 "id": 5,
-                "name": "x0",
-                "type": "double"
+                "name": "r0Set",
+                "type": "double",
+                "oneof_parent": "r0"
               },
               {
                 "id": 6,
+                "name": "xNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 7,
+                "name": "xSet",
+                "type": "double",
+                "oneof_parent": "x"
+              },
+              {
+                "id": 8,
+                "name": "x0Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 9,
+                "name": "x0Set",
+                "type": "double",
+                "oneof_parent": "x0"
+              },
+              {
+                "id": 11,
                 "name": "transformerEndInfoMRID",
                 "type": "string"
               }
@@ -10496,6 +12774,9 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {

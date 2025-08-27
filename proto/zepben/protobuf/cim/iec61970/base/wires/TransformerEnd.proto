@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.
@@ -48,23 +49,32 @@ message TransformerEnd {
     /**
      * (for Yn and Zn connections) True if the neutral is solidly grounded.
      */
-    bool grounded = 6;
+    oneof grounded {
+      google.protobuf.NullValue groundedNull = 6;
+      bool groundedSet = 7;
+    }
 
     /**
      * (for Yn and Zn connections) Resistance part of neutral impedance where 'grounded' is true.
      */
-    double rGround = 7;
+    oneof rGround {
+      google.protobuf.NullValue rGroundNull = 8;
+      double rGroundSet = 9;
+    }
 
     /**
      * (for Yn and Zn connections) Reactive part of neutral impedance where 'grounded' is true.
      */
-    double xGround = 8;
+    oneof xGround {
+      google.protobuf.NullValue xGroundNull = 10;
+      double xGroundSet = 11;
+    }
 
     /**
      * (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end.
      *  By convention, for a two winding transformer,
      * the full values of the transformer should be entered on the high voltage end (endNumber=1).
      */
-    string starImpedanceMRID = 9;
+    string starImpedanceMRID = 13;
 
 }

@@ -63,60 +63,81 @@ message RegulatingControl {
      * The attribute shall be a positive value or zero. If RegulatingControl.discrete is set to "false", the RegulatingControl.targetDeadband is to be ignored.
      * Note that for instance, if the targetValue is 100 kV and the targetDeadband is 2 kV the range is from 99 to 101 kV.
      */
-    float targetDeadband = 6;
+    oneof targetDeadband {
+      google.protobuf.NullValue targetDeadbandNull = 6;
+      float targetDeadbandSet = 7;
+    }
 
     /**
      * The target value specified for case input. This value can be used for the target value without the use of schedules.
      * The value has the units appropriate to the mode attribute.
      */
-    double targetValue = 7;
+    oneof targetValue {
+      google.protobuf.NullValue targetValueNull = 8;
+      double targetValueSet = 9;
+    }
 
     /**
      * The flag tells if regulation is enabled.
      */
     oneof enabled {
-        google.protobuf.NullValue enabledNull = 8;
-        bool enabledSet = 9;
+        google.protobuf.NullValue enabledNull = 10;
+        bool enabledSet = 11;
     }
 
     /**
      * Maximum allowed target value (RegulatingControl.targetValue).
      */
-    double maxAllowedTargetValue = 10;
+    oneof maxAllowedTargetValue {
+      google.protobuf.NullValue maxAllowedTargetValueNull = 12;
+      double maxAllowedTargetValueSet = 13;
+    }
 
     /**
      * Minimum allowed target value (RegulatingControl.targetValue).
      */
-    double minAllowedTargetValue = 11;
+    oneof minAllowedTargetValue {
+      google.protobuf.NullValue minAllowedTargetValueNull = 14;
+      double minAllowedTargetValueSet = 15;
+    }
 
     /**
      * The terminal associated with this regulating control. The terminal is associated instead of a node, since the terminal could connect into either a
      * topological node or a connectivity node. Sometimes it is useful to model regulation at a terminal of a bus bar object.
      */
-    string terminalMRID = 12;
+    string terminalMRID = 16;
 
     /**
      * The equipment that participates in this regulating control scheme.
      */
-    repeated string regulatingCondEqMRIDs = 13;
+    repeated string regulatingCondEqMRIDs = 17;
 
     /**
      * [ZBEX] The rated current of associated CT in amps for this RegulatingControl. Forms the base used to convert Line Drop
      * Compensation settings from ohms to voltage.
      */
-    double ratedCurrent = 14;
+    oneof ratedCurrent {
+      google.protobuf.NullValue ratedCurrentNull = 18;
+      double ratedCurrentSet = 19;
+    }
 
     /**
      * [ZBEX] Current rating of the CT, expressed in terms of the current (in Amperes) that flows in the Primary where the 'Primary' is the conductor being monitored.
      * It ensures proper operation of the regulating equipment by providing the necessary current references for control actions. An important side effect of
      * this current value is that it also defines the current value at which the full LDC R and X voltages are applied by the controller, where enabled.
      */
-    double ctPrimary = 15;
+    oneof ctPrimary {
+      google.protobuf.NullValue ctPrimaryNull = 20;
+      double ctPrimarySet = 21;
+    }
 
     /**
      * [ZBEX] This is the minimum allowable range for discrete control in regulating devices, used to prevent frequent control actions and promote operational stability.
      * This attribute sets a baseline range within which no adjustments are made, applicable across various devices like voltage regulators, shunt compensators, or battery units.
      */
-    double minTargetDeadband = 16;
+    oneof minTargetDeadband {
+      google.protobuf.NullValue minTargetDeadbandNull = 22;
+      double minTargetDeadbandSet = 23;
+    }
 
 }

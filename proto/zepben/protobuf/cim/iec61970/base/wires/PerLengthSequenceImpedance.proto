@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/PerLengthImpedance.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Sequence impedance and admittance parameters per unit length, for transposed lines of 1, 2, or 3 phases. For
@@ -27,41 +28,65 @@ message PerLengthSequenceImpedance {
     /**
      * Positive sequence series resistance, per unit of length.
      */
-    double r = 2;
+    oneof r {
+      google.protobuf.NullValue rNull = 2;
+      double rSet = 3;
+    }
 
     /**
      * Positive sequence series reactance, per unit of length.
      */
-    double x = 3;
+    oneof x {
+      google.protobuf.NullValue xNull = 4;
+      double xSet = 5;
+    }
 
     /**
      * Zero sequence series resistance, per unit of length.
      */
-    double r0 = 4;
+    oneof r0 {
+      google.protobuf.NullValue r0Null = 6;
+      double r0Set = 7;
+    }
 
     /**
      * Zero sequence series reactance, per unit of length.
      */
-    double x0 = 5;
+    oneof x0 {
+      google.protobuf.NullValue x0Null = 8;
+      double x0Set = 9;
+    }
 
     /**
      * Positive sequence shunt (charging) susceptance, per unit of length.
      */
-    double bch = 6;
+    oneof bch {
+      google.protobuf.NullValue bchNull = 10;
+      double bchSet = 11;
+    }
 
     /**
      * Zero sequence shunt (charging) susceptance, per unit of length.
      */
-    double b0ch = 7;
+    oneof b0ch {
+      google.protobuf.NullValue b0chNull = 12;
+      double b0chSet = 13;
+    }
 
     /**
      * Positive sequence shunt (charging) conductance, per unit of length.
      */
-    double gch = 8;
+    oneof gch {
+      google.protobuf.NullValue gchNull = 14;
+      double gchSet = 15;
+    }
 
     /**
      * Zero sequence shunt (charging) conductance, per unit of length.
      */
-    double g0ch = 9;
+    oneof g0ch {
+      google.protobuf.NullValue g0chNull = 16;
+      double g0chSet = 17;
+    }
 
 }

@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/core/ConductingEquipment.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal devices including grounding switches.
@@ -38,6 +39,9 @@ message Switch {
      * The maximum continuous current carrying capacity in amps governed by the device material and construction.
      * The attribute shall be a positive value.
      */
-    double ratedCurrent = 4;
+    oneof ratedCurrent {
+      google.protobuf.NullValue ratedCurrentNull = 4;
+      double ratedCurrentSet = 5;
+    }
 
 }

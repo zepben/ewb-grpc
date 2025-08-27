@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.assets;
 
 import "zepben/protobuf/cim/iec61968/assets/Asset.proto";
 import "zepben/protobuf/cim/iec61968/infiec61968/infassets/StreetlightLampKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A Streetlight asset.
@@ -37,6 +38,9 @@ message Streetlight {
     /**
      * The power rating of the light.
      */
-    uint32 lightRating = 4;
+    oneof lightRating {
+      google.protobuf.NullValue lightRatingNull = 4;
+      uint32 lightRatingSet = 5;
+    }
 
 }

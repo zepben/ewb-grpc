@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/Switch.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal devices including grounding switches.
@@ -26,11 +27,14 @@ message ProtectedSwitch {
     /**
      * The maximum fault current in amps a breaking device can break safely under prescribed conditions of use.
      */
-    int32 breakingCapacity = 2;
+    oneof breakingCapacity {
+      google.protobuf.NullValue breakingCapacityNull = 2;
+      int32 breakingCapacitySet = 3;
+    }
 
     /**
      * The ProtectionRelayFunctions operating this ProtectedSwitch.
      */
-    repeated string relayFunctionMRIDs = 3;
+    repeated string relayFunctionMRIDs = 4;
 
 }

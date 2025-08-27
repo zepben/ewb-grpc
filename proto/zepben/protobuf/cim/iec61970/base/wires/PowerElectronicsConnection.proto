@@ -29,185 +29,269 @@ message PowerElectronicsConnection {
    * Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection
    * will trip or bypass.
    */
-  int32 maxIFault = 2;
+  oneof maxIFault {
+    google.protobuf.NullValue maxIFaultNull = 2;
+    int32 maxIFaultSet = 3;
+  }
 
   /**
    * Maximum reactive power limit. This is the maximum (nameplate) limit for the unit.
    */
-  double maxQ = 3;
+  oneof maxQ {
+    google.protobuf.NullValue maxQNull = 4;
+    double maxQSet = 5;
+  }
 
   /**
    * Minimum reactive power limit for the unit. This is the minimum (nameplate) limit for the unit.
    */
-  double minQ = 4;
+  oneof minQ {
+    google.protobuf.NullValue minQNull = 6;
+    double minQSet = 7;
+  }
 
   /**
    * Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
    * Starting value for a steady state solution.
    */
-  double p = 5;
+  oneof p {
+    google.protobuf.NullValue pNull = 8;
+    double pSet = 9;
+  }
 
   /**
    * Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
    * Starting value for a steady state solution.
    */
-  double q = 6;
+  oneof q {
+    google.protobuf.NullValue qNull = 10;
+    double qSet = 11;
+  }
 
   /**
    * Nameplate apparent power rating for the unit. The attribute shall have a positive value.
    */
-  int32 ratedS = 7;
+  oneof ratedS {
+    google.protobuf.NullValue ratedSNull = 12;
+    int32 ratedSSet = 13;
+  }
 
   /**
    * Rated voltage (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according
    * to IEC 60909. The attribute shall be a positive value.
    */
-  int32 ratedU = 8;
+  oneof ratedU {
+    google.protobuf.NullValue ratedUNull = 14;
+    int32 ratedUSet = 15;
+  }
 
   /**
    * An AC network connection may have several power electronics units connecting through it.
    */
-  repeated string powerElectronicsUnitMRIDs = 9;
+  repeated string powerElectronicsUnitMRIDs = 16;
 
   /**
   * The individual phases models for the power electronics connection.
   */
-  repeated string powerElectronicsConnectionPhaseMRIDs = 10;
+  repeated string powerElectronicsConnectionPhaseMRIDs = 17;
 
   /**
    * [ZBEX] The standard this inverter follows, such as AS4777.2:2020
    */
-  string inverterStandard = 11;
+  oneof inverterStandard {
+    google.protobuf.NullValue inverterStandardNull = 18;
+    string inverterStandardSet = 19;
+  }
 
   /**
    * [ZBEX] Indicates the sustained operation overvoltage limit in volts, when the average voltage for a 10-minute period exceeds the V¬nom-max.
    */
-  int32 sustainOpOvervoltLimit = 12;
+  oneof sustainOpOvervoltLimit {
+    google.protobuf.NullValue sustainOpOvervoltLimitNull = 20;
+    int32 sustainOpOvervoltLimitSet = 21;
+  }
 
   /**
    * [ZBEX] Over frequency (stop) in Hz. Permitted range is between 51 and 52 (inclusive)
    */
-  float stopAtOverFreq = 13;
+  oneof stopAtOverFreq {
+    google.protobuf.NullValue stopAtOverFreqNull = 22;
+    float stopAtOverFreqSet = 23;
+  }
 
   /**
    * [ZBEX] Under frequency (stop) in Hz Permitted range is between 47 and 49 (inclusive)
    */
-  float stopAtUnderFreq = 14;
+  oneof stopAtUnderFreq {
+    google.protobuf.NullValue stopAtUnderFreqNull = 24;
+    float stopAtUnderFreqSet = 25;
+  }
 
   /**
    * [ZBEX] Volt-Watt response mode allows an inverter to reduce is real power output depending on the measured voltage.
    * This mode is further described in AS4777.2:2015, section 6.3.2.2. True implies the mode is enabled.
    */
   oneof invVoltWattRespMode {
-    google.protobuf.NullValue invVoltWattRespModeNull = 15;
-    bool invVoltWattRespModeSet = 16;
+    google.protobuf.NullValue invVoltWattRespModeNull = 26;
+    bool invVoltWattRespModeSet = 27;
   }
 
   /**
    * [ZBEX] Set point 1 in volts for inverter Volt-Watt response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invWattRespV1 = 17;
+  oneof invWattRespV1 {
+    google.protobuf.NullValue invWattRespV1Null = 28;
+    int32 invWattRespV1Set = 29;
+  }
 
   /**
    * [ZBEX] Set point 2 in volts for inverter Volt-Watt response mode. Permitted range is between 216 and 230 (inclusive).
    */
-  int32 invWattRespV2 = 18;
+  oneof invWattRespV2 {
+    google.protobuf.NullValue invWattRespV2Null = 30;
+    int32 invWattRespV2Set = 31;
+  }
 
   /**
    * [ZBEX] Set point 3 in volts for inverter Volt-Watt response mode. Permitted range is between 235 and 255 (inclusive).
    */
-  int32 invWattRespV3 = 19;
+  oneof invWattRespV3 {
+    google.protobuf.NullValue invWattRespV3Null = 32;
+    int32 invWattRespV3Set = 33;
+  }
 
   /**
    * [ZBEX] Set point 4 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
    */
-  int32 invWattRespV4 = 20;
+  oneof invWattRespV4 {
+    google.protobuf.NullValue invWattRespV4Null = 34;
+    int32 invWattRespV4Set = 35;
+  }
 
   /**
    * [ZBEX] Power output set point 1 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
    */
-  float invWattRespPAtV1 = 21;
+  oneof invWattRespPAtV1 {
+    google.protobuf.NullValue invWattRespPAtV1Null = 36;
+    float invWattRespPAtV1Set = 37;
+  }
 
   /**
    * [ZBEX] Power output set point 2 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
    */
-  float invWattRespPAtV2 = 22;
+  oneof invWattRespPAtV2 {
+    google.protobuf.NullValue invWattRespPAtV2Null = 38;
+    float invWattRespPAtV2Set = 39;
+  }
 
   /**
    * [ZBEX] Power output set point 3 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 1 (inclusive).
    */
-  float invWattRespPAtV3 = 23;
+  oneof invWattRespPAtV3 {
+    google.protobuf.NullValue invWattRespPAtV3Null = 40;
+    float invWattRespPAtV3Set = 41;
+  }
 
   /**
    * [ZBEX] Power output set point 4 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
    */
-  float invWattRespPAtV4 = 24;
+  oneof invWattRespPAtV4 {
+    google.protobuf.NullValue invWattRespPAtV4Null = 42;
+    float invWattRespPAtV4Set = 43;
+  }
 
   /**
    * [ZBEX] Volt-VAr response mode allows an inverter to consume (sink) or produce (source) reactive power depending on the measured voltage.
    * This mode is further described in AS4777.2:2015, section 6.3.2.3. True implies the mode is enabled.
    */
   oneof invVoltVarRespMode {
-    google.protobuf.NullValue invVoltVarRespModeNull = 25;
-    bool invVoltVarRespModeSet = 26;
+    google.protobuf.NullValue invVoltVarRespModeNull = 44;
+    bool invVoltVarRespModeSet = 45;
   }
 
   /**
    * [ZBEX] Set point 1 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVarRespV1 = 27;
+  oneof invVarRespV1 {
+    google.protobuf.NullValue invVarRespV1Null = 46;
+    int32 invVarRespV1Set = 47;
+  }
 
   /**
    * [ZBEX] Set point 2 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVarRespV2 = 28;
+  oneof invVarRespV2 {
+    google.protobuf.NullValue invVarRespV2Null = 48;
+    int32 invVarRespV2Set = 49;
+  }
 
   /**
    * [ZBEX] Set point 3 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVarRespV3 = 29;
+  oneof invVarRespV3 {
+    google.protobuf.NullValue invVarRespV3Null = 50;
+    int32 invVarRespV3Set = 51;
+  }
 
   /**
    * [ZBEX] Set point 4 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
    */
-  int32 invVarRespV4 = 30;
+  oneof invVarRespV4 {
+    google.protobuf.NullValue invVarRespV4Null = 52;
+    int32 invVarRespV4Set = 53;
+  }
 
   /**
    * [ZBEX] Power output set point 1 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between 0 and 0.6 (inclusive).
    */
-  float invVarRespQAtV1 = 31;
+  oneof invVarRespQAtV1 {
+    google.protobuf.NullValue invVarRespQAtV1Null = 54;
+    float invVarRespQAtV1Set = 55;
+  }
 
   /**
    * [ZBEX] Power output set point 2 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
    * negative number referring to a sink.
    */
-  float invVarRespQAtV2 = 32;
+  oneof invVarRespQAtV2 {
+    google.protobuf.NullValue invVarRespQAtV2Null = 56;
+    float invVarRespQAtV2Set = 57;
+  }
 
   /**
    * [ZBEX] Power output set point 3 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -1 and 1 (inclusive) with a
    * negative number referring to a sink.
    */
-  float invVarRespQAtV3 = 33;
+  oneof invVarRespQAtV3 {
+    google.protobuf.NullValue invVarRespQAtV3Null = 58;
+    float invVarRespQAtV3Set = 59;
+  }
 
   /**
    * [ZBEX] Power output set point 4 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a
    * negative number referring to a sink.
    */
-  float invVarRespQAtV4 = 34;
+  oneof invVarRespQAtV4 {
+    google.protobuf.NullValue invVarRespQAtV4Null = 60;
+    float invVarRespQAtV4Set = 61;
+  }
 
   /**
    * [ZBEX] If true, enables Static Reactive Power mode on the inverter.
    * Note: It must be false if invVoltVarRespMode or InvVoltWattRespMode is true.
    */
   oneof invReactivePowerMode {
-    google.protobuf.NullValue invReactivePowerModeNull = 35;
-    bool invReactivePowerModeSet = 36;
+    google.protobuf.NullValue invReactivePowerModeNull = 62;
+    bool invReactivePowerModeSet = 63;
   }
 
   /**
    * [ZBEX] Static Reactive Power, specified in a percentage output of the system. Permitted range is between -1.0 and 1.0 (inclusive), with a negative
    * sign referring to “sink”.
    */
-  float invFixReactivePower = 37;
+  oneof invFixReactivePower {
+    google.protobuf.NullValue invFixReactivePowerNull = 64;
+    float invFixReactivePowerSet = 65;
+  }
 
 }

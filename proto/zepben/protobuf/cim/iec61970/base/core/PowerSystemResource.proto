@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A power system resource can be an item of equipment such as a switch, an equipment container containing many individual
@@ -39,11 +40,14 @@ message PowerSystemResource {
      * The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous machine or
      * capacitor bank breaker actuator.
      */
-    int32 numControls = 4;
+    oneof numControls {
+      google.protobuf.NullValue numControlsNull = 4;
+      int32 numControlsSet = 5;
+    }
 
     /**
      * All assets represented by this power system resource. For example, multiple conductor assets are electrically modelled as a single AC line segment.
      */
-    repeated string assetMRIDs = 5;
+    repeated string assetMRIDs = 6;
 
 }

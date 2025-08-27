@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical
@@ -32,6 +33,9 @@ message AcDcTerminal {
      * equipment can be connected in one end and open in the other. In particular for an AC line segment,
      * where the reactive line charging can be significant, this is a relevant case.
      */
-    bool connected = 2;
+    oneof connected {
+      google.protobuf.NullValue connectedNull = 2;
+      bool connectedSet = 3;
+    }
 
 }

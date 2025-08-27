@@ -70,6 +70,7 @@
   * `Diagram`
   * `TransformerEnd`
 * Added new message `SamplePointReport` for sending sample point reports from the opendss jvm executor. It has been added to the `OpenDssReport`.
+* The majority of number types, booleans and strings have been made oneof 'nullables'.
 
 ### New Features
 * None.

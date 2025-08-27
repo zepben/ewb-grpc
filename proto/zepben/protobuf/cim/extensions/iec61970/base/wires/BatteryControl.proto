@@ -13,6 +13,7 @@ package zepben.protobuf.cim.extensions.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/RegulatingControl.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControlMode.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] Describes behaviour specific to controlling batteries.
@@ -27,22 +28,31 @@ message BatteryControl {
     /**
      * [ZBEX] Charging rate (input power) in percentage of maxP. (Unit: PerCent)
      */
-    double chargingRate = 2;
+    oneof chargingRate {
+      google.protobuf.NullValue chargingRateNull = 2;
+      double chargingRateSet = 3;
+    }
 
     /**
      * [ZBEX] Discharge rate (output power) in percentage of maxP. (Unit: PerCent)
      */
-    double dischargingRate = 3;
+    oneof dischargingRate {
+      google.protobuf.NullValue dischargingRateNull = 4;
+      double dischargingRateSet = 5;
+    }
 
     /**
      * [ZBEX] Percentage of the rated storage capacity that should be reserved during normal operations. This reserve acts as a safeguard, preventing the energy level
      * from dropping below this threshold under standard conditions. The field must be set to a non-negative value between 0 and 1. (Unit: PerCent)
      */
-    double reservePercent = 4;
+    oneof reservePercent {
+      google.protobuf.NullValue reservePercentNull = 6;
+      double reservePercentSet = 7;
+    }
 
     /**
      * [ZBEX] Mode of operation for the dispatch (charging/discharging) function of BatteryControl.
      */
-    BatteryControlMode controlMode = 5;
+    BatteryControlMode controlMode = 8;
 
 }

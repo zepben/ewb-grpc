@@ -12,6 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
 package zepben.protobuf.cim.iec61970.base.wires;
 
 import "zepben/protobuf/cim/iec61970/base/wires/Switch.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A cut separates a line segment into two parts. The cut appears as a switch inserted between these two parts and connects them together. As the cut is
@@ -32,11 +33,14 @@ message Cut {
      * The length to the place where the cut is located starting from side one of the cut line segment, i.e. the line segment Terminal with sequenceNumber equal
      * to 1.
      */
-    double lengthFromTerminal1 = 2;
+    oneof lengthFromTerminal1 {
+      google.protobuf.NullValue lengthFromTerminal1Null = 2;
+      double lengthFromTerminal1Set = 3;
+    }
 
     /**
      * The line segment to which the cut is applied.
      */
-    string acLineSegmentMRID = 3;
+    string acLineSegmentMRID = 4;
 
 }

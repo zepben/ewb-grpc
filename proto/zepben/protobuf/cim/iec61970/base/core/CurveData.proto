@@ -11,6 +11,8 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
+import "google/protobuf/struct.proto";
+
 /**
  * Multi-purpose data points for defining a curve. The use of this generic class is discouraged if a more specific class can be used to specify the X and
  * Y axis values along with their specific data types.
@@ -30,11 +32,17 @@ message CurveData {
     /**
      * The data value of the second Y-axis variable (if present), depending on the Y-axis units.
      */
-    float y2Value = 3;
+    oneof y2Value {
+      google.protobuf.NullValue y2ValueNull = 3;
+      float y2ValueSet = 4;
+    }
 
     /**
      * The data value of the third Y-axis variable (if present), depending on the Y-axis units.
      */
-    float y3Value = 4;
+    oneof y3Value {
+      google.protobuf.NullValue y3ValueNull = 5;
+      float y3ValueSet = 6;
+    }
 
 }

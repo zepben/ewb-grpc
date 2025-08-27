@@ -32,31 +32,31 @@ message Equipment {
     /**
      * If true, the equipment is normally in service.
      */
-    bool normallyInService = 3;
+    bool normallyInService = 5;
 
     /**
      * The EquipmentContainer this equipment belongs to.
      */
-    repeated string equipmentContainerMRIDs = 4;
+    repeated string equipmentContainerMRIDs = 6;
 
     /**
      * All UsagePoint's for this equipment.
      */
-    repeated string usagePointMRIDs = 5;
+    repeated string usagePointMRIDs = 7;
 
     /**
      * All operational restrictions for this equipment.
      */
-    repeated string operationalRestrictionMRIDs = 6;
+    repeated string operationalRestrictionMRIDs = 8;
 
     /**
      * All current containers for this equipment.
      */
-    repeated string currentContainerMRIDs = 7;
+    repeated string currentContainerMRIDs = 9;
 
     /**
      * The date this equipment was commissioned into service.
      */
-    google.protobuf.Timestamp commissionedDate = 8;
+    google.protobuf.Timestamp commissionedDate = 10;
 
 }

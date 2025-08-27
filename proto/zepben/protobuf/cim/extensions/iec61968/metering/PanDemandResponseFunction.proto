@@ -13,6 +13,7 @@ package zepben.protobuf.cim.extensions.iec61968.metering;
 
 import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunction.proto";
 import "zepben/protobuf/cim/iec61968/metering/EndDeviceFunctionKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] PAN function that an end device supports, distinguished by 'kind'.
@@ -33,6 +34,9 @@ message PanDemandResponseFunction {
      * [ZBEX] Appliance being controlled.
      * Storing a 12 bit mask that represents a specific set of configuration for ControlledAppliance
      */
-    int32 appliance = 3;
+    oneof appliance {
+      google.protobuf.NullValue applianceNull = 3;
+      int32 applianceSet = 4;
+    }
 
 }

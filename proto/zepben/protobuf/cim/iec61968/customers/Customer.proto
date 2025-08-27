@@ -13,6 +13,7 @@ package zepben.protobuf.cim.iec61968.customers;
 
 import "zepben/protobuf/cim/iec61968/common/OrganisationRole.proto";
 import "zepben/protobuf/cim/iec61968/customers/CustomerKind.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Organisation receiving services from service supplier.
@@ -38,11 +39,17 @@ message Customer {
     /**
      * Count of the EndDevice's that are associated with this Customer
      */
-    int32 numEndDevices = 4;
+    oneof numEndDevices {
+      google.protobuf.NullValue numEndDevicesNull = 4;
+      int32 numEndDevicesSet = 5;
+    }
 
     /**
      * A special service need such as life support, hospitals, etc.
      */
-    string specialNeed = 5;
+    oneof specialNeed {
+      google.protobuf.NullValue specialNeedNull = 6;
+      string specialNeedSet = 7;
+    }
 
 }
