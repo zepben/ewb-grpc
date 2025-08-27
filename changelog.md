@@ -1,5 +1,21 @@
 # Zepben Protobuf and GRPC definitions
-## [1.0.0] - UNRELEASED
+## [1.1.0] - UNRELEASED
+### Breaking Changes
+* None.
+
+### New Features
+* None.
+
+### Enhancements
+* None.
+
+### Fixes
+* None.
+
+### Notes
+* None.
+
+## [1.0.0] - 2025-08-27
 ### Breaking Changes
 * Renamed the JVM package to:
   ```xml
