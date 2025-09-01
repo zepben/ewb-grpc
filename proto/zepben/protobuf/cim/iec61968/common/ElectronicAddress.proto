@@ -21,27 +21,27 @@ import "google/protobuf/struct.proto";
 message ElectronicAddress {
 
     /**
-      * Primary email address.
+     * Primary email address.
      */
     oneof email1 {
-      google.protobuf.NullValue email1Null = 1;
-      string email1Set = 2;
+        google.protobuf.NullValue email1Null = 1;
+        string email1Set = 2;
     }
 
     /**
      * [ZBEX] Whether this email is the primary email address of the contact.
      */
     oneof isPrimary {
-      google.protobuf.NullValue isPrimaryNull = 3;
-      bool isPrimarySet = 4;
+        google.protobuf.NullValue isPrimaryNull = 3;
+        bool isPrimarySet = 4;
     }
 
     /**
      * [ZBEX] A description for this email, e.g: work, personal.
      */
     oneof description {
-      google.protobuf.NullValue descriptionNull = 5;
-      string descriptionSet = 6;
+        google.protobuf.NullValue descriptionNull = 5;
+        string descriptionSet = 6;
     }
 
 }

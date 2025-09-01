@@ -31,8 +31,8 @@ message DirectionalCurrentRelay {
      * [ZBEX] The characteristic angle (in degrees) that defines the boundary between the operate and restrain regions of the directional element, relative to the polarizing quantity. Often referred to as Maximum Torque Angle (MTA) or Relay Characteristic Angle (RCA).
      */
     oneof directionalCharacteristicAngle {
-      google.protobuf.NullValue directionalCharacteristicAngleNull = 2;
-      double directionalCharacteristicAngleSet = 3;
+        google.protobuf.NullValue directionalCharacteristicAngleNull = 2;
+        double directionalCharacteristicAngleSet = 3;
     }
 
     /**
@@ -49,16 +49,16 @@ message DirectionalCurrentRelay {
      * [ZBEX] The minimum current magnitude required for the directional element to operate reliably and determine direction. This might be different from the main pickupCurrent for the overcurrent function.
      */
     oneof minimumPickupCurrent {
-      google.protobuf.NullValue minimumPickupCurrentNull = 6;
-      double minimumPickupCurrentSet = 7;
+        google.protobuf.NullValue minimumPickupCurrentNull = 6;
+        double minimumPickupCurrentSet = 7;
     }
 
     /**
      * [ZBEX] Current limit number 1 for inverse time pickup in amperes.
      */
     oneof currentLimit1 {
-      google.protobuf.NullValue currentLimit1Null = 8;
-      double currentLimit1Set = 9;
+        google.protobuf.NullValue currentLimit1Null = 8;
+        double currentLimit1Set = 9;
     }
 
     /**
@@ -73,8 +73,8 @@ message DirectionalCurrentRelay {
      * [ZBEX] Inverse time delay number 1 for current limit number 1 in seconds.
      */
     oneof timeDelay1 {
-      google.protobuf.NullValue timeDelay1Null = 12;
-      double timeDelay1Set = 13;
+        google.protobuf.NullValue timeDelay1Null = 12;
+        double timeDelay1Set = 13;
     }
 
 }
