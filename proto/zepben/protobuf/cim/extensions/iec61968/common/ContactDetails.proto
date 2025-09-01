@@ -16,6 +16,7 @@ import "zepben/protobuf/cim/extensions/iec61968/common/ContactMethodType.proto";
 import "zepben/protobuf/cim/iec61968/common/ElectronicAddress.proto";
 import "zepben/protobuf/cim/iec61968/common/StreetAddress.proto";
 import "zepben/protobuf/cim/iec61968/common/TelephoneNumber.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * [ZBEX] The details required to contact a person or company.
@@ -45,31 +46,47 @@ message ContactDetails {
     /**
      * [ZBEX] The type of contact, e.g Account Owner.
      */
-    string contactType = 5;
+    oneof contactType {
+      google.protobuf.NullValue contactTypeNull = 5;
+      string contactTypeSet = 6;
+    }
+
 
     /**
      * [ZBEX] First name of the contact.
      */
-    string firstName = 6;
+    oneof firstName {
+      google.protobuf.NullValue firstNameNull = 7;
+      string firstNameSet = 8;
+    }
 
     /**
      * [ZBEX] Last name of the contact.
      */
-    string lastName = 7;
+    oneof lastName {
+      google.protobuf.NullValue lastNameNull = 9;
+      string lastNameSet = 10;
+    }
 
     /**
      * [ZBEX] The preferred contact method for this contact.
      */
-    ContactMethodType preferredContactMethod = 8;
+    ContactMethodType preferredContactMethod = 11;
 
     /**
      * [ZBEX] Whether this contact is a primary contact.
      */
-    bool isPrimary = 9;
+    oneof isPrimary {
+      google.protobuf.NullValue isPrimaryNull = 12;
+      bool isPrimarySet = 13;
+    }
 
     /**
      * [ZBEX] The business name of this contact.
      */
-    string businessName = 10;
+    oneof businessName{
+      google.protobuf.NullValue businessNameNull = 14;
+      string businessNameSet = 15;
+    }
 
 }
