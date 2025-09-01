@@ -14,6 +14,7 @@ package zepben.protobuf.cim.iec61968.common;
 
 import "zepben/protobuf/cim/iec61968/common/Document.proto";
 import "zepben/protobuf/cim/iec61970/base/domain/DateTimeInterval.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Formal agreement between two parties defining the terms and conditions for a set of services. The specifics
@@ -29,6 +30,9 @@ message Agreement {
     /**
      * Date and time interval this agreement is valid (from going into effect to termination).
      */
-    cim.iec61970.base.domain.DateTimeInterval validityInterval = 2;
+    oneof validityInterval {
+      google.protobuf.NullValue validityIntervalNull = 3;
+      cim.iec61970.base.domain.DateTimeInterval validityIntervalSet = 4;
+    }
 
 }

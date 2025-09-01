@@ -13,6 +13,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.domain";
 package zepben.protobuf.cim.iec61970.base.domain;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * Interval between two date and time points, where the interval includes the start time but excludes end time.
@@ -22,11 +23,17 @@ message DateTimeInterval {
     /**
      * End date and time of this interval. The end date and time where the interval is defined up to, but excluded.
      */
-    google.protobuf.Timestamp end = 1;
+    oneof end {
+      google.protobuf.NullValue endNull = 1;
+      google.protobuf.Timestamp endSet = 2;
+    }
 
     /**
      * Start date and time of this interval. The start date and time is included in the defined interval.
      */
-    google.protobuf.Timestamp start = 2;
+    oneof start {
+      google.protobuf.NullValue startNull = 3;
+      google.protobuf.Timestamp startSet = 4;
+    }
 
 }

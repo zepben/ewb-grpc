@@ -13,24 +13,35 @@ option java_package = "com.zepben.protobuf.cim.iec61968.common";
 option csharp_namespace = "Zepben.Protobuf.CIM.IEC61968.Common";
 package zepben.protobuf.cim.iec61968.common;
 
+import "google/protobuf/struct.proto";
+
 /**
  * Electronic address information.
  */
 message ElectronicAddress {
 
     /**
-     * Primary email address.
+      * Primary email address.
      */
-    string email1 = 1;
+    oneof email1 {
+      google.protobuf.NullValue email1Null = 1;
+      string email1Set = 2;
+    }
 
     /**
      * [ZBEX] Whether this email is the primary email address of the contact.
      */
-    bool isPrimary = 2;
+    oneof isPrimary {
+      google.protobuf.NullValue isPrimaryNull = 3;
+      bool isPrimarySet = 4;
+    }
 
     /**
      * [ZBEX] A description for this email, e.g: work, personal.
      */
-    string description = 3;
+    oneof description {
+      google.protobuf.NullValue descriptionNull = 5;
+      string descriptionSet = 6;
+    }
 
 }

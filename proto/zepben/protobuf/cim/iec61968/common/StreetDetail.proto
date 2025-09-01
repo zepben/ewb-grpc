@@ -79,6 +79,9 @@ message StreetDetail {
     /**
      * [ZBEX] The number of the building.
      */
-    string buildingNumber = 8;
+    oneof buildingNumber {
+      google.protobuf.NullValue buildingNumberNull = 15;
+      string buildingNumberSet = 16;
+    }
 
 }

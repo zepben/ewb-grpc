@@ -37,6 +37,9 @@ message TownDetail {
     /**
      * Name of the country.
      */
-    string country = 3;
+    oneof country {
+      google.protobuf.NullValue countryNull = 5;
+      string countrySet = 6;
+    }
 
 }
