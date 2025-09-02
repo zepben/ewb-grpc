@@ -1,0 +1,46 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.common";
+package zepben.protobuf.cim.iec61968.common;
+
+import "google/protobuf/struct.proto";
+
+/**
+ * Electronic address information.
+ */
+message ElectronicAddress {
+
+    /**
+     * Primary email address.
+     */
+    oneof email1 {
+        google.protobuf.NullValue email1Null = 1;
+        string email1Set = 2;
+    }
+
+    /**
+     * [ZBEX] Whether this email is the primary email address of the contact.
+     */
+    oneof isPrimary {
+        google.protobuf.NullValue isPrimaryNull = 3;
+        bool isPrimarySet = 4;
+    }
+
+    /**
+     * [ZBEX] A description for this email, e.g: work, personal.
+     */
+    oneof description {
+        google.protobuf.NullValue descriptionNull = 5;
+        string descriptionSet = 6;
+    }
+
+}

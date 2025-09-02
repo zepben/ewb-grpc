@@ -1,10 +1,11 @@
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2025 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+
 
 syntax = "proto3";
 option java_multiple_files = true;
@@ -12,10 +13,12 @@ option java_package = "com.zepben.protobuf.cim.iec61968.common";
 package zepben.protobuf.cim.iec61968.common;
 
 import "zepben/protobuf/cim/iec61968/common/Document.proto";
+import "zepben/protobuf/cim/iec61970/base/domain/DateTimeInterval.proto";
+import "google/protobuf/struct.proto";
 
 /**
- * Parent class for different groupings of information collected and managed as a part of a business process.
- * It will frequently contain references to other objects, such as assets, people and power system resources.
+ * Formal agreement between two parties defining the terms and conditions for a set of services. The specifics
+ * of the services are, in turn, defined via one or more service agreements.
  */
 message Agreement {
 
@@ -23,5 +26,13 @@ message Agreement {
      * The Document fields for this Agreement
      */
     Document doc = 1;
+
+    /**
+     * Date and time interval this agreement is valid (from going into effect to termination).
+     */
+    oneof validityInterval {
+        google.protobuf.NullValue validityIntervalNull = 2;
+        cim.iec61970.base.domain.DateTimeInterval validityIntervalSet = 3;
+    }
 
 }
