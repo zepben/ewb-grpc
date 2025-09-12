@@ -11,6 +11,7 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 /**
@@ -24,6 +25,9 @@ import "google/protobuf/timestamp.proto";
      /**
       * The time when the value was last updated.
       */
-     google.protobuf.Timestamp timeStamp = 1;
+     oneof timeStamp {
+         google.protobuf.NullValue timeStampNull = 1;
+         google.protobuf.Timestamp timeStampSet = 2;
+     }
 
  }

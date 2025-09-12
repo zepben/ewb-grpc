@@ -37,14 +37,17 @@ message Document {
     /**
      * Timestamp of when this document was created.
      */
-    google.protobuf.Timestamp createdDateTime = 4;
+    oneof createdDateTime {
+        google.protobuf.NullValue createdDateTimeNull = 4;
+        google.protobuf.Timestamp createdDateTimeSet = 5;
+    }
 
     /**
      * Name of the author of this document.
      */
     oneof authorName {
-      google.protobuf.NullValue authorNameNull = 5;
-      string authorNameSet = 6;
+      google.protobuf.NullValue authorNameNull = 6;
+      string authorNameSet = 7;
     }
 
     /**
@@ -52,24 +55,24 @@ message Document {
      * and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
      */
     oneof type {
-      google.protobuf.NullValue typeNull = 7;
-      string typeSet = 8;
+      google.protobuf.NullValue typeNull = 8;
+      string typeSet = 9;
     }
 
     /**
      * Status of subject matter (e.g., Agreement, Work) this document represents.
      */
     oneof status {
-      google.protobuf.NullValue statusNull = 9;
-      string statusSet = 10;
+      google.protobuf.NullValue statusNull = 10;
+      string statusSet = 11;
     }
 
     /**
      * Free text comment
      */
     oneof comment {
-      google.protobuf.NullValue commentNull = 11;
-      string commentSet = 12;
+      google.protobuf.NullValue commentNull = 12;
+      string commentSet = 13;
     }
 
 }

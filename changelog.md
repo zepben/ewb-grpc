@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.1.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* `Document`, `Equipment`, `MeasurementValue` and `Reading` messages have breaking changes to fix nullability issues with timestamp fields. You will need to make sure your versions align to correctly use these classes, or any classes that derive
 
 ### New Features
 * None.
