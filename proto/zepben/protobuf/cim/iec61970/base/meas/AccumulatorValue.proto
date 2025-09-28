@@ -12,18 +12,17 @@ option java_package = "com.zepben.protobuf.cim.iec61970.base.meas";
 package zepben.protobuf.cim.iec61970.base.meas;
 
 import "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto";
-import "google/protobuf/struct.proto";
 
 /**
  * AccumulatorValue represents an accumulated (counted) MeasurementValue.
  */
- message AccumulatorValue {
+message AccumulatorValue {
 
     /**
      * MeasurementValue fields for this AccumulatorValue.
      */
     MeasurementValue mv = 1;
-    
+
     /**
      * An accumulator value object is part of an accumulator.
      */

@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.1.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* `Document`, `Equipment`, `MeasurementValue` and `Reading` messages have breaking changes to fix nullability issues with timestamp fields. You will need to make sure your versions align to correctly use these classes, or any classes that derive
 
 ### New Features
 * None.
@@ -89,9 +89,22 @@
 * The majority of number types, booleans and strings have been made oneof 'nullables'.
 
 ### New Features
-* None.
+* Added the following CIM classes:
+  * `ContactDetails`: [ZBEX] The details required to contact a person or company.
+  * `ContactMethodType`: [ZBEX] The method to use to make contact with a person or company.
+  * `DateTimeInterval`: Interval between two date and time points, where the interval includes the start time but excludes end time.
+  * `DirectionalCurrentRelay`: [ZBEX] A Directional Current Relay is a type of protective relay used in electrical power systems to detect the direction of current flow and operate only when the current exceeds a certain threshold in a specified direction.
+  * `ElectronicAddress`: Electronic address information.
+  * `PolarizingQuantityType`: [ZBEX] Defines the type of polarizing quantity used by the directional relay. This informs how the relay determines the reference voltage from the Voltage transformers associated with its parent ProtectionEquipment.
+  * `TelephoneNumber`: Telephone number.
 
 ### Enhancements
+* Added the following properties from the base CIM profile:
+  * `Agreement.validityInterval`.
+  * `TownDetail.country`.
+* Added the following extensions properties/associations:
+  * `StreetDetail.buildingNumber`.
+  * `UsagePoint.contacts`.
 * Updated profile manager processing to:
   * Handle lists of types in specs.
   * Split class descriptions with `<br/>`.

@@ -47,3 +47,13 @@ associations:
   targetCardinality: 0..1
   targetName: UsagePointLocation
   targetDescription: Location of this usage point.
+- source: UsagePoint
+  target: CustomerAgreement
+  targetCardinality: 0..1
+  targetName: CustomerAgreement
+  targetDescription: Customer agreement regulating this service delivery point.
+- source: UsagePoint
+  target: ContactDetails
+  targetCardinality: 0..1
+  targetName: Contacts
+  targetDescription: \[ZBEX\] All contact details for this UsagePoint.

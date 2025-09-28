@@ -11,8 +11,9 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
 package zepben.protobuf.cim.iec61970.base.core;
 
-import "google/protobuf/timestamp.proto";
 import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
 
 /**
  * Any part of a power system that is a physical device, electronic or mechanical.
@@ -57,6 +58,9 @@ message Equipment {
     /**
      * The date this equipment was commissioned into service.
      */
-    google.protobuf.Timestamp commissionedDate = 10;
+    oneof commissionedDate {
+        google.protobuf.NullValue commissionedDateNull = 10;
+        google.protobuf.Timestamp commissionedDateSet = 11;
+    }
 
 }

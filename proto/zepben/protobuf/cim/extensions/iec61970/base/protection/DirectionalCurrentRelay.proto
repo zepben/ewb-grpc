@@ -1,0 +1,80 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.base.protection";
+package zepben.protobuf.cim.extensions.iec61970.base.protection;
+
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/PolarizingQuantityType.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayFunction.proto";
+import "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto";
+import "google/protobuf/struct.proto";
+
+/**
+ * [ZBEX] A Directional Current Relay is a type of protective relay used in electrical power systems to detect the direction of current flow and operate only when the current exceeds a certain threshold in a specified direction.
+ */
+message DirectionalCurrentRelay {
+
+    /**
+     * The ProtectionRelayFunction fields for this DirectionalCurrentRelay.
+     */
+    ProtectionRelayFunction prf = 1;
+
+    /**
+     * [ZBEX] The characteristic angle (in degrees) that defines the boundary between the operate and restrain regions of the directional element, relative to the polarizing quantity. Often referred to as Maximum Torque Angle (MTA) or Relay Characteristic Angle (RCA).
+     */
+    oneof directionalCharacteristicAngle {
+        google.protobuf.NullValue directionalCharacteristicAngleNull = 2;
+        double directionalCharacteristicAngleSet = 3;
+    }
+
+    /**
+     * [ZBEX] Specifies the type of voltage to be used for polarization. This guides the selection/derivation of voltage from the VTs.
+     */
+    PolarizingQuantityType polarizingQuantityType = 4;
+
+    /**
+     * [ZBEX] The phase associated with this directional relay element. This helps in selecting the correct 'self-phase' or other phase-derived.
+     */
+    cim.iec61970.base.core.PhaseCode relayElementPhase = 5;
+
+    /**
+     * [ZBEX] The minimum current magnitude required for the directional element to operate reliably and determine direction. This might be different from the main pickupCurrent for the overcurrent function.
+     */
+    oneof minimumPickupCurrent {
+        google.protobuf.NullValue minimumPickupCurrentNull = 6;
+        double minimumPickupCurrentSet = 7;
+    }
+
+    /**
+     * [ZBEX] Current limit number 1 for inverse time pickup in amperes.
+     */
+    oneof currentLimit1 {
+        google.protobuf.NullValue currentLimit1Null = 8;
+        double currentLimit1Set = 9;
+    }
+
+    /**
+     * [ZBEX] Set true if the current relay has inverse time characteristic.
+     */
+    oneof inverseTimeFlag {
+        google.protobuf.NullValue inverseTimeFlagNull = 10;
+        bool inverseTimeFlagSet = 11;
+    }
+
+    /**
+     * [ZBEX] Inverse time delay number 1 for current limit number 1 in seconds.
+     */
+    oneof timeDelay1 {
+        google.protobuf.NullValue timeDelay1Null = 12;
+        double timeDelay1Set = 13;
+    }
+
+}

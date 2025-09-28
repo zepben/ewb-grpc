@@ -25,14 +25,17 @@ message Reading {
     /**
      * Timestamp of when this reading occurred.
      */
-    google.protobuf.Timestamp timestamp = 1;
+    oneof timestamp {
+        google.protobuf.NullValue timestampNull = 1;
+        google.protobuf.Timestamp timestampSet = 2;
+    }
 
     /**
      * Value of this Reading
      */
     oneof value {
-      google.protobuf.NullValue valueNull = 2;
-      double valueSet = 3;
+      google.protobuf.NullValue valueNull = 3;
+      double valueSet = 4;
     }
 
 }

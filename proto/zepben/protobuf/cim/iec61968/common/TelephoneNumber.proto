@@ -1,0 +1,94 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61968.common";
+package zepben.protobuf.cim.iec61968.common;
+
+import "google/protobuf/struct.proto";
+
+/**
+ * Telephone number.
+ */
+message TelephoneNumber {
+
+    /**
+     * (if applicable) Area or region code.
+     */
+    oneof areaCode {
+        google.protobuf.NullValue areaCodeNull = 1;
+        string areaCodeSet = 2;
+    }
+
+    /**
+     * (if applicable) City code.
+     */
+    oneof cityCode {
+        google.protobuf.NullValue cityCodeNull = 3;
+        string cityCodeSet = 4;
+    }
+
+    /**
+     * Country code.
+     */
+    oneof countryCode {
+        google.protobuf.NullValue countryCodeNull = 5;
+        string countryCodeSet = 6;
+    }
+
+    /**
+     * (if applicable) Dial out code, for instance to call outside an enterprise.
+     */
+    oneof dialOut {
+        google.protobuf.NullValue dialOutNull = 7;
+        string dialOutSet = 8;
+    }
+
+    /**
+     * (if applicable) Extension for this telephone number.
+     */
+    oneof extension {
+        google.protobuf.NullValue extensionNull = 9;
+        string extensionSet = 10;
+    }
+
+    /**
+     * (if applicable) Prefix used when calling an international number.
+     */
+    oneof internationalPrefix {
+        google.protobuf.NullValue internationalPrefixNull = 11;
+        string internationalPrefixSet = 12;
+    }
+
+    /**
+     * Main (local) part of this telephone number.
+     */
+    oneof localNumber {
+        google.protobuf.NullValue localNumberNull = 13;
+        string localNumberSet = 14;
+    }
+
+    /**
+     * [ZBEX] Is this phone number the primary number?
+     */
+    oneof isPrimary {
+        google.protobuf.NullValue isPrimaryNull = 15;
+        bool isPrimarySet = 16;
+    }
+
+    /**
+     * [ZBEX] Description for phone number, e.g: home, work, mobile.
+     */
+    oneof description {
+        google.protobuf.NullValue descriptionNull = 17;
+        string descriptionSet = 18;
+    }
+
+}

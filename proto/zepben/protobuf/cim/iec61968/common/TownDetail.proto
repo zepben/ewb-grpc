@@ -34,4 +34,12 @@ message TownDetail {
       string stateOrProvinceSet = 4;
     }
 
+    /**
+     * Name of the country.
+     */
+    oneof country {
+        google.protobuf.NullValue countryNull = 5;
+        string countrySet = 6;
+    }
+
 }
