@@ -328,6 +328,175 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61968:/:common:/:ContactDetails.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ContactDetails",
+            "fields": [
+              {
+                "id": 1,
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "phoneNumbers",
+                "type": "cim.iec61968.common.TelephoneNumber",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "contactAddress",
+                "type": "cim.iec61968.common.StreetAddress"
+              },
+              {
+                "id": 4,
+                "name": "electronicAddresses",
+                "type": "cim.iec61968.common.ElectronicAddress",
+                "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "contactTypeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "contactType"
+              },
+              {
+                "id": 6,
+                "name": "contactTypeSet",
+                "type": "string",
+                "oneof_parent": "contactType"
+              },
+              {
+                "id": 7,
+                "name": "firstNameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "firstName"
+              },
+              {
+                "id": 8,
+                "name": "firstNameSet",
+                "type": "string",
+                "oneof_parent": "firstName"
+              },
+              {
+                "id": 9,
+                "name": "lastNameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lastName"
+              },
+              {
+                "id": 10,
+                "name": "lastNameSet",
+                "type": "string",
+                "oneof_parent": "lastName"
+              },
+              {
+                "id": 11,
+                "name": "preferredContactMethod",
+                "type": "ContactMethodType"
+              },
+              {
+                "id": 12,
+                "name": "isPrimaryNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "isPrimary"
+              },
+              {
+                "id": 13,
+                "name": "isPrimarySet",
+                "type": "bool",
+                "oneof_parent": "isPrimary"
+              },
+              {
+                "id": 14,
+                "name": "businessNameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "businessName"
+              },
+              {
+                "id": 15,
+                "name": "businessNameSet",
+                "type": "string",
+                "oneof_parent": "businessName"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61968/common/ContactMethodType.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/common/ElectronicAddress.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/common/StreetAddress.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61968/common/TelephoneNumber.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61968.common"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61968.common"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61968:/:common:/:ContactMethodType.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "ContactMethodType",
+            "enum_fields": [
+              {
+                "name": "CONTACT_METHOD_TYPE_UNKNOWN"
+              },
+              {
+                "name": "CONTACT_METHOD_TYPE_EMAIL",
+                "integer": 1
+              },
+              {
+                "name": "CONTACT_METHOD_TYPE_CALL",
+                "integer": 2
+              },
+              {
+                "name": "CONTACT_METHOD_TYPE_LETTER",
+                "integer": 3
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61968.common"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61968.common"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:extensions:/:iec61968:/:metering:/:PanDemandResponseFunction.proto",
       "def": {
         "messages": [
@@ -561,6 +730,120 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:base:/:protection:/:DirectionalCurrentRelay.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "DirectionalCurrentRelay",
+            "fields": [
+              {
+                "id": 1,
+                "name": "prf",
+                "type": "ProtectionRelayFunction"
+              },
+              {
+                "id": 2,
+                "name": "directionalCharacteristicAngleNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "directionalCharacteristicAngle"
+              },
+              {
+                "id": 3,
+                "name": "directionalCharacteristicAngleSet",
+                "type": "double",
+                "oneof_parent": "directionalCharacteristicAngle"
+              },
+              {
+                "id": 4,
+                "name": "polarizingQuantityType",
+                "type": "PolarizingQuantityType"
+              },
+              {
+                "id": 5,
+                "name": "relayElementPhase",
+                "type": "cim.iec61970.base.core.PhaseCode"
+              },
+              {
+                "id": 6,
+                "name": "minimumPickupCurrentNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "minimumPickupCurrent"
+              },
+              {
+                "id": 7,
+                "name": "minimumPickupCurrentSet",
+                "type": "double",
+                "oneof_parent": "minimumPickupCurrent"
+              },
+              {
+                "id": 8,
+                "name": "currentLimit1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "currentLimit1"
+              },
+              {
+                "id": 9,
+                "name": "currentLimit1Set",
+                "type": "double",
+                "oneof_parent": "currentLimit1"
+              },
+              {
+                "id": 10,
+                "name": "inverseTimeFlagNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "inverseTimeFlag"
+              },
+              {
+                "id": 11,
+                "name": "inverseTimeFlagSet",
+                "type": "bool",
+                "oneof_parent": "inverseTimeFlag"
+              },
+              {
+                "id": 12,
+                "name": "timeDelay1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "timeDelay1"
+              },
+              {
+                "id": 13,
+                "name": "timeDelay1Set",
+                "type": "double",
+                "oneof_parent": "timeDelay1"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/protection/PolarizingQuantityType.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayFunction.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PhaseCode.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61970.base.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61970.base.protection"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:base:/:protection:/:DistanceRelay.proto",
       "def": {
         "messages": [
@@ -689,6 +972,54 @@
           },
           {
             "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61970.base.protection"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61970.base.protection"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:base:/:protection:/:PolarizingQuantityType.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "PolarizingQuantityType",
+            "enum_fields": [
+              {
+                "name": "POLARIZING_QUANTITY_TYPE_UNKNOWN"
+              },
+              {
+                "name": "POLARIZING_QUANTITY_TYPE_SELF_PHASE_VOLTAGE",
+                "integer": 1
+              },
+              {
+                "name": "POLARIZING_QUANTITY_TYPE_QUADRATURE_VOLTAGE",
+                "integer": 2
+              },
+              {
+                "name": "POLARIZING_QUANTITY_TYPE_ZERO_SEQUENCE_VOLTAGE",
+                "integer": 3
+              },
+              {
+                "name": "POLARIZING_QUANTITY_TYPE_NEGATIVE_SEQUENCE_VOLTAGE",
+                "integer": 4
+              },
+              {
+                "name": "POLARIZING_QUANTITY_TYPE_POSITIVE_SEQUENCE_VOLTAGE",
+                "integer": 5
+              }
+            ]
           }
         ],
         "package": {
@@ -3165,6 +3496,18 @@
                 "id": 1,
                 "name": "doc",
                 "type": "Document"
+              },
+              {
+                "id": 2,
+                "name": "validityIntervalNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "validityInterval"
+              },
+              {
+                "id": 3,
+                "name": "validityIntervalSet",
+                "type": "cim.iec61970.base.domain.DateTimeInterval",
+                "oneof_parent": "validityInterval"
               }
             ]
           }
@@ -3172,6 +3515,12 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61968/common/Document.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/domain/DateTimeInterval.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -3283,6 +3632,72 @@
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
           },
+          {
+            "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.common"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.common"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:common:/:ElectronicAddress.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ElectronicAddress",
+            "fields": [
+              {
+                "id": 1,
+                "name": "email1Null",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "email1"
+              },
+              {
+                "id": 2,
+                "name": "email1Set",
+                "type": "string",
+                "oneof_parent": "email1"
+              },
+              {
+                "id": 3,
+                "name": "isPrimaryNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "isPrimary"
+              },
+              {
+                "id": 4,
+                "name": "isPrimarySet",
+                "type": "bool",
+                "oneof_parent": "isPrimary"
+              },
+              {
+                "id": 5,
+                "name": "descriptionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "description"
+              },
+              {
+                "id": 6,
+                "name": "descriptionSet",
+                "type": "string",
+                "oneof_parent": "description"
+              }
+            ]
+          }
+        ],
+        "imports": [
           {
             "path": "google/protobuf/struct.proto"
           }
@@ -3624,6 +4039,156 @@
                 "name": "displayAddressSet",
                 "type": "string",
                 "oneof_parent": "displayAddress"
+              },
+              {
+                "id": 15,
+                "name": "buildingNumberNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "buildingNumber"
+              },
+              {
+                "id": 16,
+                "name": "buildingNumberSet",
+                "type": "string",
+                "oneof_parent": "buildingNumber"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.common"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.common"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:common:/:TelephoneNumber.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "TelephoneNumber",
+            "fields": [
+              {
+                "id": 1,
+                "name": "areaCodeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "areaCode"
+              },
+              {
+                "id": 2,
+                "name": "areaCodeSet",
+                "type": "string",
+                "oneof_parent": "areaCode"
+              },
+              {
+                "id": 3,
+                "name": "cityCodeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "cityCode"
+              },
+              {
+                "id": 4,
+                "name": "cityCodeSet",
+                "type": "string",
+                "oneof_parent": "cityCode"
+              },
+              {
+                "id": 5,
+                "name": "countryCodeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "countryCode"
+              },
+              {
+                "id": 6,
+                "name": "countryCodeSet",
+                "type": "string",
+                "oneof_parent": "countryCode"
+              },
+              {
+                "id": 7,
+                "name": "dialOutNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "dialOut"
+              },
+              {
+                "id": 8,
+                "name": "dialOutSet",
+                "type": "string",
+                "oneof_parent": "dialOut"
+              },
+              {
+                "id": 9,
+                "name": "extensionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "extension"
+              },
+              {
+                "id": 10,
+                "name": "extensionSet",
+                "type": "string",
+                "oneof_parent": "extension"
+              },
+              {
+                "id": 11,
+                "name": "internationalPrefixNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "internationalPrefix"
+              },
+              {
+                "id": 12,
+                "name": "internationalPrefixSet",
+                "type": "string",
+                "oneof_parent": "internationalPrefix"
+              },
+              {
+                "id": 13,
+                "name": "localNumberNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "localNumber"
+              },
+              {
+                "id": 14,
+                "name": "localNumberSet",
+                "type": "string",
+                "oneof_parent": "localNumber"
+              },
+              {
+                "id": 15,
+                "name": "isPrimaryNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "isPrimary"
+              },
+              {
+                "id": 16,
+                "name": "isPrimarySet",
+                "type": "bool",
+                "oneof_parent": "isPrimary"
+              },
+              {
+                "id": 17,
+                "name": "descriptionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "description"
+              },
+              {
+                "id": 18,
+                "name": "descriptionSet",
+                "type": "string",
+                "oneof_parent": "description"
               }
             ]
           }
@@ -3678,6 +4243,18 @@
                 "name": "stateOrProvinceSet",
                 "type": "string",
                 "oneof_parent": "stateOrProvince"
+              },
+              {
+                "id": 5,
+                "name": "countryNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "country"
+              },
+              {
+                "id": 6,
+                "name": "countrySet",
+                "type": "string",
+                "oneof_parent": "country"
               }
             ]
           }
@@ -4943,11 +5520,20 @@
                 "id": 13,
                 "name": "phaseCode",
                 "type": "iec61970.base.core.PhaseCode"
+              },
+              {
+                "id": 14,
+                "name": "contacts",
+                "type": "extensions.iec61968.common.ContactDetails",
+                "is_repeated": true
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61968/common/ContactDetails.proto"
+          },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
           },
@@ -5630,10 +6216,13 @@
         ],
         "imports": [
           {
-            "path": "google/protobuf/timestamp.proto"
+            "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
           },
           {
-            "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "google/protobuf/timestamp.proto"
           }
         ],
         "package": {
@@ -6317,9 +6906,6 @@
           },
           {
             "path": "zepben/protobuf/network/model/FeederDirection.proto"
-          },
-          {
-            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -6563,6 +7149,63 @@
           {
             "name": "java_package",
             "value": "com.zepben.protobuf.cim.iec61970.base.diagramlayout"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:domain:/:DateTimeInterval.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "DateTimeInterval",
+            "fields": [
+              {
+                "id": 1,
+                "name": "endNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "end"
+              },
+              {
+                "id": 2,
+                "name": "endSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "end"
+              },
+              {
+                "id": 3,
+                "name": "startNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "start"
+              },
+              {
+                "id": 4,
+                "name": "startSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "start"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.domain"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.domain"
           }
         ]
       }
@@ -7744,9 +8387,6 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto"
-          },
-          {
-            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7842,9 +8482,6 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto"
-          },
-          {
-            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -7970,9 +8607,6 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/meas/MeasurementValue.proto"
-          },
-          {
-            "path": "google/protobuf/struct.proto"
           }
         ],
         "package": {
@@ -8114,6 +8748,9 @@
           }
         ],
         "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
           {
             "path": "google/protobuf/timestamp.proto"
           }
@@ -16116,6 +16753,12 @@
                 "oneof_parent": "identifiedObject"
               },
               {
+                "id": 88,
+                "name": "directionalCurrentRelay",
+                "type": "zepben.protobuf.cim.extensions.iec61970.base.protection.DirectionalCurrentRelay",
+                "oneof_parent": "identifiedObject"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any",
@@ -16145,6 +16788,9 @@
           },
           {
             "path": "zepben/protobuf/cim/extensions/iec61970/base/generation/production/EvChargingUnit.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/protection/DirectionalCurrentRelay.proto"
           },
           {
             "path": "zepben/protobuf/cim/extensions/iec61970/base/protection/DistanceRelay.proto"
