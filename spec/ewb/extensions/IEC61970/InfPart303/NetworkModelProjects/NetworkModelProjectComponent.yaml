@@ -1,0 +1,26 @@
+name: NetworkModelProjectComponent
+description: \[ZBEX\] Abstract class for both a network model project and network model change.
+attributes:
+  - name: created
+    type: DateTime
+    description: When the component was created.
+  - name: updated
+    type: DateTime
+    description: When the component was last updated.
+  - name: closed
+    type: DateTime
+    description: When the component was closed.
+ancestors:
+- IdentifiedObject
+descendants:
+- NetworkModelProject
+- NetworkModelProjectStage
+associations:
+- source: NetworkModelProjectComponent
+  target: NetworkModelProject
+  sourceCardinality: 0..*
+  sourceName: children
+  sourceDescription: Projects that are included in this parent project.
+  targetCardinality: "1"
+  targetName: parent
+  targetDescription: The parent project of this project.
