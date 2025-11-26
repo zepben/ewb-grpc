@@ -93,17 +93,17 @@ message NetworkModelProjectStage {
     /**
      * The stages that depend on this stage.
      */
-    oneof dependencyDependentOnStage {
-      google.protobuf.NullValue dependencyDependentOnStageNull = 17;
-      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependencyDependentOnStageSet = 18;
+    oneof dependentOnStage {
+      google.protobuf.NullValue dependentOnStageNull = 17;
+      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependentOnStageSet = 18;
     }
 
     /**
      * The stages that this stage depends on.
      */
-    oneof dependencyDependingStage {
-      google.protobuf.NullValue dependencyDependingStageNull = 19;
-      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependencyDependingStageSet = 20;
+    oneof dependingStage {
+      google.protobuf.NullValue dependingStageNull = 19;
+      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependingStageSet = 20;
     }
 
     /**
