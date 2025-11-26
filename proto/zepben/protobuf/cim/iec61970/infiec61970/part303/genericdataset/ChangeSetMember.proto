@@ -1,0 +1,38 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset";
+package zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset;
+
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+
+/**
+ * A CRUD-style data object.
+ */
+message ChangeSetMember {
+
+    /**
+     * Dataset containing the data objects.
+     */
+    cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 1;
+
+    /**
+     * The cim object holding the properties of this dataset context. Sometimes properties are not
+     * required and only the reference to the registered object is required.
+     */
+    base.core.IdentifiedObject propertiesObject = 2;
+
+    /**
+     * The registered CIM object.
+     */
+    base.core.IdentifiedObject targetObject = 3;
+
+}

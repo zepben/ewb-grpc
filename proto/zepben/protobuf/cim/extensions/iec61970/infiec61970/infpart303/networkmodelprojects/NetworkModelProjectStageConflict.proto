@@ -1,0 +1,41 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects";
+package zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+
+/**
+ * [ZBEX] A conflict between the network model project state and the base network.
+ */
+message NetworkModelProjectStageConflict {
+
+    /**
+     * IdentifiedObject fields for this NetworkModelProjectStageConflict.
+     */
+    cim.iec61970.base.core.IdentifiedObject io = 1;
+
+    /**
+     * [ZBEX] The date expected for this stage to be commissioned.
+     */
+    oneof plannedCommissionedDate {
+      google.protobuf.NullValue plannedCommissionedDateNull = 2;
+      google.protobuf.Timestamp plannedCommissionedDateSet = 3;
+    }
+
+    /**
+     * [ZBEX] The stage the conflicts belong too.
+     */
+    string stageMRIDs = 4;
+
+}

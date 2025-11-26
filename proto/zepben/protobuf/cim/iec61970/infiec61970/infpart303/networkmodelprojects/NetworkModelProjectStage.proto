@@ -1,0 +1,119 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects";
+package zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStageConflict.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/DependencyKind.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
+import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+
+/**
+ * A specific phase in a network model project.
+ */
+message NetworkModelProjectStage {
+
+    /**
+     * NetworkModelProjectComponent fields for this NetworkModelProjectStage.
+     */
+    cim.extensions.iec61970.infiec61970.infpart303.netwokmodelprojects.NetworkModelProjectComponent nmpc = 1;
+
+    /**
+     * The date expected for this stage to be comissioned.
+     */
+    oneof plannedCommissionedDate {
+      google.protobuf.NullValue plannedCommissionedDateNull = 2;
+      google.protobuf.Timestamp plannedCommissionedDateSet = 3;
+    }
+
+    /**
+     * The date this stage was comissioned.
+     */
+    oneof commissionedDate {
+      google.protobuf.NullValue commissionedDateNull = 4;
+      google.protobuf.Timestamp commissionedDateSet = 5;
+    }
+
+    /**
+     * [ZBEX] The percentage confidence that this project will be committed to.
+     */
+    oneof confidenceLevel {
+      google.protobuf.NullValue confidenceLevelNull = 6;
+      uint32 confidenceLevelSet = 7;
+    }
+
+    /**
+     * [ZBEX] The version of the base model this stage was imported against.
+     */
+    oneof baseModelVersion {
+      google.protobuf.NullValue baseModelVersionNull = 8;
+      string baseModelVersionSet = 9;
+    }
+
+    /**
+     * [ZBEX] A score of the conflict-ness of this stage against the base model
+     */
+    oneof conflictScore {
+      google.protobuf.NullValue conflictScoreNull = 10;
+      uint32 conflictScoreSet = 11;
+    }
+
+    /**
+     * [ZBEX] The time the last conflict check occured.
+     */
+    oneof lastConflictCheckedAt {
+      google.protobuf.NullValue lastConflictCheckedAtNull = 12;
+      google.protobuf.Timestamp lastConflictCheckedAtSet = 13;
+    }
+
+    /**
+     * [ZBEX] User comments.
+     */
+    oneof userComments {
+      google.protobuf.NullValue userCommentsNull = 14;
+      string userCommentsSet = 15;
+    }
+
+    /**
+     * [ZBEX] The set of changes that this stage of the project will do
+     */
+    cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 16;
+
+    /**
+     * The stages that depend on this stage.
+     */
+    oneof dependencyDependentOnStage {
+      google.protobuf.NullValue dependencyDependentOnStageNull = 17;
+      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependencyDependentOnStageSet = 18;
+    }
+
+    /**
+     * The stages that this stage depends on.
+     */
+    oneof dependencyDependingStage {
+      google.protobuf.NullValue dependencyDependingStageNull = 19;
+      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependencyDependingStageSet = 20;
+    }
+
+    /**
+     * [ZBEX] The conflicts of this stage against the base model.
+     */
+    repeated cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStageConflict conflicts = 21;
+
+    /**
+     * [ZBEX] The equipment containers this stage is related to.
+     */
+    repeated cim.iec61970.base.core.EquipmentContainer equipmentContainers = 22;
+
+}
