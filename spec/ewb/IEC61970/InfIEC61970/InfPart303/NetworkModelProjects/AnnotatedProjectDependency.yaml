@@ -1,0 +1,25 @@
+name: AnnotatedProjectDependency
+description: Represents the relationship between two network model project stages.
+attributes:
+- name: dependencyType
+  type: DependencyKind
+  description: Describes the dependency relationship between the two classes.
+ancestors:
+- IdentifiedObject
+associations:
+- source: AnnotatedProjectDependency
+  target: NetworkModelProjectStage
+  sourceCardinality: 0..*
+  sourceName: DependencyDependentOnStage
+  sourceDescription: NetworkModelProjectStages required by this stage.
+  targetCardinality: "1"
+  targetName: DependentOnStage
+  targetDescription: The stages that depend on this stage.
+- source: AnnotatedProjectDependency
+  target: NetworkModelProjectStage
+  sourceCardinality: 0..*
+  sourceName: DenpendecyDependingStage
+  sourceDescription: NetworkModelProjectStages that cannot be applied aslongside this stage.
+  targetCardinality: "1"
+  targetName: DependingStage
+  targetDescription: The stages that this stages depends on.

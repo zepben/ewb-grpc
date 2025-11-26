@@ -1,0 +1,69 @@
+name: NetworkModelProjectStage
+description: A specific phase in a network model project.
+attributes:
+- name: plannedCommissionedDate
+  type: DateTime
+  description: The date expected for this stage to be comissioned.
+- name: commissionedDate
+  type: DateTime
+  description: The date this stage was comissioned.
+- name: confidenceLevel
+  type: Integer
+  description: \[ZBEX\] The percentage confidence that this project will be committed to.
+- name: baseModelVersion
+  type: String
+  description: \[ZBEX\] The version of the base model this stage was imported against.
+- name: conflictScore
+  type: Integer
+  description: \[ZBEX\] A score of the conflict-ness of this stage against the base model.
+- name: lastConflictCheckedAt
+  type: DateTime
+  description: \[ZBEX\] The time the last conflict check occured.
+- name: userComments
+  type: String
+  description: \[ZBEX\] User comments
+ancestors:
+- NetworkModelProjectComponent
+associations:
+- source: NetworkModelProjectStage
+  target: ChangeSet
+  sourceCardinality: "1"
+  sourceName: networkModelProjectStage
+  sourceDescription: \[ZBEX\] The set of changes that this stage of the project will do.
+  targetCardinality: "1"
+  targetName: ChangeSet
+  targetDescription: \[ZBEX\] NetworkModelProjectStage this ChangeSet belongs too.
+
+- source: NetworkModelProjectStage
+  target: AnnotatedProjectDependency
+  sourceCardinality: "1"
+  sourceName: DependentOnStage
+  sourceDescription: The stages that depend on this stage.
+  targetCardinality: 0..*
+  targetName: DependencyDependentOnStage
+  targetDescription: NetworkModelProjectStages required by this stage.
+
+- source: NetworkModelProjectStage
+  target: AnnotatedProjectDependency
+  sourceCardinality: "1"
+  sourceName: DependingStage
+  sourceDescription: The stages that this stages depends on.
+  targetCardinality: 0..*
+  targetName: DependecyDependingStage
+  targetDescription: NetworkModelProjectStages that cannot be applied aslongside this stage.
+
+- source: NetworkModelProjectStage
+  target: NetworkModelProjectStageConflict
+  sourceCardinality: 0..1
+  sourceName: conflicts
+  sourceDescription: \[ZBEX\] The conflicts of this stage against the base model.
+  targetCardinality: "1"
+  targetName: stage
+  targetDescription: \[ZBEX\] The stage the conflicts belong too.
+
+- source: NetworkModelProjectStage
+  target: EquipmentContainer
+  sourceCardinality: 1..*
+  sourceName: equipmentContainers
+  sourceDescription: \[ZBEX\] The equipment containers this stage is related to.
+  # TODO: Is this right for a 1 way relationship?
