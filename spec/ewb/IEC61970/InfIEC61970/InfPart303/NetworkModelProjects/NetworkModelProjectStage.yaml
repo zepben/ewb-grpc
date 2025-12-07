@@ -13,9 +13,6 @@ attributes:
 - name: baseModelVersion
   type: String
   description: \[ZBEX\] The version of the base model this stage was imported against.
-- name: conflictScore
-  type: Integer
-  description: \[ZBEX\] A score of the conflict-ness of this stage against the base model.
 - name: lastConflictCheckedAt
   type: DateTime
   description: \[ZBEX\] The time the last conflict check occured.
@@ -28,10 +25,10 @@ associations:
 - source: NetworkModelProjectStage
   target: ChangeSet
   sourceCardinality: "1"
-  sourceName: networkModelProjectStage
+  sourceName: changeSet
   sourceDescription: \[ZBEX\] The set of changes that this stage of the project will do.
   targetCardinality: "1"
-  targetName: ChangeSet
+  targetName: networkModelProjectStage
   targetDescription: \[ZBEX\] NetworkModelProjectStage this ChangeSet belongs too.
 
 - source: NetworkModelProjectStage

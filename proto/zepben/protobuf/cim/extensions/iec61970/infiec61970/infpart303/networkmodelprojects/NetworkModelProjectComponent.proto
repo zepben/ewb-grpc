@@ -28,30 +28,27 @@ message NetworkModelProjectComponent {
     /**
      * [ZBEX] When the component was created
      */
-    oneof created {
-      google.protobuf.NullValue createdNull = 2;
-      google.protobuf.Timestamp createdSet = 3;
-    }
+    google.protobuf.Timestamp created = 2;
 
     /**
      * [ZBEX] When the component was last updated
      */
     oneof updated {
-      google.protobuf.NullValue updatedNull = 4;
-      google.protobuf.Timestamp updatedSet = 5;
+      google.protobuf.NullValue updatedNull = 3;
+      google.protobuf.Timestamp updatedSet = 4;
     }
     /**
      * [ZBEX] When the component was deleted
      */
 
     oneof closed {
-      google.protobuf.NullValue closedNull = 6;
-      google.protobuf.Timestamp closedSet = 7;
+      google.protobuf.NullValue closedNull = 5;
+      google.protobuf.Timestamp closedSet = 6;
     }
 
     /**
      * [ZBEX] The contained Network Model Project Component (Restricted to just NetworkModelProject)
      */
-     string parentMRIDs = 9;
+     string parentMRID = 7;
 
 }
