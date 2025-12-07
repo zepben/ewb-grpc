@@ -15,7 +15,7 @@ import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto";
 import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStageConflict.proto";
-import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/DependencyKind.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/AnnotatedProjectDependency.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
 import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
 
@@ -30,7 +30,7 @@ message NetworkModelProjectStage {
     cim.extensions.iec61970.infiec61970.infpart303.netwokmodelprojects.NetworkModelProjectComponent nmpc = 1;
 
     /**
-     * The date expected for this stage to be comissioned.
+     * The date expected for this stage to be commissioned.
      */
     oneof plannedCommissionedDate {
       google.protobuf.NullValue plannedCommissionedDateNull = 2;
@@ -38,7 +38,7 @@ message NetworkModelProjectStage {
     }
 
     /**
-     * The date this stage was comissioned.
+     * The date this stage was commissioned.
      */
     oneof commissionedDate {
       google.protobuf.NullValue commissionedDateNull = 4;
@@ -62,58 +62,51 @@ message NetworkModelProjectStage {
     }
 
     /**
-     * [ZBEX] A score of the conflict-ness of this stage against the base model
-     */
-    oneof conflictScore {
-      google.protobuf.NullValue conflictScoreNull = 10;
-      uint32 conflictScoreSet = 11;
-    }
-
-    /**
      * [ZBEX] The time the last conflict check occured.
      */
     oneof lastConflictCheckedAt {
-      google.protobuf.NullValue lastConflictCheckedAtNull = 12;
-      google.protobuf.Timestamp lastConflictCheckedAtSet = 13;
+      google.protobuf.NullValue lastConflictCheckedAtNull = 10;
+      google.protobuf.Timestamp lastConflictCheckedAtSet = 11;
     }
 
     /**
      * [ZBEX] User comments.
      */
     oneof userComments {
-      google.protobuf.NullValue userCommentsNull = 14;
-      string userCommentsSet = 15;
+      google.protobuf.NullValue userCommentsNull = 12;
+      string userCommentsSet = 13;
     }
 
     /**
      * [ZBEX] The set of changes that this stage of the project will do
      */
-    cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 16;
+    cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 14;
 
     /**
      * The stages that depend on this stage.
+     * TODO: yaml and clickup spec: list, and type change
      */
-    oneof dependentOnStage {
-      google.protobuf.NullValue dependentOnStageNull = 17;
-      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependentOnStageSet = 18;
-    }
+    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependentOnStage = 15;
 
     /**
      * The stages that this stage depends on.
+     * TODO: yaml and clickup spec: list, and type change
      */
-    oneof dependingStage {
-      google.protobuf.NullValue dependingStageNull = 19;
-      cim.iec61970.infiec61970.infpart303.networkmodelprojects.DependencyKind dependingStageSet = 20;
-    }
+    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependingStage = 16;
 
     /**
      * [ZBEX] The conflicts of this stage against the base model.
+     * TODO: changed from a list. Given NMPS has base model and changeset references, i believe we make a new NMPS
+     * TODO: when the base model or changesets are changed, thereby this class should be 1..1 with NMPSC.
      */
-    repeated cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStageConflict conflicts = 21;
+    oneof conflicts {
+      google.protobuf.NullValue conflictsNull = 17;
+      cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStageConflict conflictsSet = 18;
+    }
 
     /**
      * [ZBEX] The equipment containers this stage is related to.
      */
-    repeated cim.iec61970.base.core.EquipmentContainer equipmentContainers = 22;
+    repeated cim.iec61970.base.core.EquipmentContainer equipmentContainers = 19;
 
 }
