@@ -13,7 +13,6 @@ package zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects
 
 import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/DependencyKind.proto";
-import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStage.proto";
 
 /**
  * Represents the relationship between two network model project stages.
@@ -33,11 +32,11 @@ message AnnotatedProjectDependency {
     /**
      * NetworkModelProjectStages required by this stage.
      */
-    cim.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStage dependencyDependentOnStage = 3;
+    string dependencyDependentOnStageMRID = 3;
 
     /**
      * NetworkModelProjectStages that cannot be applied aslongside this stage.
      */
-    cim.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStage dependencyDependingStage = 4;
+    string dependencyDependingStageMRID = 4;
 
 }
