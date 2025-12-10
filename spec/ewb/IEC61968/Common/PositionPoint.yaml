@@ -10,3 +10,27 @@ attributes:
 - name: yPosition
   type: Float
   description: Y axis position.
+- name: sequenceNumber
+  type: Integer
+  description: Order of the position point within the parent location geometry.
+associations:
+- source: PositionPoint
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: PositionPoints
+  sourceDescription: Position points that define this location.
+  targetCardinality: 0..1
+  targetName: Location
+  targetDescription: Location this position point belongs to.
+- name: sequenceNumber
+  type: Integer
+  description: Zero-relative sequence number of this point within a series of points.
+associations:
+- source: PositionPoint
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: PositionPoints
+  sourceDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+  targetCardinality: "1"
+  targetName: Location
+  targetDescription: Location described by this position point.
