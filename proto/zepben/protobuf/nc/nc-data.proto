@@ -26,6 +26,9 @@ import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelayS
 import "zepben/protobuf/cim/extensions/iec61970/base/protection/ProtectionRelaySystem.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/protection/VoltageRelay.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/wires/BatteryControl.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProject.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStageConflict.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/CableInfo.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/NoLoadTest.proto";
 import "zepben/protobuf/cim/iec61968/assetinfo/OpenCircuitTest.proto";
@@ -102,6 +105,16 @@ import "zepben/protobuf/cim/iec61970/base/wires/SynchronousMachine.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TapChangerControl.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/TransformerStarImpedance.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/feeder/Circuit.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/AnnotatedProjectDependency.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/DependencyKind.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStage.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSetMember.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/DataSet.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectCreation.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectDeletion.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectModification.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectReverseModification.proto";
 
 
 
@@ -204,6 +217,9 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.extensions.iec61970.base.core.HvCustomer hvCustomer = 89;
         zepben.protobuf.cim.extensions.iec61970.base.feeder.LvSubstation lvSubstation = 90;
         zepben.protobuf.cim.iec61970.base.wires.AcLineSegmentPhase acLineSegmentPhase = 91;
+        zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProject networkModelProject = 92;
+        zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectComponent networkModelProjectComponent = 93;
+        zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStageConflict networkModelProjectStageConflict = 94;
 
         google.protobuf.Any other = 999;
     }
