@@ -13,3 +13,12 @@ attributes:
 - name: streetDetail
   type: StreetDetail
   description: Street detail.
+associations:
+- source: StreetAddress
+  target: Location
+  sourceCardinality: 0..1
+  sourceName: StreetAddress
+  sourceDescription: Street address associated with this location.
+  targetCardinality: 0..1
+  targetName: Location
+  targetDescription: Location for this street address.

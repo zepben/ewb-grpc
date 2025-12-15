@@ -9,6 +9,7 @@
 4. Descriptions copied from CIM and added as doc comments to new changes (on messages, property etc.)
 5. `proto.lock` updated if there were breaking changes.
 6. Document changes in the [model specification](#model-specification)
+7. [Update RDFS](#compiling-an-RDF-schema)
 
 ## Development Setup
 
@@ -204,3 +205,18 @@ To make use of the output, you will need to clone the [data model site](https://
 ### Deploying
 
 After viewing your output, follow the instructions in `<datamodel-repo>/README.md` to locally build the site, then copy this into the [docs website repo](https://github.com/zepben/zepben.github.io)
+
+# Compiling an RDF schema
+
+The script `generate_cim_profile_schema.py` can be used to create a Turtle RDFS schema for the current EWB profile. It should be run for every data model change
+and the `rdfs/cim_profile_schema.ttl` should be updated.
+
+To run, using your python virtual environment for the proto files:
+
+    # Ensure you've got all dependencies (pyyaml)
+    cd python
+    pip install -e . 
+
+    # Run
+    cd ..
+    python python/generate_cim_profile_schema.py -o rdfs/cim_profile_schema.ttl spec/ewb

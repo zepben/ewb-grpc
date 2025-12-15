@@ -27,3 +27,12 @@ attributes:
 - name: buildingNumber
   type: String
   description: \[ZBEX\] The number of the building.
+associations:
+- source: StreetDetail
+  target: StreetAddress
+  sourceCardinality: 0..*
+  sourceName: StreetDetails
+  sourceDescription: Street details that belong to this street address.
+  targetCardinality: 0..1
+  targetName: StreetAddress
+  targetDescription: Street address that owns this street detail.

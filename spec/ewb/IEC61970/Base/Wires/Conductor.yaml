@@ -14,4 +14,13 @@ attributes:
 ancestors:
 - ConductingEquipment
 descendants:
-- ACLineSegment
+- AcLineSegment
+associations:
+- source: Conductor
+  target: WireInfo
+  sourceCardinality: 0..1
+  sourceName: Conductor
+  sourceDescription: The conductor that uses this wire information.
+  targetCardinality: 0..*
+  targetName: WireInfos
+  targetDescription: Wire characteristics applied to this conductor.

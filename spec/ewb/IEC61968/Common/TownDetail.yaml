@@ -10,3 +10,12 @@ attributes:
 - name: country
   type: String
   description: Name of the country.
+associations:
+- source: TownDetail
+  target: StreetAddress
+  sourceCardinality: 0..*
+  sourceName: TownDetails
+  sourceDescription: Town details that belong to this street address.
+  targetCardinality: 0..1
+  targetName: StreetAddress
+  targetDescription: Street address that owns this town detail.
