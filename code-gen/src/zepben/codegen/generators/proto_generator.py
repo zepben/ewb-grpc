@@ -4,6 +4,7 @@
 #  License, v. 2.0. If a copy of the MPL was not distributed with this
 #  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 from zepben.codegen.generators.base_generator import BaseSpecGenerator
+from zepben.codegen.generators.comment_generator import CommentGenerator
 from zepben.codegen.model.definitions import DocumentedAttribute, DocumentedAssociation, YamlType
 
 
@@ -30,6 +31,10 @@ message {class_name} {{
 }}
 /* TODO: CHECK GENERATION, ps: ner ner Kurt it wasnt a waste of time... */
     """
+    @staticmethod
+    def multiline_comment(comment):
+        return CommentGenerator.proto(comment)
+
     def init(self):
         self._index = 0
 
@@ -38,40 +43,34 @@ message {class_name} {{
         self._index += 1
         return self._index
 
-    def multiline_comment(self, comment: str) -> str:
-        return "/**\n" + '\n'.join(f" * {c}" for c in comment.splitlines()) + "\n */"
-
-    def indent(self, block: str, indent_amount: int = 4) -> str:
-        return "\n".join(f"{' '*indent_amount}{l}" for l in block.splitlines())
-
     def generate_base_class(self):
         if not self.class_spec.base_class:
             return
-        print(self.class_spec.base_class)
         return self.indent(
             self.multiline_comment(f"The {self.class_spec.base_class} fields for this {self.class_spec.name.name}.") + '\n'
             + f'{self.spec_tree_parser.get(self.class_spec.base_class)} changeMe = {self.current_index};\n'
         )
 
     def generate_attribute(self, attribute: DocumentedAttribute) -> str:
+        to_proto = lambda s: s.to_proto() if isinstance(s, YamlType) else s
         comment = self.multiline_comment(attribute.description.replace('   ', '\n')) + '\n'
 
         if attribute.nullable:
             return self.indent(
                 comment + f'oneof {attribute.name} ' + '{\n'
-                + f'  google.protobuf.NullValue {attribute.name}Null = {self.current_index}\n'
-                + f'  {attribute.type.to_proto()} {attribute.name}Set = {self.current_index}\n'
+                + f'  google.protobuf.NullValue {attribute.name}Null = {self.current_index};\n'
+                + f'  {attribute.type.to_proto()} {self.lowercase_first(attribute.name)}Set = {self.current_index};\n'
                 + '}'
             )
         else:
             return self.indent(comment +
-                               f'{attribute.type.to_proto()} {attribute.name} = {self.current_index}')
+                               f'{to_proto(attribute.type)} {self.lowercase_first(attribute.name)} = {self.current_index}')
 
     def generate_association(self, association: DocumentedAssociation):
         return self.indent(
             self.multiline_comment(association.description.replace('   ', '\n')) + '\n'
             + ('repeated ' if association.cardinality.is_list() else '')
-            + f'{self.spec_tree_parser.get(association.type)} {association.name} = {self.current_index};')
+            + f'{self.spec_tree_parser.get(association.type)} {self.lowercase_first(association.name)} = {self.current_index};')
 
     def generate_imports(self) -> set[str]:
         imports = set()
@@ -87,7 +86,10 @@ message {class_name} {{
                 imports.add(f'zepben/protobuf/cim/{_type}.proto')
         return imports
 
-    def generate_proto(self):
+    def generate(self) -> str:
+        """
+        returns a string-form protobuf definition
+        """
         base_class = self.generate_base_class() or ""
         attributes = "\n\n".join(self.generate_attribute(a) for a in self.class_spec.attributes or []) or ""
         associations = "\n\n".join(self.generate_association(a) for a in self.class_spec.associations or []) or ""
@@ -117,7 +119,7 @@ if __name__ == "__main__":
     #print(spec_obj.generate_proto())
     print("#####")
     spec_obj = ProtoSpecGenerator("IEC61970/Base/Core/IdentifiedObject.yaml")
-    print(spec_obj.generate_proto())
+    print(spec_obj.generate())
     print("#####")
     spec_obj = ProtoSpecGenerator("IEC61970/Base/Core/ConductingEquipment.yaml")
-    print(spec_obj.generate_proto())
+    print(spec_obj.generate())
