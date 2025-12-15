@@ -11,7 +11,7 @@ from zepben.codegen.generators.base_generator import BaseSpecGenerator, SDKSpecG
 from zepben.codegen.generators.kotlin_generator import KotlinGenerator
 from zepben.codegen.generators.proto_generator import ProtoSpecGenerator
 
-DEFAULT_GIT_PATH = os.path.expanduser('~/git2')
+DEFAULT_GIT_PATH = os.path.expanduser('~/git')
 
 @dataclass
 class Paths:
@@ -40,10 +40,6 @@ class Dobby:
     """
     def __init__(self, paths):
         self.paths = paths
-
-    def detect_grpc_yaml_changes(self):
-        git_repo = git.Repo(self.paths.ewb_grpc)
-        git.diff()
 
     def generate(self, new_yaml_files: list[str]):
         def path_string_to_list(_path):
@@ -115,6 +111,19 @@ class Dobby:
         except FileNotFoundError:
             print(f'File doesnt exist: {file_path}\n  it should... is your repo directory config right?')
 
+    def detect_grpc_yaml_changes(self):
+        git_repo = git.Repo(self.paths.ewb_grpc)
+        if (active_branch := git_repo.active_branch.name) == 'main':
+            print('this tool doesnt work on the main branch')  # TODO: is this really a problem / do we want to allow this?
+            return
+
+        return list(filter(
+            lambda c: c.startswith('spec/ewb'), git_repo.git.diff(active_branch, 'main', '--name-only').splitlines()
+        ))
+
 
 if __name__ == "__main__":
-    writer = Dobby(Paths()).generate(['extensions/IEC61968/Common/ContactDetails.yaml'])
+    writer = Dobby(Paths())
+    #writer.generate(['extensions/IEC61968/Common/ContactDetails.yaml'])
+    print(writer.detect_grpc_yaml_changes())
+
