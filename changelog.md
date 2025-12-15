@@ -4,7 +4,7 @@
 * None.
 
 ### New Features
-* None.
+* Added `generate_cim_profile_schema.py` for generating a Turtle RDFS file based off our yaml spec.
 
 ### Enhancements
 * None.
