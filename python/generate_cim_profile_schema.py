@@ -1,5 +1,18 @@
+#  Copyright 2025 Zeppelin Bend Pty Ltd
+#
+#  This Source Code Form is subject to the terms of the Mozilla Public
+#  License, v. 2.0. If a copy of the MPL was not distributed with this
+#  file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 #!/usr/bin/env python3
-"""Generate an RDFS schema (Turtle) from a folder of CIM profile YAML files."""
+
+"""
+Generate an RDFS schema (Turtle) from a folder of CIM profile YAML files.
+
+See README.md for usage details.
+Requires pyyaml 6
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -257,9 +270,7 @@ def build_class_blocks(classes: Dict[str, CIMClass]) -> List[str]:
     for idx, class_name in enumerate(sorted(classes.keys(), key=sanitize_local_name)):
         cim_class = classes[class_name]
         class_id = sanitize_local_name(cim_class.name)
-        block: List[str] = []
-        block.append(f"cim:{class_id} a rdfs:Class ;")
-        block.append(f'    rdfs:label "{escape_literal(cim_class.name)}" ;')
+        block: List[str] = [f"cim:{class_id} a rdfs:Class ;", f'    rdfs:label "{escape_literal(cim_class.name)}" ;']
         comment_line = f'    rdfs:comment "{escape_literal(cim_class.description)}"'
         if cim_class.ancestors:
             comment_line += " ;"
