@@ -31,13 +31,14 @@ associations:
   targetDescription: Simplification of the CIM association via Bay to Substation
 - source: Substation
   target: Loop
-  sourceCardinality: 0..*
   sourceName: Substations
   targetName: Loops
+  targetCardinality: 0..*
+  targetDescription: The loops that are energizing this substation.
 - source: Substation
   target: Loop
-  sourceCardinality: 0..*
   sourceName: NormalEnergizingSubstations
   sourceDescription: The substations that normally energize this loop.
   targetName: NormalEnergizedLoops
+  targetCardinality: 0..*
   targetDescription: The loops that are energized by this substation.
