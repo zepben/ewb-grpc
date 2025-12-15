@@ -51,16 +51,16 @@ associations:
 
 - source: NetworkModelProjectStage
   target: NetworkModelProjectStageConflict
-  sourceCardinality: 0..1
+  sourceCardinality: "1"
   sourceName: conflicts
   sourceDescription: \[ZBEX\] The conflicts of this stage against the base model.
-  targetCardinality: "1"
+  targetCardinality: 0..1
   targetName: stage
   targetDescription: \[ZBEX\] The stage the conflicts belong too.
 
 - source: NetworkModelProjectStage
   target: EquipmentContainer
-  sourceCardinality: 1..*
-  sourceName: equipmentContainers
-  sourceDescription: \[ZBEX\] The equipment containers this stage is related to.
+  targetName: equipmentContainers
+  targetCardinality: 0..*
+  targetDescription: \[ZBEX\] The equipment containers this stage is related to.
   # TODO: Is this right for a 1 way relationship?
