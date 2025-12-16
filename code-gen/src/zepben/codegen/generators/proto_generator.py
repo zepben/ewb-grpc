@@ -53,7 +53,7 @@ message {class_name} {{
         )
 
     def generate_attribute(self, attribute: DocumentedAttribute) -> str:
-        to_proto = lambda s: s.to_proto() if isinstance(s, YamlType) else s
+        to_proto = lambda s: s.to_proto(attribute.field_type) if isinstance(s, YamlType) else s
         comment = self.multiline_comment(attribute.description.replace('   ', '\n')) + '\n'
 
         try:
@@ -61,7 +61,7 @@ message {class_name} {{
                     return self.indent(
                         comment + f'oneof {attribute.name} ' + '{\n'
                         + f'  google.protobuf.NullValue {attribute.name}Null = {self.current_index};\n'
-                        + f'  {attribute.type.to_proto()} {self.lowercase_first(attribute.name)}Set = {self.current_index};\n'
+                        + f'  {attribute.type.to_proto(attribute.field_type)} {self.lowercase_first(attribute.name)}Set = {self.current_index};\n'
                         + '}'
                     )
             else:

@@ -57,7 +57,7 @@ package {package}
                 + '}')
 
     def generate_attribute(self, attribute: DocumentedAttribute, private_vars: list[str]) -> str:
-        to_kt = lambda s: s.to_kt() if isinstance(s, YamlType) else s
+        to_kt = lambda s: s.to_kt(attribute.field_type) if isinstance(s, YamlType) else s
         if self.document_single_vars:
             comment = self.multiline_comment(attribute.description.replace('   ', '\n')) + '\n'
         else:
@@ -127,10 +127,10 @@ package {package}
         )
 
     def generate_table_def(self):
-        to_sql = lambda s: s.to_sql() if isinstance(s, YamlType) else s
+        to_sql = lambda s, n: s.to_sql(n) if isinstance(s, YamlType) else s
         def generate_columns(attribute: DocumentedAttribute) -> str:
             snake_name = camel2snake(attribute.name)
-            return f'val {snake_name.upper()}: Column = Column(++queryIndex, "{snake_name}", Type.{to_sql(attribute.type)}, Nullable.{"NULL" if attribute.is_nullable else "NOT_NULL"})'
+            return f'val {snake_name.upper()}: Column = Column(++queryIndex, "{snake_name}", Type.{to_sql(attribute.type, attribute.class_type)}, Nullable.{"NULL" if attribute.is_nullable else "NOT_NULL"})'
         attributes = "\n".join(generate_columns(a) for a in self.class_spec.attributes or []) or ""
 
         body = ''

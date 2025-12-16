@@ -5,6 +5,7 @@
 #  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 from dataclasses import dataclass
 from enum import Enum
+from typing import Optional
 from unittest import case
 
 from zepben.codegen.generators import InvalidYamlError
@@ -28,34 +29,39 @@ class YamlType(Enum):
     STRING = "string"
     BOOLEAN = "boolean"
     DOUBLE = "double"
+    FLOAT = "float"
     ENUM = "enum"
     CLASS = "class"
 
-    def to_proto(self):
+    def to_proto(self, class_name: str):
         match self:
-            case YamlType.INTEGER: return "int32"
-            case YamlType.STRING: return "string"
-            case YamlType.BOOLEAN: return "bool"
-            case YamlType.DOUBLE: return "double"
-            case YamlType.ENUM: return "string"
-            case YamlType.CLASS: return self.name
+            case YamlType.INTEGER: return 'int32'
+            case YamlType.STRING: return 'string'
+            case YamlType.BOOLEAN: return 'bool'
+            case YamlType.DOUBLE: return 'double'
+            case YamlType.FLOAT: return 'float'
+            case YamlType.ENUM: return 'string'
+            case YamlType.CLASS: return class_name
 
-    def to_kt(self):
+    def to_kt(self, class_name: str):
         match self:
             case YamlType.INTEGER: return 'Int'
             case YamlType.STRING: return 'String'
             case YamlType.BOOLEAN: return 'Boolean'
             case YamlType.DOUBLE: return 'Double'
-            case YamlType.ENUM: return "string"
-            case YamlType.CLASS: return self.name
+            case YamlType.FLOAT: return 'Float'
+            case YamlType.ENUM: return 'string'
+            case YamlType.CLASS: return class_name
 
-    def to_sql(self):
+    def to_sql(self, class_name: str):
         match self:
             case YamlType.INTEGER: return 'INTEGER'
-            case YamlType.STRING: return 'STRING'
+            case YamlType.STRING: return 'TEXT'
             case YamlType.BOOLEAN: return 'BOOLEAN'
             case YamlType.DOUBLE: return 'DOUBLE'
-            case YamlType.ENUM: return "TEXT"
+            case YamlType.FLOAT: return 'FLOAT'
+            case YamlType.ENUM: return 'TEXT'
+            case YamlType.CLASS: return class_name
 
 @dataclass()
 class MockYamlType:
@@ -90,15 +96,24 @@ class DocumentedName:
 class DocumentedAttribute(DocumentedName):
     def __init__(self, type: str = None, nullable: bool = True, **kwargs):
         super().__init__(**kwargs)
+        self.class_type: Optional[str]
         try:
             self.type = YamlType(type.lower())
+            self.class_type = None
         except ValueError:
             self.type = YamlType.CLASS
+            self.class_type = type
 
         self.nullable = nullable
 
     def __str__(self):
         return f"{super().__str__()},type={self.type},nullable={self.nullable}"
+
+    @property
+    def field_type(self):
+        match self.type:
+            case YamlType.CLASS: return self.class_type
+            case _: return self.type.value
 
     @property
     def is_nullable(self):

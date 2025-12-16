@@ -20,22 +20,6 @@ associations:
   targetName: CurrentEnergizingFeeders
   targetDescription: \[ZBEX\] The HV/MV feeders that energize this LV feeder in the current state of the network.
 - source: LvFeeder
-  target: LvSubstation
-  sourceCardinality: 0..*
-  sourceName: NormalEnergizedLvFeeders
-  sourceDescription: \[ZBEX\] The LV feeders that are normally energized by the LvSubstation.
-  targetCardinality: 0..*
-  targetName: NormalEnergizingLvSubstations
-  targetDescription: \[ZBEX\] The LvSubstations that nominally energize the LvFeeder. Also used for naming purposes.
-- source: LvFeeder
-  target: LvSubstation
-  sourceCardinality: 0..*
-  sourceName: CurrentEnergizedLvFeeders
-  sourceDescription: \[ZBEX\] The LV feeders that are currently energized by the LvSubstation.
-  targetCardinality: 0..*
-  targetName: CurrentEnergizingLvSubstations
-  targetDescription: \[ZBEX\] The LvSubstations that currently energize the LvFeeder. Also used for naming purposes.
-- source: LvFeeder
   target: Equipment
   sourceCardinality: 0..*
   sourceName: NormalLvFeeders
