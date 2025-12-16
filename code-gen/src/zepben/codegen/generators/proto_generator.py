@@ -66,7 +66,7 @@ message {class_name} {{
                     )
             else:
                 return self.indent(comment +
-                                   f'{to_proto(attribute.type)} {self.lowercase_first(attribute.name)} = {self.current_index}')
+                                   f'{to_proto(attribute.type)} {self.lowercase_first(attribute.name)} = {self.current_index};')
         except Exception as e:
             raise InvalidYamlError(f"Could not generate attribute for {attribute}. Error was {e}", e)
 
