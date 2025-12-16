@@ -36,3 +36,19 @@ associations:
   targetCardinality: 0..*
   targetName: CurrentlyEnergizedLvFeeders
   targetDescription: \[ZBEX\] The LV feeders that are currently energized by this feeder.
+- source: Feeder
+  target: LvSubstation
+  sourceCardinality: 0..1
+  sourceName: NormalEnergizingFeeders
+  sourceDescription: \[ZBEX\] The HV/MV feeders that energize the LV feeder.
+  targetCardinality: 0..*
+  targetName: NormalEnergizedLvSubstations
+  targetDescription: \[ZBEX\] The normal energized LvSubstations of the feeder. Also used for naming purposes.
+- source: Feeder
+  target: LvSubstation
+  sourceCardinality: 0..1
+  sourceName: CurrentEnergizingFeeders
+  sourceDescription: \[ZBEX\] The HV/MV feeders that energize the LV feeder in the current state of the network.
+  targetCardinality: 0..*
+  targetName: CurrentEnergizedLvSubstations
+  targetDescription: \[ZBEX\] The current energized LvSubstations of the feeder. Also used for naming purposes.
