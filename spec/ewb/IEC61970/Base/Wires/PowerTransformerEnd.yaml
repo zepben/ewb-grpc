@@ -9,19 +9,19 @@ description: |-
   Each PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).
 attributes:
 - name: b
-  type: Susceptance
+  type: Double
   description: Magnetizing branch susceptance (B mag).  The value can be positive or negative.
 - name: b0
-  type: Susceptance
+  type: Double
   description: Zero sequence magnetizing branch susceptance.
 - name: connectionKind
   type: WindingConnection
   description: Kind of connection.
 - name: g
-  type: Conductance
+  type: Double
   description: Magnetizing branch conductance.
 - name: g0
-  type: Conductance
+  type: Double
   description: Zero sequence magnetizing branch conductance (star-model).
 - name: phaseAngleClock
   type: Integer
@@ -31,29 +31,29 @@ attributes:
     specified as 1, is assumed to be zero.  Note the transformer end number is not assumed to be the same as the terminal
     sequence number.
 - name: r
-  type: Resistance
+  type: Double
   description: |-
     Resistance (star-model) of the transformer end.
     The attribute shall be equal to or greater than zero for non-equivalent transformers.
 - name: r0
-  type: Resistance
+  type: Double
   description: Zero sequence series resistance (star-model) of the transformer end.
 - name: ratedS
-  type: ApparentPower
+  type: Integer
   description: |-
     Normal apparent power rating.
     The attribute shall be a positive value. For a two-winding transformer the values for the high and low voltage sides shall be identical.
 - name: ratedU
-  type: Voltage
+  type: Double
   description: |-
-    Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings.
+    Rated voltage in volts: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings.
     A high voltage side, as given by TransformerEnd.endNumber, shall have a ratedU that is greater than or equal to ratedU for the lower voltage sides.
     The attribute shall be a positive value.
 - name: x
-  type: Reactance
+  type: Double
   description: Positive sequence series reactance (star-model) of the transformer end.
 - name: x0
-  type: Reactance
+  type: Double
   description: Zero sequence series reactance of the transformer end.
 ancestors:
 - TransformerEnd

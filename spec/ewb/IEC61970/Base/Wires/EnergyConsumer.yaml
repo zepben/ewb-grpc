@@ -10,27 +10,27 @@ attributes:
   type: Boolean
   description: Used for Yn and Zn connections. True if the neutral is solidly grounded.
 - name: p
-  type: ActivePower
+  type: Integer
   description: |-
-    Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Active power of the load in watts. Load sign convention is used, i.e. positive sign means flow out from a node.
     For voltage dependent loads the value is at rated voltage.
     Starting value for a steady state solution.
 - name: q
-  type: ReactivePower
+  type: Double
   description: |-
-    Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Reactive power of the load in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
     For voltage dependent loads the value is at rated voltage.
     Starting value for a steady state solution.
 - name: pfixed
-  type: ActivePower
-  description: Active power of the load that is a fixed quantity and does not vary as load group value varies. Load sign convention
+  type: Integer
+  description: Active power of the load in watts that is a fixed quantity and does not vary as load group value varies. Load sign convention
     is used, i.e. positive sign means flow out from a node.
 - name: phaseConnection
   type: PhaseShuntConnectionKind
   description: The type of phase connection, such as wye or delta.
 - name: qfixed
-  type: ReactivePower
-  description: Reactive power of the load that is a fixed quantity and does not vary as load group value varies. Load sign
+  type: Double
+  description: Reactive power of the load in volt-amperes reactive that is a fixed quantity and does not vary as load group value varies. Load sign
     convention is used, i.e. positive sign means flow out from a node.
 ancestors:
 - EnergyConnection

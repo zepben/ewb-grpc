@@ -4,19 +4,19 @@ description: No-load test results determine core admittance parameters. They inc
   at different voltages to measure saturation.
 attributes:
 - name: excitingCurrent
-  type: PerCent
-  description: Exciting current measured from a positive-sequence or single-phase excitation test.
+  type: Double
+  description: Exciting current in percent measured from a positive-sequence or single-phase excitation test. Values should be between 0 and 1.
 - name: excitingCurrentZero
-  type: PerCent
-  description: Exciting current measured from a zero-sequence open-circuit excitation test.
+  type: Double
+  description: Exciting current in percent measured from a zero-sequence open-circuit excitation test. Values should be between 0 and 1.
 - name: loss
-  type: ActivePower
-  description: Losses measured from a positive-sequence or single-phase excitation test.
+  type: Integer
+  description: Losses measured from a positive-sequence or single-phase excitation test in watts.
 - name: lossZero
-  type: ActivePower
-  description: Losses measured from a zero-sequence excitation test.
+  type: Integer
+  description: Losses measured from a zero-sequence excitation test in watts.
 - name: energisedEndVoltage
-  type: Voltage
-  description: Voltage applied to the winding (end) during test.
+  type: Double
+  description: Voltage applied to the winding (end) during test in volts.
 ancestors:
 - TransformerTest

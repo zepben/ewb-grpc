@@ -5,17 +5,17 @@ attributes:
   type: Float
   description: Power factor (nameplate data). It is primarily used for short circuit data exchange according to IEC 60909. The attribute cannot be a negative value.
 - name: ratedS
-  type: ApparentPower
+  type: Integer
   description: Nameplate apparent power rating for the unit in volt-amperes (VA). The attribute shall have a positive value.
 - name: ratedU
-  type: Voltage
+  type: Double
   description: Rated voltage in volts (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according to IEC 60909. 
     The attribute shall be a positive value.
 - name: p
-  type: ActivePower
+  type: Integer
   description: Active power injection in watts. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
 - name: q
-  type: ReactivePower
+  type: Double
   description: Reactive power injection in VAr. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
 ancestors:
 - RegulatingCondEq

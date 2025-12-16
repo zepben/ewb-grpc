@@ -5,11 +5,11 @@ attributes:
   type: BatteryStateKind
   description: The current state of the battery (charging, full, etc.).
 - name: ratedE
-  type: RealEnergy
-  description: Full energy storage capacity of the battery. The attribute shall be a positive value.
+  type: Long
+  description: Full energy storage capacity of the battery in watt hours. The attribute shall be a positive value.
 - name: storedE
-  type: RealEnergy
-  description: Amount of energy currently stored. The attribute shall be a positive value or zero and lower than BatteryUnit.ratedE.
+  type: Long
+  description: Amount of energy currently stored in watt hours. The attribute shall be a positive value or zero and lower than BatteryUnit.ratedE.
 ancestors:
 - PowerElectronicsUnit
 associations:

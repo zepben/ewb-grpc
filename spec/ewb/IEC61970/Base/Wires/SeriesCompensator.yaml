@@ -3,24 +3,24 @@ description: A Series Compensator is a series capacitor or reactor or an AC tran
   is a two terminal device.
 attributes:
 - name: r
-  type: Resistance
-  description: Positive sequence resistance.
+  type: Double
+  description: Positive sequence resistance in ohms.
 - name: r0
-  type: Resistance
-  description: Zero sequence resistance.
+  type: Double
+  description: Zero sequence resistance in ohms.
 - name: x
-  type: Reactance
-  description: Positive sequence reactance.
+  type: Double
+  description: Positive sequence reactance in ohms.
 - name: x0
-  type: Reactance
-  description: Zero sequence reactance.
+  type: Double
+  description: Zero sequence reactance in ohms.
 - name: varistorRatedCurrent
   type: Double
   description: |-
     The maximum current in amps the varistor is designed to handle at the specified duration. It is used for short circuit calculations and exchanged only if SeriesCompensator.varistorPresent is true.
     The attribute shall be a positive value.
 - name: varistorVoltageThreshold
-  type: Voltage
+  type: Double
   description: The dc voltage at which the varistor starts conducting. It is used for short circuit calculations and exchanged
     only if SeriesCompensator.varistorPresent is true.
 ancestors:
