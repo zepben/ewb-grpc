@@ -1,5 +1,4 @@
-# 2025 hackathon project 
-## An exercise in the wastefully impossible
+# Dobby
 
 As part of any data model change, you likely have to touch the following files in the Jvm sdk
 ... and then again in the python sdk
@@ -54,3 +53,20 @@ As part of any data model change, you likely have to touch the following files i
 All of these files (actually pretty much none right now) need to have the same docs copied everywhere.
 ... The same types copied everywhere
 ... in their own language's syntax.
+
+Dobby aims to help with this task, by populating stubs in all required files for each SDK and the proto files, 
+all auto-generated based off the yaml spec files. At the moment it doesn't aim to completely automate this, but
+instead just do some of the work with an intent to reduce the mental load of a data model change.
+
+## Setup
+
+Set up a virtualenv, and then in this directory run:
+
+    pip install -e .
+
+## Usage
+
+Update the yaml spec files in the `spec/ewb` directory as required, and then in `dobby.py` modify the main
+function to pass in the files and paths to your SDK + git directories as required. CLI arguments and 
+git diff file detection coming soon..
+
