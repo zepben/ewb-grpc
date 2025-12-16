@@ -122,15 +122,18 @@ class Dobby:
             print('this tool doesnt work on the main branch')  # TODO: is this really a problem / do we want to allow this?
             return
 
-        return list(filter(
-            lambda c: c.startswith('spec/ewb'), git_repo.git.diff(active_branch, 'main', '--name-only').splitlines()
-        ))
+        return [
+            c.replace('spec/ewb/', '') for c in git_repo.git.diff(active_branch, 'main', '--name-only').splitlines()
+            if c.startswith('spec/ewb') and not c.endswith('__metadata.yaml')
+        ]
 
 
 if __name__ == "__main__":
     writer = Dobby(grpc_root="/home/krut/work/git/evolve-grpc/", paths=Paths("/home/krut/work/git/", ewb_grpc='evolve-grpc', ewb_sdk_python='cimbend', ewb_sdk_jvm='evolve-sdk-jvm'))
-    # writer.generate(['extensions/IEC61968/Common/ContactDetails.yaml'])
-    # print(writer.detect_grpc_yaml_changes())
+    # for i in (changes:= writer.detect_grpc_yaml_changes()):
+    #     print(i)
+    # if input('Proceed? (Y/N)') in ('y', 'Y'):
+    #     writer.generate(changes)
     writer.generate([
         'IEC61968/AssetInfo/WireInsulationKind.yaml',
         'IEC61968/AssetInfo/WireInfo.yaml',
