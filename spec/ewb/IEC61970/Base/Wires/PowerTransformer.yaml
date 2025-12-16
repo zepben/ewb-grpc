@@ -6,7 +6,8 @@ description: |-
   The inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.
 attributes:
 - name: vectorGroup
-  type: String
+  type: VectorGroup
+  nullable: false
   description: "Vector group of the transformer for protective relaying, e.g., Dyn1. For unbalanced transformers, this may\
     \ not be simply determined from the constituent winding connections and phase angle displacements.\n\nThe vectorGroup\
     \ string consists of the following components in the order listed: high voltage winding connection, mid voltage winding\
@@ -23,13 +24,16 @@ attributes:
     \ to rotate in a counter-clockwise sense."
 - name: transformerUtilisation
   type: Double
+  nullable: true
   description: The fraction of the transformer’s normal capacity (nameplate rating) that is in use. It may be expressed as
     the result of the calculation S/Sn, where S = Load on Transformer (in VA), Sn = Transformer Nameplate Rating (in VA).
 - name: constructionKind
   type: TransformerConstructionKind
+  nullable: false
   description: The construction kind of this transformer
 - name: function
   type: TransformerFunctionKind
+  nullable: false
   description: The function of this transformer
 ancestors:
 - ConductingEquipment

@@ -3,13 +3,16 @@ description: The parts of a power system that are physical devices, electronic o
 attributes:
 - name: inService
   type: Boolean
+  nullable: true
   description: Specifies the availability of the equipment. True means the equipment is available for topology processing,
     which determines if the equipment is energized or not. False means that the equipment is treated by network applications
     as if it is not in the model.
 - name: normallyInService
   type: Boolean
+  nullable: true
 - name: commissionedDate
   type: Datetime
+  nullable: true
   description: The date this equipment was commissioned into service.
 ancestors:
 - PowerSystemResource

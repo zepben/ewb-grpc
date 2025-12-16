@@ -4,12 +4,15 @@ description: An AC electrical connection point to a piece of conducting equipmen
 attributes:
 - name: phases
   type: PhaseCode
+  nullable: false
   description: Represents the normal network phasing condition.
 - name: normalPhases
   type: PhaseCode
+  nullable: false
   description: Represents the normal network phasing condition. Mirrors the exported Terminal.normalPhases values.
 - name: currentPhases
   type: PhaseCode
+  nullable: false
   description: Represents the current network phasing condition. Mirrors the exported Terminal.currentPhases values.
 - name: tracedPhases
   type: Integer
@@ -28,12 +31,15 @@ attributes:
     Actual Phase: |    N    |    C    |    B    |    A    |
 - name: sequenceNumber
   type: Integer
+  nullable: false
   description: This Terminal's sequence number.
 - name: normalFeederDirection
-  type: Integer
+  type: FeederDirection
+  nullable: false
   description: Stores the direction of the feeder head relative to this terminal in the normal state of the network.
 - name: currentFeederDirection
-  type: Integer
+  type: FeederDirection
+  nullable: false
   description: Stores the direction of the feeder head relative to this terminal in the current state of the network.
 ancestors:
 - ACDCTerminal

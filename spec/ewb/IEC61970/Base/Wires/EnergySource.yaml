@@ -3,89 +3,114 @@ description: A generic equivalent for an energy supplier on a transmission or di
 attributes:
 - name: activePower
   type: Integer
+  nullable: true
   description: |-
     High voltage source active injection in watts. Load sign convention is used, i.e. positive sign means flow out from a node.
     Starting value for steady state solutions.
 - name: reactivePower
   type: Double
+  nullable: true
   description: |-
     High voltage source reactive injection in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
     Starting value for steady state solutions.
 - name: voltageAngle
   type: Double
+  nullable: true
   description: Phase angle in degrees of a-phase open circuit used when voltage characteristics need to be imposed at the node associated
     with the terminal of the energy source, such as when voltages and angles from the transmission level are used as input
     to the distribution network. The attribute shall be a positive value or zero.
 - name: voltageMagnitude
   type: Double
+  nullable: true
   description: Phase-to-phase open circuit voltage magnitude used when voltage characteristics need to be imposed at the node
     associated with the terminal of the energy source, such as when voltages and angles from the transmission level are used
     as input to the distribution network. The attribute shall be a positive value or zero.
 - name: r
   type: Double
+  nullable: true
   description: Positive sequence Thevenin resistance in ohms.
 - name: x
   type: Double
+  nullable: true
   description: Positive sequence Thevenin reactance in ohms.
 - name: pMax
   type: Integer
+  nullable: true
   description: This is the maximum active power in watts that can be produced by the source. Load sign convention is used, i.e. positive
     sign means flow out from a TopologicalNode (bus) into the conducting equipment.
 - name: pMin
   type: Integer
+  nullable: true
   description: This is the minimum active power in watts that can be produced by the source. Load sign convention is used, i.e. positive
     sign means flow out from a TopologicalNode (bus) into the conducting equipment.
 - name: r0
   type: Double
+  nullable: true
   description: Zero sequence Thevenin resistance in ohms.
 - name: rn
   type: Double
+  nullable: true
   description: Negative sequence Thevenin resistance in ohms.
 - name: x0
   type: Double
+  nullable: true
   description: Zero sequence Thevenin reactance in ohms.
 - name: xn
   type: Double
+  nullable: true
   description: Negative sequence Thevenin reactance in ohms.
 - name: isExternalGrid
   type: Boolean
+  nullable: true
   description: True if this energy source represents the higher-level power grid connection to an external grid that normally
     is modelled as the slack bus for power flow calculations.
 - name: r_min
   type: Double
+  nullable: true
   description: Minimum positive sequence Thevenin resistance in ohms.
 - name: rn_min
   type: Double
+  nullable: true
   description: Minimum negative sequence Thevenin resistance in ohms.
 - name: r0_min
   type: Double
+  nullable: true
   description: Minimum zero sequence Thevenin resistance in ohms.
 - name: x_min
   type: Double
+  nullable: true
   description: Minimum positive sequence Thevenin reactance in ohms.
 - name: xn_min
   type: Double
+  nullable: true
   description: Minimum negative sequence Thevenin reactance in ohms.
 - name: x0_min
   type: Double
+  nullable: true
   description: Minimum zero sequence Thevenin reactance in ohms.
 - name: r_max
   type: Double
+  nullable: true
   description: Maximum positive sequence Thevenin resistance in ohms.
 - name: rn_max
   type: Double
+  nullable: true
   description: Maximum negative sequence Thevenin resistance in ohms.
 - name: r0_max
   type: Double
+  nullable: true
   description: Maximum zero sequence Thevenin resistance in ohms.
 - name: x_max
   type: Double
+  nullable: true
   description: Maximum positive sequence Thevenin reactance in ohms.
 - name: xn_max
   type: Double
+  nullable: true
   description: Maximum negative sequence Thevenin reactance in ohms.
 - name: x0_max
   type: Double
+  nullable: true
   description: Maximum zero sequence Thevenin reactance in ohms.
 ancestors:
 - EnergyConnection

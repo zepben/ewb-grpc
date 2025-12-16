@@ -3,12 +3,15 @@ description: An electrochemical energy storage device.
 attributes:
 - name: batteryState
   type: BatteryStateKind
+  nullable: false
   description: The current state of the battery (charging, full, etc.).
 - name: ratedE
   type: Long
+  nullable: true
   description: Full energy storage capacity of the battery in watt hours. The attribute shall be a positive value.
 - name: storedE
   type: Long
+  nullable: true
   description: Amount of energy currently stored in watt hours. The attribute shall be a positive value or zero and lower than BatteryUnit.ratedE.
 ancestors:
 - PowerElectronicsUnit

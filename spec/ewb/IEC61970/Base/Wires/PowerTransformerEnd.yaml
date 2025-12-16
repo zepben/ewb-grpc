@@ -10,21 +10,27 @@ description: |-
 attributes:
 - name: b
   type: Double
+  nullable: true
   description: Magnetizing branch susceptance (B mag).  The value can be positive or negative.
 - name: b0
   type: Double
+  nullable: true
   description: Zero sequence magnetizing branch susceptance.
 - name: connectionKind
   type: WindingConnection
+  nullable: false
   description: Kind of connection.
 - name: g
   type: Double
+  nullable: true
   description: Magnetizing branch conductance.
 - name: g0
   type: Double
+  nullable: true
   description: Zero sequence magnetizing branch conductance (star-model).
 - name: phaseAngleClock
   type: Integer
+  nullable: true
   description: Terminal voltage phase angle displacement where 360 degrees are represented with clock hours. The valid values
     are 0 to 11. For example, for the secondary side end of a transformer with vector group code of 'Dyn11', specify the connection
     kind as wye with neutral and specify the phase angle of the clock as 11.  The clock value of the transformer end number
@@ -32,28 +38,34 @@ attributes:
     sequence number.
 - name: r
   type: Double
+  nullable: true
   description: |-
     Resistance (star-model) of the transformer end.
     The attribute shall be equal to or greater than zero for non-equivalent transformers.
 - name: r0
   type: Double
+  nullable: true
   description: Zero sequence series resistance (star-model) of the transformer end.
 - name: ratedS
   type: Integer
+  nullable: true
   description: |-
     Normal apparent power rating.
     The attribute shall be a positive value. For a two-winding transformer the values for the high and low voltage sides shall be identical.
 - name: ratedU
   type: Double
+  nullable: true
   description: |-
     Rated voltage in volts: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings.
     A high voltage side, as given by TransformerEnd.endNumber, shall have a ratedU that is greater than or equal to ratedU for the lower voltage sides.
     The attribute shall be a positive value.
 - name: x
   type: Double
+  nullable: true
   description: Positive sequence series reactance (star-model) of the transformer end.
 - name: x0
   type: Double
+  nullable: true
   description: Zero sequence series reactance of the transformer end.
 ancestors:
 - TransformerEnd

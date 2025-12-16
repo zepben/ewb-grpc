@@ -5,6 +5,7 @@ description: A shunt capacitor or reactor or switchable bank of shunt capacitors
 attributes:
 - name: sections
   type: Double
+  nullable: true
   description: "Shunt compensator sections in use. Starting value for steady state solution. The attribute shall be a positive\
     \ value or zero. Non integer values are allowed to support continuous variables. The reasons for continuous value are\
     \ to support study cases where no discrete shunt compensators has yet been designed, a solutions where a narrow voltage\
@@ -15,13 +16,16 @@ attributes:
     \ There is no interpolation between NonlinearShuntCompenstorPoint-s."
 - name: grounded
   type: Boolean
+  nullable: true
   description: Used for Yn and Zn connections. True if the neutral is solidly grounded.
 - name: nomU
   type: Double
+  nullable: true
   description: The voltage (in volts) at which the nominal reactive power may be calculated. This should normally be within 10% of the
     voltage at which the capacitor is connected to the network.
 - name: phaseConnection
   type: PhaseShuntConnectionKind
+  nullable: false
   description: The type of phase connection, such as wye or delta.
 ancestors:
 - RegulatingCondEq

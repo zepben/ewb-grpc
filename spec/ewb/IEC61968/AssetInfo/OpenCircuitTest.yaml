@@ -5,19 +5,24 @@ description: Open-circuit test results verify winding turn ratios and phase shif
 attributes:
 - name: energisedEndStep
   type: Integer
+  nullable: true
   description: Tap step number for the energised end of the test pair.
 - name: openEndStep
   type: Integer
+  nullable: true
   description: Tap step number for the open end of the test pair.
 - name: energisedEndVoltage
   type: Double
+  nullable: true
   description: Voltage applied to the winding (end) during test in volts.
 - name: openEndVoltage
   type: Double
+  nullable: true
   description: Voltage measured at the open-circuited end, with the energised end set to rated voltage and all other ends
     open in volts.
 - name: phaseShift
   type: Double
+  nullable: true
   description: Phase shift in degrees measured at the open end with the energised end set to rated voltage and all other ends open.
 ancestors:
 - TransformerTest

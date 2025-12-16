@@ -4,10 +4,12 @@ description: Logical or physical point in the network to which readings or event
 attributes:
 - name: connectionCategory
   type: String
+  nullable: true
   description: A code used to specify the connection category, e.g., low voltage or low pressure, where the usage point is
     defined.
 - name: isVirtual
   type: Boolean
+  nullable: true
   description: If true, this usage point is virtual, i.e., no physical location exists in the network where a meter could
     be located to collect the meter readings. For example, one may define a virtual usage point to serve as an aggregation
     of usage for all of a company's premises distributed widely across the distribution territory. Otherwise, the usage point
@@ -19,9 +21,11 @@ attributes:
     two-wire.
 - name: approvedInverterCapacity
   type: Integer
+  nullable: true
   description: \[ZBEX\] The approved inverter capacity at this UsagePoint in volt-amperes.
 - name: contacts
   type: List<ContactDetails>
+  nullable: true
   description: "[ZBEX] All contact details for this UsagePoint."
 ancestors:
 - IdentifiedObject

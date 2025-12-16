@@ -3,18 +3,22 @@ description: This is a root class to provide common identification for all class
 attributes:
 - name: mRID
   type: String
+  nullable: false
   description: |-
     Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
     For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.
 - name: name
   type: String
+  nullable: true
   description: The name is any free human readable and possibly non unique text naming the object.
 - name: description
   type: String
+  nullable: true
   description: The description is a free human readable text describing or naming the object. It may be non unique and may
     not correlate to a naming hierarchy.
 - name: numDiagramObjects
   type: Integer
+  nullable: true
   description: Count of the DiagramObject's that are associated with this IdentifiedObject
 descendants:
 - Document
