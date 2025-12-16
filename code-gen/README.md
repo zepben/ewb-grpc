@@ -1,7 +1,7 @@
 # 2025 hackathon project 
 ## An exercise in the wastefully impossible
 
-As part of any data model change, you likely have to tough the following files in the Jvm sdk
+As part of any data model change, you likely have to touch the following files in the Jvm sdk
 ... and then again in the python sdk
 ... and write .proto files
 ... and write .yaml spec files for the website.

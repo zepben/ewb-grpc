@@ -7,6 +7,8 @@ from dataclasses import dataclass
 from enum import Enum
 from unittest import case
 
+from zepben.codegen.generators import InvalidYamlError
+
 
 class Cardinality(Enum):
     NULLABLE = "0..1"
@@ -22,10 +24,12 @@ class ReferenceType(Enum):
     DIRECT = 1
 
 class YamlType(Enum):
-    INTEGER = "Integer"
-    STRING = "String"
-    BOOLEAN = 'Boolean'
-    DOUBLE = 'Double'
+    INTEGER = "integer"
+    STRING = "string"
+    BOOLEAN = "boolean"
+    DOUBLE = "double"
+    ENUM = "enum"
+    CLASS = "class"
 
     def to_proto(self):
         match self:
@@ -33,6 +37,8 @@ class YamlType(Enum):
             case YamlType.STRING: return "string"
             case YamlType.BOOLEAN: return "bool"
             case YamlType.DOUBLE: return "double"
+            case YamlType.ENUM: return "string"
+            case YamlType.CLASS: return self.name
 
     def to_kt(self):
         match self:
@@ -40,6 +46,8 @@ class YamlType(Enum):
             case YamlType.STRING: return 'String'
             case YamlType.BOOLEAN: return 'Boolean'
             case YamlType.DOUBLE: return 'Double'
+            case YamlType.ENUM: return "string"
+            case YamlType.CLASS: return self.name
 
     def to_sql(self):
         match self:
@@ -47,6 +55,7 @@ class YamlType(Enum):
             case YamlType.STRING: return 'STRING'
             case YamlType.BOOLEAN: return 'BOOLEAN'
             case YamlType.DOUBLE: return 'DOUBLE'
+            case YamlType.ENUM: return "TEXT"
 
 @dataclass()
 class MockYamlType:
@@ -70,34 +79,46 @@ class MockYamlType:
 class DocumentedName:
     def __init__(self, name: str, description: str):
         self.name = name
-        self.description = description.replace('\[', '[').replace('\]', ']')
+        self.description = description.replace('\\[', '[').replace('\\]', ']')
 
     def is_zbex(self):
         return self.description.startswith('[ZBEX]')
 
+    def __str__(self):
+        return f'name={self.name},description="{self.description}"'
+
 class DocumentedAttribute(DocumentedName):
-    def __init__(self, type: str, **kwargs):
+    def __init__(self, type: str = None, nullable: bool = True, **kwargs):
         super().__init__(**kwargs)
         try:
-            self.type = YamlType(type)
+            self.type = YamlType(type.lower())
         except ValueError:
-            self.type = type
+            self.type = YamlType.CLASS
+
+        self.nullable = nullable
+
+    def __str__(self):
+        return f"{super().__str__()},type={self.type},nullable={self.nullable}"
 
     @property
-    def nullable(self):
+    def is_nullable(self):
         if isinstance(self.type, YamlType):
             return self.name != 'mRID'
-        return False
+        return self.nullable
 
 
 class DocumentedAssociation(DocumentedAttribute):
     def __init__(self, yaml_spec: dict):
-        super().__init__(
-            name=yaml_spec["targetName"],
-            description=yaml_spec["targetDescription"],
-            type=yaml_spec["target"]
-        )
-        self.cardinality: Cardinality = Cardinality(yaml_spec["targetCardinality"])
+        try:
+            super().__init__(
+                name=yaml_spec["targetName"],
+                description=yaml_spec["targetDescription"],
+                type=yaml_spec["target"]
+            )
+            self.target_class: str = yaml_spec["target"]
+            self.cardinality: Cardinality = Cardinality(yaml_spec["targetCardinality"])
+        except Exception as e:
+            raise InvalidYamlError(f"Could not fully parse yaml_spec. Error was: {e}. yaml_spec was: {yaml_spec}")
 
 
 

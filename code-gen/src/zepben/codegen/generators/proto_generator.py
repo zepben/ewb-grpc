@@ -3,6 +3,7 @@
 #  This Source Code Form is subject to the terms of the Mozilla Public
 #  License, v. 2.0. If a copy of the MPL was not distributed with this
 #  file, You can obtain one at https://mozilla.org/MPL/2.0/.
+from zepben.codegen.generators import InvalidYamlError
 from zepben.codegen.generators.base_generator import BaseSpecGenerator
 from zepben.codegen.generators.comment_generator import CommentGenerator
 from zepben.codegen.model.definitions import DocumentedAttribute, DocumentedAssociation, YamlType
@@ -55,34 +56,37 @@ message {class_name} {{
         to_proto = lambda s: s.to_proto() if isinstance(s, YamlType) else s
         comment = self.multiline_comment(attribute.description.replace('   ', '\n')) + '\n'
 
-        if attribute.nullable:
-            return self.indent(
-                comment + f'oneof {attribute.name} ' + '{\n'
-                + f'  google.protobuf.NullValue {attribute.name}Null = {self.current_index};\n'
-                + f'  {attribute.type.to_proto()} {self.lowercase_first(attribute.name)}Set = {self.current_index};\n'
-                + '}'
-            )
-        else:
-            return self.indent(comment +
-                               f'{to_proto(attribute.type)} {self.lowercase_first(attribute.name)} = {self.current_index}')
+        try:
+            if attribute.is_nullable:
+                    return self.indent(
+                        comment + f'oneof {attribute.name} ' + '{\n'
+                        + f'  google.protobuf.NullValue {attribute.name}Null = {self.current_index};\n'
+                        + f'  {attribute.type.to_proto()} {self.lowercase_first(attribute.name)}Set = {self.current_index};\n'
+                        + '}'
+                    )
+            else:
+                return self.indent(comment +
+                                   f'{to_proto(attribute.type)} {self.lowercase_first(attribute.name)} = {self.current_index}')
+        except Exception as e:
+            raise InvalidYamlError(f"Could not generate attribute for {attribute}. Error was {e}", e)
 
     def generate_association(self, association: DocumentedAssociation):
         return self.indent(
             self.multiline_comment(association.description.replace('   ', '\n')) + '\n'
             + ('repeated ' if association.cardinality.is_list() else '')
-            + f'{self.spec_tree_parser.get(association.type)} {self.lowercase_first(association.name)} = {self.current_index};')
+            + f'{self.spec_tree_parser.get(association.target_class)} {self.lowercase_first(association.name)} = {self.current_index};')
 
     def generate_imports(self) -> set[str]:
         imports = set()
         for attribute in self.class_spec.attributes:
-            if not isinstance(attribute.type, YamlType):
+            if not isinstance(attribute.type, YamlType) and attribute.type != YamlType.ENUM:
                 if (_type := self.spec_tree_parser.get(attribute.type, separator='/')) is not None:
                     imports.add(f'zepben/protobuf/cim/{_type}.proto')
 
-            if attribute.nullable:
+            if attribute.is_nullable:
                 imports.add('google/protobuf/struct.proto')
         for association in self.class_spec.associations:
-            if (_type := self.spec_tree_parser.get(association.type, separator='/')) is not None:
+            if (_type := self.spec_tree_parser.get(association.target_class, separator='/')) is not None:
                 imports.add(f'zepben/protobuf/cim/{_type}.proto')
         return imports
 

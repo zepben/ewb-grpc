@@ -67,7 +67,7 @@ package {package}
             comment
             + ('@ZBEX\n' if attribute.is_zbex() else '')
             + f'var {attribute.name}: {to_kt(attribute.type)}'
-            + ('? = null' if attribute.nullable else ' = TODO()')
+            + ('? = null' if attribute.is_nullable else ' = TODO()')
         )
 
 
@@ -130,7 +130,7 @@ package {package}
         to_sql = lambda s: s.to_sql() if isinstance(s, YamlType) else s
         def generate_columns(attribute: DocumentedAttribute) -> str:
             snake_name = camel2snake(attribute.name)
-            return f'val {snake_name.upper()}: Column = Column(++queryIndex, "{snake_name}", Type.{to_sql(attribute.type)}, Nullable.{"NULL" if attribute.nullable else "NOT_NULL"})'
+            return f'val {snake_name.upper()}: Column = Column(++queryIndex, "{snake_name}", Type.{to_sql(attribute.type)}, Nullable.{"NULL" if attribute.is_nullable else "NOT_NULL"})'
         attributes = "\n".join(generate_columns(a) for a in self.class_spec.attributes or []) or ""
 
         body = ''
@@ -140,7 +140,7 @@ package {package}
         if self.class_spec.associations:
             body += '\n'
         for association in self.class_spec.associations:
-            body += f'// TODO: Table{self.class_spec.name.name}{association.type} relation table\n'
+            body += f'// TODO: Table{self.class_spec.name.name}{association.target_class} relation table\n'
 
         base_class_def = f' : Table{self.class_spec.base_class}' if self.class_spec.base_class else ''
         return (self.generate_class_doc() + '\n'
@@ -210,7 +210,7 @@ package {package}
         result = []
         for association in self.class_spec.associations:
             _from = self.class_spec.name.name
-            _to = association.type
+            _to = association.target_class
             result.append(removeindent(f"""
                 internal object {_from}To{_to}Resolver : ReferenceResolver<{_from}, {_to}> by KReferenceResolver( // FIXME: move
                     {_from}::class, {_to}::class, {_from}::add{_to}
@@ -224,7 +224,7 @@ package {package}
         result = []
         for association in self.class_spec.associations:
             _from = self.class_spec.name.name
-            _to = association.type
+            _to = association.target_class
             result.append(removeindent(f"""
                 @JvmStatic
                 fun {self.lowercase_first(_to)}({self.lowercase_first(_from)}: {_from}): BoundReferenceResolver<{_from}, {_to}> =

@@ -5,19 +5,26 @@
 #  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 import os.path
 from dataclasses import dataclass
+
 import git
 
 from zepben.codegen.generators.base_generator import BaseSpecGenerator, SDKSpecGenerator
 from zepben.codegen.generators.kotlin_generator import KotlinGenerator
 from zepben.codegen.generators.proto_generator import ProtoSpecGenerator
 
+<<<<<<< HEAD
 DEFAULT_GIT_PATH = os.path.expanduser('~/git')
 
+=======
+>>>>>>> 047bcda (Support enums and class references slightly more cleanly)
 @dataclass
 class Paths:
-    ewb_grpc: str = DEFAULT_GIT_PATH + '/ewb-grpc'
-    ewb_sdk_python: str = DEFAULT_GIT_PATH + '/ewb-sdk-python'
-    ewb_sdk_jvm: str = DEFAULT_GIT_PATH + '/ewb-sdk-jvm'
+
+    def __init__(self, git_dir: str, ewb_grpc = 'ewb-grpc', ewb_sdk_python = 'ewb-sdk-python', ewb_sdk_jvm = 'ewb-sdk-jvm'):
+        self.git_dir = git_dir
+        self.ewb_grpc: str = self.git_dir + os.path.sep + ewb_grpc
+        self.ewb_sdk_python: str = self.git_dir + os.path.sep + ewb_sdk_python
+        self.ewb_sdk_jvm: str = self.git_dir + os.path.sep + ewb_sdk_jvm
 
     def base_path(self, generator: BaseSpecGenerator) -> str:
         if isinstance(generator, ProtoSpecGenerator):
@@ -38,16 +45,17 @@ class Dobby:
     Dobby is dumb, and doesnt try and be smart. Dobby doesnt guess. Dobby does exactly what is asked.
     Be careful with EXACTLY WHAT YOU ASK.
     """
-    def __init__(self, paths):
+    def __init__(self, grpc_root: str, paths):
         self.paths = paths
+        self.grpc_root = grpc_root
 
     def generate(self, new_yaml_files: list[str]):
         def path_string_to_list(_path):
             return [i for i in _path.split('/') if i]
 
         for file_path in new_yaml_files:
-            proto = ProtoSpecGenerator(file_path)
-            kotlin = KotlinGenerator(file_path)
+            proto = ProtoSpecGenerator(file_path, self.grpc_root)
+            kotlin = KotlinGenerator(file_path, self.grpc_root)
             self.write(proto.generate(), *self.paths.apply_base(proto, (f'/proto/zepben/protobuf/cim/{"/".join(proto.class_path)}', f'{proto.class_spec.name.name}.proto')))
             self.write(kotlin.generate_class(), *self.paths.apply_base(kotlin, kotlin.class_dir))
             self.write(kotlin.generate_table(), *self.paths.apply_base(kotlin, kotlin.table_dir))
@@ -105,11 +113,12 @@ class Dobby:
         if not data:
             print(f'empty data: {file_path}')
             return
+        path = f"{self.paths.base_path(spec_generator)}/{file_path}"
         try:
-            with open(f'{self.paths.base_path(spec_generator)}/{file_path}', 'a') as f:
+            with open(path, 'a') as f:
                 f.write(data)
         except FileNotFoundError:
-            print(f'File doesnt exist: {file_path}\n  it should... is your repo directory config right?')
+            print(f'File doesnt exist: {path}\n  it should... is your repo directory config right?')
 
     def detect_grpc_yaml_changes(self):
         git_repo = git.Repo(self.paths.ewb_grpc)
@@ -123,7 +132,6 @@ class Dobby:
 
 
 if __name__ == "__main__":
-    writer = Dobby(Paths())
-    #writer.generate(['extensions/IEC61968/Common/ContactDetails.yaml'])
-    print(writer.detect_grpc_yaml_changes())
-
+    writer = Dobby(grpc_root="/home/krut/work/git/evolve-grpc/", paths=Paths("/home/krut/work/git/", ewb_grpc='evolve-grpc', ewb_sdk_python='cimbend', ewb_sdk_jvm='evolve-sdk-jvm'))
+    # writer.generate(['extensions/IEC61968/Common/ContactDetails.yaml'])
+    # print(writer.detect_grpc_yaml_changes())
