@@ -33,7 +33,7 @@ class YamlType(Enum):
     ENUM = "enum"
     CLASS = "class"
 
-    def to_proto(self, class_name: str):
+    def to_proto(self, class_name: str = None) -> Optional[str]:
         match self:
             case YamlType.INTEGER: return 'int32'
             case YamlType.STRING: return 'string'
@@ -43,7 +43,7 @@ class YamlType(Enum):
             case YamlType.ENUM: return 'string'
             case YamlType.CLASS: return class_name
 
-    def to_kt(self, class_name: str):
+    def to_kt(self, class_name: str = None) -> Optional[str]:
         match self:
             case YamlType.INTEGER: return 'Int'
             case YamlType.STRING: return 'String'
@@ -53,7 +53,7 @@ class YamlType(Enum):
             case YamlType.ENUM: return 'string'
             case YamlType.CLASS: return class_name
 
-    def to_sql(self, class_name: str):
+    def to_sql(self, class_name: str = None) -> Optional[str]:
         match self:
             case YamlType.INTEGER: return 'INTEGER'
             case YamlType.STRING: return 'TEXT'
