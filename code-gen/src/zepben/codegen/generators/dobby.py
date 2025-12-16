@@ -131,3 +131,17 @@ if __name__ == "__main__":
     writer = Dobby(grpc_root="/home/krut/work/git/evolve-grpc/", paths=Paths("/home/krut/work/git/", ewb_grpc='evolve-grpc', ewb_sdk_python='cimbend', ewb_sdk_jvm='evolve-sdk-jvm'))
     # writer.generate(['extensions/IEC61968/Common/ContactDetails.yaml'])
     # print(writer.detect_grpc_yaml_changes())
+    writer.generate([
+        'IEC61968/AssetInfo/WireInsulationKind.yaml',
+        'IEC61968/AssetInfo/WireInfo.yaml',
+        'IEC61968/Customers/PricingStructure.yaml',
+        'IEC61970/Base/Core/Feeder.yaml',
+        'IEC61970/Base/Wires/ACLineSegment.yaml',
+        'IEC61970/Base/Wires/ShuntCompensator.yaml',
+        'extensions/IEC61970/Base/Feeder/LvFeeder.yaml',
+        'IEC61968/AssetInfo/WireInsulationKind.yaml',
+        'IEC61970/Base/Wires/ACLineSegmentPhase.yaml',
+        'extensions/IEC61970/Base/Core/HvCustomer.yaml',
+        'extensions/IEC61970/Base/Core/LvSubstation.yaml',
+
+    ])

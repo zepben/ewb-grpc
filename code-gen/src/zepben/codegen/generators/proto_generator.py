@@ -74,7 +74,11 @@ message {class_name} {{
         return self.indent(
             self.multiline_comment(association.description.replace('   ', '\n')) + '\n'
             + ('repeated ' if association.cardinality.is_list() else '')
-            + f'{self.spec_tree_parser.get(association.target_class)} {self.lowercase_first(association.name)} = {self.current_index};')
+            + f'string {self.with_mrids(association)} = {self.current_index};')
+
+    def with_mrids(self, association: DocumentedAssociation) -> str:
+        name = association.name.strip("s") + "MRID"
+        return self.lowercase_first(name + "s" if association.cardinality.is_list() else name)
 
     def generate_imports(self) -> set[str]:
         imports = set()

@@ -3,6 +3,8 @@
 #  This Source Code Form is subject to the terms of the Mozilla Public
 #  License, v. 2.0. If a copy of the MPL was not distributed with this
 #  file, You can obtain one at https://mozilla.org/MPL/2.0/.
+from typing import Tuple
+
 from zepben.codegen.generators.base_generator import SDKSpecGenerator
 from zepben.codegen.generators.comment_generator import CommentGenerator
 from zepben.codegen.model.definitions import DocumentedAttribute, DocumentedAssociation, YamlType
@@ -111,8 +113,8 @@ package {package}
         )
 
     @property
-    def table_dir(self):
-        return f'/src/main/kotlin/com/zepben/ewb/database/sqlite/cim/tables/{"/".join(self.package_dir_lowered)}', f'{self.class_spec.name.name}.kt'
+    def table_dir(self) -> Tuple[str, str]:
+        return f'/src/main/kotlin/com/zepben/ewb/database/sqlite/cim/tables/{"/".join(self.package_dir_lowered)}', f'Table{self.class_name if not self.class_name.endswith('s') else f"{self.class_name}s"}.kt'
 
     def generate_table(self) -> str:
         imports = (
