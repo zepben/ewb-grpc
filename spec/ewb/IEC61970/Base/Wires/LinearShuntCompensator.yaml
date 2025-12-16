@@ -2,16 +2,20 @@ name: LinearShuntCompensator
 description: A linear shunt compensator has banks or sections with equal admittance values.
 attributes:
 - name: b0PerSection
-  type: Susceptance
-  description: Zero sequence shunt (charging) susceptance per section.
+  type: Double
+  nullable: true
+  description: Zero sequence shunt (charging) susceptance in ohms per section.
 - name: bPerSection
-  type: Susceptance
-  description: Positive sequence shunt (charging) susceptance per section.
+  type: Double
+  nullable: true
+  description: Positive sequence shunt (charging) susceptance in ohms per section.
 - name: g0PerSection
-  type: Conductance
-  description: Zero sequence shunt (charging) conductance per section.
+  type: Double
+  nullable: true
+  description: Zero sequence shunt (charging) conductance in siemens per section.
 - name: gPerSection
-  type: Conductance
-  description: Positive sequence shunt (charging) conductance per section.
+  type: Double
+  nullable: true
+  description: Positive sequence shunt (charging) conductance in siemens per section.
 ancestors:
 - ShuntCompensator

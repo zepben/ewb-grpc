@@ -18,44 +18,55 @@ description: "Specifies a set of equipment that works together to control a powe
 attributes:
 - name: discrete
   type: Boolean
+  nullable: true
   description: The regulation is performed in a discrete mode. This applies to equipment with discrete controls, e.g. tap
     changers and shunt compensators.
 - name: mode
   type: RegulatingControlModeKind
+  nullable: false
   description: The regulating control mode presently available.  This specification allows for determining the kind of regulation
     without need for obtaining the units from a schedule.
 - name: monitoredPhase
   type: PhaseCode
+  nullable: false
   description: Phase voltage controlling this regulator, measured at regulator location.
 - name: targetDeadband
   type: Float
+  nullable: true
   description: |-
     This is a deadband used with discrete control to avoid excessive update of controls like tap changers and shunt compensator banks while regulating.  The units of those appropriate for the mode. The attribute shall be a positive value or zero. If RegulatingControl.discrete is set to "false", the RegulatingControl.targetDeadband is to be ignored.
     Note that for instance, if the targetValue is 100 kV and the targetDeadband is 2 kV the range is from 99 to 101 kV.
 - name: targetValue
   type: Float
+  nullable: true
   description: The target value specified for case input.   This value can be used for the target value without the use of
     schedules. The value has the units appropriate to the mode attribute.
 - name: enabled
   type: Boolean
+  nullable: true
   description: The flag tells if regulation is enabled.
 - name: maxAllowedTargetValue
   type: Float
+  nullable: true
   description: Maximum allowed target value (RegulatingControl.targetValue).
 - name: minAllowedTargetValue
   type: Float
+  nullable: true
   description: Minimum allowed target value (RegulatingControl.targetValue).
 - name: ratedCurrent
-  type: CurrentFlow
+  type: Double
+  nullable: true
   description: \[ZBEX\] The rated current of associated CT in amps for this RegulatingControl. Forms the base used to convert Line
     Drop Compensation settings from ohms to voltage.
 - name: ctPrimary
-  type: CurrentFlow
+  type: Double
+  nullable: true
   description: \[ZBEX\] Current rating of the CT, expressed in terms of the current (in Amperes) that flows in the Primary where the 'Primary' is the conductor 
     being monitored. It ensures proper operation of the regulating equipment by providing the necessary current references for control actions. 
     An important side effect of this current value is that it also defines the current value at which the full LDC R and X voltages are applied by the controller, where enabled.
 - name: minTargetDeadband
   type: Float
+  nullable: true
   description: \[ZBEX\] This is the minimum allowable range for discrete control in regulating devices, used to prevent frequent control actions and promote 
     operational stability. This attribute sets a baseline range within which no adjustments are made, applicable across various devices like voltage regulators, 
     shunt compensators, or battery units.

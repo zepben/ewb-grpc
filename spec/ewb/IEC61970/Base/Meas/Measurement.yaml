@@ -15,11 +15,13 @@ description: "A Measurement represents any measured, calculated or non-measured 
 attributes:
 - name: phases
   type: PhaseCode
+  nullable: false
   description: |-
     Indicates to which phases the measurement applies and avoids the need to use 'measurementType' to also encode phase information (which would explode the types). The phase information in Measurement, along with 'measurementType' and 'phases' uniquely defines a Measurement for a device, based on normal network phase. Their meaning will not change when the computed energizing phasing is changed due to jumpers or other reasons.
     If the attribute is missing three phases (ABC) shall be assumed.
 - name: unitSymbol
   type: UnitSymbol
+  nullable: false
   description: The unit of measure of the measured quantity.
 ancestors:
 - IdentifiedObject

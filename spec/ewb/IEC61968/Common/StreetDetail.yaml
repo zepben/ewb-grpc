@@ -3,29 +3,37 @@ description: Street details, in the context of address.
 attributes:
 - name: buildingName
   type: String
+  nullable: true
   description: (if applicable) In certain cases the physical location of the place of interest does not have a direct point
     of entry from the street, but may be located inside a larger structure such as a building, complex, office block, apartment,
     etc.
 - name: floorIdentification
   type: String
+  nullable: true
   description: The identification by name or number, expressed as text, of the floor in the building as part of this address.
 - name: suiteNumber
   type: String
+  nullable: true
   description: Number of the apartment or suite.
 - name: name
   type: String
+  nullable: true
   description: Name of the street.
 - name: number
   type: String
+  nullable: true
   description: Designator of the specific location on the street.
 - name: type
   type: String
+  nullable: true
   description: 'Type of street. Examples include: street, circle, boulevard, avenue, road, drive, etc.'
 - name: displayAddress
   type: String
+  nullable: true
   description: The address as it should be displayed to a user.
 - name: buildingNumber
   type: String
+  nullable: true
   description: \[ZBEX\] The number of the building.
 associations:
 - source: StreetDetail

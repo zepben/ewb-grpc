@@ -2,29 +2,34 @@ name: EnergyConsumerPhase
 description: A single phase of an energy consumer.
 attributes:
 - name: p
-  type: ActivePower
+  type: Integer
+  nullable: true
   description: |-
-    Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Active power of the load in watts. Load sign convention is used, i.e. positive sign means flow out from a node.
     For voltage dependent loads the value is at rated voltage.
     Starting value for a steady state solution.
 - name: q
-  type: ReactivePower
+  type: Double
+  nullable: true
   description: |-
-    Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Reactive power of the load in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
     For voltage dependent loads the value is at rated voltage.
     Starting value for a steady state solution.
 - name: qfixed
-  type: ReactivePower
-  description: Reactive power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means
+  type: Double
+  nullable: true
+  description: Reactive power of the load in volt-amperes reactive that is a fixed quantity. Load sign convention is used, i.e. positive sign means
     flow out from a node.
 - name: phase
   type: SinglePhaseKind
+  nullable: false
   description: Phase of this energy consumer component.   If the energy consumer is wye connected, the connection is from
     the indicated phase to the central ground or neutral point.  If the energy consumer is delta connected, the phase indicates
     an energy consumer connected from the indicated phase to the next logical non-neutral phase.
 - name: pfixed
-  type: ActivePower
-  description: Active power of the load that is a fixed quantity. Load sign convention is used, i.e. positive sign means flow
+  type: Integer
+  nullable: true
+  description: Active power of the load in watts that is a fixed quantity. Load sign convention is used, i.e. positive sign means flow
     out from a node.
 ancestors:
 - PowerSystemResource

@@ -12,10 +12,12 @@ class YamlFileSystem(exportLocation: File) : Exporter(exportLocation) {
 
     private val yamlEncoder: Yaml = Yaml(
         configuration = YamlConfiguration(
+            strictMode = false,
             encodeDefaults = false,
             breakScalarsAt = 120,
             singleLineStringStyle = SingleLineStringStyle.PlainExceptAmbiguous,
-            multiLineStringStyle = MultiLineStringStyle.Literal
+            multiLineStringStyle = MultiLineStringStyle.Literal,
+
         )
     )
 

@@ -3,38 +3,50 @@ description: Properties of current transformer asset.
 attributes:
 - name: accuracyClass
   type: String
+  nullable: true
   description: CT accuracy classification.
 - name: accuracyLimit
-  type: CurrentFlow
+  type: Double
+  nullable: true
   description: Accuracy limit.
 - name: coreCount
   type: Integer
+  nullable: true
   description: Number of cores.
 - name: ctClass
   type: String
+  nullable: true
 - name: kneePointVoltage
-  type: Voltage
-  description: Maximum voltage across the secondary terminals where the CT still displays linear characteristicts.
+  type: Double
+  nullable: true
+  description: Maximum voltage (in volts) across the secondary terminals where the CT still displays linear characteristicts.
 - name: maxRatio
   type: Ratio
+  nullable: true
   description: Maximum ratio between the primary and secondary current.
 - name: nominalRatio
   type: Ratio
+  nullable: true
   description: Nominal ratio between the primary and secondary current; i.e. 100:5.
 - name: primaryRatio
   type: Ratio
+  nullable: true
   description: Ratio for the primary winding tap changer.
 - name: ratedCurrent
-  type: CurrentFlow
-  description: Rated current on the primary side.
+  type: Double
+  nullable: true
+  description: Rated current on the primary side in amperes.
 - name: secondaryFlsRating
-  type: CurrentFlow
+  type: Double
+  nullable: true
   description: Full load secondary (FLS) rating for secondary winding.
 - name: secondaryRatio
   type: Ratio
+  nullable: true
   description: Ratio for the secondary winding tap changer.
 - name: usage
   type: String
+  nullable: true
   description: 'Usage: eg. metering, protection, etc.'
 ancestors:
 - AssetInfo

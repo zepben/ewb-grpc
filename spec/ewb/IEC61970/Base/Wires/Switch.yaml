@@ -5,13 +5,16 @@ description: A generic device designed to close, or open, or both, one or more e
 attributes:
 - name: normalOpen
   type: Boolean
+  nullable: false
   description: The attribute is used in cases when no Measurement for the status value is present. If the Switch has a status
     measurement the Discrete.normalValue is expected to match with the Switch.normalOpen.
 - name: open
   type: Boolean
+  nullable: false
   description: The attribute tells if the switch is considered open when used as input to topology processing.
 - name: ratedCurrent
-  type: CurrentFlow
+  type: Double
+  nullable: true
   description: The maximum continuous current carrying capacity in amps governed by the device material and construction.
     The attribute shall be a positive value.
 ancestors:

@@ -3,13 +3,16 @@ description: Combination of conducting material with consistent electrical chara
   used to carry current between points in the power system.
 attributes:
 - name: length
-  type: Length
-  description: Segment length for calculating line section capabilities.
+  type: Double
+  nullable: true
+  description: Segment length in metres for calculating line section capabilities.
 - name: designTemperature
   type: Temperature
+  nullable: true
   description: \[ZBEX\] The temperature in degrees Celsius for the network design of this conductor. Values are limited to integers.
 - name: designRating
-  type: CurrentFlow
+  type: Double
+  nullable: true
   description: \[ZBEX\] The current rating in Amperes at the specified design temperature that can be used without the conductor breaching physical network design limits.
 ancestors:
 - ConductingEquipment

@@ -17,309 +17,450 @@ description: "The derived units defined for usage in the CIM. In some cases, the
   \ those sources into SI-based units. \nThe integer values are used for harmonization with IEC 61850."
 attributes:
 - name: none
+  type: enum
   description: Dimension less quantity, e.g. count, per unit, etc.
 - name: V
+  type: enum
   description: Electric potential in volts (W/A).
 - name: W
+  type: enum
   description: Real power in watts (J/s). Electrical power may have real and reactive components. The real portion of electrical
     power (I&#178;R or VIcos(phi)), is expressed in Watts. See also apparent power and reactive power.
 - name: VA
+  type: enum
   description: Apparent power in volt amperes. See also real power and reactive power.
 - name: VAr
+  type: enum
   description: |-
     Reactive power in volt amperes reactive. The “reactive” or “imaginary” component of electrical power (VIsin(phi)). (See also real power and apparent power).
     Note: Different meter designs use different methods to arrive at their results. Some meters may compute reactive power as an arithmetic value, while others compute the value vectorially. The data consumer should determine the method in use and the suitability of the measurement for the intended purpose.
 - name: Wh
+  type: enum
   description: Real energy in watt hours.
 - name: VAh
+  type: enum
   description: Apparent energy in volt ampere hours.
 - name: VArh
+  type: enum
   description: Reactive energy in volt ampere reactive hours.
 - name: m
+  type: enum
   description: Length in metres.
 - name: kg
+  type: enum
   description: 'Mass in kilograms.  Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.'
 - name: s
+  type: enum
   description: Time in seconds.
 - name: A
+  type: enum
   description: Current in amperes.
 - name: K
+  type: enum
   description: Temperature in kelvins.
 - name: mol
+  type: enum
   description: Amount of substance in moles.
 - name: cd
+  type: enum
   description: Luminous intensity in candelas.
 - name: deg
+  type: enum
   description: Plane angle in degrees.
 - name: rad
+  type: enum
   description: Plane angle in radians (m/m).
 - name: sr
+  type: enum
   description: Solid angle in steradians (m2/m2).
 - name: Gy
+  type: enum
   description: Absorbed dose in grays (J/kg).
 - name: Bq
+  type: enum
   description: Radioactivity in becquerels (1/s).
 - name: degC
+  type: enum
   description: |-
     Relative temperature in degrees Celsius.
     In the SI unit system the symbol is °C. Electric charge is measured in coulomb that has the unit symbol C. To distinguish degree Celsius from coulomb the symbol used in the UML is degC. The reason for not using °C is that the special character ° is difficult to manage in software.
 - name: Sv
+  type: enum
   description: Dose equivalent in sieverts (J/kg).
 - name: F
+  type: enum
   description: Electric capacitance in farads (C/V).
 - name: C
+  type: enum
   description: Electric charge in coulombs (A·s).
 - name: S
+  type: enum
   description: Conductance in siemens.
 - name: H
+  type: enum
   description: Electric inductance in henrys (Wb/A).
 - name: ohm
+  type: enum
   description: Electric resistance in ohms (V/A).
 - name: J
+  type: enum
   description: Energy in joules (N·m = C·V = W·s).
 - name: N
+  type: enum
   description: Force in newtons (kg·m/s²).
 - name: Hz
+  type: enum
   description: Frequency in hertz (1/s).
 - name: lx
+  type: enum
   description: Illuminance in lux (lm/m²).
 - name: lm
+  type: enum
   description: Luminous flux in lumens (cd·sr).
 - name: Wb
+  type: enum
   description: Magnetic flux in webers (V·s).
 - name: T
+  type: enum
   description: Magnetic flux density in teslas (Wb/m2).
 - name: Pa
+  type: enum
   description: 'Pressure in pascals (N/m²). Note: the absolute or relative measurement of pressure is implied with this entry.
     See below for more explicit forms.'
 - name: m2
+  type: enum
   description: Area in square metres (m²).
 - name: m3
+  type: enum
   description: Volume in cubic metres (m³).
 - name: mPers
+  type: enum
   description: Velocity in metres per second (m/s).
 - name: mPers2
+  type: enum
   description: Acceleration in metres per second squared (m/s²).
 - name: m3Pers
+  type: enum
   description: Volumetric flow rate in cubic metres per second (m³/s).
 - name: mPerm3
+  type: enum
   description: Fuel efficiency in metres per cubic metres (m/m³).
 - name: kgm
+  type: enum
   description: 'Moment of mass in kilogram metres (kg·m) (first moment of mass). Note: multiplier “k” is included in this
     unit symbol for compatibility with IEC 61850-7-3.'
 - name: kgPerm3
+  type: enum
   description: 'Density in kilogram/cubic metres (kg/m³). Note: multiplier “k” is included in this unit symbol for compatibility
     with IEC 61850-7-3.'
 - name: m2Pers
+  type: enum
   description: Viscosity in square metres / second (m²/s).
 - name: WPermK
+  type: enum
   description: Thermal conductivity in watt/metres kelvin.
 - name: JPerK
+  type: enum
   description: Heat capacity in joules/kelvin.
 - name: ppm
+  type: enum
   description: Concentration in parts per million.
 - name: rotPers
+  type: enum
   description: Rotations per second (1/s). See also Hz (1/s).
 - name: radPers
+  type: enum
   description: Angular velocity in radians per second (rad/s).
 - name: WPerm2
+  type: enum
   description: Heat flux density, irradiance, watts per square metre.
 - name: JPerm2
+  type: enum
   description: Insulation energy density, joules per square metre or watt second per square metre.
 - name: SPerm
+  type: enum
   description: Conductance per length (F/m).
 - name: KPers
+  type: enum
   description: Temperature change rate in kelvins per second.
 - name: PaPers
+  type: enum
   description: Pressure change rate in pascals per second.
 - name: JPerkgK
+  type: enum
   description: Specific heat capacity, specific entropy, joules per kilogram Kelvin.
 - name: cosPhi
+  type: enum
   description: |-
     Power factor, dimensionless.
     Note 1: This definition of power factor only holds for balanced systems. See the alternative definition under code 153.
     Note 2 : Beware of differing sign conventions in use between the IEC and EEI. It is assumed that the data consumer understands the type of meter in use and the sign convention in use by the utility.
 - name: Vs
+  type: enum
   description: Volt seconds (Ws/A).
 - name: V2
+  type: enum
   description: Volt squared (W²/A²).
 - name: As
+  type: enum
   description: Ampere seconds (A·s).
 - name: A2
+  type: enum
   description: Amperes squared (A²).
 - name: A2s
+  type: enum
   description: Ampere squared time in square amperes (A²s).
 - name: VPerHz
+  type: enum
   description: Magnetic flux in volt per hertz.
 - name: HzPers
+  type: enum
   description: Rate of change of frequency in hertz per second.
 - name: character
+  type: enum
   description: Number of characters.
 - name: charPers
+  type: enum
   description: Data rate (baud) in characters per second.
 - name: kgm2
+  type: enum
   description: 'Moment of mass in kilogram square metres (kg·m²) (Second moment of mass, commonly called the moment of inertia).
     Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.'
 - name: dB
+  type: enum
   description: 'Sound pressure level in decibels. Note:  multiplier “d” is included in this unit symbol for compatibility
     with IEC 61850-7-3.'
 - name: WPers
+  type: enum
   description: Ramp rate in watts per second.
 - name: lPers
+  type: enum
   description: Volumetric flow rate in litres per second.
 - name: dBm
+  type: enum
   description: 'Power level (logarithmic ratio of signal strength , Bel-mW), normalized to 1mW. Note:  multiplier “d” is included
     in this unit symbol for compatibility with IEC 61850-7-3.'
 - name: h
+  type: enum
   description: Time in hours, hour = 60 min = 3600 s.
 - name: min
+  type: enum
   description: Time in minutes, minute  = 60 s.
 - name: Q
+  type: enum
   description: Quantity power, Q.
 - name: Qh
+  type: enum
   description: Quantity energy, Qh.
 - name: ohmm
+  type: enum
   description: Resistivity, ohm metres, (rho).
 - name: APerm
+  type: enum
   description: A/m, magnetic field strength, amperes per metre.
 - name: V2h
+  type: enum
   description: Volt-squared hour, volt-squared-hours.
 - name: A2h
+  type: enum
   description: Ampere-squared hour, ampere-squared hour.
 - name: Ah
+  type: enum
   description: Ampere-hours, ampere-hours.
 - name: count
+  type: enum
   description: Amount of substance, Counter value.
 - name: ft3
+  type: enum
   description: Volume, cubic feet.
 - name: m3Perh
+  type: enum
   description: Volumetric flow rate, cubic metres per hour.
 - name: gal
+  type: enum
   description: Volume in gallons, US gallon (1 gal = 231 in3 = 128 fl ounce).
 - name: Btu
+  type: enum
   description: Energy, British Thermal Units.
 - name: l
+  type: enum
   description: Volume in litres, litre = dm3 = m3/1000.
 - name: lPerh
+  type: enum
   description: Volumetric flow rate, litres per hour.
 - name: lPerl
+  type: enum
   description: 'Concentration, The ratio of the volume of a solute divided by the volume of  the solution. Note: Users may
     need use a prefix such a ‘µ’ to express a quantity such as ‘µL/L’.'
 - name: gPerg
+  type: enum
   description: 'Concentration, The ratio of the mass of a solute divided by the mass of  the solution. Note: Users may need
     use a prefix such a ‘µ’ to express a quantity such as ‘µg/g’.'
 - name: molPerm3
+  type: enum
   description: Concentration, The amount of substance concentration, (c), the amount of solvent in moles divided by the volume
     of solution in m³.
 - name: molPermol
+  type: enum
   description: Concentration, Molar fraction, the ratio of the molar amount of a solute divided by the molar amount of the
     solution.
 - name: molPerkg
+  type: enum
   description: Concentration, Molality, the amount of solute in moles and the amount of solvent in kilograms.
 - name: sPers
+  type: enum
   description: 'Time, Ratio of time.  Note: Users may need to supply a prefix such as ‘&#181;’ to show rates such as ‘&#181;s/s’.'
 - name: HzPerHz
+  type: enum
   description: 'Frequency, rate of frequency change.   Note: Users may need to supply a prefix such as ‘m’ to show rates such
     as ‘mHz/Hz’.'
 - name: VPerV
+  type: enum
   description: 'Voltage, ratio of voltages.  Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mV/V’.'
 - name: APerA
+  type: enum
   description: 'Current, ratio of amperages.   Note: Users may need to supply a prefix such as ‘m’ to show rates such as ‘mA/A’.'
 - name: VPerVA
+  type: enum
   description: 'Power factor, PF, the ratio of the active power to the apparent power.  Note: The sign convention used for
     power factor will differ between IEC meters and EEI (ANSI) meters. It is assumed that the data consumers understand the
     type of meter being used and agree on the sign convention in use at any given utility.'
 - name: rev
+  type: enum
   description: Amount of rotation, revolutions.
 - name: kat
+  type: enum
   description: Catalytic activity, katal = mol / s.
 - name: JPerkg
+  type: enum
   description: Specific energy, Joules / kg.
 - name: m3Uncompensated
+  type: enum
   description: Volume, cubic metres, with the value uncompensated for weather effects.
 - name: m3Compensated
+  type: enum
   description: Volume, cubic metres, with the value compensated for weather effects.
 - name: WPerW
+  type: enum
   description: 'Signal Strength, ratio of power.   Note: Users may need to supply a prefix such as ‘m’ to show rates such
     as ‘mW/W’.'
 - name: therm
+  type: enum
   description: Energy, therms.
 - name: onePerm
+  type: enum
   description: Wavenumber, reciprocal metres,  (1/m).
 - name: m3Perkg
+  type: enum
   description: Specific volume, cubic metres per kilogram, v.
 - name: Pas
+  type: enum
   description: Dynamic viscosity, pascal seconds.
 - name: Nm
+  type: enum
   description: Moment of force, newton metres.
 - name: NPerm
+  type: enum
   description: Surface tension, newton per metre.
 - name: radPers2
+  type: enum
   description: Angular acceleration, radians per second squared.
 - name: JPerm3
+  type: enum
   description: Energy density, joules per cubic metre.
 - name: VPerm
+  type: enum
   description: Electric field strength, volts per metre.
 - name: CPerm3
+  type: enum
   description: Electric charge density, coulombs per cubic metre.
 - name: CPerm2
+  type: enum
   description: Surface charge density, coulombs per square metre.
 - name: FPerm
+  type: enum
   description: Permittivity, farads per metre.
 - name: HPerm
+  type: enum
   description: Permeability, henrys per metre.
 - name: JPermol
+  type: enum
   description: Molar energy, joules per mole.
 - name: JPermolK
+  type: enum
   description: Molar entropy, molar heat capacity, joules per mole kelvin.
 - name: CPerkg
+  type: enum
   description: Exposure (x rays), coulombs per kilogram.
 - name: GyPers
+  type: enum
   description: Absorbed dose rate, grays per second.
 - name: WPersr
+  type: enum
   description: Radiant intensity, watts per steradian.
 - name: WPerm2sr
+  type: enum
   description: Radiance, watts per square metre steradian.
 - name: katPerm3
+  type: enum
   description: Catalytic activity concentration, katals per cubic metre.
 - name: d
+  type: enum
   description: Time in days, day = 24 h = 86400 s.
 - name: anglemin
+  type: enum
   description: Plane angle, minutes.
 - name: anglesec
+  type: enum
   description: Plane angle, seconds.
 - name: ha
+  type: enum
   description: Area, hectares.
 - name: tonne
+  type: enum
   description: Mass in tons, “tonne” or “metric  ton” (1000 kg = 1 Mg).
 - name: bar
+  type: enum
   description: Pressure in bars, (1 bar = 100 kPa).
 - name: mmHg
+  type: enum
   description: Pressure, millimetres of mercury (1 mmHg is approximately 133.3 Pa).
 - name: M
+  type: enum
   description: Length, nautical miles (1 M = 1852 m).
 - name: kn
+  type: enum
   description: Speed, knots (1 kn = 1852/3600) m/s.
 - name: Mx
+  type: enum
   description: Magnetic flux, maxwells (1 Mx = 10-8 Wb).
 - name: G
+  type: enum
   description: Magnetic flux density, gausses (1 G = 10-4 T).
 - name: Oe
+  type: enum
   description: Magnetic field in oersteds, (1 Oe = (103/4p) A/m).
 - name: Vh
+  type: enum
   description: Volt-hour, Volt hours.
 - name: WPerA
+  type: enum
   description: Active power per current flow, watts per Ampere.
 - name: onePerHz
+  type: enum
   description: Reciprocal of frequency (1/Hz).
 - name: VPerVAr
+  type: enum
   description: 'Power factor, PF, the ratio of the active power to the apparent power. Note: The sign convention used for
     power factor will differ between IEC meters and EEI (ANSI) meters. It is assumed that the data consumers understand the
     type of meter being used and agree on the sign convention in use at any given utility.'
 - name: ohmPerm
+  type: enum
   description: Electric resistance per length in ohms per metre ((V/A)/m).
 - name: kgPerJ
+  type: enum
   description: 'Weight per energy in kilograms per joule (kg/J). Note: multiplier “k” is included in this unit symbol for
     compatibility with IEC 61850-7-3.'
 - name: JPers
+  type: enum
   description: Energy rate in joules per second (J/s).

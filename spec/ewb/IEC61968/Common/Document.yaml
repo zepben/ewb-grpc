@@ -4,23 +4,29 @@ description: Parent class for different groupings of information collected and m
 attributes:
 - name: title
   type: String
+  nullable: true
   description: Document title.
 - name: createdDateTime
   type: DateTime
+  nullable: true
   description: Date and time that this document was created.
 - name: authorName
   type: String
+  nullable: true
   description: Name of the author of this document.
 - name: type
   type: String
+  nullable: true
   description: Utility-specific classification of this document, according to its corporate standards, practices, and existing
     IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
 - name: status
-  type: Status
+  type: String
+  nullable: true
   description: Status of subject matter (e.g., Agreement, Work) this document represents. For status of the document itself,
     use 'docStatus' attribute.
 - name: comment
   type: String
+  nullable: true
   description: Free text comment.
 ancestors:
 - IdentifiedObject

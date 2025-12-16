@@ -4,14 +4,20 @@ description: |-
   determines the reference voltage from the Voltage transformers associated with its parent ProtectionEquipment.
 attributes:
 - name: UNKNOWN
+  type: enum
   description: \[ZBEX\] Type is unknown.
 - name: SELF_PHASE_VOLTAGE
+  type: enum
   description: \[ZBEX\] Uses the voltage of the same phase as the current element (e.g., Va for an Ia element).
 - name: QUADRATURE_VOLTAGE
+  type: enum
   description: \[ZBEX\] Uses a quadrature voltage (e.g., Vbc for an Ia element, specific convention applies).
 - name: ZERO_SEQUENCE_VOLTAGE
+  type: enum
   description: \[ZBEX\] Uses the zero sequence voltage (Vo), derived from three phase voltages.
 - name: NEGATIVE_SEQUENCE_VOLTAGE
+  type: enum
   description: \[ZBEX\] Uses the negative sequence voltage (V2), derived from three phase voltages.
 - name: POSITIVE_SEQUENCE_VOLTAGE
+  type: enum
   description: \[ZBEX\] Uses the positive sequence voltage (V1), derived from three phase voltages.

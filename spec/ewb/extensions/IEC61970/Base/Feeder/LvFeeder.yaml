@@ -4,6 +4,11 @@ ancestors:
 - EquipmentContainer
 associations:
 - source: LvFeeder
+  target: Terminal
+  targetCardinality: 0..1
+  targetName: NormalHeadTerminal
+  targetDescription: \[ZBEX\] The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.
+- source: LvFeeder
   target: Feeder
   sourceCardinality: 0..*
   sourceName: NormalEnergizedLvFeeders
@@ -27,8 +32,3 @@ associations:
   targetCardinality: 0..*
   targetName: CurrentEquipment
   targetDescription: \[ZBEX\] Contained equipment using the current state of the network.
-- source: LvFeeder
-  target: Terminal
-  targetCardinality: 0..1
-  targetName: NormalHeadTerminal
-  targetDescription: \[ZBEX\] The normal head terminal of this LV feeder, typically the LV terminal of a distribution substation.

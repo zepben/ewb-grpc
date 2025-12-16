@@ -3,18 +3,24 @@ description: Properties of potential transformer asset.
 attributes:
 - name: accuracyClass
   type: String
+  nullable: true
 - name: nominalRatio
   type: Ratio
+  nullable: true
 - name: primaryRatio
   type: Float
+  nullable: true
   description: Ratio for the primary winding tap changer (numerator).
 - name: ptClass
   type: String
+  nullable: true
 - name: ratedVoltage
-  type: Voltage
-  description: Rated voltage on the primary side.
+  type: Double
+  nullable: true
+  description: Rated voltage on the primary side in volts.
 - name: secondaryRatio
   type: Float
+  nullable: true
   description: Ratio for the secondary winding tap changer (denominator).
 ancestors:
 - AssetInfo
