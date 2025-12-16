@@ -101,18 +101,18 @@ package {package}
 
     @property
     def class_dir(self):
-        return f'/src/main/kotlin/com/zepben/ewb/cim/{"/".join(self.class_path)}', f'{self.class_spec.name.name}.kt'
+        return f'/src/main/kotlin/com/zepben/ewb/cim/{"/".join(self.package_dir_lowered)}', f'{self.class_name}.kt'
 
     def generate_class(self):
         return self.template.format(
-            package='com.zepben.ewb.cim.' + '.'.join(self.class_path).lower(),
+            package='com.zepben.ewb.cim.' + '.'.join(self.package_dir_lowered),
             imports=self.generate_imports(),
             class_def=self.generate_class_def(),
         )
 
     @property
     def table_dir(self):
-        return f'/src/main/kotlin/com/zepben/ewb/database/sqlite/cim/tables/{"/".join(self.class_path)}', f'{self.class_spec.name.name}.kt'
+        return f'/src/main/kotlin/com/zepben/ewb/database/sqlite/cim/tables/{"/".join(self.package_dir_lowered)}', f'{self.class_spec.name.name}.kt'
 
     def generate_table(self) -> str:
         imports = (
@@ -121,7 +121,7 @@ package {package}
             "import com.zepben.ewb.database.sql.Column.Type\n"
         )
         return self.template.format(
-            package='com.zepben.ewb.database.sqlite.cim.tables.' + '.'.join(self.class_path).lower() + '\n',
+            package='com.zepben.ewb.database.sqlite.cim.tables.' + '.'.join(self.package_dir_lowered) + '\n',
             imports=imports,
             class_def=self.generate_table_def(),
         )

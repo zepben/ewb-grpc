@@ -109,7 +109,7 @@ message {class_name} {{
             body += ("\n" + associations + "\n")
 
         return self._template.format(
-            class_path_periods='.'.join(self.class_path).lower(),
+            class_path_periods='.'.join(self.package_dir_lowered),
             class_name=self.class_spec.name.name,
             class_description=self.multiline_comment(self.class_spec.name.description),
             imports='\n'.join(f'import "{i}";' for i in self.generate_imports()),

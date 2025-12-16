@@ -10,6 +10,7 @@ import yaml
 
 from zepben.codegen.generators import InvalidYamlError
 from zepben.codegen.model.definitions import ClassSpec, DocumentedName, DocumentedAttribute, DocumentedAssociation
+from pathlib import Path
 
 # grpc_root = "/home/krut/work/git/evolve-grpc"
 
@@ -67,11 +68,18 @@ class BaseSpecGenerator(ABC):
         self.grpc_root = grpc_root
         self.spec_tree_parser = SpecTreeParser(grpc_root)
         self._index = 0
-        path = f"{self.grpc_root}/spec/ewb/{class_path}"
+        path = Path(class_path)
+        # TODO: This is a bit of a hack - filepaths for yaml spec have different cases for package dirs as all the other things... so we provide package_dir_lowered
+        #       this whole thing could definitely be cleaned up...
+        self.package_dir = path.parent.parts
+        self.package_dir_lowered = [x.lower() for x in self.package_dir]
+        self.yaml_class_path = str(path.name)
+        self.class_name = str(path.name.strip(".yaml"))
+
+        path = f"{self.grpc_root}/spec/ewb/{str(path)}"
         with open(path) as f:
             yaml_spec = yaml.safe_load(f)
 
-        self.class_path = class_path.split("/")[:-1]
         attributes = []
         for a in yaml_spec.get("attributes", []):
             try:

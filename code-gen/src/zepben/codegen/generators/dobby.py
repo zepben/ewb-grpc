@@ -52,7 +52,7 @@ class Dobby:
         for file_path in new_yaml_files:
             proto = ProtoSpecGenerator(file_path, self.grpc_root)
             kotlin = KotlinGenerator(file_path, self.grpc_root)
-            self.write(proto.generate(), *self.paths.apply_base(proto, (f'/proto/zepben/protobuf/cim/{"/".join(proto.class_path)}', f'{proto.class_spec.name.name}.proto')))
+            self.write(proto.generate(), *self.paths.apply_base(proto, (f'/proto/zepben/protobuf/cim/{"/".join(proto.package_dir_lowered)}', f'{proto.class_name}.proto')))
             self.write(kotlin.generate_class(), *self.paths.apply_base(kotlin, kotlin.class_dir))
             self.write(kotlin.generate_table(), *self.paths.apply_base(kotlin, kotlin.table_dir))
 

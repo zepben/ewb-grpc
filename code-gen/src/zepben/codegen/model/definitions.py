@@ -106,6 +106,7 @@ class DocumentedAttribute(DocumentedName):
 
         self.nullable = nullable
 
+
     def __str__(self):
         return f"{super().__str__()},type={self.type},nullable={self.nullable}"
 
@@ -118,7 +119,10 @@ class DocumentedAttribute(DocumentedName):
     @property
     def is_nullable(self):
         if isinstance(self.type, YamlType):
-            return self.name != 'mRID'
+            if self.type == YamlType.ENUM or self.type == YamlType.CLASS:
+                return False    # Enum fields are never nullable
+            else:
+                return self.name != 'mRID'  # TODO: hack that can be removed once nullable bool added to all attributes in yaml.
         return self.nullable
 
 

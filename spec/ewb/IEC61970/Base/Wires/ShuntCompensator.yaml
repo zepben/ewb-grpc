@@ -27,3 +27,9 @@ ancestors:
 - RegulatingCondEq
 descendants:
 - LinearShuntCompensator
+associations:
+  - source: ShuntCompensator
+    target: Terminal
+    targetCardinality: 0..1
+    targetName: groundingTerminal
+    targetDescription: \[ZBEX\] The terminal connecting to grounded network.
