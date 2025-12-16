@@ -8,6 +8,7 @@ associations:
 - source: Feeder
   target: Terminal
   sourceCardinality: 0..1
+  targetCardinality: 0..1
   targetName: NormalHeadTerminal
   targetDescription: The normal head terminal or terminals of the feeder.
 - source: Feeder
@@ -26,7 +27,7 @@ associations:
   sourceDescription: The HV/MV feeders that energize the LV feeder.
   targetCardinality: 0..*
   targetName: NormalEnergizedLvFeeders
-  targetDescription: The LV feeders that are normally energized by this feeder.
+  targetDescription: \[ZBEX\] The LV feeders that are normally energized by this feeder.
 - source: Feeder
   target: LvFeeder
   sourceCardinality: 0..1
