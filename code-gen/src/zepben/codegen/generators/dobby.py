@@ -12,11 +12,7 @@ from zepben.codegen.generators.base_generator import BaseSpecGenerator, SDKSpecG
 from zepben.codegen.generators.kotlin_generator import KotlinGenerator
 from zepben.codegen.generators.proto_generator import ProtoSpecGenerator
 
-<<<<<<< HEAD
-DEFAULT_GIT_PATH = os.path.expanduser('~/git')
 
-=======
->>>>>>> 047bcda (Support enums and class references slightly more cleanly)
 @dataclass
 class Paths:
 
