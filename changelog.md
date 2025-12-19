@@ -10,7 +10,14 @@
 * None.
 
 ### Fixes
-* None.
+* Add missing documentation for yaml spec files in `spec/ewb/`
+  * Removed errant quotation mark from`description` of `extensions/IEC61968/Common/ContactDetails.yaml`
+  * Correctly set `targetCardinality` `IEC61968/Metering/EndDevice.yaml`
+  * Removed incorrectly set `attributes: contacts` from `IEC61968/Metering/UsagePoint.yaml`
+  * `IEC61970/Base/Core/Substation.yaml`:
+    * Set `targetDescription` for `associations: Substations`
+    * renamed `sourceCardinality` to `targetCardinality`  for `associations: Substation`
+  * set `targetDescription` for `association: Terminal` for `IEC61970/InfIEC61970/Feeder/Circuit.yaml`
 
 ### Notes
 * None.
