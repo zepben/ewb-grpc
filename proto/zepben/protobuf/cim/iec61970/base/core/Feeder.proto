@@ -1,5 +1,6 @@
+
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2025 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -14,11 +15,8 @@ package zepben.protobuf.cim.iec61970.base.core;
 import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
 
 /**
- * A collection of HV equipment for organizational purposes, used for grouping distribution resources.
- * <p>
+ * A collection of equipment for organizational purposes, used for grouping distribution resources.
  * The organization a feeder does not necessarily reflect connectivity or current operation state.
- *
- * A Feeder must be sent as part of a Substation.
  */
 message Feeder {
 
@@ -33,18 +31,28 @@ message Feeder {
     string normalHeadTerminalMRID = 2;
 
     /**
-     * The normal energizing substation of the feeder.
+     * The substation that normally energizes this feeder.
      */
     string normalEnergizingSubstationMRID = 3;
 
     /**
-     * The LV feeders that are normally energized by the feeder.
+     * [ZBEX] The LV feeders that are normally energized by this feeder.
      */
     repeated string normalEnergizedLvFeederMRIDs = 6;
 
     /**
-     * The LV feeders that are currently energized by the feeder.
+     * [ZBEX] The LV feeders that are currently energized by this feeder.
      */
     repeated string currentlyEnergizedLvFeedersMRIDs = 7;
+
+    /**
+     * [ZBEX] The normal energized LvSubstations of the feeder. Also used for naming purposes.
+     */
+    repeated string normalEnergizedLvSubstationMRIDs = 8;
+
+    /**
+     * [ZBEX] The current energized LvSubstations of the feeder. Also used for naming purposes.
+     */
+    repeated string currentlyEnergizedLvSubstationMRIDs = 9;
 
 }

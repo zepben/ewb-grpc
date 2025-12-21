@@ -1,5 +1,6 @@
+
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2025 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,18 +12,16 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61968.customers";
 package zepben.protobuf.cim.iec61968.customers;
 
+import "google/protobuf/struct.proto";
 import "zepben/protobuf/cim/iec61968/common/Document.proto";
 
 /**
- * Grouping of pricing components and prices used in the creation of customer charges and the eligibility
- * criteria under which these terms may be offered to a customer. The reasons for grouping include state,
- * customer classification, site characteristics, classification (i.e. fee price structure, deposit price
- * structure, electric service price structure, etc.) and accounting requirements.
+ * Grouping of pricing components and prices used in the creation of customer charges and the eligibility criteria under which these terms may be offered to a customer. The reasons for grouping include state, customer classification, site characteristics, classification (i.e. fee price structure, deposit price structure, electric service price structure, etc.) and accounting requirements.
  */
 message PricingStructure {
 
     /**
-     * The Document fields for this PricingStructure
+     * The Document fields for this PricingStructure.
      */
     common.Document doc = 1;
 
@@ -30,5 +29,13 @@ message PricingStructure {
      * All tariffs used by this pricing structure.
      */
     repeated string tariffMRIDs = 2;
+
+    /**
+     * Unique user-allocated key for this pricing structure, used by company representatives to identify the correct price structure for allocating to a customer. For rate schedules it is often prefixed by a state code.
+     */
+    oneof code {
+        google.protobuf.NullValue codeNull = 3;
+        string codeSet = 4;
+    }
 
 }

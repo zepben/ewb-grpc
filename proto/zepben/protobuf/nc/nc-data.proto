@@ -15,6 +15,8 @@ import "google/protobuf/any.proto";
 import "zepben/protobuf/cim/extensions/iec61968/assetinfo/RelayInfo.proto";
 import "zepben/protobuf/cim/extensions/iec61968/metering/PanDemandResponseFunction.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/core/Site.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/core/HvCustomer.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvSubstation.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/feeder/Loop.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvFeeder.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/generation/production/EvChargingUnit.proto";
@@ -66,6 +68,7 @@ import "zepben/protobuf/cim/iec61970/base/meas/Discrete.proto";
 import "zepben/protobuf/cim/iec61970/base/scada/RemoteControl.proto";
 import "zepben/protobuf/cim/iec61970/base/scada/RemoteSource.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/AcLineSegment.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/AcLineSegmentPhase.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/BusbarSection.proto";
 import "zepben/protobuf/cim/iec61970/base/wires/Cut.proto";
@@ -198,6 +201,9 @@ message NetworkIdentifiedObject {
         zepben.protobuf.cim.iec61970.base.wires.Cut cut = 86;
         zepben.protobuf.cim.iec61970.base.wires.Clamp clamp = 87;
         zepben.protobuf.cim.extensions.iec61970.base.protection.DirectionalCurrentRelay directionalCurrentRelay = 88;
+        zepben.protobuf.cim.extensions.iec61970.base.core.HvCustomer hvCustomer = 89;
+        zepben.protobuf.cim.extensions.iec61970.base.feeder.LvSubstation lvSubstation = 90;
+        zepben.protobuf.cim.iec61970.base.wires.AcLineSegmentPhase acLineSegmentPhase = 91;
 
         google.protobuf.Any other = 999;
     }

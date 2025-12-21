@@ -1,0 +1,46 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.wires";
+package zepben.protobuf.cim.iec61970.base.wires;
+
+import "google/protobuf/struct.proto";
+import "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto";
+import "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto";
+
+/**
+ * Represents a single wire of an alternating current line segment.
+ */
+message AcLineSegmentPhase {
+
+    /**
+     * The PowerSystemResource fields for this AcLineSegmentPhase.
+     */
+    core.PowerSystemResource psr = 1;
+
+    /**
+     * The phase connection of the wire at both ends.
+     */
+    SinglePhaseKind phase = 2;
+
+    /**
+     * Number designation for this line segment phase. Each line segment phase within a line segment should have a unique sequence number. This is useful for unbalanced modelling to bind the mathematical model (PhaseImpedanceData of PerLengthPhaseImpedance) with the connectivity model (this class) and the physical model (WirePosition) without tight coupling.
+     */
+    oneof sequenceNumber {
+      google.protobuf.NullValue sequenceNumberNull = 3;
+      int32 sequenceNumberSet = 4;
+    }
+
+    /**
+     * The line segment to which the phase belongs.
+     */
+    string acLineSegmentMRID = 5;
+
+}

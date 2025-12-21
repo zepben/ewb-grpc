@@ -15,11 +15,10 @@ associations:
   target: Substation
   sourceCardinality: 0..*
   sourceName: Feeders
-  sourceDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations
-    that describe the naming hierarchy.
+  sourceDescription: The zone substation that is normally energizing this feeder.
   targetCardinality: 0..1
   targetName: NormalEnergizingSubstation
-  targetDescription: The substations that are normally energized by the feeder.
+  targetDescription: The substation that normally energizes this feeder.
 - source: Feeder
   target: LvFeeder
   sourceCardinality: 0..1
@@ -31,7 +30,7 @@ associations:
 - source: Feeder
   target: LvFeeder
   sourceCardinality: 0..1
-  sourceName: CurrentlyEnergizingFeeders
+  sourceName: CurrentEnergizingFeeders
   sourceDescription: The HV/MV feeders that energize the LV feeder in the current state of the network.
   targetCardinality: 0..*
   targetName: CurrentlyEnergizedLvFeeders
@@ -50,5 +49,5 @@ associations:
   sourceName: CurrentEnergizingFeeders
   sourceDescription: \[ZBEX\] The HV/MV feeders that energize the LV feeder in the current state of the network.
   targetCardinality: 0..*
-  targetName: CurrentEnergizedLvSubstations
+  targetName: CurrentlyEnergizedLvSubstations
   targetDescription: \[ZBEX\] The current energized LvSubstations of the feeder. Also used for naming purposes.

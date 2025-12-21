@@ -13,6 +13,8 @@ package zepben.protobuf.nc;
 
 import "zepben/protobuf/nc/nc-data.proto";
 import "zepben/protobuf/cim/extensions/iec61970/base/feeder/Loop.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvSubstation.proto";
+import "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvFeeder.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Feeder.proto";
 import "zepben/protobuf/cim/iec61970/base/core/GeographicalRegion.proto";
 import "zepben/protobuf/cim/iec61970/base/core/SubGeographicalRegion.proto";
@@ -59,6 +61,16 @@ message GetNetworkHierarchyResponse {
      * The loops contained in the network.
      */
     repeated cim.extensions.iec61970.base.feeder.Loop loops = 7;
+
+    /**
+     * The LvSubstations contained in the network.
+     */
+    repeated cim.extensions.iec61970.base.feeder.LvSubstation lvSubstations = 8;
+
+    /**
+     * The LvFeeders contained in the network.
+     */
+    repeated cim.extensions.iec61970.base.feeder.LvFeeder lvFeeders = 9;
 
 }
 
