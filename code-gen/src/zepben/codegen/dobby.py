@@ -152,8 +152,8 @@ if __name__ == "__main__":
         'IEC61968/AssetInfo/WireInsulationKind.yaml',
         'IEC61970/Base/Wires/ACLineSegmentPhase.yaml',
         'extensions/IEC61970/Base/Core/HvCustomer.yaml',
-        'extensions/IEC61970/Base/Core/LvSubstation.yaml',
+        'extensions/IEC61970/Base/Feeder/LvSubstation.yaml',
     ],
-        protos=True,
-        kotlin_sdk=False
+        protos=False,
+        kotlin_sdk=True
     )

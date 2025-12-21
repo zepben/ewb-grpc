@@ -84,7 +84,7 @@ message {class_name} {{
         imports = set()
         for attribute in self.class_spec.attributes:
             if attribute.type == YamlType.CLASS or not isinstance(attribute.type, YamlType):
-                if (_type := self.spec_tree_parser.get(attribute.type, separator='/')) is not None:
+                if (_type := self.spec_tree_parser.get(attribute.field_type, separator='/')) is not None:
                     imports.add(f'zepben/protobuf/cim/{_type}.proto')
 
             if attribute.is_nullable:

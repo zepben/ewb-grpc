@@ -31,8 +31,8 @@ package {package}
         if self.document_single_vars:
             return self.multiline_comment(self.class_spec.name.description)
         else:
-            attributes = ('\n\n' + '\n'.join(f'@property {a.name} {a.description}' for a in self.class_spec.attributes)) if self.class_spec.attributes else ''
-            associations = ('\n' + '\n'.join(f'@property {a.name} {a.description}' for a in self.class_spec.associations) + '\n') if self.class_spec.associations else ''
+            attributes = ('\n\n' + '\n'.join(f'@property {self.lowercase_first(a.name)} {a.description}' for a in self.class_spec.attributes)) if self.class_spec.attributes else ''
+            associations = ('\n' + '\n'.join(f'@property {self.lowercase_first(a.name)} {a.description}' for a in self.class_spec.associations) + '\n') if self.class_spec.associations else ''
             return self.multiline_comment(
                 f'{self.class_spec.name.description}{attributes}{associations}'
             )
@@ -68,7 +68,7 @@ package {package}
         return self.indent(
             comment
             + ('@ZBEX\n' if attribute.is_zbex() else '')
-            + f'var {attribute.name}: {to_kt(attribute.type)}'
+            + f'var {attribute.name}: {to_kt(attribute.field_type)}'
             + ('? = null' if attribute.is_nullable else ' = TODO()')
         )
 
@@ -82,11 +82,11 @@ package {package}
         var_name = self.lowercase_first(association.name)
 
         if association.cardinality.is_list():
-            private_vars.append(f"private var _{var_name}: MutableList<{association.type}>? = null")
-            var_def = f"val {var_name}: Collection<{association.type}> get() = _{var_name}.asUnmodifiable()"
+            private_vars.append(f"private var _{var_name}: MutableList<{association.field_type}>? = null")
+            var_def = f"val {var_name}: Collection<{association.field_type}> get() = _{var_name}.asUnmodifiable()"
 
         else:
-            var_def = f"var {var_name}: {association.type}? = null"
+            var_def = f"var {var_name}: {association.field_type}? = null"
 
         return self.indent(comment
                            + ('@ZBEX\n' if association.is_zbex() else '')
@@ -132,7 +132,7 @@ package {package}
         to_sql = lambda s, n: s.to_sql(n) if isinstance(s, YamlType) else s
         def generate_columns(attribute: DocumentedAttribute) -> str:
             snake_name = camel2snake(attribute.name)
-            return f'val {snake_name.upper()}: Column = Column(++queryIndex, "{snake_name}", Type.{to_sql(attribute.type, attribute.class_type)}, Nullable.{"NULL" if attribute.is_nullable else "NOT_NULL"})'
+            return f'val {snake_name.upper()}: Column = Column(++queryIndex, "{snake_name}", Type.{to_sql(attribute.field_type, attribute.class_type)}, Nullable.{"NULL" if attribute.is_nullable else "NOT_NULL"})'
         attributes = "\n".join(generate_columns(a) for a in self.class_spec.attributes or []) or ""
 
         body = ''
