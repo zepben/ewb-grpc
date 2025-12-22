@@ -1,5 +1,6 @@
+
 /*
- * Copyright 2020 Zeppelin Bend Pty Ltd
+ * Copyright 2025 Zeppelin Bend Pty Ltd
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,23 +17,19 @@ import "zepben/protobuf/cim/iec61970/base/wires/RegulatingCondEq.proto";
 import "google/protobuf/struct.proto";
 
 /**
- * A shunt capacitor or reactor or switchable bank of shunt capacitors or reactors. A section of a shunt compensator is an individual
- * capacitor or reactor.  A negative value for reactivePerSection indicates that the compensator is a reactor. ShuntCompensator is a
- * single terminal device.  Ground is implied.
+ * A shunt capacitor or reactor or switchable bank of shunt capacitors or reactors. A section of a shunt compensator is an individual capacitor or reactor.  A negative value for reactivePerSection indicates that the compensator is a reactor. ShuntCompensator is a single terminal device.  Ground is implied.
  */
 message ShuntCompensator {
 
     /**
-     * The RegulatingConductingEquipment fields for this ShuntCompensator.
+     * The RegulatingCondEq fields for this ShuntCompensator.
      */
     RegulatingCondEq rce = 1;
 
     /**
-     * Shunt compensator sections in use.
-     * Starting value for steady state solution. Non integer values are allowed to support continuous variables.
-     * The reasons for continuous value are to support study cases where no discrete shunt compensators has yet been
-     * designed, a solutions where a narrow voltage band force the sections to oscillate or accommodate for a continuous
-     * solution as input.
+     * Shunt compensator sections in use. Starting value for steady state solution. The attribute shall be a positive value or zero. Non integer values are allowed to support continuous variables. The reasons for continuous value are to support study cases where no discrete shunt compensators has yet been designed, a solutions where a narrow voltage band force the sections to oscillate or accommodate for a continuous solution as input.
+     * For LinearShuntConpensator the value shall be between zero and ShuntCompensator.maximumSections. At value zero the shunt compensator conductance and admittance is zero. Linear interpolation of conductance and admittance between the previous and next integer section is applied in case of non-integer values.
+     * For NonlinearShuntCompensator-s shall only be set to one of the NonlinearShuntCompenstorPoint.sectionNumber. There is no interpolation between NonlinearShuntCompenstorPoint-s.
      */
     oneof sections {
       google.protobuf.NullValue sectionsNull = 2;
@@ -48,7 +45,7 @@ message ShuntCompensator {
     }
 
     /**
-     * The voltage at which the nominal reactive power may be calculated. This should normally be within 10% of the voltage at which the capacitor is connected to the network.
+     * The voltage (in volts) at which the nominal reactive power may be calculated. This should normally be within 10% of the voltage at which the capacitor is connected to the network.
      */
     oneof nomU {
       google.protobuf.NullValue nomUNull = 6;
@@ -59,5 +56,10 @@ message ShuntCompensator {
      * The type of phase connection, such as wye or delta.
      */
     PhaseShuntConnectionKind phaseConnection = 8;
+
+    /**
+     * [ZBEX] The terminal connecting to grounded network.
+     */
+    string groundingTerminalMRID = 9;
 
 }

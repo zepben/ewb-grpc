@@ -45,30 +45,34 @@ class Dobby:
         self.paths = paths
         self.grpc_root = grpc_root
 
-    def generate(self, new_yaml_files: list[str]):
+    def generate(self, new_yaml_files: list[str], protos: bool = True, kotlin_sdk: bool = True):
         def path_string_to_list(_path):
             return [i for i in _path.split('/') if i]
 
         for file_path in new_yaml_files:
             proto = ProtoSpecGenerator(file_path, self.grpc_root)
             kotlin = KotlinGenerator(file_path, self.grpc_root)
-            self.write(proto.generate(), *self.paths.apply_base(proto, (f'/proto/zepben/protobuf/cim/{"/".join(proto.package_dir_lowered)}', f'{proto.class_name}.proto')))
-            self.write(kotlin.generate_class(), *self.paths.apply_base(kotlin, kotlin.class_dir))
-            self.write(kotlin.generate_table(), *self.paths.apply_base(kotlin, kotlin.table_dir))
+            if protos:
+                self.write(proto.generate(),
+                           *self.paths.apply_base(proto, (f'/proto/zepben/protobuf/cim/{"/".join(proto.package_dir_lowered)}', f'{proto.class_name}.proto')))
 
-            self.add_to_existing(kotlin, kotlin.generate_network_cim_reader(), kotlin.network_cim_reader_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_cim_writer(), kotlin.network_cim_writer_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_database_tables(), kotlin.network_database_tables_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_service_reader(), kotlin.network_service_reader_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_service_writer(), kotlin.network_service_writer_dir)
-            self.add_to_existing(kotlin, kotlin.generate_reference_resolver(), kotlin.reference_resolver_dir)
-            self.add_to_existing(kotlin, kotlin.generate_resolvers(), kotlin.resolvers_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_service(), kotlin.network_service_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_service_comparator(), kotlin.network_service_comparator_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_service_utils(), kotlin.network_service_utils_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_cim_to_proto(), kotlin.network_cim_to_proto_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_proto_to_cim(), kotlin.network_proto_to_cim_dir)
-            self.add_to_existing(kotlin, kotlin.generate_network_pb_extensions(), kotlin.network_pb_extensions_dir)
+            if kotlin_sdk:
+                self.write(kotlin.generate_class(), *self.paths.apply_base(kotlin, kotlin.class_dir))
+                self.write(kotlin.generate_table(), *self.paths.apply_base(kotlin, kotlin.table_dir))
+
+                self.add_to_existing(kotlin, kotlin.generate_network_cim_reader(), kotlin.network_cim_reader_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_cim_writer(), kotlin.network_cim_writer_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_database_tables(), kotlin.network_database_tables_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_service_reader(), kotlin.network_service_reader_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_service_writer(), kotlin.network_service_writer_dir)
+                self.add_to_existing(kotlin, kotlin.generate_reference_resolver(), kotlin.reference_resolver_dir)
+                self.add_to_existing(kotlin, kotlin.generate_resolvers(), kotlin.resolvers_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_service(), kotlin.network_service_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_service_comparator(), kotlin.network_service_comparator_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_service_utils(), kotlin.network_service_utils_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_cim_to_proto(), kotlin.network_cim_to_proto_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_proto_to_cim(), kotlin.network_proto_to_cim_dir)
+                self.add_to_existing(kotlin, kotlin.generate_network_pb_extensions(), kotlin.network_pb_extensions_dir)
 
 
     def write(self, data: str, file_path, file_name):
@@ -129,7 +133,10 @@ class Dobby:
 
 
 if __name__ == "__main__":
-    writer = Dobby(grpc_root="/home/krut/work/git/evolve-grpc/", paths=Paths("/home/krut/work/git/", ewb_grpc='evolve-grpc', ewb_sdk_python='cimbend', ewb_sdk_jvm='evolve-sdk-jvm'))
+    writer = Dobby(
+        grpc_root="/home/krut/work/git/evolve-grpc/",
+        paths=Paths("/home/krut/work/git/", ewb_grpc='evolve-grpc', ewb_sdk_python='cimbend', ewb_sdk_jvm='evolve-sdk-jvm')
+    )
     # for i in (changes:= writer.detect_grpc_yaml_changes()):
     #     print(i)
     # if input('Proceed? (Y/N)') in ('y', 'Y'):
@@ -139,12 +146,14 @@ if __name__ == "__main__":
         'IEC61968/AssetInfo/WireInfo.yaml',
         'IEC61968/Customers/PricingStructure.yaml',
         'IEC61970/Base/Core/Feeder.yaml',
-        'IEC61970/Base/Wires/ACLineSegment.yaml',
+        'IEC61970/Base/Wires/AcLineSegment.yaml',
         'IEC61970/Base/Wires/ShuntCompensator.yaml',
         'extensions/IEC61970/Base/Feeder/LvFeeder.yaml',
         'IEC61968/AssetInfo/WireInsulationKind.yaml',
-        'IEC61970/Base/Wires/ACLineSegmentPhase.yaml',
+        'IEC61970/Base/Wires/AcLineSegmentPhase.yaml',
         'extensions/IEC61970/Base/Core/HvCustomer.yaml',
-        'extensions/IEC61970/Base/Core/LvSubstation.yaml',
-
-    ])
+        'extensions/IEC61970/Base/Feeder/LvSubstation.yaml',
+    ],
+        protos=False,
+        kotlin_sdk=True
+    )

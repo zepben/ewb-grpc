@@ -5,6 +5,25 @@
 
 ### New Features
 * Added `generate_cim_profile_schema.py` for generating a Turtle RDFS file based off our yaml spec.
+* Added new classes to the model:
+  * `HvCustomer` - [ZBEX] an `EquipmentContainer` for high voltage customer assets.
+  * `LvSubstation` - [ZBEX] an `EquipmentContainer` to represent distribution transformer sites, with associations to `Feeder` and `LvFeeder`
+  * `AcLineSegmentPhase` - Details about an individual phase of an `AcLineSegment`.
+* Added new properties to the model:
+  * `PricingStructure.code` - User allocated key for a pricing structure.
+  * `ShuntCompensator.groundingTerminal` - [ZBEX] The terminal connecting to grounded network.
+  * `WireInfo` - extra properties for conductors:
+    * `sizeDescription`
+    * `strandCount`
+    * `coreStrandCount`
+    * `insulated`
+    * `insulationMaterial`
+    * `insulationThickness`
+* Added new enum `WireInsulationKind` with extensions.
+* Added support to filter NetworkHierarchy responses through `GetNetworkHierarchyRequest`. A client can now choose what hierarchy containers should
+  be populated in the response.
+* Added `IncludedEnergizedContainers.INCLUDED_ENERGIZING_CONTAINERS_LV_SUBSTATIONS` and `INCLUDED_ENERGIZED_CONTAINERS_LV_SUBSTATIONS` for controlling
+  inclusion of `LvSubstation`s when retrieving `EquipmentContainers`
 
 ### Enhancements
 * None.

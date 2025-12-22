@@ -83,15 +83,16 @@ message {class_name} {{
     def generate_imports(self) -> set[str]:
         imports = set()
         for attribute in self.class_spec.attributes:
-            if not isinstance(attribute.type, YamlType) and attribute.type != YamlType.ENUM:
-                if (_type := self.spec_tree_parser.get(attribute.type, separator='/')) is not None:
+            if attribute.type == YamlType.CLASS or not isinstance(attribute.type, YamlType):
+                if (_type := self.spec_tree_parser.get(attribute.field_type, separator='/')) is not None:
                     imports.add(f'zepben/protobuf/cim/{_type}.proto')
 
             if attribute.is_nullable:
                 imports.add('google/protobuf/struct.proto')
-        for association in self.class_spec.associations:
-            if (_type := self.spec_tree_parser.get(association.target_class, separator='/')) is not None:
-                imports.add(f'zepben/protobuf/cim/{_type}.proto')
+        #         TODO: Not necessary as associations are always mRID references?
+        # for association in self.class_spec.associations:
+        #     if (_type := self.spec_tree_parser.get(association.target_class, separator='/')) is not None:
+        #         imports.add(f'zepben/protobuf/cim/{_type}.proto')
         return imports
 
     def generate(self) -> str:

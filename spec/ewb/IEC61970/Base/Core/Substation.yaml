@@ -33,14 +33,17 @@ associations:
   targetDescription: Simplification of the CIM association via Bay to Substation
 - source: Substation
   target: Loop
+  sourceCardinality: 0..*
+  sourceDescription: The substations that are currently powered by this loop.
   sourceName: Substations
   targetName: Loops
   targetCardinality: 0..*
-  targetDescription: The loops that are energizing this substation.
+  targetDescription: The loops that are currently energizing this substation.
 - source: Substation
   target: Loop
-  sourceName: NormalEnergizingSubstations
+  sourceCardinality: 0..*
+  sourceName: energizingSubstations
   sourceDescription: The substations that normally energize this loop.
-  targetName: NormalEnergizedLoops  # TODO: this targetName aligns with proto, but not jvm-sdk
+  targetName: energizedLoops
   targetCardinality: 0..*
-  targetDescription: The loops that are energized by this substation.
+  targetDescription: The loops that are normally energized by this substation.

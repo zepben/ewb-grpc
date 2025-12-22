@@ -38,6 +38,46 @@ message GetNetworkHierarchyRequest {
      */
     int64 messageId = 1;
 
+    /**
+     * Whether to include GeographicalRegions in the response.
+     */
+    bool includeGeographicalRegions = 2;
+
+    /**
+     * Whether to include SubgeographicalRegions in the response.
+     */
+    bool includeSubgeographicalRegions = 3;
+
+    /**
+     * Whether to include Substations in the response.
+     */
+    bool includeSubstations = 4;
+
+    /**
+     * Whether to include Feeders in the response.
+     */
+    bool includeFeeders = 5;
+
+    /**
+     * Whether to include Circuits in the response.
+     */
+    bool includeCircuits = 6;
+
+    /**
+     * Whether to include Loops in the response.
+     */
+    bool includeLoops = 7;
+
+    /**
+     * Whether to include LvSubstations in the response.
+     */
+    bool includeLvSubstations = 8;
+
+    /**
+     * Whether to include LvFeeders in the response.
+     */
+    bool includeLvFeeders = 9;
+
 }
 
 /**
@@ -51,14 +91,19 @@ enum IncludedEnergizingContainers {
     INCLUDED_ENERGIZING_CONTAINERS_NONE = 0;
 
     /**
-     * Energizing feeders should be included.
+     * Energizing feeders and LV substations should be included.
      */
     INCLUDED_ENERGIZING_CONTAINERS_FEEDERS = 1;
 
     /**
-     * Energizing feeders and substations should be included.
+     * Energizing LV substations, feeders, and substations should be included.
      */
     INCLUDED_ENERGIZING_CONTAINERS_SUBSTATIONS = 2;
+
+    /**
+     * Energizing LV substations should be included.
+     */
+    INCLUDED_ENERGIZING_CONTAINERS_LV_SUBSTATIONS = 3;
 
 }
 
@@ -78,9 +123,14 @@ enum IncludedEnergizedContainers {
     INCLUDED_ENERGIZED_CONTAINERS_FEEDERS = 1;
 
     /**
-     * Energized HV feeders and LV feeders should be included.
+     * Energized HV feeders, LV substations, and LV feeders should be included.
      */
     INCLUDED_ENERGIZED_CONTAINERS_LV_FEEDERS = 2;
+
+    /**
+     * Energized HV feeders and LV substations should be included.
+     */
+    INCLUDED_ENERGIZED_CONTAINERS_LV_SUBSTATIONS = 3;
 
 }
 
@@ -124,7 +174,7 @@ message GetEquipmentForContainersRequest {
     /**
      * Rule for which energizing containers to include
      * e.g. if a container mrid is for an LV feeder and this is set to INCLUDED_ENERGIZING_CONTAINERS_SUBSTATIONS,
-     * all equipment belonging to that LV feeder, its powering feeders, and those feeders' substations are included
+     * all equipment belonging to that LV feeder, its powering LV substations, feeders, and those feeders' substations are included
      * in the response.
      */
     IncludedEnergizingContainers includeEnergizingContainers = 3;
@@ -132,8 +182,8 @@ message GetEquipmentForContainersRequest {
     /**
      * Rule for which energized containers to include
      * e.g. if a container mrid is for a substation and this is set to INCLUDED_ENERGIZED_CONTAINERS_LV_FEEDERS,
-     * all equipment belonging to that substation, its powered feeders, and those feeders' LV feeders are included
-     * in the response.
+     * all equipment belonging to that substation, its powered feeders, their LV substations, and those LV substations LV feeders
+     * are included * in the response.
      */
     IncludedEnergizedContainers includeEnergizedContainers = 4;
 
