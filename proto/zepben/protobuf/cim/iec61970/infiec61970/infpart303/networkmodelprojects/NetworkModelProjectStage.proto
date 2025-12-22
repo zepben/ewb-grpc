@@ -17,7 +17,7 @@ import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmo
 import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStageConflict.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/AnnotatedProjectDependency.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
-import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+import "zepben/protobuf/nc/nc-data.proto";
 
 /**
  * A specific phase in a network model project.
@@ -98,6 +98,7 @@ message NetworkModelProjectStage {
      * [ZBEX] The conflicts of this stage against the base model.
      * TODO: changed from a list. Given NMPS has base model and changeset references, i believe we make a new NMPS
      * TODO: when the base model or changesets are changed, thereby this class should be 1..1 with NMPSC.
+     * TODO: Delete??
      */
     oneof conflicts {
       google.protobuf.NullValue conflictsNull = 17;
@@ -107,6 +108,6 @@ message NetworkModelProjectStage {
     /**
      * [ZBEX] The equipment containers this stage is related to.
      */
-    repeated cim.iec61970.base.core.EquipmentContainer equipmentContainers = 19;
+    repeated nc.NetworkIdentifiedObject equipmentContainers = 19;
 
 }

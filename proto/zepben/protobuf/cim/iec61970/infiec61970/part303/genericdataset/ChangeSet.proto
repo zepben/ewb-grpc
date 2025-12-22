@@ -12,7 +12,7 @@ option java_package = "com.zepben.protobuf.cim.iec61970.infiec61970.part303.gene
 package zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset;
 
 import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/DataSet.proto";
-import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSetMember.proto";
+import "zepben/protobuf/vc/vc-data-change-set-members.proto";
 
 /**
  * Describes a set of changes that can be applied in different situations. A given registered
@@ -28,7 +28,7 @@ message ChangeSet {
     /**
      * Data objects contained in the dataset
      */
-    repeated ChangeSetMember changeSetMembers = 2;
+    repeated vc.VariantChangeSetMember changeSetMembers = 2;
 
     /**
      * NetworkModelProjectStage this ChangeSet belongs to.
