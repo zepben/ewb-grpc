@@ -1,0 +1,47 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.vc";
+
+package zepben.protobuf.vc;
+
+import "google/protobuf/empty.proto";
+import "zepben/protobuf/vc/vc-requests.proto";
+import "zepben/protobuf/vc/vc-responses.proto";
+import "zepben/protobuf/connection/connection-requests.proto";
+import "zepben/protobuf/metadata/metadata-requests.proto";
+import "zepben/protobuf/metadata/metadata-responses.proto";
+
+/**
+ * A service providing consumer access to the variant details.
+ */
+service VariantConsumer {
+
+    /**
+     * Get network model projects.
+     */
+    rpc getNetworkModelProjects (stream GetNetworkModelProjectsRequest) returns (stream GetNetworkModelProjectsResponse);
+
+    /**
+     * Get identified objects.
+     */
+    rpc getChangeSets (stream GetChangeSetsRequest) returns (stream GetChangeSetsResponse);
+
+    /**
+     * Get Metadata related to the service.
+     */
+      rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
+
+    /**
+     * Return an empty response for SDK connection tests.
+     */
+    rpc checkConnection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
+
+}

@@ -1,0 +1,45 @@
+/*
+ * Copyright 2020 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.vc";
+package zepben.protobuf.vc;
+
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProject.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
+
+/**
+ * The response to a getNetworkModelProjects request.
+ */
+message GetNetworkModelProjectsResponse {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
+    int64 messageId = 1;
+
+    /**
+     * The requested identified objects.
+     */
+    repeated cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProject networkModelProjects = 2;
+
+}
+
+message GetChangeSetsResponse {
+
+  /**
+   * An identifier for this message. Currently unused.
+   */
+  int64 messageId = 1;
+
+  /**
+   * The requested change sets.
+   */
+  repeated cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSets = 2;
+}
