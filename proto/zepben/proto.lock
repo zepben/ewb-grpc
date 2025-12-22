@@ -555,6 +555,41 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:base:/:core:/:HvCustomer.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "HvCustomer",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ec",
+                "type": "cim.iec61970.base.core.EquipmentContainer"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61970.base.core"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61970.base.core"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:base:/:core:/:Site.proto",
       "def": {
         "messages": [
@@ -668,6 +703,64 @@
               {
                 "id": 4,
                 "name": "currentlyEnergizingFeederMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "normalEnergizingLvSubstationMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61970.base.feeder"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61970.base.feeder"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:base:/:feeder:/:LvSubstation.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "LvSubstation",
+            "fields": [
+              {
+                "id": 1,
+                "name": "ec",
+                "type": "cim.iec61970.base.core.EquipmentContainer"
+              },
+              {
+                "id": 2,
+                "name": "normalEnergizingFeederMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "normalEnergizedLvFeederMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "currentEnergizingFeederMRIDs",
                 "type": "string",
                 "is_repeated": true
               }
@@ -3058,6 +3151,71 @@
                 "id": 4,
                 "name": "material",
                 "type": "WireMaterialKind"
+              },
+              {
+                "id": 5,
+                "name": "sizeDescriptionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "sizeDescription"
+              },
+              {
+                "id": 6,
+                "name": "sizeDescriptionSet",
+                "type": "string",
+                "oneof_parent": "sizeDescription"
+              },
+              {
+                "id": 7,
+                "name": "strandCountNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "strandCount"
+              },
+              {
+                "id": 8,
+                "name": "strandCountSet",
+                "type": "string",
+                "oneof_parent": "strandCount"
+              },
+              {
+                "id": 9,
+                "name": "coreStrandCountNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "coreStrandCount"
+              },
+              {
+                "id": 10,
+                "name": "coreStrandCountSet",
+                "type": "string",
+                "oneof_parent": "coreStrandCount"
+              },
+              {
+                "id": 11,
+                "name": "insulatedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "insulated"
+              },
+              {
+                "id": 12,
+                "name": "insulatedSet",
+                "type": "bool",
+                "oneof_parent": "insulated"
+              },
+              {
+                "id": 13,
+                "name": "insulationMaterial",
+                "type": "WireInsulationKind"
+              },
+              {
+                "id": 14,
+                "name": "insulationThicknessNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "insulationThickness"
+              },
+              {
+                "id": 15,
+                "name": "insulationThicknessSet",
+                "type": "double",
+                "oneof_parent": "insulationThickness"
               }
             ]
           }
@@ -3067,10 +3225,185 @@
             "path": "zepben/protobuf/cim/iec61968/assetinfo/WireMaterialKind.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61968/assetinfo/WireInsulationKind.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61968/assets/AssetInfo.proto"
           },
           {
             "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61968.assetinfo"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61968.assetinfo"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61968:/:assetinfo:/:WireInsulationKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "WireInsulationKind",
+            "enum_fields": [
+              {
+                "name": "UNKNOWN"
+              },
+              {
+                "name": "asbestosAndVarnishedCambric",
+                "integer": 1
+              },
+              {
+                "name": "beltedPilc",
+                "integer": 2
+              },
+              {
+                "name": "butyl",
+                "integer": 3
+              },
+              {
+                "name": "crosslinkedPolyethylene",
+                "integer": 4
+              },
+              {
+                "name": "ethylenePropyleneRubber",
+                "integer": 5
+              },
+              {
+                "name": "highMolecularWeightPolyethylene",
+                "integer": 6
+              },
+              {
+                "name": "highPressureFluidFilled",
+                "integer": 7
+              },
+              {
+                "name": "lowCapacitanceRubber",
+                "integer": 8
+              },
+              {
+                "name": "oilPaper",
+                "integer": 9
+              },
+              {
+                "name": "other",
+                "integer": 10
+              },
+              {
+                "name": "ozoneResistantRubber",
+                "integer": 11
+              },
+              {
+                "name": "rubber",
+                "integer": 12
+              },
+              {
+                "name": "siliconRubber",
+                "integer": 13
+              },
+              {
+                "name": "treeResistantHighMolecularWeightPolyethylene",
+                "integer": 14
+              },
+              {
+                "name": "treeRetardantCrosslinkedPolyethylene",
+                "integer": 15
+              },
+              {
+                "name": "unbeltedPilc",
+                "integer": 16
+              },
+              {
+                "name": "varnishedCambricCloth",
+                "integer": 17
+              },
+              {
+                "name": "varnishedDacronGlass",
+                "integer": 18
+              },
+              {
+                "name": "crosslinkedPolyethyleneWithHelicallyWoundCopperScreen",
+                "integer": 19
+              },
+              {
+                "name": "crosslinkedPolyethyleneWithWavewoundAluminiumScreen",
+                "integer": 20
+              },
+              {
+                "name": "doubleInsulatedNeutralScreened",
+                "integer": 21
+              },
+              {
+                "name": "doubleWireArmour",
+                "integer": 22
+              },
+              {
+                "name": "doubleWireArmourWithPolyvinylChlorideSheath",
+                "integer": 23
+              },
+              {
+                "name": "ethylenePropyleneRubberStrandedCopperConductor",
+                "integer": 24
+              },
+              {
+                "name": "ethylenePropyleneRubberWithHelicallyWoundCopperScreen",
+                "integer": 25
+              },
+              {
+                "name": "NONE",
+                "integer": 26
+              },
+              {
+                "name": "paperWithLeadAlloySheath",
+                "integer": 27
+              },
+              {
+                "name": "paperWithLeadAlloySheathAndPvcOuterSheathScreenedHochstadterConstruction",
+                "integer": 28
+              },
+              {
+                "name": "paperWithLeadAlloySheathSingleWireArmoured",
+                "integer": 29
+              },
+              {
+                "name": "paperWithLeadAlloySheathSingleWireArmouredBeltedConstruction",
+                "integer": 30
+              },
+              {
+                "name": "paperWithLeadAlloySheathSingleWireArmouredHessianServed",
+                "integer": 31
+              },
+              {
+                "name": "paperWithLeadAlloySheathSingleWireArmouredWithHighDensityPoluethyleneScreen",
+                "integer": 32
+              },
+              {
+                "name": "paperWithLeadAlloySheathSingleWireArmouredWithWavewoundAluminiumScreen",
+                "integer": 33
+              },
+              {
+                "name": "polyvinylChloride",
+                "integer": 34
+              },
+              {
+                "name": "polyvinylChlorideWithPolyvinylChlorideScreen",
+                "integer": 35
+              },
+              {
+                "name": "polyvinylChlorideWithWavewoundCopperScreen",
+                "integer": 36
+              }
+            ]
           }
         ],
         "package": {
@@ -4506,11 +4839,26 @@
                 "name": "tariffMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "codeNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "code"
+              },
+              {
+                "id": 4,
+                "name": "codeSet",
+                "type": "string",
+                "oneof_parent": "code"
               }
             ]
           }
         ],
         "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
           {
             "path": "zepben/protobuf/cim/iec61968/common/Document.proto"
           }
@@ -6306,6 +6654,18 @@
               {
                 "id": 7,
                 "name": "currentlyEnergizedLvFeedersMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 8,
+                "name": "normalEnergizedLvSubstationMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 9,
+                "name": "currentlyEnergizedLvSubstationMRIDs",
                 "type": "string",
                 "is_repeated": true
               }
@@ -8987,6 +9347,12 @@
                 "name": "clampMRIDs",
                 "type": "string",
                 "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "phaseMRIDs",
+                "type": "string",
+                "is_repeated": true
               }
             ]
           }
@@ -8994,6 +9360,69 @@
         "imports": [
           {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Conductor.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.base.wires"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.base.wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:base:/:wires:/:AcLineSegmentPhase.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "AcLineSegmentPhase",
+            "fields": [
+              {
+                "id": 1,
+                "name": "psr",
+                "type": "core.PowerSystemResource"
+              },
+              {
+                "id": 2,
+                "name": "phase",
+                "type": "SinglePhaseKind"
+              },
+              {
+                "id": 3,
+                "name": "sequenceNumberNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "sequenceNumber"
+              },
+              {
+                "id": 4,
+                "name": "sequenceNumberSet",
+                "type": "int32",
+                "oneof_parent": "sequenceNumber"
+              },
+              {
+                "id": 5,
+                "name": "acLineSegmentMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/PowerSystemResource.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/SinglePhaseKind.proto"
           }
         ],
         "package": {
@@ -12407,6 +12836,11 @@
                 "id": 8,
                 "name": "phaseConnection",
                 "type": "PhaseShuntConnectionKind"
+              },
+              {
+                "id": 9,
+                "name": "groundingTerminalMRID",
+                "type": "string"
               }
             ]
           }
@@ -16759,6 +17193,24 @@
                 "oneof_parent": "identifiedObject"
               },
               {
+                "id": 89,
+                "name": "hvCustomer",
+                "type": "zepben.protobuf.cim.extensions.iec61970.base.core.HvCustomer",
+                "oneof_parent": "identifiedObject"
+              },
+              {
+                "id": 90,
+                "name": "lvSubstation",
+                "type": "zepben.protobuf.cim.extensions.iec61970.base.feeder.LvSubstation",
+                "oneof_parent": "identifiedObject"
+              },
+              {
+                "id": 91,
+                "name": "acLineSegmentPhase",
+                "type": "zepben.protobuf.cim.iec61970.base.wires.AcLineSegmentPhase",
+                "oneof_parent": "identifiedObject"
+              },
+              {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any",
@@ -16779,6 +17231,12 @@
           },
           {
             "path": "zepben/protobuf/cim/extensions/iec61970/base/core/Site.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/core/HvCustomer.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvSubstation.proto"
           },
           {
             "path": "zepben/protobuf/cim/extensions/iec61970/base/feeder/Loop.proto"
@@ -16934,6 +17392,9 @@
             "path": "zepben/protobuf/cim/iec61970/base/wires/AcLineSegment.proto"
           },
           {
+            "path": "zepben/protobuf/cim/iec61970/base/wires/AcLineSegmentPhase.proto"
+          },
+          {
             "path": "zepben/protobuf/cim/iec61970/base/wires/Breaker.proto"
           },
           {
@@ -17065,6 +17526,10 @@
               {
                 "name": "INCLUDED_ENERGIZING_CONTAINERS_SUBSTATIONS",
                 "integer": 2
+              },
+              {
+                "name": "INCLUDED_ENERGIZING_CONTAINERS_LV_SUBSTATIONS",
+                "integer": 3
               }
             ]
           },
@@ -17081,6 +17546,10 @@
               {
                 "name": "INCLUDED_ENERGIZED_CONTAINERS_LV_FEEDERS",
                 "integer": 2
+              },
+              {
+                "name": "INCLUDED_ENERGIZED_CONTAINERS_LV_SUBSTATIONS",
+                "integer": 3
               }
             ]
           },
@@ -17125,6 +17594,46 @@
                 "id": 1,
                 "name": "messageId",
                 "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "includeGeographicalRegions",
+                "type": "bool"
+              },
+              {
+                "id": 3,
+                "name": "includeSubgeographicalRegions",
+                "type": "bool"
+              },
+              {
+                "id": 4,
+                "name": "includeSubstations",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "includeFeeders",
+                "type": "bool"
+              },
+              {
+                "id": 6,
+                "name": "includeCircuits",
+                "type": "bool"
+              },
+              {
+                "id": 7,
+                "name": "includeLoops",
+                "type": "bool"
+              },
+              {
+                "id": 8,
+                "name": "includeLvSubstations",
+                "type": "bool"
+              },
+              {
+                "id": 9,
+                "name": "includeLvFeeders",
+                "type": "bool"
               }
             ]
           },
@@ -17252,6 +17761,18 @@
                 "name": "loops",
                 "type": "cim.extensions.iec61970.base.feeder.Loop",
                 "is_repeated": true
+              },
+              {
+                "id": 8,
+                "name": "lvSubstations",
+                "type": "cim.extensions.iec61970.base.feeder.LvSubstation",
+                "is_repeated": true
+              },
+              {
+                "id": 9,
+                "name": "lvFeeders",
+                "type": "cim.extensions.iec61970.base.feeder.LvFeeder",
+                "is_repeated": true
               }
             ]
           },
@@ -17325,6 +17846,12 @@
           },
           {
             "path": "zepben/protobuf/cim/extensions/iec61970/base/feeder/Loop.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvSubstation.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/base/feeder/LvFeeder.proto"
           },
           {
             "path": "zepben/protobuf/cim/iec61970/base/core/Feeder.proto"
