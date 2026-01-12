@@ -77,22 +77,26 @@ message NetworkModelProjectStage {
       string userCommentsSet = 13;
     }
 
+    string changeSetMRID = 14;
     /**
      * [ZBEX] The set of changes that this stage of the project will do
      */
-    cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 14;
+    oneof changeSet {
+      google.protobuf.NullValue changeSetNull = 15;
+      cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSetSet = 16;
+    }
 
     /**
      * The stages that depend on this stage.
      * TODO: yaml and clickup spec: list, and type change
      */
-    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependentOnStage = 15;
+    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependentOnStage = 17;
 
     /**
      * The stages that this stage depends on.
      * TODO: yaml and clickup spec: list, and type change
      */
-    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependingStage = 16;
+    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependingStage = 18;
 
     /**
      * [ZBEX] The conflicts of this stage against the base model.
@@ -101,13 +105,13 @@ message NetworkModelProjectStage {
      * TODO: Delete??
      */
     oneof conflicts {
-      google.protobuf.NullValue conflictsNull = 17;
-      cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStageConflict conflictsSet = 18;
+      google.protobuf.NullValue conflictsNull = 19;
+      cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStageConflict conflictsSet = 20;
     }
 
     /**
      * [ZBEX] The equipment containers this stage is related to.
      */
-    repeated nc.NetworkIdentifiedObject equipmentContainers = 19;
+    repeated nc.NetworkIdentifiedObject equipmentContainers = 21;
 
 }
