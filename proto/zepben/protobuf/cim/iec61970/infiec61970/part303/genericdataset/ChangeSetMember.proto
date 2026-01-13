@@ -11,8 +11,6 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset";
 package zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset;
 
-import "zepben/protobuf/nc/nc-data.proto";
-
 /**
  * A CRUD-style data object.
  */
@@ -26,6 +24,6 @@ message ChangeSetMember {
     /**
      * The registered CIM object.
      */
-    nc.NetworkIdentifiedObject targetObject = 2;
+    string targetObjectMRID = 2;
 
 }
