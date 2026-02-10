@@ -16,15 +16,6 @@ associations:
   targetDescription: Dataset containing the data objects.
 - source: ChangeSetMember
   target: IdentifiedObject
-  sourceCardinality: 0..1
-  sourceName: PropertiesCIMDataObject
-  sourceDescription: The single CIM data object in the appropriate dataset context.
-  targetCardinality: 0..1
-  targetName: PropertiesObject
-  targetDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
-    and only the reference to the registered object is required.
-- source: ChangeSetMember
-  target: IdentifiedObject
   sourceCardinality: 0..*
   sourceName: TargetingCIMDataObject
   sourceDescription: Data objects registered.

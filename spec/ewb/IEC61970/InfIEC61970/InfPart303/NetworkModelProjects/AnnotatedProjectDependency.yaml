@@ -11,15 +11,15 @@ associations:
   target: NetworkModelProjectStage
   sourceCardinality: 0..*
   sourceName: DependencyDependentOnStage
-  sourceDescription: NetworkModelProjectStages required by this stage.
+  sourceDescription: NetworkModelProjectStage representing the "to" stage.
   targetCardinality: "1"
   targetName: DependentOnStage
   targetDescription: The stages that depend on this stage.
 - source: AnnotatedProjectDependency
   target: NetworkModelProjectStage
   sourceCardinality: 0..*
-  sourceName: DenpendecyDependingStage
-  sourceDescription: NetworkModelProjectStages that cannot be applied aslongside this stage.
+  sourceName: DependencyDependingStage
+  sourceDescription: NetworkModelProjectStage representing the "from" stage.
   targetCardinality: "1"
   targetName: DependingStage
   targetDescription: The stages that this stages depends on.
