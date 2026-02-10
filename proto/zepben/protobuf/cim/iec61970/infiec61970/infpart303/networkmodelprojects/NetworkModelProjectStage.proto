@@ -76,28 +76,27 @@ message NetworkModelProjectStage {
       string userCommentsSet = 13;
     }
 
-    string changeSetMRID = 14;
-    /**
-     * [ZBEX] The set of changes that this stage of the project will do
-     */
-    oneof changeSet {
-      google.protobuf.NullValue changeSetNull = 15;
-      cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSetSet = 16;
+  /**
+   * [ZBEX] The set of changes that this stage of the project will do
+   */
+    oneof changeSetMRID {
+      google.protobuf.NullValue changeSetMRIDNull = 14;
+      string changeSetMRIDSet = 15;
     }
 
     /**
      * The stages that depend on this stage.
      */
-    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependentOnStage = 17;
+    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependentOnStage = 16;
 
     /**
      * The stages that this stage depends on.
      */
-    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependingStage = 18;
+    repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependingStage = 17;
 
     /**
      * [ZBEX] The equipment containers this stage is related to.
      */
-    repeated nc.NetworkIdentifiedObject equipmentContainers = 21;
+    repeated nc.NetworkIdentifiedObject equipmentContainers = 18;
 
 }
