@@ -14,7 +14,6 @@ package zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto";
-import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStageConflict.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/AnnotatedProjectDependency.proto";
 import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
 import "zepben/protobuf/nc/nc-data.proto";
@@ -62,7 +61,7 @@ message NetworkModelProjectStage {
     }
 
     /**
-     * [ZBEX] The time the last conflict check occured.
+     * [ZBEX] The time the last conflict check occurred.
      */
     oneof lastConflictCheckedAt {
       google.protobuf.NullValue lastConflictCheckedAtNull = 10;
@@ -88,26 +87,13 @@ message NetworkModelProjectStage {
 
     /**
      * The stages that depend on this stage.
-     * TODO: yaml and clickup spec: list, and type change
      */
     repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependentOnStage = 17;
 
     /**
      * The stages that this stage depends on.
-     * TODO: yaml and clickup spec: list, and type change
      */
     repeated cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency dependingStage = 18;
-
-    /**
-     * [ZBEX] The conflicts of this stage against the base model.
-     * TODO: changed from a list. Given NMPS has base model and changeset references, i believe we make a new NMPS
-     * TODO: when the base model or changesets are changed, thereby this class should be 1..1 with NMPSC.
-     * TODO: Delete??
-     */
-    oneof conflicts {
-      google.protobuf.NullValue conflictsNull = 19;
-      cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStageConflict conflictsSet = 20;
-    }
 
     /**
      * [ZBEX] The equipment containers this stage is related to.
