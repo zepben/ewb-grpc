@@ -23,12 +23,12 @@ import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectMo
  */
 message VariantChangeSetMember {
 
-  oneof changeSetMember {
-    zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectCreation objectCreation = 1;
-    zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectDeletion objectDeletion = 2;
-    zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectModification objectModification = 3;
+    oneof changeSetMember {
+        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectCreation objectCreation = 1;
+        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectDeletion objectDeletion = 2;
+        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectModification objectModification = 3;
 
-    google.protobuf.Any other = 999;
-  }
+        google.protobuf.Any other = 999;
+    }
+
 }
-

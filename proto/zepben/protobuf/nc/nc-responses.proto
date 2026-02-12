@@ -92,6 +92,23 @@ message GetIdentifiedObjectsResponse {
 }
 
 /**
+ * The response to a getChangeSetObjects request. It is expected you would have one of these for each object contained in the ChangeSet.
+ */
+message GetChangeSetObjectsResponse {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
+    int64 messageId = 1;
+
+    /**
+     * The requested identified object.
+     */
+    NetworkIdentifiedObject identifiedObject = 2;
+
+}
+
+/**
  * The response to a getEquipmentForContainers request.
  */
 message GetEquipmentForContainersResponse {

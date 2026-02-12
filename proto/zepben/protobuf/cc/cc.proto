@@ -29,6 +29,11 @@ service CustomerConsumer {
     rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
     /**
+     * Get all identified objects for a change set.
+     */
+    rpc getChangeSetObjects(GetChangeSetObjectsRequest) returns (stream GetChangeSetObjectsResponse);
+
+    /**
      * Get customers for a given EquipmentContainer.
      */
     rpc getCustomersForContainer(stream GetCustomersForContainerRequest) returns (stream GetCustomersForContainerResponse);
