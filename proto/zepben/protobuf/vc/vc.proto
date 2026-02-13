@@ -30,9 +30,14 @@ service VariantConsumer {
     rpc getNetworkModelProjects (stream GetNetworkModelProjectsRequest) returns (stream GetNetworkModelProjectsResponse);
 
     /**
+     * Get change set objects.
+     */
+    rpc getChangeSet(GetChangeSetRequest) returns (GetChangeSetResponse);
+
+    /**
      * Get Metadata related to the service.
      */
-      rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
+    rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
 
     /**
      * Return an empty response for SDK connection tests.
