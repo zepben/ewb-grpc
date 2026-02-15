@@ -143,10 +143,7 @@ jobs:
       - name: Update snapshot version
         run: |
           git pull origin $GITHUB_REF
-          source /scripts/common.sh
-          cd python
-          /scripts/update-version.sh --python --snapshot --no-commit pyproject.toml
-          cd ../java
-          /scripts/update-version.sh --java --snapshot --maven --no-commit pom.xml
+          /scripts/update-version.sh --python --snapshot --no-commit python/pyproject.toml
+          /scripts/update-version.sh --java --snapshot --maven --no-commit java/pom.xml
           commit_update_version ${GITHUB_REF/refs\/heads\//}
         shell: bash
