@@ -8,35 +8,31 @@
 
 syntax = "proto3";
 option java_multiple_files = true;
-option java_package = "com.zepben.protobuf.cc";
-package zepben.protobuf.cc;
+option java_package = "com.zepben.protobuf.vc";
+
+package zepben.protobuf.vc;
 
 import "google/protobuf/empty.proto";
-import "zepben/protobuf/cc/cc-requests.proto";
-import "zepben/protobuf/cc/cc-responses.proto";
+import "zepben/protobuf/vc/vc-requests.proto";
+import "zepben/protobuf/vc/vc-responses.proto";
 import "zepben/protobuf/connection/connection-requests.proto";
 import "zepben/protobuf/metadata/metadata-requests.proto";
 import "zepben/protobuf/metadata/metadata-responses.proto";
 
 /**
- * A service providing consumer access to the customer details.
+ * A service providing consumer access to the variant details.
  */
-service CustomerConsumer {
+service VariantConsumer {
 
     /**
-     * Get identified objects.
+     * Get network model projects.
      */
-    rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
+    rpc getNetworkModelProjects (stream GetNetworkModelProjectsRequest) returns (stream GetNetworkModelProjectsResponse);
 
     /**
-     * Get all identified objects for a change set.
+     * Get change set objects.
      */
-    rpc getChangeSetObjects(GetChangeSetObjectsRequest) returns (stream GetChangeSetObjectsResponse);
-
-    /**
-     * Get customers for a given EquipmentContainer.
-     */
-    rpc getCustomersForContainer(stream GetCustomersForContainerRequest) returns (stream GetCustomersForContainerResponse);
+    rpc getChangeSet(GetChangeSetRequest) returns (GetChangeSetResponse);
 
     /**
      * Get Metadata related to the service.

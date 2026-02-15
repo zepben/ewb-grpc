@@ -29,6 +29,11 @@ service NetworkConsumer {
     rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
     /**
+     * Get all identified objects for a change set.
+     */
+    rpc getChangeSetObjects(GetChangeSetObjectsRequest) returns (stream GetChangeSetObjectsResponse);
+
+    /**
      * Get a simplified view of the network hierarchy from the geographical region down to the feeder level.
      */
     rpc getNetworkHierarchy (GetNetworkHierarchyRequest) returns (GetNetworkHierarchyResponse);

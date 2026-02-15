@@ -29,6 +29,23 @@ message GetIdentifiedObjectsRequest {
 }
 
 /**
+ * A request to get change set objects.
+ */
+message GetChangeSetObjectsRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
+    int64 messageId = 1;
+
+    /**
+     * The list of mRIDs to retrieve.
+     */
+    string changeSetMRID = 2;
+
+}
+
+/**
  * A request to get the network hierarchy.
  */
 message GetNetworkHierarchyRequest {

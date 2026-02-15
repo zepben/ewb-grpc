@@ -1,0 +1,57 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects";
+package zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+
+/**
+ * [ZBEX] Abstract class for both a network model project and network model change.
+ */
+message NetworkModelProjectComponent {
+
+    /**
+     * IdentifiedObject fields for this NetworkModelProjectComponent
+     */
+    cim.iec61970.base.core.IdentifiedObject io = 1;
+
+    /**
+     * [ZBEX] When the component was created
+     */
+    oneof created {
+      google.protobuf.NullValue createdNull = 2;
+      google.protobuf.Timestamp createdSet = 3;
+    }
+
+    /**
+     * [ZBEX] When the component was last updated
+     */
+    oneof updated {
+      google.protobuf.NullValue updatedNull = 4;
+      google.protobuf.Timestamp updatedSet = 5;
+    }
+    /**
+     * [ZBEX] When the component was deleted
+     */
+
+    oneof closed {
+      google.protobuf.NullValue closedNull = 6;
+      google.protobuf.Timestamp closedSet = 7;
+    }
+
+    /**
+     * [ZBEX] The contained Network Model Project Component (Restricted to just NetworkModelProject)
+     */
+     string parentMRID = 8;
+
+}
