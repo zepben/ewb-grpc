@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.4.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Minimum required JVM version for compilation is 17
 
 ### New Features
 * None.
