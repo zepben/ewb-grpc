@@ -8,10 +8,12 @@
 
 syntax = "proto3";
 option java_multiple_files = true;
-option java_package = "com.zepben.protobuf.dc";
-package zepben.protobuf.dc;
+option java_package = "com.zepben.protobuf.vc";
+package zepben.protobuf.vc;
 
-import "zepben/protobuf/dc/dc-data.proto";
+import "zepben/protobuf/vc/vc-data.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProject.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
 
 /**
  * The response to a getIdentifiedObjects request.
@@ -26,14 +28,14 @@ message GetIdentifiedObjectsResponse {
     /**
      * The requested identified objects.
      */
-    repeated DiagramIdentifiedObject identifiedObjects = 2;
+    repeated VariantObject identifiableObjects = 2;
 
 }
 
 /**
- * The response to a getDiagramObjects request.
+ * The response to a getNetworkModelProjects request.
  */
-message GetDiagramObjectsResponse {
+message GetNetworkModelProjectsResponse {
 
     /**
      * An identifier for this message. Currently unused.
@@ -41,16 +43,13 @@ message GetDiagramObjectsResponse {
     int64 messageId = 1;
 
     /**
-     * The diagram objects that represent the requested identified objects.
+     * The requested network model projects.
      */
-    repeated DiagramIdentifiedObject identifiedObjects = 2;
+    repeated cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProject networkModelProjects = 2;
 
 }
 
-/**
- * The response to a getChangeSetObjects request. It is expected you would have one of these for each object contained in the ChangeSet.
- */
-message GetChangeSetObjectsResponse {
+message GetChangeSetResponse {
 
     /**
      * An identifier for this message. Currently unused.
@@ -58,8 +57,8 @@ message GetChangeSetObjectsResponse {
     int64 messageId = 1;
 
     /**
-     * The requested identified object.
+     * The requested change sets.
      */
-    DiagramIdentifiedObject identifiableObject = 2;
+    cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 2;
 
 }

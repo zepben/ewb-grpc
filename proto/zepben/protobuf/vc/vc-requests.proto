@@ -8,8 +8,8 @@
 
 syntax = "proto3";
 option java_multiple_files = true;
-option java_package = "com.zepben.protobuf.dc";
-package zepben.protobuf.dc;
+option java_package = "com.zepben.protobuf.vc";
+package zepben.protobuf.vc;
 
 /**
  * A request to get identified objects.
@@ -29,26 +29,9 @@ message GetIdentifiedObjectsRequest {
 }
 
 /**
- * A request to get diagram objects for other identified objects.
+ * A request to get networkModelProjects.
  */
-message GetDiagramObjectsRequest {
-
-    /**
-     * An identifier for this message. Currently unused.
-     */
-    int64 messageId = 1;
-
-    /**
-     * The list of mRIDs to retrieve diagrams objects for.
-     */
-    repeated string mrids = 2;
-
-}
-
-/**
- * A request to get change set objects.
- */
-message GetChangeSetObjectsRequest {
+message GetNetworkModelProjectsRequest {
 
     /**
      * An identifier for this message. Currently unused.
@@ -58,6 +41,19 @@ message GetChangeSetObjectsRequest {
     /**
      * The list of mRIDs to retrieve.
      */
-    string changeSetMRID = 2;
+    repeated string mrids = 2;
 
+}
+
+message GetChangeSetRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
+    int64 messageId = 1;
+
+    /**
+     * mRID of the ChangeSet to retrieve.
+     */
+    string mrid = 2;
 }

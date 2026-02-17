@@ -8,43 +8,44 @@
 
 syntax = "proto3";
 option java_multiple_files = true;
-option java_package = "com.zepben.protobuf.dc";
-package zepben.protobuf.dc;
+option java_package = "com.zepben.protobuf.vc";
+
+package zepben.protobuf.vc;
 
 import "google/protobuf/empty.proto";
+import "zepben/protobuf/vc/vc-requests.proto";
+import "zepben/protobuf/vc/vc-responses.proto";
 import "zepben/protobuf/connection/connection-requests.proto";
-import "zepben/protobuf/dc/dc-requests.proto";
-import "zepben/protobuf/dc/dc-responses.proto";
 import "zepben/protobuf/metadata/metadata-requests.proto";
 import "zepben/protobuf/metadata/metadata-responses.proto";
 
 /**
- * A service providing consumer access to the diagram details.
+ * A service providing consumer access to the variant details.
  */
-service DiagramConsumer {
+service VariantConsumer {
 
     /**
-     * Get identified objects
+     * Get identified objects.
      */
     rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
 
     /**
-     * Get all identified objects for a change set.
+     * Get network model projects.
      */
-    rpc getChangeSetObjects(GetChangeSetObjectsRequest) returns (stream GetChangeSetObjectsResponse);
+    rpc getNetworkModelProjects (stream GetNetworkModelProjectsRequest) returns (stream GetNetworkModelProjectsResponse);
 
     /**
-     * Get diagram objects
+     * Get change set objects.
      */
-    rpc getDiagramObjects(stream GetDiagramObjectsRequest) returns (stream GetDiagramObjectsResponse);
+    rpc getChangeSet(GetChangeSetRequest) returns (GetChangeSetResponse);
 
     /**
-     * Get Metadata related to the service
+     * Get Metadata related to the service.
      */
     rpc getMetadata(metadata.GetMetadataRequest) returns (metadata.GetMetadataResponse);
 
     /**
-     * Return an empty response for SDK connection tests
+     * Return an empty response for SDK connection tests.
      */
     rpc checkConnection(connection.CheckConnectionRequest) returns (google.protobuf.Empty);
 
