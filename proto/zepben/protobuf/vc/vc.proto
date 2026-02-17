@@ -25,6 +25,11 @@ import "zepben/protobuf/metadata/metadata-responses.proto";
 service VariantConsumer {
 
     /**
+     * Get identified objects.
+     */
+    rpc getIdentifiedObjects (stream GetIdentifiedObjectsRequest) returns (stream GetIdentifiedObjectsResponse);
+
+    /**
      * Get network model projects.
      */
     rpc getNetworkModelProjects (stream GetNetworkModelProjectsRequest) returns (stream GetNetworkModelProjectsResponse);
