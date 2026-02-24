@@ -37,7 +37,7 @@ service VariantConsumer {
     /**
      * Get change set objects.
      */
-    rpc getChangeSet(GetChangeSetRequest) returns (GetChangeSetResponse);
+    rpc getChangeSet(GetChangeSetRequest) returns (stream GetChangeSetResponse);
 
     /**
      * Get Metadata related to the service.
