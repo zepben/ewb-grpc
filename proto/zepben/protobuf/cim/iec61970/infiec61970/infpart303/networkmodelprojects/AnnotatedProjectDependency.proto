@@ -1,0 +1,42 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects";
+package zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects;
+
+import "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/DependencyKind.proto";
+
+/**
+ * Represents the relationship between two network model project stages.
+ */
+message AnnotatedProjectDependency {
+
+    /**
+     * IdentifiedObject fields for this AnnotatedProjectDependency
+     */
+    base.core.IdentifiedObject io = 1;
+
+    /**
+     * Describes the dependency relationship between the two classes.
+     */
+    DependencyKind dependencyType = 2;
+
+    /**
+     * NetworkModelProjectStage representing the "to" stage.
+     */
+    string dependencyDependentOnStageMRID = 3;
+
+    /**
+     * NetworkModelProjectStage representing the "from" stage.
+     */
+    string dependencyDependingStageMRID = 4;
+
+}
