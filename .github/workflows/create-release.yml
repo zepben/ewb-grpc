@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     outputs:
-      version: ${{ steps.check.outputs.release-version }}
+      changelog: ${{ steps.check.outputs.changelog }} 
+      version: ${{ steps.changelog.outputs.version }}
     env:
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
       NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
@@ -29,18 +30,40 @@ jobs:
 
       - name: Release checks and update version for release
         id: check
+        shell: bash
         run: |
-          source /scripts/common.sh
-          git checkout -b release
+
+          # Release checks for python/jvm
           /scripts/release-checks.sh --java --maven java/pom.xml
           /scripts/release-checks.sh --python python/pyproject.toml
-          export release_date=$(date +'%d %B %Y')
-          /scripts/finalize-version.sh --java --maven --no-commit java/pom.xml
+
+          # NOTE: Finalise version creates the release branch
+          # so we don't need to manually handle that
+
+          # Finalise version in python project file, don't commit
           /scripts/finalize-version.sh --python --no-commit python/pyproject.toml
-          commit_finalize_version
+          # Finalise version in jvm project file, update changelog and commit to `release` branch
+          /scripts/finalize-version.sh --java --maven java/pom.xml changelog.md
+
+          # Parse the version for the release
           version=$(xmlstarlet pyx java/pom.xml | grep -v ^A | xmlstarlet p2x | xmlstarlet sel -t -v "/project/version")
-          echo "release-version=$(echo $version)" >> ${GITHUB_OUTPUT}
+          echo "version=$(echo $version)" >> ${GITHUB_OUTPUT}
+
+      - name: Test changelog format
+        id: changelog
         shell: bash
+        run: |
+          changelog=$(sed -n -E "/${{ steps.check.outputs.version }}/,/## [[0-9]+\.[0-9]+\.[0-9]+]/ { /## \[/d;p }" changelog.md)
+          if [[ -z "$changelog" ]]; then
+            echo "Changelog content was not found - ensure your changelog.md matches the expected growing format. Deleting release branch."
+            git push origin -d release
+            # We can safely fail here because we haven't done anything yet. Changelog.md file should be in correct format.
+            exit 1
+          fi
+          # Changelog has newlines which isn't well supported, so we base64 with line wrap disabled (-w0)
+          new_changelog=$(echo "${changelog}" | base64 -w0)
+          echo "changelog=${new_changelog}" >> $GITHUB_OUTPUT
+
 
   java-deploy:
     needs: release-checks
@@ -165,7 +188,7 @@ jobs:
           fi
 
   finalise:
-    needs: [java-deploy, python-deploy]
+    needs: [java-deploy, python-deploy, release-checks]
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
@@ -195,14 +218,20 @@ jobs:
           git merge origin/release
           git push origin ${GITHUB_REF/refs\/heads\//}
           cd java
-          version=$(xmlstarlet pyx pom.xml | grep -v ^A | xmlstarlet p2x | xmlstarlet sel -t -v "/project/version")
-          git tag "v$version"
+          git tag "v${{ needs.release-checks.outputs.version }}"
           git push --tags
-          echo "tag=$(echo v$version)" >> ${GITHUB_ENV}
+          echo "tag=$(echo v${{ needs.release-checks.outputs.version }})" >> ${GITHUB_ENV}
           echo " " >> ${GITHUB_STEP_SUMMARY}
           echo ":rocket: The deployment to remote servers succeeded!" >> ${GITHUB_STEP_SUMMARY}
           echo "If there are errors above, investigate and resolve manually." >> ${GITHUB_STEP_SUMMARY}
         shell: bash
+
+      - name: Get latest changelog
+        id: changelog
+        run: |
+          echo "${{ needs.release-checks.outputs.changelog }}" | base64 -d > latest_changelog.txt
+        shell: bash
+        continue-on-error: true
 
       - name: Download java artifact
         uses: actions/download-artifact@v4
@@ -213,7 +242,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: python
-                  
+
       - name: Create Release and upload assets
         if: success()
         id: create_release
@@ -222,7 +251,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.tag }}
-          body_path: changelog.md
+          body_path: latest_changelog.txt
           draft: false
           prerelease: false
           files: |
@@ -265,12 +294,10 @@ jobs:
 
       - name: Update to next minor version
         run: |
-          source /scripts/common.sh
-          cd python
-          /scripts/update-version.sh --python --no-commit pyproject.toml
-          cd ../java
-          /scripts/update-version.sh --java --grow-changelog --maven --no-commit pom.xml ../changelog.md
-          commit_update_version
+          # Update a new minor python version, don't commit
+          /scripts/update-version.sh --python --no-commit python/pyproject.toml
+          # Update a new minor java version, commit and fill changelog with the new template
+          /scripts/update-version.sh --java --maven --grow-changelog java/pom.xml changelog.md
 
           git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
           git fetch --all
