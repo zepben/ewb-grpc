@@ -5,43 +5,43 @@
       "def": {
         "messages": [
           {
-            "name": "CustomerIdentifiedObject",
+            "name": "CustomerIdentifiable",
             "fields": [
               {
                 "id": 1,
                 "name": "organisation",
                 "type": "zepben.protobuf.cim.iec61968.common.Organisation",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 2,
                 "name": "customer",
                 "type": "zepben.protobuf.cim.iec61968.customers.Customer",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 3,
                 "name": "customerAgreement",
                 "type": "zepben.protobuf.cim.iec61968.customers.CustomerAgreement",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 4,
                 "name": "pricingStructure",
                 "type": "zepben.protobuf.cim.iec61968.customers.PricingStructure",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 5,
                 "name": "tariff",
                 "type": "zepben.protobuf.cim.iec61968.customers.Tariff",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               }
             ]
           }
@@ -86,7 +86,7 @@
       "def": {
         "messages": [
           {
-            "name": "GetIdentifiedObjectsRequest",
+            "name": "GetIdentifiablesRequest",
             "fields": [
               {
                 "id": 1,
@@ -138,7 +138,7 @@
       "def": {
         "messages": [
           {
-            "name": "GetIdentifiedObjectsResponse",
+            "name": "GetIdentifiablesResponse",
             "fields": [
               {
                 "id": 1,
@@ -147,8 +147,8 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObjects",
-                "type": "CustomerIdentifiedObject",
+                "name": "identifiables",
+                "type": "CustomerIdentifiable",
                 "is_repeated": true
               }
             ]
@@ -163,8 +163,8 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObjects",
-                "type": "CustomerIdentifiedObject",
+                "name": "identifiables",
+                "type": "CustomerIdentifiable",
                 "is_repeated": true
               }
             ]
@@ -198,9 +198,9 @@
             "name": "CustomerConsumer",
             "rpcs": [
               {
-                "name": "getIdentifiedObjects",
-                "in_type": "GetIdentifiedObjectsRequest",
-                "out_type": "GetIdentifiedObjectsResponse",
+                "name": "getIdentifiables",
+                "in_type": "GetIdentifiablesRequest",
+                "out_type": "GetIdentifiablesResponse",
                 "in_streamed": true,
                 "out_streamed": true
               },
@@ -14036,25 +14036,25 @@
       "def": {
         "messages": [
           {
-            "name": "DiagramIdentifiedObject",
+            "name": "DiagramIdentifiable",
             "fields": [
               {
                 "id": 1,
                 "name": "diagram",
                 "type": "zepben.protobuf.cim.iec61970.base.diagramlayout.Diagram",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 2,
                 "name": "diagramObject",
                 "type": "zepben.protobuf.cim.iec61970.base.diagramlayout.DiagramObject",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               }
             ]
           }
@@ -14090,7 +14090,7 @@
       "def": {
         "messages": [
           {
-            "name": "GetIdentifiedObjectsRequest",
+            "name": "GetIdentifiablesRequest",
             "fields": [
               {
                 "id": 1,
@@ -14142,7 +14142,7 @@
       "def": {
         "messages": [
           {
-            "name": "GetIdentifiedObjectsResponse",
+            "name": "GetIdentifiablesResponse",
             "fields": [
               {
                 "id": 1,
@@ -14151,8 +14151,8 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObjects",
-                "type": "DiagramIdentifiedObject",
+                "name": "identifiables",
+                "type": "DiagramIdentifiable",
                 "is_repeated": true
               }
             ]
@@ -14167,8 +14167,8 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObjects",
-                "type": "DiagramIdentifiedObject",
+                "name": "identifiables",
+                "type": "DiagramIdentifiable",
                 "is_repeated": true
               }
             ]
@@ -14202,9 +14202,9 @@
             "name": "DiagramConsumer",
             "rpcs": [
               {
-                "name": "getIdentifiedObjects",
-                "in_type": "GetIdentifiedObjectsRequest",
-                "out_type": "GetIdentifiedObjectsResponse",
+                "name": "getIdentifiables",
+                "in_type": "GetIdentifiablesRequest",
+                "out_type": "GetIdentifiablesResponse",
                 "in_streamed": true,
                 "out_streamed": true
               },
@@ -16668,553 +16668,553 @@
       "def": {
         "messages": [
           {
-            "name": "NetworkIdentifiedObject",
+            "name": "NetworkIdentifiable",
             "fields": [
               {
                 "id": 1,
                 "name": "cableInfo",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.CableInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 2,
                 "name": "overheadWireInfo",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.OverheadWireInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 3,
                 "name": "assetOwner",
                 "type": "zepben.protobuf.cim.iec61968.assets.AssetOwner",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 4,
                 "name": "organisation",
                 "type": "zepben.protobuf.cim.iec61968.common.Organisation",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 5,
                 "name": "location",
                 "type": "zepben.protobuf.cim.iec61968.common.Location",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 6,
                 "name": "meter",
                 "type": "zepben.protobuf.cim.iec61968.metering.Meter",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 7,
                 "name": "usagePoint",
                 "type": "zepben.protobuf.cim.iec61968.metering.UsagePoint",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 8,
                 "name": "operationalRestriction",
                 "type": "zepben.protobuf.cim.iec61968.operations.OperationalRestriction",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 9,
                 "name": "faultIndicator",
                 "type": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment.FaultIndicator",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 10,
                 "name": "baseVoltage",
                 "type": "zepben.protobuf.cim.iec61970.base.core.BaseVoltage",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 11,
                 "name": "connectivityNode",
                 "type": "zepben.protobuf.cim.iec61970.base.core.ConnectivityNode",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 12,
                 "name": "feeder",
                 "type": "zepben.protobuf.cim.iec61970.base.core.Feeder",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 13,
                 "name": "geographicalRegion",
                 "type": "zepben.protobuf.cim.iec61970.base.core.GeographicalRegion",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 14,
                 "name": "site",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.core.Site",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 15,
                 "name": "subGeographicalRegion",
                 "type": "zepben.protobuf.cim.iec61970.base.core.SubGeographicalRegion",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 16,
                 "name": "substation",
                 "type": "zepben.protobuf.cim.iec61970.base.core.Substation",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 17,
                 "name": "terminal",
                 "type": "zepben.protobuf.cim.iec61970.base.core.Terminal",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 18,
                 "name": "acLineSegment",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.AcLineSegment",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 19,
                 "name": "breaker",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Breaker",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 20,
                 "name": "disconnector",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Disconnector",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 21,
                 "name": "energyConsumer",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.EnergyConsumer",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 22,
                 "name": "energyConsumerPhase",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.EnergyConsumerPhase",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 23,
                 "name": "energySource",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.EnergySource",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 24,
                 "name": "energySourcePhase",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.EnergySourcePhase",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 25,
                 "name": "fuse",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Fuse",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 26,
                 "name": "jumper",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Jumper",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 27,
                 "name": "junction",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Junction",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 28,
                 "name": "linearShuntCompensator",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.LinearShuntCompensator",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 29,
                 "name": "perLengthSequenceImpedance",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.PerLengthSequenceImpedance",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 30,
                 "name": "powerTransformer",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.PowerTransformer",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 31,
                 "name": "powerTransformerEnd",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.PowerTransformerEnd",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 32,
                 "name": "ratioTapChanger",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.RatioTapChanger",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 33,
                 "name": "recloser",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Recloser",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 34,
                 "name": "circuit",
                 "type": "zepben.protobuf.cim.iec61970.infiec61970.feeder.Circuit",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 35,
                 "name": "loop",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.feeder.Loop",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 36,
                 "name": "pole",
                 "type": "zepben.protobuf.cim.iec61968.infiec61968.infassets.Pole",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 37,
                 "name": "streetlight",
                 "type": "zepben.protobuf.cim.iec61968.assets.Streetlight",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 38,
                 "name": "accumulator",
                 "type": "zepben.protobuf.cim.iec61970.base.meas.Accumulator",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 39,
                 "name": "analog",
                 "type": "zepben.protobuf.cim.iec61970.base.meas.Analog",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 40,
                 "name": "discrete",
                 "type": "zepben.protobuf.cim.iec61970.base.meas.Discrete",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 41,
                 "name": "control",
                 "type": "zepben.protobuf.cim.iec61970.base.meas.Control",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 42,
                 "name": "remoteControl",
                 "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteControl",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 43,
                 "name": "remoteSource",
                 "type": "zepben.protobuf.cim.iec61970.base.scada.RemoteSource",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 44,
                 "name": "powerTransformerInfo",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.PowerTransformerInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 45,
                 "name": "powerElectronicsConnection",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnection",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 46,
                 "name": "powerElectronicsConnectionPhase",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.PowerElectronicsConnectionPhase",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 47,
                 "name": "batteryUnit",
                 "type": "zepben.protobuf.cim.iec61970.base.generation.production.BatteryUnit",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 48,
                 "name": "photoVoltaicUnit",
                 "type": "zepben.protobuf.cim.iec61970.base.generation.production.PhotoVoltaicUnit",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 49,
                 "name": "powerElectronicsWindUnit",
                 "type": "zepben.protobuf.cim.iec61970.base.generation.production.PowerElectronicsWindUnit",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 50,
                 "name": "busbarSection",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.BusbarSection",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 51,
                 "name": "loadBreakSwitch",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.LoadBreakSwitch",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 52,
                 "name": "transformerStarImpedance",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.TransformerStarImpedance",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 53,
                 "name": "transformerEndInfo",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.TransformerEndInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 54,
                 "name": "transformerTankInfo",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.TransformerTankInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 55,
                 "name": "noLoadTest",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.NoLoadTest",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 56,
                 "name": "openCircuitTest",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.OpenCircuitTest",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 57,
                 "name": "shortCircuitTest",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.ShortCircuitTest",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 58,
                 "name": "equivalentBranch",
                 "type": "zepben.protobuf.cim.iec61970.base.equivalents.EquivalentBranch",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 59,
                 "name": "shuntCompensatorInfo",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.ShuntCompensatorInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 60,
                 "name": "lvFeeder",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.feeder.LvFeeder",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 61,
                 "name": "currentTransformer",
                 "type": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment.CurrentTransformer",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 62,
                 "name": "potentialTransformer",
                 "type": "zepben.protobuf.cim.iec61970.base.auxiliaryequipment.PotentialTransformer",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 63,
                 "name": "currentTransformerInfo",
                 "type": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.CurrentTransformerInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 64,
                 "name": "potentialTransformerInfo",
                 "type": "zepben.protobuf.cim.iec61968.infiec61968.infassetinfo.PotentialTransformerInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 65,
                 "name": "switchInfo",
                 "type": "zepben.protobuf.cim.iec61968.assetinfo.SwitchInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 66,
                 "name": "relayInfo",
                 "type": "zepben.protobuf.cim.extensions.iec61968.assetinfo.RelayInfo",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 68,
                 "name": "currentRelay",
                 "type": "zepben.protobuf.cim.iec61970.base.protection.CurrentRelay",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 69,
                 "name": "tapChangerControl",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.TapChangerControl",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 70,
                 "name": "evChargingUnit",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.generation.production.EvChargingUnit",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 71,
                 "name": "seriesCompensator",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.SeriesCompensator",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 72,
                 "name": "ground",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Ground",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 73,
                 "name": "groundDisconnector",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.GroundDisconnector",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 74,
                 "name": "protectionRelayScheme",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.protection.ProtectionRelayScheme",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 75,
                 "name": "protectionRelaySystem",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.protection.ProtectionRelaySystem",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 76,
                 "name": "voltageRelay",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.protection.VoltageRelay",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 77,
                 "name": "distanceRelay",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.protection.DistanceRelay",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 78,
                 "name": "synchronousMachine",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.SynchronousMachine",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 79,
                 "name": "reactiveCapabilityCurve",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.ReactiveCapabilityCurve",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 80,
                 "name": "groundingImpedance",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.GroundingImpedance",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 81,
                 "name": "petersenCoil",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.PetersenCoil",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 82,
                 "name": "staticVarCompensator",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.StaticVarCompensator",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 83,
                 "name": "panDemandResponseFunction",
                 "type": "zepben.protobuf.cim.extensions.iec61968.metering.PanDemandResponseFunction",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 84,
                 "name": "batteryControl",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.wires.BatteryControl",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 85,
                 "name": "perLengthPhaseImpedance",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.PerLengthPhaseImpedance",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 86,
                 "name": "cut",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Cut",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 87,
                 "name": "clamp",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.Clamp",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 88,
                 "name": "directionalCurrentRelay",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.protection.DirectionalCurrentRelay",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 89,
                 "name": "hvCustomer",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.core.HvCustomer",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 90,
                 "name": "lvSubstation",
                 "type": "zepben.protobuf.cim.extensions.iec61970.base.feeder.LvSubstation",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 91,
                 "name": "acLineSegmentPhase",
                 "type": "zepben.protobuf.cim.iec61970.base.wires.AcLineSegmentPhase",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               },
               {
                 "id": 999,
                 "name": "other",
                 "type": "google.protobuf.Any",
-                "oneof_parent": "identifiedObject"
+                "oneof_parent": "identifiable"
               }
             ]
           }
@@ -17572,7 +17572,7 @@
         ],
         "messages": [
           {
-            "name": "GetIdentifiedObjectsRequest",
+            "name": "GetIdentifiablesRequest",
             "fields": [
               {
                 "id": 1,
@@ -17777,7 +17777,7 @@
             ]
           },
           {
-            "name": "GetIdentifiedObjectsResponse",
+            "name": "GetIdentifiablesResponse",
             "fields": [
               {
                 "id": 1,
@@ -17786,8 +17786,8 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObjects",
-                "type": "NetworkIdentifiedObject",
+                "name": "identifiables",
+                "type": "NetworkIdentifiable",
                 "is_repeated": true
               }
             ]
@@ -17802,8 +17802,8 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObjects",
-                "type": "NetworkIdentifiedObject",
+                "name": "identifiables",
+                "type": "NetworkIdentifiable",
                 "is_repeated": true
               }
             ]
@@ -17818,8 +17818,8 @@
               },
               {
                 "id": 2,
-                "name": "identifiedObjects",
-                "type": "NetworkIdentifiedObject",
+                "name": "identifiable",
+                "type": "NetworkIdentifiable",
                 "is_repeated": true
               }
             ]
@@ -17895,9 +17895,9 @@
             "name": "NetworkConsumer",
             "rpcs": [
               {
-                "name": "getIdentifiedObjects",
-                "in_type": "GetIdentifiedObjectsRequest",
-                "out_type": "GetIdentifiedObjectsResponse",
+                "name": "getIdentifiables",
+                "in_type": "GetIdentifiablesRequest",
+                "out_type": "GetIdentifiablesResponse",
                 "in_streamed": true,
                 "out_streamed": true
               },

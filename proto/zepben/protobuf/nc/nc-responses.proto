@@ -75,9 +75,9 @@ message GetNetworkHierarchyResponse {
 }
 
 /**
- * The response to a getIdentifiedObjects request.
+ * The response to a getIdentifiables request.
  */
-message GetIdentifiedObjectsResponse {
+message GetIdentifiablesResponse {
 
     /**
      * An identifier for this message. Currently unused.
@@ -85,9 +85,9 @@ message GetIdentifiedObjectsResponse {
     int64 messageId = 1;
 
     /**
-     * The requested identified objects.
+     * The requested identifiable objects.
      */
-    repeated NetworkIdentifiedObject identifiedObjects = 2;
+    repeated NetworkIdentifiable identifiables = 2;
 
 }
 
@@ -104,7 +104,7 @@ message GetEquipmentForContainersResponse {
     /**
      * The equipment contained in the requested equipment container.
      */
-    repeated NetworkIdentifiedObject identifiedObjects = 2;
+    repeated NetworkIdentifiable identifiables = 2;
 
 }
 
@@ -121,7 +121,7 @@ message GetEquipmentForRestrictionResponse {
     /**
      * The equipment restricted by the requested operations restriction.
      */
-    repeated NetworkIdentifiedObject identifiedObjects = 2;
+    repeated NetworkIdentifiable identifiable = 2;
 
 }
 
