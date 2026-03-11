@@ -22,7 +22,7 @@ message AnnotatedProjectDependency {
     /**
      * IdentifiedObject fields for this AnnotatedProjectDependency
      */
-    base.core.IdentifiedObject io = 1;
+    string mRID = 1;
 
     /**
      * Describes the dependency relationship between the two classes.
@@ -39,4 +39,8 @@ message AnnotatedProjectDependency {
      */
     string dependencyDependingStageMRID = 4;
 
+    /**
+     * The version of the base model this dependency is against.
+     */
+    string baseModelVersion = 5;
 }
