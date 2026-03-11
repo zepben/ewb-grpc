@@ -19,14 +19,14 @@ import "zepben/protobuf/cim/iec61968/customers/PricingStructure.proto";
 import "zepben/protobuf/cim/iec61968/customers/Tariff.proto";
 
 /**
- * The set of leaf identified objects that the customer service manages.
+ * The set of leaf identifiable objects that the customer service manages.
  */
-message CustomerIdentifiedObject {
+message CustomerIdentifiable {
 
     /**
-     * The type of identified object being returned.
+     * The type of identifiable object being returned.
      */
-    oneof identifiedObject {
+    oneof identifiable {
         zepben.protobuf.cim.iec61968.common.Organisation organisation = 1;
         zepben.protobuf.cim.iec61968.customers.Customer customer = 2;
         zepben.protobuf.cim.iec61968.customers.CustomerAgreement customerAgreement = 3;

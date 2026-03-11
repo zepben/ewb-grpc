@@ -1,7 +1,32 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.4.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Renamed the following to support identifiable objects that don't descend from `IdentifiedObject` (such as `DataSet`):
+  * In the `cc` protos:
+    * `CustomerConsumer.getIdentifiedObjects` -> `CustomerConsumer.getIdentifiables`
+    * `GetIdentifiedObjectsRequest` -> `GetIdentifiablesRequest`
+    * `GetIdentifiedObjectsResponse` -> `GetIdentifiablesResponse`
+    * `GetIdentifiablesResponse.identifiedObjects` -> `GetIdentifiablesResponse.identifiables`
+    * `CustomerIdentifiedObject` -> `CustomerIdentifiable`
+    * `CustomerIdentifiable.identifiedObject` -> `CustomerIdentifiable.identifiable`
+    * `GetCustomersForContainerResponse.identifiedObject` -> `GetCustomersForContainerResponse.identifiable`
+  * In the `dc` protos:
+    * `DiagramConsumer.getIdentifiedObjects` -> `DiagramConsumer.getIdentifiables`
+    * `GetIdentifiedObjectsRequest` -> `GetIdentifiablesRequest`
+    * `GetIdentifiedObjectsResponse` -> `GetIdentifiablesResponse`
+    * `GetIdentifiablesResponse.identifiedObjects` -> `GetIdentifiablesResponse.identifiables`
+    * `DiagramIdentifiedObject` -> `DiagramIdentifiable`
+    * `DiagramIdentifiable.identifiedObject` -> `DiagramIdentifiable.identifiable`
+    * `GetDiagramObjectsResponse.identifiedObject` -> `GetDiagramObjectsResponse.identifiable`
+  * In the `nc` protos:
+    * `NetworkConsumer.getIdentifiedObjects` -> `NetworkConsumer.getIdentifiables`
+    * `GetIdentifiedObjectsRequest` -> `GetIdentifiablesRequest`
+    * `GetIdentifiedObjectsResponse` -> `GetIdentifiablesResponse`
+    * `GetIdentifiablesResponse.identifiedObjects` -> `GetIdentifiablesResponse.identifiables`
+    * `NetworkIdentifiedObject` -> `NetworkIdentifiable`
+    * `NetworkIdentifiable.identifiedObject` -> `NetworkIdentifiable.identifiable`
+    * `GetEquipmentForContainersResponse.identifiedObject` -> `GetEquipmentForContainersResponse.identifiable`
+    * `GetEquipmentForRestrictionResponse.identifiedObject` -> `GetEquipmentForRestrictionResponse.identifiable`
 
 ### New Features
 * None.
