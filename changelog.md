@@ -9,7 +9,7 @@
     * `GetIdentifiablesResponse.identifiedObjects` -> `GetIdentifiablesResponse.identifiables`
     * `CustomerIdentifiedObject` -> `CustomerIdentifiable`
     * `CustomerIdentifiable.identifiedObject` -> `CustomerIdentifiable.identifiable`
-    * `GetCustomersForContainerResponse.identifiedObject` -> `GetCustomersForContainerResponse.identifiable`
+    * `GetCustomersForContainerResponse.identifiedObject` -> `GetCustomersForContainerResponse.identifiables`
   * In the `dc` protos:
     * `DiagramConsumer.getIdentifiedObjects` -> `DiagramConsumer.getIdentifiables`
     * `GetIdentifiedObjectsRequest` -> `GetIdentifiablesRequest`
@@ -17,7 +17,7 @@
     * `GetIdentifiablesResponse.identifiedObjects` -> `GetIdentifiablesResponse.identifiables`
     * `DiagramIdentifiedObject` -> `DiagramIdentifiable`
     * `DiagramIdentifiable.identifiedObject` -> `DiagramIdentifiable.identifiable`
-    * `GetDiagramObjectsResponse.identifiedObject` -> `GetDiagramObjectsResponse.identifiable`
+    * `GetDiagramObjectsResponse.identifiedObject` -> `GetDiagramObjectsResponse.identifiables`
   * In the `nc` protos:
     * `NetworkConsumer.getIdentifiedObjects` -> `NetworkConsumer.getIdentifiables`
     * `GetIdentifiedObjectsRequest` -> `GetIdentifiablesRequest`
@@ -25,8 +25,8 @@
     * `GetIdentifiablesResponse.identifiedObjects` -> `GetIdentifiablesResponse.identifiables`
     * `NetworkIdentifiedObject` -> `NetworkIdentifiable`
     * `NetworkIdentifiable.identifiedObject` -> `NetworkIdentifiable.identifiable`
-    * `GetEquipmentForContainersResponse.identifiedObject` -> `GetEquipmentForContainersResponse.identifiable`
-    * `GetEquipmentForRestrictionResponse.identifiedObject` -> `GetEquipmentForRestrictionResponse.identifiable`
+    * `GetEquipmentForContainersResponse.identifiedObject` -> `GetEquipmentForContainersResponse.identifiables`
+    * `GetEquipmentForRestrictionResponse.identifiedObject` -> `GetEquipmentForRestrictionResponse.identifiables`
 
 ### New Features
 * None.
