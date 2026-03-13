@@ -1,5 +1,5 @@
 # Zepben Protobuf and GRPC definitions
-## [1.4.0] - UNRELEASED
+## [1.4.0] - 2026-03-13
 ### Breaking Changes
 * Renamed the following to support identifiable objects that don't descend from `IdentifiedObject` (such as `DataSet`):
   * In the `cc` protos:
