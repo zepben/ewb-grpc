@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.6.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* The project requires JVM 17 to build
 
 ### New Features
 * None.
@@ -17,7 +17,7 @@
 
 ## [1.5.0] - 2026-03-26
 ### Breaking Changes
-* Minimum required JVM version for compilation is 17
+* None.
 
 ### New Features
 * None.
