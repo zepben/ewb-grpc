@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.6.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* The gRPC Java project requires JVM 17 to build
 
 ### New Features
 * None.
