@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     outputs:
-      changelog: ${{ steps.check.outputs.changelog }} 
+      changelog: ${{ steps.check.outputs.changelog }}
       version: ${{ steps.changelog.outputs.version }}
     env:
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
@@ -68,7 +68,7 @@ jobs:
   java-deploy:
     needs: release-checks
     runs-on: ubuntu-latest
-    container: zepben/pipeline-java-ewb
+    container: zepben/pipeline-java-ewb:17-latest
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
@@ -165,7 +165,7 @@ jobs:
           artifact="zepben_protobuf-${version}-py3-none-any.whl"
           echo "artifact-path=$(echo python/dist/$artifact)" >> ${GITHUB_ENV}
           # and 'artifact' to OUTPUT
-          echo "artifact=$(echo $artifact)" >> ${GITHUB_OUTPUT} 
+          echo "artifact=$(echo $artifact)" >> ${GITHUB_OUTPUT}
         shell: bash
         continue-on-error: true
 
@@ -255,8 +255,8 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            ${{ needs.java-deploy.outputs.artifact }} 
-            ${{ needs.python-deploy.outputs.artifact }} 
+            ${{ needs.java-deploy.outputs.artifact }}
+            ${{ needs.python-deploy.outputs.artifact }}
         continue-on-error: true
 
       - name: Report any failures
