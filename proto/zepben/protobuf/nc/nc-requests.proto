@@ -11,6 +11,7 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.nc";
 package zepben.protobuf.nc;
 
+import "google/protobuf/timestamp.proto";
 import "zepben/protobuf/vc/vc-data.proto";
 
 /**
@@ -49,6 +50,12 @@ message GetChangeSetObjectsRequest {
      * The content types of the variant to retrieve.
      */
     vc.VariantContents variantContents = 3;
+
+    /**
+     * The base model version to check for the variant.
+     * Defaults to the current version if unset.
+     */
+    google.protobuf.Timestamp modelVersion = 4;
 
 }
 
