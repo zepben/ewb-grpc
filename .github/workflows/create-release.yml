@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     outputs:
-      changelog: ${{ steps.check.outputs.changelog }}
-      version: ${{ steps.changelog.outputs.version }}
+      changelog: ${{ steps.changelog.outputs.changelog }}
+      version: ${{ steps.check.outputs.version }}
     env:
       NEXUS_MAVEN_REPO: ${{ secrets.NEXUS_MAVEN_REPO }}
       NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
