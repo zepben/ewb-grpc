@@ -29,6 +29,11 @@ service DiagramConsumer {
     rpc getIdentifiables (stream GetIdentifiablesRequest) returns (stream GetIdentifiablesResponse);
 
     /**
+     * Get all identified objects for a change set.
+     */
+    rpc getChangeSetObjects (GetChangeSetObjectsRequest) returns (stream GetChangeSetObjectsResponse);
+
+    /**
      * Get diagram objects
      */
     rpc getDiagramObjects(stream GetDiagramObjectsRequest) returns (stream GetDiagramObjectsResponse);

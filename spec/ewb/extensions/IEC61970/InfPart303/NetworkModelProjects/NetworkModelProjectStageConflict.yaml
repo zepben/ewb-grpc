@@ -1,0 +1,17 @@
+name: NetworkModelProjectStageConflict
+description: \[ZBEX\] A conflict between the network model project state and the base network
+attributes:
+  - name: plannedCommissionedDate
+    type: DateTime
+    description: The date expected for this stage to be commissioned
+ancestors:
+  - IdentifiedObject
+associations:
+  - source: NetworkModelProjectStageConflict
+    target: NetworkModelProjectStage
+    sourceCardinality: "1"
+    sourceName: stage
+    sourceDescription: \[ZBEX\] The stage the conflicts belong too
+    targetCardinality: 0..*
+    targetName: 0..*
+    targetDescription: \[ZBEX\] The conflicts of this stage against the base model.
