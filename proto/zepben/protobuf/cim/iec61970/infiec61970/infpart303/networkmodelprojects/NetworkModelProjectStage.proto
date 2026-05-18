@@ -1,0 +1,102 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects";
+package zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/AnnotatedProjectDependency.proto";
+import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
+import "zepben/protobuf/nc/nc-data.proto";
+
+/**
+ * A specific phase in a network model project.
+ */
+message NetworkModelProjectStage {
+
+    /**
+     * NetworkModelProjectComponent fields for this NetworkModelProjectStage.
+     */
+    cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectComponent nmpc = 1;
+
+    /**
+     * The date expected for this stage to be commissioned.
+     */
+    oneof plannedCommissionedDate {
+      google.protobuf.NullValue plannedCommissionedDateNull = 2;
+      google.protobuf.Timestamp plannedCommissionedDateSet = 3;
+    }
+
+    /**
+     * The date this stage was commissioned.
+     */
+    oneof commissionedDate {
+      google.protobuf.NullValue commissionedDateNull = 4;
+      google.protobuf.Timestamp commissionedDateSet = 5;
+    }
+
+    /**
+     * [ZBEX] The percentage confidence that this project will be committed to.
+     */
+    oneof confidenceLevel {
+      google.protobuf.NullValue confidenceLevelNull = 6;
+      uint32 confidenceLevelSet = 7;
+    }
+
+    /**
+     * [ZBEX] The version of the base model this stage was imported against.
+     */
+    oneof baseModelVersion {
+      google.protobuf.NullValue baseModelVersionNull = 8;
+      string baseModelVersionSet = 9;
+    }
+
+    /**
+     * [ZBEX] The time the last conflict check occurred.
+     */
+    oneof lastConflictCheckedAt {
+      google.protobuf.NullValue lastConflictCheckedAtNull = 10;
+      google.protobuf.Timestamp lastConflictCheckedAtSet = 11;
+    }
+
+    /**
+     * [ZBEX] User comments.
+     */
+    oneof userComments {
+      google.protobuf.NullValue userCommentsNull = 12;
+      string userCommentsSet = 13;
+    }
+
+  /**
+   * [ZBEX] The set of changes that this stage of the project will do
+   */
+    oneof changeSetMRID {
+      google.protobuf.NullValue changeSetMRIDNull = 14;
+      string changeSetMRIDSet = 15;
+    }
+
+    /**
+     * The stages that depend on this stage.
+     */
+    repeated string dependentOnStageMRID = 16;
+
+    /**
+     * The stages that this stage depends on.
+     */
+    repeated string dependingStageMRID = 17;
+
+    /**
+     * [ZBEX] The equipment containers this stage is related to.
+     */
+    repeated string equipmentContainerMRIDs = 18;
+
+}

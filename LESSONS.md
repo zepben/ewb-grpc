@@ -125,7 +125,7 @@ done this before) - you then probably want to edit the `python`, `java`, and `c`
     - Naming:
       ``` protobuf
       enum ContactMethodType {
-          CONTACT_METHOD_TYPE_UNKNOWN 0;  // default
+          CONTACT_METHOD_TYPE_UNKNOWN = 0;  // default
           CONTACT_METHOD_TYPE_EMAIL = 1;  // specified enum values
       }
       ```

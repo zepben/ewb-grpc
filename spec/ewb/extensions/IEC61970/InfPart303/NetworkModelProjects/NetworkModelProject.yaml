@@ -1,0 +1,23 @@
+name: NetworkModelProject
+description: \[ZBEX\] A grouping of network model change descriptions.  Primarily used to organize the phases of an overall project.
+attributes:
+  - name: externalStatus
+    type: String
+    description: \[ZBEX\] The status of the project in the external system.
+  - name: forecastCommissionDate
+    type: DateTime
+    description: \[ZBEX\] When the project is expected to be comissioned.
+  - name: externalDriver
+    type: String
+    description: \[ZBEX\] The driver of the project in the external system.
+ancestors:
+- NetworkModelProjectComponent
+associations:
+- source: NetworkModelProject
+  target: NetworkModelProjectComponent
+  sourceCardinality: "1"
+  sourceName: parent
+  sourceDescription: The parent project of this project.
+  targetCardinality: 0..*
+  targetName: children
+  targetDescription: Projects that are included in this parent project.
