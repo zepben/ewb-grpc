@@ -4,17 +4,24 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
 @Serializable
-data class Class(@Transient override val id: Int = 0, override val name: String, val description: String? = null): Element() {
+data class Class(
+    @Transient override val id: Int = 0,
+    override val name: String,
+    val description: String? = null,
+    private val attributes: MutableList<Attribute> = mutableListOf(),
+    private val ancestors: MutableList<String> = mutableListOf(),
+    private val descendants: MutableList<String> = mutableListOf(),
+    private val associations: MutableList<Link> = mutableListOf(),
+    var type: String? = attributes.classIsEnum(),
+) : Element() {
+
     @Transient
     override val children: List<Element> = listOf()
 
-    private val attributes: MutableList<Attribute> = mutableListOf()
-    private val ancestors: MutableList<String> = mutableListOf()
-    private val descendants: MutableList<String> = mutableListOf()
-    private val associations: MutableList<Link> = mutableListOf()
-
     @Transient
-    val isEnum = attributes().all { it.type == null }
+    private val initialType = type
+
+    val isEnum get() = (type == "enum")
 
     fun addAssociation(link: Link) {
         if (link.sourceCardinality == null && link.targetCardinality == null) {
@@ -34,6 +41,11 @@ data class Class(@Transient override val id: Int = 0, override val name: String,
 
     fun addAttribute(attribute: Attribute) {
         attributes.add(attribute)
+        if (attribute.type == "enum") {
+            if (type == null)
+                type = "enum"
+        } else if (type == "enum")
+            type = initialType
     }
 
     fun associations() = associations.filter { it.sourceCardinality != null || it.targetCardinality != null }.sortedBy { it.source }
@@ -44,4 +56,12 @@ data class Class(@Transient override val id: Int = 0, override val name: String,
     fun descendants() = descendants.sorted()
 
     fun attributes(): List<Attribute> = attributes.sortedBy { it.name }
+
+    companion object {
+
+        private fun List<Attribute>.classIsEnum(): String? =
+            if ((any() && all { (it.type == "enum") }) || (any() && all { (it.type == null) })) "enum" else null
+
+    }
+
 }

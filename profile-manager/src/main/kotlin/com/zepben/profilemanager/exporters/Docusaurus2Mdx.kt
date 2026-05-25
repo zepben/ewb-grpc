@@ -170,7 +170,7 @@ class Docusaurus2Mdx(
         return buildString {
             append("| " + headings.joinToString(" | ") + " |")
             newLine()
-            append("| " + headings.map { "---" }.joinToString(" | ") + " |")
+            append("| " + headings.joinToString(" | ") { "---" } + " |")
             newLine()
             append(rows.joinToString("\n") { "| " + it.joinToString(" | ") + " |" })
         }
