@@ -1,0 +1,56 @@
+name: NetworkModelProjectStage
+description: A specific phase in a network model project.
+attributes:
+- name: plannedCommissionedDate
+  type: DateTime
+  description: The date expected for this stage to be commissioned.
+- name: commissionedDate
+  type: DateTime
+  description: The date this stage was commissioned.
+- name: confidenceLevel
+  type: Integer
+  description: \[ZBEX\] The percentage confidence that this project will be committed to.
+- name: baseModelVersion
+  type: String
+  description: \[ZBEX\] The version of the base model this stage was imported against.
+- name: lastConflictCheckedAt
+  type: DateTime
+  description: \[ZBEX\] The time the last conflict check occurred.
+- name: userComments
+  type: String
+  description: \[ZBEX\] User comments
+ancestors:
+- NetworkModelProjectComponent
+associations:
+- source: NetworkModelProjectStage
+  target: ChangeSet
+  sourceCardinality: "1"
+  sourceName: changeSet
+  sourceDescription: \[ZBEX\] The set of changes that this stage of the project will do.
+  targetCardinality: "1"
+  targetName: networkModelProjectStage
+  targetDescription: \[ZBEX\] NetworkModelProjectStage this ChangeSet belongs too.
+
+- source: NetworkModelProjectStage
+  target: AnnotatedProjectDependency
+  sourceCardinality: "1"
+  sourceName: dependentOnStage
+  sourceDescription: The stages that depend on this stage.
+  targetCardinality: 0..*
+  targetName: dependencyDependentOnStage
+  targetDescription: NetworkModelProjectStage representing the "to" stage.
+
+- source: NetworkModelProjectStage
+  target: AnnotatedProjectDependency
+  sourceCardinality: 1..*
+  sourceName: dependingStage
+  sourceDescription: The stages that this stages depends on.
+  targetCardinality: "1"
+  targetName: dependencyDependingStage
+  targetDescription: NetworkModelProjectStage representing the "from" stage.
+
+- source: NetworkModelProjectStage
+  target: EquipmentContainer
+  targetName: equipmentContainers
+  targetCardinality: 0..*
+  targetDescription: \[ZBEX\] The equipment containers this stage is related to.

@@ -11,6 +11,9 @@ option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.cc";
 package zepben.protobuf.cc;
 
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/vc/vc-data.proto";
+
 /**
  * A request to get identifiable objects.
  */
@@ -42,5 +45,33 @@ message GetCustomersForContainerRequest {
      * mRIDs of the EquipmentContainers to retrieve Customers for.
      */
     repeated string mrids = 2;
+
+}
+
+/**
+ * A request to get change set objects.
+ */
+message GetChangeSetObjectsRequest {
+
+    /**
+     * An identifier for this message. Currently unused.
+     */
+    int64 messageId = 1;
+
+    /**
+     * The list of mRIDs to retrieve.
+     */
+    string changeSetMRID = 2;
+
+    /*
+     * The content types of the variant to retrieve.
+     */
+    vc.VariantContents variantContents = 3;
+
+    /**
+     * The base model version to check for the variant.
+     * Defaults to the current version if unset.
+     */
+    google.protobuf.Timestamp modelVersion = 4;
 
 }
