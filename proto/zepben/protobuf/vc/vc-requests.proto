@@ -14,9 +14,9 @@ package zepben.protobuf.vc;
 import "google/protobuf/timestamp.proto";
 
 /**
- * A request to get identified objects.
+ * A request to get identifiable objects.
  */
-message GetIdentifiedObjectsRequest {
+message GetIdentifiablesRequest {
 
     /**
      * An identifier for this message. Currently unused.
@@ -47,7 +47,7 @@ message GetNetworkModelProjectsRequest {
 
 }
 
-message GetChangeSetRequest {
+message GetChangeSetsRequest {
 
     /**
      * An identifier for this message. Currently unused.
@@ -57,11 +57,12 @@ message GetChangeSetRequest {
     /**
      * mRID of the ChangeSet to retrieve.
      */
-    string changeSetMRID = 2;
+    repeated string changeSetMRID = 2;
 
     /**
      * The base model version to check for the variant.
      * Defaults to the current version if unset.
      */
     google.protobuf.Timestamp modelVersion = 3;
+
 }

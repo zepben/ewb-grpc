@@ -22,21 +22,21 @@ import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectDe
 import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectModification.proto";
 
 /**
- * The set of leaf identified objects that the variant service manages.
+ * The set of leaf identifiable objects that the variant service manages.
  */
-message VariantObject {
+message VariantIdentifiable {
 
     /**
-     * The type of identified object being returned.
+     * The type of identifiable object being returned.
      */
     oneof object {
         zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProject networkModelProject = 1;
-        zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency annotatedProjectDependency = 3;
-        zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStage networkModelProjectStage = 4;
-        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 5;
-        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectCreation objectCreation = 6;
-        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectDeletion objectDeletion = 7;
-        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectModification objectModification = 8;
+        zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency annotatedProjectDependency = 2;
+        zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStage networkModelProjectStage = 3;
+        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ChangeSet changeSet = 4;
+        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectCreation objectCreation = 5;
+        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectDeletion objectDeletion = 6;
+        zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectModification objectModification = 7;
 
         google.protobuf.Any other = 999;
     }
