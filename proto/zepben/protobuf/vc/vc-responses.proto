@@ -13,12 +13,11 @@ package zepben.protobuf.vc;
 
 import "zepben/protobuf/vc/vc-data.proto";
 import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProject.proto";
-import "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto";
 
 /**
- * The response to a getIdentifiedObjects request.
+ * The response to a getIdentifiables request.
  */
-message GetIdentifiedObjectsResponse {
+message GetIdentifiablesResponse {
 
     /**
      * An identifier for this message. Currently unused.
@@ -28,7 +27,7 @@ message GetIdentifiedObjectsResponse {
     /**
      * The requested identified objects.
      */
-    repeated VariantObject identifiableObjects = 2;
+    repeated VariantIdentifiable identifiables = 2;
 
 }
 
@@ -49,7 +48,7 @@ message GetNetworkModelProjectsResponse {
 
 }
 
-message GetChangeSetResponse {
+message GetChangeSetsResponse {
 
     /**
      * An identifier for this message. Currently unused.
@@ -59,6 +58,6 @@ message GetChangeSetResponse {
     /**
      * The requested change sets.
      */
-    VariantObject identifiableObject = 2;
+    repeated VariantIdentifiable identifiables = 2;
 
 }
