@@ -7,15 +7,25 @@ import java.sql.ResultSet
 
 class EaAccessDatabase private constructor(private val connection: Connection) {
     companion object {
+
         fun connect(db: File): EaAccessDatabase {
-            val conn = DriverManager.getConnection("jdbc:ucanaccess://${db.absolutePath}")
+            val firstException = mutableListOf<Throwable>()
+            val conn = runCatching { DriverManager.getConnection("jdbc:ucanaccess://${db.absolutePath}") }
+                .recoverCatching {
+                    firstException.add(it)
+                    DriverManager.getConnection("jdbc:sqlite:${db.absolutePath}")
+                }
+                .getOrElse {
+                    firstException.first().printStackTrace()
+                    throw IllegalArgumentException("Unable to open database '${db.absolutePath}'", it)
+                }
             return EaAccessDatabase(conn)
         }
     }
 
     fun getPackageByName(name: String): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_package WHERE Name = ? ORDER BY Package_ID DESC"
+            "SELECT * FROM t_package WHERE Name = ? ORDER BY Package_ID DESC",
         )
         statement.setString(1, name)
         return statement.executeQuery()
@@ -23,7 +33,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getPackageById(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_package WHERE Package_ID = ? ORDER BY Package_ID"
+            "SELECT * FROM t_package WHERE Package_ID = ? ORDER BY Package_ID",
         )
         statement.setInt(1, id)
         return statement.executeQuery()
@@ -31,7 +41,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getPackageByParentId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_package WHERE Parent_ID = ? ORDER BY Package_ID"
+            "SELECT * FROM t_package WHERE Parent_ID = ? ORDER BY Package_ID",
         )
         statement.setInt(1, id)
         return statement.executeQuery()
@@ -39,7 +49,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getClassesByParentPackageId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_object WHERE Package_ID = ? AND Object_Type = 'Class' ORDER BY Object_ID"
+            "SELECT * FROM t_object WHERE Package_ID = ? AND Object_Type = 'Class' ORDER BY Object_ID",
         )
         statement.setInt(1, id)
         return statement.executeQuery()
@@ -47,7 +57,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getAttributesByObjectId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_attribute WHERE Object_ID = ?"
+            "SELECT * FROM t_attribute WHERE Object_ID = ?",
         )
         statement.setInt(1, id)
         return statement.executeQuery()
@@ -55,7 +65,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getConnectorsByObjectId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_connector WHERE Start_Object_ID = ? OR End_Object_ID = ?"
+            "SELECT * FROM t_connector WHERE Start_Object_ID = ? OR End_Object_ID = ?",
         )
         statement.setInt(1, id)
         statement.setInt(2, id)
