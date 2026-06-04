@@ -1,0 +1,70 @@
+/*
+ * Copyright 2026 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+package zepben.protobuf.hc.opendss;
+
+/**
+ * Unit used to report immutable thermal ratings.
+ */
+enum ThermalLoadingRatingUnit {
+    THERMAL_LOADING_RATING_UNIT_UNSPECIFIED = 0;
+    THERMAL_LOADING_RATING_UNIT_A = 1;
+    THERMAL_LOADING_RATING_UNIT_KVA = 2;
+}
+
+/**
+ * Direction of active power flow at the point used to determine overload direction.
+ */
+enum ThermalLoadingPowerDirection {
+    THERMAL_LOADING_POWER_DIRECTION_UNSPECIFIED = 0;
+    THERMAL_LOADING_POWER_DIRECTION_IMPORT = 1;
+    THERMAL_LOADING_POWER_DIRECTION_EXPORT = 2;
+}
+
+/**
+ * Asset-level thermal loading summary for conductors and transformers.
+ */
+message AssetLevelThermalLoadingSummaryReport {
+
+    string conductingEquipmentMrid = 1;
+    string dssElementIds = 2;
+
+    int32 sampleCount = 3;
+    double intervalHoursSum = 4;
+
+    ThermalLoadingRatingUnit ratingUnit = 5;
+    double normalRating = 6;
+    double emergencyRating = 7;
+
+    double maxLoadingPct = 8;
+    optional int32 maxLoadingIntervalIndex = 9;
+    ThermalLoadingPowerDirection directionAtMaxLoading = 10;
+
+    optional double maxCurrentA = 11;
+    optional double maxKva = 12;
+    double maxKw = 13;
+    double maxKvar = 14;
+
+    double maxExcessPct = 15;
+
+    double hoursOverNormal = 16;
+    double hoursOverEmergency = 17;
+
+    double overloadKwhImport = 18;
+    double overloadKwhExport = 19;
+    double overloadPctHours = 20;
+
+    double avgLoadingPctWhenOverloaded = 21;
+
+    optional int32 worstPhase = 22;
+}
