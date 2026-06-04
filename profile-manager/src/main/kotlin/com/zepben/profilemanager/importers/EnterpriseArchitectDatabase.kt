@@ -95,7 +95,7 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
             while (classes.next()) {
                 val c = Class(
                     classes.getInt("Object_ID"),
-                    classes.getString("Name"),
+                    classes.getString("Name").trim(),
                     classes.getString("Note")?.fixWindowsNewLines()
                 )
                 item.addChild(c)
