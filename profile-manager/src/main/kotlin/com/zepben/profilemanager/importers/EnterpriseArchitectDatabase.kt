@@ -95,7 +95,7 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
             while (classes.next()) {
                 val c = Class(
                     classes.getInt("Object_ID"),
-                    classes.getString("Name"),
+                    classes.getString("Name").trim(),
                     classes.getString("Note")?.fixWindowsNewLines()
                 )
                 item.addChild(c)
@@ -108,6 +108,7 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
     private fun importPackages(profileName: String): Root {
         val queue = ArrayDeque<Pair<Element, Int>>()
         val rootProfile = db.getPackageByName(profileName).read()
+        require(rootProfile.next()) {"Unable to find profile '$profileName', are you sure you set it correctly?"}
         val id = rootProfile.getInt("Package_ID")
 
         val root = Root(id, profileName)
