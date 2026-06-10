@@ -1,0 +1,45 @@
+name: NetworkModelProjectStageVersion
+description: \[ZBEX\] A corrected copy of `NetworkModelProjectChangeVersion` for use with `NetworkModelProjectStage` instead of `NetworkModelProjectChange`.
+  Describes the status and the planned implementation of the associated change set into the as-built model.    New
+  instances of this class with new identity are instantiated upon changes to the content of this class or changes to the associated
+  change set.  Instances of this class are considered immutable.  The case audit trail can reference this immutable data to
+  exactly reproduce a case.
+attributes:
+  - name: timeStamp
+    type: DateTime
+    description: The date/time this version was finalized and thus made immutable.
+ancestors:
+  - IdentifiedObject
+associations:
+  - source: NetworkModelProjectStageVersion
+    target: ChangeSet
+    sourceCardinality: 0..1
+    sourceName: NetworkModelProjectStageVersion
+    sourceDescription: NetworkModelProjectStageVersion this ChangeSet belongs to.
+    targetCardinality: 0..1
+    targetName: ChangeSet
+    targetDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
+  - source: NetworkModelProjectStageVersion
+    target: NetworkModelProjectStageVersion
+    sourceCardinality: 0..1
+    sourceName: Supersedes
+    sourceDescription: Project version that is being superseded.
+    targetCardinality: 0..1
+    targetName: SupersededBy
+    targetDescription: The project version that will supersede this project version.
+  - source: NetworkModelProjectStageVersion
+    target: NetworkModelProjectStageVersion
+    sourceCardinality: 0..1
+    sourceName: SupersededBy
+    sourceDescription: The project version that will supersede this project version.
+    targetCardinality: 0..1
+    targetName: Supersedes
+    targetDescription: Project version that is being superseded.
+  - source: NetworkModelProjectStageVersion
+    target: NetworkModelProjectStage
+    sourceCardinality: 0..*
+    sourceName: Versions
+    sourceDescription: The versions of this project stage.
+    targetCardinality: 0..1
+    targetName: Stage
+    targetDescription: The project stage for this version.
