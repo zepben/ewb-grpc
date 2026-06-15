@@ -39,6 +39,9 @@ message AssetLevelVoltageSummaryReport {
     double avgAbsDeltaPu = 21;
     double hoursAnyEndpointBelowLimit = 22;
     double hoursAnyEndpointAboveLimit = 23;
+    string modelElementId = 24;
+    string opendssElementId = 25;
+    string summaryQuality = 26;
 }
 
 /**
@@ -57,6 +60,8 @@ enum ThermalLoadingPowerDirection {
     THERMAL_LOADING_POWER_DIRECTION_UNSPECIFIED = 0;
     THERMAL_LOADING_POWER_DIRECTION_IMPORT = 1;
     THERMAL_LOADING_POWER_DIRECTION_EXPORT = 2;
+    THERMAL_LOADING_POWER_DIRECTION_MIXED = 3;
+    THERMAL_LOADING_POWER_DIRECTION_UNKNOWN = 4;
 }
 
 /**
@@ -85,4 +90,60 @@ message AssetLevelThermalLoadingSummaryReport {
     double overloadPctHours = 20;
     double avgLoadingPctWhenOverloaded = 21;
     optional int32 worstPhase = 22;
+    string modelElementId = 23;
+    string opendssElementId = 24;
+    optional double normalRatingKva = 25;
+    optional double emergencyRatingKva = 26;
+    optional double ratedKva = 27;
+    double hoursOverNormalImport = 28;
+    double hoursOverNormalExport = 29;
+    double hoursOverEmergencyImport = 30;
+    double hoursOverEmergencyExport = 31;
+    double overloadRatingUnitHoursImport = 32;
+    double overloadRatingUnitHoursExport = 33;
+    double overloadPctHoursImport = 34;
+    double overloadPctHoursExport = 35;
+    optional int32 worstTerminal = 36;
+    string directionSplitBasis = 37;
+    string directionSplitQuality = 38;
+    string thermalSummaryQuality = 39;
+}
+
+/**
+ * Static solved-model element metadata for hosting-capacity result joins.
+ */
+message HcmModelElementReport {
+    string modelElementId = 1;
+    string opendssElementId = 2;
+    string opendssElementType = 3;
+    string conductingEquipmentMrid = 4;
+    string elementKind = 5;
+    bool enabled = 6;
+    string phases = 7;
+    bool isSwitch = 8;
+    string fromBus = 9;
+    string toBus = 10;
+    optional double fromDistanceKm = 11;
+    optional double toDistanceKm = 12;
+    optional double lengthM = 13;
+    string voltageLevel = 14;
+    optional double normalRatingA = 15;
+    optional double emergencyRatingA = 16;
+    optional double normalRatingKva = 17;
+    optional double emergencyRatingKva = 18;
+    optional double ratedKva = 19;
+    string linecode = 20;
+    string constructionType = 21;
+    optional double rOhmTotal = 22;
+    optional double xOhmTotal = 23;
+    string orientationSource = 24;
+    bool eligibleForThermalLineUpgrade = 25;
+    bool eligibleForVoltageLineUpgrade = 26;
+    bool eligibleForTransformerUpgrade = 27;
+    optional double primaryKv = 28;
+    optional double secondaryKv = 29;
+    optional int32 windingCount = 30;
+    optional double xhlPct = 31;
+    optional double rPct = 32;
+    string connectionType = 33;
 }
