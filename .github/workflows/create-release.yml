@@ -115,7 +115,7 @@ jobs:
   python-deploy:
     needs: release-checks
     runs-on: ubuntu-latest
-    container: python:3.9
+    container: python:3.10
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
