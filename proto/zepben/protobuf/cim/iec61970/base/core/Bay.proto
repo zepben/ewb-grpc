@@ -14,6 +14,7 @@ package zepben.protobuf.cim.iec61970.base.core;
 import "zepben/protobuf/cim/iec61970/base/core/BreakerConfiguration.proto";
 import "zepben/protobuf/cim/iec61970/base/core/BusbarConfiguration.proto";
 import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+import "google/protobuf/struct.proto";
 
 /**
  * A collection of power system resources within a given substation.
@@ -42,23 +43,29 @@ message Bay {
     string circuitMRID = 4;
 
     /**
-     * Indicates the presence or absence of energy measurements.
+     * Indicates the presence/absence of energy measurements.
      */
-    bool bayEnergyMeasFlag = 5;
+    oneof bayEnergyMeasFlag {
+        google.protobuf.NullValue bayEnergyMeasFlagNull = 5;
+        bool bayEnergyMeasFlagSet = 6;
+    }
 
     /**
-     * Indicates the presence or absence of active/reactive power measurements.
+     * Indicates the presence/absence of active/reactive power measurements.
      */
-    bool bayPowerMeasFlag = 6;
+    oneof bayPowerMeasFlag {
+        google.protobuf.NullValue bayPowerMeasFlagNull = 7;
+        bool bayPowerMeasFlagSet = 8;
+    }
 
     /**
      * The breaker configuration of the bay.
      */
-    BreakerConfiguration breakerConfiguration = 7;
+    BreakerConfiguration breakerConfiguration = 9;
 
     /**
      * The busbar configuration of the bay.
      */
-    BusbarConfiguration busBarConfiguration = 8;
+    BusbarConfiguration busBarConfiguration = 10;
 
 }
