@@ -1,0 +1,73 @@
+/*
+ * Copyright 2026 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+import "zepben/protobuf/cim/iec61970/base/core/BreakerConfiguration.proto";
+import "zepben/protobuf/cim/iec61970/base/core/BusbarConfiguration.proto";
+import "google/protobuf/struct.proto";
+
+/**
+ * A collection of power system resources (within a given substation) including
+ * conducting equipment, protection relays, measurements, and telemetry.
+ * A bay typically represents a physical grouping related to modularization
+ * of equipment.
+ */
+message Bay {
+
+    /**
+     * EquipmentContainer fields for this Bay.
+     */
+    EquipmentContainer ec = 1;
+
+    /**
+     * The substation containing the bay.
+     */
+    string substationMRID = 2;
+
+    /**
+     * The voltage level containing this bay.
+     */
+    string voltageLevelMRID = 3;
+
+    /**
+     * The circuit (end bay) associated with this bay.
+     */
+    string circuitMRID = 4;
+
+    /**
+     * Indicates the presence/absence of energy measurements.
+     */
+    oneof bayEnergyMeasFlag {
+        google.protobuf.NullValue bayEnergyMeasFlagNull = 5;
+        bool bayEnergyMeasFlagSet = 6;
+    }
+
+    /**
+     * Indicates the presence/absence of active/reactive power measurements.
+     */
+    oneof bayPowerMeasFlag {
+        google.protobuf.NullValue bayPowerMeasFlagNull = 7;
+        bool bayPowerMeasFlagSet = 8;
+    }
+
+    /**
+     * Switching arrangement for the bay.
+     */
+    BreakerConfiguration breakerConfiguration = 9;
+
+    /**
+     * Busbar layout for the bay.
+     */
+    BusbarConfiguration busbarConfiguration = 10;
+
+}

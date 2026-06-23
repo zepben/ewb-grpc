@@ -21,6 +21,14 @@ associations:
   sourceCardinality: 0..*
   sourceName: Circuits
   sourceDescription: Sub-transmission circuits that form part of this loop.
-  targetCardinality: 0..1
+  targetCardinality: "1"
   targetName: Loop
   targetDescription: The loop containing this circuit.
+- source: Circuit
+  target: Bay
+  sourceCardinality: 0..*
+  sourceName: Circuits
+  sourceDescription: The circuits associated with this bay.
+  targetCardinality: 0..1
+  targetName: EndBay
+  targetDescription: The bay at the end of this circuit.

@@ -47,3 +47,19 @@ associations:
   targetName: energizedLoops
   targetCardinality: 0..*
   targetDescription: The loops that are normally energized by this substation.
+- source: Substation
+  target: VoltageLevel
+  sourceCardinality: 0..1
+  sourceName: Substation
+  sourceDescription: The substation containing the voltage level.
+  targetCardinality: 0..*
+  targetName: VoltageLevels
+  targetDescription: The voltage levels within this substation.
+- source: Substation
+  target: Bay
+  sourceCardinality: 0..1
+  sourceName: Substation
+  sourceDescription: The substation containing the bay.
+  targetCardinality: 0..*
+  targetName: Bays
+  targetDescription: The bays contained in the substation.

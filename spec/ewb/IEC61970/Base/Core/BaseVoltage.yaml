@@ -7,3 +7,12 @@ attributes:
   description: The power system resource's base voltage in volts.  Shall be a positive value and not zero.
 ancestors:
 - IdentifiedObject
+associations:
+- source: BaseVoltage
+  target: VoltageLevel
+  sourceCardinality: "1"
+  sourceName: BaseVoltage
+  sourceDescription: The base voltage used for all equipment within the voltage level.
+  targetCardinality: 0..*
+  targetName: VoltageLevels
+  targetDescription: The voltage levels having this base voltage.

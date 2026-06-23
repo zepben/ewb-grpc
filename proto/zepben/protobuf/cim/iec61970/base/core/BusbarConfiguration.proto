@@ -1,0 +1,22 @@
+/*
+ * Copyright 2026 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+/**
+ * Busbar layout for bay.
+ */
+enum BusbarConfiguration {
+    SINGLE_BUS = 0;
+    DOUBLE_BUS = 1;
+    MAIN_WITH_TRANSFER_BUS = 2;
+    RING_BUS = 3;
+}
