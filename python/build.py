@@ -8,7 +8,7 @@ import argparse
 from typing import List
 
 import grpc_tools.protoc
-import pkg_resources
+from importlib.resources import files as resource_files
 import glob
 import os
 import sys
@@ -70,7 +70,7 @@ def build_protos(args):
     else:
         files_filtered = files
 
-    proto_include = pkg_resources.resource_filename('grpc_tools', '_proto')
+    proto_include = str(resource_files('grpc_tools').joinpath('_proto'))
     logger.info(f"Compiling protos: {', '.join(files_filtered)}")
 
     result = grpc_tools.protoc.main([

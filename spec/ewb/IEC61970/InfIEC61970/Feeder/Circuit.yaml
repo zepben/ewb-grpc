@@ -17,6 +17,14 @@ associations:
   targetName: EndSubstations
   targetDescription: Simplification of the CIM association via Bay to Circuit
 - source: Circuit
+  target: Bay
+  sourceCardinality: 0..*
+  sourceName: Circuits
+  sourceDescription: Simplification of the CIM association via Bay to Circuit
+  targetCardinality: 0..1
+  targetName: Circuit
+  targetDescription: The circuit ending at this bay.
+- source: Circuit
   target: Loop
   sourceCardinality: 0..*
   sourceName: Circuits
