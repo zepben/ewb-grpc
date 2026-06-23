@@ -1,0 +1,46 @@
+name: Bay
+description: |
+  A collection of power system resources (within a given substation) including conducting equipment, protection
+  relays, measurements, and telemetry.  A bay typically represents a physical grouping related to modularization of equipment.
+attributes:
+- name: bayEnergyMeasFlag
+  type: Boolean
+  nullable: true
+  description: Indicates the presence/absence of energy measurements.
+- name: bayPowerMeasFlag
+  type: Boolean
+  nullable: true
+  description: Indicates the presence/absence of active/reactive power measurements.
+- name: breakerConfiguration
+  type: BreakerConfiguration
+  description: Switching arrangement for bay.
+- name: busBarConfiguration
+  type: BusbarConfiguration
+  description: Busbar layout for bay.
+ancestors:
+- EquipmentContainer
+associations:
+- source: Bay
+  target: Substation
+  sourceCardinality: 0..1
+  sourceName: Substation
+  sourceDescription: The substation containing the bay.
+  targetCardinality: 0..*
+  targetName: Bays
+  targetDescription: Bays contained in the substation.
+- source: Bay
+  target: VoltageLevel
+  sourceCardinality: 0..1
+  sourceName: VoltageLevel
+  sourceDescription: The voltage level containing the bay.
+  targetCardinality: 0..*
+  targetName: Bays
+  targetDescription: The bays within this voltage level.
+- source: Bay
+  target: Circuit
+  sourceCardinality: 0..1
+  sourceName: Circuit
+  sourceDescription: The circuit ending at this bay.
+  targetCardinality: 0..*
+  targetName: EndBays
+  targetDescription: Simplification of the CIM association via Bay to Circuit.

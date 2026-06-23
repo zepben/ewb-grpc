@@ -4,7 +4,7 @@
 * None.
 
 ### New Features
-* None.
+* Added Bay and VoltageLevel CIM protos, related reverse associations, and network service union entries.
 
 ### Enhancements
 * None.

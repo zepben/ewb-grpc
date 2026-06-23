@@ -50,11 +50,13 @@ import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/CurrentTransformer.
 import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/FaultIndicator.proto";
 import "zepben/protobuf/cim/iec61970/base/auxiliaryequipment/PotentialTransformer.proto";
 import "zepben/protobuf/cim/iec61970/base/core/BaseVoltage.proto";
+import "zepben/protobuf/cim/iec61970/base/core/Bay.proto";
 import "zepben/protobuf/cim/iec61970/base/core/ConnectivityNode.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Feeder.proto";
 import "zepben/protobuf/cim/iec61970/base/core/GeographicalRegion.proto";
 import "zepben/protobuf/cim/iec61970/base/core/SubGeographicalRegion.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Substation.proto";
+import "zepben/protobuf/cim/iec61970/base/core/VoltageLevel.proto";
 import "zepben/protobuf/cim/iec61970/base/core/Terminal.proto";
 import "zepben/protobuf/cim/iec61970/base/equivalents/EquivalentBranch.proto";
 import "zepben/protobuf/cim/iec61970/base/generation/production/BatteryUnit.proto";
@@ -204,6 +206,8 @@ message NetworkIdentifiable {
         zepben.protobuf.cim.extensions.iec61970.base.core.HvCustomer hvCustomer = 89;
         zepben.protobuf.cim.extensions.iec61970.base.feeder.LvSubstation lvSubstation = 90;
         zepben.protobuf.cim.iec61970.base.wires.AcLineSegmentPhase acLineSegmentPhase = 91;
+        zepben.protobuf.cim.iec61970.base.core.VoltageLevel voltageLevel = 92;
+        zepben.protobuf.cim.iec61970.base.core.Bay bay = 93;
 
         google.protobuf.Any other = 999;
     }

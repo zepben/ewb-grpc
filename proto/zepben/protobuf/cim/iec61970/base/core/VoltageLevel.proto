@@ -1,0 +1,59 @@
+/*
+ * Copyright 2026 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+
+/**
+ * A collection of equipment at one common system voltage forming a switchgear.
+ * The equipment typically consists of breakers, busbars, instrumentation,
+ * control, regulation and protection devices as well as assemblies of all these.
+ */
+message VoltageLevel {
+
+    /**
+     * EquipmentContainer fields for this VoltageLevel.
+     */
+    EquipmentContainer ec = 1;
+
+    /**
+     * The bus bar's high voltage limit. The limit applies to all equipment
+     * and nodes contained in a given VoltageLevel. It is not required that
+     * it is exchanged in pair with lowVoltageLimit. It is preferable to use
+     * operational VoltageLimit, which prevails, if present.
+     */
+    string highVoltageLimit = 2;
+
+    /**
+     * The bus bar's low voltage limit. The limit applies to all equipment
+     * and nodes contained in a given VoltageLevel. It is not required that
+     * it is exchanged in pair with highVoltageLimit. It is preferable to use
+     * operational VoltageLimit, which prevails, if present.
+     */
+    string lowVoltageLimit = 3;
+
+    /**
+     * The base voltage used for all equipment within the voltage level.
+     */
+    string baseVoltageMRID = 4;
+
+    /**
+     * The bays within this voltage level.
+     */
+    repeated string bayMRIDs = 5;
+
+    /**
+     * The substation of the voltage level.
+     */
+    string substationMRID = 6;
+
+}
