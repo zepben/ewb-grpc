@@ -1,0 +1,64 @@
+/*
+ * Copyright 2026 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.iec61970.base.core";
+package zepben.protobuf.cim.iec61970.base.core;
+
+import "zepben/protobuf/cim/iec61970/base/core/BreakerConfiguration.proto";
+import "zepben/protobuf/cim/iec61970/base/core/BusbarConfiguration.proto";
+import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+
+/**
+ * A collection of power system resources within a given substation.
+ * A bay typically represents a physical grouping related to modularization of equipment.
+ */
+message Bay {
+
+    /**
+     * EquipmentContainer fields for this Bay.
+     */
+    EquipmentContainer ec = 1;
+
+    /**
+     * The substation containing the bay.
+     */
+    string substationMRID = 2;
+
+    /**
+     * The voltage level containing the bay.
+     */
+    string voltageLevelMRID = 3;
+
+    /**
+     * The circuit that ends at this bay.
+     */
+    string circuitMRID = 4;
+
+    /**
+     * Indicates the presence or absence of energy measurements.
+     */
+    bool bayEnergyMeasFlag = 5;
+
+    /**
+     * Indicates the presence or absence of active/reactive power measurements.
+     */
+    bool bayPowerMeasFlag = 6;
+
+    /**
+     * The breaker configuration of the bay.
+     */
+    BreakerConfiguration breakerConfiguration = 7;
+
+    /**
+     * The busbar configuration of the bay.
+     */
+    BusbarConfiguration busBarConfiguration = 8;
+
+}
