@@ -56,6 +56,23 @@ proto/zepben/protobuf/
 - `spec/ewb/` - CIM spec metadata (IEC61970, IEC61968, extensions directories with `__metadata.yaml`)
 - `README.md` - Repository overview
 - `changelog.md` - Change history
+- `proto/zepben/proto.lock` - Protolock compatibility baseline; only update this for breaking changes
+- `rdfs/cim_profile_schema.ttl` - Generated RDFS schema that should be regenerated for data model changes
+
+## Data Model Change Checklist
+
+For actual data model changes, treat this as the minimum repository checklist:
+
+1. Update `changelog.md`.
+2. Update existing or new proto messages under `proto/zepben/protobuf/cim/`.
+3. If a new class or enum is queryable or streamed by a service, update the relevant consumer or producer proto files as well.
+4. Add or update the corresponding spec YAML under `spec/ewb/`.
+5. Regenerate `rdfs/cim_profile_schema.ttl`.
+6. Review `proto/zepben/proto.lock`:
+   - normal non-breaking changes should generally leave it alone;
+   - breaking changes must force-update it before commit.
+
+`AGENTS.md` is a conventions guide, but `README.md` is the better source of truth for the broader model-change workflow.
 
 ## File Conventions
 
@@ -158,6 +175,20 @@ repeated string powerTransformerEndMRIDs = 2;
 string conductingEquipmentMRID = 2;
 ```
 
+### Bidirectional Associations and Reverse References
+
+The proto model usually represents associations by mRID fields on one or both related classes. When making a data model change, think about whether the relationship is logically bidirectional and whether the reverse side must also be documented in the spec.
+
+For example, `Equipment` may point at an `EquipmentContainer`, while the corresponding container conceptually owns or exposes collections of `Equipment`. In SDKs this often appears as a forward property such as `equipment.equipmentContainer` plus a reverse collection on the container.
+
+Proto files do not embed live object graphs, so you still model these relationships with mRID fields rather than object embedding. However, when updating `spec/ewb/**/*.yaml`, associations should be checked from both directions:
+
+- fill in the `target*` fields for the forward association;
+- if the target class also has a reverse association, fill in the matching `source*` fields;
+- if you add one side in the spec, verify whether the opposite class also needs a corresponding association entry.
+
+This bidirectional association maintenance is especially important for `Equipment` / `EquipmentContainer` style relationships and other parent/child model links.
+
 ### Optional Fields (Null Pattern)
 
 Optional scalar fields use the `oneof` + `NullValue` pattern from `google.protobuf.struct.proto`:
@@ -221,7 +252,7 @@ message NetworkIdentifiable {
 
 - Use **full package paths** for cross-package imports
 - Use **short aliases** (e.g., `cim.iec61970.base.core.Substation`) when the package is imported
-- Field numbers are sequential, starting from 1
+- Preserve existing field numbers. Many unions start at 1, but gaps may already exist; use the next safe available number rather than renumbering existing entries.
 - `google.protobuf.Any other = 999;` is always the last entry as a catch-all
 
 ### Request Message Pattern
@@ -312,14 +343,18 @@ Note: Standard CIM files may import ZBEX extensions or IEC 61968 infrastructure 
 6. **Use short aliases** for same-package imports (e.g., `IdentifiedObject io = 1;` when `IdentifiedObject.proto` is imported).
 7. **Use full paths** for cross-package imports (e.g., `cim.iec61970.base.core.EquipmentContainer ec = 1;`).
 8. **Add Javadoc comments** to the message and all fields.
+9. **Check bidirectional associations** in the spec YAML, not just the forward proto field. If the target class exposes the reverse side, update that association metadata as well.
+10. **Update the model spec** under `spec/ewb/` for the class, attributes, ancestors/descendants, and associations.
+11. **Regenerate or review derived artifacts** (`rdfs/cim_profile_schema.ttl`, and `proto.lock` for breaking changes).
 
 ## Adding to Service Identifiable Unions
 
 When a new CIM class is added that should be queryable via a service:
 
 1. Add the import to the service's `*-data.proto` file.
-2. Add the type to the `oneof identifiable` in the `*Identifiable` message with the next available field number.
+2. Add the type to the `oneof identifiable` in the `*Identifiable` message with the next safe available field number.
 3. Use the same import style as existing entries (check how similar types are imported).
+4. Do not renumber existing entries just to make the union look sequential.
 
 ## Reference Files
 
@@ -341,19 +376,19 @@ The Python library lives in `python/` and is built with `python3.13`.
 - Python 3.13 (system or venv)
 - Virtualenv: `python3.13 -m venv .venv`
 - Activate: `source .venv/bin/activate`
-- Install deps: `pip install -r requirements.txt`
+- Install deps: `pip install -r python/requirements.txt`
 
 ### Build Steps
 
-1. **Clean generated code:** `python build.py --clean`
-2. **Compile protos to Python:** `python build.py`
-3. **Install the package:** `pip install -e .`
-4. **Build distribution:** `python build.py --package`
+1. **Clean generated code:** `python python/build.py --clean`
+2. **Compile protos to Python:** `python python/build.py`
+3. **Install the package:** `cd python && pip install -e .`
+4. **Build distribution:** `python python/build.py --package`
 
 The build script uses `grpc_tools.protoc` to compile all `.proto` files under `proto/zepben/protobuf/` into Python gRPC stubs in `src/`. It also creates `__init__.py` files in every subdirectory.
 
 ### Notes
 
-- `pkg_resources` from setuptools is deprecated; the build script uses `importlib.resources.files()` instead (setuptools >= 75.6.0).
+- The current build script still imports `pkg_resources`; do not assume it has already been migrated to `importlib.resources.files()`.
 - The `--pyi_out` flag generates `.pyi` stub files alongside the `.py` files.
 - Generated files are `*_pb2.py` and `*_pb2_grpc.py`. They are auto-generated and should not be edited manually.
