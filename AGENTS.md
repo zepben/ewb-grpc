@@ -249,6 +249,44 @@ message GetIdentifiablesResponse {
 - `messageId = 1`
 - `identifiables = 2` (repeated `*Identifiable`)
 
+## Import Style Conventions
+
+Import style depends on the scope of the reference:
+
+- **Same-package imports**: Use short aliases. Import the file, then reference the message with a package prefix:
+  ```protobuf
+  import "zepben/protobuf/cim/iec61970/base/wires/ProtectedSwitch.proto";
+  message Breaker {
+      wires.ProtectedSwitch sw = 1;  // short alias
+  }
+  ```
+- **Cross-package imports (ZBEX extensions)**: Use the `cim.` prefix to reference standard CIM types from extensions:
+  ```protobuf
+  import "zepben/protobuf/cim/iec61970/base/core/EquipmentContainer.proto";
+  message LvFeeder {
+      cim.iec61970.base.core.EquipmentContainer ec = 1;
+  }
+  ```
+- **Service data files** (`*-data.proto`): Use full package paths for every CIM type in the `*Identifiable` union:
+  ```protobuf
+  zepben.protobuf.cim.iec61970.base.core.Substation substation = 16;
+  ```
+
+## Non-CIM Service Directories
+
+Not every directory under `proto/zepben/protobuf/` references CIM types. Several are self-contained:
+
+| Directory | Files | Purpose |
+|-----------|-------|---------|
+| `metadata/` | 3 | DataSource, ServiceInfo — no CIM references |
+| `ns/` | 3 | Network state update/query — references `connection/`, `*-requests/`, `*-responses/` |
+| `mp/` | 3 | Measurement Producer — references `mc/` types |
+| `mc/` | 3 | Measurement Consumer |
+| `hc/` | 3 | Hydro-specific (Job, LogMessage, Syf) |
+| `mapbox/` | 1 | Vector tile format |
+| `ec/` | 1 | EnergyConsumer (empty stub, no RPCs) |
+| `wc/` | 1 | WeatherConsumer (empty stub, no RPCs) |
+
 ## ZBEX Extensions
 
 Zepben-specific extensions to the standard CIM model are marked with `[ZBEX]` in comments:
@@ -260,7 +298,9 @@ Zepben-specific extensions to the standard CIM model are marked with `[ZBEX]` in
 repeated string normalEnergizedLvFeederMRIDs = 6;
 ```
 
-New ZBEX classes go in `cim/extensions/` (not in `iec61970/base/` or `iec61968/`).
+New ZBEX classes go in `cim/extensions/` (not in `iec61970/base/` or `iec61968/`), mirroring the CIM hierarchy. They use the `cim.` prefix to cross-reference standard CIM parent classes.
+
+Note: Standard CIM files may import ZBEX extensions or IEC 61968 infrastructure types. For example, `PowerTransformer.proto` (IEC 61970) imports `VectorGroup` (ZBEX) and `TransformerConstructionKind`/`TransformerFunctionKind` (IEC 61968 infrastructure), showing cross-profile mixing is intentional.
 
 ## Adding New CIM Classes
 
@@ -291,3 +331,29 @@ When creating new files, use these as templates:
 - **Data proto:** `proto/zepben/protobuf/nc/nc-data.proto` (Identifiable union with oneof)
 - **Request proto:** `proto/zepben/protobuf/nc/nc-requests.proto` (messageId + mrids pattern)
 - **Response proto:** `proto/zepben/protobuf/nc/nc-responses.proto` (messageId + identifiables pattern)
+
+## Python Build Process
+
+The Python library lives in `python/` and is built with `python3.13`.
+
+### Prerequisites
+
+- Python 3.13 (system or venv)
+- Virtualenv: `python3.13 -m venv .venv`
+- Activate: `source .venv/bin/activate`
+- Install deps: `pip install -r requirements.txt`
+
+### Build Steps
+
+1. **Clean generated code:** `python build.py --clean`
+2. **Compile protos to Python:** `python build.py`
+3. **Install the package:** `pip install -e .`
+4. **Build distribution:** `python build.py --package`
+
+The build script uses `grpc_tools.protoc` to compile all `.proto` files under `proto/zepben/protobuf/` into Python gRPC stubs in `src/`. It also creates `__init__.py` files in every subdirectory.
+
+### Notes
+
+- `pkg_resources` from setuptools is deprecated; the build script uses `importlib.resources.files()` instead (setuptools >= 75.6.0).
+- The `--pyi_out` flag generates `.pyi` stub files alongside the `.py` files.
+- Generated files are `*_pb2.py` and `*_pb2_grpc.py`. They are auto-generated and should not be edited manually.
