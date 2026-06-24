@@ -8,6 +8,8 @@
 
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.hc.opendss";
 option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
@@ -37,34 +39,30 @@ enum ThermalLoadingPowerDirection {
 message AssetLevelThermalLoadingSummaryReport {
 
     string conductingEquipmentMrid = 1;
-    string dssElementIds = 2;
+    google.protobuf.Timestamp initialTimestamp = 2;
+    double hours = 3;
 
-    int32 sampleCount = 3;
-    double intervalHoursSum = 4;
+    ThermalLoadingRatingUnit ratingUnit = 4;
+    double normalRating = 5;
+    double emergencyRating = 6;
 
-    ThermalLoadingRatingUnit ratingUnit = 5;
-    double normalRating = 6;
-    double emergencyRating = 7;
+    double maxLoadingPct = 7;
+    google.protobuf.Timestamp maxLoadingTimestamp = 8;
+    ThermalLoadingPowerDirection directionAtMaxLoading = 9;
 
-    double maxLoadingPct = 8;
-    optional int32 maxLoadingIntervalIndex = 9;
-    ThermalLoadingPowerDirection directionAtMaxLoading = 10;
+    optional double maxCurrent = 10;
+    double maxKw = 11;
+    double maxKvar = 12;
+    double maxKva = 13;
 
-    optional double maxCurrentA = 11;
-    optional double maxKva = 12;
-    double maxKw = 13;
-    double maxKvar = 14;
+    double hoursOverNormal = 14;
+    double hoursOverEmergency = 15;
 
-    double maxExcessPct = 15;
+    double overloadKwhImport = 16;
+    double overloadKwhExport = 17;
+    double overloadPctHours = 18;
 
-    double hoursOverNormal = 16;
-    double hoursOverEmergency = 17;
+    double avgLoadingPctWhenOverloaded = 19;
 
-    double overloadKwhImport = 18;
-    double overloadKwhExport = 19;
-    double overloadPctHours = 20;
-
-    double avgLoadingPctWhenOverloaded = 21;
-
-    optional int32 worstPhase = 22;
+    optional int32 worstPhase = 20;
 }
