@@ -8,6 +8,8 @@
 
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 option java_multiple_files = true;
 option java_package = "com.zepben.protobuf.hc.opendss";
 option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
@@ -18,39 +20,35 @@ package zepben.protobuf.hc.opendss;
  */
 message AssetLevelVoltageSummaryReport {
 
-    string elementId = 1;
-    string conductingEquipmentMrid = 2;
-    int32 phase = 3;
-    double fromDistanceM = 24;
-    double toDistanceM = 25;
-    double baseV = 26;
+    string conductingEquipmentMrid = 1;
+    string phase = 2;
+    google.protobuf.Timestamp initialTimestamp = 3;
+    double hours = 4;
+    double vBase = 5;
+    double upstreamDistance = 6;
+    double downstreamDistance = 7;
 
-    int32 sampleCount = 4;
-    double intervalHoursSum = 5;
+    double minUpstreamVoltage = 8;
+    double maxUpstreamVoltage = 9;
+    double avgUpstreamVoltage = 10;
 
-    double minFromVoltagePu = 6;
-    double maxFromVoltagePu = 7;
-    double avgFromVoltagePu = 8;
+    double minDownstreamVoltage = 11;
+    double maxDownstreamVoltage = 12;
+    double avgDownstreamVoltage = 13;
 
-    double minToVoltagePu = 9;
-    double maxToVoltagePu = 10;
-    double avgToVoltagePu = 11;
+    double minDelta = 14;
+    double maxDelta = 15;
 
-    double minDeltaPu = 12;
-    int32 minDeltaIntervalIndex = 13;
+    google.protobuf.Timestamp minUpstreamVoltageTimestamp = 16;
+    google.protobuf.Timestamp maxUpstreamVoltageTimestamp = 17;
+    google.protobuf.Timestamp minDownstreamVoltageTimestamp = 18;
+    google.protobuf.Timestamp maxDownstreamVoltageTimestamp = 19;
+    google.protobuf.Timestamp minDeltaTimestamp = 20;
+    google.protobuf.Timestamp maxDeltaTimestamp = 21;
 
-    double maxDeltaPu = 14;
-    int32 maxDeltaIntervalIndex = 15;
+    optional double hoursAnyEndpointBelowLimit = 22;
+    optional double hoursAnyEndpointAboveLimit = 23;
 
-    double minAbsDeltaPu = 16;
-    int32 minAbsDeltaIntervalIndex = 17;
-
-    double maxAbsDeltaPu = 18;
-    int32 maxAbsDeltaIntervalIndex = 19;
-
-    double absDeltaPuHours = 20;
-    double avgAbsDeltaPu = 21;
-
-    double hoursAnyEndpointBelowLimit = 22;
-    double hoursAnyEndpointAboveLimit = 23;
+    double absDeltaHours = 24;
+    double avgAbsDelta = 25;
 }
