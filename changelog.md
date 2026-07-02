@@ -1,13 +1,14 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.8.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Asset-level voltage and thermal loading summary protobuf messages have been reshaped to match the refined result table specifications.
 
 ### New Features
-* None.
+* Added protobuf fields for per-phase asset-level conductor voltage summary reports.
+* Added protobuf fields for asset-level thermal loading summary reports, including loading, rating, overload, direction, and worst-phase data.
 
 ### Enhancements
-* None.
+* `OpenDssReport` now carries the refined asset-level summary report messages.
 
 ### Fixes
 * None.
