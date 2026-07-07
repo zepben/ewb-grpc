@@ -1,0 +1,18 @@
+name: NetImpact
+description: |-
+  Defines a project's proposed net impact on the grid. As a project evolves, each new view is captured by a new change description.
+
+
+
+  Usually, this description of  a project is controlled by whichever authority is in charge of the planning.
+ancestors:
+- GridChange
+associations:
+- source: NetImpact
+  target: GridProject
+  sourceCardinality: 0..*
+  sourceName: hasPlannedImpact
+  sourceDescription: The expected net change produced by a project.
+  targetCardinality: "1"
+  targetName: describes
+  targetDescription: The project described by a planned impact.

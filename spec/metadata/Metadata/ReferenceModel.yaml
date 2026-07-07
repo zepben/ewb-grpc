@@ -1,0 +1,16 @@
+name: ReferenceModel
+description: |-
+  A grid model defined by a framework that contains objects that other grid models may or must reference. e.g. A set of BaseVoltages.
+
+
+
+  Usually used to establish consistency in modeling.
+ancestors:
+- GridModel
+associations:
+- source: ReferenceModel
+  target: Reference
+  sourceCardinality: 0..*
+  sourceName: consistsOf
+  targetCardinality: 1..*
+  targetName: reoresents

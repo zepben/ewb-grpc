@@ -1,0 +1,26 @@
+name: GridDelta
+description: |-
+  Represents either a set of additions and modifications or a set of removals to a grid state.
+
+
+
+  Note that add and remove artifacts would usually be at the stack level.
+ancestors:
+- GridDataset
+associations:
+- source: GridDelta
+  target: GridChange
+  sourceCardinality: 0..1
+  sourceName: addition
+  sourceDescription: A grid dataset specifying items to be added.
+  targetCardinality: "1"
+  targetName: defines
+  targetDescription: The change for which additions are specfified.
+- source: GridDelta
+  target: GridChange
+  sourceCardinality: 0..1
+  sourceName: removal
+  sourceDescription: A grid dataset defining items to be removed.
+  targetCardinality: "1"
+  targetName: defines
+  targetDescription: The change for which removal is specified.

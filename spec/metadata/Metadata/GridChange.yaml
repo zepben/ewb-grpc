@@ -1,0 +1,47 @@
+name: GridChange
+description: |-
+  Represents a change to the grid modeling, such as a planned construction project or a proposed correction to a model.
+
+
+
+  Recommended practice is to maintain a grid models representing the present state of the grid and then define future or hypothetical situations by changes.
+
+
+
+  Changes are described by a remove dataset and an add dataset.
+ancestors:
+- Dataset
+descendants:
+- NetImpact
+- Step
+- ProjectClose
+associations:
+- source: GridChange
+  target: GridDelta
+  sourceCardinality: "1"
+  sourceName: defines
+  sourceDescription: The change for which additions are specfified.
+  targetCardinality: 0..1
+  targetName: addition
+  targetDescription: A grid dataset specifying items to be added.
+- source: GridChange
+  target: GridDelta
+  sourceCardinality: "1"
+  sourceName: defines
+  sourceDescription: The change for which removal is specified.
+  targetCardinality: 0..1
+  targetName: removal
+  targetDescription: A grid dataset defining items to be removed.
+- source: GridChange
+  target: Frame
+  sourceCardinality: 0..*
+  sourceName: hasChanges
+  sourceDescription: Changes that have been defined for a frame.
+  targetCardinality: 0..1
+  targetName: appliesTo
+  targetDescription: |-
+    The frame to which the change applies.
+
+
+
+    Changes are restricted to a single frame.

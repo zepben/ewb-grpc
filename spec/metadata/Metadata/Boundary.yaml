@@ -1,0 +1,35 @@
+name: Boundary
+description: Framework agreements divide the grid into electrical territories called Frames. A Boundary exists wherever Frames
+  are adjacent and defines a location that requires a BoundaryModel to define precisely how the adjacent frame models join.
+ancestors:
+- Dataset
+associations:
+- source: Boundary
+  target: FrameworkEdition
+  sourceCardinality: 0..*
+  sourceName: includes
+  sourceDescription: The boundaries that are included in a framework edition.
+  targetCardinality: 1..*
+  targetName: inlcudedIn
+  targetDescription: Tthe framework editions that the boundary is included in.
+- source: Boundary
+  target: BoundaryModel
+  sourceCardinality: "1"
+  sourceName: defines
+  sourceDescription: The boundary that a boundary model defines.
+  targetCardinality: 1..*
+  targetName: isDeifnedBy
+  targetDescription: The models that define a boundary in different framework editions.
+- source: Boundary
+  target: Frame
+  sourceCardinality: 0..*
+  sourceName: connectsTo
+  sourceDescription: |-
+    Identifies that Boundaries of the Frame.
+
+
+
+    A Frame may connect to a Boundary that is defined in a separate Framework. This allows an interrelationship to be established between Frameworks.
+  targetCardinality: 0..*
+  targetName: separates
+  targetDescription: Defines the frames separated by the Boundary.

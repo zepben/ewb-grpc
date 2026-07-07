@@ -1,0 +1,18 @@
+name: MetaThing
+description: Provides consistent identification for whatever information is represented by a metadata object.
+attributes:
+- name: identifier
+  type: UUID
+  description: "Provides a unique identifier for whatever an object represents. The identity is used as follows:\n\n<ul>\n\
+    \n\t<li>In a metadata artifact, an identifies must be unique.</li>\n\n\t<li>Identifiers and used in serializations to\
+    \ define the target of an association.</li>\n\n\t<li>If sets of metadata are DIFFed, the identity determines when the\
+    \ same thing is described by objects in different sets.</li>\n\n</ul>"
+- name: title
+  type: String
+  description: A human readable name for the thing represented. The name property is used in queries.
+descendants:
+- Dataset
+- Activity
+- InputVariable
+- InputParameter
+- Distribution

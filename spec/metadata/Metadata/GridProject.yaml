@@ -1,0 +1,48 @@
+name: GridProject
+description: |-
+  A description of the reason behind a change to the grid. There are a variety of reasons that can require a grid change to be modeled. This would be distinguished in the business purpose of the grid project using strings defined by the business process design. For example:
+
+   * A planned type might represent planned new construction. Plans are the most complex projects.. They may have a lifetime of years and undergo numerous revisions along the way. They may be broken into phases. They may have interrelationships with other projects. They may need plans that mimick switching steps as the project is executed.
+
+   * A maintenance type could represent a temporary outage.
+
+   * Unplanned projects occur as a result of storm damage and/or customer outage reports.
+
+   * Model correction types can occur when modeling problems are noticed.
+attributes:
+- name: adminReference
+  type: String
+  description: An administrative reference used to relate the grid description of a project to descriptions in other parts
+    of the utility, such as accounting, work management, facility design, etc.
+- name: status
+  type: String
+  description: Indicates the status of the project in a manner that will be useful when an engineer is deciding whether to
+    include the project in some study. For example, a status of 'proposed' might not be included but a status of 'approved'
+    would be included.
+ancestors:
+- Dataset
+associations:
+- source: GridProject
+  target: ProjectClose
+  sourceCardinality: "1"
+  sourceName: describes
+  sourceDescription: The project for which final impact is described.
+  targetCardinality: 0..1
+  targetName: hasClosedAs
+  targetDescription: The as-constructed net impact of a project.
+- source: GridProject
+  target: NetImpact
+  sourceCardinality: "1"
+  sourceName: describes
+  sourceDescription: The project described by a planned impact.
+  targetCardinality: 0..*
+  targetName: hasPlannedImpact
+  targetDescription: The expected net change produced by a project.
+- source: GridProject
+  target: StepSeqiuence
+  sourceCardinality: "1"
+  sourceName: describes
+  sourceDescription: Project for which a step sequence is created.
+  targetCardinality: 0..*
+  targetName: hasExecutionPlan
+  targetDescription: Breakdown into steps for a project.

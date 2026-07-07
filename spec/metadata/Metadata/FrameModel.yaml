@@ -1,0 +1,26 @@
+name: FrameModel
+description: A model for a frame. Normally, this is a model that matches the boundaries defined by a frame perimeter given
+  in a release of some formal framework and fully represents the frame in the sense that it the grid modeling is in sufficient
+  detail to support the kind of analysis intended by its business purpose. However, a grid model may also be used more casually
+  to represent a territory of the grid when there is no governing framework or when a framework is in development but not
+  yet complete.
+ancestors:
+- GridModel
+associations:
+- source: FrameModel
+  target: BoundaryModel
+  sourceCardinality: 0..*
+  sourceName: partOfPerimeter
+  sourceDescription: Is part of a FramePerimeter. Note that it is allowed that a FramePerimeter may be made up of BoundaryModels
+    for Boundaries from different Frameworks.
+  targetCardinality: 0..*
+  targetName: perimeter
+  targetDescription: The boundary models that the frame model was joined with when the frame model was created.
+- source: FrameModel
+  target: Frame
+  sourceCardinality: 0..*
+  sourceName: isReferencedBy
+  sourceDescription: Frame models that reference a frame.
+  targetCardinality: "1"
+  targetName: represents
+  targetDescription: The frame that the frame model represents.

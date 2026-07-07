@@ -1,0 +1,13 @@
+name: Attachment
+description: Describes any set of ancillary information about a Dataset. Such as pictures, word docs, etc.
+ancestors:
+- Dataset
+associations:
+- source: Attachment
+  target: Dataset
+  sourceCardinality: 0..*
+  sourceName: attachment
+  sourceDescription: Attachments to a dataset.
+  targetCardinality: "1"
+  targetName: describes
+  targetDescription: Identifies the Dataset that the attachment adds information about.

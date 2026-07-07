@@ -1,0 +1,25 @@
+name: GridModel
+description: "Classes that inherit from GridModel all represent a set of information about a part of the grod in one state.\
+  \ \n\n\n\nThe kind of information is indicated by the profileType inherited from GridDataset, which may be either an individual\
+  \ curated profile or a stack of profiles. A stack GridModel is necessary when grid artifact Distributions are a union of\
+  \ curated profiles, which is very common. Typically, products work with stacks and exchange stacks. Occasionally, however,\
+  \ an individual profile is extracted from a stack and used as part of another stack."
+ancestors:
+- GridDataset
+descendants:
+- AssemblyWideModel
+- EquivalentModel
+- EdgeModel
+- BoundaryModel
+- ReferenceModel
+- FrameModel
+- NonAlignedModel
+associations:
+- source: GridModel
+  target: GridAssembly
+  sourceCardinality: 0..*
+  sourceName: contains
+  sourceDescription: Identifies the grid models that make up the assembly.
+  targetCardinality: 0..*
+  targetName: usedIn
+  targetDescription: Identifies the assemblies that include the grid model.

@@ -1,0 +1,41 @@
+name: FrameworkEdition
+description: |-
+  A framework edition defines the set of frames, boundaries and reference models for an evolutionary state of a framework.
+
+
+
+  Framework edition properties must identify the situation for which the evolutionary state applies. Usually, this is a time range.
+
+
+
+  When a frame or boundary is unchanged from one state to the next, the Frame or Boundary objects are re-referenced. This signals that frame models created for prior framework states will still join properly if the frame has not changed.
+attributes:
+- name: framework
+  type: string
+ancestors:
+- Dataset
+associations:
+- source: FrameworkEdition
+  target: Frame
+  sourceCardinality: 1..*
+  sourceName: includedIn
+  sourceDescription: Identfies the framework editions that a frame is included in.
+  targetCardinality: 0..*
+  targetName: includes
+  targetDescription: Identifies the frames that are included in a framework ediition.
+- source: FrameworkEdition
+  target: Boundary
+  sourceCardinality: 1..*
+  sourceName: inlcudedIn
+  sourceDescription: Tthe framework editions that the boundary is included in.
+  targetCardinality: 0..*
+  targetName: includes
+  targetDescription: The boundaries that are included in a framework edition.
+- source: FrameworkEdition
+  target: Reference
+  sourceCardinality: 1..*
+  sourceName: includedIn
+  sourceDescription: The framework editions that the reference model is included in.
+  targetCardinality: 0..*
+  targetName: includes
+  targetDescription: The reference models included in a framework edition.

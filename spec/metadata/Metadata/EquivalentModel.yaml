@@ -1,0 +1,17 @@
+name: EquivalentModel
+description: Represents grid modeling produced by executing a mathematical reduction of one or more frames of an assembly.
+  In a framework, the resulting equivalent model will plug into the set of boundary models that connect unreduced frames to
+  reduced frames. If no framework element is referenced as reduced, the meaning of the equivalent is not described and must
+  be controlled by the processes that defined the model.
+ancestors:
+- GridModel
+associations:
+- source: EquivalentModel
+  target: BoundaryModel
+  sourceCardinality: 0..*
+  sourceName: defines
+  sourceDescription: Any model that approximates a part of the grid. Most often the result of a mathematical reduction of
+    a set of frame models, but may also be used to describe more complex manually generated edges of areas modeled in detail.
+  targetCardinality: 0..*
+  targetName: joinsWith
+  targetDescription: A perimeter definition for the set of boundary models that the equivalent joins with.

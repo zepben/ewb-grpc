@@ -1,0 +1,13 @@
+name: List
+description: Collects a set of Datasets, usually because the resulting List will be used repeatedly as input to an Activity.
+ancestors:
+- Dataset
+associations:
+- source: List
+  target: Dataset
+  sourceCardinality: 0..*
+  sourceName: containedIn
+  sourceDescription: List that dataset is mentioned in.
+  targetCardinality: 1..*
+  targetName: contains
+  targetDescription: Dataset item in a list.

@@ -1,0 +1,22 @@
+name: StepSeqiuence
+description: A sequence of changes to accomplish some purpose, such as the sequence of grid modeling actions that mimic the
+  activity of a crew as they execute a project.
+ancestors:
+- Dataset
+associations:
+- source: StepSeqiuence
+  target: Step
+  sourceCardinality: "1"
+  sourceName: initiates
+  sourceDescription: The step sequence being documented.
+  targetCardinality: "1"
+  targetName: firstStep
+  targetDescription: The first step in a sequence of changes.
+- source: StepSeqiuence
+  target: GridProject
+  sourceCardinality: 0..*
+  sourceName: hasExecutionPlan
+  sourceDescription: Breakdown into steps for a project.
+  targetCardinality: "1"
+  targetName: describes
+  targetDescription: Project for which a step sequence is created.

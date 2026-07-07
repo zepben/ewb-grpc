@@ -1,0 +1,42 @@
+name: BoundaryModel
+description: "Represents a grid model that defines a boundary agreement for a framework. \n\n\n\nA boundary model defines\
+  \ the set of physical grid objects that separate adjacent frames such that frame models must have associations only with\
+  \ the boundary objects and not with any adjacent frame model objects. \n\n\n\nBilateral boundary models separating two adjacent\
+  \ frames are recommended practice but multilateral boundary models are allowed."
+ancestors:
+- GridModel
+associations:
+- source: BoundaryModel
+  target: FrameModel
+  sourceCardinality: 0..*
+  sourceName: perimeter
+  sourceDescription: The boundary models that the frame model was joined with when the frame model was created.
+  targetCardinality: 0..*
+  targetName: partOfPerimeter
+  targetDescription: Is part of a FramePerimeter. Note that it is allowed that a FramePerimeter may be made up of BoundaryModels
+    for Boundaries from different Frameworks.
+- source: BoundaryModel
+  target: EquivalentModel
+  sourceCardinality: 0..*
+  sourceName: joinsWith
+  sourceDescription: A perimeter definition for the set of boundary models that the equivalent joins with.
+  targetCardinality: 0..*
+  targetName: defines
+  targetDescription: Any model that approximates a part of the grid. Most often the result of a mathematical reduction of
+    a set of frame models, but may also be used to describe more complex manually generated edges of areas modeled in detail.
+- source: BoundaryModel
+  target: EdgeModel
+  sourceCardinality: "1"
+  sourceName: terrminates
+  sourceDescription: A boundary model that an edge model terminates -- i.e. joins with.
+  targetCardinality: 0..*
+  targetName: canBeTerminatedBy
+  targetDescription: Identifies a boundary edge that terminates a boundary model.
+- source: BoundaryModel
+  target: Boundary
+  sourceCardinality: 1..*
+  sourceName: isDeifnedBy
+  sourceDescription: The models that define a boundary in different framework editions.
+  targetCardinality: "1"
+  targetName: defines
+  targetDescription: The boundary that a boundary model defines.

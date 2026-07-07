@@ -1,0 +1,101 @@
+name: Distribution
+description: |-
+  References relevant data artifacts.
+
+
+
+  Primary usage is for data artifacts that realize GridDatasets, with the understanding that since each GridDataset obeys one grid profile, multiple GridDatasets are often combined in a Distribution.
+
+
+
+  May also reference ancillary data artifacts of any kind (word docs, jpegs, ...) when those artifacts support description of a Dataset.
+
+  .
+attributes:
+- name: downloadURL
+  type: URL
+  description: |-
+    The URL of the downloadable file in a given format. E.g., CSV file or RDF file. The format is indicated by the distribution's dcterms:format and/or dcat:mediaType
+
+
+
+    dcat:downloadURL SHOULD be used for the URL at which this distribution is available directly, typically through a HTTP Get request.
+- name: issued
+  type: DateTime
+  description: |-
+    Date of formal issuance (e.g., publication) of the resource.
+
+    This property SHOULD be set using the first known date of issuance.
+- name: accessURL
+  type: URL
+  description: |-
+    A URL of the resource that gives access to a distribution of the dataset. E.g., landing page, feed, SPARQL endpoint.
+
+
+
+    dcat:accessURL SHOULD be used for the URL of a service or location that can provide access to this distribution, typically through a Web form, query or API call.
+
+
+
+    dcat:downloadURL is preferred for direct links to downloadable resources.
+
+
+
+    If the distribution(s) are accessible only through a landing page (i.e., direct download URLs are not known), then the landing page URL associated with the dcat:Dataset SHOULD be duplicated as access URL on a distribution
+- name: license
+  type: String
+  description: |-
+    A legal document under which the resource is made available.
+
+    Information about licenses and rights MAY be provided for the Resource.
+- name: byteSize
+  type: Integer
+  description: |-
+    The size of a distribution in bytes.
+
+    The size in bytes can be approximated (as a non-negative integer) when the precise size is not known
+- name: mediaType
+  type: String
+  description: |-
+    The media type of the distribution as defined by IANA
+
+
+
+    This property SHOULD be used when the media type of the distribution is defined in IANA, otherwise dcterms:format MAY be used with different values.
+- name: format
+  type: String
+  description: |-
+    The file format of the distribution.
+
+    dcat:mediaType SHOULD be used if the type of the distribution is defined by IANA
+- name: compressedFormat
+  type: String
+  description: |-
+    The compression format of the distribution in which the data is contained in a compressed form, e.g., to reduce the size of the downloadable file.
+
+    This property to be used when the files in the distribution are compressed, e.g., in a ZIP file. The format SHOULD be expressed using a media type as defined by IANA
+- name: checksum
+  type: String
+  description: |-
+    The checksum property provides a mechanism that can be used to verify that the contents of a file or package have not changed
+
+
+
+    CIM shall use SHA-256 checksums.
+ancestors:
+- MetaThing
+associations:
+- source: Distribution
+  target: ProfileEdition
+  sourceCardinality: 0..*
+  sourceName: usedIn
+  sourceDescription: Artifacts that use this profile edition.
+  targetCardinality: 0..*
+  targetName: conformsTo
+  targetDescription: A profile edition used in populating this artifact.
+- source: Distribution
+  target: Dataset
+  sourceCardinality: 0..*
+  sourceName: distribution
+  targetCardinality: "1"
+  targetName: Dataset

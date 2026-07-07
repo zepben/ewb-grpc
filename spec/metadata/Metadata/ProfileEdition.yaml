@@ -1,0 +1,15 @@
+name: ProfileEdition
+description: Identifies a profile edition used to create a distribution.
+attributes:
+- name: conformsTo
+  type: URL
+  description: The location of the computer readable profile edition.
+associations:
+- source: ProfileEdition
+  target: Distribution
+  sourceCardinality: 0..*
+  sourceName: conformsTo
+  sourceDescription: A profile edition used in populating this artifact.
+  targetCardinality: 0..*
+  targetName: usedIn
+  targetDescription: Artifacts that use this profile edition.

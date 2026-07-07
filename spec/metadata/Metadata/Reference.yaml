@@ -1,0 +1,19 @@
+name: Reference
+description: A container for reference models in a framework edition.
+ancestors:
+- Dataset
+associations:
+- source: Reference
+  target: ReferenceModel
+  sourceCardinality: 1..*
+  sourceName: reoresents
+  targetCardinality: 0..*
+  targetName: consistsOf
+- source: Reference
+  target: FrameworkEdition
+  sourceCardinality: 0..*
+  sourceName: includes
+  sourceDescription: The reference models included in a framework edition.
+  targetCardinality: 1..*
+  targetName: includedIn
+  targetDescription: The framework editions that the reference model is included in.

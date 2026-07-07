@@ -1,0 +1,30 @@
+name: InputVariable
+description: |-
+  Documents a Dataset that was input to an Activity. This can be a very important part of the description of a Dataset. For example, if a GridModel is produced by adding a construction project, the projects added may be documented.
+
+
+
+  The inherited name attribute should be used to define the black box input name that designates the type of input.
+
+
+
+  If a function is defined as having a list as an argument, InputVariable may either reference a List Dataset or it may document the members of the list as individual InputVariables.
+ancestors:
+- MetaThing
+associations:
+- source: InputVariable
+  target: Dataset
+  sourceCardinality: 0..*
+  sourceName: usedAs
+  sourceDescription: Was supplied as input argument to an activity.
+  targetCardinality: 1..*
+  targetName: value
+  targetDescription: Was input for this argument of the activity.
+- source: InputVariable
+  target: Activity
+  sourceCardinality: 0..*
+  sourceName: input
+  sourceDescription: Is invoked with a input variable representing a dataset.
+  targetCardinality: "1"
+  targetName: argumentOf
+  targetDescription: Is an input argument to the activity's function specification.

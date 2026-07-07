@@ -1,0 +1,20 @@
+name: GridAssembly
+description: "A set of grid models that join together through grid data associations to create a set of modeling for some\
+  \ business purpose, most often a set of modeling that either defines the input to or the result of grid analysis. \n\n\n\
+  \nAn Assembly should be viewed as a statement by the producer that it put this information together in the internal form\
+  \ used by the producer and generated any results based on the algorithm of the producer. When an Assembly is passed to some\
+  \ other party, the information is exported in standard form and imported to the other party's system. Receivers will typically\
+  \ re-execute the analysis to assure successful transfer of information (assuming they have that capability).\n\n\n\nNote\
+  \ that assemblies may share common model components. For example, it is common that many studies are conducted on the same\
+  \ physical description of the grid."
+ancestors:
+- Dataset
+associations:
+- source: GridAssembly
+  target: GridModel
+  sourceCardinality: 0..*
+  sourceName: usedIn
+  sourceDescription: Identifies the assemblies that include the grid model.
+  targetCardinality: 0..*
+  targetName: contains
+  targetDescription: Identifies the grid models that make up the assembly.

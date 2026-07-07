@@ -1,0 +1,26 @@
+name: ProjectClose
+description: |-
+  A final view of the project impact as completed.
+
+
+
+  An operations control center that was maintaining a view of activity in the field would normally capture its final model of the project as the first project close version and send it to whichever authority was responsible for maintaining master grid modeling. This version has essentially been tested in the field -- at least to the extent of supporting control center analyses.
+
+
+
+  The master modeling authority might revise modeling based on broader policy, usage and coordination requirements with facility engineering (e.g. GIS).
+
+
+
+  Ultimately, a final project close version will be incorporated into a master model update. When such an update is used to update the control center, the identity of the projects that have been incorporated into the update will help the control center install it and replace whatever temporary modeling should be superseded.
+ancestors:
+- GridChange
+associations:
+- source: ProjectClose
+  target: GridProject
+  sourceCardinality: 0..1
+  sourceName: hasClosedAs
+  sourceDescription: The as-constructed net impact of a project.
+  targetCardinality: "1"
+  targetName: describes
+  targetDescription: The project for which final impact is described.

@@ -1,0 +1,27 @@
+name: EdgeModel
+description: "When there is a boundary between frame X that is included in a study and another frame that is not included,\
+  \ a physical edge model is the recommended means of representing the flow from X into the un-included frame. The edge model\
+  \ has an association to the boundary model that it joins and to frame X (the frame that the edge pairs with). \n\n\n\nNormally,\
+  \ a utility examines each framework edition it receives and adds new physical edge models for each new boundary models.\
+  \ Physical edge models are only changed when a new boundary model is defined. A boundary may have edges for each of its\
+  \ adjacent frames if the studies conducted by a utility require them.\n\n\n\nSee reference notes on Frameworks and Grid\
+  \ Models for more information."
+ancestors:
+- GridModel
+associations:
+- source: EdgeModel
+  target: Frame
+  sourceCardinality: 0..*
+  sourceName: terminatedBy
+  sourceDescription: Identifies an edge model that may be used to represent flow into an adjacent frame.
+  targetCardinality: "1"
+  targetName: replaces
+  targetDescription: Identifies the frame that the edge model replaces.
+- source: EdgeModel
+  target: BoundaryModel
+  sourceCardinality: 0..*
+  sourceName: canBeTerminatedBy
+  sourceDescription: Identifies a boundary edge that terminates a boundary model.
+  targetCardinality: "1"
+  targetName: terrminates
+  targetDescription: A boundary model that an edge model terminates -- i.e. joins with.

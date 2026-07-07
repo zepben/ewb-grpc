@@ -1,0 +1,34 @@
+name: GridDataset
+description: "A set of grid information whose content can be described by a grid profile or a stack of grid profiles in which\
+  \ each member of the stack is also a grid dataset. \n\n * A stack GridDataset references the member GridDatasets it contains.\n\
+  \n * Each bottom GridDataset in a stack must be a single profile type for which some authority publishes computer readable\
+  \ profile editions defining the type.\n\n * The union of bottom GridDatasets defines the kind of information represented\
+  \ by the top GridDataset.\n\n\n\nIf the content of a Distribution merges multiple profiles, there must be a corresponding\
+  \ GridDataset representing the stack so that the cardinality between Distribution and GridDataset is always 1 at the GridDataset\
+  \ end.\n\n\n\nIf Distributions of individual members of a stack are joined, the operation must be ordered according to whatever\
+  \ interdependency is defined for the profile types.\n\n\n\nAt the option of the business process:\n\n<ul>\n\n\t<li>Upper\
+  \ members of a stack may have required profileType strings.</li>\n\n\t<li>Stack containment may be ordered by creating multiple\
+  \ levels of containment.</li>\n\n</ul>"
+attributes:
+- name: profileType
+  type: String
+  description: |-
+    The profile type describing the set of information or a type name assigned to a stack of profiles.
+
+
+
+    Profile type is identified by a string assigned to the profile. Products are expected to configure themselves with knowledge of the profile editions for each profile type string that they can process. The type string is assigned by whatever authority is defining the profile.
+ancestors:
+- Dataset
+descendants:
+- GridModel
+- GridDelta
+associations:
+- source: GridDataset
+  target: GridDataset
+  sourceCardinality: 0..1
+  sourceName: isContainedBy
+  sourceDescription: A GridDataset that is a stack of other related GridDatasets of different but compatible profile types.
+  targetCardinality: 0..*
+  targetName: contains
+  targetDescription: GridDatasets that are part of a combined GridDataset.

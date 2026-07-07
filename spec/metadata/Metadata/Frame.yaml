@@ -1,0 +1,62 @@
+name: Frame
+description: "Defines a region of a framework for which grid models may be defined unilaterally provided only that they join\
+  \ properly with a set of reference models and perimeter boundary models defined by the framework. \n\n\n\nWhen a framework\
+  \ agreement is undertaken by a group of authorities, the first task is to agree on the set of frames that will best support\
+  \ the use cases that the participants have in view. The general objective is to partition the grid of interest into frame\
+  \ parts such that:\n\n* The modeling for a frame will be supplied from one authority.\n\n* The modeling for the use cases\
+  \ of interest can be directed simply by identifying frames to be included or excluded.\n\n\n\nNote that a new Frame object\
+  \ is required if any of its perimeter boundaries are different. A new Frame may, however, retain the same name as a previous\
+  \ Frame"
+ancestors:
+- Dataset
+associations:
+- source: Frame
+  target: EdgeModel
+  sourceCardinality: "1"
+  sourceName: replaces
+  sourceDescription: Identifies the frame that the edge model replaces.
+  targetCardinality: 0..*
+  targetName: terminatedBy
+  targetDescription: Identifies an edge model that may be used to represent flow into an adjacent frame.
+- source: Frame
+  target: FrameworkEdition
+  sourceCardinality: 0..*
+  sourceName: includes
+  sourceDescription: Identifies the frames that are included in a framework ediition.
+  targetCardinality: 1..*
+  targetName: includedIn
+  targetDescription: Identfies the framework editions that a frame is included in.
+- source: Frame
+  target: FrameModel
+  sourceCardinality: "1"
+  sourceName: represents
+  sourceDescription: The frame that the frame model represents.
+  targetCardinality: 0..*
+  targetName: isReferencedBy
+  targetDescription: Frame models that reference a frame.
+- source: Frame
+  target: GridChange
+  sourceCardinality: 0..1
+  sourceName: appliesTo
+  sourceDescription: |-
+    The frame to which the change applies.
+
+
+
+    Changes are restricted to a single frame.
+  targetCardinality: 0..*
+  targetName: hasChanges
+  targetDescription: Changes that have been defined for a frame.
+- source: Frame
+  target: Boundary
+  sourceCardinality: 0..*
+  sourceName: separates
+  sourceDescription: Defines the frames separated by the Boundary.
+  targetCardinality: 0..*
+  targetName: connectsTo
+  targetDescription: |-
+    Identifies that Boundaries of the Frame.
+
+
+
+    A Frame may connect to a Boundary that is defined in a separate Framework. This allows an interrelationship to be established between Frameworks.

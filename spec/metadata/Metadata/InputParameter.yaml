@@ -1,0 +1,17 @@
+name: InputParameter
+description: Documents an input parameter to an Activities. (i.e. Arguments that are not Datasets.)
+attributes:
+- name: value
+  type: String
+  description: The value of the argument.
+ancestors:
+- MetaThing
+associations:
+- source: InputParameter
+  target: Activity
+  sourceCardinality: 0..*
+  sourceName: argument
+  sourceDescription: Was invoked with this input parameter.
+  targetCardinality: "1"
+  targetName: wasInputTo
+  targetDescription: Was supplied as an input parameter.

@@ -1,0 +1,21 @@
+name: Step
+description: A change describing a step in sequence.
+ancestors:
+- GridChange
+associations:
+- source: Step
+  target: StepSeqiuence
+  sourceCardinality: "1"
+  sourceName: firstStep
+  sourceDescription: The first step in a sequence of changes.
+  targetCardinality: "1"
+  targetName: initiates
+  targetDescription: The step sequence being documented.
+- source: Step
+  target: Step
+  sourceCardinality: "1"
+  sourceName: prior
+  sourceDescription: The prior step in a sequence.
+  targetCardinality: 0..1
+  targetName: next
+  targetDescription: The next step in a sequence.
