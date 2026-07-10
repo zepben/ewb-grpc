@@ -19,13 +19,14 @@
 ### Breaking Changes
 * Java build updated to use Vert.x v5 transitive dependency.
 * Asset-level voltage and thermal loading summary protobuf messages have been reshaped to match the refined result table specifications.
+* `OpenDssReport` now includes asset-level voltage and thermal loading summary report payloads.
 
 ### New Features
 * Added protobuf fields for per-phase asset-level conductor voltage summary reports.
 * Added protobuf fields for asset-level thermal loading summary reports, including loading, rating, overload, direction, and worst-phase data.
 
 ### Enhancements
-* `OpenDssReport` now carries the refined asset-level summary report messages.
+* Asset-level summary report messages include the per-asset and per-year fields needed by the hosting capacity result tables.
 
 ### Fixes
 * Added python3.14 to compatibility list.
