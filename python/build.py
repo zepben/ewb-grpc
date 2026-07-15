@@ -5,7 +5,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 import argparse
-from typing import List
 
 import grpc_tools.protoc
 import pkg_resources
@@ -15,7 +14,7 @@ import sys
 import shutil
 import logging
 from pathlib import Path
-from pep517.envbuild import build_sdist, build_wheel
+from pep517.envbuild import build_wheel
 
 logging.basicConfig(format="%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s")
 logger = logging.getLogger("build.py")
