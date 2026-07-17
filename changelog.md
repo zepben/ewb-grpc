@@ -10,6 +10,7 @@
 * None.
 
 ### Fixes
+* Added python3.14 to compatibility list.
 * Fixed build on python3.13
 
 ### Notes
