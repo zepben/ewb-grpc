@@ -1,7 +1,7 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.8.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* Java build updated to use Vert.x v5 transitive dependency.
 
 ### New Features
 * None.
