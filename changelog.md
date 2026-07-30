@@ -22,11 +22,12 @@
 * `OpenDssReport` now includes asset-level voltage and thermal loading summary report payloads.
 
 ### New Features
-* Added protobuf fields for per-phase asset-level conductor voltage summary reports.
-* Added protobuf fields for asset-level thermal loading summary reports, including loading, rating, overload, direction, and worst-phase data.
+* Added protobuf message `AssetLevelVoltageSummaryReport`, with fields for per-phase asset-level conductor voltage summary reports.
+* Added protobuf message `AssetLevelThermalLoadingSummaryReport`, wiht fields for asset-level thermal loading summary reports, including loading, rating,
+  overload, direction, and worst-phase data.
 
 ### Enhancements
-* Asset-level summary report messages include the per-asset and per-year fields needed by the hosting capacity result tables.
+* None.
 
 ### Fixes
 * Added python3.14 to compatibility list.
