@@ -18,7 +18,6 @@
 ## [1.8.0] - 2026-08-03
 ### Breaking Changes
 * Java build updated to use Vert.x v5 transitive dependency.
-* Asset-level voltage and thermal loading summary protobuf messages have been reshaped to match the refined result table specifications.
 * `OpenDssReport` now includes asset-level voltage and thermal loading summary report payloads.
 
 ### New Features
