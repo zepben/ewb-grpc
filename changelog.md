@@ -1,5 +1,5 @@
 # Zepben Protobuf and GRPC definitions
-## [1.8.0] - UNRELEASED
+## [1.8.0] - 2026-08-03
 ### Breaking Changes
 * Java build updated to use Vert.x v5 transitive dependency.
 
