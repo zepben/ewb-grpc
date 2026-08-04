@@ -1,3 +1,6 @@
+> [!WARNING]
+> Until this warning is removed, the `ChangeSet` and related objects are highly subject to change. Use at your own risk.
+
 # Checklist for model change
 
 1. Update change log - `changelog.md`
