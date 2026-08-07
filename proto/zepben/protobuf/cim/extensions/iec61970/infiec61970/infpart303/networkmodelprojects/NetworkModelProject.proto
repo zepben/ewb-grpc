@@ -1,0 +1,57 @@
+/*
+ * Copyright 2025 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects";
+package zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto";
+
+/**
+ * [ZBEX] A grouping of network model stages. Primarily used to organize the stages of an overall project.
+ */
+message NetworkModelProject {
+
+    /**
+     * NetworkModelProjectComponent fields for this NetworkModelProject.
+     */
+    cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectComponent nmpc = 1;
+
+    /**
+     * [ZBEX] The status of the project in the external system.
+     */
+    oneof externalStatus {
+      google.protobuf.NullValue externalStatusNull = 2;
+      string externalStatusSet = 3;
+    }
+
+    /**
+     * [ZBEX] When the project is expected to be comissioned.
+     */
+    oneof forecastCommissionDate {
+      google.protobuf.NullValue forecastCommissionDateNull = 4;
+      google.protobuf.Timestamp forecastCommissionDateSet = 5;
+    }
+
+    /**
+     * [ZBEX] The driver of the project.
+     */
+    oneof externalDriver {
+      google.protobuf.NullValue externalDriverNull = 6;
+      string externalDriverSet = 7;
+    }
+
+    /**
+     * [ZBEX] Contained NetworkModelProjectComponent classes of this Project.
+     */
+    repeated string childrenMRIDs = 8;
+
+}
