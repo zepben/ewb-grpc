@@ -116,6 +116,39 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "GetChangeSetObjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "changeSetMRID",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "variantContents",
+                "type": "vc.VariantContents"
+              },
+              {
+                "id": 4,
+                "name": "modelVersion",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/vc/vc-data.proto"
           }
         ],
         "package": {
@@ -168,6 +201,21 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "GetChangeSetObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiableObject",
+                "type": "CustomerIdentifiable"
+              }
+            ]
           }
         ],
         "imports": [
@@ -202,6 +250,12 @@
                 "in_type": "GetIdentifiablesRequest",
                 "out_type": "GetIdentifiablesResponse",
                 "in_streamed": true,
+                "out_streamed": true
+              },
+              {
+                "name": "getChangeSetObjects",
+                "in_type": "GetChangeSetObjectsRequest",
+                "out_type": "GetChangeSetObjectsResponse",
                 "out_streamed": true
               },
               {
@@ -2240,6 +2294,171 @@
           {
             "name": "java_package",
             "value": "com.zepben.protobuf.cim.extensions.iec61970.base.wires"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:infiec61970:/:infpart303:/:networkmodelprojects:/:NetworkModelProject.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "NetworkModelProject",
+            "fields": [
+              {
+                "id": 1,
+                "name": "nmpc",
+                "type": "cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectComponent"
+              },
+              {
+                "id": 2,
+                "name": "externalStatusNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "externalStatus"
+              },
+              {
+                "id": 3,
+                "name": "externalStatusSet",
+                "type": "string",
+                "oneof_parent": "externalStatus"
+              },
+              {
+                "id": 4,
+                "name": "forecastCommissionDateNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "forecastCommissionDate"
+              },
+              {
+                "id": 5,
+                "name": "forecastCommissionDateSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "forecastCommissionDate"
+              },
+              {
+                "id": 6,
+                "name": "externalDriverNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "externalDriver"
+              },
+              {
+                "id": 7,
+                "name": "externalDriverSet",
+                "type": "string",
+                "oneof_parent": "externalDriver"
+              },
+              {
+                "id": 8,
+                "name": "childrenMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:extensions:/:iec61970:/:infiec61970:/:infpart303:/:networkmodelprojects:/:NetworkModelProjectComponent.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "NetworkModelProjectComponent",
+            "fields": [
+              {
+                "id": 1,
+                "name": "io",
+                "type": "cim.iec61970.base.core.IdentifiedObject"
+              },
+              {
+                "id": 2,
+                "name": "createdNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "created"
+              },
+              {
+                "id": 3,
+                "name": "createdSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "created"
+              },
+              {
+                "id": 4,
+                "name": "updatedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "updated"
+              },
+              {
+                "id": 5,
+                "name": "updatedSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "updated"
+              },
+              {
+                "id": 6,
+                "name": "closedNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "closed"
+              },
+              {
+                "id": 7,
+                "name": "closedSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "closed"
+              },
+              {
+                "id": 8,
+                "name": "parentMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects"
           }
         ]
       }
@@ -14002,6 +14221,500 @@
       }
     },
     {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:infpart303:/:networkmodelprojects:/:AnnotatedProjectDependency.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "AnnotatedProjectDependency",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "dependencyType",
+                "type": "DependencyKind"
+              },
+              {
+                "id": 3,
+                "name": "dependencyDependentOnStageMRID",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "dependencyDependingStageMRID",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "baseModelVersion",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/base/core/IdentifiedObject.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/DependencyKind.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:infpart303:/:networkmodelprojects:/:DependencyKind.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "DependencyKind",
+            "enum_fields": [
+              {
+                "name": "DEPENDENCY_KIND_UNKNOWN"
+              },
+              {
+                "name": "DEPENDENCY_KIND_MUTUALLY_EXCLUSIVE",
+                "integer": 1
+              },
+              {
+                "name": "DEPENDENCY_KIND_REQUIRED",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:infpart303:/:networkmodelprojects:/:NetworkModelProjectStage.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "NetworkModelProjectStage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "nmpc",
+                "type": "cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectComponent"
+              },
+              {
+                "id": 2,
+                "name": "plannedCommissionedDateNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "plannedCommissionedDate"
+              },
+              {
+                "id": 3,
+                "name": "plannedCommissionedDateSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "plannedCommissionedDate"
+              },
+              {
+                "id": 4,
+                "name": "commissionedDateNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "commissionedDate"
+              },
+              {
+                "id": 5,
+                "name": "commissionedDateSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "commissionedDate"
+              },
+              {
+                "id": 6,
+                "name": "confidenceLevelNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "confidenceLevel"
+              },
+              {
+                "id": 7,
+                "name": "confidenceLevelSet",
+                "type": "uint32",
+                "oneof_parent": "confidenceLevel"
+              },
+              {
+                "id": 8,
+                "name": "baseModelVersionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "baseModelVersion"
+              },
+              {
+                "id": 9,
+                "name": "baseModelVersionSet",
+                "type": "string",
+                "oneof_parent": "baseModelVersion"
+              },
+              {
+                "id": 10,
+                "name": "lastConflictCheckedAtNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "lastConflictCheckedAt"
+              },
+              {
+                "id": 11,
+                "name": "lastConflictCheckedAtSet",
+                "type": "google.protobuf.Timestamp",
+                "oneof_parent": "lastConflictCheckedAt"
+              },
+              {
+                "id": 12,
+                "name": "userCommentsNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "userComments"
+              },
+              {
+                "id": 13,
+                "name": "userCommentsSet",
+                "type": "string",
+                "oneof_parent": "userComments"
+              },
+              {
+                "id": 14,
+                "name": "changeSetMRIDNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "changeSetMRID"
+              },
+              {
+                "id": 15,
+                "name": "changeSetMRIDSet",
+                "type": "string",
+                "oneof_parent": "changeSetMRID"
+              },
+              {
+                "id": 16,
+                "name": "dependentOnStageMRID",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 17,
+                "name": "dependingStageMRID",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 18,
+                "name": "equipmentContainerMRIDs",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          },
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectComponent.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/AnnotatedProjectDependency.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto"
+          },
+          {
+            "path": "zepben/protobuf/nc/nc-data.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:part303:/:genericdataset:/:ChangeSet.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ChangeSet",
+            "fields": [
+              {
+                "id": 1,
+                "name": "dataset",
+                "type": "DataSet"
+              },
+              {
+                "id": 2,
+                "name": "changeSetMemberMRIDs",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "networkModelProjectStageMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/DataSet.proto"
+          },
+          {
+            "path": "zepben/protobuf/vc/vc-data-change-set-members.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:part303:/:genericdataset:/:ChangeSetMember.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ChangeSetMember",
+            "fields": [
+              {
+                "id": 1,
+                "name": "changeSetMRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "targetObjectMRID",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:part303:/:genericdataset:/:DataSet.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "DataSet",
+            "fields": [
+              {
+                "id": 1,
+                "name": "mRID",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "descriptionNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "description"
+              },
+              {
+                "id": 3,
+                "name": "descriptionSet",
+                "type": "string",
+                "oneof_parent": "description"
+              },
+              {
+                "id": 4,
+                "name": "nameNull",
+                "type": "google.protobuf.NullValue",
+                "oneof_parent": "name"
+              },
+              {
+                "id": 5,
+                "name": "nameSet",
+                "type": "string",
+                "oneof_parent": "name"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:part303:/:genericdataset:/:ObjectCreation.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ObjectCreation",
+            "fields": [
+              {
+                "id": 1,
+                "name": "csm",
+                "type": "ChangeSetMember"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSetMember.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:part303:/:genericdataset:/:ObjectDeletion.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ObjectDeletion",
+            "fields": [
+              {
+                "id": 1,
+                "name": "csm",
+                "type": "ChangeSetMember"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSetMember.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:cim:/:iec61970:/:infiec61970:/:part303:/:genericdataset:/:ObjectModification.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "ObjectModification",
+            "fields": [
+              {
+                "id": 1,
+                "name": "csm",
+                "type": "ChangeSetMember"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSetMember.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:connection:/:connection-requests.proto",
       "def": {
         "messages": [
@@ -14120,6 +14833,39 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "GetChangeSetObjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "changeSetMRID",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "variantContents",
+                "type": "vc.VariantContents"
+              },
+              {
+                "id": 4,
+                "name": "modelVersion",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/vc/vc-data.proto"
           }
         ],
         "package": {
@@ -14172,6 +14918,21 @@
                 "is_repeated": true
               }
             ]
+          },
+          {
+            "name": "GetChangeSetObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiableObject",
+                "type": "DiagramIdentifiable"
+              }
+            ]
           }
         ],
         "imports": [
@@ -14206,6 +14967,12 @@
                 "in_type": "GetIdentifiablesRequest",
                 "out_type": "GetIdentifiablesResponse",
                 "in_streamed": true,
+                "out_streamed": true
+              },
+              {
+                "name": "getChangeSetObjects",
+                "in_type": "GetChangeSetObjectsRequest",
+                "out_type": "GetChangeSetObjectsResponse",
                 "out_streamed": true
               },
               {
@@ -17588,6 +18355,31 @@
             ]
           },
           {
+            "name": "GetChangeSetObjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "changeSetMRID",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "variantContents",
+                "type": "vc.VariantContents"
+              },
+              {
+                "id": 4,
+                "name": "modelVersion",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          },
+          {
             "name": "GetNetworkHierarchyRequest",
             "fields": [
               {
@@ -17699,6 +18491,14 @@
             ]
           }
         ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          },
+          {
+            "path": "zepben/protobuf/vc/vc-data.proto"
+          }
+        ],
         "package": {
           "name": "zepben.protobuf.nc"
         },
@@ -17789,6 +18589,21 @@
                 "name": "identifiables",
                 "type": "NetworkIdentifiable",
                 "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetChangeSetObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiableObject",
+                "type": "NetworkIdentifiable"
               }
             ]
           },
@@ -17899,6 +18714,12 @@
                 "in_type": "GetIdentifiablesRequest",
                 "out_type": "GetIdentifiablesResponse",
                 "in_streamed": true,
+                "out_streamed": true
+              },
+              {
+                "name": "getChangeSetObjects",
+                "in_type": "GetChangeSetObjectsRequest",
+                "out_type": "GetChangeSetObjectsResponse",
                 "out_streamed": true
               },
               {
@@ -18500,6 +19321,416 @@
           {
             "name": "java_package",
             "value": "com.zepben.protobuf.ns"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:vc:/:vc-data-change-set-members.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "VariantChangeSetMember",
+            "fields": [
+              {
+                "id": 1,
+                "name": "objectCreation",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectCreation",
+                "oneof_parent": "changeSetMember"
+              },
+              {
+                "id": 2,
+                "name": "objectDeletion",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectDeletion",
+                "oneof_parent": "changeSetMember"
+              },
+              {
+                "id": 3,
+                "name": "objectModification",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectModification",
+                "oneof_parent": "changeSetMember"
+              },
+              {
+                "id": 999,
+                "name": "other",
+                "type": "google.protobuf.Any",
+                "oneof_parent": "changeSetMember"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectCreation.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectDeletion.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectModification.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.vc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.vc"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:vc:/:vc-data.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "VariantContents",
+            "enum_fields": [
+              {
+                "name": "DELETIONS_REVERSEMODIFICATIONS"
+              },
+              {
+                "name": "CREATIONS_MODIFICATIONS",
+                "integer": 1
+              },
+              {
+                "name": "CHANGESET",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "VariantObject",
+            "fields": [
+              {
+                "id": 1,
+                "name": "networkModelProject",
+                "type": "zepben.protobuf.cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProject",
+                "oneof_parent": "object"
+              },
+              {
+                "id": 3,
+                "name": "annotatedProjectDependency",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects.AnnotatedProjectDependency",
+                "oneof_parent": "object"
+              },
+              {
+                "id": 4,
+                "name": "networkModelProjectStage",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProjectStage",
+                "oneof_parent": "object"
+              },
+              {
+                "id": 5,
+                "name": "changeSet",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ChangeSet",
+                "oneof_parent": "object"
+              },
+              {
+                "id": 6,
+                "name": "objectCreation",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectCreation",
+                "oneof_parent": "object"
+              },
+              {
+                "id": 7,
+                "name": "objectDeletion",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectDeletion",
+                "oneof_parent": "object"
+              },
+              {
+                "id": 8,
+                "name": "objectModification",
+                "type": "zepben.protobuf.cim.iec61970.infiec61970.part303.genericdataset.ObjectModification",
+                "oneof_parent": "object"
+              },
+              {
+                "id": 999,
+                "name": "other",
+                "type": "google.protobuf.Any",
+                "oneof_parent": "object"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProject.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/AnnotatedProjectDependency.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProjectStage.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectCreation.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectDeletion.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ObjectModification.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.vc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.vc"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:vc:/:vc-requests.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "GetIdentifiedObjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrids",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetNetworkModelProjectsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mrids",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetChangeSetRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "changeSetMRID",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "modelVersion",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.vc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.vc"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:vc:/:vc-responses.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "GetIdentifiedObjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiableObjects",
+                "type": "VariantObject",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetNetworkModelProjectsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "networkModelProjects",
+                "type": "cim.extensions.iec61970.infiec61970.infpart303.networkmodelprojects.NetworkModelProject",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetChangeSetResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "messageId",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "identifiableObject",
+                "type": "VariantObject"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "zepben/protobuf/vc/vc-data.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/extensions/iec61970/infiec61970/infpart303/networkmodelprojects/NetworkModelProject.proto"
+          },
+          {
+            "path": "zepben/protobuf/cim/iec61970/infiec61970/part303/genericdataset/ChangeSet.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.vc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.vc"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:vc:/:vc.proto",
+      "def": {
+        "services": [
+          {
+            "name": "VariantConsumer",
+            "rpcs": [
+              {
+                "name": "getIdentifiedObjects",
+                "in_type": "GetIdentifiedObjectsRequest",
+                "out_type": "GetIdentifiedObjectsResponse",
+                "in_streamed": true,
+                "out_streamed": true
+              },
+              {
+                "name": "getNetworkModelProjects",
+                "in_type": "GetNetworkModelProjectsRequest",
+                "out_type": "GetNetworkModelProjectsResponse",
+                "in_streamed": true,
+                "out_streamed": true
+              },
+              {
+                "name": "getChangeSet",
+                "in_type": "GetChangeSetRequest",
+                "out_type": "GetChangeSetResponse",
+                "out_streamed": true
+              },
+              {
+                "name": "getMetadata",
+                "in_type": "metadata.GetMetadataRequest",
+                "out_type": "metadata.GetMetadataResponse"
+              },
+              {
+                "name": "checkConnection",
+                "in_type": "connection.CheckConnectionRequest",
+                "out_type": "google.protobuf.Empty"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/empty.proto"
+          },
+          {
+            "path": "zepben/protobuf/vc/vc-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/vc/vc-responses.proto"
+          },
+          {
+            "path": "zepben/protobuf/connection/connection-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-requests.proto"
+          },
+          {
+            "path": "zepben/protobuf/metadata/metadata-responses.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.vc"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.vc"
           }
         ]
       }
