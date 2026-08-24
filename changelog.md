@@ -18,9 +18,12 @@
 ## [1.8.0] - 2026-08-03
 ### Breaking Changes
 * Java build updated to use Vert.x v5 transitive dependency.
+* `OpenDssReport` now includes asset-level voltage and thermal loading summary report payloads.
 
 ### New Features
-* None.
+* Added protobuf message `AssetLevelVoltageSummaryReport`, with fields for per-phase asset-level conductor voltage summary reports.
+* Added protobuf message `AssetLevelThermalLoadingSummaryReport`, wiht fields for asset-level thermal loading summary reports, including loading, rating,
+  overload, direction, and worst-phase data.
 
 ### Enhancements
 * None.

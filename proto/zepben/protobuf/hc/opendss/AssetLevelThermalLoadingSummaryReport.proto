@@ -1,0 +1,68 @@
+/*
+ * Copyright 2026 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+package zepben.protobuf.hc.opendss;
+
+/**
+ * Unit used to report immutable thermal ratings.
+ */
+enum ThermalLoadingRatingUnit {
+    THERMAL_LOADING_RATING_UNIT_UNSPECIFIED = 0;
+    THERMAL_LOADING_RATING_UNIT_A = 1;
+    THERMAL_LOADING_RATING_UNIT_KVA = 2;
+}
+
+/**
+ * Direction of active power flow at the point used to determine overload direction.
+ */
+enum ThermalLoadingPowerDirection {
+    THERMAL_LOADING_POWER_DIRECTION_UNSPECIFIED = 0;
+    THERMAL_LOADING_POWER_DIRECTION_IMPORT = 1;
+    THERMAL_LOADING_POWER_DIRECTION_EXPORT = 2;
+}
+
+/**
+ * Asset-level thermal loading summary for conductors and transformers.
+ */
+message AssetLevelThermalLoadingSummaryReport {
+
+    string conductingEquipmentMrid = 1;
+    google.protobuf.Timestamp initialTimestamp = 2;
+    double hours = 3;
+
+    ThermalLoadingRatingUnit ratingUnit = 4;
+    double normalRating = 5;
+    double emergencyRating = 6;
+
+    double maxLoadingPct = 7;
+    google.protobuf.Timestamp maxLoadingTimestamp = 8;
+    ThermalLoadingPowerDirection directionAtMaxLoading = 9;
+
+    optional double maxCurrent = 10;
+    double maxKw = 11;
+    double maxKvar = 12;
+    double maxKva = 13;
+
+    double hoursOverNormal = 14;
+    double hoursOverEmergency = 15;
+
+    double overloadKwhImport = 16;
+    double overloadKwhExport = 17;
+    double overloadPctHours = 18;
+
+    double avgLoadingPctWhenOverloaded = 19;
+
+    optional int32 worstPhase = 20;
+}

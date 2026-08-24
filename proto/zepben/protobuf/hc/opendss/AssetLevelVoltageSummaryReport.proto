@@ -1,0 +1,54 @@
+/*
+ * Copyright 2026 Zeppelin Bend Pty Ltd
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.zepben.protobuf.hc.opendss";
+option csharp_namespace = "Zepben.Protobuf.HC.OpenDSS";
+package zepben.protobuf.hc.opendss;
+
+/**
+ * Per-phase asset-level voltage summary for a conducting equipment with two terminals/nodes.
+ */
+message AssetLevelVoltageSummaryReport {
+
+    string conductingEquipmentMrid = 1;
+    string phase = 2;
+    google.protobuf.Timestamp initialTimestamp = 3;
+    double hours = 4;
+    double vBase = 5;
+    double upstreamDistance = 6;
+    double downstreamDistance = 7;
+
+    double minUpstreamVoltage = 8;
+    double maxUpstreamVoltage = 9;
+    double avgUpstreamVoltage = 10;
+
+    double minDownstreamVoltage = 11;
+    double maxDownstreamVoltage = 12;
+    double avgDownstreamVoltage = 13;
+
+    double minDelta = 14;
+    double maxDelta = 15;
+
+    google.protobuf.Timestamp minUpstreamVoltageTimestamp = 16;
+    google.protobuf.Timestamp maxUpstreamVoltageTimestamp = 17;
+    google.protobuf.Timestamp minDownstreamVoltageTimestamp = 18;
+    google.protobuf.Timestamp maxDownstreamVoltageTimestamp = 19;
+    google.protobuf.Timestamp minDeltaTimestamp = 20;
+    google.protobuf.Timestamp maxDeltaTimestamp = 21;
+
+    optional double hoursAnyEndpointBelowLimit = 22;
+    optional double hoursAnyEndpointAboveLimit = 23;
+
+    double absDeltaHours = 24;
+    double avgAbsDelta = 25;
+}
