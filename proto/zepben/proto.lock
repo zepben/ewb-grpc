@@ -15321,6 +15321,337 @@
       }
     },
     {
+      "protopath": "protobuf:/:hc:/:opendss:/:AssetLevelThermalLoadingSummaryReport.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "ThermalLoadingRatingUnit",
+            "enum_fields": [
+              {
+                "name": "THERMAL_LOADING_RATING_UNIT_UNSPECIFIED"
+              },
+              {
+                "name": "THERMAL_LOADING_RATING_UNIT_A",
+                "integer": 1
+              },
+              {
+                "name": "THERMAL_LOADING_RATING_UNIT_KVA",
+                "integer": 2
+              }
+            ]
+          },
+          {
+            "name": "ThermalLoadingPowerDirection",
+            "enum_fields": [
+              {
+                "name": "THERMAL_LOADING_POWER_DIRECTION_UNSPECIFIED"
+              },
+              {
+                "name": "THERMAL_LOADING_POWER_DIRECTION_IMPORT",
+                "integer": 1
+              },
+              {
+                "name": "THERMAL_LOADING_POWER_DIRECTION_EXPORT",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "AssetLevelThermalLoadingSummaryReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "conductingEquipmentMrid",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "initialTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 3,
+                "name": "hours",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "ratingUnit",
+                "type": "ThermalLoadingRatingUnit"
+              },
+              {
+                "id": 5,
+                "name": "normalRating",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "emergencyRating",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "maxLoadingPct",
+                "type": "double"
+              },
+              {
+                "id": 8,
+                "name": "maxLoadingTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 9,
+                "name": "directionAtMaxLoading",
+                "type": "ThermalLoadingPowerDirection"
+              },
+              {
+                "id": 10,
+                "name": "maxCurrent",
+                "type": "double",
+                "optional": true
+              },
+              {
+                "id": 11,
+                "name": "maxKw",
+                "type": "double"
+              },
+              {
+                "id": 12,
+                "name": "maxKvar",
+                "type": "double"
+              },
+              {
+                "id": 13,
+                "name": "maxKva",
+                "type": "double"
+              },
+              {
+                "id": 14,
+                "name": "hoursOverNormal",
+                "type": "double"
+              },
+              {
+                "id": 15,
+                "name": "hoursOverEmergency",
+                "type": "double"
+              },
+              {
+                "id": 16,
+                "name": "overloadKwhImport",
+                "type": "double"
+              },
+              {
+                "id": 17,
+                "name": "overloadKwhExport",
+                "type": "double"
+              },
+              {
+                "id": 18,
+                "name": "overloadPctHours",
+                "type": "double"
+              },
+              {
+                "id": 19,
+                "name": "avgLoadingPctWhenOverloaded",
+                "type": "double"
+              },
+              {
+                "id": 20,
+                "name": "worstPhase",
+                "type": "int32",
+                "optional": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc.opendss"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc.opendss"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC.OpenDSS"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "protobuf:/:hc:/:opendss:/:AssetLevelVoltageSummaryReport.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "AssetLevelVoltageSummaryReport",
+            "fields": [
+              {
+                "id": 1,
+                "name": "conductingEquipmentMrid",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "phase",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "initialTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 4,
+                "name": "hours",
+                "type": "double"
+              },
+              {
+                "id": 5,
+                "name": "vBase",
+                "type": "double"
+              },
+              {
+                "id": 6,
+                "name": "upstreamDistance",
+                "type": "double"
+              },
+              {
+                "id": 7,
+                "name": "downstreamDistance",
+                "type": "double"
+              },
+              {
+                "id": 8,
+                "name": "minUpstreamVoltage",
+                "type": "double"
+              },
+              {
+                "id": 9,
+                "name": "maxUpstreamVoltage",
+                "type": "double"
+              },
+              {
+                "id": 10,
+                "name": "avgUpstreamVoltage",
+                "type": "double"
+              },
+              {
+                "id": 11,
+                "name": "minDownstreamVoltage",
+                "type": "double"
+              },
+              {
+                "id": 12,
+                "name": "maxDownstreamVoltage",
+                "type": "double"
+              },
+              {
+                "id": 13,
+                "name": "avgDownstreamVoltage",
+                "type": "double"
+              },
+              {
+                "id": 14,
+                "name": "minDelta",
+                "type": "double"
+              },
+              {
+                "id": 15,
+                "name": "maxDelta",
+                "type": "double"
+              },
+              {
+                "id": 16,
+                "name": "minUpstreamVoltageTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 17,
+                "name": "maxUpstreamVoltageTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 18,
+                "name": "minDownstreamVoltageTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 19,
+                "name": "maxDownstreamVoltageTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 20,
+                "name": "minDeltaTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 21,
+                "name": "maxDeltaTimestamp",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 22,
+                "name": "hoursAnyEndpointBelowLimit",
+                "type": "double",
+                "optional": true
+              },
+              {
+                "id": 23,
+                "name": "hoursAnyEndpointAboveLimit",
+                "type": "double",
+                "optional": true
+              },
+              {
+                "id": 24,
+                "name": "absDeltaHours",
+                "type": "double"
+              },
+              {
+                "id": 25,
+                "name": "avgAbsDelta",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "zepben.protobuf.hc.opendss"
+        },
+        "options": [
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_package",
+            "value": "com.zepben.protobuf.hc.opendss"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Zepben.Protobuf.HC.OpenDSS"
+          }
+        ]
+      }
+    },
+    {
       "protopath": "protobuf:/:hc:/:opendss:/:Diagnostics.proto",
       "def": {
         "messages": [
@@ -16377,6 +16708,18 @@
                 "name": "spr",
                 "type": "SamplePointReport",
                 "oneof_parent": "report"
+              },
+              {
+                "id": 16,
+                "name": "alvs",
+                "type": "AssetLevelVoltageSummaryReport",
+                "oneof_parent": "report"
+              },
+              {
+                "id": 17,
+                "name": "alts",
+                "type": "AssetLevelThermalLoadingSummaryReport",
+                "oneof_parent": "report"
               }
             ]
           },
@@ -16401,6 +16744,12 @@
           },
           {
             "path": "zepben/protobuf/hc/opendss/SamplePointReport.proto"
+          },
+          {
+            "path": "zepben/protobuf/hc/opendss/AssetLevelVoltageSummaryReport.proto"
+          },
+          {
+            "path": "zepben/protobuf/hc/opendss/AssetLevelThermalLoadingSummaryReport.proto"
           }
         ],
         "package": {
