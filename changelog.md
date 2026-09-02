@@ -1,5 +1,5 @@
 # Zepben Protobuf and GRPC definitions
-## [1.9.0] - UNRELEASED
+## [1.9.0] - 2026-09-02
 ### Breaking Changes
 * None.
 
