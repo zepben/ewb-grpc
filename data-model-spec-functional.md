@@ -872,3 +872,42 @@ None
 
 ### Relationships
 None
+
+
+## TopologicalNode (WIP)
+|                   |                             |
+|-------------------|-----------------------------|
+| **Class Name:**   | [WaveTrap](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Wires/WaveTrap/) |
+| **Package:**      | iec61970.base.topology |
+| **Parent Class:** | [TopologicalNode](](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Topology/TopologicalNode) |
+| **Description:**  | For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state). For a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called "busses". | 
+| **Service:**      | NetworkService |
+| **ZBEX:**         | False |
+
+### Attributes
+| pInjection | ActivePower | The active power injected into the bus at this location in addition to injections from equipment. Positive sign means injection into the TopologicalNode (bus). Starting value for a steady state solution. |
+| qInjection | ReactivePower | The reactive power injected into the bus at this location in addition to injections from equipment. Positive sign means injection into the TopologicalNode (bus). Starting value for a steady state solution. |
+
+### Relationships
+baseVoltage
+Terminals
+ConnectivityNode
+ConnevtivityNodeContainer
+
+
+## ConnevtivityNodeContainer (WIP)
+|                   |                             |
+|-------------------|-----------------------------|
+| **Class Name:**   | [WaveTrap](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Wires/WaveTrap/) |
+| **Package:**      | iec61970.base.topology |
+| **Parent Class:** | [TopologicalNode](](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Topology/TopologicalNode) |
+| **Description:**  | For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state). For a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called "busses". | 
+| **Service:**      | NetworkService |
+| **ZBEX:**         | False |
+
+### Attributes
+None
+
+### Relationships
+None
+
