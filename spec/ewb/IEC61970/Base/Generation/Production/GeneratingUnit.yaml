@@ -1,0 +1,42 @@
+name: GeneratingUnit
+description: |-
+  A single or set of synchronous machines for converting mechanical power into alternating-current power. For example, individual machines within a set may be defined for scheduling purposes while a single control signal is derived for the set. In this case there would be a GeneratingUnit for each member of the set and an additional GeneratingUnit corresponding to the set.
+attributes:
+- name: totalEfficiency
+  type: Double
+  description: The efficiency of the unit in converting the fuel into electrical energy. [percent (0.0,1.0)]
+- name: initialP
+  type: Double
+  description: Default Initial active power which is used to store a powerflow result for the initial active power for this unit in this network configuration. [watts]
+- name: ratedNetMaxP
+  type: Double
+  description: The net rated maximum capacity determined by subtracting the auxiliary power used to operate the internal plant machinery from the rated gross maximum capacity.
+- name: baseP
+  type: Double
+  description: For dispatchable units, this value represents the economic active power basepoint; for units that are not dispatchable, this value represents the fixed generation value. The value must be between the operating low and high limits. [watts]
+- name: governorSCD
+  type: Double
+  description: Governor Speed Changer Droop. This is the change in generator power output divided by the change in frequency normalized by the nominal power of the generator and the nominal frequency and expressed in percent and negated. A positive value of speed change droop provides additional generator output upon a drop in frequency. [percent (0.0,1.0)]
+- name: maxOperatingP
+  type: Double
+  description: This is the maximum operating active power limit the dispatcher can enter for this unit. [watts]
+- name: minOperatingP
+  type: Double
+  description: This is the minimum operating active power limit the dispatcher can enter for this unit. [watts]
+- name: nominalP
+  type: Double
+  description: The nominal power of the generating unit. Used to give precise meaning to percentage based attributes such as the governor speed change droop (governorSCD attribute). The attribute shall be a positive value equal or less than RotatingMachine.ratedS. [watts]
+- name: normalPF
+  type: Double
+  description: Generating unit economic participation factor.
+- name: ratedGrossMaxP
+  type: Double
+  description: The unit's gross rated maximum capacity (book value). [watts]
+- name: ratedGrossMinP
+  type: Double
+  description: The gross rated minimum generation level which the unit can safely operate at while delivering power to the transmission grid. [watts]
+- name: shortPF
+  type: Double
+  description: Generating unit short term economic participation factor.
+ancestors:
+- Equipment

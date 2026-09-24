@@ -1,0 +1,44 @@
+name: EquivalentInjection
+description: This class represents equivalent injections (generation or load). Voltage regulation is allowed only at the point of connection.
+attributes:
+- name: p
+  type: Double
+  description: Equivalent active power injection. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for steady state solution. [watts]
+- name: q
+  type: Double
+  description: Equivalent reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for steady state solution. [vars]
+- name: minP
+  type: Double
+  description: Minimum active power of the injection. [watts]
+- name: maxP
+  type: Double
+  description: Maximum active power of the injection. [watts]
+- name: minQ
+  type: Double
+  description: Minimum reactive power of the injection. [vars]
+- name: maxQ
+  type: Double
+  description: Maximum reactive power of the injection. [vars]
+- name: regulationCapability
+  type: Boolean
+  description: Specifies whether or not the EquivalentInjection has the capability to regulate the voltage.
+- name: r
+  type: Double
+  description: Positive sequence resistance. Used to represent extended-equivalent conductive capability. [ohms]
+- name: x
+  type: Double
+  description: Positive sequence reactance. Used to represent extended-equivalent inductive capability. [ohms]
+- name: r0
+  type: Double
+  description: Zero sequence resistance. Used to represent extended-equivalent conductive capability. [ohms]
+- name: x0
+  type: Double
+  description: Zero sequence reactance. Used to represent extended-equivalent inductive capability. [ohms]
+- name: r2
+  type: Double
+  description: Negative sequence resistance. Used to represent extended-equivalent conductive capability. [ohms]
+- name: x2
+  type: Double
+  description: Negative sequence reactance. Used to represent extended-equivalent inductive capability. [ohms]
+ancestors:
+- EquivalentEquipment
