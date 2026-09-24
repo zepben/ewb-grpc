@@ -1,0 +1,50 @@
+name: ExternalNetworkInjection
+description: This class represents external network and it is used for IEC 60909 calculations.
+attributes:
+- name: ikSecond
+  type: Double
+  description: Initial symmetrical short-circuit current (=Ik'') in A (three-phase fault). Used for short circuit data exchange according to IEC 60909. [amperes]
+- name: maxInitialSymShStCurrent
+  type: Double
+  description: Maximum initial symmetrical short-circuit current (Ik'' max) in A (three-phase fault). Used for short circuit data exchange according to IEC 60909. [amperes]
+- name: minInitialSymShStCurrent
+  type: Double
+  description: Minimum initial symmetrical short-circuit current (Ik'' min) in A (three-phase fault). Used for short circuit data exchange according to IEC 60909. [amperes]
+- name: maxR0ToX0Ratio
+  type: Double
+  description: Maximum ratio of zero sequence resistance of an external network to zero sequence reactance (R(0)/X(0) max). Used for short circuit data exchange according to IEC 60909.
+- name: maxR1ToX1Ratio
+  type: Double
+  description: Maximum ratio of positive sequence resistance of an external network to positive sequence reactance (R(1)/X(1) max). Used for short circuit data exchange according to IEC 60909.
+- name: maxZ0ToZ1Ratio
+  type: Double
+  description: Maximum ratio of zero sequence impedance to positive sequence impedance (Z(0)/Z(1) max). Used for short circuit data exchange according to IEC 60909.
+- name: minR0ToX0Ratio
+  type: Double
+  description: Minimum ratio of zero sequence resistance of an external network to zero sequence reactance (R(0)/X(0) min). Used for short circuit data exchange according to IEC 60909.
+- name: minR1ToX1Ratio
+  type: Double
+  description: Minimum ratio of positive sequence resistance of an external network to positive sequence reactance (R(1)/X(1) min). Used for short circuit data exchange according to IEC 60909.
+- name: minZ0ToZ1Ratio
+  type: Double
+  description: Minimum ratio of zero sequence impedance to positive sequence impedance (Z(0)/Z(1) min). Used for short circuit data exchange according to IEC 60909.
+- name: voltageFactor
+  type: Double
+  description: Voltage factor in pu, which was used to calculate short-circuit current Ik'' and power Sk''. Used for short circuit data exchange according to IEC 60909. [dimensionless]
+- name: referencePriority
+  type: Integer
+  description: Priority of unit for use in powerflow calculations scope.
+- name: pMin
+  type: Double
+  description: Minimum active power of the injection. [watts]
+- name: pMax
+  type: Double
+  description: Maximum active power of the injection. [watts]
+- name: qMin
+  type: Double
+  description: Minimum reactive power of the injection. [vars]
+- name: qMax
+  type: Double
+  description: Maximum reactive power of the injection. [vars]
+ancestors:
+- RegulatingCondEq
