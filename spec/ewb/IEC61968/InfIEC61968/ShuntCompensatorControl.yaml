@@ -1,0 +1,17 @@
+name: ShuntCompensatorControl
+description: Control parameters for a shunt compensator.
+attributes:
+- name: cellSize
+  type: Double
+  description: The size of the individual units that make up the bank. [vars]
+ancestors:
+- RegulatingControl
+associations:
+- source: ShuntCompensatorControl
+  target: ShuntCompensatorInfo
+  sourceCardinality: 0..1
+  sourceName: ShuntCompensatorControl
+  sourceDescription: Shunt compensator asset info driven by this control.
+  targetCardinality: 0..1
+  targetName: ShuntCompensatorInfo
+  targetDescription: Control parameters associated with this shunt compensator info.
