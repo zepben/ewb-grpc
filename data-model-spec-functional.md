@@ -874,7 +874,7 @@ None
 None
 
 
-## TopologicalNode (WIP)
+## TopologicalNode
 |                   |                             |
 |-------------------|-----------------------------|
 | **Class Name:**   | [WaveTrap](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Wires/WaveTrap/) |
@@ -889,13 +889,14 @@ None
 | qInjection | ReactivePower | The reactive power injected into the bus at this location in addition to injections from equipment. Positive sign means injection into the TopologicalNode (bus). Starting value for a steady state solution. |
 
 ### Relationships
-baseVoltage
-Terminals
-ConnectivityNode
-ConnevtivityNodeContainer
+| **Name** | **Target Class** | **Multiplier** | **Description** | **Implementation Type** |
+|----------|------------------|----------------|-----------------|-------------------------|
+| ConnectivityNodeContainer | ConnectivityNodeContainer | 0..1 | The connectivity node container to which the topological node belongs. | Direct |
+| BaseVoltage | BaseVoltage | 0..1 | The base voltage of the topological node. |
+| ConnectivityNodes | ConnectivityNode | 0..* | The connectivity nodes combine together to form this topological node.  May depend on the current state of switches in the network.
+| Terminals | Terminal | 0..* | targetDescription: The terminals associated with the topological node.   This can be used as an alternative to the connectivity node path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if connectivity nodes are in the model, this association would probably not be used as an input specification. |
 
-
-## ConnevtivityNodeContainer (WIP)
+## ConnectivityNodeContainer (WIP)
 |                   |                             |
 |-------------------|-----------------------------|
 | **Class Name:**   | [WaveTrap](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Wires/WaveTrap/) |
@@ -909,5 +910,8 @@ ConnevtivityNodeContainer
 None
 
 ### Relationships
-None
+| **Name** | **Target Class** | **Multiplier** | **Description** | **Implementation Type** |
+|----------|------------------|----------------|-----------------|-------------------------|
+| TopologicalNodes | TopologicalNode | 0..* | The topological nodes which belong to this connectivity node container. |
+| ConnectivityNodes | ConnectivityNode | 0..* | Connectivity nodes which belong to this connectivity node container. |
 
