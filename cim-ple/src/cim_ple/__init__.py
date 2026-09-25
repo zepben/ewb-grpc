@@ -1,0 +1,1 @@
+"""Terminal CIM specification browser."""
