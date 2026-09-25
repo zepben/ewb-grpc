@@ -5,15 +5,15 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-import yaml
 from rich.text import Text
-from ruamel.yaml import YAML
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical, VerticalScroll
 from textual.suggester import SuggestFromList
 from textual.widgets import Footer, Header, Input, Markdown, Static, Tree
 
 from cim_ple.main import EmptyMarksConfirm, FlushConfirm
+from cim_ple.ewb_yaml import write_ewb_spec
+from cim_ple.relationships import association_mode, relationship_is_bidirectional
 from cim_ple.models import Association, Attribute, ClassMarks, ClassSpec, PackageInfo, TreeEntry, clean_description
 from cim_ple.spec_model import SpecModel
 from cim_ple.UI.mark_editor import MarkEditor
@@ -128,9 +128,6 @@ class CimBrowser(App[None]):
     def __init__(self, spec_directory: Path) -> None:
         super().__init__()
         self.model = SpecModel(spec_directory)
-        self._round_trip_yaml = YAML(typ="rt")
-        self._round_trip_yaml.preserve_quotes = True
-        self._round_trip_yaml.width = 120
         self._selected_path: tuple[str, ...] | None = None
         self._saved_classes: list[ClassSpec] = []
         self._saved_class_paths: set[tuple[str, ...]] = set()
@@ -521,238 +518,12 @@ class CimBrowser(App[None]):
         try:
             written = 0
             for class_spec in self._saved_classes:
-                destination = self._ewb_spec_path(class_spec)
                 marks = self._class_marks.get(class_spec.relative_path, ClassMarks())
-                if destination.exists() and not self._has_pending_changes(marks):
-                    continue
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                if destination.exists():
-                    original = destination.read_text(encoding="utf-8")
-                    updated = self._apply_text_changes(original, class_spec, marks)
-                    if updated == original:
-                        continue
-                    destination.write_text(updated, encoding="utf-8")
-                else:
-                    with destination.open("w", encoding="utf-8") as stream:
-                        self._round_trip_yaml.dump(self._ewb_spec_data(class_spec), stream)
-                written += 1
+                written += write_ewb_spec(self.model.spec_directory, class_spec, marks)
         except OSError as error:
             self.notify(f"Could not write EWB specs: {error}", severity="error")
             return
         self.notify(f"Wrote {written} EWB specification file(s)")
-
-    @staticmethod
-    def _has_pending_changes(marks: ClassMarks) -> bool:
-        return bool(
-            marks.changed_attributes
-            or marks.changed_associations
-            or any(item.get("dirty") == "true" for item in marks.zbex_attributes + marks.zbex_associations)
-        )
-
-    def _apply_text_changes(self, source: str, class_spec: ClassSpec, marks: ClassMarks) -> str:
-        """Patch only dirty YAML list entries, preserving all other file bytes."""
-
-        text = source
-        attributes = {item.name: self._attribute_data(item) for item in class_spec.attributes}
-        for name in marks.changed_attributes:
-            text = self._patch_yaml_item(
-                text, "attributes", "name", name, attributes.get(name), name in marks.attributes
-            )
-        for item in marks.zbex_attributes:
-            if item.get("dirty") == "true":
-                value = {key: value for key, value in item.items() if key in {"name", "type", "description"} and value}
-                text = self._patch_yaml_item(
-                    text, "attributes", "name", item["name"], value, item.get("marked") == "true"
-                )
-
-        for index in marks.changed_associations:
-            association = class_spec.associations[index]
-            text = self._patch_yaml_item(
-                text,
-                "associations",
-                "target",
-                association.target,
-                self._association_data(association, marks.associations.get(index)),
-                marks.associations.get(index) in {"1 way", "Bi-directional"},
-            )
-        for item in marks.zbex_associations:
-            if item.get("dirty") == "true":
-                value = {
-                    "source": class_spec.name,
-                    "target": item["target"],
-                    "targetCardinality": item.get("cardinality", "0..*"),
-                    "targetName": item.get("name", item["target"]),
-                    **({"targetDescription": item["description"]} if item.get("description") else {}),
-                }
-                text = self._patch_yaml_item(
-                    text, "associations", "target", item["target"], value, item.get("marked") == "true"
-                )
-        return text
-
-    @staticmethod
-    def _patch_yaml_item(
-        source: str, section: str, key: str, value: str, item: dict[str, Any] | None, include: bool
-    ) -> str:
-        """Remove or append one top-level YAML-list item without reformatting peers."""
-
-        lines = source.splitlines(keepends=True)
-        section_start = next((index for index, line in enumerate(lines) if line == f"{section}:\n"), None)
-        if section_start is None:
-            if not include or item is None:
-                return source
-            snippet = yaml.safe_dump([item], sort_keys=False, allow_unicode=True)
-            return source.rstrip("\n") + f"\n{section}:\n" + snippet
-        section_end = next(
-            (
-                index
-                for index in range(section_start + 1, len(lines))
-                if lines[index] and not lines[index][0].isspace() and not lines[index].startswith("-")
-            ),
-            len(lines),
-        )
-        starts = [index for index in range(section_start + 1, section_end) if lines[index].startswith("- ")]
-        match_start = next(
-            (
-                start
-                for start in starts
-                if any(
-                    line.strip() in {f"{key}: {value}", f"- {key}: {value}"}
-                    for line in lines[start : next((item for item in starts if item > start), section_end)]
-                )
-            ),
-            None,
-        )
-        if match_start is not None:
-            match_end = next((start for start in starts if start > match_start), section_end)
-            if not include:
-                del lines[match_start:match_end]
-                return "".join(lines)
-            if (
-                section == "associations"
-                and item
-                and "sourceCardinality" not in item
-                and "sourceDescription" not in item
-            ):
-                lines[match_start:match_end] = [
-                    line
-                    for line in lines[match_start:match_end]
-                    if not line.lstrip().startswith(("sourceCardinality:", "sourceDescription:", "sourceName:"))
-                ]
-                return "".join(lines)
-            if section == "associations" and item:
-                for field in ("sourceCardinality", "sourceName", "sourceDescription"):
-                    if field not in item or any(
-                        line.lstrip().startswith(f"{field}:") for line in lines[match_start:match_end]
-                    ):
-                        continue
-                    rendered = yaml.safe_dump({field: item[field]}, sort_keys=False, allow_unicode=True, width=100000)
-                    rendered_lines = [f"  {line}" for line in rendered.splitlines(keepends=True)]
-                    lines[match_end:match_end] = rendered_lines
-                    match_end += len(rendered_lines)
-                return "".join(lines)
-            return source
-        if include and item is not None:
-            snippet = yaml.safe_dump([item], sort_keys=False, allow_unicode=True).splitlines(keepends=True)
-            lines[section_end:section_end] = snippet
-        return "".join(lines)
-
-    def _ewb_spec_path(self, class_spec: ClassSpec) -> Path:
-        return self.model.spec_directory / "ewb" / Path(*class_spec.relative_path[1:]).with_suffix(".yaml")
-
-    def _ewb_spec_data(self, class_spec: ClassSpec, existing: Any = None) -> dict[str, Any]:
-        """Merge only editor changes into the existing EWB class specification."""
-
-        marks = self._class_marks.get(class_spec.relative_path, ClassMarks())
-        # Retain ruamel's CommentedMap so untouched keys keep their exact YAML
-        # formatting when a different field is changed.
-        is_new_file = not isinstance(existing, dict)
-        data: dict[str, Any] = existing if not is_new_file else {"name": class_spec.name}
-        if is_new_file:
-            if class_spec.description:
-                data["description"] = class_spec.description
-            if class_spec.ancestors:
-                data["ancestors"] = class_spec.ancestors
-            if class_spec.descendants:
-                data["descendants"] = class_spec.descendants
-
-        attributes = list(data.get("attributes") or [])
-        for attribute in class_spec.attributes:
-            if attribute.name not in marks.changed_attributes:
-                continue
-            attributes = [item for item in attributes if item.get("name") != attribute.name]
-            if attribute.name in marks.attributes:
-                attributes.append(self._attribute_data(attribute))
-        for item in marks.zbex_attributes:
-            if item.get("dirty") != "true":
-                continue
-            attributes = [entry for entry in attributes if entry.get("name") != item["name"]]
-            if item.get("marked", "true") == "true":
-                attributes.append(
-                    {key: value for key, value in item.items() if key in {"name", "type", "description"} and value}
-                )
-        if attributes:
-            data["attributes"] = attributes
-        else:
-            data.pop("attributes", None)
-
-        associations = list(data.get("associations") or [])
-        for index, association in enumerate(class_spec.associations):
-            if index not in marks.changed_associations:
-                continue
-            associations = [item for item in associations if item.get("target") != association.target]
-            if marks.associations.get(index) in {"1 way", "Bi-directional"}:
-                associations.append(self._association_data(association, marks.associations[index]))
-        for item in marks.zbex_associations:
-            if item.get("dirty") != "true":
-                continue
-            associations = [entry for entry in associations if entry.get("target") != item["target"]]
-            if item.get("marked", "true") == "true":
-                associations.append(
-                    {
-                        "source": class_spec.name,
-                        "target": item["target"],
-                        "targetCardinality": item.get("cardinality", "0..*"),
-                        "targetName": item.get("name", item["target"]),
-                        **({"targetDescription": item["description"]} if item.get("description") else {}),
-                    }
-                )
-        if associations:
-            data["associations"] = associations
-        else:
-            data.pop("associations", None)
-        return data
-
-    @staticmethod
-    def _attribute_data(attribute: Attribute) -> dict[str, Any]:
-        item: dict[str, Any] = {"name": attribute.name, "type": attribute.type}
-        if attribute.nullable != "—":
-            item["nullable"] = attribute.nullable == "Yes"
-        if attribute.description:
-            item["description"] = attribute.description
-        return item
-
-    @staticmethod
-    def _association_data(association: Association, direction: str | None = None) -> dict[str, str]:
-        fields = {
-            "source": association.source,
-            "target": association.target,
-            "sourceCardinality": association.source_cardinality,
-            "targetCardinality": association.target_cardinality,
-            "sourceName": association.source_name,
-            "targetName": association.target_name,
-            "sourceDescription": association.source_description,
-            "targetDescription": association.target_description,
-        }
-        data = {key: value for key, value in fields.items() if value and value != "—"}
-        if direction == "1 way":
-            data.pop("sourceCardinality", None)
-            data.pop("sourceDescription", None)
-            data.pop("sourceName", None)
-        elif direction == "Bi-directional":
-            data["sourceCardinality"] = association.source_cardinality
-            data["sourceName"] = association.source_name
-            data["sourceDescription"] = association.source_description
-        return data
 
     def _save_class_marks(self, class_spec: ClassSpec, marks: ClassMarks | None) -> None:
         if marks is None:
@@ -779,7 +550,7 @@ class CimBrowser(App[None]):
             target_class = self.model.resolve_reference(association.target, "TC57CIM")
             if target_class is None or target_class.relative_path[0] != "TC57CIM":
                 continue
-            if self._ewb_relationship_is_bidirectional(class_spec, association):
+            if relationship_is_bidirectional(class_spec, association, self.model.resolve_reference):
                 continue
 
             added_classes = self._add_saved_class(target_class) or added_classes
@@ -840,7 +611,7 @@ class CimBrowser(App[None]):
                     }
                 )
         for index, association in enumerate(class_spec.associations):
-            mode = self._ewb_association_mode(ewb_class, association)
+            mode = association_mode(ewb_class, association, self.model.resolve_reference)
             if mode is not None:
                 marks.associations[index] = mode
         cim_targets = {association.target for association in class_spec.associations}
@@ -854,45 +625,11 @@ class CimBrowser(App[None]):
                         "name": association.target_name or association.target,
                         "target": association.target,
                         "cardinality": association.target_cardinality,
-                        "direction": self._ewb_association_mode(ewb_class, association) or "1 way",
+                        "direction": association_mode(ewb_class, association, self.model.resolve_reference) or "1 way",
                         "description": association.target_description,
                         "marked": "true",
                     }
                 )
-
-    def _ewb_association_mode(self, ewb_class: ClassSpec, association: Association) -> str | None:
-        """Return how an association is implemented in EWB, if at all."""
-
-        matching = [item for item in ewb_class.associations if item.target == association.target]
-        if not matching:
-            return None
-        if any(
-            item.source_cardinality in {"", "—"}
-            and item.source_name in {"", "—"}
-            and item.source_description in {"", "—"}
-            for item in matching
-        ):
-            return "1 way"
-        if self._ewb_relationship_is_bidirectional_for(ewb_class, association.target):
-            return "Bi-directional"
-        return "1 way"
-
-    def _ewb_relationship_is_bidirectional(self, class_spec: ClassSpec, association: Association) -> bool:
-        ewb_class = self.model.resolve_reference(class_spec.name, "ewb")
-        return (
-            ewb_class is not None
-            and ewb_class.relative_path[0] == "ewb"
-            and self._ewb_association_mode(ewb_class, association) == "Bi-directional"
-        )
-
-    def _ewb_relationship_is_bidirectional_for(self, ewb_class: ClassSpec, target_name: str) -> bool:
-        target_ewb_class = self.model.resolve_reference(target_name, "ewb")
-        if target_ewb_class is None or target_ewb_class.relative_path[0] != "ewb":
-            return False
-        return any(
-            association.target == ewb_class.name or association.source == ewb_class.name
-            for association in target_ewb_class.associations
-        )
 
     def _focused_saved_tree(self) -> Tree | None:
         focused = self.screen.focused
