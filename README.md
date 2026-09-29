@@ -94,6 +94,17 @@ make
 
 You can now copy the output files from the `c/out/` directory as needed to your C project.
 
+### C++
+
+The C++ build generates protobuf types for every `.proto` file and gRPC client/server stubs for every service definition:
+
+```sh
+cmake -S cpp -B cpp/build
+cmake --build cpp/build
+```
+
+Generated headers and sources are written to `cpp/src`. See [cpp/README.md](cpp/README.md) for prerequisites and installation instructions.
+
 ## Model Specification
 
 The model specification is found in the [spec](./spec/) folder. This folder contains YAML files that describe both the CIM profile and our Zepben profile. The YAML profile spec forms a neutral machine-readable format that can be used to generate other formats such as documentation.

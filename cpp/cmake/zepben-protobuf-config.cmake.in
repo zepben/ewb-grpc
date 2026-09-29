@@ -1,0 +1,7 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(Protobuf CONFIG)
+find_dependency(gRPC CONFIG)
+
+include("${CMAKE_CURRENT_LIST_DIR}/zepben-protobuf-targets.cmake")
