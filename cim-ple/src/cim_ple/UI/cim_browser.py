@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+import yaml
 from rich.text import Text
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical, VerticalScroll
@@ -560,6 +561,13 @@ class CimBrowser(App[None]):
                     reciprocal_marks.associations[reciprocal_index] = "Bi-directional"
                     reciprocal_marks.changed_associations.add(reciprocal_index)
 
+        for association in marks.zbex_associations:
+            if association.get("marked", "true") != "true":
+                continue
+            target_class = self.model.resolve_reference(association.get("target", ""), "TC57CIM")
+            if target_class is not None and target_class.relative_path[0] == "TC57CIM":
+                added_classes = self._add_saved_class(target_class) or added_classes
+
         if added_classes:
             self._render_saved_tree()
 
@@ -575,10 +583,30 @@ class CimBrowser(App[None]):
         self._render_saved_tree()
 
     def _add_saved_class(self, class_spec: ClassSpec) -> bool:
-        """Add a CIM100 class to the in-memory saved set if it is new."""
+        """Add a CIM100 class and missing CIM100 ancestors to the saved set."""
+
+        return self._add_class_with_missing_ancestors(class_spec, set())
+
+    def _add_class_with_missing_ancestors(
+        self, class_spec: ClassSpec, visiting: set[tuple[str, ...]]
+    ) -> bool:
+        """Recursively add ancestors that do not already have EWB implementations."""
+
+        if class_spec.relative_path in visiting:
+            return False
+        visiting.add(class_spec.relative_path)
+
+        added = False
+        for ancestor_name in class_spec.ancestors:
+            ancestor = self.model.resolve_reference(ancestor_name, "TC57CIM")
+            if ancestor is None or ancestor.relative_path[0] != "TC57CIM":
+                continue
+            ewb_ancestor = self.model.resolve_reference(ancestor.name, "ewb")
+            if ewb_ancestor is None or ewb_ancestor.relative_path[0] != "ewb":
+                added = self._add_class_with_missing_ancestors(ancestor, visiting) or added
 
         if class_spec.relative_path in self._saved_class_paths:
-            return False
+            return added
         self._saved_classes.append(class_spec)
         self._saved_class_paths.add(class_spec.relative_path)
         self._mark_ewb_implementation(class_spec)
