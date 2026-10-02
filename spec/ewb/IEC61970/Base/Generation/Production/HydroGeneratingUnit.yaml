@@ -1,0 +1,13 @@
+name: HydroGeneratingUnit
+description: A generating unit whose prime mover is a hydraulic turbine (e.g., Francis, Pelton, Kaplan).
+ancestors:
+- GeneratingUnit
+associations:
+- source: HydroGeneratingUnit
+  target: HydroPowerPlant
+  sourceCardinality: 0..*
+  sourceName: HydroGeneratingUnits
+  sourceDescription: The hydro generating unit belongs to a hydro power plant.
+  targetCardinality: 0..1
+  targetName: HydroPowerPlant
+  targetDescription: The hydro generating unit belongs to a hydro power plant.

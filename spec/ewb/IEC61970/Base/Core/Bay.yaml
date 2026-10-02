@@ -1,0 +1,25 @@
+name: Bay
+description: A collection of power system resources (within a given substation) including conducting equipment, protection relays, measurements, and telemetry.
+attributes:
+- name: breakerConfiguration
+  type: BreakerConfiguration
+  description: Breaker configuration.
+ancestors:
+- EquipmentContainer
+associations:
+- source: Bay
+  target: Substation
+  sourceCardinality: 0..*
+  sourceName: Bays
+  sourceDescription: Bays contained in the substation.
+  targetCardinality: 0..1
+  targetName: Substation
+  targetDescription: Substation containing the bay.
+- source: Bay
+  target: VoltageLevel
+  sourceCardinality: 0..*
+  sourceName: Bays
+  sourceDescription: The bays within this voltage level.
+  targetCardinality: 0..1
+  targetName: VoltageLevel
+  targetDescription: The voltage level containing this bay.
