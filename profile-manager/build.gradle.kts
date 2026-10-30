@@ -17,6 +17,8 @@ repositories {
 
 dependencies {
     implementation("net.sf.ucanaccess:ucanaccess:5.0.1")
+    implementation("org.xerial:sqlite-jdbc:3.53.1.0")
+
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     implementation("com.charleskorn.kaml:kaml:0.57.0")
     implementation("com.github.ajalt.clikt:clikt:4.3.0")

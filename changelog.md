@@ -1,13 +1,13 @@
 # Zepben Protobuf and GRPC definitions
 ## [1.10.0] - UNRELEASED
 ### Breaking Changes
-* None.
+* The profile manager now uses `CIM` as the default import package instead of `ewb`. This aligns with the latest name from the EA databases distributed by the CIM user group.
 
 ### New Features
-* None.
+* Added a PoC for diagram extraction as a Python script. See its README for details on how to run it.
 
 ### Enhancements
-* None.
+* The profile manager now supports EA databases in SQLite format.
 
 ### Fixes
 * None.
