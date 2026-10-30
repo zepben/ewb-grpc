@@ -45,6 +45,20 @@ ancestors:
 - ACDCTerminal
 associations:
 - source: Terminal
+  target: TopologicalNode
+  sourceCardinality: 0..*
+  sourceName: Terminal
+  sourceDescription:
+    The terminals associated with the topological node. This can be used as an alternative to the connectivity
+    node path to terminal, thus making it unnecessary to model connectivity nodes in some cases. Note that if
+    connectivity nodes are in the model, this association would probably not be used as an input specification.
+  targetCardinality: 0..1
+  targetName: TopologicalNode
+  targetDescription:
+    The topological node associated with the terminal. This can be used as an alternative to the connectivity
+    node path to topological node, thus making it unnecessary to model connectivity nodes in some cases. Note
+    that if connectivity nodes are in the model, this association would probably not be used as an input specification.
+- source: Terminal
   target: ConnectivityNode
   sourceCardinality: 0..*
   sourceName: Terminals

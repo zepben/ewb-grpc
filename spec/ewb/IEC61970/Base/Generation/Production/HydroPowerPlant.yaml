@@ -1,0 +1,17 @@
+name: HydroPowerPlant
+description: A hydro power station which can generate or pump. When generating, the generator turbines receive water from an upper reservoir. When pumping, the pumps receive their water from a lower reservoir.
+attributes:
+- name: hydroPlantStorageType
+  type: HydroPlantStorageKind
+  description: The type of hydro power plant water storage.
+ancestors:
+- PowerSystemResource
+associations:
+- source: HydroPowerPlant
+  target: HydroPump
+  sourceCardinality: 0..1
+  sourceName: HydroPowerPlant
+  sourceDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+  targetCardinality: 0..*
+  targetName: HydroPumps
+  targetDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
