@@ -60,10 +60,10 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
                 startNode.name,
                 endNode.name,
                 sourceCardinality,
-                sourceRole.replaceFirstChar { it.lowercase() }, // Convert PascalCase to camelCase
+                sourceRole?.toRoleName(),
                 sourceDescription,
                 endCardinality,
-                endRole.replaceFirstChar { it.lowercase() }, // Convert PascalCase to camelCase
+                endRole?.toRoleName(),
                 endDescription
             )
 
@@ -152,4 +152,42 @@ private fun ResultSet.read(): ResultSet {
 
 private fun String.fixWindowsNewLines(): String {
     return trimEnd().replace("\r\n", "\n")
+}
+
+/**
+ * Role names in the EA model with irregular casing that the generic acronym rule in [toRoleName] can't resolve.
+ */
+private val roleNameOverrides = mapOf(
+    "DCvoltageControl" to "dcVoltageControl",
+    "HVDClookUpTable" to "hvdcLookUpTable",
+    "VSCtype1" to "vscType1",
+    "PFmode" to "pfMode",
+    "PFmodel" to "pfModel",
+    "WIndContQIEC" to "windContQIEC",
+    "PFVArControllerType1Dynamics" to "pfVArControllerType1Dynamics",
+    "PFVArControllerType1UserDefined" to "pfVArControllerType1UserDefined",
+    "PFVArControllerType2Dynamics" to "pfVArControllerType2Dynamics",
+    "PFVArControllerType2UserDefined" to "pfVArControllerType2UserDefined",
+)
+
+private val pluralAcronymSuffix = Regex("^s($|[A-Z_0-9])")
+
+/**
+ * Convert a PascalCase EA role name to camelCase, treating a leading acronym as a single word,
+ * e.g. `Terminals` -> `terminals`, `ACLineSegment` -> `acLineSegment`, `RTOs` -> `rtos`, `TASE2Table` -> `tase2Table`.
+ */
+private fun String.toRoleName(): String {
+    roleNameOverrides[this]?.let { return it }
+
+    val runLength = takeWhile { it.isUpperCase() }.length
+    if (runLength <= 1)
+        return replaceFirstChar { it.lowercase() }
+
+    val run = substring(0, runLength)
+    val rest = substring(runLength)
+    return when {
+        rest.isEmpty() || pluralAcronymSuffix.containsMatchIn(rest) -> run.lowercase() + rest
+        rest[0].isLowerCase() -> run.dropLast(1).lowercase() + run.last() + rest
+        else -> run.lowercase() + rest
+    }
 }

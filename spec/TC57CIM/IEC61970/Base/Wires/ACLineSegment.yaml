@@ -41,7 +41,7 @@ associations:
 - source: ACLineSegment
   target: Clamp
   sourceCardinality: "1"
-  sourceName: aCLineSegment
+  sourceName: acLineSegment
   sourceDescription: The line segment to which the clamp is connected.
   targetCardinality: 0..*
   targetName: clamp
@@ -49,13 +49,13 @@ associations:
 - source: ACLineSegment
   target: WireSpacingInfo
   sourceCardinality: 0..*
-  sourceName: aCLineSegment
+  sourceName: acLineSegment
   targetCardinality: 0..1
   targetName: wireSpacingInfo
 - source: ACLineSegment
   target: PerLengthImpedance
   sourceCardinality: 0..*
-  sourceName: aCLineSegments
+  sourceName: acLineSegments
   sourceDescription: All line segments described by this per-length impedance.
   targetCardinality: 0..1
   targetName: perLengthImpedance
@@ -63,7 +63,7 @@ associations:
 - source: ACLineSegment
   target: Cut
   sourceCardinality: "1"
-  sourceName: aCLineSegment
+  sourceName: acLineSegment
   sourceDescription: The line segment to which the cut is applied.
   targetCardinality: 0..*
   targetName: cut
@@ -71,7 +71,7 @@ associations:
 - source: ACLineSegment
   target: LineFault
   sourceCardinality: 0..1
-  sourceName: aCLineSegment
+  sourceName: acLineSegment
   sourceDescription: The line segment of this line fault.
   targetCardinality: 0..*
   targetName: lineFaults
@@ -79,15 +79,15 @@ associations:
 - source: ACLineSegment
   target: ACLineSegmentPhase
   sourceCardinality: "1"
-  sourceName: aCLineSegment
+  sourceName: acLineSegment
   sourceDescription: The line segment to which the phase belongs.
   targetCardinality: 0..*
-  targetName: aCLineSegmentPhases
+  targetName: acLineSegmentPhases
   targetDescription: The line segment phases which belong to the line segment.
 - source: ACLineSegment
   target: JumperAction
   sourceCardinality: 0..*
-  sourceName: aCLineSegments
+  sourceName: acLineSegments
   sourceDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
     clamp in case the jumper needs to connect along the line segment.
   targetCardinality: 0..1
