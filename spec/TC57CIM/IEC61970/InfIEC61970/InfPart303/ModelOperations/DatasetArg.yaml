@@ -6,17 +6,17 @@ associations:
 - source: DatasetArg
   target: InstanceSet
   sourceCardinality: 0..*
-  sourceName: DatasetArg
+  sourceName: datasetArg
   sourceDescription: The role of a dataset in the context of an operation.
   targetCardinality: "1"
-  targetName: Dataset
+  targetName: dataset
   targetDescription: Dataset referenced by this argument of a model operation..
 - source: DatasetArg
   target: DatasetArgDescription
   sourceCardinality: 0..*
-  sourceName: OperationDatasetArg
+  sourceName: operationDatasetArg
   sourceDescription: The operation dataset roles conforming to this role type.
   targetCardinality: "1"
-  targetName: OperationDatasetArgDescription
+  targetName: operationDatasetArgDescription
   targetDescription: The type of role for this dataset role.   Should only reference role types that belong to the operation
     type of the associated operation.

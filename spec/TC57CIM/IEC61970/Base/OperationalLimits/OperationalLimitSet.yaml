@@ -9,24 +9,24 @@ associations:
 - source: OperationalLimitSet
   target: Equipment
   sourceCardinality: 0..*
-  sourceName: OperationalLimitSet
+  sourceName: operationalLimitSet
   sourceDescription: The operational limit sets associated with this equipment.
   targetCardinality: 0..1
-  targetName: Equipment
+  targetName: equipment
   targetDescription: The equipment to which the limit set applies.
 - source: OperationalLimitSet
   target: ACDCTerminal
   sourceCardinality: 0..*
-  sourceName: OperationalLimitSet
+  sourceName: operationalLimitSet
   sourceDescription: The operational limit sets at the terminal.
   targetCardinality: 0..1
-  targetName: Terminal
+  targetName: terminal
   targetDescription: The terminal where the operational limit set apply.
 - source: OperationalLimitSet
   target: OperationalLimit
   sourceCardinality: "1"
-  sourceName: OperationalLimitSet
+  sourceName: operationalLimitSet
   sourceDescription: The limit set to which the limit values belong.
   targetCardinality: 0..*
-  targetName: OperationalLimitValue
+  targetName: operationalLimitValue
   targetDescription: Values of equipment limits.

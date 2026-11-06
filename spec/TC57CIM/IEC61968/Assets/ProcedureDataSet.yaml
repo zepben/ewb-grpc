@@ -17,44 +17,44 @@ associations:
 - source: ProcedureDataSet
   target: MeasurementValue
   sourceCardinality: 0..*
-  sourceName: ProcedureDataSet
+  sourceName: procedureDataSet
   targetCardinality: 0..*
-  targetName: MeasurementValue
+  targetName: measurementValue
 - source: ProcedureDataSet
   target: TransformerObservation
   sourceCardinality: 0..*
-  sourceName: ProcedureDataSets
+  sourceName: procedureDataSets
   targetCardinality: 0..*
-  targetName: TransformerObservations
+  targetName: transformerObservations
 - source: ProcedureDataSet
   target: WorkTask
   sourceCardinality: 0..*
-  sourceName: ProcedureDataSet
+  sourceName: procedureDataSet
   sourceDescription: Procedure data set associated with this work task.
   targetCardinality: 0..1
-  targetName: WorkTask
+  targetName: workTask
   targetDescription: Work task that created this procedure data set.
 - source: ProcedureDataSet
   target: Asset
   sourceCardinality: 0..*
-  sourceName: ProcedureDataSet
+  sourceName: procedureDataSet
   sourceDescription: Procedure data set that applies to this asset.
   targetCardinality: 0..1
-  targetName: Asset
+  targetName: asset
   targetDescription: Asset to which this procedure data set applies.
 - source: ProcedureDataSet
   target: Procedure
   sourceCardinality: 0..*
-  sourceName: ProcedureDataSets
+  sourceName: procedureDataSets
   sourceDescription: All data sets captured by this procedure.
   targetCardinality: 0..1
-  targetName: Procedure
+  targetName: procedure
   targetDescription: Procedure capturing this data set.
 - source: ProcedureDataSet
   target: UserAttribute
   sourceCardinality: 0..*
-  sourceName: ProcedureDataSets
+  sourceName: procedureDataSets
   targetCardinality: 0..*
-  targetName: Properties
+  targetName: properties
   targetDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
     kind of property it is, and 'value.value' attribute for the actual value.

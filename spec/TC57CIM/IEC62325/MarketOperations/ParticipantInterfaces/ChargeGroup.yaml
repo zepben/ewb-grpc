@@ -14,22 +14,22 @@ associations:
 - source: ChargeGroup
   target: ChargeGroup
   sourceCardinality: 0..*
-  sourceName: ChargeGroupChild
+  sourceName: chargeGroupChild
   sourceDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
   targetCardinality: 0..1
-  targetName: ChargeGroupParent
+  targetName: chargeGroupParent
   targetDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
 - source: ChargeGroup
   target: MktUserAttribute
   sourceCardinality: 0..*
-  sourceName: ChargeGroup
+  sourceName: chargeGroup
   targetCardinality: 0..*
-  targetName: MktUserAttribute
+  targetName: mktUserAttribute
 - source: ChargeGroup
   target: ChargeType
   sourceCardinality: 0..*
-  sourceName: ChargeGroup
+  sourceName: chargeGroup
   sourceDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
   targetCardinality: 0..*
-  targetName: ChargeType
+  targetName: chargeType
   targetDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.

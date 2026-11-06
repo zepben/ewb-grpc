@@ -31,42 +31,42 @@ associations:
 - source: PricingStructure
   target: UsagePoint
   sourceCardinality: 0..*
-  sourceName: PricingStructures
+  sourceName: pricingStructures
   sourceDescription: All pricing structures applicable to this service delivery point (with prepayment meter running as a
     stand-alone device, with no CustomerAgreement or Customer).
   targetCardinality: 0..*
-  targetName: UsagePoints
+  targetName: usagePoints
   targetDescription: All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement
     or Customer) to which this pricing structure applies.
 - source: PricingStructure
   target: Tariff
   sourceCardinality: 0..*
-  sourceName: PricingStructures
+  sourceName: pricingStructures
   sourceDescription: All pricing structures using this tariff.
   targetCardinality: 0..*
-  targetName: Tariffs
+  targetName: tariffs
   targetDescription: All tariffs used by this pricing structure.
 - source: PricingStructure
   target: Transaction
   sourceCardinality: 0..1
-  sourceName: PricingStructure
+  sourceName: pricingStructure
   sourceDescription: Pricing structure applicable for this transaction.
   targetCardinality: 0..*
-  targetName: Transactions
+  targetName: transactions
   targetDescription: All transactions applying this pricing structure.
 - source: PricingStructure
   target: ServiceCategory
   sourceCardinality: 0..*
-  sourceName: PricingStructures
+  sourceName: pricingStructures
   sourceDescription: All pricing structures applicable to this service category.
   targetCardinality: "1"
-  targetName: ServiceCategory
+  targetName: serviceCategory
   targetDescription: Service category to which this pricing structure applies.
 - source: PricingStructure
   target: CustomerAgreement
   sourceCardinality: 0..*
-  sourceName: PricingStructures
+  sourceName: pricingStructures
   sourceDescription: All pricing structures applicable to this customer agreement.
   targetCardinality: 0..*
-  targetName: CustomerAgreements
+  targetName: customerAgreements
   targetDescription: All customer agreements with this pricing structure.

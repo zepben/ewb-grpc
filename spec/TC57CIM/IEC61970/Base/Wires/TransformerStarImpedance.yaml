@@ -21,17 +21,17 @@ associations:
 - source: TransformerStarImpedance
   target: TransformerEnd
   sourceCardinality: 0..1
-  sourceName: StarImpedance
+  sourceName: starImpedance
   sourceDescription: (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention,
     for a two winding transformer, the full values of the transformer should be entered on the high voltage end (endNumber=1).
   targetCardinality: 0..*
-  targetName: TransformerEnd
+  targetName: transformerEnd
   targetDescription: All transformer ends having this star impedance.
 - source: TransformerStarImpedance
   target: TransformerEndInfo
   sourceCardinality: 0..1
-  sourceName: TransformerStarImpedance
+  sourceName: transformerStarImpedance
   sourceDescription: Transformer star impedance calculated from this transformer end datasheet.
   targetCardinality: 0..1
-  targetName: TransformerEndInfo
+  targetName: transformerEndInfo
   targetDescription: Transformer end datasheet used to calculate this transformer star impedance.

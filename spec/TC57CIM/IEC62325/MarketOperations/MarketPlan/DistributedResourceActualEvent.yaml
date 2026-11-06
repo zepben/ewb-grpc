@@ -14,24 +14,24 @@ associations:
 - source: DistributedResourceActualEvent
   target: InstructionClearing
   sourceCardinality: 0..1
-  sourceName: ActualDemandResponseEvent
+  sourceName: actualDemandResponseEvent
   sourceDescription: ActualDemandResponseEvents may exist that are not part of a cordinated MarketActualEvent associated to
     a Market. These ActualDemandResponseEvents can have many InstructionClearing Instructions for specified RegisteredResources
     or Distributed Energy Resource type of AggregateNodes.
   targetCardinality: 0..*
-  targetName: InstructionClearing
+  targetName: instructionClearing
   targetDescription: ActualDemandResponseEvents may exist that are not part of a coordinated MarketActualEvent associated
     to a Market. These ActualDemandResponseEvents can have many InstructionClearing Instructions for specified RegisteredResources
     or DemandResponse AggregateNodes.
 - source: DistributedResourceActualEvent
   target: ResourcePerformanceEvaluation
   sourceCardinality: "1"
-  sourceName: DemandResponseActualEvent
+  sourceName: demandResponseActualEvent
   targetCardinality: 0..*
-  targetName: ResourcePerformanceEvaluations
+  targetName: resourcePerformanceEvaluations
 - source: DistributedResourceActualEvent
   target: InstructionClearingDOT
   sourceCardinality: 0..1
-  sourceName: DemandResponseActualEvent
+  sourceName: demandResponseActualEvent
   targetCardinality: 0..*
-  targetName: InstructionClearingDOT
+  targetName: instructionClearingDOT

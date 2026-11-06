@@ -17,46 +17,46 @@ associations:
 - source: UserAttribute
   target: Specification
   sourceCardinality: 0..*
-  sourceName: Ratings
+  sourceName: ratings
   sourceDescription: UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be
     used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g.,
     voltage, current), and 'value' attribute for the actual value and unit information of the rating.
   targetCardinality: 0..1
-  targetName: RatingSpecification
+  targetName: ratingSpecification
 - source: UserAttribute
   target: Specification
   sourceCardinality: 0..*
-  sourceName: AssetProperites
+  sourceName: assetProperites
   sourceDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
     to specify what kind of property it is, and 'value.value' attribute for the actual value.
   targetCardinality: 0..1
-  targetName: PropertySpecification
+  targetName: propertySpecification
 - source: UserAttribute
   target: ProcedureDataSet
   sourceCardinality: 0..*
-  sourceName: Properties
+  sourceName: properties
   sourceDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
     kind of property it is, and 'value.value' attribute for the actual value.
   targetCardinality: 0..*
-  targetName: ProcedureDataSets
+  targetName: procedureDataSets
 - source: UserAttribute
   target: Transaction
   sourceCardinality: 0..*
-  sourceName: UserAttributes
+  sourceName: userAttributes
   sourceDescription: All snapshots of meter parameters recorded at the time of this transaction. Use 'name' and 'value.value'
     attributes to specify name and value of a parameter from meter.
   targetCardinality: 0..1
-  targetName: Transaction
+  targetName: transaction
   targetDescription: Transaction for which this snapshot has been recorded.
 - source: UserAttribute
   target: ErpLedgerEntry
   sourceCardinality: 0..*
-  sourceName: UserAttributes
+  sourceName: userAttributes
   targetCardinality: 0..*
-  targetName: ErpLedgerEntries
+  targetName: erpLedgerEntries
 - source: UserAttribute
   target: ErpInvoiceLineItem
   sourceCardinality: 0..*
-  sourceName: UserAttributes
+  sourceName: userAttributes
   targetCardinality: 0..*
-  targetName: ErpInvoiceLineItems
+  targetName: erpInvoiceLineItems

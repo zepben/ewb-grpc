@@ -7,10 +7,10 @@ associations:
 - source: Substation
   target: Feeder
   sourceCardinality: 0..1
-  sourceName: NormalEnergizingSubstation
+  sourceName: normalEnergizingSubstation
   sourceDescription: The substations that are normally energized by the feeder.
   targetCardinality: 0..*
-  targetName: Feeders
+  targetName: feeders
   targetDescription: The feeders that potentially energize the downstream substation. Should be consistent with the
     associations that describe the naming hierarchy.
     # TODO: This associations description and targetName do not align with protobuf
@@ -18,25 +18,25 @@ associations:
 - source: Substation
   target: SubGeographicalRegion
   sourceCardinality: 0..*
-  sourceName: Substations
+  sourceName: substations
   sourceDescription: The substations in this sub-geographical region.
   targetCardinality: 0..1
-  targetName: SubGeographicalRegion
+  targetName: subGeographicalRegion
   targetDescription: The SubGeographicalRegion containing the substation.
 - source: Substation
   target: Circuit
   sourceCardinality: 0..*
-  sourceName: EndSubstations
+  sourceName: endSubstations
   sourceDescription: Simplification of the CIM association via Bay to Circuit
   targetCardinality: 0..*
-  targetName: Circuits
+  targetName: circuits
   targetDescription: Simplification of the CIM association via Bay to Substation
 - source: Substation
   target: Loop
   sourceCardinality: 0..*
   sourceDescription: The substations that are currently powered by this loop.
-  sourceName: Substations
-  targetName: Loops
+  sourceName: substations
+  targetName: loops
   targetCardinality: 0..*
   targetDescription: The loops that are currently energizing this substation.
 - source: Substation

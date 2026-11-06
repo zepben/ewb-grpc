@@ -40,83 +40,83 @@ associations:
 - source: TransformerEndInfo
   target: TransformerCoreAdmittance
   sourceCardinality: 0..1
-  sourceName: TransformerEndInfo
+  sourceName: transformerEndInfo
   sourceDescription: Transformer end datasheet used to calculate this core admittance.
   targetCardinality: 0..1
-  targetName: CoreAdmittance
+  targetName: coreAdmittance
   targetDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and
     core losses. The full values of the transformer should be supplied for one transformer end info only.
 - source: TransformerEndInfo
   target: TransformerMeshImpedance
   sourceCardinality: 0..1
-  sourceName: FromTransformerEndInfo
+  sourceName: fromTransformerEndInfo
   sourceDescription: '''from'' transformer end datasheet this mesh impedance is calculated from. It determines the voltage
     reference.'
   targetCardinality: 0..*
-  targetName: FromMeshImpedances
+  targetName: fromMeshImpedances
   targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
 - source: TransformerEndInfo
   target: TransformerStarImpedance
   sourceCardinality: 0..1
-  sourceName: TransformerEndInfo
+  sourceName: transformerEndInfo
   sourceDescription: Transformer end datasheet used to calculate this transformer star impedance.
   targetCardinality: 0..1
-  targetName: TransformerStarImpedance
+  targetName: transformerStarImpedance
   targetDescription: Transformer star impedance calculated from this transformer end datasheet.
 - source: TransformerEndInfo
   target: TransformerMeshImpedance
   sourceCardinality: 0..*
-  sourceName: ToTransformerEndInfos
+  sourceName: toTransformerEndInfos
   sourceDescription: All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.
   targetCardinality: 0..*
-  targetName: ToMeshImpedances
+  targetName: toMeshImpedances
   targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
 - source: TransformerEndInfo
   target: TransformerTankInfo
   sourceCardinality: 1..*
-  sourceName: TransformerEndInfos
+  sourceName: transformerEndInfos
   sourceDescription: Data for all the ends described by this transformer tank data.
   targetCardinality: "1"
-  targetName: TransformerTankInfo
+  targetName: transformerTankInfo
   targetDescription: Transformer tank data that this end description is part of.
 - source: TransformerEndInfo
   target: ShortCircuitTest
   sourceCardinality: 1..*
-  sourceName: GroundedEnds
+  sourceName: groundedEnds
   sourceDescription: All ends short-circuited in this short-circuit test.
   targetCardinality: 0..*
-  targetName: GroundedEndShortCircuitTests
+  targetName: groundedEndShortCircuitTests
   targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
 - source: TransformerEndInfo
   target: ShortCircuitTest
   sourceCardinality: "1"
-  sourceName: EnergisedEnd
+  sourceName: energisedEnd
   sourceDescription: Transformer end that voltage is applied to in this short-circuit test. The test voltage is chosen to
     induce rated current in the energised end.
   targetCardinality: 0..*
-  targetName: EnergisedEndShortCircuitTests
+  targetName: energisedEndShortCircuitTests
   targetDescription: All short-circuit test measurements in which this transformer end was energised.
 - source: TransformerEndInfo
   target: OpenCircuitTest
   sourceCardinality: "1"
-  sourceName: OpenEnd
+  sourceName: openEnd
   sourceDescription: Transformer end measured for induced voltage and angle in this open-circuit test.
   targetCardinality: 0..*
-  targetName: OpenEndOpenCircuitTests
+  targetName: openEndOpenCircuitTests
   targetDescription: All open-circuit test measurements in which this transformer end was not excited.
 - source: TransformerEndInfo
   target: OpenCircuitTest
   sourceCardinality: "1"
-  sourceName: EnergisedEnd
+  sourceName: energisedEnd
   sourceDescription: Transformer end that current is applied to in this open-circuit test.
   targetCardinality: 0..*
-  targetName: EnergisedEndOpenCircuitTests
+  targetName: energisedEndOpenCircuitTests
   targetDescription: All open-circuit test measurements in which this transformer end was excited.
 - source: TransformerEndInfo
   target: NoLoadTest
   sourceCardinality: 0..1
-  sourceName: EnergisedEnd
+  sourceName: energisedEnd
   sourceDescription: Transformer end that current is applied to in this no-load test.
   targetCardinality: 0..*
-  targetName: EnergisedEndNoLoadTests
+  targetName: energisedEndNoLoadTests
   targetDescription: All no-load test measurements in which this transformer end was energised.

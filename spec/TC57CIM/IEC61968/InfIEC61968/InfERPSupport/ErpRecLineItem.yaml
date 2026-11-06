@@ -10,24 +10,24 @@ associations:
 - source: ErpRecLineItem
   target: ErpReceivable
   sourceCardinality: 0..*
-  sourceName: ErpRecLineItems
+  sourceName: erpRecLineItems
   targetCardinality: "1"
-  targetName: ErpReceivable
+  targetName: erpReceivable
 - source: ErpRecLineItem
   target: ErpPayment
   sourceCardinality: 0..*
-  sourceName: ErpRecLineItems
+  sourceName: erpRecLineItems
   targetCardinality: 0..*
-  targetName: ErpPayments
+  targetName: erpPayments
 - source: ErpRecLineItem
   target: ErpJournalEntry
   sourceCardinality: 0..*
-  sourceName: ErpRecLineItems
+  sourceName: erpRecLineItems
   targetCardinality: 0..*
-  targetName: ErpJournalEntries
+  targetName: erpJournalEntries
 - source: ErpRecLineItem
   target: ErpInvoiceLineItem
   sourceCardinality: 0..1
-  sourceName: ErpRecLineItem
+  sourceName: erpRecLineItem
   targetCardinality: 0..1
-  targetName: ErpInvoiceLineItem
+  targetName: erpInvoiceLineItem

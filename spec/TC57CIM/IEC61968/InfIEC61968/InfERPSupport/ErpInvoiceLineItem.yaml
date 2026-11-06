@@ -34,69 +34,69 @@ associations:
 - source: ErpInvoiceLineItem
   target: ErpJournalEntry
   sourceCardinality: 0..1
-  sourceName: ErpInvoiceLineItem
+  sourceName: erpInvoiceLineItem
   targetCardinality: 0..*
-  targetName: ErpJournalEntries
+  targetName: erpJournalEntries
 - source: ErpInvoiceLineItem
   target: ErpInvoiceLineItem
   sourceCardinality: 0..*
-  sourceName: ComponentErpInvoiceLineItems
+  sourceName: componentErpInvoiceLineItems
   targetCardinality: 0..1
-  targetName: ContainerErpInvoiceLineItem
+  targetName: containerErpInvoiceLineItem
 - source: ErpInvoiceLineItem
   target: ErpRecLineItem
   sourceCardinality: 0..1
-  sourceName: ErpInvoiceLineItem
+  sourceName: erpInvoiceLineItem
   targetCardinality: 0..1
-  targetName: ErpRecLineItem
+  targetName: erpRecLineItem
 - source: ErpInvoiceLineItem
   target: ErpPayment
   sourceCardinality: 0..*
-  sourceName: ErpInvoiceLineItems
+  sourceName: erpInvoiceLineItems
   targetCardinality: 0..*
-  targetName: ErpPayments
+  targetName: erpPayments
 - source: ErpInvoiceLineItem
   target: ErpPayableLineItem
   sourceCardinality: 0..1
-  sourceName: ErpInvoiceLineItem
+  sourceName: erpInvoiceLineItem
   targetCardinality: 0..1
-  targetName: ErpPayableLineItem
+  targetName: erpPayableLineItem
 - source: ErpInvoiceLineItem
   target: ErpInvoice
   sourceCardinality: 0..*
-  sourceName: ErpInvoiceLineItems
+  sourceName: erpInvoiceLineItems
   targetCardinality: "1"
-  targetName: ErpInvoice
+  targetName: erpInvoice
 - source: ErpInvoiceLineItem
   target: UserAttribute
   sourceCardinality: 0..*
-  sourceName: ErpInvoiceLineItems
+  sourceName: erpInvoiceLineItems
   targetCardinality: 0..*
-  targetName: UserAttributes
+  targetName: userAttributes
 - source: ErpInvoiceLineItem
   target: ErpRecDelvLineItem
   sourceCardinality: 0..1
-  sourceName: ErpInvoiceLineItem
+  sourceName: erpInvoiceLineItem
   targetCardinality: 0..1
-  targetName: ErpRecDelvLineItem
+  targetName: erpRecDelvLineItem
 - source: ErpInvoiceLineItem
   target: ErpQuoteLineItem
   sourceCardinality: 0..1
-  sourceName: ErpInvoiceLineItem
+  sourceName: erpInvoiceLineItem
   sourceDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
     a payment. An invoice is required for this to occur.
   targetCardinality: 0..1
-  targetName: ErpQuoteLineItem
+  targetName: erpQuoteLineItem
 - source: ErpInvoiceLineItem
   target: WorkBillingInfo
   sourceCardinality: 0..*
-  sourceName: ErpLineItems
+  sourceName: erpLineItems
   targetCardinality: 0..*
-  targetName: WorkBillingInfos
+  targetName: workBillingInfos
 - source: ErpInvoiceLineItem
   target: CustomerBillingInfo
   sourceCardinality: 0..*
-  sourceName: ErpInvoiceLineItems
+  sourceName: erpInvoiceLineItems
   targetCardinality: 0..*
-  targetName: CustomerBillingInfos
+  targetName: customerBillingInfos
   targetDescription: Customer billing for services rendered.

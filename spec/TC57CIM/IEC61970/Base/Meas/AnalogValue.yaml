@@ -10,32 +10,32 @@ associations:
 - source: AnalogValue
   target: AnalogControl
   sourceCardinality: "1"
-  sourceName: AnalogValue
+  sourceName: analogValue
   sourceDescription: The MeasurementValue that is controlled.
   targetCardinality: 0..1
-  targetName: AnalogControl
+  targetName: analogControl
   targetDescription: The Control variable associated with the MeasurementValue.
 - source: AnalogValue
   target: AltTieMeas
   sourceCardinality: "1"
-  sourceName: AnalogValue
+  sourceName: analogValue
   sourceDescription: The specific analog value used as a source.
   targetCardinality: 0..*
-  targetName: AltTieMeas
+  targetName: altTieMeas
   targetDescription: The usage of the measurement within the control area specification.
 - source: AnalogValue
   target: AltGeneratingUnitMeas
   sourceCardinality: "1"
-  sourceName: AnalogValue
+  sourceName: analogValue
   sourceDescription: The specific analog value used as a source.
   targetCardinality: 0..*
-  targetName: AltGeneratingUnit
+  targetName: altGeneratingUnit
   targetDescription: The alternate generating unit for which this measurement value applies.
 - source: AnalogValue
   target: Analog
   sourceCardinality: 0..*
-  sourceName: AnalogValues
+  sourceName: analogValues
   sourceDescription: The values connected to this measurement.
   targetCardinality: "1"
-  targetName: Analog
+  targetName: analog
   targetDescription: Measurement to which this value is connected.

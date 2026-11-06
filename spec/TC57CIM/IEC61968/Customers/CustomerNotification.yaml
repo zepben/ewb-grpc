@@ -21,24 +21,24 @@ associations:
 - source: CustomerNotification
   target: TroubleTicket
   sourceCardinality: 0..*
-  sourceName: Notification
+  sourceName: notification
   sourceDescription: Notification for this trouble ticket.
   targetCardinality: 0..*
-  targetName: TroubleTickets
+  targetName: troubleTickets
   targetDescription: All trouble tickets with this notification.
 - source: CustomerNotification
   target: Customer
   sourceCardinality: 0..*
-  sourceName: CustomerNotifications
+  sourceName: customerNotifications
   sourceDescription: All notifications required by this customer.
   targetCardinality: 0..1
-  targetName: Customer
+  targetName: customer
   targetDescription: Customer requiring this notification.
 - source: CustomerNotification
   target: Incident
   sourceCardinality: 0..*
-  sourceName: CustomerNotifications
+  sourceName: customerNotifications
   sourceDescription: All notifications for a customer related to the status change of this incident.
   targetCardinality: 0..1
-  targetName: Incident
+  targetName: incident
   targetDescription: Incident as a subject of this customer notification.

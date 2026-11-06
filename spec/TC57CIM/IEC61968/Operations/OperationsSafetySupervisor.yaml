@@ -7,16 +7,16 @@ associations:
 - source: OperationsSafetySupervisor
   target: SafetyDocument
   sourceCardinality: 0..1
-  sourceName: ReleasedToSupervisor
+  sourceName: releasedToSupervisor
   sourceDescription: Supervisor to which this safety document is released.
   targetCardinality: 0..*
-  targetName: ReleasedSafetyDocuments
+  targetName: releasedSafetyDocuments
   targetDescription: All safety documents released to this supervisor.
 - source: OperationsSafetySupervisor
   target: SafetyDocument
   sourceCardinality: 0..1
-  sourceName: IssuedBySupervisor
+  sourceName: issuedBySupervisor
   sourceDescription: Supervisor that issued this safety document.
   targetCardinality: 0..*
-  targetName: IssuedSafetyDocuments
+  targetName: issuedSafetyDocuments
   targetDescription: All safety documents issued by this supervisor.

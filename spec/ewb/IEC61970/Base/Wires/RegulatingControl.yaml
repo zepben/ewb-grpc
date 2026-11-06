@@ -79,15 +79,15 @@ associations:
 - source: RegulatingControl
   target: RegulatingCondEq
   sourceCardinality: 0..1
-  sourceName: RegulatingControl
+  sourceName: regulatingControl
   sourceDescription: The regulating control scheme in which this equipment participates.
   targetCardinality: 0..*
-  targetName: RegulatingCondEqs
+  targetName: regulatingCondEqs
   targetDescription: The equipment that participates in this regulating control scheme.
 - source: RegulatingControl
   target: Terminal
   targetCardinality: 0..1
-  targetName: Terminal
+  targetName: terminal
   targetDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node,
     since the terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model
     regulation at a terminal of a bus bar object.

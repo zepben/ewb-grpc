@@ -18,24 +18,24 @@ associations:
 - source: Tender
   target: Receipt
   sourceCardinality: 1..*
-  sourceName: Tenders
+  sourceName: tenders
   sourceDescription: All payments received in the form of tenders recorded by this receipt.
   targetCardinality: "1"
-  targetName: Receipt
+  targetName: receipt
   targetDescription: Receipt that recorded this receiving of a payment in the form of tenders.
 - source: Tender
   target: Cheque
   sourceCardinality: "1"
-  sourceName: Tender
+  sourceName: tender
   sourceDescription: Payment tender the cheque is being used for.
   targetCardinality: 0..1
-  targetName: Cheque
+  targetName: cheque
   targetDescription: Cheque used to tender payment.
 - source: Tender
   target: Card
   sourceCardinality: "1"
-  sourceName: Tender
+  sourceName: tender
   sourceDescription: Payment tender this card is being used for.
   targetCardinality: 0..1
-  targetName: Card
+  targetName: card
   targetDescription: Card used to tender payment.

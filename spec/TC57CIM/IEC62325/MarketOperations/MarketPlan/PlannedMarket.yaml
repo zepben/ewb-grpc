@@ -14,24 +14,24 @@ associations:
 - source: PlannedMarket
   target: PlannedMarketEvent
   sourceCardinality: 0..*
-  sourceName: PlannedMarket
+  sourceName: plannedMarket
   sourceDescription: A planned market shall have a set of planned events
   targetCardinality: 1..*
-  targetName: PlannedMarketEvent
+  targetName: plannedMarketEvent
   targetDescription: A planned market shall have a set of planned events
 - source: PlannedMarket
   target: MarketRun
   sourceCardinality: "1"
-  sourceName: PlannedMarket
+  sourceName: plannedMarket
   sourceDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
   targetCardinality: 0..*
-  targetName: MarketRun
+  targetName: marketRun
   targetDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
 - source: PlannedMarket
   target: MarketPlan
   sourceCardinality: 1..*
-  sourceName: PlannedMarket
+  sourceName: plannedMarket
   sourceDescription: A market plan has a number of markets (DA, HA, RT).
   targetCardinality: "1"
-  targetName: MarketPlan
+  targetName: marketPlan
   targetDescription: A market plan has a number of markets (DA, HA, RT).

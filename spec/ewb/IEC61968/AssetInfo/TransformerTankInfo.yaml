@@ -6,16 +6,16 @@ associations:
 - source: TransformerTankInfo
   target: TransformerEndInfo
   sourceCardinality: 0..1
-  sourceName: TransformerTankInfo
+  sourceName: transformerTankInfo
   sourceDescription: Transformer tank data that this end description is part of.
   targetCardinality: 0..*
-  targetName: TransformerEndInfos
+  targetName: transformerEndInfos
   targetDescription: Data for all the ends described by this transformer tank data.
 - source: TransformerTankInfo
   target: PowerTransformerInfo
   sourceCardinality: 0..*
-  sourceName: TransformerTankInfos
+  sourceName: transformerTankInfos
   sourceDescription: Data for all the tanks described by this power transformer data.
   targetCardinality: 0..1
-  targetName: PowerTransformerInfo
+  targetName: powerTransformerInfo
   targetDescription: Power transformer data that this tank description is part of.

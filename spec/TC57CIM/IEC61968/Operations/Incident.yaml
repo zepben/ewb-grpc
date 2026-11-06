@@ -11,68 +11,68 @@ associations:
 - source: Incident
   target: UnplannedOutage
   sourceCardinality: 0..*
-  sourceName: Incident
+  sourceName: incident
   targetCardinality: 0..1
-  targetName: UnplannedOutage
+  targetName: unplannedOutage
 - source: Incident
   target: CustomerNotification
   sourceCardinality: 0..1
-  sourceName: Incident
+  sourceName: incident
   sourceDescription: Incident as a subject of this customer notification.
   targetCardinality: 0..*
-  targetName: CustomerNotifications
+  targetName: customerNotifications
   targetDescription: All notifications for a customer related to the status change of this incident.
 - source: Incident
   target: IncidentHazard
   sourceCardinality: 0..1
-  sourceName: Incident
+  sourceName: incident
   sourceDescription: Incident associated with this hazard.
   targetCardinality: 0..*
-  targetName: IncidentHazard
+  targetName: incidentHazard
   targetDescription: All hazards associated with this incident.
 - source: Incident
   target: Work
   sourceCardinality: 0..*
-  sourceName: Incidents
+  sourceName: incidents
   sourceDescription: All incidents being addressed by this work.
   targetCardinality: 0..*
-  targetName: Works
+  targetName: works
   targetDescription: All works addressing this incident.
 - source: Incident
   target: Outage
   sourceCardinality: 0..*
-  sourceName: Incident
+  sourceName: incident
   sourceDescription: Incident reported in trouble call that results in this outage.
   targetCardinality: 0..1
-  targetName: Outage
+  targetName: outage
   targetDescription: Outage for this incident.
 - source: Incident
   target: Operator
   sourceCardinality: 0..*
-  sourceName: Incidents
+  sourceName: incidents
   sourceDescription: All incidents owned by this operator.
   targetCardinality: 0..1
-  targetName: Owner
+  targetName: owner
   targetDescription: Operator who owns this incident.
 - source: Incident
   target: Location
   sourceCardinality: 0..1
-  sourceName: Incident
+  sourceName: incident
   sourceDescription: Incident at this location.
   targetCardinality: 0..1
-  targetName: Location
+  targetName: location
   targetDescription: Location of this incident.
 - source: Incident
   target: TroubleTicket
   sourceCardinality: 0..1
-  sourceName: Incident
+  sourceName: incident
   sourceDescription: Incident reported in this trouble ticket
   targetCardinality: 0..*
-  targetName: TroubleTickets
+  targetName: troubleTickets
   targetDescription: All trouble tickets reporting this incident.
 - source: Incident
   target: TroubleOrder
   sourceCardinality: 0..1
-  sourceName: Incident
+  sourceName: incident
   targetCardinality: 0..1
-  targetName: TroubleOrder
+  targetName: troubleOrder

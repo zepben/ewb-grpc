@@ -13,32 +13,32 @@ associations:
 - source: BilateralExchangeActor
   target: BilateralExchangeAgreement
   sourceCardinality: "1"
-  sourceName: Provider
+  sourceName: provider
   sourceDescription: Provider of information to a remote peer.
   targetCardinality: 0..*
-  targetName: ProviderBilateralExchange
+  targetName: providerBilateralExchange
   targetDescription: Agreement to information provider.
 - source: BilateralExchangeActor
   target: CommunicationLink
   sourceCardinality: 0..1
-  sourceName: BilateralExchangeActor
+  sourceName: bilateralExchangeActor
   sourceDescription: ICCP data provider or consumer using communication addressing for a Bilateral table.
   targetCardinality: 0..n
-  targetName: CommunicationLink
+  targetName: communicationLink
   targetDescription: Communication addressing for a Bilateral Table used by a ICCP data provider or consumer.
 - source: BilateralExchangeActor
   target: BilateralExchangeAgreement
   sourceCardinality: 0..1
-  sourceName: Consumer
+  sourceName: consumer
   sourceDescription: Subscriber of information from a remote peer.
   targetCardinality: 0..*
-  targetName: ConsumerBilateralExchange
+  targetName: consumerBilateralExchange
   targetDescription: Agreement to information subscriber.
 - source: BilateralExchangeActor
   target: ProvidedBilateralPoint
   sourceCardinality: "1"
-  sourceName: BilateralExchangeActor
+  sourceName: bilateralExchangeActor
   sourceDescription: Remote peer that will receive ICCP information in a Bilateral table.
   targetCardinality: 0..*
-  targetName: ProvidedBilateralIOPoint
+  targetName: providedBilateralIOPoint
   targetDescription: ICCP information in a Bilateral table that will be exposed to a remote peer.

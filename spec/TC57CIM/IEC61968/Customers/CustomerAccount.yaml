@@ -19,48 +19,48 @@ associations:
 - source: CustomerAccount
   target: ErpInvoice
   sourceCardinality: 0..1
-  sourceName: CustomerAccount
+  sourceName: customerAccount
   targetCardinality: 0..*
-  targetName: ErpInvoicees
+  targetName: erpInvoicees
 - source: CustomerAccount
   target: WorkBillingInfo
   sourceCardinality: 0..1
-  sourceName: CustomerAccount
+  sourceName: customerAccount
   targetCardinality: 0..*
-  targetName: WorkBillingInfos
+  targetName: workBillingInfos
 - source: CustomerAccount
   target: CustomerAgreement
   sourceCardinality: "1"
-  sourceName: CustomerAccount
+  sourceName: customerAccount
   sourceDescription: Customer account owning this agreement.
   targetCardinality: 0..*
-  targetName: CustomerAgreements
+  targetName: customerAgreements
   targetDescription: All agreements for this customer account.
 - source: CustomerAccount
   target: Transaction
   sourceCardinality: 0..1
-  sourceName: CustomerAccount
+  sourceName: customerAccount
   sourceDescription: Customer account for this payment transaction.
   targetCardinality: 0..*
-  targetName: PaymentTransactions
+  targetName: paymentTransactions
   targetDescription: All payment transactions for this customer account.
 - source: CustomerAccount
   target: AccountNotification
   sourceCardinality: "1"
-  sourceName: CustomerAccount
+  sourceName: customerAccount
   targetCardinality: 0..*
-  targetName: AccountNotification
+  targetName: accountNotification
 - source: CustomerAccount
   target: CustomerBillingInfo
   sourceCardinality: 0..1
-  sourceName: CustomerAccount
+  sourceName: customerAccount
   targetCardinality: 0..*
-  targetName: CustomerBillingInfos
+  targetName: customerBillingInfos
 - source: CustomerAccount
   target: Customer
   sourceCardinality: 0..*
-  sourceName: CustomerAccounts
+  sourceName: customerAccounts
   sourceDescription: All accounts of this customer.
   targetCardinality: "1"
-  targetName: Customer
+  targetName: customer
   targetDescription: Customer owning this account.

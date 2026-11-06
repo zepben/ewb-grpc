@@ -18,38 +18,38 @@ associations:
 - source: TransmissionPath
   target: TransmissionCorridor
   sourceCardinality: 0..*
-  sourceName: ContainedIn
+  sourceName: containedIn
   sourceDescription: A TransmissionPath is contained in a TransmissionCorridor.
   targetCardinality: "1"
-  targetName: For
+  targetName: for
   targetDescription: A TransmissionPath is contained in a TransmissionCorridor.
 - source: TransmissionPath
   target: TransmissionReservation
   sourceCardinality: "1"
-  sourceName: TransmissionPath
+  sourceName: transmissionPath
   targetCardinality: 0..*
-  targetName: TransmissionReservation
+  targetName: transmissionReservation
 - source: TransmissionPath
   target: ServicePoint
   sourceCardinality: 0..*
-  sourceName: PORTransmissionPath
+  sourceName: porTransmissionPath
   sourceDescription: A transmission path has a "point-of-receipt" service point
   targetCardinality: "1"
-  targetName: PointOfReceipt
+  targetName: pointOfReceipt
   targetDescription: A transmission path has a "point-of-receipt" service point
 - source: TransmissionPath
   target: TransmissionProduct
   sourceCardinality: 0..*
-  sourceName: LocationFor
+  sourceName: locationFor
   sourceDescription: A transmission product is located on a transmission path.
   targetCardinality: 0..*
-  targetName: LocatedOn
+  targetName: locatedOn
   targetDescription: A transmission product is located on a transmission path.
 - source: TransmissionPath
   target: ServicePoint
   sourceCardinality: 0..*
-  sourceName: PODTransmissionPath
+  sourceName: podTransmissionPath
   sourceDescription: A transmission path has a "point-of-delivery" service point
   targetCardinality: "1"
-  targetName: DeliveryPoint
+  targetName: deliveryPoint
   targetDescription: A transmission path has a "point-of-delivery" service point

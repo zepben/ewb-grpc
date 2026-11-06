@@ -17,36 +17,36 @@ associations:
 - source: StageTrigger
   target: Stage
   sourceCardinality: 1..*
-  sourceName: StageTrigger
+  sourceName: stageTrigger
   sourceDescription: A Stage consist of one or more StageTrigger.
   targetCardinality: "1"
-  targetName: Stage
+  targetName: stage
 - source: StageTrigger
   target: Gate
   sourceCardinality: 0..*
-  sourceName: StageTriggerArmed
+  sourceName: stageTriggerArmed
   targetCardinality: 0..1
-  targetName: GateArmed
+  targetName: gateArmed
   targetDescription: Association to a Gate that through a gate logic and input pin defines arming of the StageTrigger.
 - source: StageTrigger
   target: Gate
   sourceCardinality: 0..*
-  sourceName: StageTriggerCom
+  sourceName: stageTriggerCom
   targetCardinality: 0..1
-  targetName: GateComCondition
+  targetName: gateComCondition
   targetDescription: For the StageTrigger to active the set of protective actions the condition for communication needs to
     be met (true).
 - source: StageTrigger
   target: Gate
   sourceCardinality: 0..*
-  sourceName: StageTrigger
+  sourceName: stageTrigger
   targetCardinality: 0..1
-  targetName: GateTrigger
+  targetName: gateTrigger
   targetDescription: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
 - source: StageTrigger
   target: ProtectiveActionCollection
   sourceCardinality: 0..*
-  sourceName: StageTrigger
+  sourceName: stageTrigger
   sourceDescription: When condition to the StageTrigger is met, the actions in the ProtectiveActionCollection are activated/triggered.
   targetCardinality: "1"
-  targetName: ProtectiveActionCollection
+  targetName: protectiveActionCollection

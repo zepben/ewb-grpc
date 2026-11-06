@@ -14,24 +14,24 @@ associations:
 - source: ServiceSupplier
   target: BankAccount
   sourceCardinality: 0..1
-  sourceName: ServiceSupplier
+  sourceName: serviceSupplier
   sourceDescription: ServiceSupplier that is owner of this BankAccount.
   targetCardinality: 0..*
-  targetName: BankAccounts
+  targetName: bankAccounts
   targetDescription: All BackAccounts this ServiceSupplier owns.
 - source: ServiceSupplier
   target: UsagePoint
   sourceCardinality: 0..1
-  sourceName: ServiceSupplier
+  sourceName: serviceSupplier
   sourceDescription: ServiceSupplier (utility) utilising this usage point to deliver a service.
   targetCardinality: 0..*
-  targetName: UsagePoints
+  targetName: usagePoints
   targetDescription: All usage points this service supplier utilises to deliver a service.
 - source: ServiceSupplier
   target: CustomerAgreement
   sourceCardinality: "1"
-  sourceName: ServiceSupplier
+  sourceName: serviceSupplier
   sourceDescription: Service supplier for this customer agreement.
   targetCardinality: 0..*
-  targetName: CustomerAgreements
+  targetName: customerAgreements
   targetDescription: All customer agreements of this service supplier.

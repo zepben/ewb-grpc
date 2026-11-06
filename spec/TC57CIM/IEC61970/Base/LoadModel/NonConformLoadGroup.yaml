@@ -6,16 +6,16 @@ associations:
 - source: NonConformLoadGroup
   target: NonConformLoad
   sourceCardinality: 0..1
-  sourceName: LoadGroup
+  sourceName: loadGroup
   sourceDescription: Group of this ConformLoad.
   targetCardinality: 0..*
-  targetName: EnergyConsumers
+  targetName: energyConsumers
   targetDescription: Conform loads assigned to this ConformLoadGroup.
 - source: NonConformLoadGroup
   target: NonConformLoadSchedule
   sourceCardinality: "1"
-  sourceName: NonConformLoadGroup
+  sourceName: nonConformLoadGroup
   sourceDescription: The NonConformLoadGroup where the NonConformLoadSchedule belongs.
   targetCardinality: 0..*
-  targetName: NonConformLoadSchedules
+  targetName: nonConformLoadSchedules
   targetDescription: The NonConformLoadSchedules in the NonConformLoadGroup.

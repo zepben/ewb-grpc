@@ -6,20 +6,20 @@ associations:
 - source: ReserveReq
   target: SensitivityPriceCurve
   sourceCardinality: 0..1
-  sourceName: ReserveReq
+  sourceName: reserveReq
   targetCardinality: 0..1
-  targetName: SensitivityPriceCurve
+  targetName: sensitivityPriceCurve
 - source: ReserveReq
   target: MarketProduct
   sourceCardinality: 0..*
-  sourceName: ReserveReqs
+  sourceName: reserveReqs
   sourceDescription: Market product associated with reserve requirement must be a reserve or regulation product.
   targetCardinality: "1"
-  targetName: MarketProduct
+  targetName: marketProduct
   targetDescription: Market product associated with reserve requirement must be a reserve or regulation product.
 - source: ReserveReq
   target: ReserveReqCurve
   sourceCardinality: "1"
-  sourceName: ReserveReq
+  sourceName: reserveReq
   targetCardinality: "1"
-  targetName: ReserveReqCurve
+  targetName: reserveReqCurve

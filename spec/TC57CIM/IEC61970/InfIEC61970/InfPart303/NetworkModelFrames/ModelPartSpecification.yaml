@@ -7,24 +7,24 @@ associations:
 - source: ModelPartSpecification
   target: ModelAuthoritySet
   sourceCardinality: 0..*
-  sourceName: ModelSpecification
+  sourceName: modelSpecification
   sourceDescription: Models of the model frame.
   targetCardinality: 0..1
-  targetName: FrameworkPart
+  targetName: frameworkPart
   targetDescription: Model frame of the model part.
 - source: ModelPartSpecification
   target: ModelPartVersion
   sourceCardinality: "1"
-  sourceName: ModelSpecification
+  sourceName: modelSpecification
   sourceDescription: Model specification of the modelt.
   targetCardinality: 0..*
-  targetName: Model
+  targetName: model
   targetDescription: Modle parts conforming to the model part specification.
 - source: ModelPartSpecification
   target: AssemblyDescription
   sourceCardinality: 0..*
-  sourceName: ModelSpecification
+  sourceName: modelSpecification
   sourceDescription: The models that are part of the assembly descrption.
   targetCardinality: 0..*
-  targetName: AssemblyDescription
+  targetName: assemblyDescription
   targetDescription: The assembly description into which model parts should be included.

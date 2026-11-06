@@ -21,44 +21,44 @@ associations:
 - source: MeasurementValue
   target: RemoteSource
   sourceCardinality: "1"
-  sourceName: MeasurementValue
+  sourceName: measurementValue
   sourceDescription: Link to the physical telemetered point associated with this measurement.
   targetCardinality: 0..1
-  targetName: RemoteSource
+  targetName: remoteSource
   targetDescription: Link to the physical telemetered point associated with this measurement.
 - source: MeasurementValue
   target: MeasurementValueQuality
   sourceCardinality: "1"
-  sourceName: MeasurementValue
+  sourceName: measurementValue
   sourceDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
   targetCardinality: 0..1
-  targetName: MeasurementValueQuality
+  targetName: measurementValueQuality
   targetDescription: A MeasurementValue has a MeasurementValueQuality associated with it.
 - source: MeasurementValue
   target: MeasurementValueSource
   sourceCardinality: 0..*
-  sourceName: MeasurementValues
+  sourceName: measurementValues
   sourceDescription: The MeasurementValues updated by the source.
   targetCardinality: "1"
-  targetName: MeasurementValueSource
+  targetName: measurementValueSource
   targetDescription: A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc.
     User conventions for the names of sources are contained in the introduction to IEC 61970-301.
 - source: MeasurementValue
   target: OldPerson
   sourceCardinality: 0..*
-  sourceName: MeasurementValues
+  sourceName: measurementValues
   targetCardinality: 0..1
-  targetName: ErpPerson
+  targetName: erpPerson
 - source: MeasurementValue
   target: ProcedureDataSet
   sourceCardinality: 0..*
-  sourceName: MeasurementValue
+  sourceName: measurementValue
   targetCardinality: 0..*
-  targetName: ProcedureDataSet
+  targetName: procedureDataSet
 - source: MeasurementValue
   target: CalculationMethodHierarchy
   sourceCardinality: 0..1
-  sourceName: MeasurementValue
+  sourceName: measurementValue
   sourceDescription: Measurement value to which this calculation method hierarchy applies.
   targetCardinality: 0..1
-  targetName: CalculationMethodHierarchy
+  targetName: calculationMethodHierarchy

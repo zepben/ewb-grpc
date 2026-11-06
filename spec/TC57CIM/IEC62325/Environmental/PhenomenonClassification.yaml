@@ -6,23 +6,23 @@ associations:
 - source: PhenomenonClassification
   target: EnvironmentalDataAuthority
   sourceCardinality: 0..*
-  sourceName: PhenomenonClassification
+  sourceName: phenomenonClassification
   sourceDescription: Phenomenon classification defined by this environmental data authority.
   targetCardinality: 0..1
-  targetName: EnvironmentalDataAuthority
+  targetName: environmentalDataAuthority
   targetDescription: Authority defining this environmental phenomenon.
 - source: PhenomenonClassification
   target: EnvironmentalPhenomenon
   sourceCardinality: 0..1
-  sourceName: PhenomenonClassification
+  sourceName: phenomenonClassification
   sourceDescription: The classification of this phenomenon.
   targetCardinality: 0..*
-  targetName: EnvironmentalPhenomenon
+  targetName: environmentalPhenomenon
 - source: PhenomenonClassification
   target: ClassificationCondition
   sourceCardinality: 0..1
-  sourceName: PhenomenonClassification
+  sourceName: phenomenonClassification
   sourceDescription: Phenomenon classification to which this condition relates.
   targetCardinality: 0..*
-  targetName: ClassificationCondition
+  targetName: classificationCondition
   targetDescription: Condition contributing to the classification of this phenomenon.

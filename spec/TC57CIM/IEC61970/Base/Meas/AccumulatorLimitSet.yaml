@@ -6,16 +6,16 @@ associations:
 - source: AccumulatorLimitSet
   target: AccumulatorLimit
   sourceCardinality: "1"
-  sourceName: LimitSet
+  sourceName: limitSet
   sourceDescription: The set of limits.
   targetCardinality: 1..*
-  targetName: Limits
+  targetName: limits
   targetDescription: The limit values used for supervision of Measurements.
 - source: AccumulatorLimitSet
   target: Accumulator
   sourceCardinality: 0..*
-  sourceName: LimitSets
+  sourceName: limitSets
   sourceDescription: A measurement may have zero or more limit ranges defined for it.
   targetCardinality: 0..*
-  targetName: Measurements
+  targetName: measurements
   targetDescription: The Measurements using the LimitSet.

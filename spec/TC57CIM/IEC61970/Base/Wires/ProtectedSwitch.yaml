@@ -14,16 +14,16 @@ associations:
 - source: ProtectedSwitch
   target: ProtectionEquipment
   sourceCardinality: 0..*
-  sourceName: ProtectedSwitches
+  sourceName: protectedSwitches
   sourceDescription: Protected switches operated by this ProtectionEquipment.
   targetCardinality: 0..*
-  targetName: OperatedByProtectionEquipment
+  targetName: operatedByProtectionEquipment
   targetDescription: Protection equipments that operate this ProtectedSwitch.
 - source: ProtectedSwitch
   target: RecloseSequence
   sourceCardinality: "1"
-  sourceName: ProtectedSwitch
+  sourceName: protectedSwitch
   sourceDescription: A breaker may have zero or more automatic reclosures after a trip occurs.
   targetCardinality: 0..*
-  targetName: RecloseSequences
+  targetName: recloseSequences
   targetDescription: A breaker may have zero or more automatic reclosures after a trip occurs.

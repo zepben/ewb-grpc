@@ -7,23 +7,23 @@ associations:
 - source: Loop
   target: Substation
   sourceCardinality: 0..*
-  sourceName: EnergizedLoops
+  sourceName: energizedLoops
   sourceDescription: \[ZBEX\] The loops that are energizing this substation.
   targetCardinality: 0..*
-  targetName: EnergizingSubstations
+  targetName: energizingSubstations
   targetDescription: \[ZBEX\] Substations that are energized by this loop.
 - source: Loop
   target: Substation
   sourceCardinality: 0..*
-  sourceName: Loops
+  sourceName: loops
   targetCardinality: 0..*
-  targetName: Substations
+  targetName: substations
   targetDescription: \[ZBEX\] The substations that normally energize this loop.
 - source: Loop
   target: Circuit
   sourceCardinality: 0..1
-  sourceName: Loop
+  sourceName: loop
   sourceDescription: \[ZBEX\] The loop containing this circuit.
   targetCardinality: 0..*
-  targetName: Circuits
+  targetName: circuits
   targetDescription: \[ZBEX\] Sub-transmission circuits that form part of this loop.

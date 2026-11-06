@@ -15,40 +15,40 @@ associations:
 - source: Meter
   target: MeterReading
   sourceCardinality: 0..1
-  sourceName: Meter
+  sourceName: meter
   sourceDescription: Meter providing this reading.
   targetCardinality: 0..*
-  targetName: MeterReadings
+  targetName: meterReadings
   targetDescription: All meter readings provided by this meter.
 - source: Meter
   target: MeterMultiplier
   sourceCardinality: 0..1
-  sourceName: Meter
+  sourceName: meter
   sourceDescription: Meter applying this multiplier.
   targetCardinality: 0..*
-  targetName: MeterMultipliers
+  targetName: meterMultipliers
   targetDescription: All multipliers applied at this meter.
 - source: Meter
   target: MeterWorkTask
   sourceCardinality: 0..1
-  sourceName: Meter
+  sourceName: meter
   sourceDescription: Meter on which this non-replacement work task is performed.
   targetCardinality: 0..*
-  targetName: MeterServiceWorkTask
+  targetName: meterServiceWorkTask
   targetDescription: All non-replacement work tasks on this meter.
 - source: Meter
   target: Transaction
   sourceCardinality: 0..1
-  sourceName: Meter
+  sourceName: meter
   sourceDescription: Meter for this vending transaction.
   targetCardinality: 0..*
-  targetName: VendingTransactions
+  targetName: vendingTransactions
   targetDescription: All vending transactions on this meter.
 - source: Meter
   target: MeterWorkTask
   sourceCardinality: 0..1
-  sourceName: OldMeter
+  sourceName: oldMeter
   sourceDescription: Old meter replaced by this work task.
   targetCardinality: 0..*
-  targetName: MeterReplacementWorkTasks
+  targetName: meterReplacementWorkTasks
   targetDescription: All work tasks on replacement of this old meter.
