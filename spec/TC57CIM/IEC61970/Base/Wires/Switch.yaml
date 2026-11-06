@@ -46,26 +46,26 @@ associations:
 - source: Switch
   target: SwitchPhase
   sourceCardinality: "1"
-  sourceName: Switch
+  sourceName: switch
   sourceDescription: The switch of the switch phase.
   targetCardinality: 0..*
-  targetName: SwitchPhase
+  targetName: switchPhase
   targetDescription: The individual switch phases for the switch.
 - source: Switch
   target: SwitchSchedule
   sourceCardinality: "1"
-  sourceName: Switch
+  sourceName: switch
   sourceDescription: A SwitchSchedule is associated with a Switch.
   targetCardinality: 0..*
-  targetName: SwitchSchedules
+  targetName: switchSchedules
   targetDescription: A Switch can be associated with SwitchSchedules.
 - source: Switch
   target: CompositeSwitch
   sourceCardinality: 0..*
-  sourceName: Switches
+  sourceName: switches
   sourceDescription: Switches contained in this Composite switch.
   targetCardinality: 0..1
-  targetName: CompositeSwitch
+  targetName: compositeSwitch
   targetDescription: Composite switch to which this Switch belongs.
 - source: Switch
   target: UnavailabilitySwitchAction
@@ -74,22 +74,22 @@ associations:
 - source: Switch
   target: SvSwitch
   sourceCardinality: "1"
-  sourceName: Switch
+  sourceName: switch
   sourceDescription: The switch associated with the switch state.
   targetCardinality: 0..*
-  targetName: SvSwitch
+  targetName: svSwitch
   targetDescription: The switch state associated with the switch.
 - source: Switch
   target: ConnectDisconnectFunction
   sourceCardinality: 0..*
-  sourceName: Switches
+  sourceName: switches
   targetCardinality: 0..*
-  targetName: ConnectDisconnectFunctions
+  targetName: connectDisconnectFunctions
 - source: Switch
   target: SwitchAction
   sourceCardinality: 0..1
-  sourceName: OperatedSwitch
+  sourceName: operatedSwitch
   sourceDescription: Switch that is the object of this switch action.
   targetCardinality: 0..1
-  targetName: SwitchAction
+  targetName: switchAction
   targetDescription: Action changing status of this switch.

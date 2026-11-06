@@ -10,24 +10,24 @@ associations:
 - source: Project
   target: Project
   sourceCardinality: 0..1
-  sourceName: ParentProject
+  sourceName: parentProject
   targetCardinality: 0..*
-  targetName: SubProjects
+  targetName: subProjects
 - source: Project
   target: ErpProjectAccounting
   sourceCardinality: 0..*
-  sourceName: Projects
+  sourceName: projects
   targetCardinality: "1"
-  targetName: ErpProjectAccounting
+  targetName: erpProjectAccounting
 - source: Project
   target: BusinessCase
   sourceCardinality: 0..*
-  sourceName: Projects
+  sourceName: projects
   targetCardinality: 0..1
-  targetName: BusinessCase
+  targetName: businessCase
 - source: Project
   target: Work
   sourceCardinality: 0..1
-  sourceName: Project
+  sourceName: project
   targetCardinality: 0..*
-  targetName: Works
+  targetName: works

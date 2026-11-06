@@ -46,41 +46,41 @@ associations:
 - source: TransformerEndInfo
   target: TransformerStarImpedance
   sourceCardinality: 0..1
-  sourceName: TransformerEndInfo
+  sourceName: transformerEndInfo
   sourceDescription: Transformer end datasheet used to calculate this transformer star impedance.
   targetCardinality: 0..1
-  targetName: TransformerStarImpedance
+  targetName: transformerStarImpedance
   targetDescription: Transformer star impedance calculated from this transformer end datasheet.
 - source: TransformerEndInfo
   target: TransformerTankInfo
   targetCardinality: 0..1
-  targetName: TransformerTankInfo
+  targetName: transformerTankInfo
   targetDescription: Transformer tank data that this end description is part of.
 - source: TransformerEndInfo
   target: NoLoadTest
   targetCardinality: 0..1
-  targetName: EnergisedEndNoLoadTests
+  targetName: energisedEndNoLoadTests
   targetDescription: All no-load test measurements in which this transformer end was energised.
 - source: TransformerEndInfo
   target: OpenCircuitTest
   sourceCardinality: 0..1
-  sourceName: OpenEnd
+  sourceName: openEnd
   sourceDescription: Transformer end measured for induced voltage and angle in this open-circuit test.
   targetCardinality: 0..1
-  targetName: OpenEndOpenCircuitTests
+  targetName: openEndOpenCircuitTests
   targetDescription: All open-circuit test measurements in which this transformer end was not excited.
 - source: TransformerEndInfo
   target: OpenCircuitTest
   targetCardinality: 0..1
-  targetName: EnergisedEndOpenCircuitTests
+  targetName: energisedEndOpenCircuitTests
   targetDescription: All open-circuit test measurements in which this transformer end was excited.
 - source: TransformerEndInfo
   target: ShortCircuitTest
   targetCardinality: 0..1
-  targetName: GroundedEndShortCircuitTests
+  targetName: groundedEndShortCircuitTests
   targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
 - source: TransformerEndInfo
   target: ShortCircuitTest
   targetCardinality: 0..1
-  targetName: EnergisedEndShortCircuitTests
+  targetName: energisedEndShortCircuitTests
   targetDescription: All short-circuit test measurements in which this transformer end was energised.

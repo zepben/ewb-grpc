@@ -8,26 +8,26 @@ associations:
 - source: ConnectivityNode
   target: TopologicalNode
   sourceCardinality: 0..*
-  sourceName: ConnectivityNodes
+  sourceName: connectivityNodes
   sourceDescription: The connectivity nodes combine together to form this topological node.  May depend on the current state
     of switches in the network.
   targetCardinality: 0..1
-  targetName: TopologicalNode
+  targetName: topologicalNode
   targetDescription: The topological node to which this connectivity node is assigned.  May depend on the current state of
     switches in the network.
 - source: ConnectivityNode
   target: ConnectivityNodeContainer
   sourceCardinality: 0..*
-  sourceName: ConnectivityNodes
+  sourceName: connectivityNodes
   sourceDescription: Connectivity nodes which belong to this connectivity node container.
   targetCardinality: "1"
-  targetName: ConnectivityNodeContainer
+  targetName: connectivityNodeContainer
   targetDescription: Container of this connectivity node.
 - source: ConnectivityNode
   target: Terminal
   sourceCardinality: 0..1
-  sourceName: ConnectivityNode
+  sourceName: connectivityNode
   sourceDescription: The connectivity node to which this terminal connects with zero impedance.
   targetCardinality: 0..*
-  targetName: Terminals
+  targetName: terminals
   targetDescription: Terminals interconnected with zero impedance at a this connectivity node.

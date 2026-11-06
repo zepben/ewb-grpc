@@ -41,32 +41,32 @@ associations:
 - source: HydroPowerPlant
   target: HydroPump
   sourceCardinality: 0..1
-  sourceName: HydroPowerPlant
+  sourceName: hydroPowerPlant
   sourceDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
   targetCardinality: 0..*
-  targetName: HydroPumps
+  targetName: hydroPumps
   targetDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
 - source: HydroPowerPlant
   target: Reservoir
   sourceCardinality: 0..*
-  sourceName: HydroPowerPlants
+  sourceName: hydroPowerPlants
   sourceDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
   targetCardinality: 0..1
-  targetName: Reservoir
+  targetName: reservoir
   targetDescription: Generators discharge water to or pumps are supplied water from a downstream reservoir.
 - source: HydroPowerPlant
   target: Reservoir
   sourceCardinality: 0..*
-  sourceName: UpstreamFromHydroPowerPlants
+  sourceName: upstreamFromHydroPowerPlants
   sourceDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
   targetCardinality: "1"
-  targetName: GenSourcePumpDischargeReservoir
+  targetName: genSourcePumpDischargeReservoir
   targetDescription: Generators are supplied water from or pumps discharge water to an upstream reservoir.
 - source: HydroPowerPlant
   target: HydroGeneratingUnit
   sourceCardinality: 0..1
-  sourceName: HydroPowerPlant
+  sourceName: hydroPowerPlant
   sourceDescription: The hydro generating unit belongs to a hydro power plant.
   targetCardinality: 0..*
-  targetName: HydroGeneratingUnits
+  targetName: hydroGeneratingUnits
   targetDescription: The hydro generating unit belongs to a hydro power plant.

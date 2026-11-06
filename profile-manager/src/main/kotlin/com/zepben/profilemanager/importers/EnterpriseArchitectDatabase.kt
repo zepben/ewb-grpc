@@ -60,10 +60,10 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
                 startNode.name,
                 endNode.name,
                 sourceCardinality,
-                sourceRole,
+                sourceRole.replaceFirstChar { it.lowercase() }, // Convert PascalCase to camelCase
                 sourceDescription,
                 endCardinality,
-                endRole,
+                endRole.replaceFirstChar { it.lowercase() }, // Convert PascalCase to camelCase
                 endDescription
             )
 

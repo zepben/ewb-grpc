@@ -9,24 +9,24 @@ associations:
 - source: EnvironmentalLocationType
   target: Location
   sourceCardinality: 0..*
-  sourceName: EnvironmentalLocationKind
+  sourceName: environmentalLocationKind
   sourceDescription: Kind of environmental location which this location is.
   targetCardinality: 0..1
-  targetName: Location
+  targetName: location
   targetDescription: Location of this instance of ths kind of environmental location.
 - source: EnvironmentalLocationType
   target: EnvironmentalAlert
   sourceCardinality: 1..*
-  sourceName: EnvironmentalLocationKind
+  sourceName: environmentalLocationKind
   sourceDescription: Type of location to which this environmental alert applies.
   targetCardinality: 0..*
-  targetName: EnvironmentalAlert
+  targetName: environmentalAlert
   targetDescription: Environmental alert applying to location of this type.
 - source: EnvironmentalLocationType
   target: EnvironmentalPhenomenon
   sourceCardinality: 0..*
-  sourceName: EnvironmentalLocationKind
+  sourceName: environmentalLocationKind
   sourceDescription: Location of relevance to this environmental phenomenon.
   targetCardinality: 0..*
-  targetName: EnvironmentalPhenomenon
+  targetName: environmentalPhenomenon
   targetDescription: Environmental phenomenon for which this location is of relevance.

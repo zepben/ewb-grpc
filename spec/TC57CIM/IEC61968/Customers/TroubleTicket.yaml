@@ -28,50 +28,50 @@ associations:
 - source: TroubleTicket
   target: IncidentHazard
   sourceCardinality: 0..1
-  sourceName: TroubleTicket
+  sourceName: troubleTicket
   sourceDescription: Trouble ticket associated with this hazard.
   targetCardinality: 0..*
-  targetName: IncidentHazard
+  targetName: incidentHazard
   targetDescription: All hazards reported with this trouble ticket.
 - source: TroubleTicket
   target: Customer
   sourceCardinality: 0..*
-  sourceName: TroubleTickets
+  sourceName: troubleTickets
   sourceDescription: All trouble tickets for this customer.
   targetCardinality: 0..1
-  targetName: Customer
+  targetName: customer
   targetDescription: Customer for whom this trouble ticket is relevant.
 - source: TroubleTicket
   target: Incident
   sourceCardinality: 0..*
-  sourceName: TroubleTickets
+  sourceName: troubleTickets
   sourceDescription: All trouble tickets reporting this incident.
   targetCardinality: 0..1
-  targetName: Incident
+  targetName: incident
   targetDescription: Incident reported in this trouble ticket
 - source: TroubleTicket
   target: ServiceLocation
   sourceCardinality: 0..*
-  sourceName: TroubleTicket
+  sourceName: troubleTicket
   targetCardinality: "1"
-  targetName: ServiceLocation
+  targetName: serviceLocation
 - source: TroubleTicket
   target: CustomerNotification
   sourceCardinality: 0..*
-  sourceName: TroubleTickets
+  sourceName: troubleTickets
   sourceDescription: All trouble tickets with this notification.
   targetCardinality: 0..*
-  targetName: Notification
+  targetName: notification
   targetDescription: Notification for this trouble ticket.
 - source: TroubleTicket
   target: UnplannedOutage
   sourceCardinality: 0..*
-  sourceName: TroubleTicket
+  sourceName: troubleTicket
   targetCardinality: 0..1
-  targetName: UnplannedOutage
+  targetName: unplannedOutage
 - source: TroubleTicket
   target: TroubleOrder
   sourceCardinality: 0..*
-  sourceName: TroubleTicket
+  sourceName: troubleTicket
   targetCardinality: 0..1
-  targetName: TroubleOrder
+  targetName: troubleOrder

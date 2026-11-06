@@ -19,30 +19,30 @@ associations:
 - source: ServiceLocation
   target: EndDevice
   sourceCardinality: 0..1
-  sourceName: ServiceLocation
+  sourceName: serviceLocation
   sourceDescription: Service location whose service delivery is measured by this end device.
   targetCardinality: 0..*
-  targetName: EndDevices
+  targetName: endDevices
   targetDescription: All end devices that measure the service delivered to this service location.
 - source: ServiceLocation
   target: UsagePoint
   sourceCardinality: 0..1
-  sourceName: ServiceLocation
+  sourceName: serviceLocation
   sourceDescription: Service location where the service delivered by this usage point is consumed.
   targetCardinality: 0..*
-  targetName: UsagePoints
+  targetName: usagePoints
   targetDescription: All usage points delivering service (of the same type) to this service location.
 - source: ServiceLocation
   target: TroubleTicket
   sourceCardinality: "1"
-  sourceName: ServiceLocation
+  sourceName: serviceLocation
   targetCardinality: 0..*
-  targetName: TroubleTicket
+  targetName: troubleTicket
 - source: ServiceLocation
   target: CustomerAgreement
   sourceCardinality: 0..*
-  sourceName: ServiceLocations
+  sourceName: serviceLocations
   sourceDescription: All service locations regulated by this customer agreement.
   targetCardinality: 0..*
-  targetName: CustomerAgreements
+  targetName: customerAgreements
   targetDescription: All customer agreements regulating this service location.

@@ -8,28 +8,28 @@ associations:
 - source: ServicePoint
   target: TransmissionPath
   sourceCardinality: "1"
-  sourceName: PointOfReceipt
+  sourceName: pointOfReceipt
   sourceDescription: A transmission path has a "point-of-receipt" service point
   targetCardinality: 0..*
-  targetName: PORTransmissionPath
+  targetName: pORTransmissionPath
   targetDescription: A transmission path has a "point-of-receipt" service point
 - source: ServicePoint
   target: TransmissionPath
   sourceCardinality: "1"
-  sourceName: DeliveryPoint
+  sourceName: deliveryPoint
   sourceDescription: A transmission path has a "point-of-delivery" service point
   targetCardinality: 0..*
-  targetName: PODTransmissionPath
+  targetName: pODTransmissionPath
   targetDescription: A transmission path has a "point-of-delivery" service point
 - source: ServicePoint
   target: TransmissionReservation
   sourceCardinality: 0..1
-  sourceName: Source
+  sourceName: source
   targetCardinality: 0..*
-  targetName: SourceReservation
+  targetName: sourceReservation
 - source: ServicePoint
   target: TransmissionReservation
   sourceCardinality: 0..1
-  sourceName: Sink
+  sourceName: sink
   targetCardinality: 0..*
-  targetName: SinkReservation
+  targetName: sinkReservation

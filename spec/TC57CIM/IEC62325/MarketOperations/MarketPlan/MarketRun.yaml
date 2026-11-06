@@ -37,24 +37,24 @@ associations:
 - source: MarketRun
   target: Market
   sourceCardinality: 0..*
-  sourceName: MarketRun
+  sourceName: marketRun
   targetCardinality: "1"
-  targetName: Market
+  targetName: market
 - source: MarketRun
   target: PlannedMarket
   sourceCardinality: 0..*
-  sourceName: MarketRun
+  sourceName: marketRun
   sourceDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
   targetCardinality: "1"
-  targetName: PlannedMarket
+  targetName: plannedMarket
   targetDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
 - source: MarketRun
   target: MarketActualEvent
   sourceCardinality: 0..1
-  sourceName: MarketRun
+  sourceName: marketRun
   sourceDescription: Market run triggered by this actual event. For example, the DA market run is triggered by the actual
     open bid submission event and terminated by the actual execution and completion of the DA market run captured by the runState
     of the MarketRun.
   targetCardinality: 1..*
-  targetName: MarketActualEvent
+  targetName: marketActualEvent
   targetDescription: All actual events that trigger this market run.

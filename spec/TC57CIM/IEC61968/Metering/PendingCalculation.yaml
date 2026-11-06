@@ -26,17 +26,17 @@ associations:
 - source: PendingCalculation
   target: ReadingType
   sourceCardinality: 0..1
-  sourceName: PendingCalculation
+  sourceName: pendingCalculation
   sourceDescription: Pending calculation that produced this reading type.
   targetCardinality: "1"
-  targetName: ReadingType
+  targetName: readingType
   targetDescription: Reading type resulting from this pending conversion.
 - source: PendingCalculation
   target: IntervalBlock
   sourceCardinality: 0..1
-  sourceName: PendingCalculation
+  sourceName: pendingCalculation
   sourceDescription: Pending calculation to apply to interval reading values contained by this block (after which the resulting
     reading type is different than the original because it reflects the conversion result).
   targetCardinality: 0..*
-  targetName: IntervalBlocks
+  targetName: intervalBlocks
   targetDescription: All blocks of interval reading values to which this pending conversion applies.

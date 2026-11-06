@@ -17,32 +17,32 @@ associations:
 - source: VendorShift
   target: Transaction
   sourceCardinality: 0..1
-  sourceName: VendorShift
+  sourceName: vendorShift
   sourceDescription: Vendor shift during which this transaction was recorded.
   targetCardinality: 0..*
-  targetName: Transactions
+  targetName: transactions
   targetDescription: All transactions recorded during this vendor shift.
 - source: VendorShift
   target: Receipt
   sourceCardinality: 0..1
-  sourceName: VendorShift
+  sourceName: vendorShift
   sourceDescription: Vendor shift during which this receipt was recorded.
   targetCardinality: 0..*
-  targetName: Receipts
+  targetName: receipts
   targetDescription: All receipts recorded during this vendor shift.
 - source: VendorShift
   target: Vendor
   sourceCardinality: 0..*
-  sourceName: VendorShifts
+  sourceName: vendorShifts
   sourceDescription: All vendor shifts opened and owned by this vendor.
   targetCardinality: 0..1
-  targetName: Vendor
+  targetName: vendor
   targetDescription: Vendor that opens and owns this vendor shift.
 - source: VendorShift
   target: MerchantAccount
   sourceCardinality: 0..*
-  sourceName: VendorShifts
+  sourceName: vendorShifts
   sourceDescription: All vendor shifts that operate on this merchant account.
   targetCardinality: 0..1
-  targetName: MerchantAccount
+  targetName: merchantAccount
   targetDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).

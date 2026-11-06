@@ -23,24 +23,24 @@ associations:
 - source: CostType
   target: CostType
   sourceCardinality: 0..1
-  sourceName: ParentCostType
+  sourceName: parentCostType
   targetCardinality: 0..*
-  targetName: ChildCostTypes
+  targetName: childCostTypes
 - source: CostType
   target: WorkCostDetail
   sourceCardinality: "1"
-  sourceName: CostType
+  sourceName: costType
   targetCardinality: 0..*
-  targetName: WorkCostDetails
+  targetName: workCostDetails
 - source: CostType
   target: ErpJournalEntry
   sourceCardinality: 0..*
-  sourceName: CostTypes
+  sourceName: costTypes
   targetCardinality: 0..*
-  targetName: ErpJournalEntries
+  targetName: erpJournalEntries
 - source: CostType
   target: CompatibleUnit
   sourceCardinality: 0..1
-  sourceName: CostType
+  sourceName: costType
   targetCardinality: 0..*
-  targetName: CompatibleUnits
+  targetName: compatibleUnits

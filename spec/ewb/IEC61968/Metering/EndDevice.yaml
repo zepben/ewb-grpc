@@ -11,23 +11,23 @@ associations:
 - source: EndDevice
   target: UsagePoint
   sourceCardinality: 0..*
-  sourceName: EndDevices
+  sourceName: endDevices
   sourceDescription: All end devices at this usage point.
   targetCardinality: 0..*
-  targetName: UsagePoints
+  targetName: usagePoints
   targetDescription: Usage point to which this end device belongs.
 - source: EndDevice
   target: Customer
   targetCardinality: 0..1
-  targetName: Customer
+  targetName: customer
   targetDescription: Customer owning this end device.
 - source: EndDevice
   target: Location
   targetCardinality: 0..1
-  targetName: Location
+  targetName: location
   targetDescription: Service location whose service delivery is measured by this end device.
 - source: EndDevice
   target: EndDeviceFunction
   targetCardinality: 0..*
-  targetName: EndDeviceFunctions
+  targetName: endDeviceFunctions
   targetDescription: All end device functions this end device performs.

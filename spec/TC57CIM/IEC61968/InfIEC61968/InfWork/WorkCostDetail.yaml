@@ -18,66 +18,66 @@ associations:
 - source: WorkCostDetail
   target: WorkCostSummary
   sourceCardinality: 0..1
-  sourceName: WorkCostDetail
+  sourceName: workCostDetail
   targetCardinality: 0..1
-  targetName: WorkCostSummary
+  targetName: workCostSummary
 - source: WorkCostDetail
   target: ErpProjectAccounting
   sourceCardinality: 0..*
-  sourceName: WorkCostDetails
+  sourceName: workCostDetails
   targetCardinality: "1"
-  targetName: ErpProjectAccounting
+  targetName: erpProjectAccounting
 - source: WorkCostDetail
   target: PropertyUnit
   sourceCardinality: 0..*
-  sourceName: WorkCostDetails
+  sourceName: workCostDetails
   targetCardinality: 0..*
-  targetName: PropertyUnits
+  targetName: propertyUnits
 - source: WorkCostDetail
   target: OldWorkTask
   sourceCardinality: 0..*
-  sourceName: WorkCostDetails
+  sourceName: workCostDetails
   targetCardinality: 0..1
-  targetName: WorkTask
+  targetName: workTask
 - source: WorkCostDetail
   target: ContractorItem
   sourceCardinality: "1"
-  sourceName: WorkCostDetail
+  sourceName: workCostDetail
   targetCardinality: 0..*
-  targetName: ContractorItems
+  targetName: contractorItems
 - source: WorkCostDetail
   target: Work
   sourceCardinality: 0..*
-  sourceName: WorkCostDetails
+  sourceName: workCostDetails
   targetCardinality: 0..*
-  targetName: Works
+  targetName: works
 - source: WorkCostDetail
   target: OverheadCost
   sourceCardinality: 0..*
-  sourceName: WorkCostDetails
+  sourceName: workCostDetails
   targetCardinality: 0..1
-  targetName: OverheadCost
+  targetName: overheadCost
 - source: WorkCostDetail
   target: MiscCostItem
   sourceCardinality: 0..1
-  sourceName: WorkCostDetail
+  sourceName: workCostDetail
   targetCardinality: 0..*
-  targetName: MiscCostItems
+  targetName: miscCostItems
 - source: WorkCostDetail
   target: LaborItem
   sourceCardinality: "1"
-  sourceName: WorkCostDetail
+  sourceName: workCostDetail
   targetCardinality: 0..*
-  targetName: LaborItems
+  targetName: laborItems
 - source: WorkCostDetail
   target: Design
   sourceCardinality: 0..*
-  sourceName: WorkCostDetails
+  sourceName: workCostDetails
   targetCardinality: 0..1
-  targetName: Design
+  targetName: design
 - source: WorkCostDetail
   target: CostType
   sourceCardinality: 0..*
-  sourceName: WorkCostDetails
+  sourceName: workCostDetails
   targetCardinality: "1"
-  targetName: CostType
+  targetName: costType

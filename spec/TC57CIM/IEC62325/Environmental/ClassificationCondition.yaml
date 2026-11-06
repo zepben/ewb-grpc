@@ -13,24 +13,24 @@ associations:
 - source: ClassificationCondition
   target: PhenomenonClassification
   sourceCardinality: 0..*
-  sourceName: ClassificationCondition
+  sourceName: classificationCondition
   sourceDescription: Condition contributing to the classification of this phenomenon.
   targetCardinality: 0..1
-  targetName: PhenomenonClassification
+  targetName: phenomenonClassification
   targetDescription: Phenomenon classification to which this condition relates.
 - source: ClassificationCondition
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
-  sourceName: ClassificationCondition
+  sourceName: classificationCondition
   sourceDescription: Classification condition which this analog helps define.
   targetCardinality: 0..*
-  targetName: EnvironmentalAnalog
+  targetName: environmentalAnalog
   targetDescription: Analog which contributes to the definition of this classification condition.
 - source: ClassificationCondition
   target: EnvironmentalStringMeasurement
   sourceCardinality: 0..1
-  sourceName: ClassificationCondition
+  sourceName: classificationCondition
   sourceDescription: Classification condition which this string measurement helps define.
   targetCardinality: 0..*
-  targetName: EnvironmentalStringMeasurement
+  targetName: environmentalStringMeasurement
   targetDescription: String measurement which contributes to the definition of this classification condition.
