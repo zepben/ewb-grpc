@@ -9,32 +9,32 @@ associations:
 - source: ErpQuoteLineItem
   target: ErpReqLineItem
   sourceCardinality: 0..1
-  sourceName: ErpQuoteLineItem
+  sourceName: erpQuoteLineItem
   targetCardinality: 0..1
-  targetName: ErpReqLineItem
+  targetName: erpReqLineItem
 - source: ErpQuoteLineItem
   target: ErpQuote
   sourceCardinality: 0..*
-  sourceName: ErpQuoteLineItems
+  sourceName: erpQuoteLineItems
   targetCardinality: "1"
-  targetName: ErpQuote
+  targetName: erpQuote
 - source: ErpQuoteLineItem
   target: ErpInvoiceLineItem
   sourceCardinality: 0..1
-  sourceName: ErpQuoteLineItem
+  sourceName: erpQuoteLineItem
   targetCardinality: 0..1
-  targetName: ErpInvoiceLineItem
+  targetName: erpInvoiceLineItem
   targetDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
     a payment. An invoice is required for this to occur.
 - source: ErpQuoteLineItem
   target: Design
   sourceCardinality: 0..1
-  sourceName: ErpQuoteLineItem
+  sourceName: erpQuoteLineItem
   targetCardinality: 0..1
-  targetName: Design
+  targetName: design
 - source: ErpQuoteLineItem
   target: AssetModelCatalogueItem
   sourceCardinality: 0..*
-  sourceName: ErpQuoteLineItems
+  sourceName: erpQuoteLineItems
   targetCardinality: 0..1
-  targetName: AssetModelCatalogueItem
+  targetName: assetModelCatalogueItem

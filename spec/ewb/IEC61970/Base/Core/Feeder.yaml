@@ -9,45 +9,45 @@ associations:
   target: Terminal
   sourceCardinality: 0..1
   targetCardinality: 0..1
-  targetName: NormalHeadTerminal
+  targetName: normalHeadTerminal
   targetDescription: The normal head terminal or terminals of the feeder.
 - source: Feeder
   target: Substation
   sourceCardinality: 0..*
-  sourceName: Feeders
+  sourceName: feeders
   sourceDescription: The zone substation that is normally energizing this feeder.
   targetCardinality: 0..1
-  targetName: NormalEnergizingSubstation
+  targetName: normalEnergizingSubstation
   targetDescription: The substation that normally energizes this feeder.
 - source: Feeder
   target: LvFeeder
   sourceCardinality: 0..1
-  sourceName: NormalEnergizingFeeders
+  sourceName: normalEnergizingFeeders
   sourceDescription: The HV/MV feeders that energize the LV feeder.
   targetCardinality: 0..*
-  targetName: NormalEnergizedLvFeeders
+  targetName: normalEnergizedLvFeeders
   targetDescription: \[ZBEX\] The LV feeders that are normally energized by this feeder.
 - source: Feeder
   target: LvFeeder
   sourceCardinality: 0..1
-  sourceName: CurrentEnergizingFeeders
+  sourceName: currentEnergizingFeeders
   sourceDescription: The HV/MV feeders that energize the LV feeder in the current state of the network.
   targetCardinality: 0..*
-  targetName: CurrentlyEnergizedLvFeeders
+  targetName: currentlyEnergizedLvFeeders
   targetDescription: \[ZBEX\] The LV feeders that are currently energized by this feeder.
 - source: Feeder
   target: LvSubstation
   sourceCardinality: 0..1
-  sourceName: NormalEnergizingFeeders
+  sourceName: normalEnergizingFeeders
   sourceDescription: \[ZBEX\] The HV/MV feeders that energize the LV feeder.
   targetCardinality: 0..*
-  targetName: NormalEnergizedLvSubstations
+  targetName: normalEnergizedLvSubstations
   targetDescription: \[ZBEX\] The normal energized LvSubstations of the feeder. Also used for naming purposes.
 - source: Feeder
   target: LvSubstation
   sourceCardinality: 0..1
-  sourceName: CurrentEnergizingFeeders
+  sourceName: currentEnergizingFeeders
   sourceDescription: \[ZBEX\] The HV/MV feeders that energize the LV feeder in the current state of the network.
   targetCardinality: 0..*
-  targetName: CurrentlyEnergizedLvSubstations
+  targetName: currentlyEnergizedLvSubstations
   targetDescription: \[ZBEX\] The current energized LvSubstations of the feeder. Also used for naming purposes.

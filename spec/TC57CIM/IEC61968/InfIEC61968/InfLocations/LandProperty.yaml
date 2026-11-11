@@ -20,47 +20,47 @@ associations:
 - source: LandProperty
   target: LocationGrant
   sourceCardinality: 0..1
-  sourceName: LandProperty
+  sourceName: landProperty
   sourceDescription: Land property this location grant applies to.
   targetCardinality: 0..*
-  targetName: LocationGrants
+  targetName: locationGrants
   targetDescription: All location grants this land property has.
 - source: LandProperty
   target: ErpSiteLevelData
   sourceCardinality: 0..1
-  sourceName: LandProperty
+  sourceName: landProperty
   targetCardinality: 0..*
-  targetName: ErpSiteLevelDatas
+  targetName: erpSiteLevelDatas
 - source: LandProperty
   target: PropertyOrganisationRole
   sourceCardinality: 1..
-  sourceName: LandProperty
+  sourceName: landProperty
   targetCardinality: 0..*
-  targetName: ErpOrganisationRoles
+  targetName: erpOrganisationRoles
 - source: LandProperty
   target: PersonPropertyRole
   sourceCardinality: "1"
-  sourceName: LandProperty
+  sourceName: landProperty
   targetCardinality: 0..*
-  targetName: ErpPersonRoles
+  targetName: erpPersonRoles
 - source: LandProperty
   target: AssetContainer
   sourceCardinality: 0..*
-  sourceName: LandProperties
+  sourceName: landProperties
   targetCardinality: 0..*
-  targetName: AssetContainers
+  targetName: assetContainers
 - source: LandProperty
   target: Location
   sourceCardinality: 0..*
-  sourceName: LandProperties
+  sourceName: landProperties
   targetCardinality: 0..*
-  targetName: Locations
+  targetName: locations
   targetDescription: The spatail description of a piece of property.
 - source: LandProperty
   target: RightOfWay
   sourceCardinality: 0..*
-  sourceName: LandProperties
+  sourceName: landProperties
   sourceDescription: All land properties this right of way applies to.
   targetCardinality: 0..*
-  targetName: RightOfWays
+  targetName: rightOfWays
   targetDescription: All rights of way this land property has.

@@ -6,32 +6,32 @@ associations:
 - source: ReportingGroup
   target: ReportingSuperGroup
   sourceCardinality: 0..*
-  sourceName: ReportingGroup
+  sourceName: reportingGroup
   sourceDescription: Reporting groups that are grouped under this super group.
   targetCardinality: 0..1
-  targetName: ReportingSuperGroup
+  targetName: reportingSuperGroup
   targetDescription: Reporting super group to which this reporting group belongs.
 - source: ReportingGroup
   target: PowerSystemResource
   sourceCardinality: 0..*
-  sourceName: ReportingGroup
+  sourceName: reportingGroup
   sourceDescription: Reporting groups to which this power system resource belongs.
   targetCardinality: 0..*
-  targetName: PowerSystemResource
+  targetName: powerSystemResource
   targetDescription: Power system resources which belong to this reporting group.
 - source: ReportingGroup
   target: BusNameMarker
   sourceCardinality: 0..1
-  sourceName: ReportingGroup
+  sourceName: reportingGroup
   sourceDescription: The reporting group to which this bus name marker belongs.
   targetCardinality: 0..*
-  targetName: BusNameMarker
+  targetName: busNameMarker
   targetDescription: The bus name markers that belong to this reporting group.
 - source: ReportingGroup
   target: TopologicalNode
   sourceCardinality: 0..1
-  sourceName: ReportingGroup
+  sourceName: reportingGroup
   sourceDescription: The reporting group to which the topological node belongs.
   targetCardinality: 0..*
-  targetName: TopologicalNode
+  targetName: topologicalNode
   targetDescription: The topological nodes that belong to the reporting group.

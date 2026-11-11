@@ -13,22 +13,22 @@ associations:
 - source: AssetContainer
   target: Seal
   sourceCardinality: 0..1
-  sourceName: AssetContainer
+  sourceName: assetContainer
   sourceDescription: Asset container to which this seal is applied.
   targetCardinality: 0..*
-  targetName: Seals
+  targetName: seals
   targetDescription: All seals applied to this asset container.
 - source: AssetContainer
   target: LandProperty
   sourceCardinality: 0..*
-  sourceName: AssetContainers
+  sourceName: assetContainers
   targetCardinality: 0..*
-  targetName: LandProperties
+  targetName: landProperties
 - source: AssetContainer
   target: Asset
   sourceCardinality: 0..1
-  sourceName: AssetContainer
+  sourceName: assetContainer
   sourceDescription: Container of this asset.
   targetCardinality: 0..*
-  targetName: Assets
+  targetName: assets
   targetDescription: All assets within this container asset.

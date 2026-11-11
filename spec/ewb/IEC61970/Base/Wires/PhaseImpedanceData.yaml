@@ -6,19 +6,19 @@ attributes:
 - name: b
   type: Double
   nullable: true
-  description: Susceptance matrix element value, ohms per length of unit.
+  description: Susceptance matrix element value, siemens per metre.
 - name: r
   type: Double
   nullable: true
-  description: Resistance matrix element value, ohms per length of unit.
+  description: Resistance matrix element value, ohms per metre.
 - name: x
   type: Double
   nullable: true
-  description: Reactance matrix element value, ohms per length of unit.
+  description: Reactance matrix element value, ohms per metre.
 - name: g
   type: Double
   nullable: true
-  description: Conductance matrix element value, siemens per length of unit.
+  description: Conductance matrix element value, siemens per metre.
 - name: fromPhase
   type: SinglePhaseKind
   nullable: false
@@ -31,8 +31,8 @@ associations:
 - source: PhaseImpedanceData
   target: PerLengthPhaseImpedance
   sourceCardinality: 0..*
-  sourceName: PhaseImpedanceData
+  sourceName: phaseImpedanceData
   sourceDescription: All data that belong to this conductor phase impedance.
   targetCardinality: 0..1
-  targetName: PhaseImpedance
+  targetName: phaseImpedance
   targetDescription: Conductor phase impedance to which this data belongs.

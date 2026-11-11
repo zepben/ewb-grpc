@@ -15,16 +15,16 @@ associations:
 - source: PlannedMarketEvent
   target: PlannedMarket
   sourceCardinality: 1..*
-  sourceName: PlannedMarketEvent
+  sourceName: plannedMarketEvent
   sourceDescription: A planned market shall have a set of planned events
   targetCardinality: 0..*
-  targetName: PlannedMarket
+  targetName: plannedMarket
   targetDescription: A planned market shall have a set of planned events
 - source: PlannedMarketEvent
   target: MarketActualEvent
   sourceCardinality: 0..1
-  sourceName: PlannedMarketEvent
+  sourceName: plannedMarketEvent
   sourceDescription: Planned event executed by this actual event.
   targetCardinality: 1..*
-  targetName: MarketActualEvent
+  targetName: marketActualEvent
   targetDescription: All actual events that execute this planned event.

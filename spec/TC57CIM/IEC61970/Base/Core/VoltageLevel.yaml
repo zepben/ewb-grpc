@@ -18,24 +18,24 @@ associations:
 - source: VoltageLevel
   target: Bay
   sourceCardinality: 0..1
-  sourceName: VoltageLevel
+  sourceName: voltageLevel
   sourceDescription: The voltage level containing this bay.
   targetCardinality: 0..*
-  targetName: Bays
+  targetName: bays
   targetDescription: The bays within this voltage level.
 - source: VoltageLevel
   target: BaseVoltage
   sourceCardinality: 0..*
-  sourceName: VoltageLevel
+  sourceName: voltageLevel
   sourceDescription: The voltage levels having this base voltage.
   targetCardinality: "1"
-  targetName: BaseVoltage
+  targetName: baseVoltage
   targetDescription: The base voltage used for all equipment within the voltage level.
 - source: VoltageLevel
   target: Substation
   sourceCardinality: 0..*
-  sourceName: VoltageLevels
+  sourceName: voltageLevels
   sourceDescription: The voltage levels within this substation.
   targetCardinality: "1"
-  targetName: Substation
+  targetName: substation
   targetDescription: The substation of the voltage level.

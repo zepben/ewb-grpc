@@ -10,32 +10,32 @@ associations:
 - source: ValueAliasSet
   target: ValueToAlias
   sourceCardinality: "1"
-  sourceName: ValueAliasSet
+  sourceName: valueAliasSet
   sourceDescription: The ValueAliasSet having the ValueToAlias mappings.
   targetCardinality: 1..*
-  targetName: Values
+  targetName: values
   targetDescription: The ValueToAlias mappings included in the set.
 - source: ValueAliasSet
   target: Discrete
   sourceCardinality: 0..1
-  sourceName: ValueAliasSet
+  sourceName: valueAliasSet
   sourceDescription: The ValueAliasSet used for translation of a MeasurementValue.value to a name.
   targetCardinality: 0..*
-  targetName: Discretes
+  targetName: discretes
   targetDescription: The Measurements using the set for translation.
 - source: ValueAliasSet
   target: Command
   sourceCardinality: 0..1
-  sourceName: ValueAliasSet
+  sourceName: valueAliasSet
   sourceDescription: The ValueAliasSet used for translation of a Control value to a name.
   targetCardinality: 0..*
-  targetName: Commands
+  targetName: commands
   targetDescription: The Commands using the set for translation.
 - source: ValueAliasSet
   target: RaiseLowerCommand
   sourceCardinality: 0..1
-  sourceName: ValueAliasSet
+  sourceName: valueAliasSet
   sourceDescription: The ValueAliasSet used for translation of a Control value to a name.
   targetCardinality: 0..*
-  targetName: RaiseLowerCommands
+  targetName: raiseLowerCommands
   targetDescription: The Commands using the set for translation.

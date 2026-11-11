@@ -21,36 +21,36 @@ associations:
 - source: EnvironmentalMonitoringStation
   target: Location
   sourceCardinality: 0..*
-  sourceName: EnvironmentalMonitoringStation
+  sourceName: environmentalMonitoringStation
   sourceDescription: Monitoring station located at this location.
   targetCardinality: 0..1
-  targetName: Location
+  targetName: location
   targetDescription: Location of this monitoring station.
 - source: EnvironmentalMonitoringStation
   target: UsagePoint
   sourceCardinality: 0..1
-  sourceName: EnvironmentalMonitoringStation
+  sourceName: environmentalMonitoringStation
   targetCardinality: 0..*
-  targetName: UsagePoint
+  targetName: usagePoint
 - source: EnvironmentalMonitoringStation
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
-  sourceName: EnvironmentalMonitoringStation
+  sourceName: environmentalMonitoringStation
   sourceDescription: Monitoring station which provides this environmental analog measurement.
   targetCardinality: 0..*
-  targetName: EnvironmentalAnalog
+  targetName: environmentalAnalog
   targetDescription: Environmental analog measurement provided by this monitoring station.
 - source: EnvironmentalMonitoringStation
   target: TimeSeries
   sourceCardinality: 0..*
-  sourceName: EnvironmentalMonitoringStation
+  sourceName: environmentalMonitoringStation
   targetCardinality: 0..*
-  targetName: TimeSeries
+  targetName: timeSeries
 - source: EnvironmentalMonitoringStation
   target: ReportingCapability
   sourceCardinality: "1"
-  sourceName: EnvironmentalMonitoringStation
+  sourceName: environmentalMonitoringStation
   sourceDescription: The environmental monitoring station to which this set of reporting capabilities belong.
   targetCardinality: 0..*
-  targetName: ReportingCapability
+  targetName: reportingCapability
   targetDescription: One of the reporting capabilities of this monitoring station.

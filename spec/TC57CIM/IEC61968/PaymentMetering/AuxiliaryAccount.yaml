@@ -24,24 +24,24 @@ associations:
 - source: AuxiliaryAccount
   target: Transaction
   sourceCardinality: 0..1
-  sourceName: AuxiliaryAccount
+  sourceName: auxiliaryAccount
   sourceDescription: Auxiliary account for this payment transaction.
   targetCardinality: 0..*
-  targetName: PaymentTransactions
+  targetName: paymentTransactions
   targetDescription: All payments against this account.
 - source: AuxiliaryAccount
   target: Charge
   sourceCardinality: 0..*
-  sourceName: AuxiliaryAccounts
+  sourceName: auxiliaryAccounts
   sourceDescription: All auxiliary accounts to which this charge has to be levied.
   targetCardinality: 0..*
-  targetName: Charges
+  targetName: charges
   targetDescription: All charges levied on this account.
 - source: AuxiliaryAccount
   target: AuxiliaryAgreement
   sourceCardinality: 1..*
-  sourceName: AuxiliaryAccounts
+  sourceName: auxiliaryAccounts
   sourceDescription: All auxiliary accounts regulated by this agreement.
   targetCardinality: 0..1
-  targetName: AuxiliaryAgreement
+  targetName: auxiliaryAgreement
   targetDescription: Auxiliary agreement regulating this account.

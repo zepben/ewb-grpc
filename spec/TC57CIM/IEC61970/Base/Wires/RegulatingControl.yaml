@@ -57,33 +57,33 @@ associations:
 - source: RegulatingControl
   target: RegulatingCondEq
   sourceCardinality: 0..1
-  sourceName: RegulatingControl
+  sourceName: regulatingControl
   sourceDescription: The regulating control scheme in which this equipment participates.
   targetCardinality: 1..*
-  targetName: RegulatingCondEq
+  targetName: regulatingCondEq
   targetDescription: The equipment that participates in this regulating control scheme.
 - source: RegulatingControl
   target: RegulationSchedule
   sourceCardinality: "1"
-  sourceName: RegulatingControl
+  sourceName: regulatingControl
   sourceDescription: Regulating controls that have this schedule.
   targetCardinality: 0..*
-  targetName: RegulationSchedule
+  targetName: regulationSchedule
   targetDescription: Schedule for this regulating control.
 - source: RegulatingControl
   target: Terminal
   sourceCardinality: 0..*
-  sourceName: RegulatingControl
+  sourceName: regulatingControl
   sourceDescription: The controls regulating this terminal.
   targetCardinality: 0..1
-  targetName: Terminal
+  targetName: terminal
   targetDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node,
     since the terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model
     regulation at a terminal of a bus bar object.
 - source: RegulatingControl
   target: ProtectiveActionRegulation
   sourceCardinality: "1"
-  sourceName: RegulatingControl
+  sourceName: regulatingControl
   targetCardinality: 0..*
-  targetName: ProtectiveActionRegulation
+  targetName: protectiveActionRegulation
   targetDescription: Enable/disable a regulating control or set new target value.

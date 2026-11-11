@@ -20,32 +20,32 @@ associations:
 - source: AnalyticScore
   target: Asset
   sourceCardinality: 0..*
-  sourceName: AnalyticScore
+  sourceName: analyticScore
   sourceDescription: Analytic result related to this asset.
   targetCardinality: 0..1
-  targetName: Asset
+  targetName: asset
   targetDescription: Asset to which this analytic score applies.
 - source: AnalyticScore
   target: AssetGroup
   sourceCardinality: 0..*
-  sourceName: AnalyticScore
+  sourceName: analyticScore
   sourceDescription: Analytic score for this asset group.
   targetCardinality: 0..1
-  targetName: AssetGroup
+  targetName: assetGroup
   targetDescription: Asset group to which this analytic score applies..
 - source: AnalyticScore
   target: AggregateScore
   sourceCardinality: 1..*
-  sourceName: AnalyticScore
+  sourceName: analyticScore
   sourceDescription: Analytic score contributing to this aggregate score.
   targetCardinality: 0..1
-  targetName: AssetAggregateScore
+  targetName: assetAggregateScore
   targetDescription: Aggregate score to which this analytic score contributed.
 - source: AnalyticScore
   target: Analytic
   sourceCardinality: 0..*
-  sourceName: AnalyticScore
+  sourceName: analyticScore
   sourceDescription: Analytic score produced by this analytic.
   targetCardinality: 0..1
-  targetName: Analytic
+  targetName: analytic
   targetDescription: Analytic which was executed to arrive at this analytic score..

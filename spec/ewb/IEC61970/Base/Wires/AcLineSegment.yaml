@@ -9,28 +9,28 @@ associations:
 - source: AcLineSegment
   target: Clamp
   sourceCardinality: 0..1
-  sourceName: AcLineSegment
+  sourceName: acLineSegment
   sourceDescription: The line segment to which the clamp is connected.
   targetCardinality: 0..*
-  targetName: Clamp
+  targetName: clamp
   targetDescription: The clamps connected to the line segment.
 - source: AcLineSegment
   target: PerLengthImpedance
   targetCardinality: 0..1
-  targetName: PerLengthImpedance
+  targetName: perLengthImpedance
   targetDescription: Per-length impedance of this line segment.
 - source: AcLineSegment
   target: Cut
   sourceCardinality: 0..1
-  sourceName: AcLineSegment
+  sourceName: acLineSegment
   sourceDescription: The line segment to which the cut is applied.
   targetCardinality: 0..*
-  targetName: Cut
+  targetName: cut
   targetDescription: Cuts applied to the line segment.
 - source: AcLineSegment
   target: AcLineSegmentPhase
   sourceCardinality: "1"
-  sourceName: AcLineSegment
+  sourceName: acLineSegment
   sourceDescription: The line segment to which the phase belongs.
   targetCardinality: 0..*
   targetName: phases

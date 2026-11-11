@@ -17,32 +17,32 @@ associations:
 - source: Charge
   target: Charge
   sourceCardinality: 0..1
-  sourceName: ParentCharge
+  sourceName: parentCharge
   sourceDescription: Parent of this charge sub-component.
   targetCardinality: 0..*
-  targetName: ChildCharges
+  targetName: childCharges
   targetDescription: All sub-components of this complex charge.
 - source: Charge
   target: ConsumptionTariffInterval
   sourceCardinality: 0..*
-  sourceName: Charges
+  sourceName: charges
   sourceDescription: All charges used to define this consumption tariff interval.
   targetCardinality: 0..*
-  targetName: ConsumptionTariffIntervals
+  targetName: consumptionTariffIntervals
   targetDescription: Tariff intervals to which this consumption-based charge has to be levied.
 - source: Charge
   target: TimeTariffInterval
   sourceCardinality: 0..*
-  sourceName: Charges
+  sourceName: charges
   sourceDescription: All charges used to define this time tariff interval.
   targetCardinality: 0..*
-  targetName: TimeTariffIntervals
+  targetName: timeTariffIntervals
   targetDescription: Tariff intervals to which this time-based charge has to be levied.
 - source: Charge
   target: AuxiliaryAccount
   sourceCardinality: 0..*
-  sourceName: Charges
+  sourceName: charges
   sourceDescription: All charges levied on this account.
   targetCardinality: 0..*
-  targetName: AuxiliaryAccounts
+  targetName: auxiliaryAccounts
   targetDescription: All auxiliary accounts to which this charge has to be levied.

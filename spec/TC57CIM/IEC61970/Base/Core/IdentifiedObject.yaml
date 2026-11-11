@@ -313,41 +313,41 @@ associations:
 - source: IdentifiedObject
   target: DiagramObject
   sourceCardinality: 0..1
-  sourceName: IdentifiedObject
+  sourceName: identifiedObject
   sourceDescription: The domain object to which this diagram object is associated.
   targetCardinality: 0..*
-  targetName: DiagramObjects
+  targetName: diagramObjects
   targetDescription: The diagram objects that are associated with the domain object.
 - source: IdentifiedObject
   target: InstanceSet
   sourceCardinality: 0..*
-  sourceName: InstanceSetMember
+  sourceName: instanceSetMember
   sourceDescription: Data objects contained in the dataset.
   targetCardinality: "1"
-  targetName: InstanceSet
+  targetName: instanceSet
   targetDescription: Dataset containing the data objects.
 - source: IdentifiedObject
   target: Name
   sourceCardinality: "1"
-  sourceName: IdentifiedObject
+  sourceName: identifiedObject
   sourceDescription: Identified object that this name designates.
   targetCardinality: 0..*
-  targetName: Names
+  targetName: names
   targetDescription: All names of this identified object.
 - source: IdentifiedObject
   target: ChangeSetMember
   sourceCardinality: 0..1
-  sourceName: PropertiesObject
+  sourceName: propertiesObject
   sourceDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
     and only the reference to the registered object is required.
   targetCardinality: 0..1
-  targetName: PropertiesCIMDataObject
+  targetName: propertiesCIMDataObject
   targetDescription: The single CIM data object in the appropriate dataset context.
 - source: IdentifiedObject
   target: ChangeSetMember
   sourceCardinality: "1"
-  sourceName: TargetObject
+  sourceName: targetObject
   sourceDescription: The registered CIM object.
   targetCardinality: 0..*
-  targetName: TargetingCIMDataObject
+  targetName: targetingCIMDataObject
   targetDescription: Data objects registered.

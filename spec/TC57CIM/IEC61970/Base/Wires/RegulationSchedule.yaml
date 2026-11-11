@@ -6,16 +6,16 @@ associations:
 - source: RegulationSchedule
   target: RegulatingControl
   sourceCardinality: 0..*
-  sourceName: RegulationSchedule
+  sourceName: regulationSchedule
   sourceDescription: Schedule for this regulating control.
   targetCardinality: "1"
-  targetName: RegulatingControl
+  targetName: regulatingControl
   targetDescription: Regulating controls that have this schedule.
 - source: RegulationSchedule
   target: VoltageControlZone
   sourceCardinality: 0..1
-  sourceName: RegulationSchedule
+  sourceName: regulationSchedule
   sourceDescription: A VoltageControlZone may have a  voltage regulation schedule.
   targetCardinality: 0..*
-  targetName: VoltageControlZones
+  targetName: voltageControlZones
   targetDescription: A VoltageControlZone may have a  voltage regulation schedule.

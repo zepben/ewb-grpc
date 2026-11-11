@@ -37,46 +37,46 @@ associations:
 - source: ProductAssetModel
   target: AssetModelCatalogueItem
   sourceCardinality: 0..1
-  sourceName: AssetModel
+  sourceName: assetModel
   targetCardinality: 0..*
-  targetName: AssetModelCatalogueItems
+  targetName: assetModelCatalogueItems
 - source: ProductAssetModel
   target: CatalogAssetType
   sourceCardinality: 0..*
-  sourceName: ProductAssetModel
+  sourceName: productAssetModel
   sourceDescription: Product asset model conforming to this catalog asset type.
   targetCardinality: 0..1
-  targetName: CatalogAssetType
+  targetName: catalogAssetType
   targetDescription: Catalog asset type to which this product asset model conforms.
 - source: ProductAssetModel
   target: Manufacturer
   sourceCardinality: 0..*
-  sourceName: ProductAssetModels
+  sourceName: productAssetModels
   sourceDescription: All asset models by this manufacturer.
   targetCardinality: 0..1
-  targetName: Manufacturer
+  targetName: manufacturer
   targetDescription: Manufacturer of this asset model.
 - source: ProductAssetModel
   target: AssetInfo
   sourceCardinality: 0..1
-  sourceName: ProductAssetModel
+  sourceName: productAssetModel
   sourceDescription: Product asset model which conforms to this catalog asset type.
   targetCardinality: 0..1
-  targetName: AssetInfo
+  targetName: assetInfo
   targetDescription: Asset information (nameplate) for this product asset model.
 - source: ProductAssetModel
   target: Asset
   sourceCardinality: 0..1
-  sourceName: ProductAssetModel
+  sourceName: productAssetModel
   sourceDescription: The model of this asset.
   targetCardinality: 0..*
-  targetName: Asset
+  targetName: asset
   targetDescription: An asset of this model.
 - source: ProductAssetModel
   target: OperationalRestriction
   sourceCardinality: 0..1
-  sourceName: ProductAssetModel
+  sourceName: productAssetModel
   sourceDescription: Asset model to which this restriction applies.
   targetCardinality: 0..*
-  targetName: OperationalRestrictions
+  targetName: operationalRestrictions
   targetDescription: All operational restrictions applying to this asset model.

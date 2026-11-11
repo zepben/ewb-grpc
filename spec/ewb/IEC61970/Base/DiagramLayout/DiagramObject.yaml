@@ -19,19 +19,19 @@ associations:
 - source: DiagramObject
   target: Diagram
   sourceCardinality: 0..*
-  sourceName: DiagramElements
+  sourceName: diagramElements
   sourceDescription: A diagram is made up of multiple diagram objects.
   targetCardinality: 0..1
-  targetName: Diagram
+  targetName: diagram
   targetDescription: A diagram object is part of a diagram.
 - source: DiagramObject
   target: DiagramObjectPoint
   targetCardinality: 0..*
-  targetName: DiagramObjectPoints
+  targetName: diagramObjectPoints
   targetDescription: A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or
     boundary (for polygons).
 - source: DiagramObject
   target: IdentifiedObject
   targetCardinality: 0..1
-  targetName: IdentifiedObject
+  targetName: identifiedObject
   targetDescription: The domain object to which this diagram object is associated.

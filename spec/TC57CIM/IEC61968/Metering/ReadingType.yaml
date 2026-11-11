@@ -72,48 +72,48 @@ associations:
 - source: ReadingType
   target: Channel
   sourceCardinality: 0..1
-  sourceName: ReadingType
+  sourceName: readingType
   sourceDescription: Reading type for register values reported/collected by this channel.
   targetCardinality: 0..1
-  targetName: Channel
+  targetName: channel
   targetDescription: Channel reporting/collecting register values with this type information.
 - source: ReadingType
   target: ConsumptionTariffInterval
   sourceCardinality: 0..1
-  sourceName: ReadingType
+  sourceName: readingType
   sourceDescription: Reading type for 'startValue'.
   targetCardinality: 0..*
-  targetName: ConsumptionTariffIntervals
+  targetName: consumptionTariffIntervals
   targetDescription: All tariff intervals with consumption described by this reading type.
 - source: ReadingType
   target: Reading
   sourceCardinality: "1"
-  sourceName: ReadingType
+  sourceName: readingType
   sourceDescription: Type information for this reading value.
   targetCardinality: 0..*
-  targetName: Readings
+  targetName: readings
   targetDescription: All reading values with this type information.
 - source: ReadingType
   target: PendingCalculation
   sourceCardinality: "1"
-  sourceName: ReadingType
+  sourceName: readingType
   sourceDescription: Reading type resulting from this pending conversion.
   targetCardinality: 0..1
-  targetName: PendingCalculation
+  targetName: pendingCalculation
   targetDescription: Pending calculation that produced this reading type.
 - source: ReadingType
   target: MetrologyRequirement
   sourceCardinality: 1..*
-  sourceName: ReadingTypes
+  sourceName: readingTypes
   sourceDescription: All reading types required to be collected by this metrology requirement.
   targetCardinality: 0..*
-  targetName: MetrologyRequirements
+  targetName: metrologyRequirements
   targetDescription: All metrology requirements that require this reading type to be collected.
 - source: ReadingType
   target: IntervalBlock
   sourceCardinality: 0..1
-  sourceName: ReadingType
+  sourceName: readingType
   sourceDescription: Type information for interval reading values contained in this block.
   targetCardinality: 0..*
-  targetName: IntervalBlocks
+  targetName: intervalBlocks
   targetDescription: All blocks containing interval reading values with this type information.

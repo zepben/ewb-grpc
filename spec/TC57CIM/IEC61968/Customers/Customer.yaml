@@ -29,73 +29,73 @@ associations:
 - source: Customer
   target: EndDevice
   sourceCardinality: 0..1
-  sourceName: Customer
+  sourceName: customer
   sourceDescription: Customer owning this end device.
   targetCardinality: 0..*
-  targetName: EndDevices
+  targetName: endDevices
   targetDescription: All end devices of this customer.
 - source: Customer
   target: Customer
-  sourceName: Customer
+  sourceName: customer
   targetCardinality: 0..*
-  targetName: Customer
+  targetName: customer
 - source: Customer
   target: CustomerAccount
   sourceCardinality: "1"
-  sourceName: Customer
+  sourceName: customer
   sourceDescription: Customer owning this account.
   targetCardinality: 0..*
-  targetName: CustomerAccounts
+  targetName: customerAccounts
   targetDescription: All accounts of this customer.
 - source: Customer
   target: CustomerAgreement
   sourceCardinality: "1"
-  sourceName: Customer
+  sourceName: customer
   sourceDescription: Customer for this agreement.
   targetCardinality: 0..*
-  targetName: CustomerAgreements
+  targetName: customerAgreements
   targetDescription: All agreements of this customer.
 - source: Customer
   target: OldPerson
   sourceCardinality: 0..1
-  sourceName: CustomerData
+  sourceName: customerData
   targetCardinality: 0..*
-  targetName: ErpPersons
+  targetName: erpPersons
 - source: Customer
   target: Work
   sourceCardinality: 0..*
-  sourceName: Customers
+  sourceName: customers
   sourceDescription: All the customers for which this work is performed.
   targetCardinality: 0..*
-  targetName: Works
+  targetName: works
   targetDescription: All the works performed for this customer.
 - source: Customer
   target: OutagePlan
   sourceCardinality: 0..*
-  sourceName: Customer
+  sourceName: customer
   sourceDescription: The customers that are affected by this planned outage.
   targetCardinality: 0..1
-  targetName: OutagePlan
+  targetName: outagePlan
   targetDescription: The outage plan that identifies the customers that are affected.
 - source: Customer
   target: TroubleTicket
   sourceCardinality: 0..1
-  sourceName: Customer
+  sourceName: customer
   sourceDescription: Customer for whom this trouble ticket is relevant.
   targetCardinality: 0..*
-  targetName: TroubleTickets
+  targetName: troubleTickets
   targetDescription: All trouble tickets for this customer.
 - source: Customer
   target: CustomerNotification
   sourceCardinality: 0..1
-  sourceName: Customer
+  sourceName: customer
   sourceDescription: Customer requiring this notification.
   targetCardinality: 0..*
-  targetName: CustomerNotifications
+  targetName: customerNotifications
   targetDescription: All notifications required by this customer.
 - source: Customer
   target: PlannedOutageNotification
   sourceCardinality: 0..*
-  sourceName: Customer
+  sourceName: customer
   targetCardinality: 0..*
-  targetName: PlannedOutageNotification
+  targetName: plannedOutageNotification

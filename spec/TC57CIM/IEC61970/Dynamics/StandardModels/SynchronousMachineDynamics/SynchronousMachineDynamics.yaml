@@ -19,59 +19,59 @@ associations:
 - source: SynchronousMachineDynamics
   target: SynchronousMachine
   sourceCardinality: 0..1
-  sourceName: SynchronousMachineDynamics
+  sourceName: synchronousMachineDynamics
   sourceDescription: Synchronous machine dynamics model used to describe dynamic behaviour of this synchronous machine.
   targetCardinality: "1"
-  targetName: SynchronousMachine
+  targetName: synchronousMachine
   targetDescription: Synchronous machine to which synchronous machine dynamics model applies.
 - source: SynchronousMachineDynamics
   target: TurbineGovernorDynamics
   sourceCardinality: 0..1
-  sourceName: SynchronousMachineDynamics
+  sourceName: synchronousMachineDynamics
   sourceDescription: Synchronous machine model with which this turbine-governor model is associated. TurbineGovernorDynamics
     shall have either an association to SynchronousMachineDynamics or to AsynchronousMachineDynamics.
   targetCardinality: 0..*
-  targetName: TurbineGovernorDynamics
+  targetName: turbineGovernorDynamics
   targetDescription: Turbine-governor model associated with this synchronous machine model. Multiplicity of greater than one
     is intended to support hydro units that have multiple turbines on one generator.
 - source: SynchronousMachineDynamics
   target: GenICompensationForGenJ
   sourceCardinality: "1"
-  sourceName: SynchronousMachineDynamics
+  sourceName: synchronousMachineDynamics
   sourceDescription: Standard synchronous machine out of which current flow is being compensated for.
   targetCardinality: 0..*
-  targetName: GenICompensationForGenJ
+  targetName: genICompensationForGenJ
   targetDescription: Compensation of voltage compensator's generator for current flow out of this  generator.
 - source: SynchronousMachineDynamics
   target: ExcitationSystemDynamics
   sourceCardinality: "1"
-  sourceName: SynchronousMachineDynamics
+  sourceName: synchronousMachineDynamics
   sourceDescription: Synchronous machine model with which this excitation system model is associated.
   targetCardinality: 0..1
-  targetName: ExcitationSystemDynamics
+  targetName: excitationSystemDynamics
   targetDescription: Excitation system model associated with this synchronous machine model.
 - source: SynchronousMachineDynamics
   target: CrossCompoundTurbineGovernorDynamics
   sourceCardinality: "1"
-  sourceName: LowPressureSynchronousMachineDynamics
+  sourceName: lowPressureSynchronousMachineDynamics
   sourceDescription: Low-pressure synchronous machine with which this cross-compound turbine governor is associated.
   targetCardinality: 0..1
-  targetName: CrossCompoundTurbineGovernorDynamics
+  targetName: crossCompoundTurbineGovernorDynamics
   targetDescription: The cross-compound turbine governor with which this low-pressure synchronous machine is associated.
 - source: SynchronousMachineDynamics
   target: CrossCompoundTurbineGovernorDynamics
   sourceCardinality: "1"
-  sourceName: HighPressureSynchronousMachineDynamics
+  sourceName: highPressureSynchronousMachineDynamics
   sourceDescription: High-pressure synchronous machine with which this cross-compound turbine governor is associated.
   targetCardinality: 0..1
-  targetName: CrossCompoundTurbineGovernorDyanmics
+  targetName: crossCompoundTurbineGovernorDyanmics
   targetDescription: The cross-compound turbine governor with which this high-pressure synchronous machine is associated.
 - source: SynchronousMachineDynamics
   target: MechanicalLoadDynamics
   sourceCardinality: 0..1
-  sourceName: SynchronousMachineDynamics
+  sourceName: synchronousMachineDynamics
   sourceDescription: Synchronous machine model with which this mechanical load model is associated. MechanicalLoadDynamics
     shall have either an association to SynchronousMachineDynamics or AsynchronousMachineDyanmics.
   targetCardinality: 0..1
-  targetName: MechanicalLoadDynamics
+  targetName: mechanicalLoadDynamics
   targetDescription: Mechanical load model associated with this synchronous machine model.

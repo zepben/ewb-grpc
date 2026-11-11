@@ -29,24 +29,24 @@ associations:
 - source: TransformerEnd
   target: TransformerStarImpedance
   targetCardinality: 0..1
-  targetName: StarImpedance
+  targetName: starImpedance
   targetDescription: (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention,
     for a two winding transformer, the full values of the transformer should be entered on the high voltage end (endNumber=1).
 - source: TransformerEnd
   target: RatioTapChanger
   sourceCardinality: 0..1
-  sourceName: TransformerEnd
+  sourceName: transformerEnd
   sourceDescription: Transformer end to which this ratio tap changer belongs.
   targetCardinality: 0..1
-  targetName: RatioTapChanger
+  targetName: ratioTapChanger
   targetDescription: Ratio tap changer associated with this transformer end.
 - source: TransformerEnd
   target: BaseVoltage
   targetCardinality: 0..1
-  targetName: BaseVoltage
+  targetName: baseVoltage
   targetDescription: Base voltage of the transformer end.  This is essential for PU calculation.
 - source: TransformerEnd
   target: Terminal
   targetCardinality: 0..1
-  targetName: Terminal
+  targetName: terminal
   targetDescription: Terminal of the power transformer to which this transformer end belongs.

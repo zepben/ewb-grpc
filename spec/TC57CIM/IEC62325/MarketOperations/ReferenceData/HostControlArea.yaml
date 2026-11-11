@@ -18,70 +18,70 @@ associations:
 - source: HostControlArea
   target: Flowgate
   sourceCardinality: 0..1
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: Flowgate
+  targetName: flowgate
 - source: HostControlArea
   target: AdjacentCASet
   sourceCardinality: 0..1
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..1
-  targetName: AdjacentCASet
+  targetName: adjacentCASet
 - source: HostControlArea
   target: CnodeDistributionFactor
   sourceCardinality: 0..1
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: CnodeDistributionFactor
+  targetName: cnodeDistributionFactor
 - source: HostControlArea
   target: ControlAreaOperator
   sourceCardinality: "1"
-  sourceName: ControlledBy
+  sourceName: controlledBy
   sourceDescription: A ControlAreaCompany controls a ControlArea.
   targetCardinality: "1"
-  targetName: Controls
+  targetName: controls
   targetDescription: A ControlAreaCompany controls a ControlArea.
 - source: HostControlArea
   target: LossClearingResults
   sourceCardinality: 0..1
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: LossClearingResults
+  targetName: lossClearingResults
 - source: HostControlArea
   target: SubControlArea
   sourceCardinality: "1"
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   sourceDescription: The interchange area  may operate as a control area
   targetCardinality: 0..*
-  targetName: SubControlAreas
+  targetName: subControlAreas
   targetDescription: The interchange area  may operate as a control area
 - source: HostControlArea
   target: BidSelfSched
   sourceCardinality: 0..1
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: BidSelfSched
+  targetName: bidSelfSched
 - source: HostControlArea
   target: SysLoadDistributionFactor
   sourceCardinality: "1"
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: SysLoadDistribuFactor
+  targetName: sysLoadDistribuFactor
 - source: HostControlArea
   target: TransferInterface
   sourceCardinality: 0..1
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: TransferInterface
+  targetName: transferInterface
 - source: HostControlArea
   target: RegisteredResource
   sourceCardinality: 0..1
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: RegisteredResource
+  targetName: registeredResource
 - source: HostControlArea
   target: RTO
   sourceCardinality: 0..*
-  sourceName: HostControlArea
+  sourceName: hostControlArea
   targetCardinality: "1"
-  targetName: RTO
+  targetName: rto

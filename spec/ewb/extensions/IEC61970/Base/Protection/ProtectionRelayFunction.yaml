@@ -44,29 +44,29 @@ associations:
 - source: ProtectionRelayFunction
   target: RelaySetting
   targetCardinality: 0..*
-  targetName: Thresholds
+  targetName: thresholds
   targetDescription: \[ZBEX\] The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
 - source: ProtectionRelayFunction
   target: ProtectedSwitch
   sourceCardinality: 0..*
-  sourceName: RelayFunctions
+  sourceName: relayFunctions
   sourceDescription: \[ZBEX\] The ProtectionRelayFunctions operating this ProtectedSwitch.
   targetCardinality: 0..*
-  targetName: ProtectedSwitches
+  targetName: protectedSwitches
   targetDescription: \[ZBEX\] The ProtectedSwitches operated by this ProtectionRelayFunction.
 - source: ProtectionRelayFunction
   target: Sensor
   sourceCardinality: 0..*
-  sourceName: RelayFunctions
+  sourceName: relayFunctions
   sourceDescription: \[ZBEX\] The relay functions influenced by this Sensor
   targetCardinality: 0..*
-  targetName: Sensors
+  targetName: sensors
   targetDescription: \[ZBEX\] The Sensors for this relay function.
 - source: ProtectionRelayFunction
   target: ProtectionRelayScheme
   sourceCardinality: 0..*
-  sourceName: Functions
+  sourceName: functions
   sourceDescription: \[ZBEX\] The functions operated as part of this protection scheme.
   targetCardinality: 0..*
-  targetName: Schemes
+  targetName: schemes
   targetDescription: \[ZBEX\] The schemes this function operates under.

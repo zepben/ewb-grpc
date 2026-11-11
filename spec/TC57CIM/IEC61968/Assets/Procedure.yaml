@@ -16,36 +16,36 @@ associations:
 - source: Procedure
   target: Measurement
   sourceCardinality: 0..*
-  sourceName: Procedures
+  sourceName: procedures
   sourceDescription: Measurements are specified in types of documents, such as procedures.
   targetCardinality: 0..*
-  targetName: Measurements
+  targetName: measurements
   targetDescription: Document containing this measurement.
 - source: Procedure
   target: ProcedureDataSet
   sourceCardinality: 0..1
-  sourceName: Procedure
+  sourceName: procedure
   sourceDescription: Procedure capturing this data set.
   targetCardinality: 0..*
-  targetName: ProcedureDataSets
+  targetName: procedureDataSets
   targetDescription: All data sets captured by this procedure.
 - source: Procedure
   target: Limit
   sourceCardinality: 0..*
-  sourceName: Procedures
+  sourceName: procedures
   targetCardinality: 0..*
-  targetName: Limits
+  targetName: limits
 - source: Procedure
   target: Asset
   sourceCardinality: 0..*
-  sourceName: Procedures
+  sourceName: procedures
   sourceDescription: All procedures applicable to this asset.
   targetCardinality: 0..*
-  targetName: Assets
+  targetName: assets
   targetDescription: All assets to which this procedure applies.
 - source: Procedure
   target: CompatibleUnit
   sourceCardinality: 0..*
-  sourceName: Procedures
+  sourceName: procedures
   targetCardinality: 0..*
-  targetName: CompatibleUnits
+  targetName: compatibleUnits
