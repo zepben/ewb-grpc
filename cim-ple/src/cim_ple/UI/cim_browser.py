@@ -7,21 +7,95 @@ from urllib.parse import urlparse
 
 import yaml
 from rich.text import Text
+from textual import events
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical, VerticalScroll
 from textual.suggester import SuggestFromList
-from textual.widgets import Footer, Header, Input, Markdown, Static, Tree
+from textual.widgets import Header, Input, Markdown, Static, Tree
 
 from cim_ple.main import EmptyMarksConfirm, FlushConfirm
 from cim_ple.ewb_yaml import write_ewb_spec
 from cim_ple.relationships import association_mode, relationship_is_bidirectional
 from cim_ple.models import Association, Attribute, ClassMarks, ClassSpec, PackageInfo, TreeEntry, clean_description
+from cim_ple.spec_diff import GitError, diff_spec_commits
 from cim_ple.spec_model import SpecModel
+from cim_ple.UI.add_zbex_field import AddZbexField
+from cim_ple.UI.diff_view import CommitPrompt, DiffOverlay
 from cim_ple.UI.mark_editor import MarkEditor
+
+
+class ContextFooter(Static):
+    """Footer presenting only the key bindings relevant to the current context."""
+
+    CSS = """
+    ContextFooter {
+        height: 1;
+        background: #161b22;
+        color: #8b949e;
+        border-top: solid #30363d;
+    }
+    """
+
+    def __init__(self) -> None:
+        super().__init__()
+        self._hint_text = ""
+
+    def on_mount(self) -> None:
+        self.refresh_hints()
+
+    @property
+    def hint_text(self) -> str:
+        """The hint line the footer last rendered."""
+
+        return self._hint_text
+
+    def refresh_hints(self) -> None:
+        hints = self._hints()
+        self._hint_text = "   ·   ".join(f"{keys} {label}" for keys, label in hints)
+        line = Text(no_wrap=True)
+        line.end = ""
+        for index, (keys, label) in enumerate(hints):
+            if index:
+                line.append("   ·   ", style="#3d444d")
+            line.append(keys, style="bold #58a6ff")
+            line.append(f" {label}", style="#8b949e")
+        self.update(line)
+
+    def _hints(self) -> list[tuple[str, str]]:
+        screen = self.app.screen
+        if isinstance(screen, DiffOverlay):
+            return [("q · Esc", "close panel")]
+        if isinstance(screen, CommitPrompt):
+            return [("Enter", "compare"), ("Esc", "cancel")]
+        if isinstance(screen, MarkEditor):
+            return [("Ctrl+Enter", "save"), ("Space", "toggle"), ("Tab", "move"), ("q · Esc", "cancel")]
+        if isinstance(screen, AddZbexField):
+            return [("Enter", "add"), ("Tab", "move"), ("q · Esc", "cancel")]
+        if isinstance(screen, (EmptyMarksConfirm, FlushConfirm)):
+            return [("Enter", "press"), ("Tab", "move"), ("q · Esc", "cancel")]
+
+        focused = screen.focused
+        if isinstance(focused, Input):
+            return [("Enter", "open class"), ("Esc", "clear search")]
+        if isinstance(focused, Tree) and focused.id == "saved-class-tree":
+            return [("j · k", "move"), ("d", "remove"), ("e", "edit"), ("w", "write specs"), ("c", "diff spec")]
+        if isinstance(focused, Tree):
+            return [
+                ("/", "search"),
+                ("j · k", "move"),
+                ("h · l", "collapse/expand"),
+                ("g · shift+G", "top/bottom"),
+                ("a", "save class"),
+                ("c", "diff spec"),
+                ("q", "quit"),
+            ]
+        return [("/", "search"), ("a", "save class"), ("c", "diff spec"), ("q", "quit")]
 
 
 class CimBrowser(App[None]):
     """Textual application presenting the CIM model as a navigable reference."""
+
+    DEFAULT_DIFF_BASE = "main"
 
     CSS = """
     Screen {
@@ -100,12 +174,6 @@ class CimBrowser(App[None]):
         background: #0d1117;
         color: #c9d1d9;
     }
-
-    Footer {
-        background: #161b22;
-        color: #8b949e;
-        border-top: solid #30363d;
-    }
     """
 
     BINDINGS = [
@@ -123,6 +191,7 @@ class CimBrowser(App[None]):
         ("d", "remove_highlighted_class", "Remove class"),
         ("e", "edit_highlighted_class", "Edit fields"),
         ("w", "confirm_flush", "Write specs"),
+        ("c", "diff_with_commit", "Diff spec"),
         ("q", "quit", "Quit"),
     ]
 
@@ -133,6 +202,7 @@ class CimBrowser(App[None]):
         self._saved_classes: list[ClassSpec] = []
         self._saved_class_paths: set[tuple[str, ...]] = set()
         self._class_marks: dict[tuple[str, ...], ClassMarks] = {}
+        self._context_footer = ContextFooter()
 
     def compose(self) -> ComposeResult:
         yield Header(show_clock=False)
@@ -154,7 +224,7 @@ class CimBrowser(App[None]):
                 saved_tree.root.expand()
                 saved_tree.root.allow_expand = False
                 yield saved_tree
-        yield Footer()
+        yield self._context_footer
 
     def on_mount(self) -> None:
         self.dark = True
@@ -173,6 +243,24 @@ class CimBrowser(App[None]):
                 severity="warning",
                 timeout=5,
             )
+
+    def push_screen(self, *args: Any, **kwargs: Any) -> None:
+        super().push_screen(*args, **kwargs)
+        self._refresh_footer()
+
+    def pop_screen(self, *args: Any, **kwargs: Any) -> Any:
+        result = super().pop_screen(*args, **kwargs)
+        self._refresh_footer()
+        return result
+
+    def on_descendant_focus(self, event: events.DescendantFocus) -> None:
+        self._refresh_footer()
+
+    def on_descendant_blur(self, event: events.DescendantBlur) -> None:
+        self._refresh_footer()
+
+    def _refresh_footer(self) -> None:
+        self.call_after_refresh(self._context_footer.refresh_hints)
 
     def _restore_saved_classes_from_git(self) -> int:
         """Rebuild saved nodes from changed/untracked EWB YAML files in Git."""
@@ -416,6 +504,7 @@ class CimBrowser(App[None]):
             search.value = ""
         else:
             self.screen.focused = None
+            self._refresh_footer()
 
     def _focused_tree(self) -> Tree | None:
         """Return the navigation tree only when it owns keyboard focus."""
@@ -512,6 +601,24 @@ class CimBrowser(App[None]):
             self.notify("There are no saved classes to write", severity="warning")
             return
         self.push_screen(FlushConfirm(len(self._saved_classes)), self._flush_if_confirmed)
+
+    def action_diff_with_commit(self) -> None:
+        """Compare the current commit's EWB spec files with an arbitrary commit."""
+
+        self.push_screen(CommitPrompt(self.DEFAULT_DIFF_BASE), self._show_spec_diff)
+
+    def _show_spec_diff(self, ref: str | None) -> None:
+        if ref is None:
+            return
+        try:
+            diff = diff_spec_commits(self.model.spec_directory.parent, ref)
+        except GitError as error:
+            self.notify(str(error), severity="error")
+            return
+        if diff.is_empty:
+            self.notify(f"No EWB spec changes between {diff.base} and {diff.head}")
+            return
+        self.push_screen(DiffOverlay(diff))
 
     def _flush_if_confirmed(self, confirmed: bool) -> None:
         if not confirmed:
