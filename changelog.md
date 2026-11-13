@@ -5,6 +5,7 @@
 
 ### New Features
 * Added a PoC for diagram extraction as a Python script. See its README for details on how to run it.
+* CIM-ple can compare the current commit's EWB spec files against any other commit (defaults to `main`) with the `c` shortcut, presenting a brief field-level diff in an overlay panel.
 
 ### Enhancements
 * The profile manager now supports EA databases in SQLite format.

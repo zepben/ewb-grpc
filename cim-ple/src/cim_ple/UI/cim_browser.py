@@ -16,12 +16,16 @@ from cim_ple.main import EmptyMarksConfirm, FlushConfirm
 from cim_ple.ewb_yaml import write_ewb_spec
 from cim_ple.relationships import association_mode, relationship_is_bidirectional
 from cim_ple.models import Association, Attribute, ClassMarks, ClassSpec, PackageInfo, TreeEntry, clean_description
+from cim_ple.spec_diff import GitError, diff_spec_commits
 from cim_ple.spec_model import SpecModel
+from cim_ple.UI.diff_view import CommitPrompt, DiffOverlay
 from cim_ple.UI.mark_editor import MarkEditor
 
 
 class CimBrowser(App[None]):
     """Textual application presenting the CIM model as a navigable reference."""
+
+    DEFAULT_DIFF_BASE = "main"
 
     CSS = """
     Screen {
@@ -123,6 +127,7 @@ class CimBrowser(App[None]):
         ("d", "remove_highlighted_class", "Remove class"),
         ("e", "edit_highlighted_class", "Edit fields"),
         ("w", "confirm_flush", "Write specs"),
+        ("c", "diff_with_commit", "Diff spec"),
         ("q", "quit", "Quit"),
     ]
 
@@ -512,6 +517,24 @@ class CimBrowser(App[None]):
             self.notify("There are no saved classes to write", severity="warning")
             return
         self.push_screen(FlushConfirm(len(self._saved_classes)), self._flush_if_confirmed)
+
+    def action_diff_with_commit(self) -> None:
+        """Compare the current commit's EWB spec files with an arbitrary commit."""
+
+        self.push_screen(CommitPrompt(self.DEFAULT_DIFF_BASE), self._show_spec_diff)
+
+    def _show_spec_diff(self, ref: str | None) -> None:
+        if ref is None:
+            return
+        try:
+            diff = diff_spec_commits(self.model.spec_directory.parent, ref)
+        except GitError as error:
+            self.notify(str(error), severity="error")
+            return
+        if diff.is_empty:
+            self.notify(f"No EWB spec changes between {diff.base} and {diff.head}")
+            return
+        self.push_screen(DiffOverlay(diff))
 
     def _flush_if_confirmed(self, confirmed: bool) -> None:
         if not confirmed:
