@@ -42,9 +42,7 @@ jobs:
 
           # Finalise version in python project file, don't commit
           /scripts/finalize-version.sh --python --no-commit python/pyproject.toml
-          # Sync and stage Dart before the java script commits the release
-          ./dart/sync-version.sh python/pyproject.toml dart/pubspec.yaml
-          git add dart/pubspec.yaml
+          /scripts/finalize-version.sh --dart --no-commit dart/pubspec.yaml
           # Finalise version in jvm project file, update changelog and commit to `release` branch
           /scripts/finalize-version.sh --java --maven java/pom.xml changelog.md
 
@@ -299,9 +297,7 @@ jobs:
         run: |
           # Update a new minor python version, don't commit
           /scripts/update-version.sh --python --no-commit python/pyproject.toml
-          # Sync and stage Dart before the java script commits the next version
-          ./dart/sync-version.sh python/pyproject.toml dart/pubspec.yaml
-          git add dart/pubspec.yaml
+          /scripts/update-version.sh --dart --no-commit dart/pubspec.yaml
           # Update a new minor java version, commit and fill changelog with the new template
           /scripts/update-version.sh --java --maven --grow-changelog java/pom.xml changelog.md
 

@@ -145,9 +145,7 @@ jobs:
           git pull origin $GITHUB_REF
           source /scripts/common.sh
           /scripts/update-version.sh --python --snapshot --no-commit python/pyproject.toml
-          # Include Dart in the snapshot version commit
-          ./dart/sync-version.sh python/pyproject.toml dart/pubspec.yaml
-          git add dart/pubspec.yaml
+          /scripts/update-version.sh --dart --snapshot --no-commit dart/pubspec.yaml
           /scripts/update-version.sh --java --snapshot --maven --no-commit java/pom.xml
           commit_update_version ${GITHUB_REF/refs\/heads\//}
         shell: bash
