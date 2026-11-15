@@ -76,3 +76,25 @@ jobs:
           pip install --cache-dir /pipcache -r requirements.txt
           python build.py --fullclean
           python build.py --package
+
+  dart-build:
+    needs: licence-and-protolock-check
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        sdk: ['3.8.3', stable]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+
+      - name: Install protoc
+        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler libprotobuf-dev
+
+      - name: Build
+        run: |
+          cd dart
+          ./build.sh
+          dart analyze --fatal-infos
