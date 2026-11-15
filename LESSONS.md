@@ -22,13 +22,14 @@ A very top level overview intended to give you a bump steer towards where you're
 based on the type of file you're working on. You'll usually start by editing/creating `.yaml`
 files in the `spec` directory, then move onto actually implementing what you've described in
 `proto`. Assuming you got all that right - (now is a great time to check with someone who's
-done this before) - you then probably want to edit the `python`, `java`, and `c` directory's.
+done this before) - you then probably want to edit the `python`, `java`, `dart`, and `c` directory's.
 
   ├─ spec: builds docs for the website  
   │    ├─ ewb: our implemented spec see [spec files](#spec-files-)  
   │    └─ TC57CIM: CIM100 spec  
   ├─ proto: [proto files](#proto-files-) that generate our protobuf classes  
   ├─ c:  
+  ├─ dart:  
   ├─ java:  
   └─ python:  
 

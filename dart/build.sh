@@ -24,5 +24,4 @@ protoc \
   --plugin="protoc-gen-dart=$plugin_dir/protoc-gen-dart" \
   --dart_out="grpc:lib" \
   -I../proto \
-  ${PROTOBUF_INCLUDE:+-I"$PROTOBUF_INCLUDE"} \
   $(find ../proto/zepben -name '*.proto' | sort)

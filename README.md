@@ -84,9 +84,6 @@ cd dart
 ./build.sh
 ```
 
-Requires Dart 3.8+ and `protoc` on the PATH. The generated code is not committed. Point your project at it with a path
-override on `zepben_protobuf`.
-
 ### C
 
 There are 2 ways to build packages locally:

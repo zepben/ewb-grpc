@@ -91,10 +91,13 @@ jobs:
           sdk: ${{ matrix.sdk }}
 
       - name: Install protoc
-        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler libprotobuf-dev
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "33.6"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
+        working-directory: dart
         run: |
-          cd dart
           ./build.sh
           dart analyze --fatal-infos
