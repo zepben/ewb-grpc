@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - run: |
           apk add --no-cache tar
@@ -42,7 +42,7 @@ jobs:
     container: zepben/pipeline-java-ewb:17-latest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Cache maven deps
         uses: actions/cache@v4
@@ -61,7 +61,7 @@ jobs:
     container: python:3.10
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Cache python deps
         uses: actions/cache@v4
@@ -84,7 +84,7 @@ jobs:
       matrix:
         sdk: ['3.8.3', stable]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: dart-lang/setup-dart@v1
         with:

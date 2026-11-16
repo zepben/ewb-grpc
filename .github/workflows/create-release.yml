@@ -18,7 +18,7 @@ jobs:
       SLACK_NOTIFICATION: YES
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -73,7 +73,7 @@ jobs:
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: release
 
@@ -120,7 +120,7 @@ jobs:
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: release
 
@@ -228,7 +228,7 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -316,7 +316,7 @@ jobs:
       SLACK_NOTIFICATION: YES
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
           ref: release
