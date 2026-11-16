@@ -118,8 +118,35 @@ jobs:
           twine upload --verbose --non-interactive --config-file ~/.pypirc dist/* --skip-existing
         shell: bash
 
+  dart-deploy:
+    needs: licence-check-and-protolock-update
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+
+      - uses: arduino/setup-protoc@v3
+        with:
+          version: "33.6"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.PUB_DEV_SERVICE_ACCOUNT_KEY }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy Dart
+        working-directory: dart
+        run: |
+          ./build.sh
+          cp ../changelog.md CHANGELOG.md
+          gcloud auth print-identity-token --audiences=https://pub.dev --include-email | dart pub token add https://pub.dev
+          dart pub publish --force
+
   update-snapshot-version:
-    needs: [python-deploy, java-deploy]
+    needs: [python-deploy, java-deploy, dart-deploy]
     container: zepben/pipeline-basic
     runs-on: ubuntu-latest
     env:

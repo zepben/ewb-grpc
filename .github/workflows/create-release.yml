@@ -188,8 +188,46 @@ jobs:
             echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
 
+  dart-deploy:
+    needs: release-checks
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release
+
+      - uses: dart-lang/setup-dart@v1
+
+      - uses: arduino/setup-protoc@v3
+        with:
+          version: "33.6"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.PUB_DEV_SERVICE_ACCOUNT_KEY }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy Dart
+        id: deploy
+        working-directory: dart
+        run: |
+          ./build.sh
+          cp ../changelog.md CHANGELOG.md
+          gcloud auth print-identity-token --audiences=https://pub.dev --include-email | dart pub token add https://pub.dev
+          dart pub publish --force
+        continue-on-error: true
+
+      - name: Report any failures
+        shell: bash
+        run: |
+          if [ "${{ steps.deploy.outcome }}" = "failure" ]; then
+            echo " :boom: There was an error in the \`Deploy Dart\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
+
   finalise:
-    needs: [java-deploy, python-deploy, release-checks]
+    needs: [java-deploy, python-deploy, dart-deploy, release-checks]
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
@@ -204,7 +242,7 @@ jobs:
         shell: sh
 
       - name: Delete release branch if deploy failed and fail
-        if: needs.java-deploy.outcome == 'failure' || needs.python-deploy.outcome == 'failure'
+        if: needs.java-deploy.outcome == 'failure' || needs.python-deploy.outcome == 'failure' || needs.dart-deploy.outcome == 'failure'
         run: |
           git push origin -d release
           echo "There was an error in one of the deployment jobs. Check the logs above."
