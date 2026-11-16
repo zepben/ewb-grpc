@@ -191,8 +191,12 @@ jobs:
   dart-deploy:
     needs: release-checks
     runs-on: ubuntu-24.04
+    environment: pub-dev
+    permissions:
+      id-token: write
+      contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: release
 
@@ -203,19 +207,12 @@ jobs:
           version: "33.6"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.PUB_DEV_SERVICE_ACCOUNT_KEY }}
-
-      - uses: google-github-actions/setup-gcloud@v2
-
       - name: Deploy Dart
         id: deploy
         working-directory: dart
         run: |
           ./build.sh
           cp ../changelog.md CHANGELOG.md
-          gcloud auth print-identity-token --audiences=https://pub.dev --include-email | dart pub token add https://pub.dev
           dart pub publish --force
         continue-on-error: true
 
