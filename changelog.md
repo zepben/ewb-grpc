@@ -8,6 +8,7 @@
 
 ### Enhancements
 * The profile manager now supports EA databases in SQLite format.
+* The profile manager generates nicer and more descriptive MDX, describing attributes and relationships from inheritance, and displaying the inheritance hierarchy as a tree.
 
 ### Fixes
 * None.
