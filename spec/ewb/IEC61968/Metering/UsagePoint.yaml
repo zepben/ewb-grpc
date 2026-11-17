@@ -30,32 +30,32 @@ attributes:
 ancestors:
   - IdentifiedObject
 associations:
-- source: UsagePoint
-  target: Equipment
-  sourceCardinality: 0..*
-  sourceName: usagePoints
-  sourceDescription: All usage points connected to the electrical grid through this equipment.
-  targetCardinality: 0..*
-  targetName: equipments
-  targetDescription: All equipment connecting this usage point to the electrical grid.
-- source: UsagePoint
-  target: EndDevice
-  sourceCardinality: 0..*
-  sourceName: usagePoints
-  sourceDescription: Usage point to which this end device belongs.
-  targetCardinality: 0..*
-  targetName: endDevices
-  targetDescription: All end devices at this usage point.
-- source: UsagePoint
-  target: Location
-  targetCardinality: 0..1
-  targetName: usagePointLocation
-  targetDescription: Location of this usage point.
-- source: UsagePoint
-  target: ContactDetails
-  targetCardinality: 0..*
-  targetName: contacts
-  targetDescription: \[ZBEX\] All contact details for this UsagePoint.
+  - source: UsagePoint
+    target: Equipment
+    sourceCardinality: 0..*
+    sourceName: usagePoints
+    sourceDescription: All usage points connected to the electrical grid through this equipment.
+    targetCardinality: 0..*
+    targetName: equipments
+    targetDescription: All equipment connecting this usage point to the electrical grid.
+  - source: UsagePoint
+    target: EndDevice
+    sourceCardinality: 0..*
+    sourceName: usagePoints
+    sourceDescription: Usage point to which this end device belongs.
+    targetCardinality: 0..*
+    targetName: endDevices
+    targetDescription: All end devices at this usage point.
+  - source: UsagePoint
+    target: Location
+    targetCardinality: 0..1
+    targetName: usagePointLocation
+    targetDescription: Location of this usage point.
+  - source: UsagePoint
+    target: ContactDetails
+    targetCardinality: 0..*
+    targetName: contacts
+    targetDescription: \[ZBEX\] All contact details for this UsagePoint.
   - source: UsagePoint
     target: MeterReadings
     targetCardinality: 0..*
