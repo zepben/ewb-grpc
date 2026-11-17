@@ -47,7 +47,8 @@ class SvgRenderer(private val fontFamily: String, private val links: Boolean = t
 
             appendLine("""  <g class="edges">""")
             val hops = LineHops.of(layout.edges)
-            layout.edges.forEachIndexed { i, edge -> appendEdge(edge, hops[i]) }
+            val drawings = SharedLines.of(layout.edges)
+            layout.edges.forEachIndexed { i, edge -> appendEdge(edge, hops[i], drawings[i]) }
             appendLine("  </g>")
 
             appendLine("""  <g class="classes">""")
@@ -103,15 +104,16 @@ class SvgRenderer(private val fontFamily: String, private val links: Boolean = t
         appendLine("  </style>")
     }
 
-    private fun StringBuilder.appendEdge(edge: PositionedEdge, hops: List<List<LineHops.Hop>>) {
-        if (edge.points.size < 2)
+    private fun StringBuilder.appendEdge(edge: PositionedEdge, hops: List<List<LineHops.Hop>>, drawing: SharedLines.Drawing) {
+        // Leave out edges entirely drawn by the edges before them (see [SharedLines]).
+        if (edge.points.size < 2 || drawing.isEmpty)
             return
 
         // A path rather than a polyline, so lines can hop over the lines they cross.
-        val marker = if (edge.kind == EdgeKind.GENERALISATION) """ marker-end="url(#uml-generalisation)"""" else ""
+        val marker = if (edge.kind == EdgeKind.GENERALISATION && drawing.marker) """ marker-end="url(#uml-generalisation)"""" else ""
         appendLine(
             """    <path class="edge ${edge.kind.name.lowercase()}" data-source="${esc(edge.source)}" data-target="${esc(edge.target)}" """ +
-                """d="${LineHops.path(edge.points, hops)}"$marker/>"""
+                """d="${LineHops.path(edge.points, hops, drawing.visible)}"$marker/>"""
         )
     }
 
