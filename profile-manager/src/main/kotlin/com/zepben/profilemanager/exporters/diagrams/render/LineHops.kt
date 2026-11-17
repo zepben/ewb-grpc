@@ -52,23 +52,52 @@ object LineHops {
 
     /**
      * The SVG path data for a line through [points], hopping over the crossings in [hops] (one list per segment).
+     *
+     * Only the [visible] spans of each segment are drawn (by default, all of them), so the path can be in pieces. A hop
+     * that doesn't fit within a visible span is left out.
      */
-    fun path(points: List<Point>, hops: List<List<Hop>>): String = buildString {
-        append("M").append(svgNumber(points.first().x)).append(",").append(svgNumber(points.first().y))
+    fun path(
+        points: List<Point>,
+        hops: List<List<Hop>>,
+        visible: List<List<SharedLines.Span>> = points.zipWithNext().map { listOf(SharedLines.Span(0.0, it.length)) },
+    ): String = buildString {
+        var pen: Point? = null
+        // Start a new piece of the line at [p], unless it carries on from (or is a tiny jog from) the last piece.
+        fun move(p: Point) {
+            val gap = pen?.let { distance(it, p) }
+            when {
+                gap == null -> append("M")
+                gap > 1.0 -> append(" M")
+                gap > 0.05 -> append(" L")
+                else -> return
+            }
+            append(svgNumber(p.x)).append(",").append(svgNumber(p.y))
+        }
+
         points.zipWithNext().forEachIndexed { s, (a, b) ->
             val length = hypot(b.x - a.x, b.y - a.y)
+            if (length == 0.0)
+                return@forEachIndexed
             val dx = (b.x - a.x) / length
             val dy = (b.y - a.y) / length
+            fun at(d: Double) = Point(a.x + dx * d, a.y + dy * d)
             // An arc with the sweep flag set bulges to the side (dy, -dx) of the direction of travel: pick it so hops
             // bulge upwards, or to the right on vertical lines.
             val sweep = if (abs(dx) > 1e-9) (if (dx > 0) 1 else 0) else (if (dy > 0) 1 else 0)
-            hops.getOrNull(s).orEmpty().forEach { hop ->
-                val radius = (hop.to - hop.from) / 2
-                append(" L").append(svgNumber(a.x + dx * hop.from)).append(",").append(svgNumber(a.y + dy * hop.from))
-                append(" A").append(svgNumber(radius)).append(",").append(svgNumber(radius)).append(" 0 0 ").append(sweep).append(" ")
-                append(svgNumber(a.x + dx * hop.to)).append(",").append(svgNumber(a.y + dy * hop.to))
+            visible.getOrNull(s).orEmpty().forEach { span ->
+                move(at(span.from))
+                hops.getOrNull(s).orEmpty().filter { it.from >= span.from && it.to <= span.to }.forEach { hop ->
+                    val radius = (hop.to - hop.from) / 2
+                    val (from, to) = at(hop.from) to at(hop.to)
+                    append(" L").append(svgNumber(from.x)).append(",").append(svgNumber(from.y))
+                    append(" A").append(svgNumber(radius)).append(",").append(svgNumber(radius)).append(" 0 0 ").append(sweep).append(" ")
+                    append(svgNumber(to.x)).append(",").append(svgNumber(to.y))
+                }
+                // End exactly on the segment's end where it's drawn to there, rather than a point computed from it.
+                val end = if (span.to >= length - 1e-9) b else at(span.to)
+                append(" L").append(svgNumber(end.x)).append(",").append(svgNumber(end.y))
+                pen = end
             }
-            append(" L").append(svgNumber(b.x)).append(",").append(svgNumber(b.y))
         }
     }
 
