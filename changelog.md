@@ -5,6 +5,7 @@
 
 ### New Features
 * Added a PoC for diagram extraction as a Python script. See its README for details on how to run it.
+* Added diagram extraction and generation to `profile-manager`. Diagram definitions are stored in a `__diagrams.yaml` file at the top of a profile.
 * CIM-ple can compare the current commit's EWB spec files against any other commit (defaults to `main`) with the `c` shortcut, presenting a brief field-level diff in an overlay panel.
 * CIM-ple's footer is now live, showing only the key bindings relevant to the current context (focused tree, search box, or open overlay panel).
 
