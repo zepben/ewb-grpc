@@ -25,3 +25,13 @@ protoc \
   --dart_out="grpc:lib" \
   -I../proto \
   $(find ../proto/zepben -name '*.proto' | sort)
+
+# Use the Dart package version for the latest shared release notes, including prereleases.
+version="$(awk '$1 == "version:" { print $2; exit }' pubspec.yaml)"
+awk -v version="$version" '
+  /^## \[/ && !updated {
+    sub(/\[[^]]+\]/, "[" version "]")
+    updated = 1
+  }
+  { print }
+' ../changelog.md > CHANGELOG.md
