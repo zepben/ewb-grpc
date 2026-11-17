@@ -77,6 +77,13 @@ cd python
 python3 build.py --package
 ```
 
+### Dart
+
+```sh
+cd dart
+./build.sh
+```
+
 ### C
 
 There are 2 ways to build packages locally:

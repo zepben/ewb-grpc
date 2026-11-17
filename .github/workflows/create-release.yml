@@ -18,7 +18,7 @@ jobs:
       SLACK_NOTIFICATION: YES
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -42,6 +42,7 @@ jobs:
 
           # Finalise version in python project file, don't commit
           /scripts/finalize-version.sh --python --no-commit python/pyproject.toml
+          /scripts/finalize-version.sh --dart --no-commit dart/pubspec.yaml
           # Finalise version in jvm project file, update changelog and commit to `release` branch
           /scripts/finalize-version.sh --java --maven java/pom.xml changelog.md
 
@@ -72,7 +73,7 @@ jobs:
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: release
 
@@ -119,7 +120,7 @@ jobs:
     outputs:
       artifact: ${{ steps.deploy.outputs.artifact }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: release
 
@@ -187,12 +188,47 @@ jobs:
             echo " :boom: There was an error in the \`Upload artifact\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
           fi
 
+  dart-deploy:
+    needs: release-checks
+    runs-on: ubuntu-24.04
+    environment: pub-dev
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: release
+
+      - uses: dart-lang/setup-dart@v1
+
+      - uses: arduino/setup-protoc@v3
+        with:
+          version: "33.6"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy Dart
+        id: deploy
+        working-directory: dart
+        run: |
+          ./build.sh
+          cp ../changelog.md CHANGELOG.md
+          dart pub publish --force
+        continue-on-error: true
+
+      - name: Report any failures
+        shell: bash
+        run: |
+          if [ "${{ steps.deploy.outcome }}" = "failure" ]; then
+            echo " :boom: There was an error in the \`Deploy Dart\` step. Check the logs" >> ${GITHUB_STEP_SUMMARY}
+          fi
+
   finalise:
-    needs: [java-deploy, python-deploy, release-checks]
+    needs: [java-deploy, python-deploy, dart-deploy, release-checks]
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -203,7 +239,7 @@ jobs:
         shell: sh
 
       - name: Delete release branch if deploy failed and fail
-        if: needs.java-deploy.outcome == 'failure' || needs.python-deploy.outcome == 'failure'
+        if: needs.java-deploy.outcome == 'failure' || needs.python-deploy.outcome == 'failure' || needs.dart-deploy.outcome == 'failure'
         run: |
           git push origin -d release
           echo "There was an error in one of the deployment jobs. Check the logs above."
@@ -280,7 +316,7 @@ jobs:
       SLACK_NOTIFICATION: YES
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
           ref: release
@@ -296,6 +332,7 @@ jobs:
         run: |
           # Update a new minor python version, don't commit
           /scripts/update-version.sh --python --no-commit python/pyproject.toml
+          /scripts/update-version.sh --dart --no-commit dart/pubspec.yaml
           # Update a new minor java version, commit and fill changelog with the new template
           /scripts/update-version.sh --java --maven --grow-changelog java/pom.xml changelog.md
 

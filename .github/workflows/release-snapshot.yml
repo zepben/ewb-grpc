@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     container: zepben/pipeline-basic
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -55,7 +55,7 @@ jobs:
     container: zepben/pipeline-java-ewb:17-latest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Cache maven deps
         uses: actions/cache@v4
@@ -78,7 +78,7 @@ jobs:
     container: python:3.10
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install git
         run: |
@@ -118,8 +118,28 @@ jobs:
           twine upload --verbose --non-interactive --config-file ~/.pypirc dist/* --skip-existing
         shell: bash
 
+  dart-deploy:
+    needs: licence-check-and-protolock-update
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dart-lang/setup-dart@v1
+
+      - uses: arduino/setup-protoc@v3
+        with:
+          version: "33.6"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate Dart package
+        working-directory: dart
+        run: |
+          ./build.sh
+          cp ../changelog.md CHANGELOG.md
+          dart pub publish --dry-run
+
   update-snapshot-version:
-    needs: [python-deploy, java-deploy]
+    needs: [python-deploy, java-deploy, dart-deploy]
     container: zepben/pipeline-basic
     runs-on: ubuntu-latest
     env:
@@ -130,7 +150,7 @@ jobs:
       NEXUS_MAVEN_SNAPSHOT: ${{ secrets.NEXUS_MAVEN_SNAPSHOT }}
       NEXUS_MAVEN_RELEASE: ${{ secrets.NEXUS_MAVEN_RELEASE }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
 
@@ -145,6 +165,7 @@ jobs:
           git pull origin $GITHUB_REF
           source /scripts/common.sh
           /scripts/update-version.sh --python --snapshot --no-commit python/pyproject.toml
+          /scripts/update-version.sh --dart --snapshot --no-commit dart/pubspec.yaml
           /scripts/update-version.sh --java --snapshot --maven --no-commit java/pom.xml
           commit_update_version ${GITHUB_REF/refs\/heads\//}
         shell: bash
