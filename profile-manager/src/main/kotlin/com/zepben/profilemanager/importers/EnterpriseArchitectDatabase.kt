@@ -1,12 +1,18 @@
 package com.zepben.profilemanager.importers
 
 import com.zepben.profilemanager.db.EaAccessDatabase
+import com.zepben.profilemanager.exporters.diagrams.model.DiagramClass
+import com.zepben.profilemanager.exporters.diagrams.model.DiagramContent
+import com.zepben.profilemanager.exporters.diagrams.model.DiagramDefinition
+import com.zepben.profilemanager.exporters.diagrams.model.DiagramFile
+import com.zepben.profilemanager.exporters.diagrams.model.EdgeKind
+import com.zepben.profilemanager.exporters.printWarning
 import com.zepben.profilemanager.models.*
 import java.io.File
 import java.sql.ResultSet
 import kotlin.collections.ArrayDeque
 
-class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
+class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) -> Unit = ::printWarning) : Importer(inputSource) {
 
     private lateinit var db: EaAccessDatabase
 
@@ -19,6 +25,87 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
         importAttributesAndAssociations(root)
 
         return root
+    }
+
+    /**
+     * Read the class diagrams of the profile [root] previously returned by [import]. Each diagram includes the
+     * profile's classes drawn on it, and roughly shows the connectors between them that EA draws. Diagrams without any
+     * of the profile's classes are skipped.
+     */
+    fun importDiagrams(root: Root): DiagramFile {
+        val classCounts = mutableMapOf<String, Int>()
+        root.iterate(classCallback = { classCounts.merge(it.name, 1, Int::plus) })
+        val ambiguous = mutableSetOf<String>()
+
+        val diagrams = mutableListOf<DiagramDefinition>()
+        fun visit(element: Element, packagePath: String) {
+            val taken = element.children.filterIsInstance<Class>().mapTo(mutableSetOf()) { it.name }
+            val rows = db.getDiagramsByPackageId(element.id)
+            while (rows.next()) {
+                val name = rows.getString("Name")?.trim().orEmpty()
+                val slug = uniqueSlug(name, taken).also { taken.add(it) }
+                val path = listOf(packagePath, slug).filter { it.isNotEmpty() }.joinToString("/")
+                importDiagram(rows.getInt("Diagram_ID"), path, name.takeIf { it != slug }, root)?.let { diagram ->
+                    diagrams.add(diagram)
+                    diagram.classes.map { it.name }.filterTo(ambiguous) { (classCounts[it] ?: 0) > 1 }
+                }
+            }
+
+            element.children.filterIsInstance<Package>().forEach {
+                visit(it, listOf(packagePath, it.name).filter { p -> p.isNotEmpty() }.joinToString("/"))
+            }
+        }
+        visit(root, "")
+
+        ambiguous.sorted().forEach {
+            warn("class name '$it' is used by ${classCounts[it]} classes in ${root.name}, diagrams including it will show only one of them.")
+        }
+
+        return DiagramFile(diagrams.sortedBy { it.path })
+    }
+
+    private fun importDiagram(id: Int, path: String, name: String?, root: Root): DiagramDefinition? {
+        val objects = db.getDiagramObjectIds(id)
+        val classes = buildSet {
+            while (objects.next())
+                root.getClass(objects.getInt("Object_ID"))?.let { add(it.name) }
+        }.sorted()
+
+        if (classes.isEmpty())
+            return null
+
+        // A connector may be linked to the diagram more than once, it's hidden if any of them are.
+        val connectors = mutableMapOf<Int, DiagramConnector>()
+        val rows = db.getDiagramConnectors(id)
+        while (rows.next()) {
+            val start = root.getClass(rows.getInt("Start_Object_ID")) ?: continue
+            val end = root.getClass(rows.getInt("End_Object_ID")) ?: continue
+            if (start.name == end.name)
+                continue
+            // Classified the same way as when building the spec, see Class.addAssociation.
+            val kind = if (rows.getString("SourceCard") == null && rows.getString("DestCard") == null)
+                EdgeKind.GENERALISATION
+            else
+                EdgeKind.ASSOCIATION
+            val connector = DiagramConnector(setOf(start.name, end.name), kind, visible = !rows.getBoolean("Hidden"))
+            connectors.merge(rows.getInt("Connector_ID"), connector) { a, b -> a.copy(visible = a.visible && b.visible) }
+        }
+
+        // Draw each kind of connector EA mostly draws, then override that for any class whose connectors of a kind
+        // all disagree. This won't always match EA exactly, but is close enough to tidy up by hand.
+        fun Collection<DiagramConnector>.mostlyDrawn(kind: EdgeKind) =
+            filter { it.kind == kind }.let { of -> of.count { it.visible } >= of.count { !it.visible } }
+        val show = contentOf(connectors.values.mostlyDrawn(EdgeKind.GENERALISATION), connectors.values.mostlyDrawn(EdgeKind.ASSOCIATION))
+            ?: DiagramContent.BOTH
+
+        fun Collection<DiagramConnector>.drawn(kind: EdgeKind) = filter { it.kind == kind }.let { of ->
+            val default = show.draws(kind)
+            if (of.isNotEmpty() && of.all { it.visible != default }) !default else default
+        }
+        return DiagramDefinition(path, name, show, classes.map { cls ->
+            val own = connectors.values.filter { cls in it.ends }
+            DiagramClass(cls, contentOf(own.drawn(EdgeKind.GENERALISATION), own.drawn(EdgeKind.ASSOCIATION))?.takeIf { it != show })
+        })
     }
 
     private fun importAttributesAndAssociations(root: Root) {
@@ -107,7 +194,7 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
 
     private fun importPackages(profileName: String): Root {
         val queue = ArrayDeque<Pair<Element, Int>>()
-        val rootProfile = db.getPackageByName(profileName).read()
+        val rootProfile = db.getPackageByName(profileName)
         require(rootProfile.next()) {"Unable to find profile '$profileName', are you sure you set it correctly?"}
         val id = rootProfile.getInt("Package_ID")
 
@@ -143,6 +230,28 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
             queue.add(Pair(node, id))
         }
     }
+}
+
+/** A connector between two classes on an EA diagram, and whether the diagram draws it. */
+private data class DiagramConnector(val ends: Set<String>, val kind: EdgeKind, val visible: Boolean)
+
+/** The diagram content that draws the given kinds of connector, or null if neither. */
+private fun contentOf(inheritance: Boolean, relationships: Boolean): DiagramContent? = when {
+    inheritance && relationships -> DiagramContent.BOTH
+    inheritance -> DiagramContent.INHERITANCE
+    relationships -> DiagramContent.RELATIONSHIPS
+    else -> null
+}
+
+/**
+ * A diagram name usable as a file name and URL segment: [name] with only its letters, digits, underscores and dashes,
+ * with a numeric suffix if that's already in [taken].
+ */
+internal fun uniqueSlug(name: String, taken: Set<String>): String {
+    val base = name.replace(Regex("[^A-Za-z0-9_-]"), "").ifEmpty { "Diagram" }
+    if (base !in taken)
+        return base
+    return generateSequence(2) { it + 1 }.map { "${base}_$it" }.first { it !in taken }
 }
 
 private fun ResultSet.read(): ResultSet {
