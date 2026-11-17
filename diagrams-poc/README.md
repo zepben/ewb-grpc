@@ -4,7 +4,7 @@ Proof of concept Python script to export diagrams from an EA CIM database. Shoul
 
 > [!NOTE]
 > `implementation("org.jetbrains.lets-plot:lets-plot-kotlin:4.14.0")` was left lying around in the Gradle config during development (before the PoC was left as Python), so might be
-worth checking it out when implementing the real thing in Kotlin?
+> worth checking it out when implementing the real thing in Kotlin?
 
 ## Initial Setup
 
