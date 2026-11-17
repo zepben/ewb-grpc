@@ -10,7 +10,7 @@ class EnterpriseArchitectDatabase(inputSource: File) : Importer(inputSource) {
 
     private lateinit var db: EaAccessDatabase
 
-    override fun import(profile: String): Element {
+    override fun import(profile: String): Root {
         db = EaAccessDatabase.connect(inputSource)
 
         val root = importPackages(profile)
