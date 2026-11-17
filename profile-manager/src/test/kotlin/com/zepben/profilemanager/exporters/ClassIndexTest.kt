@@ -29,7 +29,7 @@ class ClassIndexTest {
         val index = ClassIndex.of(root, "cim100")
 
         assertEquals("/cim100/TC57CIM/B/Other", index.urlOf("Other"))
-        assertEquals(ClassIndex.of(root, "").urlOf("Other"), "/TC57CIM/B/Other")
+        assertEquals("/TC57CIM/B/Other", ClassIndex.of(root, "").urlOf("Other"))
     }
 
     @Test

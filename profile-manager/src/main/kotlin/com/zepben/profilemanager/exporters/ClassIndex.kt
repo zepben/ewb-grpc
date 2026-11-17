@@ -26,9 +26,6 @@ class ClassIndex(private val byName: Map<String, IndexedClass>) {
 
     operator fun contains(name: String): Boolean = name in byName
 
-    /** The class called [name], if there is one. */
-    fun classNamed(name: String): Class? = byName[name]?.cls
-
     /** The URL of the page of the class called [name], if there is one. */
     fun urlOf(name: String): String? = byName[name]?.url
 

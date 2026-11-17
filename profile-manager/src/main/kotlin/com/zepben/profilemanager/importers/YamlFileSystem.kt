@@ -44,7 +44,7 @@ class YamlFileSystem(inputSource: File) : Importer(inputSource) {
         try {
             val f = File(path.absolutePath + File.separator + "__metadata.yaml")
             return Yaml.default.decodeFromString<Package>(f.readText())
-        } catch (e: FileNotFoundException) {
+        } catch (_: FileNotFoundException) {
             return Package()
         } catch (t: Throwable) {
             println("Failed to read package infor for ${path.specRelativePath}: ${t.message}")
