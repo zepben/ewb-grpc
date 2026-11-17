@@ -11,7 +11,7 @@ import java.io.FileNotFoundException
 
 class YamlFileSystem(inputSource: File) : Importer(inputSource) {
 
-    override fun import(profile: String): Element {
+    override fun import(profile: String): Root {
         val root = Root(0, profile)
         importInternal(root, File(inputSource.absolutePath + File.separator + profile))
         root.reindex()
@@ -25,7 +25,7 @@ class YamlFileSystem(inputSource: File) : Importer(inputSource) {
                 root.addChild(p)
                 importInternal(p, file)
             } else {
-                if (file.name == "__metadata.yaml") {
+                if (file.name.startsWith("__")) {
                     return@forEach
                 }
                 kotlin.runCatching {

@@ -7,19 +7,19 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.multiple
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
+import com.zepben.profilemanager.exporters.ClassIndex
 import com.zepben.profilemanager.exporters.Docusaurus2Mdx
+import com.zepben.profilemanager.exporters.diagrams.DiagramExporter
 import com.zepben.profilemanager.importers.YamlFileSystem
 import java.io.File
-import java.nio.file.Path
-import kotlin.io.path.deleteExisting
-import kotlin.io.path.isDirectory
-import kotlin.io.path.walk
 
 class Generate : CliktCommand() {
     private val inputModel by argument("Input path").file(mustExist = true, canBeFile = false)
     private val outputPath by argument("Output path").file(mustExist = false, canBeFile = false)
     private val profiles by option(help = "Profile to export").multiple(default = listOf("ewb", "TC57CIM"))
     private val deleteOutput by option(help = "Indicates the previous output should be deleted before generating the new profiles").flag("--no-delete-output", default = true)
+    private val noLinks by option(help = "Don't link diagram class boxes to their documentation pages").flag()
+    private val fontFamily by option(help = "Font used to measure and render diagram text").default("DejaVu Sans")
 
     private val exportPathOverride: Map<String, String> = mapOf(
         "ewb" to "",
@@ -31,16 +31,19 @@ class Generate : CliktCommand() {
             outputPath.deleteContents()
 
         profiles.forEach {
-            print("Generating $it profile...")
+            println("Generating $it profile...")
             val root = YamlFileSystem(inputModel).import(it)
-            val resolvedOutputPath = outputPath.resolve(File(exportPathOverride.getOrDefault(it, "")))
+            val exportPath = exportPathOverride.getOrDefault(it, "")
+            val resolvedOutputPath = outputPath.resolve(File(exportPath))
             resolvedOutputPath.mkdirs()
-            Docusaurus2Mdx(
-                resolvedOutputPath,
-                exportPathOverride.getOrDefault(it, ""),
-                validateAncestors = it == "ewb"
-            ).export(root)
-            println("done.")
+            val classes = ClassIndex.of(root, exportPath)
+
+            // Draw the diagrams first, so the class pages can link to the diagrams they're in.
+            val diagramPages = DiagramExporter(classes, it, exportPath, links = !noLinks, fontFamily)
+                .export(inputModel.resolve(it), resolvedOutputPath)
+
+            Docusaurus2Mdx(resolvedOutputPath, classes, validateAncestors = it == "ewb", diagramPages = diagramPages).export(root)
+            println("Generated $it profile.")
         }
     }
 
