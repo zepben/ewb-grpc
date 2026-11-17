@@ -47,3 +47,23 @@ Within the editor:
 
 - `Ctrl+Enter` — save changes.
 - `q` or `Esc` — close without saving.
+
+## Diffing against another commit
+
+Select **Compare spec** (press `c`) to compare the current commit's `spec/ewb`
+files with any other commit, branch, or tag. Enter the reference to compare
+against, or press enter for `main`. The overlay lists each changed class with
+its added (`+`), changed (`~`), and removed (`-`) attributes and associations:
+
+```text
+main <- 849636db
+    AcLineSegment
+        + newField: boolean
+        ~ r: Float -> String
+        - removedField: Float
+        + newAssociation: *..1 associatedClass
+```
+
+Within the diff panel:
+
+- `q` or `Esc` — close the panel.
