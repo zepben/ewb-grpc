@@ -57,7 +57,33 @@ data class Class(
 
     fun attributes(): List<Attribute> = attributes.sortedBy { it.name }
 
+    fun sorted(): Class = copy(
+        attributes = attributes.sortedWith(attributeOrder).toMutableList(),
+        ancestors = ancestors.sorted().toMutableList(),
+        descendants = descendants.sorted().toMutableList(),
+        associations = associations.sortedWith(associationOrder).toMutableList(),
+    )
+
     companion object {
+
+        private val attributeOrder = compareBy<Attribute>(
+            { it.name.lowercase() },
+            { it.name },
+            { it.type },
+            { it.description },
+            { it.nullable },
+        )
+
+        private val associationOrder = compareBy<Link>(
+            { (it.targetName ?: it.target).lowercase() },
+            { it.targetName ?: it.target },
+            { it.target },
+            { it.sourceName },
+            { it.targetCardinality },
+            { it.sourceCardinality },
+            { it.targetDescription },
+            { it.sourceDescription },
+        )
 
         private fun List<Attribute>.classIsEnum(): String? =
             if ((any() && all { (it.type == "enum") }) || (any() && all { (it.type == null) })) "enum" else null

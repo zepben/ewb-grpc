@@ -107,17 +107,18 @@ class ImportTest {
     }
 
     @Test
-    fun `writes attributes in the order EA created them`() {
+    fun `writes attributes alphabetically`() {
         val out = importSpec()
 
-        assertEquals(listOf("a", "C", "b"), out.resolve("CIM/Grid/Core/Terminal.yaml").valuesOf("- name"))
+        assertEquals(listOf("a", "b", "C"), out.resolve("CIM/Grid/Core/Terminal.yaml").valuesOf("- name"))
     }
 
     @Test
-    fun `writes associations starting at the class first, each in connector order`() {
+    fun `writes associations alphabetically by role name`() {
         val out = importSpec()
 
-        assertEquals(listOf("Rim", "Axle", "Tyre", "Spoke"), out.resolve("CIM/Grid/Core/Hub.yaml").valuesOf("  target"))
+        // By role: rim, shaft, spokes, tyre.
+        assertEquals(listOf("Rim", "Axle", "Spoke", "Tyre"), out.resolve("CIM/Grid/Core/Hub.yaml").valuesOf("  target"))
     }
 
     @Test
@@ -200,7 +201,7 @@ class ImportTest {
                        (12, 'Terminal', 'Class', 4, NULL), (15, 'Switch', 'Class', 4, NULL), (13, 'A note', 'Note', 4, NULL), (14, 'Outside', 'Class', 1, NULL),
                        (20, 'YesNo', 'Class', 4, NULL), (21, 'Hub', 'Class', 4, NULL), (22, 'Spoke', 'Class', 4, NULL), (23, 'Rim', 'Class', 4, NULL),
                        (24, 'Axle', 'Class', 4, NULL), (25, 'Tyre', 'Class', 4, NULL)""",
-                    // Inserted out of order, and with Pos disagreeing, to check they are written in the order EA created them (by ID).
+                    // Inserted out of order, to check they are written alphabetically, ignoring case.
                     """INSERT INTO t_attribute VALUES (202, 20, 'YES', NULL, 'Yes.', 0, 'enum'), (201, 20, 'NO', NULL, NULL, 1, 'enum'),
                        (302, 12, 'b', 'String', NULL, 0, NULL), (301, 12, 'C', 'String', NULL, 1, NULL), (300, 12, 'a', 'String', NULL, 1, NULL)""",
                     """INSERT INTO t_connector VALUES
@@ -211,7 +212,7 @@ class ImportTest {
                        (104, 15, 10, 'Association', '0..*', '1', NULL, NULL, NULL, NULL),
                        (202, 22, 21, 'Association', '0..*', '1', 'Spokes', 'Hub', NULL, NULL),
                        (201, 21, 23, 'Association', '1', '0..1', 'Hub', 'Rim', NULL, NULL),
-                       (203, 21, 24, 'Association', '1', '0..1', 'Hub', 'Axle', NULL, NULL),
+                       (203, 21, 24, 'Association', '1', '0..1', 'Hub', 'Shaft', NULL, NULL),
                        (200, 25, 21, 'Association', '0..1', '1', 'Tyre', 'Hub', NULL, NULL)""",
                     // Main draws everything. Its name clashes with "Ma in" once slugged.
                     // CoreInheritance hides the association, and has no row for the generalisation, so draws it.

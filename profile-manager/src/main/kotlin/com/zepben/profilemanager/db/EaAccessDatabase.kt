@@ -66,7 +66,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getAttributesByObjectId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_attribute WHERE Object_ID = ? ORDER BY ID",
+            "SELECT * FROM t_attribute WHERE Object_ID = ?",
         )
         statement.setInt(1, id)
         return statement.executeQuery()
@@ -74,7 +74,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getConnectorsByObjectId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_connector WHERE Start_Object_ID = ? OR End_Object_ID = ? ORDER BY Connector_ID",
+            "SELECT * FROM t_connector WHERE Start_Object_ID = ? OR End_Object_ID = ?",
         )
         statement.setInt(1, id)
         statement.setInt(2, id)

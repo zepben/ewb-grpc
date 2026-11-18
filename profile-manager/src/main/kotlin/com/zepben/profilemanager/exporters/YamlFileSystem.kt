@@ -59,7 +59,7 @@ class YamlFileSystem(exportLocation: File) : Exporter(exportLocation) {
 
     private fun writeClass(node: Class, exportLocation: File) {
         val file = exportLocation.fileInFolder(node.name, ".yaml")
-        val result = yamlEncoder.encodeToString(node)
+        val result = yamlEncoder.encodeToString(node.sorted())
         file.writeText(finishYaml(result))
     }
 
