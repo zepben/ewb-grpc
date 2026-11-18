@@ -16,6 +16,12 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: TransmissionPath
+  target: TransmissionReservation
+  sourceCardinality: "1"
+  sourceName: transmissionPath
+  targetCardinality: 0..*
+  targetName: transmissionReservation
+- source: TransmissionPath
   target: TransmissionCorridor
   sourceCardinality: 0..*
   sourceName: containedIn
@@ -24,11 +30,13 @@ associations:
   targetName: for
   targetDescription: A TransmissionPath is contained in a TransmissionCorridor.
 - source: TransmissionPath
-  target: TransmissionReservation
-  sourceCardinality: "1"
-  sourceName: transmissionPath
+  target: TransmissionProduct
+  sourceCardinality: 0..*
+  sourceName: locationFor
+  sourceDescription: A transmission product is located on a transmission path.
   targetCardinality: 0..*
-  targetName: transmissionReservation
+  targetName: locatedOn
+  targetDescription: A transmission product is located on a transmission path.
 - source: TransmissionPath
   target: ServicePoint
   sourceCardinality: 0..*
@@ -37,14 +45,6 @@ associations:
   targetCardinality: "1"
   targetName: pointOfReceipt
   targetDescription: A transmission path has a "point-of-receipt" service point
-- source: TransmissionPath
-  target: TransmissionProduct
-  sourceCardinality: 0..*
-  sourceName: locationFor
-  sourceDescription: A transmission product is located on a transmission path.
-  targetCardinality: 0..*
-  targetName: locatedOn
-  targetDescription: A transmission product is located on a transmission path.
 - source: TransmissionPath
   target: ServicePoint
   sourceCardinality: 0..*

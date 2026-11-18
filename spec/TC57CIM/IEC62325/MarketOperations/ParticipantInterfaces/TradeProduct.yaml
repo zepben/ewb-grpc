@@ -10,14 +10,14 @@ description: |-
   AST                                                 NRT (Non-Spinning Reserve Trade)
   UCT (Unit Commitment Trade)            null
 attributes:
+- name: tradeType
+  type: TradeType
+  description: "IST  - InterSC Trade;  \nAST - Ancilliary Services Trade;  \nUCT - Unit Commitment Trade"
 - name: tradeProductType
   type: String
   description: "PHY (Physical Energy Trade);  \nAPN (Energy Trades at Aggregated Pricing Nodes);  \nCPT (Converted Physical\
     \ Energy Trade);  \nRUT (Regulation Up Trade);  \nRDT (Regulation Down Trade);  \nSRT (Spinning Reserve Trade);  \nNRT\
     \ (Non-Spinning Reserve Trade)"
-- name: tradeType
-  type: TradeType
-  description: "IST  - InterSC Trade;  \nAST - Ancilliary Services Trade;  \nUCT - Unit Commitment Trade"
 associations:
 - source: TradeProduct
   target: Trade

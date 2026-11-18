@@ -15,12 +15,6 @@ ancestors:
 - Bid
 associations:
 - source: TransactionBid
-  target: TransactionBidResults
-  sourceCardinality: 0..1
-  sourceName: transactionBid
-  targetCardinality: 0..*
-  targetName: transactionBidResults
-- source: TransactionBid
   target: Pnode
   sourceCardinality: 0..*
   sourceName: receiptTransactionBids
@@ -33,14 +27,20 @@ associations:
   targetCardinality: 0..1
   targetName: delivery_Pnode
 - source: TransactionBid
-  target: EnergyProfile
-  sourceCardinality: "1"
+  target: TransactionBidResults
+  sourceCardinality: 0..1
   sourceName: transactionBid
-  targetCardinality: 1..*
-  targetName: energyProfiles
+  targetCardinality: 0..*
+  targetName: transactionBidResults
 - source: TransactionBid
   target: TransmissionReservation
   sourceCardinality: 0..1
   sourceName: transactionBid
   targetCardinality: 0..1
   targetName: transmissionReservation
+- source: TransactionBid
+  target: EnergyProfile
+  sourceCardinality: "1"
+  sourceName: transactionBid
+  targetCardinality: 1..*
+  targetName: energyProfiles

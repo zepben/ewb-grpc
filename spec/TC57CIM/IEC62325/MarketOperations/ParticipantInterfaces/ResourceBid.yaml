@@ -2,6 +2,9 @@ name: ResourceBid
 description: Energy bid for generation, load, or virtual type for the whole of the market-trading period (i.e., one day in
   day ahead market or one hour in the real time market).
 attributes:
+- name: virtual
+  type: Boolean
+  description: True if bid is virtual.  Bid is assumed to be non-virtual if attribute is absent
 - name: aggregationFlag
   type: Integer
   description: "Aggregation flag \n0: individual resource level\n1: Aggregated node location\n2: Aggregated price location)"
@@ -56,15 +59,12 @@ attributes:
 - name: startUpsMaxWeek
   type: Integer
   description: Maximum number of startups per week.
-- name: virtual
-  type: Boolean
-  description: True if bid is virtual.  Bid is assumed to be non-virtual if attribute is absent
 ancestors:
 - Bid
 descendants:
-- GeneratingBid
-- InterTieBid
 - LoadBid
+- InterTieBid
+- GeneratingBid
 associations:
 - source: ResourceBid
   target: BidError

@@ -2,9 +2,6 @@ name: TestStandard
 description: The precise standard used in executing a lab test, including the standard, and standard version, test method
   and variant, if needed.
 attributes:
-- name: testMethod
-  type: TestMethod
-  description: Identification of test method used if multiple methods specified by test standard.
 - name: testStandardASTM
   type: ASTMStandard
   description: Which ASTM standard used to determine analog value result. Applies only if ASTM standard used.
@@ -42,6 +39,9 @@ attributes:
 - name: testStandardWEP
   type: WEPStandard
   description: Which WEP standard used to determine analog value result. Applies only if WEP standard used.
+- name: testMethod
+  type: TestMethod
+  description: Identification of test method used if multiple methods specified by test standard.
 - name: testVariant
   type: TestVariantKind
   description: Identification of variant of test method or standard if one is specified by the standard.

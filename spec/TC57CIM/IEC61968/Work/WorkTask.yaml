@@ -1,39 +1,36 @@
 name: WorkTask
 description: A task within a set of work.
 attributes:
-- name: completedDateTime
-  type: DateTime
-  description: Date and time work task was completed.
-- name: contractorCost
-  type: Money
-  description: Total contractor costs associated with the work task.
-- name: crewETA
-  type: DateTime
-  description: Estimated time of arrival, so that customer or police/fire department can be informed when the crew will arrive.
-- name: estimatedCompletionTime
-  type: DateTime
-  description: Time and Date when the work task will be completed.
-- name: instruction
-  type: String
-  description: Instructions for performing this task.
-- name: laborCost
-  type: Money
-  description: Total labor costs associated with the work task.
-- name: laborHours
-  type: Hours
-  description: Hours of labor expended under work task.
-- name: materiallCost
-  type: Money
-  description: Total material costs associated with the work task.
-- name: schedOverride
-  type: String
-  description: If specified, override schedule and perform this task in accordance with instructions specified here.
-- name: startedDateTime
-  type: DateTime
-  description: Date and time work task was started.
 - name: taskKind
   type: WorkTaskKind
   description: Kind of work.
+- name: instruction
+  type: String
+  description: Instructions for performing this task.
+- name: schedOverride
+  type: String
+  description: If specified, override schedule and perform this task in accordance with instructions specified here.
+- name: crewETA
+  type: DateTime
+  description: Estimated time of arrival, so that customer or police/fire department can be informed when the crew will arrive.
+- name: startedDateTime
+  type: DateTime
+  description: Date and time work task was started.
+- name: completedDateTime
+  type: DateTime
+  description: Date and time work task was completed.
+- name: laborHours
+  type: Hours
+  description: Hours of labor expended under work task.
+- name: contractorCost
+  type: Money
+  description: Total contractor costs associated with the work task.
+- name: laborCost
+  type: Money
+  description: Total labor costs associated with the work task.
+- name: materiallCost
+  type: Money
+  description: Total material costs associated with the work task.
 - name: toolCost
   type: Money
   description: Total tool costs associated with the work task.
@@ -56,7 +53,7 @@ associations:
   sourceCardinality: 0..*
   sourceName: replacementWorkTasks
   sourceDescription: All work tasks on replacement of this old asset.
-  targetCardinality: 0..*
+  targetCardinality: 0..1
   targetName: oldAsset
   targetDescription: Old asset replaced by this work task.
 - source: WorkTask
@@ -68,12 +65,6 @@ associations:
   targetName: assets
   targetDescription: All assets on which this non-replacement work task is performed.
 - source: WorkTask
-  target: TroubleOrder
-  sourceCardinality: 0..*
-  sourceName: workTask
-  targetCardinality: 0..1
-  targetName: troubleOrder
-- source: WorkTask
   target: Crew
   sourceCardinality: 0..*
   sourceName: workTasks
@@ -81,6 +72,14 @@ associations:
   targetCardinality: 0..*
   targetName: crews
   targetDescription: All crews participating in this work task.
+- source: WorkTask
+  target: SwitchingPlan
+  sourceCardinality: 0..*
+  sourceName: workTasks
+  sourceDescription: All work tasks to execute this switching plan.
+  targetCardinality: 0..1
+  targetName: switchingPlan
+  targetDescription: Switching plan executed by this work task.
 - source: WorkTask
   target: Work
   sourceCardinality: 0..*
@@ -97,11 +96,3 @@ associations:
   targetCardinality: 0..*
   targetName: procedureDataSet
   targetDescription: Procedure data set associated with this work task.
-- source: WorkTask
-  target: SwitchingPlan
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  sourceDescription: All work tasks to execute this switching plan.
-  targetCardinality: 0..1
-  targetName: switchingPlan
-  targetDescription: Switching plan executed by this work task.

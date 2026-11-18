@@ -60,14 +60,14 @@ associations:
   targetCardinality: "1"
   targetName: mktContingency
 - source: ConstraintResults
-  target: ConstraintClearing
-  sourceCardinality: 0..*
-  sourceName: constraintResults
-  targetCardinality: 0..1
-  targetName: constraintClearing
-- source: ConstraintResults
   target: Flowgate
   sourceCardinality: 1..*
   sourceName: constraintResults
   targetCardinality: "1"
   targetName: flowgate
+- source: ConstraintResults
+  target: ConstraintClearing
+  sourceCardinality: 0..*
+  sourceName: constraintResults
+  targetCardinality: 0..1
+  targetName: constraintClearing

@@ -15,6 +15,18 @@ ancestors:
 - PowerSystemResource
 associations:
 - source: Flowgate
+  target: ConstraintResults
+  sourceCardinality: "1"
+  sourceName: flowgate
+  targetCardinality: 1..*
+  targetName: constraintResults
+- source: Flowgate
+  target: FlowgateRelief
+  sourceCardinality: "1"
+  sourceName: flowgate
+  targetCardinality: 0..*
+  targetName: flowgateRelief
+- source: Flowgate
   target: InterTieResults
   sourceCardinality: "1"
   sourceName: flowgate
@@ -27,35 +39,11 @@ associations:
   targetCardinality: 0..*
   targetName: ftrs
 - source: Flowgate
-  target: ContractDistributionFactor
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: contractDistributionFactor
-- source: Flowgate
-  target: FlowgateRelief
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: flowgateRelief
-- source: Flowgate
-  target: FlowgateValue
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: flowgateValue
-- source: Flowgate
   target: RegisteredInterTie
   sourceCardinality: "1"
   sourceName: flowgate
   targetCardinality: 0..*
   targetName: registeredInterTie
-- source: Flowgate
-  target: SchedulingPoint
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: interTie
 - source: Flowgate
   target: SubControlArea
   sourceCardinality: 0..*
@@ -63,23 +51,35 @@ associations:
   targetCardinality: 0..1
   targetName: to_SubControlArea
 - source: Flowgate
+  target: FlowgateValue
+  sourceCardinality: "1"
+  sourceName: flowgate
+  targetCardinality: 0..*
+  targetName: flowgateValue
+- source: Flowgate
   target: SubControlArea
   sourceCardinality: 0..*
   sourceName: from_Flowgate
   targetCardinality: 0..1
   targetName: from_SubControlArea
 - source: Flowgate
-  target: ConstraintResults
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 1..*
-  targetName: constraintResults
-- source: Flowgate
-  target: SecurityConstraints
+  target: SchedulingPoint
   sourceCardinality: 0..1
   sourceName: flowgate
-  targetCardinality: 0..1
-  targetName: securityConstraints
+  targetCardinality: 0..*
+  targetName: interTie
+- source: Flowgate
+  target: ContractDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: flowgate
+  targetCardinality: 0..*
+  targetName: contractDistributionFactor
+- source: Flowgate
+  target: TransmissionInterfaceRightEntitlement
+  sourceCardinality: 0..1
+  sourceName: flowgate
+  targetCardinality: 0..*
+  targetName: tranmissionRightEntitlement
 - source: Flowgate
   target: TransmissionCapacity
   sourceCardinality: 0..1
@@ -87,11 +87,11 @@ associations:
   targetCardinality: 0..*
   targetName: transmissionCapacity
 - source: Flowgate
-  target: TransmissionInterfaceRightEntitlement
+  target: SecurityConstraints
   sourceCardinality: 0..1
   sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: tranmissionRightEntitlement
+  targetCardinality: 0..1
+  targetName: securityConstraints
 - source: Flowgate
   target: MktPowerTransformer
   sourceCardinality: 0..*
@@ -117,26 +117,26 @@ associations:
   targetCardinality: 0..*
   targetName: violationLimits
 - source: Flowgate
-  target: GeneratingUnitDynamicValues
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: generatingUnitDynamicValues
-- source: Flowgate
   target: GenericConstraints
   sourceCardinality: 0..*
   sourceName: flowgate
   targetCardinality: 0..1
   targetName: genericConstraints
 - source: Flowgate
-  target: CongestionRevenueRight
+  target: GeneratingUnitDynamicValues
   sourceCardinality: 0..1
   sourceName: flowgate
-  targetCardinality: 0..1
-  targetName: congestionRevenueRight
+  targetCardinality: 0..*
+  targetName: generatingUnitDynamicValues
 - source: Flowgate
   target: MktTerminal
   sourceCardinality: 0..1
   sourceName: flowgate
   targetCardinality: 0..*
   targetName: mktTerminal
+- source: Flowgate
+  target: CongestionRevenueRight
+  sourceCardinality: 0..1
+  sourceName: flowgate
+  targetCardinality: 0..1
+  targetName: congestionRevenueRight

@@ -26,12 +26,6 @@ associations:
   targetName: crewType
   targetDescription: Type of this crew.
 - source: Crew
-  target: FieldDispatchHistory
-  sourceCardinality: 0..1
-  sourceName: crew
-  targetCardinality: 0..*
-  targetName: fieldDispatchHistory
-- source: Crew
   target: WorkTask
   sourceCardinality: 0..*
   sourceName: crews
@@ -65,3 +59,9 @@ associations:
   sourceName: crew
   targetCardinality: 0..1
   targetName: location
+- source: Crew
+  target: FieldDispatchHistory
+  sourceCardinality: 0..1
+  sourceName: crew
+  targetCardinality: 0..*
+  targetName: fieldDispatchHistory

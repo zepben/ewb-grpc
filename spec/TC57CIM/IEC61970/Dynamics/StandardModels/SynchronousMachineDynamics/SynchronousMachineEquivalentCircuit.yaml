@@ -1,14 +1,14 @@
 name: SynchronousMachineEquivalentCircuit
 description: "The electrical equations for all variations of the synchronous models are based on the SynchronousEquivalentCircuit\
   \ diagram for the direct- and quadrature- axes.\nEquations for conversion between equivalent circuit and time constant reactance\
-  \ forms:\n<i>Xd</i> = <i>Xad </i>+<i> Xl</i>\n<i>X’d</i> = <i>Xl</i> + <i>Xad</i> x <i>Xfd</i> / (<i>Xad</i> + <i>Xfd</i>)\n\
-  <i>X”d</i> = <i>Xl</i> + <i>Xad</i> x <i>Xfd</i> x <i>X1d</i> / (<i>Xad</i> x <i>Xfd</i> + <i>Xad</i> x <i>X1d</i> + <i>Xfd</i>\
-  \ x <i>X1d</i>)\n<i>Xq</i> = <i>Xaq</i> + <i>Xl</i>\n<i>X’q</i> = <i>Xl</i> + <i>Xaq</i> x <i>X1q</i> / (<i>Xaq</i> + <i>X1q</i>)\n\
-  <i>X”q</i> = <i>Xl</i> + <i>Xaq</i> x <i>X1q</i> x <i>X2q</i> / (<i>Xaq</i> x <i>X1q</i> + <i>Xaq</i> x <i>X2q</i> + <i>X1q</i>\
-  \ x <i>X2q</i>)\n<i>T’do</i> = (<i>Xad</i> + <i>Xfd</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>Rfd</i>)\n<i>T”do</i> =\
+  \ forms:\n<i>Xd</i> = <i>Xad </i>+<i> Xl</i>\n<i>X�d</i> = <i>Xl</i> + <i>Xad</i> x <i>Xfd</i> / (<i>Xad</i> + <i>Xfd</i>)\n\
+  <i>X�d</i> = <i>Xl</i> + <i>Xad</i> x <i>Xfd</i> x <i>X1d</i> / (<i>Xad</i> x <i>Xfd</i> + <i>Xad</i> x <i>X1d</i> + <i>Xfd</i>\
+  \ x <i>X1d</i>)\n<i>Xq</i> = <i>Xaq</i> + <i>Xl</i>\n<i>X�q</i> = <i>Xl</i> + <i>Xaq</i> x <i>X1q</i> / (<i>Xaq</i> + <i>X1q</i>)\n\
+  <i>X�q</i> = <i>Xl</i> + <i>Xaq</i> x <i>X1q</i> x <i>X2q</i> / (<i>Xaq</i> x <i>X1q</i> + <i>Xaq</i> x <i>X2q</i> + <i>X1q</i>\
+  \ x <i>X2q</i>)\n<i>T�do</i> = (<i>Xad</i> + <i>Xfd</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>Rfd</i>)\n<i>T�do</i> =\
   \ (<i>Xad</i> x <i>Xfd</i> + <i>Xad</i> x <i>X1d</i> + <i>Xfd</i> x <i>X1d</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>R1d</i>\
-  \ x (<i>Xad</i> + <i>Xfd</i>)\n<i>T’qo</i> = (<i>Xaq</i> + <i>X1q</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>R1q</i>)\n\
-  <i>T”qo</i> = (<i>Xaq</i> x <i>X1q</i> + <i>Xaq</i> x <i>X2q</i> + <i>X1q</i> x <i>X2q</i>) / (<i>omega</i><i><sub>0</sub></i>\
+  \ x (<i>Xad</i> + <i>Xfd</i>)\n<i>T�qo</i> = (<i>Xaq</i> + <i>X1q</i>) / (<i>omega</i><i><sub>0</sub></i> x <i>R1q</i>)\n\
+  <i>T�qo</i> = (<i>Xaq</i> x <i>X1q</i> + <i>Xaq</i> x <i>X2q</i> + <i>X1q</i> x <i>X2q</i>) / (<i>omega</i><i><sub>0</sub></i>\
   \ x <i>R2q</i> x (<i>Xaq</i> + <i>X1q</i>)\nSame equations using CIM attributes from SynchronousMachineTimeConstantReactance\
   \ class on left of \"=\" and SynchronousMachineEquivalentCircuit class on right (except as noted):\nxDirectSync = xad +\
   \ RotatingMachineDynamics.statorLeakageReactance\nxDirectTrans = RotatingMachineDynamics.statorLeakageReactance + xad x\
@@ -49,7 +49,7 @@ attributes:
   description: Quadrature-axis mutual reactance.
 - name: xf1d
   type: PU
-  description: Differential mutual (“Canay”) reactance.
+  description: Differential mutual (�Canay�) reactance.
 - name: xfd
   type: PU
   description: Field winding leakage reactance.

@@ -7,12 +7,6 @@ ancestors:
 - Outage
 associations:
 - source: PlannedOutage
-  target: FieldDispatchHistory
-  sourceCardinality: 0..1
-  sourceName: plannedOutage
-  targetCardinality: 0..1
-  targetName: fieldDispatchHistory
-- source: PlannedOutage
   target: OutagePlan
   sourceCardinality: 0..1
   sourceName: plannedOutage
@@ -28,3 +22,9 @@ associations:
   targetCardinality: 0..*
   targetName: updatedRatings
   targetDescription: All updated ratings for this planned equipment outage.
+- source: PlannedOutage
+  target: FieldDispatchHistory
+  sourceCardinality: 0..1
+  sourceName: plannedOutage
+  targetCardinality: 0..1
+  targetName: fieldDispatchHistory

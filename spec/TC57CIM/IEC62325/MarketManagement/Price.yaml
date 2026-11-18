@@ -13,6 +13,12 @@ attributes:
   description: The direction indicates whether a System Operator pays the Market Parties or inverse.
 associations:
 - source: Price
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: price
+  targetCardinality: 0..*
+  targetName: timeSeries
+- source: Price
   target: Point
   sourceCardinality: 0..*
   sourceName: price
@@ -24,9 +30,3 @@ associations:
   sourceName: price
   targetCardinality: 0..*
   targetName: domain
-- source: Price
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: price
-  targetCardinality: 0..*
-  targetName: timeSeries

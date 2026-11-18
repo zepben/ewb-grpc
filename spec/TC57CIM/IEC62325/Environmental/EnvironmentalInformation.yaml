@@ -8,8 +8,8 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- Forecast
 - Observation
+- Forecast
 associations:
 - source: EnvironmentalInformation
   target: EnvironmentalDataProvider
@@ -19,30 +19,6 @@ associations:
   targetCardinality: 0..1
   targetName: environmentalDataProvider
   targetDescription: Environmental data provider supplying this environmental information.
-- source: EnvironmentalInformation
-  target: EnvironmentalDiscrete
-  sourceCardinality: 0..1
-  sourceName: environmentalInformation
-  sourceDescription: Observation or forecast with which this environmental discrete (integer) is associated.
-  targetCardinality: 0..*
-  targetName: environmentalDiscrete
-  targetDescription: Environmental discrete (integer) associated with this observation or forecast.
-- source: EnvironmentalInformation
-  target: EnvironmentalEvent
-  sourceCardinality: 0..*
-  sourceName: environmentalInformation
-  sourceDescription: Forecast or observation related to this environmental event.
-  targetCardinality: 0..*
-  targetName: environmentalEvent
-  targetDescription: Environmental event to which this forecast or observation relates.
-- source: EnvironmentalInformation
-  target: EnvironmentalAnalog
-  sourceCardinality: 0..1
-  sourceName: environmentalInformation
-  sourceDescription: Observation or forecast with which this environmental analog measurement is associated.
-  targetCardinality: 0..*
-  targetName: environmentalAnalog
-  targetDescription: Environmental analog associated with this observation or forecast.
 - source: EnvironmentalInformation
   target: EnvironmentalPhenomenon
   sourceCardinality: 0..1
@@ -58,3 +34,27 @@ associations:
   targetCardinality: 0..*
   targetName: environmentalStringMeasurement
   targetDescription: Environmental string measurement associated with this forecast or observation.
+- source: EnvironmentalInformation
+  target: EnvironmentalEvent
+  sourceCardinality: 0..*
+  sourceName: environmentalInformation
+  sourceDescription: Forecast or observation related to this environmental event.
+  targetCardinality: 0..*
+  targetName: environmentalEvent
+  targetDescription: Environmental event to which this forecast or observation relates.
+- source: EnvironmentalInformation
+  target: EnvironmentalDiscrete
+  sourceCardinality: 0..1
+  sourceName: environmentalInformation
+  sourceDescription: Observation or forecast with which this environmental discrete (integer) is associated.
+  targetCardinality: 0..*
+  targetName: environmentalDiscrete
+  targetDescription: Environmental discrete (integer) associated with this observation or forecast.
+- source: EnvironmentalInformation
+  target: EnvironmentalAnalog
+  sourceCardinality: 0..1
+  sourceName: environmentalInformation
+  sourceDescription: Observation or forecast with which this environmental analog measurement is associated.
+  targetCardinality: 0..*
+  targetName: environmentalAnalog
+  targetDescription: Environmental analog associated with this observation or forecast.

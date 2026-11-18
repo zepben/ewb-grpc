@@ -4,14 +4,6 @@ ancestors:
 - ModelOperationArg
 associations:
 - source: DatasetArg
-  target: InstanceSet
-  sourceCardinality: 0..*
-  sourceName: datasetArg
-  sourceDescription: The role of a dataset in the context of an operation.
-  targetCardinality: "1"
-  targetName: dataset
-  targetDescription: Dataset referenced by this argument of a model operation..
-- source: DatasetArg
   target: DatasetArgDescription
   sourceCardinality: 0..*
   sourceName: operationDatasetArg
@@ -20,3 +12,11 @@ associations:
   targetName: operationDatasetArgDescription
   targetDescription: The type of role for this dataset role.   Should only reference role types that belong to the operation
     type of the associated operation.
+- source: DatasetArg
+  target: InstanceSet
+  sourceCardinality: 0..*
+  sourceName: datasetArg
+  sourceDescription: The role of a dataset in the context of an operation.
+  targetCardinality: "1"
+  targetName: dataset
+  targetDescription: Dataset referenced by this argument of a model operation..

@@ -3,12 +3,6 @@ description: Provides a reference to the Market Power Mitigation test identifier
   RT markets. Specific data is the test identifier (Price, Conduct, or Impact) and the test method (System MPM, Local MPM,
   Alternate System MPM, or Alternate Local MPM).
 attributes:
-- name: purposeFlag
-  type: PurposeFlagType
-  description: |-
-    Nature of threshold data:
-    'M' - Mitigation threshold
-    'R' - Reporting threshold
 - name: testIdentifier
   type: MPMTestIdentifierType
   description: |-
@@ -22,6 +16,12 @@ attributes:
   type: MPMTestMethodType
   description: The method of performing the market power monitoring. Examples are Normal (default) thresholds or Alternate
     thresholds.
+- name: purposeFlag
+  type: PurposeFlagType
+  description: |-
+    Nature of threshold data:
+    'M' - Mitigation threshold
+    'R' - Reporting threshold
 ancestors:
 - IdentifiedObject
 associations:
@@ -32,14 +32,14 @@ associations:
   targetCardinality: 0..*
   targetName: mpmTestThreshold
 - source: MPMTestCategory
-  target: MPMResourceStatus
-  sourceCardinality: "1"
-  sourceName: mpmTestCategory
-  targetCardinality: 0..*
-  targetName: mpmResourceStatus
-- source: MPMTestCategory
   target: MPMTestResults
   sourceCardinality: "1"
   sourceName: mpmTestCategory
   targetCardinality: 0..*
   targetName: mpmTestResults
+- source: MPMTestCategory
+  target: MPMResourceStatus
+  sourceCardinality: "1"
+  sourceName: mpmTestCategory
+  targetCardinality: 0..*
+  targetName: mpmResourceStatus

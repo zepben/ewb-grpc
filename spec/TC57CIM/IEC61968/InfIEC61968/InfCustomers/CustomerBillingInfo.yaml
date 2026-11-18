@@ -5,6 +5,9 @@ description: |-
   One Customer Billing Statement is produced for all Agreements under a CustomerAccount per billing cycle date defined in 'CustomerAccount.billingCycle'.
   The history of CustomerBillingInfo, Invoices and Payments is to be maintained in associated ActivityRecords.
 attributes:
+- name: kind
+  type: CustomerBillingKind
+  description: Kind of bill customer receives.
 - name: billingDate
   type: Date
   description: Business date designated for the billing run which produced this CustomerBillingInfo.
@@ -14,17 +17,6 @@ attributes:
     a Customer's Payment is delinquent. It takes into consideration the regulatory criteria and the Customer's requested due
     date. In the absence of a Customer requested due date, the due date is typically calculated from the regulated number
     of days and the 'billingDate'.
-- name: kind
-  type: CustomerBillingKind
-  description: Kind of bill customer receives.
-- name: lastPaymentAmt
-  type: Money
-  description: Amount of the last payment received from the customer. It is retained in the Customer Billing system, although
-    the details of each payment are tracked in the ERP system.
-- name: lastPaymentDate
-  type: Date
-  description: Date of the last payment received from the customer. It is retained in the Customer Billing system, although
-    the details of each payment are tracked in the ERP system.
 - name: outBalance
   type: Money
   description: Outstanding balance on the CustomerAccount as of the statement date.
@@ -35,6 +27,14 @@ attributes:
 - name: pymtPlanType
   type: String
   description: Type of payment plan.
+- name: lastPaymentDate
+  type: Date
+  description: Date of the last payment received from the customer. It is retained in the Customer Billing system, although
+    the details of each payment are tracked in the ERP system.
+- name: lastPaymentAmt
+  type: Money
+  description: Amount of the last payment received from the customer. It is retained in the Customer Billing system, although
+    the details of each payment are tracked in the ERP system.
 ancestors:
 - Document
 associations:

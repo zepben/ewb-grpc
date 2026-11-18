@@ -2,15 +2,15 @@ name: Skill
 description: Proficiency level of a craft, which is required to operate or maintain a particular type of asset and/or perform
   certain types of work.
 attributes:
+- name: level
+  type: SkillLevelKind
+  description: Level of skill for a Craft.
 - name: certificationPeriod
   type: DateTimeInterval
   description: Interval between the certification and its expiry.
 - name: effectiveDateTime
   type: DateTime
   description: Date and time the skill became effective.
-- name: level
-  type: SkillLevelKind
-  description: Level of skill for a Craft.
 ancestors:
 - Document
 associations:

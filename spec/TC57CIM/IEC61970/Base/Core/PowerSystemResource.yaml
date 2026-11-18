@@ -5,6 +5,10 @@ description: A power system resource (PSR) can be an item of equipment such as a
 ancestors:
 - IdentifiedObject
 descendants:
+- VoltageControlZone
+- Reservoir
+- CommunicationLink
+- PowerCutZone
 - TapChanger
 - ControlArea
 - SwitchPhase
@@ -21,23 +25,19 @@ descendants:
 - CogenerationPlant
 - CAESPlant
 - RegulatingControl
-- VoltageControlZone
-- Reservoir
-- CommunicationLink
-- PowerCutZone
 - EnergySourcePhase
 - WeatherStation
 - RemedialActionScheme
 - EnergyGroup
 - ACLineSegmentPhase
 - PowerElectronicsConnectionPhase
-- WireSegmentPhase
-- HostControlArea
-- TransmissionCorridor
 - TransmissionRightOfWay
-- Flowgate
+- TransmissionCorridor
 - SubControlArea
+- HostControlArea
+- Flowgate
 - RegisteredResource
+- WireSegmentPhase
 associations:
 - source: PowerSystemResource
   target: Control
@@ -71,14 +71,6 @@ associations:
   targetCardinality: 0..*
   targetName: configurationEvent
 - source: PowerSystemResource
-  target: ReportingGroup
-  sourceCardinality: 0..*
-  sourceName: powerSystemResource
-  sourceDescription: Power system resources which belong to this reporting group.
-  targetCardinality: 0..*
-  targetName: reportingGroup
-  targetDescription: Reporting groups to which this power system resource belongs.
-- source: PowerSystemResource
   target: OperatingShare
   sourceCardinality: "1"
   sourceName: powerSystemResource
@@ -86,6 +78,14 @@ associations:
   targetCardinality: 0..*
   targetName: operatingShare
   targetDescription: The operating shares of this power system resource.
+- source: PowerSystemResource
+  target: ReportingGroup
+  sourceCardinality: 0..*
+  sourceName: powerSystemResource
+  sourceDescription: Power system resources which belong to this reporting group.
+  targetCardinality: 0..*
+  targetName: reportingGroup
+  targetDescription: Reporting groups to which this power system resource belongs.
 - source: PowerSystemResource
   target: AssetInfo
   sourceCardinality: 0..*

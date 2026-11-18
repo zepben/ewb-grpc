@@ -21,12 +21,6 @@ descendants:
 - CongestionArea
 associations:
 - source: AggregatedPnode
-  target: MPMTestResults
-  sourceCardinality: "1"
-  sourceName: aggregatedPnode
-  targetCardinality: 1..*
-  targetName: mpmTestResults
-- source: AggregatedPnode
   target: PnodeDistributionFactor
   sourceCardinality: "1"
   sourceName: aggregatedPnode
@@ -39,17 +33,23 @@ associations:
   targetCardinality: 0..*
   targetName: tacArea
 - source: AggregatedPnode
-  target: GenDistributionFactor
-  sourceCardinality: 0..1
+  target: MPMTestResults
+  sourceCardinality: "1"
   sourceName: aggregatedPnode
   targetCardinality: 1..*
-  targetName: genDistributionFactor
+  targetName: mpmTestResults
 - source: AggregatedPnode
   target: LoadDistributionFactor
   sourceCardinality: 0..1
   sourceName: aggregatedPnode
   targetCardinality: 1..*
   targetName: loadDistributionFactor
+- source: AggregatedPnode
+  target: GenDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: aggregatedPnode
+  targetCardinality: 1..*
+  targetName: genDistributionFactor
 - source: AggregatedPnode
   target: MktCombinedCyclePlant
   sourceCardinality: 0..1

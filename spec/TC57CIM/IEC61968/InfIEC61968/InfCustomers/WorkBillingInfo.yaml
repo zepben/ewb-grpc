@@ -2,6 +2,18 @@ name: WorkBillingInfo
 description: Billing information for work performed for the customer. The history of Work Billing Info, Invoices, and Payments
   is to be maintained in associated ActivityRecords.
 attributes:
+- name: issueDateTime
+  type: DateTime
+  description: Date and time bill was issued to client.
+- name: dueDateTime
+  type: DateTime
+  description: Date and time by which payment for bill is expected from client.
+- name: receivedDateTime
+  type: DateTime
+  description: Date payment was received from client.
+- name: workPrice
+  type: Money
+  description: Amount of bill.
 - name: costEstimate
   type: Money
   description: Estimated cost for work.
@@ -11,18 +23,6 @@ attributes:
 - name: discount
   type: Float
   description: Discount from standard price.
-- name: dueDateTime
-  type: DateTime
-  description: Date and time by which payment for bill is expected from client.
-- name: issueDateTime
-  type: DateTime
-  description: Date and time bill was issued to client.
-- name: receivedDateTime
-  type: DateTime
-  description: Date payment was received from client.
-- name: workPrice
-  type: Money
-  description: Amount of bill.
 ancestors:
 - Document
 associations:

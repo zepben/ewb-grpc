@@ -1,34 +1,34 @@
 name: TransformerEndInfo
 description: Transformer end data.
 attributes:
-- name: connectionKind
-  type: WindingConnection
-  description: Kind of connection.
-- name: emergencyS
-  type: ApparentPower
-  description: Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
 - name: endNumber
   type: Integer
   description: Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
     Highest voltage winding should be 1.
-- name: insulationU
-  type: Voltage
-  description: Basic insulation level voltage rating.
 - name: phaseAngleClock
   type: Integer
   description: 'Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}.
     For example, to express the second winding in code ''Dyn11'', set attributes as follows: ''endNumber''=2, ''connectionKind''
     = Yn and ''phaseAngleClock'' = 11.'
+- name: connectionKind
+  type: WindingConnection
+  description: Kind of connection.
 - name: r
   type: Resistance
   description: DC resistance.
-- name: ratedS
-  type: ApparentPower
-  description: Normal apparent power rating.
 - name: ratedU
   type: Voltage
   description: 'Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase
     windings.'
+- name: insulationU
+  type: Voltage
+  description: Basic insulation level voltage rating.
+- name: ratedS
+  type: ApparentPower
+  description: Normal apparent power rating.
+- name: emergencyS
+  type: ApparentPower
+  description: Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
 - name: shortTermS
   type: ApparentPower
   description: Apparent power that this winding can carry for a short period of time (in emergency).

@@ -6,31 +6,31 @@ attributes:
   type: DateTime
   description: Date and time this activity record has been created (different from the 'status.dateTime', which is the time
     of a status change of the associated object, if applicable).
-- name: reason
-  type: String
-  description: Reason for event resulting in this activity record, typically supplied when user initiated.
-- name: severity
-  type: String
-  description: Severity level of event resulting in this activity record.
-- name: status
-  type: Status
-  description: Information on consequence of event resulting in this activity record.
 - name: type
   type: String
   description: Type of event resulting in this activity record.
+- name: severity
+  type: String
+  description: Severity level of event resulting in this activity record.
+- name: reason
+  type: String
+  description: Reason for event resulting in this activity record, typically supplied when user initiated.
+- name: status
+  type: Status
+  description: Information on consequence of event resulting in this activity record.
 ancestors:
 - IdentifiedObject
 descendants:
 - ComplianceEvent
 - EndDeviceEvent
-- ConfigurationEvent
 - WorkActivityRecord
 - FailureEvent
 - AssetHealthEvent
 - PSREvent
 - SwitchingEvent
-- EnvironmentalAlert
+- ConfigurationEvent
 - EnvironmentalEvent
+- EnvironmentalAlert
 - MktActivityRecord
 associations:
 - source: ActivityRecord

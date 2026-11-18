@@ -3,6 +3,23 @@ description: |-
   IEEE 421.5-2005 type AC2A model. The model represents a high initial response field-controlled alternator-rectifier excitation system. The alternator main exciter is used with non-controlled rectifiers. The type AC2A model is similar to that of type AC1A except for the inclusion of exciter time constant compensation and exciter field current limiting elements.
   Reference: IEEE 421.5-2005, 6.2.
 attributes:
+- name: ve1
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>V</i><i><sub>E1</sub></i>)
+    (&gt; 0).  Typical value = 4,4.
+- name: ve2
+  type: PU
+  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>V</i><i><sub>E2</sub></i>)
+    (&gt; 0).  Typical value = 3,3.
+- name: vfemax
+  type: PU
+  description: Exciter field current limit reference (<i>V</i><i><sub>FEMAX</sub></i>) (&gt; 0).  Typical value = 4,4.
+- name: vrmax
+  type: PU
+  description: Maximum voltage regulator outputs (<i>V</i><i><sub>RMAX</sub></i>) (&gt; 0).  Typical value = 105.
+- name: vrmin
+  type: PU
+  description: Minimum voltage regulator outputs (<i>V</i><i><sub>RMIN</sub></i>) (&lt; 0).  Typical value = -95.
 - name: ka
   type: PU
   description: Voltage regulator gain (<i>K</i><i><sub>A</sub></i>) (&gt; 0).  Typical value = 400.
@@ -59,22 +76,5 @@ attributes:
 - name: vamin
   type: PU
   description: Minimum voltage regulator output (<i>V</i><i><sub>AMIN</sub></i>) (&lt; 0).  Typical value = -8.
-- name: ve1
-  type: PU
-  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>V</i><i><sub>E1</sub></i>)
-    (&gt; 0).  Typical value = 4,4.
-- name: ve2
-  type: PU
-  description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>V</i><i><sub>E2</sub></i>)
-    (&gt; 0).  Typical value = 3,3.
-- name: vfemax
-  type: PU
-  description: Exciter field current limit reference (<i>V</i><i><sub>FEMAX</sub></i>) (&gt; 0).  Typical value = 4,4.
-- name: vrmax
-  type: PU
-  description: Maximum voltage regulator outputs (<i>V</i><i><sub>RMAX</sub></i>) (&gt; 0).  Typical value = 105.
-- name: vrmin
-  type: PU
-  description: Minimum voltage regulator outputs (<i>V</i><i><sub>RMIN</sub></i>) (&lt; 0).  Typical value = -95.
 ancestors:
 - ExcitationSystemDynamics

@@ -11,14 +11,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: TransactionBidResults
-  target: TransactionBidClearing
-  sourceCardinality: 0..*
-  sourceName: transactionBidResults
-  targetCardinality: "1"
-  targetName: transactionBidClearing
-- source: TransactionBidResults
   target: TransactionBid
   sourceCardinality: 0..*
   sourceName: transactionBidResults
   targetCardinality: 0..1
   targetName: transactionBid
+- source: TransactionBidResults
+  target: TransactionBidClearing
+  sourceCardinality: 0..*
+  sourceName: transactionBidResults
+  targetCardinality: "1"
+  targetName: transactionBidClearing

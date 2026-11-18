@@ -1,17 +1,16 @@
 name: OperationalLimit
-description: "A value and normal value associated with a specific kind of limit. \nThe sub class value and normalValue attributes\
-  \ vary inversely to the associated OperationalLimitType.acceptableDuration (acceptableDuration for short).  \nIf a particular\
-  \ piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.), the limit with the\
-  \ greatest acceptableDuration shall have the smallest limit value and the limit with the smallest acceptableDuration shall\
-  \ have the largest limit value.  Note: A large current can only be allowed to flow through a piece of equipment for a short\
-  \ duration without causing damage, but a lesser current can be allowed to flow for a longer duration."
+description: "A value associated with a specific kind of limit. \nThe sub class value attribute shall be positive. \nThe sub\
+  \ class value attribute is inversely proportional to OperationalLimitType.acceptableDuration (acceptableDuration for short).\
+  \ A pair of value_x and acceptableDuration_x are related to each other as follows:\nif value_1 &gt; value_2 &gt; value_3\
+  \ &gt;... then\nacceptableDuration_1 &lt; acceptableDuration_2 &lt; acceptableDuration_3 &lt; ...\nA value_x with direction=\"\
+  high\" shall be greater than a value_y with direction=\"low\"."
 ancestors:
 - IdentifiedObject
 descendants:
-- CurrentLimit
-- ActivePowerLimit
 - ApparentPowerLimit
 - VoltageLimit
+- CurrentLimit
+- ActivePowerLimit
 associations:
 - source: OperationalLimit
   target: OperationalLimitType

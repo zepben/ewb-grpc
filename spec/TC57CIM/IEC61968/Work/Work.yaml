@@ -1,12 +1,12 @@
 name: Work
 description: Document used to request, initiate, track and record work.
 attributes:
-- name: requestDateTime
-  type: DateTime
-  description: Date and time work was requested.
 - name: workOrderNumber
   type: String
   description: Work order number (or other unique identifying information) for this work.
+- name: requestDateTime
+  type: DateTime
+  description: Date and time work was requested.
 ancestors:
 - BaseWork
 associations:
@@ -30,14 +30,6 @@ associations:
   sourceName: works
   targetCardinality: 0..1
   targetName: erpProjectAccounting
-- source: Work
-  target: Appointment
-  sourceCardinality: 0..*
-  sourceName: works
-  sourceDescription: All works for this appointment.
-  targetCardinality: 0..*
-  targetName: appointments
-  targetDescription: All appointments for this work.
 - source: Work
   target: WorkCostDetail
   sourceCardinality: 0..*
@@ -84,3 +76,11 @@ associations:
   targetCardinality: 0..*
   targetName: incidents
   targetDescription: All incidents being addressed by this work.
+- source: Work
+  target: Appointment
+  sourceCardinality: 0..*
+  sourceName: works
+  sourceDescription: All works for this appointment.
+  targetCardinality: 0..*
+  targetName: appointments
+  targetDescription: All appointments for this work.

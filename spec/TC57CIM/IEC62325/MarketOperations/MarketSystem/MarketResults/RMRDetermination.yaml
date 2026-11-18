@@ -3,14 +3,14 @@ description: 'Indicates whether unit is a reliablity must run unit: required to 
   load demand, or voltage support.'
 associations:
 - source: RMRDetermination
-  target: MitigatedBidClearing
-  sourceCardinality: 0..*
-  sourceName: rmrDetermination
-  targetCardinality: 1..*
-  targetName: mitigatedBidClearing
-- source: RMRDetermination
   target: Bid
   sourceCardinality: 0..*
   sourceName: rmrDetermination
   targetCardinality: 0..1
   targetName: bid
+- source: RMRDetermination
+  target: MitigatedBidClearing
+  sourceCardinality: 0..*
+  sourceName: rmrDetermination
+  targetCardinality: 1..*
+  targetName: mitigatedBidClearing
