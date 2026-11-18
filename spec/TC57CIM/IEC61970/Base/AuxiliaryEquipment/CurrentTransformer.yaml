@@ -3,6 +3,9 @@ description: Instrument transformer used to measure electrical qualities of the 
   Typically used as current transducer for the purpose of metering or protection. A typical secondary current rating would
   be 5A.
 attributes:
+- name: coreBurden
+  type: ActivePower
+  description: Power burden of the CT core.
 - name: accuracyClass
   type: String
   description: CT accuracy classification.
@@ -15,8 +18,5 @@ attributes:
 - name: usage
   type: String
   description: Intended usage of the CT; i.e. metering, protection.
-- name: coreBurden
-  type: ActivePower
-  description: Power burden of the CT core.
 ancestors:
 - Sensor

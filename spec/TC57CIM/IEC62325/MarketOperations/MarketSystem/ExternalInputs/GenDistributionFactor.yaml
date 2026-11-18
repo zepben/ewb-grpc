@@ -7,6 +7,12 @@ attributes:
   description: Used to calculate generation "participation" of an individual pnond in an AggregatePnode.
 associations:
 - source: GenDistributionFactor
+  target: DistributionFactorSet
+  sourceCardinality: 0..*
+  sourceName: genDistributionFactor
+  targetCardinality: 0..*
+  targetName: distributionFactorSet
+- source: GenDistributionFactor
   target: AggregatedPnode
   sourceCardinality: 1..*
   sourceName: genDistributionFactor
@@ -18,9 +24,3 @@ associations:
   sourceName: genDistributionFactor
   targetCardinality: 0..1
   targetName: individualPnode
-- source: GenDistributionFactor
-  target: DistributionFactorSet
-  sourceCardinality: 0..*
-  sourceName: genDistributionFactor
-  targetCardinality: 0..*
-  targetName: distributionFactorSet

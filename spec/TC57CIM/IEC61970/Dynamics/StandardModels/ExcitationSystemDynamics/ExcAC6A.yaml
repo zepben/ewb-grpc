@@ -1,17 +1,6 @@
 name: ExcAC6A
 description: Modified IEEE AC6A alternator-supplied rectifier excitation system with speed input.
 attributes:
-- name: seve1
-  type: Float
-  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back
-    of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,214.
-- name: seve2
-  type: Float
-  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back
-    of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,044.
-- name: ta
-  type: Seconds
-  description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0,086.
 - name: tb
   type: Seconds
   description: Voltage regulator time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 9.
@@ -75,5 +64,16 @@ attributes:
 - name: ks
   type: PU
   description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
+- name: seve1
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,214.
+- name: seve2
+  type: Float
+  description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back
+    of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,044.
+- name: ta
+  type: Seconds
+  description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0,086.
 ancestors:
 - ExcitationSystemDynamics

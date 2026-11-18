@@ -3,30 +3,24 @@ description: An event where an asset has failed to perform its functions within 
   to reflect the failure itself. Additional information resulting from forensic analysis could be captured by a diagnosis
   data set.
 attributes:
-- name: failureDateTime
-  type: DateTime
-  description: Time and date of asset failure.
-- name: failureClassification
-  type: AssetFailureClassification
-  description: Classification of failure.
-- name: corporateCode
-  type: String
-  description: Code for asset failure.
-- name: failureMode
-  type: AssetFailureMode
-  description: What asset failed to be able to do.
 - name: breakerFailureReason
   type: BreakerFailureReasonKind
   description: Reason for breaker failure.
-- name: transformerFailureReason
-  type: TransformerFailureReasonKind
-  description: Reason for transformer failure.
-- name: rootCause
+- name: corporateCode
   type: String
-  description: Root cause of asset failure.
+  description: Code for asset failure.
+- name: failureClassification
+  type: AssetFailureClassification
+  description: Classification of failure.
+- name: failureDateTime
+  type: DateTime
+  description: Time and date of asset failure.
 - name: failureIsolationMethod
   type: FailureIsolationMethodKind
   description: How the asset failure was isolated from the system.
+- name: failureMode
+  type: AssetFailureMode
+  description: What asset failed to be able to do.
 - name: faultLocatingMethod
   type: String
   description: 'The method used for locating the faulted part of the asset. For example, cable options include: Cap Discharge-Thumping,
@@ -34,5 +28,11 @@ attributes:
 - name: location
   type: String
   description: Failure location on an object.
+- name: rootCause
+  type: String
+  description: Root cause of asset failure.
+- name: transformerFailureReason
+  type: TransformerFailureReasonKind
+  description: Reason for transformer failure.
 ancestors:
 - ActivityRecord

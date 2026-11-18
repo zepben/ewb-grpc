@@ -20,17 +20,17 @@ associations:
   targetCardinality: 0..*
   targetName: bidSelfSched
 - source: AdjacentCASet
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: adjacentCASet
-  targetCardinality: "1"
-  targetName: rto
-- source: AdjacentCASet
   target: HostControlArea
   sourceCardinality: 0..1
   sourceName: adjacentCASet
   targetCardinality: 0..1
   targetName: hostControlArea
+- source: AdjacentCASet
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: adjacentCASet
+  targetCardinality: "1"
+  targetName: rto
 - source: AdjacentCASet
   target: RegisteredResource
   sourceCardinality: 0..1

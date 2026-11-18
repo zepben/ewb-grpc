@@ -5,12 +5,12 @@ attributes:
   type: Boolean
   description: If true, the data it produces is  calculated or measured by a device other than a physical end device/meter.
     Otherwise, any data streams it produces are measured by the hardware of the end device/meter itself.
-- name: rightDigitCount
-  type: Integer
-  description: Number of digits (dials on a mechanical meter) to the right of the decimal place.
 - name: leftDigitCount
   type: Integer
   description: Number of digits (dials on a mechanical meter) to the left of the decimal place; default is normally 5.
+- name: rightDigitCount
+  type: Integer
+  description: Number of digits (dials on a mechanical meter) to the right of the decimal place.
 - name: touTier
   type: TimeInterval
   description: Clock time interval for register to beging/cease accumulating time of usage (e.g., start at 8:00 am, stop at
@@ -43,4 +43,4 @@ associations:
   sourceCardinality: 0..*
   sourceName: register
   targetCardinality: 0..1
-  targetName: usage Point
+  targetName: usagePoint

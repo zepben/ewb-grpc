@@ -16,6 +16,12 @@ ancestors:
 - Curve
 associations:
 - source: RampRateCurve
+  target: GeneratingBid
+  sourceCardinality: 0..*
+  sourceName: rampRateCurve
+  targetCardinality: 0..1
+  targetName: generatingBid
+- source: RampRateCurve
   target: LoadBid
   sourceCardinality: 0..*
   sourceName: rampRateCurve
@@ -27,12 +33,6 @@ associations:
   sourceName: rampRateCurve
   targetCardinality: 0..1
   targetName: interTieBid
-- source: RampRateCurve
-  target: GeneratingBid
-  sourceCardinality: 0..*
-  sourceName: rampRateCurve
-  targetCardinality: 0..1
-  targetName: generatingBid
 - source: RampRateCurve
   target: RegisteredResource
   sourceCardinality: 0..*

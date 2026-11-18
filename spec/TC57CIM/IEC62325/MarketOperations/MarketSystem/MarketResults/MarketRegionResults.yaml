@@ -52,17 +52,17 @@ attributes:
   description: Aof AS, selfScheduleMW = AS Self-Provided
 associations:
 - source: MarketRegionResults
-  target: MarketRegion
-  sourceCardinality: 1..*
-  sourceName: marketRegionResults
-  targetCardinality: "1"
-  targetName: marketRegion
-- source: MarketRegionResults
   target: AncillaryServiceClearing
   sourceCardinality: 1..*
   sourceName: marketRegionResults
   targetCardinality: 0..1
   targetName: ancillaryServiceClearing
+- source: MarketRegionResults
+  target: MarketRegion
+  sourceCardinality: 1..*
+  sourceName: marketRegionResults
+  targetCardinality: "1"
+  targetName: marketRegion
 - source: MarketRegionResults
   target: MarketProduct
   sourceCardinality: 0..1

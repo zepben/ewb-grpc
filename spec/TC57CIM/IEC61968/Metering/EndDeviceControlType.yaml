@@ -2,20 +2,20 @@ name: EndDeviceControlType
 description: 'Detailed description for a control produced by an end device. Values in attributes allow for creation of recommended
   codes to be used for identifying end device controls as follows: <type>.<domain>.<subDomain>.<eventOrAction>.'
 attributes:
-- name: type
-  type: String
-  description: Type of physical device from which the control was created. A value of zero (0) can be used when the source
-    is unknown.
 - name: domain
   type: String
   description: High-level nature of the control.
-- name: subDomain
-  type: String
-  description: More specific nature of the control, as a further sub-categorisation of 'domain'.
 - name: eventOrAction
   type: String
   description: The most specific part of this control type. It is mainly in the form of a verb that gives action to the control
     that just occurred.
+- name: subDomain
+  type: String
+  description: More specific nature of the control, as a further sub-categorisation of 'domain'.
+- name: type
+  type: String
+  description: Type of physical device from which the control was created. A value of zero (0) can be used when the source
+    is unknown.
 ancestors:
 - IdentifiedObject
 associations:

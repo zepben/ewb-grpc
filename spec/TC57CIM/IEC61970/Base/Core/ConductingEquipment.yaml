@@ -68,10 +68,10 @@ associations:
   target: JumperAction
   sourceCardinality: 0..*
   sourceName: jumpedEquipments
-  sourceDescription: The conducting equipment that this jumper action will affect. In case of placing a jumper anywhere along
-    a line segment, you must use the clamp (to get the distance from one terminal), so use the explicit relation with line
-    segment. In all other cases (including placing the jumper at a line segment terminal), reference to one or more conducting
-    equipment is sufficient.
+  sourceDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the
+    conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment,
+    you must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of
+    placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is sufficient.
   targetCardinality: 0..1
   targetName: jumpingAction
   targetDescription: Jumper action involving jumping operation on this conducting equipment.
@@ -86,3 +86,9 @@ associations:
   targetCardinality: 0..1
   targetName: groundingAction
   targetDescription: Action involving grounding operation on this conducting equipment.
+- source: ConductingEquipment
+  target: Outage
+  sourceCardinality: 0..*
+  sourceName: outageIsolationEquipment
+  targetCardinality: 0..1
+  targetName: outage

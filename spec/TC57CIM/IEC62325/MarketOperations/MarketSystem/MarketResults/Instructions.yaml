@@ -42,17 +42,17 @@ attributes:
   type: String
 associations:
 - source: Instructions
-  target: AggregateNode
-  sourceCardinality: 0..*
-  sourceName: instruction
-  targetCardinality: 0..1
-  targetName: aggregateNode
-- source: Instructions
   target: InstructionClearing
   sourceCardinality: 1..*
   sourceName: instructions
   targetCardinality: 1..*
   targetName: instructionClearing
+- source: Instructions
+  target: AggregateNode
+  sourceCardinality: 0..*
+  sourceName: instruction
+  targetCardinality: 0..1
+  targetName: aggregateNode
 - source: Instructions
   target: RegisteredResource
   sourceCardinality: 0..*

@@ -4,24 +4,24 @@ description: |-
   There may be a related end device function that identifies a sensor or control point within a metering application or communications systems (e.g., water, gas, electricity).
   Some devices may use an optical port that conforms to the ANSI C12.18 standard for communications.
 attributes:
+- name: amrSystem
+  type: String
+  description: Automated meter reading (AMR) or other communication system responsible for communications to this end device.
+- name: installCode
+  type: String
+  description: Installation code.
+- name: isPan
+  type: Boolean
+  description: If true, this is a premises area network (PAN) device.
+- name: isSmartInverter
+  type: Boolean
 - name: isVirtual
   type: Boolean
   description: If true, there is no physical device. As an example, a virtual meter can be defined to aggregate the consumption
     for two or more physical meters. Otherwise, this is a physical hardware device.
-- name: isPan
-  type: Boolean
-  description: If true, this is a premises area network (PAN) device.
-- name: installCode
-  type: String
-  description: Installation code.
-- name: amrSystem
-  type: String
-  description: Automated meter reading (AMR) or other communication system responsible for communications to this end device.
 - name: timeZoneOffset
   type: Minutes
   description: Time zone offset relative to GMT for the location of this end device.
-- name: isSmartInverter
-  type: Boolean
 ancestors:
 - AssetContainer
 descendants:

@@ -1,4 +1,4 @@
-name: WireSpacing
+name: WireSpacingInfo
 description: Wire spacing data that associates multiple wire positions with the line segment, and allows to calculate line
   segment impedances. Number of phases can be derived from the number of associated wire positions whose phase is not neutral.
 attributes:
@@ -15,9 +15,9 @@ attributes:
   type: WireUsageKind
   description: Usage of the associated wires.
 ancestors:
-- IdentifiedObject
+- AssetInfo
 associations:
-- source: WireSpacing
+- source: WireSpacingInfo
   target: WirePosition
   sourceCardinality: 0..1
   sourceName: wireSpacingInfo
@@ -25,15 +25,21 @@ associations:
   targetCardinality: 1..*
   targetName: wirePositions
   targetDescription: All positions of single wires (phase or neutral) making the conductor.
-- source: WireSpacing
+- source: WireSpacingInfo
   target: Structure
   sourceCardinality: 0..*
   sourceName: wireSpacingInfos
   targetCardinality: 0..*
   targetName: structures
-- source: WireSpacing
+- source: WireSpacingInfo
   target: DuctBank
   sourceCardinality: 0..*
   sourceName: wireSpacingInfos
   targetCardinality: 0..1
   targetName: ductBank
+- source: WireSpacingInfo
+  target: ACLineSegment
+  sourceCardinality: 0..1
+  sourceName: wireSpacingInfo
+  targetCardinality: 0..*
+  targetName: acLineSegment

@@ -3,14 +3,14 @@ description: Model of mitigated bid. Indicates segment of piece-wise linear bid,
 attributes:
 - name: intervalStartTime
   type: DateTime
-- name: thresholdType
-  type: String
-- name: segmentNumber
-  type: Integer
-  description: Mitigated Bid Segment Number
 - name: segmentMW
   type: Float
   description: Mitigated bid segment MW value
+- name: segmentNumber
+  type: Integer
+  description: Mitigated Bid Segment Number
+- name: thresholdType
+  type: String
 associations:
 - source: MitigatedBidSegment
   target: Bid

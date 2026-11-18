@@ -2,13 +2,19 @@ name: Structure
 description: Construction holding assets such as conductors, transformers, switchgear, etc. Where applicable, number of conductors
   can be derived from the number of associated wire spacing instances.
 attributes:
-- name: materialKind
-  type: StructureMaterialKind
-  description: Material this structure is made of.
+- name: fumigantAppliedDate
+  type: Date
+  description: Date fumigant was last applied.
+- name: fumigantName
+  type: String
+  description: Name of fumigant.
 - name: height
   type: Length
   description: Visible height of structure above ground level for overhead construction (e.g., Pole or Tower) or below ground
     level for an underground vault, manhole, etc. Refer to associated DimensionPropertiesInfo for other types of dimensions.
+- name: materialKind
+  type: StructureMaterialKind
+  description: Material this structure is made of.
 - name: ratedVoltage
   type: Voltage
   description: Maximum rated voltage of the equipment that can be mounted on/contained within the structure.
@@ -18,12 +24,6 @@ attributes:
 - name: weedRemovedDate
   type: Date
   description: Date weed were last removed.
-- name: fumigantName
-  type: String
-  description: Name of fumigant.
-- name: fumigantAppliedDate
-  type: Date
-  description: Date fumigant was last applied.
 ancestors:
 - AssetContainer
 descendants:
@@ -40,7 +40,7 @@ associations:
   targetName: structureSupports
   targetDescription: Structure support for this structure.
 - source: Structure
-  target: WireSpacing
+  target: WireSpacingInfo
   sourceCardinality: 0..*
   sourceName: structures
   targetCardinality: 0..*

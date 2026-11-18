@@ -64,6 +64,12 @@ associations:
   targetName: energyConsumerPhase
   targetDescription: The individual phase models for this energy consumer.
 - source: EnergyConsumer
+  target: EnergyConsumerAction
+  sourceCardinality: 0..1
+  sourceName: energyConsumer
+  targetCardinality: 0..1
+  targetName: energyConsumerAction
+- source: EnergyConsumer
   target: PowerCutZone
   sourceCardinality: 1..*
   sourceName: energyConsumers

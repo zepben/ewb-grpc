@@ -4,25 +4,25 @@ attributes:
 - name: kind
   type: CustomerKind
   description: Kind of customer.
+- name: locale
+  type: String
+  description: Locale designating language to use in communications with this customer.
+- name: priority
+  type: Priority
+  description: Priority of the customer.
+- name: pucNumber
+  type: String
+  description: (if applicable) Public utilities commission (PUC) identification number.
 - name: specialNeed
   type: String
   description: True if customer organisation has special service needs such as life support, hospitals, etc.
+- name: status
+  type: Status
+  description: Status of this customer.
 - name: vip
   type: Boolean
   description: (deprecated) (use 'priority' instead) True if this is an important customer. Importance is for matters different
     than those in 'specialNeed' attribute.
-- name: pucNumber
-  type: String
-  description: (if applicable) Public utilities commission (PUC) identification number.
-- name: status
-  type: Status
-  description: Status of this customer.
-- name: priority
-  type: Priority
-  description: Priority of the customer.
-- name: locale
-  type: String
-  description: Locale designating language to use in communications with this customer.
 ancestors:
 - OrganisationRole
 associations:
@@ -93,3 +93,9 @@ associations:
   targetCardinality: 0..*
   targetName: customerNotifications
   targetDescription: All notifications required by this customer.
+- source: Customer
+  target: PlannedOutageNotification
+  sourceCardinality: 0..*
+  sourceName: customer
+  targetCardinality: 0..*
+  targetName: plannedOutageNotification

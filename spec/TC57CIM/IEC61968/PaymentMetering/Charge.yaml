@@ -2,12 +2,12 @@ name: Charge
 description: A charge element associated with other entities such as tariff structures, auxiliary agreements or other charge
   elements. The total charge amount applicable to this instance of charge is the sum of fixed and variable portion.
 attributes:
-- name: kind
-  type: ChargeKind
-  description: The kind of charge to be applied.
 - name: fixedPortion
   type: AccountingUnit
   description: The fixed portion of this charge element.
+- name: kind
+  type: ChargeKind
+  description: The kind of charge to be applied.
 - name: variablePortion
   type: PerCent
   description: The variable portion of this charge element, calculated as a percentage of the total amount of a parent charge.

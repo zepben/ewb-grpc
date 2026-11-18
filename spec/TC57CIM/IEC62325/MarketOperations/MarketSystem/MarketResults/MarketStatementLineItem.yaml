@@ -59,17 +59,17 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: MarketStatementLineItem
-  target: MarketStatementLineItem
-  sourceCardinality: 0..*
-  sourceName: componentMarketStatementLineItem
-  targetCardinality: 0..1
-  targetName: containerMarketStatementLineItem
-- source: MarketStatementLineItem
   target: MarketStatement
   sourceCardinality: 0..*
   sourceName: marketStatementLineItem
   targetCardinality: "1"
   targetName: marketStatement
+- source: MarketStatementLineItem
+  target: MarketStatementLineItem
+  sourceCardinality: 0..*
+  sourceName: componentMarketStatementLineItem
+  targetCardinality: 0..1
+  targetName: containerMarketStatementLineItem
 - source: MarketStatementLineItem
   target: MktUserAttribute
   sourceCardinality: 0..*

@@ -9,14 +9,6 @@ descendants:
 - PFVArType1IEEEPFController
 associations:
 - source: PFVArControllerType1Dynamics
-  target: RemoteInputSignal
-  sourceCardinality: 0..1
-  sourceName: pfVArControllerType1Dynamics
-  sourceDescription: Power factor or VAr controller type 1 model using this remote input signal.
-  targetCardinality: 0..1
-  targetName: remoteInputSignal
-  targetDescription: Remote input signal used by this power factor or VAr controller type 1 model.
-- source: PFVArControllerType1Dynamics
   target: ExcitationSystemDynamics
   sourceCardinality: 0..1
   sourceName: pfVArControllerType1Dynamics
@@ -24,6 +16,14 @@ associations:
   targetCardinality: "1"
   targetName: excitationSystemDynamics
   targetDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
+- source: PFVArControllerType1Dynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  sourceName: pfVArControllerType1Dynamics
+  sourceDescription: Power factor or VAr controller type 1 model using this remote input signal.
+  targetCardinality: 0..1
+  targetName: remoteInputSignal
+  targetDescription: Remote input signal used by this power factor or VAr controller type 1 model.
 - source: PFVArControllerType1Dynamics
   target: VoltageAdjusterDynamics
   sourceCardinality: "1"

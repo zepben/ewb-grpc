@@ -3,6 +3,9 @@ description: "Description of quantities needed in the data exchange. \nThe type 
   \ role of the association or the type attribute.\nThe quality attribute provides the information about the quality of the\
   \ quantity (measured, estimated, etc.)."
 attributes:
+- name: quality
+  type: String
+  description: The quality of the information being provided. This quality may be estimated, not available, as provided, etc.
 - name: quantity
   type: Decimal
   description: |-
@@ -11,9 +14,6 @@ attributes:
 - name: type
   type: String
   description: The description of the type of the quantity.
-- name: quality
-  type: String
-  description: The quality of the information being provided. This quality may be estimated, not available, as provided, etc.
 associations:
 - source: Quantity
   target: Quantity
@@ -22,12 +22,6 @@ associations:
   sourceDescription: Additional information related to the associated quantity.
   targetCardinality: 0..1
   targetName: quantity
-- source: Quantity
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: quantity
-  targetCardinality: 0..*
-  targetName: timeSeries
 - source: Quantity
   target: Point
   sourceCardinality: 0..*
@@ -40,3 +34,9 @@ associations:
   sourceName: quantity
   targetCardinality: 0..*
   targetName: domain
+- source: Quantity
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: quantity
+  targetCardinality: 0..*
+  targetName: timeSeries

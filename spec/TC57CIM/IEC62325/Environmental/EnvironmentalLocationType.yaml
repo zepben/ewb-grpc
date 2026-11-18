@@ -15,14 +15,6 @@ associations:
   targetName: location
   targetDescription: Location of this instance of ths kind of environmental location.
 - source: EnvironmentalLocationType
-  target: EnvironmentalPhenomenon
-  sourceCardinality: 0..*
-  sourceName: environmentalLocationKind
-  sourceDescription: Location of relevance to this environmental phenomenon.
-  targetCardinality: 0..*
-  targetName: environmentalPhenomenon
-  targetDescription: Environmental phenomenon for which this location is of relevance.
-- source: EnvironmentalLocationType
   target: EnvironmentalAlert
   sourceCardinality: 1..*
   sourceName: environmentalLocationKind
@@ -30,3 +22,11 @@ associations:
   targetCardinality: 0..*
   targetName: environmentalAlert
   targetDescription: Environmental alert applying to location of this type.
+- source: EnvironmentalLocationType
+  target: EnvironmentalPhenomenon
+  sourceCardinality: 0..*
+  sourceName: environmentalLocationKind
+  sourceDescription: Location of relevance to this environmental phenomenon.
+  targetCardinality: 0..*
+  targetName: environmentalPhenomenon
+  targetDescription: Environmental phenomenon for which this location is of relevance.

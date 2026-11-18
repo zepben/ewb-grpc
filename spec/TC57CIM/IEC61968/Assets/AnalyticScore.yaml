@@ -3,15 +3,15 @@ description: An indicative scoring by an analytic that can be used to characteri
   one or more assets.  The analytic score reflects the results of an execution of an analytic against an asset or group of
   assets.
 attributes:
-- name: value
-  type: Float
-  description: Asset health score value.
 - name: calculationDateTime
   type: DateTime
   description: Timestamp of when the score was calculated.
 - name: effectiveDateTime
   type: DateTime
   description: Date-time for when the score applies.
+- name: value
+  type: Float
+  description: Asset health score value.
 ancestors:
 - IdentifiedObject
 descendants:
@@ -25,14 +25,6 @@ associations:
   targetCardinality: 0..1
   targetName: asset
   targetDescription: Asset to which this analytic score applies.
-- source: AnalyticScore
-  target: Analytic
-  sourceCardinality: 0..*
-  sourceName: analyticScore
-  sourceDescription: Analytic score produced by this analytic.
-  targetCardinality: 0..1
-  targetName: analytic
-  targetDescription: Analytic which was executed to arrive at this analytic score..
 - source: AnalyticScore
   target: AssetGroup
   sourceCardinality: 0..*
@@ -49,3 +41,11 @@ associations:
   targetCardinality: 0..1
   targetName: assetAggregateScore
   targetDescription: Aggregate score to which this analytic score contributed.
+- source: AnalyticScore
+  target: Analytic
+  sourceCardinality: 0..*
+  sourceName: analyticScore
+  sourceDescription: Analytic score produced by this analytic.
+  targetCardinality: 0..1
+  targetName: analytic
+  targetDescription: Analytic which was executed to arrive at this analytic score..

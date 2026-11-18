@@ -1,9 +1,6 @@
 name: FTR
 description: Financial Transmission Rights (FTR) regarding transmission capacity at a flowgate.
 attributes:
-- name: optimized
-  type: String
-  description: Fixed (covers re-configuration, grandfathering) or Optimized (up for sale/purchase
 - name: action
   type: String
   description: Buy, Sell
@@ -11,12 +8,15 @@ attributes:
   type: ActivePower
   description: Quantity, typically MWs - Seller owns all rights being offered, MWs over time on same Point of Receipt, Point
     of Delivery, or Resource.
-- name: ftrType
-  type: String
-  description: Type of rights being offered (product) allowed to be auctioned (option, obligation).
 - name: class
   type: String
   description: Peak, Off-peak, 24-hour
+- name: ftrType
+  type: String
+  description: Type of rights being offered (product) allowed to be auctioned (option, obligation).
+- name: optimized
+  type: String
+  description: Fixed (covers re-configuration, grandfathering) or Optimized (up for sale/purchase
 ancestors:
 - Agreement
 associations:

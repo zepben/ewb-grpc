@@ -91,9 +91,9 @@ ancestors:
 - PowerSystemResource
 descendants:
 - RegisteredDistributedResource
-- RegisteredLoad
-- RegisteredInterTie
 - RegisteredGenerator
+- RegisteredInterTie
+- RegisteredLoad
 associations:
 - source: RegisteredResource
   target: ForbiddenRegion
@@ -170,6 +170,12 @@ associations:
   targetCardinality: 0..*
   targetName: subControlArea
 - source: RegisteredResource
+  target: MarketParticipant
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..1
+  targetName: marketParticipant
+- source: RegisteredResource
   target: IntermittentResourceEligibility
   sourceCardinality: "1"
   sourceName: registeredResource
@@ -240,12 +246,6 @@ associations:
   targetCardinality: 0..*
   targetName: reason
 - source: RegisteredResource
-  target: ResourceCapacity
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: resourceCapacity
-- source: RegisteredResource
   target: ResourceCertification
   sourceCardinality: 0..*
   sourceName: registeredResource
@@ -276,11 +276,11 @@ associations:
   targetCardinality: 0..*
   targetName: dopInstruction
 - source: RegisteredResource
-  target: MarketParticipant
+  target: ResourceCapacity
   sourceCardinality: 0..*
   sourceName: registeredResource
-  targetCardinality: 0..1
-  targetName: marketParticipant
+  targetCardinality: 0..*
+  targetName: resourceCapacity
 - source: RegisteredResource
   target: ResourceVerifiableCosts
   sourceCardinality: "1"

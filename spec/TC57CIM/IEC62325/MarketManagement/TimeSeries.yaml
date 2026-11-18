@@ -25,8 +25,8 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- Series
 - BidTimeSeries
+- Series
 associations:
 - source: TimeSeries
   target: Reason
@@ -34,12 +34,6 @@ associations:
   sourceName: timeSeries
   targetCardinality: 0..*
   targetName: reason
-- source: TimeSeries
-  target: Period
-  sourceCardinality: 0..*
-  sourceName: timeSeries
-  targetCardinality: 0..*
-  targetName: period
 - source: TimeSeries
   target: MarketEvaluationPoint
   sourceCardinality: 0..*
@@ -53,11 +47,11 @@ associations:
   targetCardinality: 0..*
   targetName: marketDocument
 - source: TimeSeries
-  target: FlowDirection
+  target: DateAndOrTime
   sourceCardinality: 0..*
   sourceName: timeSeries
   targetCardinality: 0..*
-  targetName: flowDirection
+  targetName: dateAndOrTime
 - source: TimeSeries
   target: Domain
   sourceCardinality: 0..*
@@ -65,17 +59,17 @@ associations:
   targetCardinality: 0..*
   targetName: domain
 - source: TimeSeries
-  target: DateAndOrTime
+  target: Period
   sourceCardinality: 0..*
   sourceName: timeSeries
   targetCardinality: 0..*
-  targetName: dateAndOrTime
+  targetName: period
 - source: TimeSeries
-  target: EnvironmentalMonitoringStation
+  target: FlowDirection
   sourceCardinality: 0..*
   sourceName: timeSeries
   targetCardinality: 0..*
-  targetName: environmentalMonitoringStation
+  targetName: flowDirection
 - source: TimeSeries
   target: MarketParticipant
   sourceCardinality: 0..*
@@ -83,11 +77,29 @@ associations:
   targetCardinality: 0..*
   targetName: marketParticipant
 - source: TimeSeries
-  target: Unit
+  target: EnvironmentalMonitoringStation
   sourceCardinality: 0..*
   sourceName: timeSeries
   targetCardinality: 0..*
-  targetName: unit
+  targetName: environmentalMonitoringStation
+- source: TimeSeries
+  target: Point
+  sourceCardinality: 0..*
+  sourceName: timeSeries
+  targetCardinality: 0..*
+  targetName: point
+- source: TimeSeries
+  target: MarketObjectStatus
+  sourceCardinality: 0..*
+  sourceName: timeSeries
+  targetCardinality: 0..*
+  targetName: marketObjectStatus
+- source: TimeSeries
+  target: MktPSRType
+  sourceCardinality: 0..*
+  sourceName: timeSeries
+  targetCardinality: 0..*
+  targetName: mktPSRType
 - source: TimeSeries
   target: Quantity
   sourceCardinality: 0..*
@@ -101,30 +113,6 @@ associations:
   targetCardinality: 0..*
   targetName: price
 - source: TimeSeries
-  target: Point
-  sourceCardinality: 0..*
-  sourceName: timeSeries
-  targetCardinality: 0..*
-  targetName: point
-- source: TimeSeries
-  target: MktPSRType
-  sourceCardinality: 0..*
-  sourceName: timeSeries
-  targetCardinality: 0..*
-  targetName: mktPSRType
-- source: TimeSeries
-  target: MarketObjectStatus
-  sourceCardinality: 0..*
-  sourceName: timeSeries
-  targetCardinality: 0..*
-  targetName: marketObjectStatus
-- source: TimeSeries
-  target: ConstraintDuration
-  sourceCardinality: 0..*
-  sourceName: timeSeries
-  targetCardinality: 0..*
-  targetName: constraintDuration
-- source: TimeSeries
   target: Auction
   sourceCardinality: 0..*
   sourceName: timeSeries
@@ -136,6 +124,18 @@ associations:
   sourceName: timeSeries
   targetCardinality: 0..*
   targetName: attributeInstanceComponent
+- source: TimeSeries
+  target: ConstraintDuration
+  sourceCardinality: 0..*
+  sourceName: timeSeries
+  targetCardinality: 0..*
+  targetName: constraintDuration
+- source: TimeSeries
+  target: Unit
+  sourceCardinality: 0..*
+  sourceName: timeSeries
+  targetCardinality: 0..*
+  targetName: unit
 - source: TimeSeries
   target: RegisteredResource
   sourceCardinality: 0..*

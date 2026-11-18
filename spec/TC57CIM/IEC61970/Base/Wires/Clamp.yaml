@@ -11,6 +11,18 @@ ancestors:
 - ConductingEquipment
 associations:
 - source: Clamp
+  target: JumperAction
+  sourceCardinality: 0..1
+  sourceName: clamp
+  targetCardinality: 0..1
+  targetName: jumperAction
+- source: Clamp
+  target: ClampAction
+  sourceCardinality: 0..1
+  sourceName: clamp
+  targetCardinality: 0..1
+  targetName: clampAction
+- source: Clamp
   target: ACLineSegment
   sourceCardinality: 0..*
   sourceName: clamp

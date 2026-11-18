@@ -9,29 +9,29 @@ attributes:
   description: The textual explanation corresponding to the reason code.
 associations:
 - source: Reason
-  target: Point
-  sourceCardinality: 0..*
-  sourceName: reason
-  targetCardinality: 0..*
-  targetName: point
-- source: Reason
   target: MarketDocument
   sourceCardinality: 0..*
   sourceName: reason
   targetCardinality: 0..*
   targetName: marketDocument
 - source: Reason
-  target: TimeSeries
+  target: Point
   sourceCardinality: 0..*
   sourceName: reason
   targetCardinality: 0..*
-  targetName: timeSeries
+  targetName: point
 - source: Reason
   target: Period
   sourceCardinality: 0..*
   sourceName: reason
   targetCardinality: 0..*
   targetName: period
+- source: Reason
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: reason
+  targetCardinality: 0..*
+  targetName: timeSeries
 - source: Reason
   target: RegisteredResource
   sourceCardinality: 0..*

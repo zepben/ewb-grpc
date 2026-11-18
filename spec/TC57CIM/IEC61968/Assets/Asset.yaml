@@ -4,48 +4,6 @@ description: Tangible resource of the utility, including power system equipment,
   defined mainly in the Wires model (refer to IEC61970-301 and model package IEC61970::Wires). Asset description places emphasis
   on the physical characteristics of the equipment fulfilling that role.
 attributes:
-- name: kind
-  type: AssetKind
-  description: Kind of asset. Used in description of asset components in asset instance templates.
-- name: type
-  type: String
-  description: Utility-specific classification of Asset and its subtypes, according to their corporate standards, practices,
-    and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
-- name: utcNumber
-  type: String
-  description: Uniquely tracked commodity (UTC) number.
-- name: serialNumber
-  type: String
-  description: Serial number of this asset.
-- name: lotNumber
-  type: String
-  description: Lot number for this asset. Even for the same model and version number, many assets are manufactured in lots.
-- name: purchasePrice
-  type: Money
-  description: Purchase price of asset.
-- name: critical
-  type: Boolean
-  description: True if asset is considered critical for some reason (for example, a pole with critical attachments).
-- name: position
-  type: String
-  description: Position of asset or asset component. May often be in relation to other assets or components.
-- name: electronicAddress
-  type: ElectronicAddress
-  description: Electronic address.
-- name: lifecycleState
-  type: AssetLifecycleStateKind
-  description: Current lifecycle state of asset.
-- name: lifecycleDate
-  type: LifecycleDate
-  description: |-
-    <was lifecycle>
-    Lifecycle dates for this asset.
-- name: inUseState
-  type: InUseStateKind
-  description: Indication of whether asset is currently deployed (in use), ready to be put into use or not available for use.
-- name: inUseDate
-  type: InUseDate
-  description: In use dates for this asset.
 - name: acceptanceTest
   type: AcceptanceTest
   description: Information on acceptance test.
@@ -57,12 +15,54 @@ attributes:
   type: PerCent
   description: "Percentage of initial life expectancy that has been lost as of the last life expectancy baseline. Represents\
     \ \n(initial life expectancy - current life expectancy) / initial life expectancy."
-- name: status
-  type: Status
-  description: Status of this asset.
+- name: critical
+  type: Boolean
+  description: True if asset is considered critical for some reason (for example, a pole with critical attachments).
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+- name: inUseDate
+  type: InUseDate
+  description: In use dates for this asset.
+- name: inUseState
+  type: InUseStateKind
+  description: Indication of whether asset is currently deployed (in use), ready to be put into use or not available for use.
+- name: kind
+  type: AssetKind
+  description: Kind of asset. Used in description of asset components in asset instance templates.
+- name: lifecycleDate
+  type: LifecycleDate
+  description: |-
+    <was lifecycle>
+    Lifecycle dates for this asset.
+- name: lifecycleState
+  type: AssetLifecycleStateKind
+  description: Current lifecycle state of asset.
+- name: lotNumber
+  type: String
+  description: Lot number for this asset. Even for the same model and version number, many assets are manufactured in lots.
+- name: position
+  type: String
+  description: Position of asset or asset component. May often be in relation to other assets or components.
+- name: purchasePrice
+  type: Money
+  description: Purchase price of asset.
 - name: retiredReason
   type: RetiredReasonKind
   description: Reason asset retired.
+- name: serialNumber
+  type: String
+  description: Serial number of this asset.
+- name: status
+  type: Status
+  description: Status of this asset.
+- name: type
+  type: String
+  description: Utility-specific classification of Asset and its subtypes, according to their corporate standards, practices,
+    and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
+- name: utcNumber
+  type: String
+  description: Uniquely tracked commodity (UTC) number.
 ancestors:
 - IdentifiedObject
 descendants:
@@ -78,6 +78,22 @@ descendants:
 - FACTSDevice
 - AssetContainer
 associations:
+- source: Asset
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  sourceName: changedAsset
+  sourceDescription: Asset whose change resulted in this configuration event.
+  targetCardinality: 0..*
+  targetName: configurationEvents
+  targetDescription: All configuration events created for this asset.
+- source: Asset
+  target: ActivityRecord
+  sourceCardinality: 0..*
+  sourceName: assets
+  sourceDescription: All assets for which this activity record has been created.
+  targetCardinality: 0..*
+  targetName: activityRecords
+  targetDescription: All activity records created for this asset.
 - source: Asset
   target: ErpInventory
   sourceCardinality: 0..1
@@ -174,30 +190,6 @@ associations:
   targetName: location
   targetDescription: Location of this asset.
 - source: Asset
-  target: ConfigurationEvent
-  sourceCardinality: 0..1
-  sourceName: changedAsset
-  sourceDescription: Asset whose change resulted in this configuration event.
-  targetCardinality: 0..*
-  targetName: configurationEvents
-  targetDescription: All configuration events created for this asset.
-- source: Asset
-  target: ActivityRecord
-  sourceCardinality: 0..*
-  sourceName: assets
-  sourceDescription: All assets for which this activity record has been created.
-  targetCardinality: 0..*
-  targetName: activityRecords
-  targetDescription: All activity records created for this asset.
-- source: Asset
-  target: Analytic
-  sourceCardinality: 0..*
-  sourceName: asset
-  sourceDescription: Asset on which this analytic can be performed.
-  targetCardinality: 0..*
-  targetName: analytic
-  targetDescription: Analytic performed on this asset.
-- source: Asset
   target: ProcedureDataSet
   sourceCardinality: 0..1
   sourceName: asset
@@ -207,7 +199,7 @@ associations:
   targetDescription: Procedure data set that applies to this asset.
 - source: Asset
   target: WorkTask
-  sourceCardinality: 0..1
+  sourceCardinality: 0..*
   sourceName: oldAsset
   sourceDescription: Old asset replaced by this work task.
   targetCardinality: 0..*
@@ -281,6 +273,14 @@ associations:
   targetCardinality: 0..*
   targetName: analyticScore
   targetDescription: Analytic result related to this asset.
+- source: Asset
+  target: Analytic
+  sourceCardinality: 0..*
+  sourceName: asset
+  sourceDescription: Asset on which this analytic can be performed.
+  targetCardinality: 0..*
+  targetName: analytic
+  targetDescription: Analytic performed on this asset.
 - source: Asset
   target: OperationalTag
   sourceCardinality: 0..1

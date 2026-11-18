@@ -17,11 +17,11 @@ associations:
   targetCardinality: 0..*
   targetName: registeredGenerator
 - source: FuelRegion
-  target: RTO
-  sourceCardinality: 0..*
+  target: GasPrice
+  sourceCardinality: "1"
   sourceName: fuelRegion
   targetCardinality: "1"
-  targetName: rto
+  targetName: gasPrice
 - source: FuelRegion
   target: OilPrice
   sourceCardinality: "1"
@@ -29,8 +29,8 @@ associations:
   targetCardinality: "1"
   targetName: oilPrice
 - source: FuelRegion
-  target: GasPrice
-  sourceCardinality: "1"
+  target: RTO
+  sourceCardinality: 0..*
   sourceName: fuelRegion
   targetCardinality: "1"
-  targetName: gasPrice
+  targetName: rto

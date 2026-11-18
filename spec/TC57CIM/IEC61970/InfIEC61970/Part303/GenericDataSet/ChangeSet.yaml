@@ -5,14 +5,6 @@ ancestors:
 - DataSet
 associations:
 - source: ChangeSet
-  target: NetworkModelProjectChangeVersion
-  sourceCardinality: 0..1
-  sourceName: changeSet
-  sourceDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
-  targetCardinality: 0..*
-  targetName: networkModelProjectChangeVersion
-  targetDescription: The project of the details of model changes.
-- source: ChangeSet
   target: IncrementalDatasetArg
   sourceCardinality: "1"
   sourceName: incrementalDataset
@@ -26,6 +18,14 @@ associations:
   targetCardinality: 0..*
   targetName: changeSetMember
   targetDescription: Data objects contained in the dataset.
+- source: ChangeSet
+  target: NetworkModelProjectChangeVersion
+  sourceCardinality: 0..1
+  sourceName: changeSet
+  sourceDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
+  targetCardinality: 0..*
+  targetName: networkModelProjectChangeVersion
+  targetDescription: The project of the details of model changes.
 - source: ChangeSet
   target: NetworkModelProjectStage
   sourceCardinality: 1..*
