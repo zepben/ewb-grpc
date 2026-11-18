@@ -2,24 +2,24 @@ name: SwitchOperationSummary
 description: Up-to-date, of-record summary of switch operation information, distilled from a variety of sources (real-time
   data or real-time data historian, field inspections, etc.) of use to asset health analytics.
 attributes:
-- name: lifetimeTotalOperations
-  type: Integer
-  description: Total breaker operations to date (including fault and non-fault).
 - name: lifetimeFaultOperations
   type: Integer
   description: Total breaker fault operations to date.
 - name: lifetimeMotorStarts
   type: Integer
   description: Total motor starts to date.
-- name: mostRecentOperationDate
-  type: Date
-  description: Date of most recent breaker operation (fault or non-fault).
+- name: lifetimeTotalOperations
+  type: Integer
+  description: Total breaker operations to date (including fault and non-fault).
 - name: mostRecentFaultOperationDate
   type: Date
   description: Date of most recent breaker fault operation.
 - name: mostRecentMotorStartDate
   type: Date
   description: Date of most recent motor start.
+- name: mostRecentOperationDate
+  type: Date
+  description: Date of most recent breaker operation (fault or non-fault).
 ancestors:
 - IdentifiedObject
 associations:

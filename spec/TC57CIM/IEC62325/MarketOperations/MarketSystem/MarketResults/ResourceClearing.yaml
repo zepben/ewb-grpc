@@ -4,14 +4,14 @@ ancestors:
 - MarketFactors
 associations:
 - source: ResourceClearing
-  target: ResourceLoadFollowingInst
-  sourceCardinality: 0..1
-  sourceName: resourceClearing
-  targetCardinality: 0..*
-  targetName: resourceLoadFollowingInst
-- source: ResourceClearing
   target: ResourceDispatchResults
   sourceCardinality: 0..1
   sourceName: resourceClearing
   targetCardinality: 1..*
   targetName: resourceDispatchResults
+- source: ResourceClearing
+  target: ResourceLoadFollowingInst
+  sourceCardinality: 0..1
+  sourceName: resourceClearing
+  targetCardinality: 0..*
+  targetName: resourceLoadFollowingInst

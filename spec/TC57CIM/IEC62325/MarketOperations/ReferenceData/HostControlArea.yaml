@@ -16,13 +16,23 @@ ancestors:
 - PowerSystemResource
 associations:
 - source: HostControlArea
-  target: SubControlArea
-  sourceCardinality: "1"
+  target: Flowgate
+  sourceCardinality: 0..1
   sourceName: hostControlArea
-  sourceDescription: The interchange area  may operate as a control area
   targetCardinality: 0..*
-  targetName: subControlAreas
-  targetDescription: The interchange area  may operate as a control area
+  targetName: flowgate
+- source: HostControlArea
+  target: AdjacentCASet
+  sourceCardinality: 0..1
+  sourceName: hostControlArea
+  targetCardinality: 0..1
+  targetName: adjacentCASet
+- source: HostControlArea
+  target: CnodeDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: hostControlArea
+  targetCardinality: 0..*
+  targetName: cnodeDistributionFactor
 - source: HostControlArea
   target: ControlAreaOperator
   sourceCardinality: "1"
@@ -32,23 +42,19 @@ associations:
   targetName: controls
   targetDescription: A ControlAreaCompany controls a ControlArea.
 - source: HostControlArea
-  target: Flowgate
+  target: LossClearingResults
   sourceCardinality: 0..1
   sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: flowgate
+  targetName: lossClearingResults
 - source: HostControlArea
-  target: CnodeDistributionFactor
-  sourceCardinality: 0..1
+  target: SubControlArea
+  sourceCardinality: "1"
   sourceName: hostControlArea
+  sourceDescription: The interchange area  may operate as a control area
   targetCardinality: 0..*
-  targetName: cnodeDistributionFactor
-- source: HostControlArea
-  target: AdjacentCASet
-  sourceCardinality: 0..1
-  sourceName: hostControlArea
-  targetCardinality: 0..1
-  targetName: adjacentCASet
+  targetName: subControlAreas
+  targetDescription: The interchange area  may operate as a control area
 - source: HostControlArea
   target: BidSelfSched
   sourceCardinality: 0..1
@@ -56,23 +62,17 @@ associations:
   targetCardinality: 0..*
   targetName: bidSelfSched
 - source: HostControlArea
-  target: LossClearingResults
-  sourceCardinality: 0..1
+  target: SysLoadDistributionFactor
+  sourceCardinality: "1"
   sourceName: hostControlArea
   targetCardinality: 0..*
-  targetName: lossClearingResults
+  targetName: sysLoadDistribuFactor
 - source: HostControlArea
   target: TransferInterface
   sourceCardinality: 0..1
   sourceName: hostControlArea
   targetCardinality: 0..*
   targetName: transferInterface
-- source: HostControlArea
-  target: SysLoadDistributionFactor
-  sourceCardinality: "1"
-  sourceName: hostControlArea
-  targetCardinality: 0..*
-  targetName: sysLoadDistribuFactor
 - source: HostControlArea
   target: RegisteredResource
   sourceCardinality: 0..1

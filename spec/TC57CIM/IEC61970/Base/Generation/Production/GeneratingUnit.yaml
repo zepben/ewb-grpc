@@ -4,46 +4,6 @@ description: A single or set of synchronous machines for converting mechanical p
   set. In this case there would be a GeneratingUnit for each member of the set and an additional GeneratingUnit corresponding
   to the set.
 attributes:
-- name: minOperatingP
-  type: ActivePower
-  description: This is the minimum operating active power limit the dispatcher can enter for this unit.
-- name: modelDetail
-  type: Classification
-  description: Detail level of the generator model data.
-- name: nominalP
-  type: ActivePower
-  description: |-
-    The nominal power of the generating unit.  Used to give precise meaning to percentage based attributes such as the governor speed change droop (governorSCD attribute).
-    The attribute shall be a positive value equal to or less than RotatingMachine.ratedS.
-- name: normalPF
-  type: Float
-  description: Generating unit economic participation factor.  The sum of the participation factors across generating units
-    does not have to sum to one.  It is used for representing distributed slack participation factor.
-- name: penaltyFactor
-  type: Float
-  description: 'Defined as: 1 / ( 1 - Incremental Transmission Loss); with the Incremental Transmission Loss expressed as
-    a plus or minus value. The typical range of penalty factors is (0.9 to 1.1).'
-- name: raiseRampRate
-  type: ActivePowerChangeRate
-  description: The normal maximum rate the generating unit active power output can be raised by control actions.
-- name: ratedGrossMaxP
-  type: ActivePower
-  description: |-
-    The unit's gross rated maximum capacity (book value).
-    The attribute shall be a positive value.
-- name: ratedGrossMinP
-  type: ActivePower
-  description: |-
-    The gross rated minimum generation level which the unit can safely operate at while delivering power to the transmission grid.
-    The attribute shall be a positive value.
-- name: ratedNetMaxP
-  type: ActivePower
-  description: |-
-    The net rated maximum capacity determined by subtracting the auxiliary power used to operate the internal plant machinery from the rated gross maximum capacity.
-    The attribute shall be a positive value.
-- name: shortPF
-  type: Float
-  description: Generating unit short term economic participation factor.
 - name: allocSpinResP
   type: ActivePower
   description: The planned unused capacity (spinning reserve) which can be used to support emergency load.
@@ -117,6 +77,47 @@ attributes:
 - name: minimumOffTime
   type: Seconds
   description: Minimum time interval between unit shutdown and startup.
+- name: minOperatingP
+  type: ActivePower
+  description: This is the minimum operating active power limit the dispatcher can enter for this unit.
+- name: modelDetail
+  type: Classification
+  description: Detail level of the generator model data.
+- name: nominalP
+  type: ActivePower
+  description: |-
+    The nominal power of the generating unit.  Used to give precise meaning to percentage based attributes such as the governor speed change droop (governorSCD attribute).
+    The attribute shall be a positive value equal to or less than RotatingMachine.ratedS.
+- name: normalPF
+  type: Float
+  description: Generating unit economic participation factor.  The sum of the participation factors across generating units
+    does not have to sum to one.  It is used for representing distributed slack participation factor. The attribute shall
+    be a positive value or zero.
+- name: penaltyFactor
+  type: Float
+  description: 'Defined as: 1 / ( 1 - Incremental Transmission Loss); with the Incremental Transmission Loss expressed as
+    a plus or minus value. The typical range of penalty factors is (0.9 to 1.1).'
+- name: raiseRampRate
+  type: ActivePowerChangeRate
+  description: The normal maximum rate the generating unit active power output can be raised by control actions.
+- name: ratedGrossMaxP
+  type: ActivePower
+  description: |-
+    The unit's gross rated maximum capacity (book value).
+    The attribute shall be a positive value.
+- name: ratedGrossMinP
+  type: ActivePower
+  description: |-
+    The gross rated minimum generation level which the unit can safely operate at while delivering power to the transmission grid.
+    The attribute shall be a positive value.
+- name: ratedNetMaxP
+  type: ActivePower
+  description: |-
+    The net rated maximum capacity determined by subtracting the auxiliary power used to operate the internal plant machinery from the rated gross maximum capacity.
+    The attribute shall be a positive value.
+- name: shortPF
+  type: Float
+  description: Generating unit short term economic participation factor.
 - name: startupCost
   type: Money
   description: The initial startup cost incurred for each start of the GeneratingUnit.

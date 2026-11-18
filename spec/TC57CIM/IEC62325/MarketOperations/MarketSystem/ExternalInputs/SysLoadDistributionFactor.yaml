@@ -13,14 +13,14 @@ associations:
   targetCardinality: "1"
   targetName: mktConnectivityNode
 - source: SysLoadDistributionFactor
-  target: HostControlArea
-  sourceCardinality: 0..*
-  sourceName: sysLoadDistribuFactor
-  targetCardinality: "1"
-  targetName: hostControlArea
-- source: SysLoadDistributionFactor
   target: DistributionFactorSet
   sourceCardinality: 0..*
   sourceName: sysLoadDistribuFactor
   targetCardinality: 0..*
   targetName: distributionFactorSet
+- source: SysLoadDistributionFactor
+  target: HostControlArea
+  sourceCardinality: 0..*
+  sourceName: sysLoadDistribuFactor
+  targetCardinality: "1"
+  targetName: hostControlArea

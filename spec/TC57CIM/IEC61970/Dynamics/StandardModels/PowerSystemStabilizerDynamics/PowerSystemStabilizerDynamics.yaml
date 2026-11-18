@@ -25,14 +25,6 @@ descendants:
 - PssIEEE1A
 associations:
 - source: PowerSystemStabilizerDynamics
-  target: RemoteInputSignal
-  sourceCardinality: 0..1
-  sourceName: powerSystemStabilizerDynamics
-  sourceDescription: Power system stabilizer model using this remote input signal.
-  targetCardinality: 0..*
-  targetName: remoteInputSignal
-  targetDescription: Remote input signal used by this power system stabilizer model.
-- source: PowerSystemStabilizerDynamics
   target: ExcitationSystemDynamics
   sourceCardinality: 0..1
   sourceName: powerSystemStabilizerDynamics
@@ -40,3 +32,11 @@ associations:
   targetCardinality: "1"
   targetName: excitationSystemDynamics
   targetDescription: Excitation system model with which this power system stabilizer model is associated.
+- source: PowerSystemStabilizerDynamics
+  target: RemoteInputSignal
+  sourceCardinality: 0..1
+  sourceName: powerSystemStabilizerDynamics
+  sourceDescription: Power system stabilizer model using this remote input signal.
+  targetCardinality: 0..*
+  targetName: remoteInputSignal
+  targetDescription: Remote input signal used by this power system stabilizer model.

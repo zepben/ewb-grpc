@@ -2,6 +2,63 @@ name: GovCT2
 description: General governor with frequency-dependent fuel flow limit.  This model is a modification of the GovCT1<b> </b>model
   in order to represent the frequency-dependent fuel flow limit of a specific gas turbine manufacturer.
 attributes:
+- name: ropen
+  type: Float
+  description: Maximum valve opening rate (<i>Ropen</i>).  Unit = PU / s.  Typical value = 99.
+- name: rselect
+  type: DroopSignalFeedbackKind
+  description: Feedback signal for droop (<i>Rselect</i>).  Typical value = electricalPower.
+- name: rup
+  type: PU
+  description: Maximum rate of load limit increase (<i>Rup</i>).  Typical value = 99.
+- name: ta
+  type: Seconds
+  description: Acceleration limiter time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 1.
+- name: tact
+  type: Seconds
+  description: Actuator time constant (<i>Tact</i>) (&gt;= 0).  Typical value = 0,4.
+- name: tb
+  type: Seconds
+  description: Turbine lag time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 0,1.
+- name: tc
+  type: Seconds
+  description: Turbine lead time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
+- name: tdgov
+  type: Seconds
+  description: Governor derivative controller time constant (<i>Tdgov</i>) (&gt;= 0).  Typical value = 1.
+- name: teng
+  type: Seconds
+  description: Transport time delay for diesel engine used in representing diesel engines where there is a small but measurable
+    transport delay between a change in fuel flow setting and the development of torque (<i>Teng</i>) (&gt;= 0).  <i>Teng</i>
+    should be zero in all but special cases where this transport delay is of particular concern.  Typical value = 0.
+- name: tfload
+  type: Seconds
+  description: Load limiter time constant (<i>Tfload</i>) (&gt;= 0).  Typical value = 3.
+- name: tpelec
+  type: Seconds
+  description: Electrical power transducer time constant (<i>Tpelec</i>) (&gt;= 0).  Typical value = 2,5.
+- name: tsa
+  type: Seconds
+  description: Temperature detection lead time constant (<i>Tsa</i>) (&gt;= 0).  Typical value = 0.
+- name: tsb
+  type: Seconds
+  description: Temperature detection lag time constant (<i>Tsb</i>) (&gt;= 0).  Typical value = 50.
+- name: vmax
+  type: PU
+  description: Maximum valve position limit (<i>Vmax</i>) (&gt; GovCT2.vmin).  Typical value = 1.
+- name: vmin
+  type: PU
+  description: Minimum valve position limit (<i>Vmin</i>) (&lt; GovCT2.vmax).  Typical value = 0,175.
+- name: wfnl
+  type: PU
+  description: No load fuel flow (<i>Wfnl</i>).  Typical value = 0,187.
+- name: wfspd
+  type: Boolean
+  description: |-
+    Switch for fuel source characteristic to recognize that fuel flow, for a given fuel valve stroke, can be proportional to engine speed (<i>Wfspd</i>).
+    true = fuel flow proportional to speed (for some gas turbines and diesel engines with positive displacement fuel injectors)
+    false = fuel control system keeps fuel flow independent of engine speed.
+    Typical value = false.
 - name: aset
   type: Float
   description: Acceleration limiter setpoint (<i>Aset</i>).  Unit = PU / s.  Typical value = 10.
@@ -126,62 +183,5 @@ attributes:
 - name: rdown
   type: PU
   description: Maximum rate of load limit decrease (<i>Rdown</i>).  Typical value = -99.
-- name: ropen
-  type: Float
-  description: Maximum valve opening rate (<i>Ropen</i>).  Unit = PU / s.  Typical value = 99.
-- name: rselect
-  type: DroopSignalFeedbackKind
-  description: Feedback signal for droop (<i>Rselect</i>).  Typical value = electricalPower.
-- name: rup
-  type: PU
-  description: Maximum rate of load limit increase (<i>Rup</i>).  Typical value = 99.
-- name: ta
-  type: Seconds
-  description: Acceleration limiter time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 1.
-- name: tact
-  type: Seconds
-  description: Actuator time constant (<i>Tact</i>) (&gt;= 0).  Typical value = 0,4.
-- name: tb
-  type: Seconds
-  description: Turbine lag time constant (<i>Tb</i>) (&gt;= 0).  Typical value = 0,1.
-- name: tc
-  type: Seconds
-  description: Turbine lead time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
-- name: tdgov
-  type: Seconds
-  description: Governor derivative controller time constant (<i>Tdgov</i>) (&gt;= 0).  Typical value = 1.
-- name: teng
-  type: Seconds
-  description: Transport time delay for diesel engine used in representing diesel engines where there is a small but measurable
-    transport delay between a change in fuel flow setting and the development of torque (<i>Teng</i>) (&gt;= 0).  <i>Teng</i>
-    should be zero in all but special cases where this transport delay is of particular concern.  Typical value = 0.
-- name: tfload
-  type: Seconds
-  description: Load limiter time constant (<i>Tfload</i>) (&gt;= 0).  Typical value = 3.
-- name: tpelec
-  type: Seconds
-  description: Electrical power transducer time constant (<i>Tpelec</i>) (&gt;= 0).  Typical value = 2,5.
-- name: tsa
-  type: Seconds
-  description: Temperature detection lead time constant (<i>Tsa</i>) (&gt;= 0).  Typical value = 0.
-- name: tsb
-  type: Seconds
-  description: Temperature detection lag time constant (<i>Tsb</i>) (&gt;= 0).  Typical value = 50.
-- name: vmax
-  type: PU
-  description: Maximum valve position limit (<i>Vmax</i>) (&gt; GovCT2.vmin).  Typical value = 1.
-- name: vmin
-  type: PU
-  description: Minimum valve position limit (<i>Vmin</i>) (&lt; GovCT2.vmax).  Typical value = 0,175.
-- name: wfnl
-  type: PU
-  description: No load fuel flow (<i>Wfnl</i>).  Typical value = 0,187.
-- name: wfspd
-  type: Boolean
-  description: |-
-    Switch for fuel source characteristic to recognize that fuel flow, for a given fuel valve stroke, can be proportional to engine speed (<i>Wfspd</i>).
-    true = fuel flow proportional to speed (for some gas turbines and diesel engines with positive displacement fuel injectors)
-    false = fuel control system keeps fuel flow independent of engine speed.
-    Typical value = false.
 ancestors:
 - TurbineGovernorDynamics

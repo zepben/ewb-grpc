@@ -4,24 +4,16 @@ description: Quality of a specific reading value or interval reading value. Note
   to be good unless stated otherwise in associated reading quality type). It can also be used with the corresponding reading
   quality type to indicate that the validation has been performed and succeeded.
 attributes:
-- name: timeStamp
-  type: DateTime
-  description: Date and time at which the quality code was assigned or ascertained.
-- name: source
-  type: String
-  description: System acting as the source of the quality code.
 - name: comment
   type: String
   description: Elaboration on the quality code.
+- name: source
+  type: String
+  description: System acting as the source of the quality code.
+- name: timeStamp
+  type: DateTime
+  description: Date and time at which the quality code was assigned or ascertained.
 associations:
-- source: ReadingQuality
-  target: BaseReading
-  sourceCardinality: 0..*
-  sourceName: readingQualities
-  sourceDescription: All qualities of this reading.
-  targetCardinality: 0..1
-  targetName: reading
-  targetDescription: Reading value to which this quality applies.
 - source: ReadingQuality
   target: ReadingQualityType
   sourceCardinality: 0..*
@@ -30,3 +22,11 @@ associations:
   targetCardinality: "1"
   targetName: readingQualityType
   targetDescription: Type of this reading quality.
+- source: ReadingQuality
+  target: BaseReading
+  sourceCardinality: 0..*
+  sourceName: readingQualities
+  sourceDescription: All qualities of this reading.
+  targetCardinality: 0..1
+  targetName: reading
+  targetDescription: Reading value to which this quality applies.

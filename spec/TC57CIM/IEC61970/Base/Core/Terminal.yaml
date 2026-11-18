@@ -135,13 +135,11 @@ associations:
   targetCardinality: 0..*
   targetName: pinTerminal
 - source: Terminal
-  target: RemoteInputSignal
-  sourceCardinality: "1"
-  sourceName: terminal
-  sourceDescription: Remote terminal with which this input signal is associated.
-  targetCardinality: 0..*
-  targetName: remoteInputSignal
-  targetDescription: Input signal coming from this terminal.
+  target: Circuit
+  sourceCardinality: 0..*
+  sourceName: endTerminal
+  targetCardinality: 0..1
+  targetName: circuit
 - source: Terminal
   target: Feeder
   sourceCardinality: 1..*
@@ -151,11 +149,13 @@ associations:
   targetName: normalHeadFeeder
   targetDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
 - source: Terminal
-  target: Circuit
-  sourceCardinality: 0..*
-  sourceName: endTerminal
-  targetCardinality: 0..1
-  targetName: circuit
+  target: RemoteInputSignal
+  sourceCardinality: "1"
+  sourceName: terminal
+  sourceDescription: Remote terminal with which this input signal is associated.
+  targetCardinality: 0..*
+  targetName: remoteInputSignal
+  targetDescription: Input signal coming from this terminal.
 - source: Terminal
   target: Bushing
   sourceCardinality: 0..1

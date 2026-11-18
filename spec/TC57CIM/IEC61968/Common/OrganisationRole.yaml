@@ -14,19 +14,11 @@ descendants:
 - Customer
 - Manufacturer
 - AssetOrganisationRole
-- EnvironmentalDataProvider
 - EnvironmentalDataAuthority
+- EnvironmentalDataProvider
 - CRROrgRole
 - MarketRole
 associations:
-- source: OrganisationRole
-  target: Organisation
-  sourceCardinality: 0..*
-  sourceName: roles
-  sourceDescription: All roles of this organisation.
-  targetCardinality: 0..1
-  targetName: organisation
-  targetDescription: Organisation having this role.
 - source: OrganisationRole
   target: ConfigurationEvent
   sourceCardinality: 0..1
@@ -35,3 +27,11 @@ associations:
   targetCardinality: 0..*
   targetName: configurationEvents
   targetDescription: All configuration events created for this organisation role.
+- source: OrganisationRole
+  target: Organisation
+  sourceCardinality: 0..*
+  sourceName: roles
+  sourceDescription: All roles of this organisation.
+  targetCardinality: 0..1
+  targetName: organisation
+  targetDescription: Organisation having this role.

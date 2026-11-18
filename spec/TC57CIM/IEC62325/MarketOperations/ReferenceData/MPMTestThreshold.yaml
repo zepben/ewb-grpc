@@ -1,15 +1,15 @@
 name: MPMTestThreshold
 description: Market Power Mitigation (MPM) test thresholds for resource as well as designated congestion areas (DCAs).
 attributes:
-- name: price
-  type: CostPerEnergyUnit
-  description: Price Threshold in $/MW
-- name: percent
-  type: PerCent
-  description: Price Threshold in %
 - name: marketType
   type: MarketType
   description: Market Type (DAM, RTM)
+- name: percent
+  type: PerCent
+  description: Price Threshold in %
+- name: price
+  type: CostPerEnergyUnit
+  description: Price Threshold in $/MW
 associations:
 - source: MPMTestThreshold
   target: AggregatedPnode

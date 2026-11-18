@@ -1,28 +1,28 @@
 name: Organisation
 description: Organisation that might have roles as utility, contractor, supplier, manufacturer, customer, etc.
 attributes:
-- name: streetAddress
-  type: StreetAddress
-  description: Street address.
-- name: postalAddress
-  type: StreetAddress
-  description: Postal address, potentially different than 'streetAddress' (e.g., another city).
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
 - name: phone1
   type: TelephoneNumber
   description: Phone number.
 - name: phone2
   type: TelephoneNumber
   description: Additional phone number.
-- name: electronicAddress
-  type: ElectronicAddress
-  description: Electronic address.
+- name: postalAddress
+  type: StreetAddress
+  description: Postal address, potentially different than 'streetAddress' (e.g., another city).
+- name: streetAddress
+  type: StreetAddress
+  description: Street address.
 ancestors:
 - IdentifiedObject
 descendants:
-- Marketer
-- GenerationProvider
 - ParentOrganization
 - TransmissionProvider
+- Marketer
+- GenerationProvider
 - CustomerConsumer
 - ControlAreaOperator
 - MarketParticipant

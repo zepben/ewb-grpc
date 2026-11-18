@@ -66,12 +66,6 @@ associations:
   targetCardinality: 0..1
   targetName: submitToSchedulingCoordinator
 - source: Trade
-  target: TradeProduct
-  sourceCardinality: 0..*
-  sourceName: trade
-  targetCardinality: "1"
-  targetName: tradeProduct
-- source: Trade
   target: SchedulingCoordinator
   sourceCardinality: 0..*
   sourceName: toSCTrade
@@ -90,14 +84,20 @@ associations:
   targetCardinality: 0..1
   targetName: submitFromSchedulingCoordinator
 - source: Trade
+  target: ActionRequest
+  sourceCardinality: 0..*
+  sourceName: trade
+  targetCardinality: "1"
+  targetName: actionRequest
+- source: Trade
   target: RegisteredGenerator
   sourceCardinality: 0..*
   sourceName: trade
   targetCardinality: 0..1
   targetName: registeredGenerator
 - source: Trade
-  target: ActionRequest
+  target: TradeProduct
   sourceCardinality: 0..*
   sourceName: trade
   targetCardinality: "1"
-  targetName: actionRequest
+  targetName: tradeProduct

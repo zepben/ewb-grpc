@@ -1,16 +1,6 @@
 name: SwitchingAction
 description: Atomic switching action.
 attributes:
-- name: isFreeSequence
-  type: Boolean
-  description: If true, the sequence number serves for presentation purposes only, and the activity itself may be executed
-    at any time.
-- name: description
-  type: String
-  description: Free text description of this activity.
-- name: plannedDateTime
-  type: DateTime
-  description: Planned date and time of this switching step.
 - name: executedDateTime
   type: DateTime
   description: Actual date and time of this switching step.
@@ -18,6 +8,12 @@ attributes:
   type: DateTime
   description: Date and time when the crew was given the instruction to execute the action; not applicable if the action is
     performed by operator remote control.
+- name: phases
+  type: PhaseCode
+  description: Phases of the Switching Action
+- name: plannedDateTime
+  type: DateTime
+  description: Planned date and time of this switching step.
 ancestors:
 - IdentifiedObject
 descendants:
@@ -30,9 +26,18 @@ descendants:
 - CutAction
 - ClearanceAction
 - VerificationAction
+- ShuntCompensatorAction
 - MeasurementAction
+- EnergyConsumerAction
 - ControlAction
+- ClampAction
 associations:
+- source: SwitchingAction
+  target: SwitchingPlan
+  sourceCardinality: 0..*
+  sourceName: switchingAction
+  targetCardinality: 0..1
+  targetName: switchingPlan
 - source: SwitchingAction
   target: SwitchingEvent
   sourceCardinality: "1"

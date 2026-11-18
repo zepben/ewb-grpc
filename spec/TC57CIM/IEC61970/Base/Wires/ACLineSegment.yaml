@@ -47,6 +47,12 @@ associations:
   targetName: clamp
   targetDescription: The clamps connected to the line segment.
 - source: ACLineSegment
+  target: WireSpacingInfo
+  sourceCardinality: 0..*
+  sourceName: acLineSegment
+  targetCardinality: 0..1
+  targetName: wireSpacingInfo
+- source: ACLineSegment
   target: PerLengthImpedance
   sourceCardinality: 0..*
   sourceName: acLineSegments
@@ -81,7 +87,7 @@ associations:
 - source: ACLineSegment
   target: JumperAction
   sourceCardinality: 0..*
-  sourceName: alongACLineSegments
+  sourceName: acLineSegments
   sourceDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
     clamp in case the jumper needs to connect along the line segment.
   targetCardinality: 0..1

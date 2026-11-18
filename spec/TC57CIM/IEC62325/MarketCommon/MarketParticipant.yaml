@@ -26,17 +26,17 @@ associations:
   targetCardinality: 0..*
   targetName: schedulingCoordinator
 - source: MarketParticipant
-  target: RegisteredResource
-  sourceCardinality: 0..1
-  sourceName: marketParticipant
-  targetCardinality: 0..*
-  targetName: registeredResource
-- source: MarketParticipant
   target: Bid
   sourceCardinality: 0..1
   sourceName: marketParticipant
   targetCardinality: 0..*
   targetName: bid
+- source: MarketParticipant
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: marketParticipant
+  targetCardinality: 0..*
+  targetName: timeSeries
 - source: MarketParticipant
   target: MarketRole
   sourceCardinality: 0..*
@@ -44,8 +44,8 @@ associations:
   targetCardinality: 0..*
   targetName: marketRole
 - source: MarketParticipant
-  target: TimeSeries
-  sourceCardinality: 0..*
+  target: RegisteredResource
+  sourceCardinality: 0..1
   sourceName: marketParticipant
   targetCardinality: 0..*
-  targetName: timeSeries
+  targetName: registeredResource

@@ -1,20 +1,23 @@
 name: Transaction
 description: The record of details of payment for service or token sale.
 attributes:
-- name: kind
-  type: TransactionKind
-  description: Kind of transaction.
-- name: receiverReference
+- name: diverseReference
   type: String
-  description: Reference to the entity that is the recipient of 'amount' (for example, supplier for service charge payment;
-    or tax receiver for VAT).
+  description: Formal reference for use with diverse payment (traffic fine for example).
 - name: donorReference
   type: String
   description: 'Reference to the entity that is the source of ''amount'' (for example: customer for token purchase; or supplier
     for free issue token).'
-- name: diverseReference
+- name: kind
+  type: TransactionKind
+  description: Kind of transaction.
+- name: line
+  type: LineDetail
+  description: Transaction amount, rounding, date and note for this transaction line.
+- name: receiverReference
   type: String
-  description: Formal reference for use with diverse payment (traffic fine for example).
+  description: Reference to the entity that is the recipient of 'amount' (for example, supplier for service charge payment;
+    or tax receiver for VAT).
 - name: reversedId
   type: String
   description: (if 'kind' is transactionReversal) Reference to the original transaction that is being reversed by this transaction.
@@ -24,9 +27,6 @@ attributes:
 - name: serviceUnitsError
   type: RealEnergy
   description: Number of service units not reflected in 'serviceUnitsEnergy' due to process rounding or truncating errors.
-- name: line
-  type: LineDetail
-  description: Transaction amount, rounding, date and note for this transaction line.
 ancestors:
 - IdentifiedObject
 associations:

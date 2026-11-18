@@ -5,6 +5,12 @@ ancestors:
 - Curve
 associations:
 - source: ContingencyConstraintLimit
+  target: MktContingency
+  sourceCardinality: 0..*
+  sourceName: contingencyConstraintLimit
+  targetCardinality: "1"
+  targetName: mktContingency
+- source: ContingencyConstraintLimit
   target: SecurityConstraintSum
   sourceCardinality: 0..*
   sourceName: contingencyConstraintLimits
@@ -16,9 +22,3 @@ associations:
   sourceName: securityConstraintLimit
   targetCardinality: "1"
   targetName: mwLimitSchedules
-- source: ContingencyConstraintLimit
-  target: MktContingency
-  sourceCardinality: 0..*
-  sourceName: contingencyConstraintLimit
-  targetCardinality: "1"
-  targetName: mktContingency

@@ -25,6 +25,12 @@ associations:
   targetCardinality: 0..*
   targetName: constraintResults
 - source: MktContingency
+  target: ContingencyConstraintLimit
+  sourceCardinality: "1"
+  sourceName: mktContingency
+  targetCardinality: 0..*
+  targetName: contingencyConstraintLimit
+- source: MktContingency
   target: TransferInterfaceSolution
   sourceCardinality: 0..1
   sourceName: ' MktContingencyA'
@@ -36,9 +42,3 @@ associations:
   sourceName: mktContingencyB
   targetCardinality: 0..1
   targetName: transferInterfaceSolutionB
-- source: MktContingency
-  target: ContingencyConstraintLimit
-  sourceCardinality: "1"
-  sourceName: mktContingency
-  targetCardinality: 0..*
-  targetName: contingencyConstraintLimit

@@ -5,9 +5,6 @@ attributes:
 - name: mwDOP
   type: ActivePower
   description: Dispatched Operating Point (MW)
-- name: timestampDOP
-  type: DateTime
-  description: DOP time stamp
 - name: plotPriority
   type: Integer
   description: A value used to establish priority of the DOP when plotting.  This is only applicable when two DOPs exist for
@@ -17,12 +14,15 @@ attributes:
   type: YesNo
   description: "Indication of DOP validity. \n\nShows the DOP is calculated from the latest run (YES). A NO indicator shows\
     \ that the DOP is copied from a previous execution.\n\nUp to 2 intervals can be missed."
-- name: updateUser
-  type: String
+- name: timestampDOP
+  type: DateTime
+  description: DOP time stamp
 - name: updateTimeStamp
   type: DateTime
 - name: updateType
   type: MQSCHGType
+- name: updateUser
+  type: String
 associations:
 - source: DopInstruction
   target: InstructionClearingDOP

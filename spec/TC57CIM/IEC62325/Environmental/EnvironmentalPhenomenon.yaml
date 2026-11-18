@@ -6,18 +6,18 @@ attributes:
   type: DateTimeInterval
   description: The timestamp of the phenomenon as a single point or time interval.
 descendants:
-- SpacePhenomenon
-- HydrosphericPhenomenon
-- GeosphericPhenomenon
 - AtmosphericPhenomenon
+- GeosphericPhenomenon
+- HydrosphericPhenomenon
+- SpacePhenomenon
 associations:
 - source: EnvironmentalPhenomenon
-  target: PhenomenonClassification
+  target: EnvironmentalInformation
   sourceCardinality: 0..*
   sourceName: environmentalPhenomenon
   targetCardinality: 0..1
-  targetName: phenomenonClassification
-  targetDescription: The classification of this phenomenon.
+  targetName: environmentalInformation
+  targetDescription: The forecast or observation of which this phenomenon description is a part.
 - source: EnvironmentalPhenomenon
   target: EnvironmentalLocationType
   sourceCardinality: 0..*
@@ -27,9 +27,9 @@ associations:
   targetName: environmentalLocationKind
   targetDescription: Location of relevance to this environmental phenomenon.
 - source: EnvironmentalPhenomenon
-  target: EnvironmentalInformation
+  target: PhenomenonClassification
   sourceCardinality: 0..*
   sourceName: environmentalPhenomenon
   targetCardinality: 0..1
-  targetName: environmentalInformation
-  targetDescription: The forecast or observation of which this phenomenon description is a part.
+  targetName: phenomenonClassification
+  targetDescription: The classification of this phenomenon.

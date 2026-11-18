@@ -6,12 +6,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ServicePoint
-  target: TransmissionReservation
-  sourceCardinality: 0..1
-  sourceName: source
-  targetCardinality: 0..*
-  targetName: sourceReservation
-- source: ServicePoint
   target: TransmissionPath
   sourceCardinality: "1"
   sourceName: pointOfReceipt
@@ -20,12 +14,6 @@ associations:
   targetName: porTransmissionPath
   targetDescription: A transmission path has a "point-of-receipt" service point
 - source: ServicePoint
-  target: TransmissionReservation
-  sourceCardinality: 0..1
-  sourceName: sink
-  targetCardinality: 0..*
-  targetName: sinkReservation
-- source: ServicePoint
   target: TransmissionPath
   sourceCardinality: "1"
   sourceName: deliveryPoint
@@ -33,3 +21,15 @@ associations:
   targetCardinality: 0..*
   targetName: podTransmissionPath
   targetDescription: A transmission path has a "point-of-delivery" service point
+- source: ServicePoint
+  target: TransmissionReservation
+  sourceCardinality: 0..1
+  sourceName: source
+  targetCardinality: 0..*
+  targetName: sourceReservation
+- source: ServicePoint
+  target: TransmissionReservation
+  sourceCardinality: 0..1
+  sourceName: sink
+  targetCardinality: 0..*
+  targetName: sinkReservation

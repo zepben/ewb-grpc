@@ -1,6 +1,7 @@
 name: Switch
 description: A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal
-  devices including grounding switches.
+  devices including grounding switches. The ACDCTerminal.connected at the two sides of the switch shall not be considered
+  for assessing switch connectivity, i.e. only Switch.open, .normalOpen and .locked are relevant.
 attributes:
 - name: normalOpen
   type: Boolean
@@ -92,13 +93,3 @@ associations:
   targetCardinality: 0..1
   targetName: switchAction
   targetDescription: Action changing status of this switch.
-- source: Switch
-  target: Outage
-  sourceCardinality: 0..*
-  sourceName: openedSwitches
-  sourceDescription: All potentially open switches causing this outage. This realationship is meant to be used as "indication"
-    for initiation of outage-related business processes, whereas for actual actions of switches, SwitchAction-Switch relationship
-    should be used.
-  targetCardinality: 0..1
-  targetName: outage
-  targetDescription: Current outage of this protective device.

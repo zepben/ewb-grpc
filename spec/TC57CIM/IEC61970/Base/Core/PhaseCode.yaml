@@ -2,83 +2,57 @@ name: PhaseCode
 description: |-
   An unordered enumeration of phase identifiers.  Allows designation of phases for both transmission and distribution equipment, circuits and loads.   The enumeration, by itself, does not describe how the phases are connected together or connected to ground.  Ground is not explicitly denoted as a phase.
   Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
+  The integer values are from IEC 61968-9 to support revenue metering applications.
 attributes:
 - name: ABCN
-  type: null
   description: Phases A, B, C, and N.
 - name: ABC
-  type: null
   description: Phases A, B, and C.
 - name: ABN
-  type: null
   description: Phases A, B, and neutral.
 - name: ACN
-  type: null
   description: Phases A, C and neutral.
 - name: BCN
-  type: null
   description: Phases B, C, and neutral.
 - name: AB
-  type: null
   description: Phases A and B.
 - name: AC
-  type: null
   description: Phases A and C.
 - name: BC
-  type: null
   description: Phases B and C.
 - name: AN
-  type: null
   description: Phases A and neutral.
 - name: BN
-  type: null
   description: Phases B and neutral.
 - name: CN
-  type: null
   description: Phases C and neutral.
 - name: A
-  type: null
   description: Phase A.
 - name: B
-  type: null
   description: Phase B.
 - name: C
-  type: null
   description: Phase C.
 - name: N
-  type: null
   description: Neutral phase.
 - name: s1N
-  type: null
   description: Secondary phase 1 and neutral.
 - name: s2N
-  type: null
   description: Secondary phase 2 and neutral.
 - name: s12N
-  type: null
   description: Secondary phases 1, 2, and neutral.
 - name: s1
-  type: null
   description: Secondary phase 1.
 - name: s2
-  type: null
   description: Secondary phase 2.
 - name: s12
-  type: null
   description: Secondary phase 1 and 2.
-- name: none
-  type: null
-  description: No phases specified.
 - name: X
-  type: null
   description: Unknown non-neutral phase.
 - name: XY
-  type: null
   description: Two unknown non-neutral phases.
 - name: XN
-  type: null
   description: Unknown non-neutral phase plus neutral.
 - name: XYN
-  type: null
   description: Two unknown non-neutral phases plus neutral.
-type: null
+- name: none
+  description: No phases specified.

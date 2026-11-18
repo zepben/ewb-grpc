@@ -12,11 +12,17 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- RUCZone
-- MarketRegion
-- MSSZone
 - LoadAggregationPoint
+- MSSZone
+- MarketRegion
+- RUCZone
 associations:
+- source: AggregateNode
+  target: CnodeDistributionFactor
+  sourceCardinality: 0..1
+  sourceName: aggregateNode
+  targetCardinality: 0..*
+  targetName: cnodeDistributionFactor
 - source: AggregateNode
   target: Pnode
   sourceCardinality: 0..*
@@ -29,12 +35,6 @@ associations:
   sourceName: aggregateNode
   targetCardinality: 0..*
   targetName: subControlArea
-- source: AggregateNode
-  target: CnodeDistributionFactor
-  sourceCardinality: 0..1
-  sourceName: aggregateNode
-  targetCardinality: 0..*
-  targetName: cnodeDistributionFactor
 - source: AggregateNode
   target: RTO
   sourceCardinality: 0..*

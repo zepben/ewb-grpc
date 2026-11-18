@@ -15,47 +15,53 @@ attributes:
 - name: actualPeriod
   type: DateTimeInterval
   description: Actual outage period; end of the period corresponds to the actual restoration time.
-- name: estimatedPeriod
-  type: DateTimeInterval
-  description: Estimated outage period for a planned outage. The start of the period is the start of the planned outage and
-    the end of the period corresponds to the end of the planned outage.
-- name: summary
-  type: ServicePointOutageSummary
-  description: Summary counts of service points (customers) affected by this outage.
 - name: communityDescriptor
   type: String
   description: a name to denote the community - this could be a name or a code of some kind.
 - name: customersRestored
   type: Integer
   description: number of customers that have been restored in the area.
-- name: originalCustomersServed
-  type: Integer
-  description: the total number of customers that are served in the area (both outaged and not outaged).
+- name: estimatedPeriod
+  type: DateTimeInterval
+  description: Estimated outage period for a planned outage. The start of the period is the start of the planned outage and
+    the end of the period corresponds to the end of the planned outage.
 - name: metersAffected
   type: Integer
   description: The updated number of meters affected by the outage as reported by the OMS within the utility.  It is assumed
     this number will be updated repeatedly until the full outage is resolved.
+- name: originalCustomersServed
+  type: Integer
+  description: the total number of customers that are served in the area (both outaged and not outaged).
 - name: originalMetersAffected
   type: Integer
   description: The original number of meters that were affected as reported by the OMS within the utility. That is, this is
     the total number of meters that were out at the beginning of the outage.
+- name: outageKind
+  type: OutageStatusKind
+  description: Defines if the outage has been verified or is only estimated
+- name: statusKind
+  type: CrewStatusKind
+  description: defines the status of the crew as in dispatched or arrived, etc.
+- name: summary
+  type: ServicePointOutageSummary
+  description: Summary counts of service points (customers) affected by this outage.
 - name: utilityDisclaimer
   type: String
   description: This contains an disclaimers the utility would like to place on the data provided to any stakeholder.  This
     may be different for different stakeholders.  This should possibly be an attribute under the Organization class but it
     is placed here for now.
-- name: statusKind
-  type: CrewStatusKind
-  description: defines the status of the crew as in dispatched or arrived, etc.
-- name: outageKind
-  type: OutageStatusKind
-  description: Defines if the outage has been verified or is only estimated
 ancestors:
 - Document
 descendants:
 - UnplannedOutage
 - PlannedOutage
 associations:
+- source: Outage
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  sourceName: outage
+  targetCardinality: 0..*
+  targetName: outageIsolationEquipment
 - source: Outage
   target: Fault
   sourceCardinality: 0..1
@@ -71,16 +77,6 @@ associations:
   targetCardinality: 0..*
   targetName: deEnergizedUsagePoint
   targetDescription: all deenergized useage points associated with the outage.
-- source: Outage
-  target: Switch
-  sourceCardinality: 0..1
-  sourceName: outage
-  sourceDescription: Current outage of this protective device.
-  targetCardinality: 0..*
-  targetName: openedSwitches
-  targetDescription: All potentially open switches causing this outage. This realationship is meant to be used as "indication"
-    for initiation of outage-related business processes, whereas for actual actions of switches, SwitchAction-Switch relationship
-    should be used.
 - source: Outage
   target: SwitchAction
   sourceCardinality: 0..1

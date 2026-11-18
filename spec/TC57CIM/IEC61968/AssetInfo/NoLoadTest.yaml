@@ -3,6 +3,9 @@ description: No-load test results determine core admittance parameters. They inc
   from applying voltage to one winding. The excitation may be positive sequence or zero sequence. The test may be repeated
   at different voltages to measure saturation.
 attributes:
+- name: energisedEndVoltage
+  type: Voltage
+  description: Voltage applied to the winding (end) during test.
 - name: excitingCurrent
   type: PerCent
   description: Exciting current measured from a positive-sequence or single-phase excitation test.
@@ -15,9 +18,6 @@ attributes:
 - name: lossZero
   type: KiloActivePower
   description: Losses measured from a zero-sequence excitation test.
-- name: energisedEndVoltage
-  type: Voltage
-  description: Voltage applied to the winding (end) during test.
 ancestors:
 - TransformerTest
 associations:

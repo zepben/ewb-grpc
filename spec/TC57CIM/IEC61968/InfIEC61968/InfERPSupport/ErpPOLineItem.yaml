@@ -11,6 +11,12 @@ associations:
   targetCardinality: "1"
   targetName: erpPurchaseOrder
 - source: ErpPOLineItem
+  target: AssetModelCatalogueItem
+  sourceCardinality: 0..*
+  sourceName: erpPOLineItems
+  targetCardinality: 0..1
+  targetName: assetModelCatalogueItem
+- source: ErpPOLineItem
   target: ErpReqLineItem
   sourceCardinality: 0..1
   sourceName: erpPOLineItem
@@ -22,9 +28,3 @@ associations:
   sourceName: erpPOLineItem
   targetCardinality: 0..1
   targetName: erpRecDelLineItem
-- source: ErpPOLineItem
-  target: AssetModelCatalogueItem
-  sourceCardinality: 0..*
-  sourceName: erpPOLineItems
-  targetCardinality: 0..1
-  targetName: assetModelCatalogueItem

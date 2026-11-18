@@ -5,14 +5,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: InternalControlArea
-  target: CurrentScheduledInterchange
-  sourceCardinality: "1"
-  sourceName: internalControlArea
-  targetCardinality: 0..1
-  targetName: currentScheduledInterchange
-- source: InternalControlArea
   target: CurrentEmergencyScheduledInterchange
   sourceCardinality: "1"
   sourceName: internalControlArea
   targetCardinality: 0..*
   targetName: currentEmergencySI
+- source: InternalControlArea
+  target: CurrentScheduledInterchange
+  sourceCardinality: "1"
+  sourceName: internalControlArea
+  targetCardinality: 0..1
+  targetName: currentScheduledInterchange
