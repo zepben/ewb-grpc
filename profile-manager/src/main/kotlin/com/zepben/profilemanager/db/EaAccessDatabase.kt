@@ -8,7 +8,16 @@ import java.sql.ResultSet
 class EaAccessDatabase private constructor(private val connection: Connection) {
     companion object {
 
+        /**
+         * Jackcess reads text in Jet 3 (Access 97) files, the format of many EA `.eap` files, using the platform
+         * charset unless told otherwise, which mangles any non-ASCII text EA wrote as Windows-1252.
+         */
+        private const val JET3_CHARSET_PROPERTY = "com.healthmarketscience.jackcess.charset.VERSION_3"
+
         fun connect(db: File): EaAccessDatabase {
+            if (System.getProperty(JET3_CHARSET_PROPERTY) == null)
+                System.setProperty(JET3_CHARSET_PROPERTY, "windows-1252")
+
             val firstException = mutableListOf<Throwable>()
             val conn = runCatching { DriverManager.getConnection("jdbc:ucanaccess://${db.absolutePath}") }
                 .recoverCatching {
@@ -57,7 +66,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getAttributesByObjectId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_attribute WHERE Object_ID = ?",
+            "SELECT * FROM t_attribute WHERE Object_ID = ? ORDER BY ID",
         )
         statement.setInt(1, id)
         return statement.executeQuery()
@@ -65,7 +74,7 @@ class EaAccessDatabase private constructor(private val connection: Connection) {
 
     fun getConnectorsByObjectId(id: Int): ResultSet {
         val statement = connection.prepareStatement(
-            "SELECT * FROM t_connector WHERE Start_Object_ID = ? OR End_Object_ID = ?",
+            "SELECT * FROM t_connector WHERE Start_Object_ID = ? OR End_Object_ID = ? ORDER BY Connector_ID",
         )
         statement.setInt(1, id)
         statement.setInt(2, id)

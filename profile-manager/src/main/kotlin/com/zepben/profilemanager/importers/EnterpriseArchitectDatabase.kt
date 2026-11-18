@@ -123,9 +123,13 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
         } while (!queue.isEmpty())
     }
 
+    /**
+     * Adds the connectors of [item], those starting at it first, then those ending at it, each in connector order.
+     */
     private fun importLinks(item: Class, root: Root) {
         val assocs = db.getConnectorsByObjectId(item.id)
 
+        val links = mutableListOf<Pair<Boolean, Link>>()
         while (assocs.next()) {
             val startId = assocs.getInt("Start_Object_ID")
             val endId = assocs.getInt("End_Object_ID")
@@ -154,8 +158,10 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
                 endDescription
             )
 
-            item.addAssociation(assoc)
+            links.add((startId == item.id) to assoc)
         }
+
+        links.sortedBy { (startsHere, _) -> !startsHere }.forEach { (_, link) -> item.addAssociation(link) }
     }
 
     private fun importAttributes(item: Class) {
@@ -163,7 +169,10 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
 
         while (attrs.next()) {
             val name = attrs.getString("Name")
-            val type = attrs.getString("Type")
+            val type = attrs.getString("Type") ?: "enum".also {
+                if (attrs.getString("Stereotype") != "enum")
+                    warn("attribute '${item.name}.$name' has no type, treating it as an enum literal.")
+            }
             val notes = attrs.getString("Notes")?.fixWindowsNewLines()
 
             val attr = Attribute(name, type, notes)
