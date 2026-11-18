@@ -1,39 +1,39 @@
 name: Location
 description: The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment
-  in time. It can be defined with one or more position points (coordinates) in a given coordinate system.
+  in time. It can be defined with one or more postition points (coordinates) in a given coordinate system.
 attributes:
-- name: direction
+- name: type
   type: String
-  description: (if applicable) Direction that allows field crews to quickly find a given asset. For a given location, such
-    as a street address, this is the relative direction in which to find the asset. For example, a streetlight may be located
-    at the 'NW' (northwest) corner of the customer's site, or a usage point may be located on the second floor of an apartment
-    building.
-- name: electronicAddress
-  type: ElectronicAddress
-  description: Electronic address.
-- name: geoInfoReference
-  type: String
-  description: (if applicable) Reference to geographical information source, often external to the utility.
+  description: Classification by utility's corporate standards and practices, relative to the location itself (e.g., geographical,
+    functional accounting, etc., not a given property that happens to exist at that location).
 - name: mainAddress
   type: StreetAddress
   description: Main address of the location.
+- name: secondaryAddress
+  type: StreetAddress
+  description: Secondary address of the location. For example, PO Box address may have different ZIP code than that in the
+    'mainAddress'.
 - name: phone1
   type: TelephoneNumber
   description: Phone number.
 - name: phone2
   type: TelephoneNumber
   description: Additional phone number.
-- name: secondaryAddress
-  type: StreetAddress
-  description: Secondary address of the location. For example, PO Box address may have different ZIP code than that in the
-    'mainAddress'.
+- name: electronicAddress
+  type: ElectronicAddress
+  description: Electronic address.
+- name: geoInfoReference
+  type: String
+  description: (if applicable) Reference to geographical information source, often external to the utility.
+- name: direction
+  type: String
+  description: (if applicable) Direction that allows field crews to quickly find a given asset. For a given location, such
+    as a street address, this is the relative direction in which to find the asset. For example, a streetlight may be located
+    at the 'NW' (northwest) corner of the customer's site, or a usage point may be located on the second floor of an apartment
+    building.
 - name: status
   type: Status
   description: Status of this location.
-- name: type
-  type: String
-  description: Classification by utility's corporate standards and practices, relative to the location itself (e.g., geographical,
-    functional accounting, etc., not a given property that happens to exist at that location).
 ancestors:
 - IdentifiedObject
 descendants:
@@ -41,14 +41,6 @@ descendants:
 - UsagePointLocation
 - WorkLocation
 associations:
-- source: Location
-  target: ConfigurationEvent
-  sourceCardinality: 0..1
-  sourceName: changedLocation
-  sourceDescription: Location whose change resulted in this configuration event.
-  targetCardinality: 0..*
-  targetName: configurationEvents
-  targetDescription: All configuration events created for this location.
 - source: Location
   target: Measurement
   sourceCardinality: 0..*
@@ -91,6 +83,14 @@ associations:
   targetCardinality: 0..1
   targetName: coordinateSystem
   targetDescription: Coordinate system used to describe position points of this location.
+- source: Location
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  sourceName: changedLocation
+  sourceDescription: Location whose change resulted in this configuration event.
+  targetCardinality: 0..*
+  targetName: configurationEvents
+  targetDescription: All configuration events created for this location.
 - source: Location
   target: Route
   sourceCardinality: 0..*

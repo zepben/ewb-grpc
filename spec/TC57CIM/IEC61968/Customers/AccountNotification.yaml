@@ -1,14 +1,14 @@
 name: AccountNotification
 description: Notifications for move-in, move-out, delinquencies, etc.
 attributes:
+- name: time
+  type: DateTime
+- name: note
+  type: String
 - name: customerNotificationType
   type: String
 - name: methodType
   type: String
-- name: note
-  type: String
-- name: time
-  type: DateTime
 associations:
 - source: AccountNotification
   target: CustomerAccount

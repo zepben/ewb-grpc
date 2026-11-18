@@ -1,9 +1,6 @@
 name: Card
 description: Documentation of the tender when it is a type of card (credit, debit, etc).
 attributes:
-- name: accountHolderName
-  type: String
-  description: Name of account holder.
 - name: cvNumber
   type: String
   description: The card verification number.
@@ -13,6 +10,9 @@ attributes:
 - name: pan
   type: String
   description: The primary account number.
+- name: accountHolderName
+  type: String
+  description: Name of account holder.
 associations:
 - source: Card
   target: Tender

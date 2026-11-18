@@ -2,17 +2,17 @@ name: PhaseTapChangerLinear
 description: |-
   Describes a tap changer with a linear relation between the tap step and the phase angle difference across the transformer. This is a mathematical model that is an approximation of a real phase tap changer.
   The phase angle is computed as stepPhaseShiftIncrement times the tap position.
-  The voltage magnitude of both sides is the same.
+  The secondary side voltage magnitude is the same as at the primary side.
 attributes:
 - name: stepPhaseShiftIncrement
   type: AngleDegrees
   description: |-
-    Phase shift per step position. A positive value indicates a positive angle variation from the Terminal at the  PowerTransformerEnd,  where the TapChanger is located, into the transformer.
+    Phase shift per step position. A positive value indicates a positive phase shift from the winding where the tap is located to the other winding (for a two-winding transformer).
     The actual phase shift increment might be more accurately computed from the symmetrical or asymmetrical models or a tap step table lookup if those are available.
 - name: xMax
   type: Reactance
   description: The reactance depends on the tap position according to a "u" shaped curve. The maximum reactance (xMax) appears
-    at the low and high tap positions. Depending on the “u” curve the attribute can be either higher or lower than PowerTransformerEnd.x.
+    at the low and high tap positions.
 - name: xMin
   type: Reactance
   description: The reactance depends on the tap position according to a "u" shaped curve. The minimum reactance (xMin) appears

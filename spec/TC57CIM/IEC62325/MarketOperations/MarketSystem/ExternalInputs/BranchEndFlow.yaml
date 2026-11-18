@@ -1,39 +1,27 @@
 name: BranchEndFlow
 description: Dynamic flows and ratings associated with a branch end.
 attributes:
-- name: loadDumpRating
-  type: Float
-  description: The Load Dump Rating for the branch
-- name: longTermRating
-  type: Float
-  description: The Long Term Rating for the branch
-- name: mVARFlow
-  type: Float
-  description: "The MVAR flow on the branch \nAttribute Usage: Reactive power flow at the series device, transformer, phase\
-    \ shifter, or line end"
 - name: mwFlow
   type: Float
   description: "The MW flow on the branch \nAttribute Usage: Active power flow at the series device, transformer, phase shifter,\
     \ or line end"
+- name: mVARFlow
+  type: Float
+  description: "The MVAR flow on the branch \nAttribute Usage: Reactive power flow at the series device, transformer, phase\
+    \ shifter, or line end"
 - name: normalRating
   type: Float
   description: The Normal Rating for the branch
+- name: longTermRating
+  type: Float
+  description: The Long Term Rating for the branch
 - name: shortTermRating
   type: Float
   description: The Short Term Rating for the branch
+- name: loadDumpRating
+  type: Float
+  description: The Load Dump Rating for the branch
 associations:
-- source: BranchEndFlow
-  target: MktSeriesCompensator
-  sourceCardinality: 0..1
-  sourceName: endBFlow
-  targetCardinality: 0..*
-  targetName: mktSeriesCompensatorEndBFlow
-- source: BranchEndFlow
-  target: MktSeriesCompensator
-  sourceCardinality: 0..1
-  sourceName: endAFlow
-  targetCardinality: 0..*
-  targetName: mktSeriresCompensatorEndAFlow
 - source: BranchEndFlow
   target: MktACLineSegment
   sourceCardinality: 0..1
@@ -41,11 +29,23 @@ associations:
   targetCardinality: 0..*
   targetName: mktACLineSegmentEndAFlow
 - source: BranchEndFlow
+  target: MktSeriesCompensator
+  sourceCardinality: 0..1
+  sourceName: endBFlow
+  targetCardinality: 0..*
+  targetName: mktSeriesCompensatorEndBFlow
+- source: BranchEndFlow
   target: MktACLineSegment
   sourceCardinality: 0..1
   sourceName: endBFlow
   targetCardinality: 0..*
   targetName: mktACLineSegmentEndBFlow
+- source: BranchEndFlow
+  target: MktSeriesCompensator
+  sourceCardinality: 0..1
+  sourceName: endAFlow
+  targetCardinality: 0..*
+  targetName: mktSeriresCompensatorEndAFlow
 - source: BranchEndFlow
   target: MktPowerTransformer
   sourceCardinality: 0..1

@@ -1,9 +1,6 @@
 name: WirePosition
 description: Identification, spacing and configuration of the wires of a conductor with respect to a structure.
 attributes:
-- name: sequenceNumber
-  type: Integer
-  description: Numbering for wires on a WireSpacingInfo. Neutrals should be numbered last.
 - name: xCoord
   type: Displacement
   description: Signed horizontal distance from the wire at this position to a common reference point.
@@ -23,7 +20,7 @@ associations:
   targetName: wirePhaseInfo
   targetDescription: Wire phase information for this wire position.
 - source: WirePosition
-  target: WireSpacingInfo
+  target: WireSpacing
   sourceCardinality: 1..*
   sourceName: wirePositions
   sourceDescription: All positions of single wires (phase or neutral) making the conductor.

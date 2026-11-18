@@ -12,6 +12,12 @@ associations:
   targetCardinality: 0..*
   targetName: selfMarketDocument
 - source: MarketDocument
+  target: Period
+  sourceCardinality: 0..*
+  sourceName: marketDocument
+  targetCardinality: 0..*
+  targetName: period
+- source: MarketDocument
   target: Domain
   sourceCardinality: 0..*
   sourceName: marketDocument
@@ -24,11 +30,23 @@ associations:
   targetCardinality: 0..*
   targetName: attributeInstanceComponent
 - source: MarketDocument
-  target: Period
+  target: Reason
   sourceCardinality: 0..*
   sourceName: marketDocument
   targetCardinality: 0..*
-  targetName: period
+  targetName: reason
+- source: MarketDocument
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: marketDocument
+  targetCardinality: 0..*
+  targetName: timeSeries
+- source: MarketDocument
+  target: Process
+  sourceCardinality: 0..*
+  sourceName: marketDocument
+  targetCardinality: 0..*
+  targetName: process
 - source: MarketDocument
   target: DateAndOrTime
   sourceCardinality: 0..*
@@ -41,24 +59,6 @@ associations:
   sourceName: marketDocument
   targetCardinality: 0..*
   targetName: aceTariffType
-- source: MarketDocument
-  target: Process
-  sourceCardinality: 0..*
-  sourceName: marketDocument
-  targetCardinality: 0..*
-  targetName: process
-- source: MarketDocument
-  target: Reason
-  sourceCardinality: 0..*
-  sourceName: marketDocument
-  targetCardinality: 0..*
-  targetName: reason
-- source: MarketDocument
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: marketDocument
-  targetCardinality: 0..*
-  targetName: timeSeries
 - source: MarketDocument
   target: MarketParticipant
   sourceCardinality: 0..*

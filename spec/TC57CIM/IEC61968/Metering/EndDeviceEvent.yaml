@@ -1,17 +1,17 @@
 name: EndDeviceEvent
 description: Event detected by a device function associated with the end device.
 attributes:
-- name: issuerID
+- name: userID
   type: String
-  description: Unique identifier of the business entity originating an end device control.
+  description: (if user initiated) ID of user who initiated this end device event.
 - name: issuerTrackingID
   type: String
   description: Identifier assigned by the initiator (e.g. retail electric provider) of an end device control action to uniquely
     identify the demand response event, text message, or other subject of the control action. Can be used when cancelling
     an event or text message request or to identify the originating event or text message in a consequential end device event.
-- name: userID
+- name: issuerID
   type: String
-  description: (if user initiated) ID of user who initiated this end device event.
+  description: Unique identifier of the business entity originating an end device control.
 ancestors:
 - ActivityRecord
 associations:

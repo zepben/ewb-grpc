@@ -4,9 +4,6 @@ attributes:
 - name: capability
   type: EndDeviceCapability
   description: Inherent capabilities of the device (i.e., the functions it supports).
-- name: isSolidState
-  type: Boolean
-  description: If true, this is a solid state end device (as opposed to a mechanical or electromechanical device).
 - name: phaseCount
   type: Integer
   description: Number of potential phases the end device supports, typically 0, 1 or 3.
@@ -16,6 +13,9 @@ attributes:
 - name: ratedVoltage
   type: Voltage
   description: Rated voltage.
+- name: isSolidState
+  type: Boolean
+  description: If true, this is a solid state end device (as opposed to a mechanical or electromechanical device).
 ancestors:
 - AssetInfo
 associations:

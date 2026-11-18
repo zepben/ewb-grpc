@@ -3,10 +3,10 @@ description: Analog (float) measurement of relevance in the environmental domain
 ancestors:
 - Analog
 descendants:
+- SpaceAnalog
+- HydrosphericAnalog
 - GeosphericAnalog
 - AtmosphericAnalog
-- HydrosphericAnalog
-- SpaceAnalog
 associations:
 - source: EnvironmentalAnalog
   target: EnvironmentalInformation
@@ -17,14 +17,6 @@ associations:
   targetName: environmentalInformation
   targetDescription: Observation or forecast with which this environmental analog measurement is associated.
 - source: EnvironmentalAnalog
-  target: ClassificationCondition
-  sourceCardinality: 0..*
-  sourceName: environmentalAnalog
-  sourceDescription: Analog which contributes to the definition of this classification condition.
-  targetCardinality: 0..1
-  targetName: classificationCondition
-  targetDescription: Classification condition which this analog helps define.
-- source: EnvironmentalAnalog
   target: ReportingCapability
   sourceCardinality: 0..*
   sourceName: environmentalAnalog
@@ -32,6 +24,14 @@ associations:
   targetCardinality: 0..1
   targetName: reportingCapability
   targetDescription: The reporting capability this environmental value set helps define.
+- source: EnvironmentalAnalog
+  target: ClassificationCondition
+  sourceCardinality: 0..*
+  sourceName: environmentalAnalog
+  sourceDescription: Analog which contributes to the definition of this classification condition.
+  targetCardinality: 0..1
+  targetName: classificationCondition
+  targetDescription: Classification condition which this analog helps define.
 - source: EnvironmentalAnalog
   target: EnvironmentalMonitoringStation
   sourceCardinality: 0..*

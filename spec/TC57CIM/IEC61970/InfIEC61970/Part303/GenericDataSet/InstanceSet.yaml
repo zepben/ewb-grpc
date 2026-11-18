@@ -4,14 +4,6 @@ ancestors:
 - DataSet
 associations:
 - source: InstanceSet
-  target: DatasetArg
-  sourceCardinality: "1"
-  sourceName: dataset
-  sourceDescription: Dataset referenced by this argument of a model operation..
-  targetCardinality: 0..*
-  targetName: datasetArg
-  targetDescription: The role of a dataset in the context of an operation.
-- source: InstanceSet
   target: IdentifiedObject
   sourceCardinality: "1"
   sourceName: instanceSet
@@ -19,3 +11,11 @@ associations:
   targetCardinality: 0..*
   targetName: instanceSetMember
   targetDescription: Data objects contained in the dataset.
+- source: InstanceSet
+  target: DatasetArg
+  sourceCardinality: "1"
+  sourceName: dataset
+  sourceDescription: Dataset referenced by this argument of a model operation..
+  targetCardinality: 0..*
+  targetName: datasetArg
+  targetDescription: The role of a dataset in the context of an operation.

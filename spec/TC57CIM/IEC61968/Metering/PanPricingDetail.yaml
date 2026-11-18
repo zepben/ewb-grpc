@@ -17,6 +17,9 @@ attributes:
 - name: generationPriceRatio
   type: Float
   description: Ratio of 'generationPrice' to the "normal" price chosen by the commodity provider.
+- name: priceTierCount
+  type: Integer
+  description: Maximum number of price tiers available.
 - name: price
   type: Money
   description: Price of the commodity measured in base unit of currency per 'unitOfMeasure'.
@@ -26,12 +29,6 @@ attributes:
 - name: priceTier
   type: Integer
   description: Pricing tier as chosen by the commodity provider.
-- name: priceTierCount
-  type: Integer
-  description: Maximum number of price tiers available.
-- name: priceTierLabel
-  type: String
-  description: Label for price tier.
 - name: rateLabel
   type: String
   description: Label of the current billing rate specified by commodity provider.
@@ -41,6 +38,9 @@ attributes:
 - name: unitOfMeasure
   type: String
   description: Defines commodity as well as its base unit of measure.
+- name: priceTierLabel
+  type: String
+  description: Label for price tier.
 associations:
 - source: PanPricingDetail
   target: PanPricing

@@ -61,11 +61,11 @@ ancestors:
 - ResourceBid
 associations:
 - source: GeneratingBid
-  target: BidSet
-  sourceCardinality: 1..*
-  sourceName: generatingBids
-  targetCardinality: 0..1
-  targetName: bidSet
+  target: RampRateCurve
+  sourceCardinality: 0..1
+  sourceName: generatingBid
+  targetCardinality: 0..*
+  targetName: rampRateCurve
 - source: GeneratingBid
   target: NotificationTimeCurve
   sourceCardinality: 0..*
@@ -73,11 +73,11 @@ associations:
   targetCardinality: 0..1
   targetName: notificationTimeCurve
 - source: GeneratingBid
-  target: RampRateCurve
-  sourceCardinality: 0..1
-  sourceName: generatingBid
-  targetCardinality: 0..*
-  targetName: rampRateCurve
+  target: BidSet
+  sourceCardinality: 1..*
+  sourceName: generatingBids
+  targetCardinality: 0..1
+  targetName: bidSet
 - source: GeneratingBid
   target: SecurityConstraints
   sourceCardinality: 0..1
@@ -91,14 +91,14 @@ associations:
   targetCardinality: 0..1
   targetName: registeredGenerator
 - source: GeneratingBid
-  target: StartUpCostCurve
-  sourceCardinality: 0..*
-  sourceName: generatingBid
-  targetCardinality: 0..1
-  targetName: startUpCostCurve
-- source: GeneratingBid
   target: StartUpTimeCurve
   sourceCardinality: 0..*
   sourceName: generatingBid
   targetCardinality: 0..1
   targetName: startUpTimeCurve
+- source: GeneratingBid
+  target: StartUpCostCurve
+  sourceCardinality: 0..*
+  sourceName: generatingBid
+  targetCardinality: 0..1
+  targetName: startUpCostCurve

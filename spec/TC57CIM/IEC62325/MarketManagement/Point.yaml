@@ -15,11 +15,11 @@ attributes:
   description: Secondary quantity identified for a point.
 associations:
 - source: Point
-  target: AceTariffType
+  target: TimeSeries
   sourceCardinality: 0..*
   sourceName: point
   targetCardinality: 0..*
-  targetName: aceTariffType
+  targetName: timeSeries
 - source: Point
   target: Period
   sourceCardinality: 0..*
@@ -27,17 +27,11 @@ associations:
   targetCardinality: "1"
   targetName: period
 - source: Point
-  target: TimeSeries
+  target: AceTariffType
   sourceCardinality: 0..*
   sourceName: point
   targetCardinality: 0..*
-  targetName: timeSeries
-- source: Point
-  target: FlowDirection
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: flowDirection
+  targetName: aceTariffType
 - source: Point
   target: Price
   sourceCardinality: 0..1
@@ -56,3 +50,9 @@ associations:
   sourceName: point
   targetCardinality: 0..*
   targetName: reason
+- source: Point
+  target: FlowDirection
+  sourceCardinality: 0..*
+  sourceName: point
+  targetCardinality: 0..*
+  targetName: flowDirection

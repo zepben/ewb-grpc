@@ -2,6 +2,18 @@ name: RegisteredControllableLoad
 description: Temporary holding for load reduction attributes removed from RegisteredLoad. Use for future use case when developing
   the RegisteredDistributedResource specialized classes.
 attributes:
+- name: maxBaseLoad
+  type: ActivePower
+  description: Maximum Base Load (MW), per Participating Load Resource
+- name: maxDeploymentTime
+  type: Float
+  description: Maximum Deployment time (seconds)
+- name: maxLoadRedTimesPerDay
+  type: Integer
+  description: Maximum Number of Daily Load Curtailments
+- name: maxLoadReduction
+  type: ActivePower
+  description: maximum load reduction
 - name: maxReductionTime
   type: Float
   description: Maxiimum Load Reduction Time (min), per Participating Load Resource
@@ -38,15 +50,3 @@ attributes:
     Time period that is required from an order to reduce a load to the time that it takes to get to the minimum load reduction.
 
     This attribute may be used also in the LoadBid class. The reason that the attribute is also modeled in this class is that it is resource attribute and needs to be persistently stored.
-- name: maxBaseLoad
-  type: ActivePower
-  description: Maximum Base Load (MW), per Participating Load Resource
-- name: maxDeploymentTime
-  type: Float
-  description: Maximum Deployment time (seconds)
-- name: maxLoadRedTimesPerDay
-  type: Integer
-  description: Maximum Number of Daily Load Curtailments
-- name: maxLoadReduction
-  type: ActivePower
-  description: maximum load reduction

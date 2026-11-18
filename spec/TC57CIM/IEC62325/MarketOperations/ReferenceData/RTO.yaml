@@ -4,17 +4,35 @@ ancestors:
 - MarketParticipant
 associations:
 - source: RTO
-  target: AdjacentCASet
+  target: SubControlArea
   sourceCardinality: "1"
   sourceName: rto
   targetCardinality: 0..*
-  targetName: adjacentCASet
+  targetName: subControlArea
+- source: RTO
+  target: TransmissionRightChain
+  sourceCardinality: "1"
+  sourceName: rto
+  targetCardinality: 0..*
+  targetName: transmissionRightChain
+- source: RTO
+  target: Pnode
+  sourceCardinality: 0..1
+  sourceName: rto
+  targetCardinality: 0..*
+  targetName: pnodes
 - source: RTO
   target: LocalReliabilityArea
   sourceCardinality: "1"
   sourceName: rto
   targetCardinality: 0..*
   targetName: localReliabilityArea
+- source: RTO
+  target: HostControlArea
+  sourceCardinality: "1"
+  sourceName: rto
+  targetCardinality: 0..*
+  targetName: hostControlArea
 - source: RTO
   target: FuelRegion
   sourceCardinality: "1"
@@ -34,29 +52,11 @@ associations:
   targetCardinality: 0..*
   targetName: aggregateNode
 - source: RTO
-  target: HostControlArea
+  target: AdjacentCASet
   sourceCardinality: "1"
   sourceName: rto
   targetCardinality: 0..*
-  targetName: hostControlArea
-- source: RTO
-  target: Pnode
-  sourceCardinality: 0..1
-  sourceName: rto
-  targetCardinality: 0..*
-  targetName: pnodes
-- source: RTO
-  target: SubControlArea
-  sourceCardinality: "1"
-  sourceName: rto
-  targetCardinality: 0..*
-  targetName: subControlArea
-- source: RTO
-  target: TransmissionRightChain
-  sourceCardinality: "1"
-  sourceName: rto
-  targetCardinality: 0..*
-  targetName: transmissionRightChain
+  targetName: adjacentCASet
 - source: RTO
   target: CommodityDefinition
   sourceCardinality: "1"
@@ -70,29 +70,29 @@ associations:
   targetCardinality: 0..*
   targetName: mktConnectivityNode
 - source: RTO
-  target: MSSAggregation
-  sourceCardinality: "1"
-  sourceName: rto
-  targetCardinality: 0..*
-  targetName: mssAggregation
-- source: RTO
   target: ResourceGroupReq
   sourceCardinality: 0..*
   sourceName: rtos
   targetCardinality: 0..*
   targetName: resourceGroupReqs
 - source: RTO
-  target: SecurityConstraintSum
-  sourceCardinality: 0..1
+  target: MSSAggregation
+  sourceCardinality: "1"
   sourceName: rto
   targetCardinality: 0..*
-  targetName: securityConstraintsLinear
+  targetName: mssAggregation
 - source: RTO
   target: SecurityConstraints
   sourceCardinality: 0..1
   sourceName: rto
   targetCardinality: 0..*
   targetName: securityConstraints
+- source: RTO
+  target: SecurityConstraintSum
+  sourceCardinality: 0..1
+  sourceName: rto
+  targetCardinality: 0..*
+  targetName: securityConstraintsLinear
 - source: RTO
   target: EnergyMarket
   sourceCardinality: 0..1

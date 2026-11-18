@@ -17,17 +17,17 @@ attributes:
   description: Point of delivery loss factor
 associations:
 - source: PnodeDistributionFactor
-  target: AggregatedPnode
-  sourceCardinality: 1..*
-  sourceName: pnodeDistributionFactor
-  targetCardinality: "1"
-  targetName: aggregatedPnode
-- source: PnodeDistributionFactor
   target: IndividualPnode
   sourceCardinality: 0..*
   sourceName: pnodeDistributionFactor
   targetCardinality: "1"
   targetName: individualPnode
+- source: PnodeDistributionFactor
+  target: AggregatedPnode
+  sourceCardinality: 1..*
+  sourceName: pnodeDistributionFactor
+  targetCardinality: "1"
+  targetName: aggregatedPnode
 - source: PnodeDistributionFactor
   target: BidDistributionFactor
   sourceCardinality: 0..*

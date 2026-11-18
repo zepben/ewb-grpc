@@ -10,31 +10,31 @@ attributes:
 ancestors:
 - Document
 descendants:
-- TransactionBidClearing
-- MPMClearing
 - SecurityConstraintsClearing
 - MarketCaseClearing
 - InterTieClearing
-- ExPostLoss
-- ExPostMarketRegion
 - ExPostPricing
+- ExPostMarketRegion
+- ExPostLoss
+- ConstraintClearing
+- CommitmentClearing
+- TransactionBidClearing
+- ResourceClearing
+- ResourceAwardClearing
+- RMROperatorInput
+- PnodeClearing
+- MitigatedBidClearing
+- MPMClearing
+- LossClearing
+- InstructionClearingDOT
+- InstructionClearingDOP
+- InstructionClearing
+- GeneralClearing
 - ExPostResource
 - AncillaryServiceClearing
-- CommitmentClearing
-- ConstraintClearing
-- GeneralClearing
-- InstructionClearing
-- InstructionClearingDOP
-- InstructionClearingDOT
-- LossClearing
-- MitigatedBidClearing
-- PnodeClearing
-- RMROperatorInput
-- ResourceAwardClearing
-- ResourceClearing
 - SecurityConstraintSum
-- IntermittentResourceEligibility
 - LossSensitivity
+- IntermittentResourceEligibility
 associations:
 - source: MarketFactors
   target: Market

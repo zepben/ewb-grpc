@@ -19,14 +19,14 @@ ancestors:
 - RegularIntervalSchedule
 associations:
 - source: BidPriceSchedule
-  target: BidPriceCurve
-  sourceCardinality: 0..*
-  sourceName: bidSchedule
-  targetCardinality: "1"
-  targetName: bidPriceCurve
-- source: BidPriceSchedule
   target: ProductBid
   sourceCardinality: 0..*
   sourceName: bidSchedule
   targetCardinality: "1"
   targetName: productBid
+- source: BidPriceSchedule
+  target: BidPriceCurve
+  sourceCardinality: 0..*
+  sourceName: bidSchedule
+  targetCardinality: "1"
+  targetName: bidPriceCurve

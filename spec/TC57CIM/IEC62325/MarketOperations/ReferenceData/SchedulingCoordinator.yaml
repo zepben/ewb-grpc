@@ -60,12 +60,12 @@ associations:
   targetCardinality: 0..1
   targetName: marketParticipant
 - source: SchedulingCoordinator
+  target: SchedulingCoordinatorUser
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+- source: SchedulingCoordinator
   target: LoadRatio
   sourceCardinality: 0..1
   sourceName: schedulingCoordinator
   targetCardinality: "1"
   targetName: loadRatio
-- source: SchedulingCoordinator
-  target: SchedulingCoordinatorUser
-  sourceCardinality: "1"
-  targetCardinality: 0..*

@@ -2,6 +2,9 @@ name: AccessPermit
 description: A permit is sometimes needed to provide legal access to land or equipment. For example, local authority permission
   for road works.
 attributes:
+- name: permitID
+  type: String
+  description: Permit identifier.
 - name: applicationNumber
   type: String
   description: ' Permit application number that is used by municipality, state, province, etc.'
@@ -14,8 +17,5 @@ attributes:
 - name: payment
   type: Money
   description: Total cost of permit.
-- name: permitID
-  type: String
-  description: Permit identifier.
 ancestors:
 - WorkDocument

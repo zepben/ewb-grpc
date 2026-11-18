@@ -30,6 +30,12 @@ attributes:
   description: Previous line item charge amount.
 associations:
 - source: MarketInvoiceLineItem
+  target: Settlement
+  sourceCardinality: 0..*
+  sourceName: marketInvoiceLineItem
+  targetCardinality: 0..*
+  targetName: settlement
+- source: MarketInvoiceLineItem
   target: MarketInvoiceLineItem
   sourceCardinality: 0..*
   sourceName: componentMarketInvoiceLineItems
@@ -41,9 +47,3 @@ associations:
   sourceName: marketInvoiceLineItems
   targetCardinality: "1"
   targetName: marketInvoice
-- source: MarketInvoiceLineItem
-  target: Settlement
-  sourceCardinality: 0..*
-  sourceName: marketInvoiceLineItem
-  targetCardinality: 0..*
-  targetName: settlement
