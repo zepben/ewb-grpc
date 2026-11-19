@@ -23,6 +23,9 @@ dependencies {
     implementation("com.charleskorn.kaml:kaml:0.57.0")
     implementation("com.github.ajalt.clikt:clikt:4.3.0")
 
+    implementation("org.eclipse.elk:org.eclipse.elk.core:0.9.1")
+    implementation("org.eclipse.elk:org.eclipse.elk.alg.layered:0.9.1")
+
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 

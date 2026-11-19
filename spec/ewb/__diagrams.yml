@@ -1,0 +1,434 @@
+diagrams:
+  - path: IEC61968/AssetInfo/AssetInfoInheritance
+    show: inheritance
+    classes:
+      - WireMaterialKind
+      - IdentifiedObject
+      - TransformerTest
+      - NoLoadTest
+      - AssetInfo
+      - TransformerTankInfo
+      - OpenCircuitTest
+      - TransformerEndInfo
+      - WireInfo
+      - ShortCircuitTest
+      - CableInfo
+      - OverheadWireInfo
+      - ShuntCompensatorInfo
+      - PowerTransformerInfo
+
+  - path: IEC61968/AssetInfo/AssetWireInfo
+    show: both
+    classes:
+      - PowerSystemResource
+      - PerLengthLineParameter
+      - AssetInfo
+      - Equipment
+      - ConductingEquipment
+      - WireInfo
+      - PerLengthImpedance
+      - Conductor
+      - CableInfo
+      - OverheadWireInfo
+      - AcLineSegment
+
+  - path: IEC61968/AssetInfo/DCIMTransformerInfo
+    show: both
+    classes:
+      - PowerTransformerInfo
+      - WindingConnection
+      - TransformerTankInfo
+      - TransformerTest
+      - TransformerEndInfo
+      - NoLoadTest
+      - ShortCircuitTest
+      - OpenCircuitTest
+
+  - path: IEC61968/AssetInfo/DCIMTransformerModel
+    show: both
+    classes:
+      - Terminal
+      - ConductingEquipment
+      - Equipment
+      - PowerSystemResource
+      - PhaseCode
+      - BaseVoltage
+      - PowerTransformer
+      - AssetInfo
+      - PowerTransformerInfo
+      - TransformerEnd
+      - PowerTransformerEnd
+      - TransformerTankInfo
+      - WindingConnection
+      - TransformerStarImpedance
+      - TransformerEndInfo
+
+  - path: IEC61968/Assets/AssetEnvironment
+    show: both
+    classes:
+      - Asset
+      - AssetContainer
+      - Location
+      - PositionPoint
+
+  - path: IEC61968/Assets/AssetMeasurement
+    show: inheritance
+    classes:
+      - Asset
+      - Analog
+      - Measurement
+      - AssetContainer
+      - Discrete
+      - MeasurementValue
+      - Document
+
+  - path: IEC61968/Assets/AssetNetworkModel
+    show: both
+    classes:
+      - ConnectivityNode
+      - ConductingEquipment
+      - Terminal
+      - BaseVoltage
+      - EquipmentContainer
+      - Asset
+      - Equipment
+      - AssetInfo
+      - AssetContainer
+      - PowerSystemResource
+      - Measurement
+
+  - path: IEC61968/Assets/AssetsOverview
+    show: both
+    classes:
+      - AssetInfo
+      - PowerSystemResource
+      - Asset
+      - AssetOrganisationRole
+      - AssetContainer
+      - AssetOwner
+
+  - path: IEC61968/Common/CommonInheritance
+    show: inheritance
+    classes:
+      - IdentifiedObject
+      - name: OrganisationRole
+        show: both
+      - Location
+      - Document
+      - Organisation
+      - StreetAddress
+      - StreetDetail
+      - Agreement
+      - TownDetail
+
+  - path: IEC61968/Common/CommonOverview
+    show: both
+    classes:
+      - Location
+      - PositionPoint
+      - Organisation
+      - OrganisationRole
+      - Document
+      - Agreement
+
+  - path: IEC61968/Common/DCIMLocations
+    show: relationships
+    classes:
+      - PowerSystemResource
+      - PositionPoint
+      - Asset
+      - Location
+
+  - path: IEC61968/Customers/CustomersOverview
+    show: relationships
+    classes:
+      - Customer
+      - CustomerAgreement
+      - CustomerKind
+      - PricingStructure
+      - Tariff
+
+  - path: IEC61968/InfIEC61968/InfAssets/InfElectricalAssets
+    show: both
+    classes:
+      - StreetlightLampKind
+      - Asset
+      - AssetInfo
+      - Streetlight
+      - Pole
+
+  - path: IEC61968/Metering/MeteringInheritance
+    show: inheritance
+    classes:
+      - name: UsagePoint
+        show: both
+      - IdentifiedObject
+      - Location
+      - AssetInfo
+      - Document
+      - name: Asset
+        show: both
+      - AssetContainer
+      - EndDevice
+      - Meter
+
+  - path: IEC61968/Metering/MeteringMeterReadings
+    show: both
+    classes:
+      - Meter
+      - EndDevice
+      - UsagePoint
+
+  - path: IEC61968/Metering/MeteringUsagePoints
+    show: both
+    classes:
+      - Equipment
+      - UsagePoint
+      - EndDevice
+      - Meter
+
+  - path: IEC61968/Operations/OperationsInheritance
+    show: inheritance
+    classes:
+      - IdentifiedObject
+      - Document
+      - OperationalRestriction
+
+  - path: IEC61970/Base/Core/Main
+    show: both
+    classes:
+      - ConnectivityNodeContainer
+      - PowerSystemResource
+      - ACDCTerminal
+      - EquipmentContainer
+      - Equipment
+      - ConductingEquipment
+      - Terminal
+      - GeographicalRegion
+      - BaseVoltage
+      - SubGeographicalRegion
+      - Substation
+      - Feeder
+
+  - path: IEC61970/Base/Core/Names
+    show: relationships
+    classes:
+      - IdentifiedObject
+      - Name
+      - NameType
+
+  - path: IEC61970/Base/DiagramLayout/DiagramLayout
+    show: both
+    classes:
+      - IdentifiedObject
+      - DiagramStyle
+      - DiagramObjectPoint
+      - DiagramObject
+      - Diagram
+      - OrientationKind
+
+  - path: IEC61970/Base/Domain/EnumeratedUnitDatatypes
+    classes:
+      - UnitSymbol
+
+  - path: IEC61970/Base/Equivalents/Main
+    show: inheritance
+    classes:
+      - EquivalentEquipment
+      - EquivalentBranch
+
+  - path: IEC61970/Base/Generation/Production/PowerElectronics
+    show: both
+    classes:
+      - RegulatingCondEq
+      - Equipment
+      - PowerElectronicsConnection
+      - PowerElectronicsUnit
+      - BatteryStateKind
+      - PowerElectronicsConnectionPhase
+      - BatteryUnit
+      - PhotoVoltaicUnit
+      - PowerElectronicsWindUnit
+
+  - path: IEC61970/Base/Meas/ControlDiag
+    show: both
+    classes:
+      - PowerSystemResource
+      - Control
+      - IOPoint
+      - MeasurementValue
+      - AccumulatorValue
+      - RemoteControl
+      - AnalogValue
+      - DiscreteValue
+
+  - path: IEC61970/Base/Meas/MeasurementDiag
+    show: both
+    classes:
+      - PowerSystemResource
+      - Control
+      - ACDCTerminal
+      - Measurement
+      - Terminal
+      - IOPoint
+      - MeasurementValue
+      - Analog
+      - AnalogValue
+      - Accumulator
+      - AccumulatorValue
+      - Discrete
+      - DiscreteValue
+
+  - path: IEC61970/Base/Meas/MeasurementInheritance
+    show: inheritance
+    classes:
+      - IdentifiedObject
+      - name: PowerSystemResource
+        show: both
+      - Equipment
+      - Control
+      - Measurement
+      - MeasurementValue
+      - name: Analog
+        show: both
+      - AnalogValue
+      - name: Accumulator
+        show: both
+      - AccumulatorValue
+      - name: Discrete
+        show: both
+      - DiscreteValue
+
+  - path: IEC61970/Base/SCADA/Main
+    show: both
+    classes:
+      - IdentifiedObject
+      - PowerSystemResource
+      - MeasurementValue
+      - RemotePoint
+      - RemoteSource
+      - RemoteControl
+      - Control
+
+  - path: IEC61970/Base/Wires/Datatypes
+    classes:
+      - WindingConnection
+      - SinglePhaseKind
+
+  - path: IEC61970/Base/Wires/Feeder
+    show: both
+    classes:
+      - ConnectivityNodeContainer
+      - PowerSystemResource
+      - EquipmentContainer
+      - Equipment
+      - Line
+      - ConductingEquipment
+      - Terminal
+      - Circuit
+      - Feeder
+      - Substation
+      - BaseVoltage
+      - Loop
+
+  - path: IEC61970/Base/Wires/InheritanceHierarchy
+    show: inheritance
+    classes:
+      - PowerSystemResource
+      - TapChanger
+      - RatioTapChanger
+      - EnergyConsumer
+      - AcLineSegment
+      - Equipment
+      - Conductor
+      - EnergyConnection
+      - RegulatingCondEq
+      - ShuntCompensator
+      - ConductingEquipment
+      - BusbarSection
+      - Connector
+      - Junction
+      - EnergySource
+      - LinearShuntCompensator
+      - PowerTransformer
+      - Switch
+      - Disconnector
+      - ProtectedSwitch
+      - Fuse
+      - Jumper
+      - Breaker
+      - LoadBreakSwitch
+
+  - path: IEC61970/Base/Wires/LineModel
+    show: both
+    classes:
+      - EquipmentContainer
+      - Equipment
+      - SubGeographicalRegion
+      - ConductingEquipment
+      - Line
+      - Conductor
+      - AcLineSegment
+      - PerLengthLineParameter
+      - PerLengthImpedance
+      - PerLengthSequenceImpedance
+
+  - path: IEC61970/Base/Wires/RegulatingEquipment
+    show: inheritance
+    classes:
+      - RegulatingCondEq
+      - ShuntCompensator
+
+  - path: IEC61970/Base/Wires/SwitchingEquipment
+    show: inheritance
+    classes:
+      - Switch
+      - Jumper
+      - ProtectedSwitch
+      - Fuse
+      - Breaker
+      - LoadBreakSwitch
+      - Disconnector
+
+  - path: IEC61970/Base/Wires/TapChangerDiag
+    show: both
+    classes:
+      - PowerSystemResource
+      - Equipment
+      - TransformerEnd
+      - TapChanger
+      - ConductingEquipment
+      - RatioTapChanger
+      - PowerTransformer
+      - PowerTransformerEnd
+
+  - path: IEC61970/Base/Wires/Transformer
+    show: both
+    classes:
+      - Terminal
+      - ConductingEquipment
+      - PhaseCode
+      - WindingConnection
+      - BaseVoltage
+      - PowerTransformer
+      - TransformerConstructionKind
+      - TransformerEnd
+      - TransformerFunctionKind
+      - PowerTransformerEnd
+
+  - path: IEC61970/InfIEC61970/Feeder/Feeder
+    show: both
+    classes:
+      - ConnectivityNodeContainer
+      - Feeder
+      - PowerSystemResource
+      - EquipmentContainer
+      - Equipment
+      - Line
+      - Terminal
+      - Circuit
+      - LvFeeder
+      - Substation
+      - ConductingEquipment
+      - BaseVoltage
+      - Loop

@@ -26,9 +26,15 @@ class Import : CliktCommand() {
         println("Verifying output directory exists (or creating it)...")
         require(outputPath.exists() || outputPath.mkdirs()) { "Unable to create the output path '$outputPath'" }
         println("Loading $profile from EnterpriseArchitect database '$pathToDatabase'...")
-        val root = EnterpriseArchitectDatabase(pathToDatabase).import(profile)
+        val importer = EnterpriseArchitectDatabase(pathToDatabase)
+        val root = importer.import(profile)
         println("Exporting YAML spec...")
-        YamlFileSystem(outputPath).export(root)
+        val exporter = YamlFileSystem(outputPath)
+        exporter.export(root)
+        println("Loading $profile diagrams...")
+        val diagrams = importer.importDiagrams(root)
+        println("Exporting ${diagrams.diagrams.size} diagram definition(s)...")
+        exporter.exportDiagrams(root, diagrams)
         println("Done.")
     }
 }

@@ -1,5 +1,6 @@
 package com.zepben.profilemanager.exporters
 
+import com.zepben.profilemanager.exporters.diagrams.DiagramPage
 import com.zepben.profilemanager.models.Class
 import com.zepben.profilemanager.models.Element
 import com.zepben.profilemanager.models.Package
@@ -8,29 +9,16 @@ import java.io.File
 
 class Docusaurus2Mdx(
     exportLocation: File,
-    private val linkPrefix: String = "",
-    private val validateAncestors: Boolean = false
+    private val classes: ClassIndex,
+    private val validateAncestors: Boolean = false,
+    private val diagramPages: Map<String, List<DiagramPage>> = emptyMap(),
 ) : Exporter(exportLocation) {
 
-    private val linkMap = mutableMapOf<String, String>()
-    private val classesByName = mutableMapOf<String, Class>()
-
     override fun export(e: Element) {
-        val resolvedPrefix = if (linkPrefix.isNotBlank()) "/$linkPrefix" else linkPrefix
-        buildMaps(e, resolvedPrefix)
         exportInternal(e, exportLocation)
 
         if (validateAncestors)
             compareClassHierarchy()
-    }
-
-    private fun buildMaps(e: Element, path: String = "") {
-        if (e is Class) {
-            linkMap[e.name] = path + "/" + e.name
-            classesByName[e.name] = e
-        } else {
-            e.children.forEach { buildMaps(it, path + "/" + e.name) }
-        }
     }
 
     private fun exportInternal(e: Element, exportLocation: File) {
@@ -61,8 +49,15 @@ class Docusaurus2Mdx(
             else
                 section("Attributes and Relationships", membersTable(node, ancestors))
             section("Hierarchy", hierarchyTree(node, ancestors))
+            diagramPages[node.name]?.takeIf { it.isNotEmpty() }?.let { section("UML Diagrams", diagramList(it)) }
         }
     }
+
+    private fun diagramList(pages: List<DiagramPage>): String =
+        pages.sortedWith(compareBy({ it.name }, { it.packagePath })).joinToString("\n") { page ->
+            val location = if (page.packagePath.isEmpty()) "" else " (${page.packagePath.jsxSafe()})"
+            "- <Link to='${page.url}'>${page.name.jsxSafe()}</Link>$location"
+        }
 
     private fun StringBuilder.section(title: String, body: String) {
         append("## $title\n\n")
@@ -121,7 +116,7 @@ class Docusaurus2Mdx(
         }
 
         fun appendDescendants(name: String, prefix: String, depth: Int) {
-            val children = classesByName[name]?.descendants()?.filter { it !in visited } ?: return
+            val children = classes.get(name, node)?.cls?.descendants()?.filter { it !in visited } ?: return
             if (children.isEmpty())
                 return
 
@@ -132,7 +127,7 @@ class Docusaurus2Mdx(
 
             // Direct children are always listed in full; deeper levels can have entries omitted for brevity.
             val entries = collapse(children, centre = 0, max = if (depth == 1) children.size else MAX_LISTED_DESCENDANTS)
-            appendEntries(entries, prefix, render = ::linkTo) { child, childPrefix ->
+            appendEntries(entries, prefix, render = { linkTo(it, node) }) { child, childPrefix ->
                 visited.add(child)
                 appendDescendants(child, childPrefix, depth + 1)
             }
@@ -146,7 +141,7 @@ class Docusaurus2Mdx(
             ancestors.asReversed().forEachIndexed { i, ancestor ->
                 if (i > 0)
                     lines.add(treeLine("│", ""))
-                lines.add(linkTo(ancestor.name))
+                lines.add(linkTo(ancestor.name, ancestor))
             }
 
             val siblings = parent.descendants().let { if (node.name in it) it else (it + node.name).sorted() }
@@ -154,7 +149,7 @@ class Docusaurus2Mdx(
             appendEntries(
                 entries,
                 prefix = "",
-                render = { if (it == node.name) current else linkTo(it) },
+                render = { if (it == node.name) current else linkTo(it, node) },
                 nested = { name, childPrefix -> if (name == node.name) appendDescendants(name, childPrefix, 1) }
             )
         }
@@ -210,7 +205,7 @@ class Docusaurus2Mdx(
         return jsxTable(listOf("Name", "Type", "Description")) {
             ownRows.forEach { appendRow(it) }
             inheritedGroups.forEach { (ancestor, rows) ->
-                appendGroupRow("<b><i>from ${linkTo(ancestor.name)}</i></b>", colSpan = 3)
+                appendGroupRow("<b><i>from ${linkTo(ancestor.name, ancestor)}</i></b>", colSpan = 3)
                 rows.forEach { appendRow(it) }
             }
         }
@@ -252,13 +247,13 @@ class Docusaurus2Mdx(
      */
     private fun memberRows(c: Class): List<List<String>> {
         val attributeRows = c.attributes().map {
-            listOf(it.name.jsxSafe(), linkTo(it.type), it.description.descriptionHtml())
+            listOf(it.name.jsxSafe(), linkTo(it.type, c), it.description.descriptionHtml())
         }
         val associationRows = c.associations().map { association ->
             val cardinality = association.targetCardinality?.let { " ($it)" } ?: ""
             listOf(
                 (association.targetName ?: association.target).jsxSafe(),
-                linkTo(association.target) + cardinality,
+                linkTo(association.target, c) + cardinality,
                 association.targetDescription.descriptionHtml()
             )
         }
@@ -270,28 +265,28 @@ class Docusaurus2Mdx(
      */
     private fun ancestorChain(node: Class): List<Class> {
         val seen = mutableSetOf<String>()
-        return generateSequence(node) { c -> c.ancestors().firstOrNull()?.let(classesByName::get) }
+        return generateSequence(node) { c -> c.ancestors().firstOrNull()?.let { classes.get(it, c)?.cls } }
             .takeWhile { seen.add(it.name) }
             .drop(1)
             .toList()
     }
 
-    private fun linkTo(name: String?): String {
+    private fun linkTo(name: String?, from: Class): String {
         if (name == null) return ""
 
         val lookup = if (name.endsWith("List")) name.dropLast(4).trim() else name
 
-        return linkMap[lookup]?.let { "<Link to='$it'>$name</Link>" } ?: name.jsxSafe()
+        return classes.get(lookup, from)?.url?.let { "<Link to='$it'>$name</Link>" } ?: name.jsxSafe()
     }
 
     private fun compareClassHierarchy() {
         // Descendants of each class, as derived from the ancestors declared by each descendant.
-        val classesByAncestor = classesByName.values
+        val classesByAncestor = classes.classes
             .flatMap { c -> c.ancestors().map { it to c.name } }
             .groupBy({ it.first }, { it.second })
             .mapValues { it.value.toSet() }
         // Descendants of each class, as declared by the class itself (its own descendant list).
-        val classesByDescendant = classesByName.values
+        val classesByDescendant = classes.classes
             .filter { it.descendants().isNotEmpty() }
             .associate { it.name to it.descendants().toSet() }
 
@@ -329,11 +324,6 @@ class Docusaurus2Mdx(
     }
 
 }
-
-// Marker used in descriptions to flag Zepben extensions to the CIM, and the markup it is rendered as.
-private const val ZBEX_MARKER = "[ZBEX]"
-private const val ZBEX_PILL = "<span className='zbex-pill'>ZBEX</span>"
-private const val ZBEX_ROW_CLASS = "zbex-row"
 
 /**
  * [jsxSafe] text with any [ZBEX_MARKER] replaced by a [ZBEX_PILL].
