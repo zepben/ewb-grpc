@@ -42,4 +42,14 @@ class ClassIndexTest {
         assertEquals(1, warnings.size, warnings.toString())
     }
 
+    @Test
+    fun `a shared name finds the class in the nearest package`() {
+        val index = ClassIndex.of(root, "", warn = {})
+
+        assertSame(first, index.get("Profile", from = listOf("A", "Sub"))?.cls)
+        assertSame(first, index.get("Profile", from = first)?.cls)
+        // Equally near both, so the same as without a package.
+        assertSame(last, index.get("Profile", from = listOf("C"))?.cls)
+    }
+
 }

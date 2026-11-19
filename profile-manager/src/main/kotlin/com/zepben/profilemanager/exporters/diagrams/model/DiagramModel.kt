@@ -83,7 +83,7 @@ class DiagramModelBuilder(private val index: ClassIndex) {
 
     fun build(definition: DiagramDefinition): DiagramModel {
         val (known, unknown) = definition.classes.map { it.name }.distinct().partition { it in index }
-        val classes = known.map { index[it]!! }
+        val classes = known.map { index.get(it, definition.packagePath.split('/'))!! }
         val names = known.toSet()
 
         val nodes = classes.map { (cls, url) -> cls.toNode(url, absentParents = cls.ancestors().filter { it !in names }) }

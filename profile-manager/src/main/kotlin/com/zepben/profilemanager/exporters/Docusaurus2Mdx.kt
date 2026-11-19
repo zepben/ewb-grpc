@@ -116,7 +116,7 @@ class Docusaurus2Mdx(
         }
 
         fun appendDescendants(name: String, prefix: String, depth: Int) {
-            val children = classes[name]?.cls?.descendants()?.filter { it !in visited } ?: return
+            val children = classes.get(name, node)?.cls?.descendants()?.filter { it !in visited } ?: return
             if (children.isEmpty())
                 return
 
@@ -127,7 +127,7 @@ class Docusaurus2Mdx(
 
             // Direct children are always listed in full; deeper levels can have entries omitted for brevity.
             val entries = collapse(children, centre = 0, max = if (depth == 1) children.size else MAX_LISTED_DESCENDANTS)
-            appendEntries(entries, prefix, render = ::linkTo) { child, childPrefix ->
+            appendEntries(entries, prefix, render = { linkTo(it, node) }) { child, childPrefix ->
                 visited.add(child)
                 appendDescendants(child, childPrefix, depth + 1)
             }
@@ -141,7 +141,7 @@ class Docusaurus2Mdx(
             ancestors.asReversed().forEachIndexed { i, ancestor ->
                 if (i > 0)
                     lines.add(treeLine("│", ""))
-                lines.add(linkTo(ancestor.name))
+                lines.add(linkTo(ancestor.name, ancestor))
             }
 
             val siblings = parent.descendants().let { if (node.name in it) it else (it + node.name).sorted() }
@@ -149,7 +149,7 @@ class Docusaurus2Mdx(
             appendEntries(
                 entries,
                 prefix = "",
-                render = { if (it == node.name) current else linkTo(it) },
+                render = { if (it == node.name) current else linkTo(it, node) },
                 nested = { name, childPrefix -> if (name == node.name) appendDescendants(name, childPrefix, 1) }
             )
         }
@@ -205,7 +205,7 @@ class Docusaurus2Mdx(
         return jsxTable(listOf("Name", "Type", "Description")) {
             ownRows.forEach { appendRow(it) }
             inheritedGroups.forEach { (ancestor, rows) ->
-                appendGroupRow("<b><i>from ${linkTo(ancestor.name)}</i></b>", colSpan = 3)
+                appendGroupRow("<b><i>from ${linkTo(ancestor.name, ancestor)}</i></b>", colSpan = 3)
                 rows.forEach { appendRow(it) }
             }
         }
@@ -247,13 +247,13 @@ class Docusaurus2Mdx(
      */
     private fun memberRows(c: Class): List<List<String>> {
         val attributeRows = c.attributes().map {
-            listOf(it.name.jsxSafe(), linkTo(it.type), it.description.descriptionHtml())
+            listOf(it.name.jsxSafe(), linkTo(it.type, c), it.description.descriptionHtml())
         }
         val associationRows = c.associations().map { association ->
             val cardinality = association.targetCardinality?.let { " ($it)" } ?: ""
             listOf(
                 (association.targetName ?: association.target).jsxSafe(),
-                linkTo(association.target) + cardinality,
+                linkTo(association.target, c) + cardinality,
                 association.targetDescription.descriptionHtml()
             )
         }
@@ -265,18 +265,18 @@ class Docusaurus2Mdx(
      */
     private fun ancestorChain(node: Class): List<Class> {
         val seen = mutableSetOf<String>()
-        return generateSequence(node) { c -> c.ancestors().firstOrNull()?.let { classes[it]?.cls } }
+        return generateSequence(node) { c -> c.ancestors().firstOrNull()?.let { classes.get(it, c)?.cls } }
             .takeWhile { seen.add(it.name) }
             .drop(1)
             .toList()
     }
 
-    private fun linkTo(name: String?): String {
+    private fun linkTo(name: String?, from: Class): String {
         if (name == null) return ""
 
         val lookup = if (name.endsWith("List")) name.dropLast(4).trim() else name
 
-        return classes.urlOf(lookup)?.let { "<Link to='$it'>$name</Link>" } ?: name.jsxSafe()
+        return classes.get(lookup, from)?.url?.let { "<Link to='$it'>$name</Link>" } ?: name.jsxSafe()
     }
 
     private fun compareClassHierarchy() {
