@@ -5,9 +5,15 @@ description: The type of alternate model frame.  For example, it could be genera
 ancestors:
 - ModelAuthoritySet
 descendants:
-- NetworkFrame
 - NetworkBoundary
+- NetworkFrame
 associations:
+- source: FrameworkPart
+  target: NetworkFrame
+  sourceCardinality: 0..*
+  sourceName: frameworkPart
+  targetCardinality: 0..1
+  targetName: frame
 - source: FrameworkPart
   target: ModelFrameType
   sourceCardinality: 0..*
@@ -16,9 +22,3 @@ associations:
   targetCardinality: "1"
   targetName: modelFrameType
   targetDescription: Model frame type of the model frame.
-- source: FrameworkPart
-  target: NetworkFrame
-  sourceCardinality: 0..*
-  sourceName: frameworkPart
-  targetCardinality: 0..1
-  targetName: frame

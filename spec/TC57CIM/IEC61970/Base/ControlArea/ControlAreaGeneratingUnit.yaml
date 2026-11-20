@@ -6,6 +6,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ControlAreaGeneratingUnit
+  target: AltGeneratingUnitMeas
+  sourceCardinality: "1"
+  sourceName: controlAreaGeneratingUnit
+  sourceDescription: The control area generating unit to which the prioritized measurement assignment is applied.
+  targetCardinality: 0..*
+  targetName: altGeneratingUnitMeas
+  targetDescription: The link to prioritized measurements for this GeneratingUnit.
+- source: ControlAreaGeneratingUnit
   target: ControlArea
   sourceCardinality: 0..*
   sourceName: controlAreaGeneratingUnit
@@ -22,11 +30,3 @@ associations:
   targetName: generatingUnit
   targetDescription: The generating unit specified for this control area.  Note that a control area should include a GeneratingUnit
     only once.
-- source: ControlAreaGeneratingUnit
-  target: AltGeneratingUnitMeas
-  sourceCardinality: "1"
-  sourceName: controlAreaGeneratingUnit
-  sourceDescription: The control area generating unit to which the prioritized measurement assignment is applied.
-  targetCardinality: 0..*
-  targetName: altGeneratingUnitMeas
-  targetDescription: The link to prioritized measurements for this GeneratingUnit.

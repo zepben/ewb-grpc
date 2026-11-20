@@ -21,11 +21,11 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: CRRSegment
-  target: Pnode
-  sourceCardinality: 0..*
-  sourceName: sourceCRRSegment
-  targetCardinality: 0..*
-  targetName: source
+  target: CongestionRevenueRight
+  sourceCardinality: 1..*
+  sourceName: crrSegment
+  targetCardinality: "1"
+  targetName: congestionRevenueRight
 - source: CRRSegment
   target: Pnode
   sourceCardinality: 0..*
@@ -33,8 +33,8 @@ associations:
   targetCardinality: 0..*
   targetName: sink
 - source: CRRSegment
-  target: CongestionRevenueRight
-  sourceCardinality: 1..*
-  sourceName: crrSegment
-  targetCardinality: "1"
-  targetName: congestionRevenueRight
+  target: Pnode
+  sourceCardinality: 0..*
+  sourceName: sourceCRRSegment
+  targetCardinality: 0..*
+  targetName: source

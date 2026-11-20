@@ -21,14 +21,14 @@ attributes:
   description: Date and time journal entry was recorded.
 associations:
 - source: MarketLedgerEntry
-  target: Settlement
-  sourceCardinality: 0..*
-  sourceName: marketLedgerEntry
-  targetCardinality: 0..*
-  targetName: settlement
-- source: MarketLedgerEntry
   target: MarketLedger
   sourceCardinality: 0..*
   sourceName: marketLedgerEntries
   targetCardinality: "1"
   targetName: marketLedger
+- source: MarketLedgerEntry
+  target: Settlement
+  sourceCardinality: 0..*
+  sourceName: marketLedgerEntry
+  targetCardinality: 0..*
+  targetName: settlement

@@ -12,14 +12,6 @@ ancestors:
 - SafetyDocument
 associations:
 - source: ClearanceDocument
-  target: PowerSystemResource
-  sourceCardinality: 0..*
-  sourceName: clearances
-  sourceDescription: All clearances applicable to this power system resource.
-  targetCardinality: 0..*
-  targetName: taggedPSRs
-  targetDescription: All power system resources tagged through this clearance.
-- source: ClearanceDocument
   target: ClearanceAction
   sourceCardinality: 0..1
   sourceName: clearance
@@ -27,3 +19,11 @@ associations:
   targetCardinality: 0..1
   targetName: clearanceAction
   targetDescription: Clearance action associated with this clearance.
+- source: ClearanceDocument
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  sourceName: clearances
+  sourceDescription: All clearances applicable to this power system resource.
+  targetCardinality: 0..*
+  targetName: taggedPSRs
+  targetDescription: All power system resources tagged through this clearance.

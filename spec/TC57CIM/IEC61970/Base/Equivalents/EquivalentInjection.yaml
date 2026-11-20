@@ -16,6 +16,16 @@ attributes:
   type: ReactivePower
   description: Minimum reactive power of the injection.  Used for modelling of infeed for load flow exchange. Not used for
     short circuit modelling.  If maxQ and minQ are not used ReactiveCapabilityCurve can be used.
+- name: p
+  type: ActivePower
+  description: |-
+    Equivalent active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
+- name: q
+  type: ReactivePower
+  description: |-
+    Equivalent reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for steady state solutions.
 - name: r
   type: Resistance
   description: |-
@@ -57,16 +67,6 @@ attributes:
   description: |-
     Negative sequence reactance. Used to represent Extended-Ward (IEC 60909).
     Usage : Extended-Ward is a result of network reduction prior to the data exchange.
-- name: p
-  type: ActivePower
-  description: |-
-    Equivalent active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
-    Starting value for steady state solutions.
-- name: q
-  type: ReactivePower
-  description: |-
-    Equivalent reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
-    Starting value for steady state solutions.
 ancestors:
 - EquivalentEquipment
 associations:

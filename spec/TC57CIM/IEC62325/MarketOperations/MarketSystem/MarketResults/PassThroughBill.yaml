@@ -80,6 +80,12 @@ ancestors:
 - Document
 associations:
 - source: PassThroughBill
+  target: ChargeProfile
+  sourceCardinality: 0..1
+  sourceName: passTroughBill
+  targetCardinality: 0..*
+  targetName: chargeProfiles
+- source: PassThroughBill
   target: MarketStatementLineItem
   sourceCardinality: 0..1
   sourceName: passThroughBill
@@ -91,9 +97,3 @@ associations:
   sourceName: passThroughBill
   targetCardinality: 0..*
   targetName: mktUserAttribute
-- source: PassThroughBill
-  target: ChargeProfile
-  sourceCardinality: 0..1
-  sourceName: passTroughBill
-  targetCardinality: 0..*
-  targetName: chargeProfiles

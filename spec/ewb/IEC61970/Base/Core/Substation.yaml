@@ -5,6 +5,22 @@ ancestors:
 - EquipmentContainer
 associations:
 - source: Substation
+  target: Circuit
+  sourceCardinality: 0..*
+  sourceName: endSubstations
+  sourceDescription: Simplification of the CIM association via Bay to Circuit
+  targetCardinality: 0..*
+  targetName: circuits
+  targetDescription: Simplification of the CIM association via Bay to Substation
+- source: Substation
+  target: Loop
+  sourceCardinality: 0..*
+  sourceName: energizingSubstations
+  sourceDescription: The substations that normally energize this loop.
+  targetName: energizedLoops
+  targetCardinality: 0..*
+  targetDescription: The loops that are normally energized by this substation.
+- source: Substation
   target: Feeder
   sourceCardinality: 0..1
   sourceName: normalEnergizingSubstation
@@ -16,22 +32,6 @@ associations:
     # TODO: This associations description and targetName do not align with protobuf
     #   description only doesnt align with jvm-sdk also. should this be changed?
 - source: Substation
-  target: SubGeographicalRegion
-  sourceCardinality: 0..*
-  sourceName: substations
-  sourceDescription: The substations in this sub-geographical region.
-  targetCardinality: 0..1
-  targetName: subGeographicalRegion
-  targetDescription: The SubGeographicalRegion containing the substation.
-- source: Substation
-  target: Circuit
-  sourceCardinality: 0..*
-  sourceName: endSubstations
-  sourceDescription: Simplification of the CIM association via Bay to Circuit
-  targetCardinality: 0..*
-  targetName: circuits
-  targetDescription: Simplification of the CIM association via Bay to Substation
-- source: Substation
   target: Loop
   sourceCardinality: 0..*
   sourceDescription: The substations that are currently powered by this loop.
@@ -40,10 +40,10 @@ associations:
   targetCardinality: 0..*
   targetDescription: The loops that are currently energizing this substation.
 - source: Substation
-  target: Loop
+  target: SubGeographicalRegion
   sourceCardinality: 0..*
-  sourceName: energizingSubstations
-  sourceDescription: The substations that normally energize this loop.
-  targetName: energizedLoops
-  targetCardinality: 0..*
-  targetDescription: The loops that are normally energized by this substation.
+  sourceName: substations
+  sourceDescription: The substations in this sub-geographical region.
+  targetCardinality: 0..1
+  targetName: subGeographicalRegion
+  targetDescription: The SubGeographicalRegion containing the substation.

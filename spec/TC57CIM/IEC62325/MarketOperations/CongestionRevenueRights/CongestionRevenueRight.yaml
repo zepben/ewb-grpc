@@ -28,17 +28,17 @@ ancestors:
 - Document
 associations:
 - source: CongestionRevenueRight
-  target: Flowgate
-  sourceCardinality: 0..1
-  sourceName: congestionRevenueRight
-  targetCardinality: 0..1
-  targetName: flowgate
-- source: CongestionRevenueRight
   target: CRRMarket
   sourceCardinality: 1..*
   sourceName: congestionRevenueRight
   targetCardinality: "1"
   targetName: crrMarket
+- source: CongestionRevenueRight
+  target: CRROrgRole
+  sourceCardinality: "1"
+  sourceName: congestionRevenueRight
+  targetCardinality: 1..*
+  targetName: crrOrgRole
 - source: CongestionRevenueRight
   target: CRRSegment
   sourceCardinality: "1"
@@ -46,8 +46,8 @@ associations:
   targetCardinality: 1..*
   targetName: crrSegment
 - source: CongestionRevenueRight
-  target: CRROrgRole
-  sourceCardinality: "1"
+  target: Flowgate
+  sourceCardinality: 0..1
   sourceName: congestionRevenueRight
-  targetCardinality: 1..*
-  targetName: crrOrgRole
+  targetCardinality: 0..1
+  targetName: flowgate

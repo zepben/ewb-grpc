@@ -10,14 +10,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: TransmissionProduct
-  target: TransmissionProvider
-  sourceCardinality: 1..*
-  sourceName: transmissionProducts
-  sourceDescription: A TransmissionProvider offers a TransmissionProduct.
-  targetCardinality: "1"
-  targetName: transmissionProvider
-  targetDescription: A TransmissionProvider offers a TransmissionProduct.
-- source: TransmissionProduct
   target: TransmissionPath
   sourceCardinality: 0..*
   sourceName: locatedOn
@@ -25,3 +17,11 @@ associations:
   targetCardinality: 0..*
   targetName: locationFor
   targetDescription: A transmission product is located on a transmission path.
+- source: TransmissionProduct
+  target: TransmissionProvider
+  sourceCardinality: 1..*
+  sourceName: transmissionProducts
+  sourceDescription: A TransmissionProvider offers a TransmissionProduct.
+  targetCardinality: "1"
+  targetName: transmissionProvider
+  targetDescription: A TransmissionProvider offers a TransmissionProduct.

@@ -21,15 +21,15 @@ associations:
 - source: WindingInsulation
   target: TransformerEnd
   sourceCardinality: 0..*
-  sourceName: toWindingInsulations
-  targetCardinality: "1"
-  targetName: toWinding
-- source: WindingInsulation
-  target: TransformerEnd
-  sourceCardinality: 0..*
   sourceName: fromWindingInsulations
   targetCardinality: "1"
   targetName: fromWinding
+- source: WindingInsulation
+  target: TransformerEnd
+  sourceCardinality: 0..*
+  sourceName: toWindingInsulations
+  targetCardinality: "1"
+  targetName: toWinding
 - source: WindingInsulation
   target: TransformerObservation
   sourceCardinality: 0..*

@@ -8,13 +8,13 @@ ancestors:
 - Document
 associations:
 - source: AssetGroup
-  target: Asset
+  target: Analytic
   sourceCardinality: 0..*
   sourceName: assetGroup
-  sourceDescription: Asset group of which this asset is a part.
+  sourceDescription: Asset group on which this analytic can be performed.
   targetCardinality: 0..*
-  targetName: asset
-  targetDescription: Asset which is a part of this asset group.
+  targetName: analytic
+  targetDescription: Analytic which can be performed on this asset group.
 - source: AssetGroup
   target: AnalyticScore
   sourceCardinality: 0..1
@@ -24,10 +24,10 @@ associations:
   targetName: analyticScore
   targetDescription: Analytic score for this asset group.
 - source: AssetGroup
-  target: Analytic
+  target: Asset
   sourceCardinality: 0..*
   sourceName: assetGroup
-  sourceDescription: Asset group on which this analytic can be performed.
+  sourceDescription: Asset group of which this asset is a part.
   targetCardinality: 0..*
-  targetName: analytic
-  targetDescription: Analytic which can be performed on this asset group.
+  targetName: asset
+  targetDescription: Asset which is a part of this asset group.

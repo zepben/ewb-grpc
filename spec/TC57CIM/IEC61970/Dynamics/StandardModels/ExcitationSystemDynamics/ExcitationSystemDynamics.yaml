@@ -4,96 +4,64 @@ description: Excitation system function block whose behaviour is described by re
 ancestors:
 - DynamicsFunctionBlock
 descendants:
-- ExcitationSystemUserDefined
-- ExcST7B
-- ExcST6B
-- ExcST4B
-- ExcST3A
-- ExcST2A
-- ExcST1A
-- ExcSK
-- ExcSEXS
-- ExcSCRX
-- ExcRQB
-- ExcREXS
-- ExcPIC
-- ExcOEX3T
-- ExcNI
-- ExcHU
-- ExcELIN2
-- ExcELIN1
-- ExcDC3A1
-- ExcDC3A
-- ExcDC2A
-- ExcDC1A
-- ExcCZ
-- ExcBBC
-- ExcAVR7
-- ExcAVR5
-- ExcAVR4
-- ExcAVR3
-- ExcAVR2
-- ExcAVR1
-- ExcANS
-- ExcAC8B
-- ExcAC6A
-- ExcAC5A
-- ExcAC4A
-- ExcAC3A
-- ExcAC2A
 - ExcAC1A
-- ExcIEEEST7B
-- ExcIEEEST6B
-- ExcIEEEST5B
-- ExcIEEEST4B
-- ExcIEEEST3A
-- ExcIEEEST2A
-- ExcIEEEST1A
-- ExcIEEEDC4B
-- ExcIEEEDC3A
-- ExcIEEEDC2A
-- ExcIEEEDC1A
-- ExcIEEEAC8B
-- ExcIEEEAC7B
-- ExcIEEEAC6A
-- ExcIEEEAC5A
-- ExcIEEEAC4A
-- ExcIEEEAC3A
-- ExcIEEEAC2A
+- ExcAC2A
+- ExcAC3A
+- ExcAC4A
+- ExcAC5A
+- ExcAC6A
+- ExcAC8B
+- ExcANS
+- ExcAVR1
+- ExcAVR2
+- ExcAVR3
+- ExcAVR4
+- ExcAVR5
+- ExcAVR7
+- ExcBBC
+- ExcCZ
+- ExcDC1A
+- ExcDC2A
+- ExcDC3A
+- ExcDC3A1
+- ExcELIN1
+- ExcELIN2
+- ExcHU
 - ExcIEEEAC1A
+- ExcIEEEAC2A
+- ExcIEEEAC3A
+- ExcIEEEAC4A
+- ExcIEEEAC5A
+- ExcIEEEAC6A
+- ExcIEEEAC7B
+- ExcIEEEAC8B
+- ExcIEEEDC1A
+- ExcIEEEDC2A
+- ExcIEEEDC3A
+- ExcIEEEDC4B
+- ExcIEEEST1A
+- ExcIEEEST2A
+- ExcIEEEST3A
+- ExcIEEEST4B
+- ExcIEEEST5B
+- ExcIEEEST6B
+- ExcIEEEST7B
+- ExcNI
+- ExcOEX3T
+- ExcPIC
+- ExcREXS
+- ExcRQB
+- ExcSCRX
+- ExcSEXS
+- ExcSK
+- ExcST1A
+- ExcST2A
+- ExcST3A
+- ExcST4B
+- ExcST6B
+- ExcST7B
+- ExcitationSystemUserDefined
 associations:
-- source: ExcitationSystemDynamics
-  target: SynchronousMachineDynamics
-  sourceCardinality: 0..1
-  sourceName: excitationSystemDynamics
-  sourceDescription: Excitation system model associated with this synchronous machine model.
-  targetCardinality: "1"
-  targetName: synchronousMachineDynamics
-  targetDescription: Synchronous machine model with which this excitation system model is associated.
-- source: ExcitationSystemDynamics
-  target: PowerSystemStabilizerDynamics
-  sourceCardinality: "1"
-  sourceName: excitationSystemDynamics
-  sourceDescription: Excitation system model with which this power system stabilizer model is associated.
-  targetCardinality: 0..1
-  targetName: powerSystemStabilizerDynamics
-  targetDescription: Power system stabilizer model associated with this excitation system model.
-- source: ExcitationSystemDynamics
-  target: PFVArControllerType1Dynamics
-  sourceCardinality: "1"
-  sourceName: excitationSystemDynamics
-  sourceDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
-  targetCardinality: 0..1
-  targetName: pfVArControllerType1Dynamics
-  targetDescription: Power factor or VAr controller type 1 model associated with this excitation system model.
-- source: ExcitationSystemDynamics
-  target: OverexcitationLimiterDynamics
-  sourceCardinality: "1"
-  sourceName: excitationSystemDynamics
-  sourceDescription: Excitation system model with which this overexcitation limiter model is associated.
-  targetCardinality: 0..1
-  targetName: overexcitationLimiterDynamics
-  targetDescription: Overexcitation limiter model associated with this excitation system model.
 - source: ExcitationSystemDynamics
   target: DiscontinuousExcitationControlDynamics
   sourceCardinality: "1"
@@ -103,6 +71,22 @@ associations:
   targetName: discontinuousExcitationControlDynamics
   targetDescription: Discontinuous excitation control model associated with this excitation system model.
 - source: ExcitationSystemDynamics
+  target: OverexcitationLimiterDynamics
+  sourceCardinality: "1"
+  sourceName: excitationSystemDynamics
+  sourceDescription: Excitation system model with which this overexcitation limiter model is associated.
+  targetCardinality: 0..1
+  targetName: overexcitationLimiterDynamics
+  targetDescription: Overexcitation limiter model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: PFVArControllerType1Dynamics
+  sourceCardinality: "1"
+  sourceName: excitationSystemDynamics
+  sourceDescription: Excitation system model with which this power actor or VAr controller type 1 model is associated.
+  targetCardinality: 0..1
+  targetName: pfVArControllerType1Dynamics
+  targetDescription: Power factor or VAr controller type 1 model associated with this excitation system model.
+- source: ExcitationSystemDynamics
   target: PFVArControllerType2Dynamics
   sourceCardinality: "1"
   sourceName: excitationSystemDynamics
@@ -110,6 +94,22 @@ associations:
   targetCardinality: 0..1
   targetName: pfVArControllerType2Dynamics
   targetDescription: Power factor or VAr controller type 2 model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: PowerSystemStabilizerDynamics
+  sourceCardinality: "1"
+  sourceName: excitationSystemDynamics
+  sourceDescription: Excitation system model with which this power system stabilizer model is associated.
+  targetCardinality: 0..1
+  targetName: powerSystemStabilizerDynamics
+  targetDescription: Power system stabilizer model associated with this excitation system model.
+- source: ExcitationSystemDynamics
+  target: SynchronousMachineDynamics
+  sourceCardinality: 0..1
+  sourceName: excitationSystemDynamics
+  sourceDescription: Excitation system model associated with this synchronous machine model.
+  targetCardinality: "1"
+  targetName: synchronousMachineDynamics
+  targetDescription: Synchronous machine model with which this excitation system model is associated.
 - source: ExcitationSystemDynamics
   target: UnderexcitationLimiterDynamics
   sourceCardinality: "1"

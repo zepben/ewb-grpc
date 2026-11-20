@@ -7,14 +7,14 @@ attributes:
   description: An indicator of the order a resource should be substituted. The lower the number the higher the precedence.
 associations:
 - source: SubstitutionResourceList
-  target: ContractRight
-  sourceCardinality: 0..*
-  sourceName: substitutionResourceList
-  targetCardinality: 0..1
-  targetName: transmissionContractRight
-- source: SubstitutionResourceList
   target: RegisteredResource
   sourceCardinality: 0..*
   sourceName: substitutionResourceList
   targetCardinality: 0..1
   targetName: registeredResource
+- source: SubstitutionResourceList
+  target: ContractRight
+  sourceCardinality: 0..*
+  sourceName: substitutionResourceList
+  targetCardinality: 0..1
+  targetName: transmissionContractRight

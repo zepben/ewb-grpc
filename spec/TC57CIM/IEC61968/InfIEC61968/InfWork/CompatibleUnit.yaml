@@ -11,17 +11,53 @@ ancestors:
 - WorkDocument
 associations:
 - source: CompatibleUnit
-  target: DesignLocationCU
+  target: CostType
+  sourceCardinality: 0..*
+  sourceName: compatibleUnits
+  targetCardinality: 0..1
+  targetName: costType
+- source: CompatibleUnit
+  target: CUAllowableAction
+  sourceCardinality: 0..*
+  sourceName: compatibleUnits
+  targetCardinality: 0..1
+  targetName: cuAllowableAction
+- source: CompatibleUnit
+  target: CUContractorItem
   sourceCardinality: 0..*
   sourceName: compatibleUnits
   targetCardinality: 0..*
-  targetName: designLocationCUs
+  targetName: cuContractorItems
 - source: CompatibleUnit
   target: CUGroup
   sourceCardinality: 0..*
   sourceName: compatibleUnits
   targetCardinality: 0..1
   targetName: cuGroup
+- source: CompatibleUnit
+  target: CULaborItem
+  sourceCardinality: 0..*
+  sourceName: compatibleUnits
+  targetCardinality: 0..*
+  targetName: cuLaborItems
+- source: CompatibleUnit
+  target: CUMaterialItem
+  sourceCardinality: 0..*
+  sourceName: compatibleUnits
+  targetCardinality: 0..*
+  targetName: cuMaterialItems
+- source: CompatibleUnit
+  target: CUWorkEquipmentItem
+  sourceCardinality: 0..*
+  sourceName: compatibleUnits
+  targetCardinality: 0..*
+  targetName: cuWorkEquipmentItems
+- source: CompatibleUnit
+  target: DesignLocationCU
+  sourceCardinality: 0..*
+  sourceName: compatibleUnits
+  targetCardinality: 0..*
+  targetName: designLocationCUs
 - source: CompatibleUnit
   target: CatalogAssetType
   sourceCardinality: 0..*
@@ -40,39 +76,3 @@ associations:
   sourceName: compatibleUnits
   targetCardinality: 0..1
   targetName: propertyUnit
-- source: CompatibleUnit
-  target: CostType
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..1
-  targetName: costType
-- source: CompatibleUnit
-  target: CUWorkEquipmentItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuWorkEquipmentItems
-- source: CompatibleUnit
-  target: CUMaterialItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuMaterialItems
-- source: CompatibleUnit
-  target: CULaborItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuLaborItems
-- source: CompatibleUnit
-  target: CUContractorItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuContractorItems
-- source: CompatibleUnit
-  target: CUAllowableAction
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..1
-  targetName: cuAllowableAction

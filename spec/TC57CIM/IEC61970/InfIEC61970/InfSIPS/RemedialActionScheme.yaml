@@ -15,6 +15,13 @@ ancestors:
 - PowerSystemResource
 associations:
 - source: RemedialActionScheme
+  target: Gate
+  sourceCardinality: 0..*
+  sourceName: remedialActionScheme
+  targetCardinality: 0..1
+  targetName: gateArmed
+  targetDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).
+- source: RemedialActionScheme
   target: Stage
   sourceCardinality: "1"
   sourceName: remedialActionScheme
@@ -28,10 +35,3 @@ associations:
   targetCardinality: 0..*
   targetName: triggerCondition
   targetDescription: Triggering of the Remedial Action Schemes (RAS).
-- source: RemedialActionScheme
-  target: Gate
-  sourceCardinality: 0..*
-  sourceName: remedialActionScheme
-  targetCardinality: 0..1
-  targetName: gateArmed
-  targetDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).

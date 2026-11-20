@@ -4,13 +4,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ReportingGroup
-  target: ReportingSuperGroup
-  sourceCardinality: 0..*
+  target: BusNameMarker
+  sourceCardinality: 0..1
   sourceName: reportingGroup
-  sourceDescription: Reporting groups that are grouped under this super group.
-  targetCardinality: 0..1
-  targetName: reportingSuperGroup
-  targetDescription: Reporting super group to which this reporting group belongs.
+  sourceDescription: The reporting group to which this bus name marker belongs.
+  targetCardinality: 0..*
+  targetName: busNameMarker
+  targetDescription: The bus name markers that belong to this reporting group.
 - source: ReportingGroup
   target: PowerSystemResource
   sourceCardinality: 0..*
@@ -20,13 +20,13 @@ associations:
   targetName: powerSystemResource
   targetDescription: Power system resources which belong to this reporting group.
 - source: ReportingGroup
-  target: BusNameMarker
-  sourceCardinality: 0..1
+  target: ReportingSuperGroup
+  sourceCardinality: 0..*
   sourceName: reportingGroup
-  sourceDescription: The reporting group to which this bus name marker belongs.
-  targetCardinality: 0..*
-  targetName: busNameMarker
-  targetDescription: The bus name markers that belong to this reporting group.
+  sourceDescription: Reporting groups that are grouped under this super group.
+  targetCardinality: 0..1
+  targetName: reportingSuperGroup
+  targetDescription: Reporting super group to which this reporting group belongs.
 - source: ReportingGroup
   target: TopologicalNode
   sourceCardinality: 0..1

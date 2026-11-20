@@ -6,17 +6,6 @@ description: |-
   The attributes minAlpha and maxAlpha define the range of firing angles for rectifier operation between which no discrete tap changer action takes place. The range is typically 10-18 degrees.
   The attributes minGamma and maxGamma define the range of extinction angles for inverter operation between which no discrete tap changer action takes place. The range is typically 17-20 degrees.
 attributes:
-- name: maxIdc
-  type: CurrentFlow
-  description: The maximum direct current (Id) on the DC side at which the converter should operate. It is converter’s configuration
-    data use in power flow. The attribute shall be a positive value.
-- name: ratedIdc
-  type: CurrentFlow
-  description: Rated converter DC current, also called IdN. The attribute shall be a positive value. It is converter’s configuration
-    data used in power flow.
-- name: pPccControl
-  type: CsPpccControlKind
-  description: Kind of active power control.
 - name: alpha
   type: AngleDegrees
   description: Firing angle that determines the dc voltage at the converter dc terminal. Typical value between 10 degrees
@@ -35,6 +24,10 @@ attributes:
   type: AngleDegrees
   description: Maximum extinction angle. It is converter’s configuration data used in power flow. The attribute shall be a
     positive value.
+- name: maxIdc
+  type: CurrentFlow
+  description: The maximum direct current (Id) on the DC side at which the converter should operate. It is converter’s configuration
+    data use in power flow. The attribute shall be a positive value.
 - name: minAlpha
   type: AngleDegrees
   description: Minimum firing angle. It is converter’s configuration data used in power flow. The attribute shall be a positive
@@ -43,6 +36,21 @@ attributes:
   type: AngleDegrees
   description: Minimum extinction angle. It is converter’s configuration data used in power flow. The attribute shall be a
     positive value.
+- name: minIdc
+  type: CurrentFlow
+  description: The minimum direct current (Id) on the DC side at which the converter should operate. It is converter’s configuration
+    data used in power flow. The attribute shall be a positive value.
+- name: operatingMode
+  type: CsOperatingModeKind
+  description: Indicates whether the DC pole is operating as an inverter or as a rectifier. It is converter’s control variable
+    used in power flow.
+- name: pPccControl
+  type: CsPpccControlKind
+  description: Kind of active power control.
+- name: ratedIdc
+  type: CurrentFlow
+  description: Rated converter DC current, also called IdN. The attribute shall be a positive value. It is converter’s configuration
+    data used in power flow.
 - name: targetAlpha
   type: AngleDegrees
   description: Target firing angle. It is converter’s control variable used in power flow. It is only applicable for rectifier
@@ -57,14 +65,6 @@ attributes:
   type: CurrentFlow
   description: DC current target value. It is converter’s control variable used in power flow. The attribute shall be a positive
     value.
-- name: minIdc
-  type: CurrentFlow
-  description: The minimum direct current (Id) on the DC side at which the converter should operate. It is converter’s configuration
-    data used in power flow. The attribute shall be a positive value.
-- name: operatingMode
-  type: CsOperatingModeKind
-  description: Indicates whether the DC pole is operating as an inverter or as a rectifier. It is converter’s control variable
-    used in power flow.
 ancestors:
 - ACDCConverter
 associations:

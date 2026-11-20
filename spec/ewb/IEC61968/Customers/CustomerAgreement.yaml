@@ -6,11 +6,6 @@ ancestors:
 - Agreement
 associations:
 - source: CustomerAgreement
-  target: PricingStructure
-  targetCardinality: 0..*
-  targetName: pricingStructures
-  targetDescription: All pricing structures applicable to this customer agreement.
-- source: CustomerAgreement
   target: Customer
   sourceCardinality: 0..*
   sourceName: customerAgreements
@@ -18,3 +13,8 @@ associations:
   targetCardinality: 0..1
   targetName: customer
   targetDescription: Customer for this agreement.
+- source: CustomerAgreement
+  target: PricingStructure
+  targetCardinality: 0..*
+  targetName: pricingStructures
+  targetDescription: All pricing structures applicable to this customer agreement.

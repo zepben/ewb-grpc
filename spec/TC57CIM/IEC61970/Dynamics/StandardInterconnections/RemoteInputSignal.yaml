@@ -9,6 +9,30 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: RemoteInputSignal
+  target: DiscontinuousExcitationControlDynamics
+  sourceCardinality: 0..1
+  sourceName: remoteInputSignal
+  sourceDescription: Remote input signal used by this discontinuous excitation control system model.
+  targetCardinality: 0..1
+  targetName: discontinuousExcitationControlDynamics
+  targetDescription: Discontinuous excitation control model using this remote input signal.
+- source: RemoteInputSignal
+  target: PFVArControllerType1Dynamics
+  sourceCardinality: 0..1
+  sourceName: remoteInputSignal
+  sourceDescription: Remote input signal used by this power factor or VAr controller type 1 model.
+  targetCardinality: 0..1
+  targetName: pfVArControllerType1Dynamics
+  targetDescription: Power factor or VAr controller type 1 model using this remote input signal.
+- source: RemoteInputSignal
+  target: PowerSystemStabilizerDynamics
+  sourceCardinality: 0..*
+  sourceName: remoteInputSignal
+  sourceDescription: Remote input signal used by this power system stabilizer model.
+  targetCardinality: 0..1
+  targetName: powerSystemStabilizerDynamics
+  targetDescription: Power system stabilizer model using this remote input signal.
+- source: RemoteInputSignal
   target: Terminal
   sourceCardinality: 0..*
   sourceName: remoteInputSignal
@@ -16,6 +40,14 @@ associations:
   targetCardinality: "1"
   targetName: terminal
   targetDescription: Remote terminal with which this input signal is associated.
+- source: RemoteInputSignal
+  target: UnderexcitationLimiterDynamics
+  sourceCardinality: 0..1
+  sourceName: remoteInputSignal
+  sourceDescription: Remote input signal used by this underexcitation limiter model.
+  targetCardinality: 0..1
+  targetName: underexcitationLimiterDynamics
+  targetDescription: Underexcitation limiter model using this remote input signal.
 - source: RemoteInputSignal
   target: VoltageCompensatorDynamics
   sourceCardinality: 0..1
@@ -33,22 +65,6 @@ associations:
   targetName: windPlantDynamics
   targetDescription: The wind plant using the remote signal.
 - source: RemoteInputSignal
-  target: UnderexcitationLimiterDynamics
-  sourceCardinality: 0..1
-  sourceName: remoteInputSignal
-  sourceDescription: Remote input signal used by this underexcitation limiter model.
-  targetCardinality: 0..1
-  targetName: underexcitationLimiterDynamics
-  targetDescription: Underexcitation limiter model using this remote input signal.
-- source: RemoteInputSignal
-  target: DiscontinuousExcitationControlDynamics
-  sourceCardinality: 0..1
-  sourceName: remoteInputSignal
-  sourceDescription: Remote input signal used by this discontinuous excitation control system model.
-  targetCardinality: 0..1
-  targetName: discontinuousExcitationControlDynamics
-  targetDescription: Discontinuous excitation control model using this remote input signal.
-- source: RemoteInputSignal
   target: WindTurbineType1or2Dynamics
   sourceCardinality: 0..1
   sourceName: remoteInputSignal
@@ -64,19 +80,3 @@ associations:
   targetCardinality: 0..1
   targetName: windTurbineType3or4Dynamics
   targetDescription: Wind turbine type 3 or type 4 models using this remote input signal.
-- source: RemoteInputSignal
-  target: PowerSystemStabilizerDynamics
-  sourceCardinality: 0..*
-  sourceName: remoteInputSignal
-  sourceDescription: Remote input signal used by this power system stabilizer model.
-  targetCardinality: 0..1
-  targetName: powerSystemStabilizerDynamics
-  targetDescription: Power system stabilizer model using this remote input signal.
-- source: RemoteInputSignal
-  target: PFVArControllerType1Dynamics
-  sourceCardinality: 0..1
-  sourceName: remoteInputSignal
-  sourceDescription: Remote input signal used by this power factor or VAr controller type 1 model.
-  targetCardinality: 0..1
-  targetName: pfVArControllerType1Dynamics
-  targetDescription: Power factor or VAr controller type 1 model using this remote input signal.

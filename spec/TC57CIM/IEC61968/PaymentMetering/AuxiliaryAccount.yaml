@@ -22,13 +22,13 @@ ancestors:
 - Document
 associations:
 - source: AuxiliaryAccount
-  target: Transaction
-  sourceCardinality: 0..1
-  sourceName: auxiliaryAccount
-  sourceDescription: Auxiliary account for this payment transaction.
-  targetCardinality: 0..*
-  targetName: paymentTransactions
-  targetDescription: All payments against this account.
+  target: AuxiliaryAgreement
+  sourceCardinality: 1..*
+  sourceName: auxiliaryAccounts
+  sourceDescription: All auxiliary accounts regulated by this agreement.
+  targetCardinality: 0..1
+  targetName: auxiliaryAgreement
+  targetDescription: Auxiliary agreement regulating this account.
 - source: AuxiliaryAccount
   target: Charge
   sourceCardinality: 0..*
@@ -38,10 +38,10 @@ associations:
   targetName: charges
   targetDescription: All charges levied on this account.
 - source: AuxiliaryAccount
-  target: AuxiliaryAgreement
-  sourceCardinality: 1..*
-  sourceName: auxiliaryAccounts
-  sourceDescription: All auxiliary accounts regulated by this agreement.
-  targetCardinality: 0..1
-  targetName: auxiliaryAgreement
-  targetDescription: Auxiliary agreement regulating this account.
+  target: Transaction
+  sourceCardinality: 0..1
+  sourceName: auxiliaryAccount
+  sourceDescription: Auxiliary account for this payment transaction.
+  targetCardinality: 0..*
+  targetName: paymentTransactions
+  targetDescription: All payments against this account.

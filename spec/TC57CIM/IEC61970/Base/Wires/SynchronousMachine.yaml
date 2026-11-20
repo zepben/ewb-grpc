@@ -113,14 +113,6 @@ ancestors:
 - RotatingMachine
 associations:
 - source: SynchronousMachine
-  target: PrimeMover
-  sourceCardinality: 0..*
-  sourceName: synchronousMachines
-  sourceDescription: Synchronous machines this Prime mover drives.
-  targetCardinality: 0..*
-  targetName: primeMovers
-  targetDescription: Prime movers that drive this SynchronousMachine.
-- source: SynchronousMachine
   target: ReactiveCapabilityCurve
   sourceCardinality: 1..*
   sourceName: initiallyUsedBySynchronousMachines
@@ -128,6 +120,14 @@ associations:
   targetCardinality: 0..1
   targetName: initialReactiveCapabilityCurve
   targetDescription: The default reactive capability curve for use by a synchronous machine.
+- source: SynchronousMachine
+  target: PrimeMover
+  sourceCardinality: 0..*
+  sourceName: synchronousMachines
+  sourceDescription: Synchronous machines this Prime mover drives.
+  targetCardinality: 0..*
+  targetName: primeMovers
+  targetDescription: Prime movers that drive this SynchronousMachine.
 - source: SynchronousMachine
   target: ReactiveCapabilityCurve
   sourceCardinality: 1..*

@@ -15,14 +15,14 @@ ancestors:
 - Document
 associations:
 - source: MarketSkill
-  target: MarketQualificationRequirement
-  sourceCardinality: 0..*
-  sourceName: marketSkills
-  targetCardinality: 0..*
-  targetName: marketQualificationRequirements
-- source: MarketSkill
   target: MarketPerson
   sourceCardinality: 0..*
   sourceName: marketSkills
   targetCardinality: 0..1
   targetName: marketPerson
+- source: MarketSkill
+  target: MarketQualificationRequirement
+  sourceCardinality: 0..*
+  sourceName: marketSkills
+  targetCardinality: 0..*
+  targetName: marketQualificationRequirements

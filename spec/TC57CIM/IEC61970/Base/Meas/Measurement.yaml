@@ -32,12 +32,76 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
+- Accumulator
 - Analog
 - Discrete
-- Accumulator
-- StringMeasurement
 - MktMeasurement
+- StringMeasurement
 associations:
+- source: Measurement
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: measurements
+  sourceDescription: Measurement related to this asset.
+  targetCardinality: 0..1
+  targetName: asset
+- source: Measurement
+  target: CalculationMethodHierarchy
+  sourceCardinality: 0..*
+  sourceName: measurement
+  sourceDescription: Measurement to which this calculation method hierarchy applies.
+  targetCardinality: 0..1
+  targetName: calculationMethodHierarchy
+  targetDescription: Calculation method hierarchy which applies to this analog.
+- source: Measurement
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: measurements
+  targetCardinality: 0..*
+  targetName: locations
+- source: Measurement
+  target: MeasurementAction
+  sourceCardinality: 0..1
+  sourceName: measurement
+  targetCardinality: 0..1
+  targetName: measurementAction
+- source: Measurement
+  target: MeasurementCalculatorInput
+  sourceCardinality: "1"
+  sourceName: measurement
+  sourceDescription: Measurement used as input to a calculation.
+  targetCardinality: 0..*
+  targetName: measurementCalculatorInput
+- source: Measurement
+  target: PinMeasurement
+  sourceCardinality: 0..1
+  sourceName: measurement
+  sourceDescription: The Measurement that should be used in compare.
+  targetCardinality: 0..*
+  targetName: pinMeasurement
+- source: Measurement
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  sourceName: measurements
+  sourceDescription: The measurements associated with this power system resource.
+  targetCardinality: 0..1
+  targetName: powerSystemResource
+  targetDescription: The power system resource that contains the measurement.
+- source: Measurement
+  target: Procedure
+  sourceCardinality: 0..*
+  sourceName: measurements
+  sourceDescription: Document containing this measurement.
+  targetCardinality: 0..*
+  targetName: procedures
+  targetDescription: Measurements are specified in types of documents, such as procedures.
+- source: Measurement
+  target: ProtectiveActionAdjustment
+  sourceCardinality: 0..1
+  sourceName: measurement
+  sourceDescription: The measurement is used to control the operation of an equipment.
+  targetCardinality: 0..*
+  targetName: protectiveActionAdjustment
 - source: Measurement
   target: ACDCTerminal
   sourceCardinality: 0..*
@@ -48,67 +112,3 @@ associations:
   targetCardinality: 0..1
   targetName: terminal
   targetDescription: One or more measurements may be associated with a terminal in the network.
-- source: Measurement
-  target: ProtectiveActionAdjustment
-  sourceCardinality: 0..1
-  sourceName: measurement
-  sourceDescription: The measurement is used to control the operation of an equipment.
-  targetCardinality: 0..*
-  targetName: protectiveActionAdjustment
-- source: Measurement
-  target: CalculationMethodHierarchy
-  sourceCardinality: 0..*
-  sourceName: measurement
-  sourceDescription: Measurement to which this calculation method hierarchy applies.
-  targetCardinality: 0..1
-  targetName: calculationMethodHierarchy
-  targetDescription: Calculation method hierarchy which applies to this analog.
-- source: Measurement
-  target: PowerSystemResource
-  sourceCardinality: 0..*
-  sourceName: measurements
-  sourceDescription: The measurements associated with this power system resource.
-  targetCardinality: 0..1
-  targetName: powerSystemResource
-  targetDescription: The power system resource that contains the measurement.
-- source: Measurement
-  target: PinMeasurement
-  sourceCardinality: 0..1
-  sourceName: measurement
-  sourceDescription: The Measurement that should be used in compare.
-  targetCardinality: 0..*
-  targetName: pinMeasurement
-- source: Measurement
-  target: MeasurementCalculatorInput
-  sourceCardinality: "1"
-  sourceName: measurement
-  sourceDescription: Measurement used as input to a calculation.
-  targetCardinality: 0..*
-  targetName: measurementCalculatorInput
-- source: Measurement
-  target: Procedure
-  sourceCardinality: 0..*
-  sourceName: measurements
-  sourceDescription: Document containing this measurement.
-  targetCardinality: 0..*
-  targetName: procedures
-  targetDescription: Measurements are specified in types of documents, such as procedures.
-- source: Measurement
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: measurements
-  sourceDescription: Measurement related to this asset.
-  targetCardinality: 0..1
-  targetName: asset
-- source: Measurement
-  target: MeasurementAction
-  sourceCardinality: 0..1
-  sourceName: measurement
-  targetCardinality: 0..1
-  targetName: measurementAction
-- source: Measurement
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: measurements
-  targetCardinality: 0..*
-  targetName: locations

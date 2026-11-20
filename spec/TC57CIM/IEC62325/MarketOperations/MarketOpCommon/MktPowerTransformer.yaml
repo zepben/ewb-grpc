@@ -4,11 +4,11 @@ ancestors:
 - PowerTransformer
 associations:
 - source: MktPowerTransformer
-  target: Flowgate
+  target: BranchEndFlow
   sourceCardinality: 0..*
-  sourceName: mktPowerTransformer
-  targetCardinality: 0..*
-  targetName: flowgate
+  sourceName: mktPowerTransformerEndAFlow
+  targetCardinality: 0..1
+  targetName: endAFlow
 - source: MktPowerTransformer
   target: BranchEndFlow
   sourceCardinality: 0..*
@@ -16,8 +16,8 @@ associations:
   targetCardinality: 0..1
   targetName: endBFlow
 - source: MktPowerTransformer
-  target: BranchEndFlow
+  target: Flowgate
   sourceCardinality: 0..*
-  sourceName: mktPowerTransformerEndAFlow
-  targetCardinality: 0..1
-  targetName: endAFlow
+  sourceName: mktPowerTransformer
+  targetCardinality: 0..*
+  targetName: flowgate

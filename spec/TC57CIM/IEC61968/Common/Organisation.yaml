@@ -19,13 +19,13 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
+- ControlAreaOperator
+- CustomerConsumer
+- GenerationProvider
+- MarketParticipant
+- Marketer
 - ParentOrganization
 - TransmissionProvider
-- Marketer
-- GenerationProvider
-- CustomerConsumer
-- ControlAreaOperator
-- MarketParticipant
 associations:
 - source: Organisation
   target: ParentOrganization
@@ -36,12 +36,6 @@ associations:
   targetName: parentOrganisation
   targetDescription: Parent organisation of this organisation.
 - source: Organisation
-  target: SwitchingPlanRequest
-  sourceCardinality: 0..1
-  sourceName: requestingOrganization
-  targetCardinality: 0..*
-  targetName: switchingPlanRequest
-- source: Organisation
   target: OrganisationRole
   sourceCardinality: 0..1
   sourceName: organisation
@@ -49,3 +43,9 @@ associations:
   targetCardinality: 0..*
   targetName: roles
   targetDescription: All roles of this organisation.
+- source: Organisation
+  target: SwitchingPlanRequest
+  sourceCardinality: 0..1
+  sourceName: requestingOrganization
+  targetCardinality: 0..*
+  targetName: switchingPlanRequest

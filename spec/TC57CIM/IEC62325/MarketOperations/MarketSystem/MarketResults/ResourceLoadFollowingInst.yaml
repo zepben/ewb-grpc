@@ -16,14 +16,14 @@ attributes:
   description: The start of the time interval for which requirement is defined.
 associations:
 - source: ResourceLoadFollowingInst
-  target: ResourceClearing
-  sourceCardinality: 0..*
-  sourceName: resourceLoadFollowingInst
-  targetCardinality: 0..1
-  targetName: resourceClearing
-- source: ResourceLoadFollowingInst
   target: RegisteredResource
   sourceCardinality: 0..*
   sourceName: resourceLoadFollowingInst
   targetCardinality: 0..1
   targetName: registeredResource
+- source: ResourceLoadFollowingInst
+  target: ResourceClearing
+  sourceCardinality: 0..*
+  sourceName: resourceLoadFollowingInst
+  targetCardinality: 0..1
+  targetName: resourceClearing

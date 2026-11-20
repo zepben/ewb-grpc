@@ -5,12 +5,6 @@ attributes:
   type: Float
 associations:
 - source: LossClearingResults
-  target: SubControlArea
-  sourceCardinality: 1..*
-  sourceName: lossClearingResults
-  targetCardinality: 0..1
-  targetName: subControlArea
-- source: LossClearingResults
   target: HostControlArea
   sourceCardinality: 0..*
   sourceName: lossClearingResults
@@ -28,3 +22,9 @@ associations:
   sourceName: lossClearingResults
   targetCardinality: 0..1
   targetName: rucZone
+- source: LossClearingResults
+  target: SubControlArea
+  sourceCardinality: 1..*
+  sourceName: lossClearingResults
+  targetCardinality: 0..1
+  targetName: subControlArea

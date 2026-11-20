@@ -1,6 +1,65 @@
 name: MeasurementKind
 description: Kind of read / measured value.
 attributes:
+- name: alarm
+- name: apparentPowerFactor
+- name: applicationContext
+- name: apTitle
+- name: assetNumber
+- name: audibleVolume
+  description: Sound
+- name: bandwidth
+- name: batteryCarryover
+- name: batteryVoltage
+- name: billCarryover
+  description: Customer’s bill for the (Currency)
+- name: billLastPeriod
+  description: Customer’s bill for the previous billing period (Currency)
+- name: billToDate
+  description: Customer’s bill, as known thus far within the present billing period (Currency)
+- name: broadcastAddress
+- name: connectionFee
+  description: Monthly fee for connection to commodity.
+- name: currency
+  description: funds
+- name: current
+- name: currentAngle
+- name: currentImbalance
+- name: dataOverflowAlarm
+- name: date
+- name: demand
+- name: demandLimit
+- name: demandReset
+  description: Usually expressed as a count as part of a billing cycle
+- name: deviceAddressType1
+- name: deviceAddressType2
+- name: deviceAddressType3
+- name: deviceAddressType4
+- name: deviceClass
+- name: diagnostic
+- name: distance
+- name: distortionPowerFactor
+- name: distortionVoltAmp
+- name: electronicSerialNumber
+- name: emergencyLimit
+- name: encoderTamper
+- name: endDeviceID
+- name: energization
+- name: energizationLoadSide
+- name: energy
+- name: fan
+- name: frequency
+- name: frequencyExcursion
+  description: Usually expressed as a “count”
+- name: fund
+  description: Dup with “currency”
+- name: groupAddressType1
+- name: groupAddressType2
+- name: groupAddressType3
+- name: groupAddressType4
+- name: ieee1366ASAI
+- name: ieee1366ASIDI
+- name: ieee1366ASIFI
 - name: ieee1366CAIDI
 - name: ieee1366CAIFI
 - name: ieee1366CEMIn
@@ -8,26 +67,64 @@ attributes:
 - name: ieee1366CTAIDI
 - name: ieee1366MAIFI
 - name: ieee1366MAIFIe
+- name: ieee1366MomentaryInterruption
+- name: ieee1366MomentaryInterruptionEvent
 - name: ieee1366SAIDI
 - name: ieee1366SAIFI
+- name: ieee1366SustainedInterruption
+- name: interruptionBehaviour
+- name: inversionTamper
+- name: ipAddress
 - name: lineLoss
+- name: loadInterrupt
+- name: loadShed
 - name: loss
+- name: macAddress
+- name: maintenance
+- name: mfgAssignedConfigurationID
+- name: mfgAssignedPhysicalSerialNumber
+- name: mfgAssignedProductNumber
+- name: mfgAssignedUniqueCommunicationAddress
+- name: multiCastAddress
 - name: negativeSequence
+- name: none
+  description: Not Applicable
+- name: oneWayAddress
 - name: phasorPowerFactor
 - name: phasorReactivePower
+- name: physicalTamper
 - name: positiveSequence
 - name: power
 - name: powerFactor
+- name: powerLossTamper
+- name: powerOutage
+- name: powerQuality
+- name: powerRestoration
+- name: programmed
+- name: pushbutton
 - name: quantityPower
+- name: relayActivation
+- name: relayCycle
+  description: Usually expressed as a count
+- name: removalTamper
+- name: reprogrammingTamper
+- name: reverseRotationTamper
 - name: sag
   description: or Voltage Dip
+- name: signalStrength
+- name: signaltoNoiseRatio
+  description: 'Moved here from Attribute #9 UOM'
 - name: swell
+- name: switchArmed
+- name: switchDisabled
 - name: switchPosition
+- name: tamper
 - name: tapPosition
 - name: tariffRate
 - name: temperature
 - name: totalHarmonicDistortion
 - name: transformerLoss
+- name: twoWayAddress
 - name: unipedeVoltageDip10to15
 - name: unipedeVoltageDip15to30
 - name: unipedeVoltageDip30to60
@@ -39,104 +136,7 @@ attributes:
 - name: voltageImbalance
 - name: volume
   description: Clarified  from Ed. 1. to indicate fluid volume
+- name: volumetricFlow
+- name: watchdogTimeout
 - name: zeroFlowDuration
 - name: zeroSequence
-- name: distortionPowerFactor
-- name: frequencyExcursion
-  description: Usually expressed as a “count”
-- name: applicationContext
-- name: apTitle
-- name: assetNumber
-- name: bandwidth
-- name: batteryVoltage
-- name: broadcastAddress
-- name: deviceAddressType1
-- name: deviceAddressType2
-- name: deviceAddressType3
-- name: deviceAddressType4
-- name: deviceClass
-- name: none
-  description: Not Applicable
-- name: apparentPowerFactor
-- name: currency
-  description: funds
-- name: current
-- name: currentAngle
-- name: currentImbalance
-- name: date
-- name: demand
-- name: distance
-- name: distortionVoltAmp
-- name: energization
-- name: energy
-- name: energizationLoadSide
-- name: fan
-- name: frequency
-- name: fund
-  description: Dup with “currency”
-- name: ieee1366ASAI
-- name: ieee1366ASIDI
-- name: ieee1366ASIFI
-- name: electronicSerialNumber
-- name: endDeviceID
-- name: groupAddressType1
-- name: groupAddressType2
-- name: groupAddressType3
-- name: groupAddressType4
-- name: ipAddress
-- name: macAddress
-- name: mfgAssignedConfigurationID
-- name: mfgAssignedPhysicalSerialNumber
-- name: mfgAssignedProductNumber
-- name: mfgAssignedUniqueCommunicationAddress
-- name: multiCastAddress
-- name: oneWayAddress
-- name: signalStrength
-- name: twoWayAddress
-- name: signaltoNoiseRatio
-  description: 'Moved here from Attribute #9 UOM'
-- name: alarm
-- name: batteryCarryover
-- name: dataOverflowAlarm
-- name: demandLimit
-- name: demandReset
-  description: Usually expressed as a count as part of a billing cycle
-- name: diagnostic
-- name: emergencyLimit
-- name: encoderTamper
-- name: ieee1366MomentaryInterruption
-- name: ieee1366MomentaryInterruptionEvent
-- name: ieee1366SustainedInterruption
-- name: interruptionBehaviour
-- name: inversionTamper
-- name: loadInterrupt
-- name: loadShed
-- name: maintenance
-- name: physicalTamper
-- name: powerLossTamper
-- name: powerOutage
-- name: powerQuality
-- name: powerRestoration
-- name: programmed
-- name: pushbutton
-- name: relayActivation
-- name: relayCycle
-  description: Usually expressed as a count
-- name: removalTamper
-- name: reprogrammingTamper
-- name: reverseRotationTamper
-- name: switchArmed
-- name: switchDisabled
-- name: tamper
-- name: watchdogTimeout
-- name: billLastPeriod
-  description: Customer’s bill for the previous billing period (Currency)
-- name: billToDate
-  description: Customer’s bill, as known thus far within the present billing period (Currency)
-- name: billCarryover
-  description: Customer’s bill for the (Currency)
-- name: connectionFee
-  description: Monthly fee for connection to commodity.
-- name: audibleVolume
-  description: Sound
-- name: volumetricFlow

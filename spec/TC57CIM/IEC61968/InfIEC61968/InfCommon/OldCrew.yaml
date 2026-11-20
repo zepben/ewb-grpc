@@ -8,12 +8,6 @@ ancestors:
 - Crew
 associations:
 - source: OldCrew
-  target: Route
-  sourceCardinality: 0..*
-  sourceName: crews
-  targetCardinality: 0..1
-  targetName: route
-- source: OldCrew
   target: Assignment
   sourceCardinality: 0..*
   sourceName: crews
@@ -22,11 +16,11 @@ associations:
   targetName: assignments
   targetDescription: All Assignments for this Crew.
 - source: OldCrew
-  target: ShiftPattern
-  sourceCardinality: 0..*
-  sourceName: crews
+  target: Capability
+  sourceCardinality: 0..1
+  sourceName: crew
   targetCardinality: 0..*
-  targetName: shiftPatterns
+  targetName: capabilities
 - source: OldCrew
   target: Location
   sourceCardinality: 0..*
@@ -34,8 +28,14 @@ associations:
   targetCardinality: 0..*
   targetName: locations
 - source: OldCrew
-  target: Capability
-  sourceCardinality: 0..1
-  sourceName: crew
+  target: Route
+  sourceCardinality: 0..*
+  sourceName: crews
+  targetCardinality: 0..1
+  targetName: route
+- source: OldCrew
+  target: ShiftPattern
+  sourceCardinality: 0..*
+  sourceName: crews
   targetCardinality: 0..*
-  targetName: capabilities
+  targetName: shiftPatterns

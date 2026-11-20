@@ -53,15 +53,44 @@ attributes:
 ancestors:
 - Document
 descendants:
-- UnplannedOutage
 - PlannedOutage
+- UnplannedOutage
 associations:
 - source: Outage
-  target: ConductingEquipment
-  sourceCardinality: 0..1
+  target: Crew
+  sourceCardinality: 0..*
   sourceName: outage
   targetCardinality: 0..*
-  targetName: outageIsolationEquipment
+  targetName: crew
+- source: Outage
+  target: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: outage
+  targetCardinality: 0..*
+  targetName: deEnergizedUsagePoint
+  targetDescription: all deenergized useage points associated with the outage.
+- source: Outage
+  target: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: outage
+  sourceDescription: All outages at this usage point.
+  targetCardinality: 0..*
+  targetName: energizedUsagePoint
+  targetDescription: All energized usage points associated with this outage.
+- source: Outage
+  target: Equipment
+  sourceCardinality: 0..*
+  sourceName: outages
+  sourceDescription: All outages in which this equipment is involved.
+  targetCardinality: 0..*
+  targetName: equipments
+  targetDescription: All equipments associated with this outage.
+- source: Outage
+  target: EstimatedRestorationTime
+  sourceCardinality: 0..*
+  sourceName: outage
+  targetCardinality: 0..1
+  targetName: estimatedRestorationTime
 - source: Outage
   target: Fault
   sourceCardinality: 0..1
@@ -71,12 +100,25 @@ associations:
   targetName: faults
   targetDescription: All faults involved in this outage.
 - source: Outage
-  target: UsagePoint
+  target: Incident
+  sourceCardinality: 0..1
+  sourceName: outage
+  sourceDescription: Outage for this incident.
+  targetCardinality: 0..*
+  targetName: incident
+  targetDescription: Incident reported in trouble call that results in this outage.
+- source: Outage
+  target: OutageArea
   sourceCardinality: 0..*
   sourceName: outage
   targetCardinality: 0..*
-  targetName: deEnergizedUsagePoint
-  targetDescription: all deenergized useage points associated with the outage.
+  targetName: outageArea
+- source: Outage
+  target: ConductingEquipment
+  sourceCardinality: 0..1
+  sourceName: outage
+  targetCardinality: 0..*
+  targetName: outageIsolationEquipment
 - source: Outage
   target: SwitchAction
   sourceCardinality: 0..1
@@ -87,34 +129,6 @@ associations:
   targetDescription: All switch actions to apply within the scope of this planned outage. Each such action groups switches
     to which the action is to apply in order to produce the desired network state considered as outage.
 - source: Outage
-  target: Equipment
-  sourceCardinality: 0..*
-  sourceName: outages
-  sourceDescription: All outages in which this equipment is involved.
-  targetCardinality: 0..*
-  targetName: equipments
-  targetDescription: All equipments associated with this outage.
-- source: Outage
-  target: UsagePoint
-  sourceCardinality: 0..*
-  sourceName: outage
-  sourceDescription: All outages at this usage point.
-  targetCardinality: 0..*
-  targetName: energizedUsagePoint
-  targetDescription: All energized usage points associated with this outage.
-- source: Outage
-  target: Crew
-  sourceCardinality: 0..*
-  sourceName: outage
-  targetCardinality: 0..*
-  targetName: crew
-- source: Outage
-  target: OutageArea
-  sourceCardinality: 0..*
-  sourceName: outage
-  targetCardinality: 0..*
-  targetName: outageArea
-- source: Outage
   target: SwitchingPlan
   sourceCardinality: 0..1
   sourceName: outage
@@ -123,17 +137,3 @@ associations:
   targetName: switchingPlans
   targetDescription: All switching plans that lead to supply restoration due to this outage. Only one will be retained for
     execution.
-- source: Outage
-  target: Incident
-  sourceCardinality: 0..1
-  sourceName: outage
-  sourceDescription: Outage for this incident.
-  targetCardinality: 0..*
-  targetName: incident
-  targetDescription: Incident reported in trouble call that results in this outage.
-- source: Outage
-  target: EstimatedRestorationTime
-  sourceCardinality: 0..*
-  sourceName: outage
-  targetCardinality: 0..1
-  targetName: estimatedRestorationTime

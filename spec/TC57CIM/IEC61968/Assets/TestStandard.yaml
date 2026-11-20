@@ -49,13 +49,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: TestStandard
-  target: AssetStringMeasurement
+  target: AssetAnalog
   sourceCardinality: 0..1
   sourceName: testStandard
-  sourceDescription: Test standard which describes this asset string measurement.
+  sourceDescription: The lab test standard to which this asset health analog is related.
   targetCardinality: 0..*
-  targetName: assetString
-  targetDescription: An asset health string related to this lab test standard.
+  targetName: assetAnalog
+  targetDescription: An asset health analog related to this lab test standard.
 - source: TestStandard
   target: AssetDiscrete
   sourceCardinality: 0..1
@@ -65,10 +65,10 @@ associations:
   targetName: assetDiscrete
   targetDescription: An asset health discrete related to this lab test standard.
 - source: TestStandard
-  target: AssetAnalog
+  target: AssetStringMeasurement
   sourceCardinality: 0..1
   sourceName: testStandard
-  sourceDescription: The lab test standard to which this asset health analog is related.
+  sourceDescription: Test standard which describes this asset string measurement.
   targetCardinality: 0..*
-  targetName: assetAnalog
-  targetDescription: An asset health analog related to this lab test standard.
+  targetName: assetString
+  targetDescription: An asset health string related to this lab test standard.

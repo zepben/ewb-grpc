@@ -54,12 +54,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ConstraintResults
-  target: MktContingency
-  sourceCardinality: 0..*
-  sourceName: constraintResults
-  targetCardinality: "1"
-  targetName: mktContingency
-- source: ConstraintResults
   target: ConstraintClearing
   sourceCardinality: 0..*
   sourceName: constraintResults
@@ -71,3 +65,9 @@ associations:
   sourceName: constraintResults
   targetCardinality: "1"
   targetName: flowgate
+- source: ConstraintResults
+  target: MktContingency
+  sourceCardinality: 0..*
+  sourceName: constraintResults
+  targetCardinality: "1"
+  targetName: mktContingency

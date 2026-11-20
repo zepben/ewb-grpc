@@ -10,14 +10,6 @@ attributes:
   type: Double
   nullable: true
   description: Zero sequence resistance in ohms.
-- name: x
-  type: Double
-  nullable: true
-  description: Positive sequence reactance in ohms.
-- name: x0
-  type: Double
-  nullable: true
-  description: Zero sequence reactance in ohms.
 - name: varistorRatedCurrent
   type: Double
   nullable: true
@@ -29,5 +21,13 @@ attributes:
   nullable: true
   description: The dc voltage at which the varistor starts conducting. It is used for short circuit calculations and exchanged
     only if SeriesCompensator.varistorPresent is true.
+- name: x
+  type: Double
+  nullable: true
+  description: Positive sequence reactance in ohms.
+- name: x0
+  type: Double
+  nullable: true
+  description: Zero sequence reactance in ohms.
 ancestors:
 - ConductingEquipment

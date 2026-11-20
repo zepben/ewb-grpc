@@ -12,14 +12,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ResourceGroup
-  target: ResourceGroupReq
-  sourceCardinality: "1"
-  sourceName: resourceGroup
-  targetCardinality: 0..*
-  targetName: resourceGroupReqs
-- source: ResourceGroup
   target: RegisteredResource
   sourceCardinality: 0..*
   sourceName: resourceGroups
   targetCardinality: 1..*
   targetName: registeredResources
+- source: ResourceGroup
+  target: ResourceGroupReq
+  sourceCardinality: "1"
+  sourceName: resourceGroup
+  targetCardinality: 0..*
+  targetName: resourceGroupReqs

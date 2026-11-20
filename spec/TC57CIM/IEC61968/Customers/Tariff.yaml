@@ -13,14 +13,6 @@ ancestors:
 - Document
 associations:
 - source: Tariff
-  target: TariffProfile
-  sourceCardinality: 0..*
-  sourceName: tariffs
-  sourceDescription: All tariffs defined by this tariff profile.
-  targetCardinality: 0..*
-  targetName: tariffProfiles
-  targetDescription: All tariff profiles using this tariff.
-- source: Tariff
   target: PricingStructure
   sourceCardinality: 0..*
   sourceName: tariffs
@@ -28,3 +20,11 @@ associations:
   targetCardinality: 0..*
   targetName: pricingStructures
   targetDescription: All pricing structures using this tariff.
+- source: Tariff
+  target: TariffProfile
+  sourceCardinality: 0..*
+  sourceName: tariffs
+  sourceDescription: All tariffs defined by this tariff profile.
+  targetCardinality: 0..*
+  targetName: tariffProfiles
+  targetDescription: All tariff profiles using this tariff.

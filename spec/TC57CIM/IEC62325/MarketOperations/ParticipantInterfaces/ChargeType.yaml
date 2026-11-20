@@ -36,12 +36,6 @@ associations:
   targetName: chargeGroup
   targetDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
 - source: ChargeType
-  target: MktUserAttribute
-  sourceCardinality: 0..*
-  sourceName: chargeType
-  targetCardinality: 0..*
-  targetName: mktUserAttribute
-- source: ChargeType
   target: MajorChargeGroup
   sourceCardinality: 0..*
   sourceName: chargeType
@@ -49,3 +43,9 @@ associations:
   targetCardinality: 0..*
   targetName: majorChargeGroup
   targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
+- source: ChargeType
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  sourceName: chargeType
+  targetCardinality: 0..*
+  targetName: mktUserAttribute

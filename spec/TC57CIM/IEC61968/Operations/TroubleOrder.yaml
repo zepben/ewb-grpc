@@ -11,12 +11,6 @@ ancestors:
 - Document
 associations:
 - source: TroubleOrder
-  target: TroubleTicket
-  sourceCardinality: 0..1
-  sourceName: troubleOrder
-  targetCardinality: 0..*
-  targetName: troubleTicket
-- source: TroubleOrder
   target: Incident
   sourceCardinality: 0..1
   sourceName: troubleOrder
@@ -28,6 +22,12 @@ associations:
   sourceName: troubleOrder
   targetCardinality: 0..1
   targetName: location
+- source: TroubleOrder
+  target: TroubleTicket
+  sourceCardinality: 0..1
+  sourceName: troubleOrder
+  targetCardinality: 0..*
+  targetName: troubleTicket
 - source: TroubleOrder
   target: UnplannedOutage
   sourceCardinality: 0..*

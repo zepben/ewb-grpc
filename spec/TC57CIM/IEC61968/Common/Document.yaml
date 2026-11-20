@@ -43,72 +43,56 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- AssetModelCatalogueItem
-- ErpDocument
-- WorkBillingInfo
-- StandardIndustryCode
-- ServiceGuarantee
-- PowerQualityPricing
-- CustomerBillingInfo
-- WorkDocument
-- Specification
-- Skill
-- BusinessPlan
-- BankAccount
-- TariffProfile
-- MerchantAccount
-- AuxiliaryAccount
-- TroubleTicket
-- Tariff
-- PricingStructure
-- CustomerAccount
 - Agreement
-- BaseWork
-- ProcedureDataSet
-- Procedure
-- AssetGroup
 - Analytic
-- SwitchingPlan
-- SafetyDocument
-- OutagePlan
-- OperationalRestriction
-- OperationalTag
+- AssetGroup
+- AssetModelCatalogueItem
+- AuxiliaryAccount
+- BankAccount
+- BaseWork
+- Bid
+- BillDeterminant
+- BusinessPlan
+- ChargeType
+- CongestionRevenueRight
+- CustomerAccount
+- CustomerBillingInfo
+- EnergyTransaction
+- ErpDocument
 - Incident
-- TroubleOrder
-- SwitchingPlanRequest
-- SwitchingOrder
-- PlannedOutageNotification
-- OutageOrder
-- Outage
-- TimeSchedule
+- MarketDocument
+- MarketFactors
 - MarketSkill
 - MarketStatement
-- Bid
-- ChargeType
-- BillDeterminant
+- MerchantAccount
+- OperationalRestriction
+- OperationalTag
+- Outage
+- OutageOrder
+- OutagePlan
 - PassThroughBill
+- PlannedOutageNotification
+- PowerQualityPricing
+- PricingStructure
+- Procedure
+- ProcedureDataSet
+- SafetyDocument
+- ServiceGuarantee
 - Settlement
-- EnergyTransaction
-- CongestionRevenueRight
-- MarketFactors
-- MarketDocument
+- Skill
+- Specification
+- StandardIndustryCode
+- SwitchingOrder
+- SwitchingPlan
+- SwitchingPlanRequest
+- Tariff
+- TariffProfile
+- TimeSchedule
+- TroubleOrder
+- TroubleTicket
+- WorkBillingInfo
+- WorkDocument
 associations:
-- source: Document
-  target: ConfigurationEvent
-  sourceCardinality: 0..1
-  sourceName: changedDocument
-  sourceDescription: Document whose change resulted in this configuration event.
-  targetCardinality: 0..*
-  targetName: configurationEvents
-  targetDescription: All configuration events created for this document.
-- source: Document
-  target: Author
-  sourceCardinality: 0..*
-  sourceName: documents
-  sourceDescription: All documents of this this author.
-  targetCardinality: 0..1
-  targetName: author
-  targetDescription: Author of this document.
 - source: Document
   target: Approver
   sourceCardinality: 0..*
@@ -118,13 +102,21 @@ associations:
   targetName: approver
   targetDescription: Approver of this document.
 - source: Document
-  target: Issuer
+  target: Author
   sourceCardinality: 0..*
   sourceName: documents
-  sourceDescription: All documents for this issuer.
+  sourceDescription: All documents of this this author.
   targetCardinality: 0..1
-  targetName: issuer
-  targetDescription: Issuer of this document.
+  targetName: author
+  targetDescription: Author of this document.
+- source: Document
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  sourceName: changedDocument
+  sourceDescription: Document whose change resulted in this configuration event.
+  targetCardinality: 0..*
+  targetName: configurationEvents
+  targetDescription: All configuration events created for this document.
 - source: Document
   target: Editor
   sourceCardinality: 0..*
@@ -133,3 +125,11 @@ associations:
   targetCardinality: 0..1
   targetName: editor
   targetDescription: Editor of this document.
+- source: Document
+  target: Issuer
+  sourceCardinality: 0..*
+  sourceName: documents
+  sourceDescription: All documents for this issuer.
+  targetCardinality: 0..1
+  targetName: issuer
+  targetDescription: Issuer of this document.

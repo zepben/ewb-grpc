@@ -7,17 +7,11 @@ ancestors:
 - ErpIdentifiedObject
 associations:
 - source: ErpPayableLineItem
-  target: ErpPayment
-  sourceCardinality: 0..*
-  sourceName: erpPayableLineItems
-  targetCardinality: 0..*
-  targetName: erpPayments
-- source: ErpPayableLineItem
-  target: ErpPayable
-  sourceCardinality: 0..*
-  sourceName: erpPayableLineItems
-  targetCardinality: "1"
-  targetName: erpPayable
+  target: ErpInvoiceLineItem
+  sourceCardinality: 0..1
+  sourceName: erpPayableLineItem
+  targetCardinality: 0..1
+  targetName: erpInvoiceLineItem
 - source: ErpPayableLineItem
   target: ErpJournalEntry
   sourceCardinality: 0..*
@@ -25,8 +19,14 @@ associations:
   targetCardinality: 0..*
   targetName: erpJournalEntries
 - source: ErpPayableLineItem
-  target: ErpInvoiceLineItem
-  sourceCardinality: 0..1
-  sourceName: erpPayableLineItem
-  targetCardinality: 0..1
-  targetName: erpInvoiceLineItem
+  target: ErpPayable
+  sourceCardinality: 0..*
+  sourceName: erpPayableLineItems
+  targetCardinality: "1"
+  targetName: erpPayable
+- source: ErpPayableLineItem
+  target: ErpPayment
+  sourceCardinality: 0..*
+  sourceName: erpPayableLineItems
+  targetCardinality: 0..*
+  targetName: erpPayments

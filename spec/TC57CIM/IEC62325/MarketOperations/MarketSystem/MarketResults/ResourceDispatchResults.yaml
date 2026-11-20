@@ -53,14 +53,14 @@ attributes:
   description: resource energy ramping upper limit
 associations:
 - source: ResourceDispatchResults
-  target: ResourceClearing
-  sourceCardinality: 1..*
-  sourceName: resourceDispatchResults
-  targetCardinality: 0..1
-  targetName: resourceClearing
-- source: ResourceDispatchResults
   target: RegisteredResource
   sourceCardinality: 0..*
   sourceName: resourceDispatchResults
   targetCardinality: 0..1
   targetName: registeredResource
+- source: ResourceDispatchResults
+  target: ResourceClearing
+  sourceCardinality: 1..*
+  sourceName: resourceDispatchResults
+  targetCardinality: 0..1
+  targetName: resourceClearing

@@ -12,13 +12,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: MeterReading
-  target: UsagePoint
+  target: CustomerAgreement
   sourceCardinality: 0..*
   sourceName: meterReadings
-  sourceDescription: All meter readings obtained from this usage point.
+  sourceDescription: (could be deprecated in the future) All meter readings for this customer agreement.
   targetCardinality: 0..1
-  targetName: usagePoint
-  targetDescription: Usage point from which this meter reading (set of values) has been obtained.
+  targetName: customerAgreement
+  targetDescription: (could be deprecated in the future) Customer agreement for this meter reading.
 - source: MeterReading
   target: EndDeviceEvent
   sourceCardinality: 0..1
@@ -28,21 +28,13 @@ associations:
   targetName: endDeviceEvents
   targetDescription: All end device events associated with this set of measured values.
 - source: MeterReading
-  target: CustomerAgreement
-  sourceCardinality: 0..*
-  sourceName: meterReadings
-  sourceDescription: (could be deprecated in the future) All meter readings for this customer agreement.
-  targetCardinality: 0..1
-  targetName: customerAgreement
-  targetDescription: (could be deprecated in the future) Customer agreement for this meter reading.
-- source: MeterReading
-  target: Reading
-  sourceCardinality: 0..*
-  sourceName: meterReadings
-  sourceDescription: All meter readings (sets of values) containing this reading value.
+  target: IntervalBlock
+  sourceCardinality: 0..1
+  sourceName: meterReading
+  sourceDescription: Meter reading containing this interval block.
   targetCardinality: 0..*
-  targetName: readings
-  targetDescription: All reading values contained within this meter reading.
+  targetName: intervalBlocks
+  targetDescription: All interval blocks contained in this meter reading.
 - source: MeterReading
   target: Meter
   sourceCardinality: 0..*
@@ -52,10 +44,18 @@ associations:
   targetName: meter
   targetDescription: Meter providing this reading.
 - source: MeterReading
-  target: IntervalBlock
-  sourceCardinality: 0..1
-  sourceName: meterReading
-  sourceDescription: Meter reading containing this interval block.
+  target: Reading
+  sourceCardinality: 0..*
+  sourceName: meterReadings
+  sourceDescription: All meter readings (sets of values) containing this reading value.
   targetCardinality: 0..*
-  targetName: intervalBlocks
-  targetDescription: All interval blocks contained in this meter reading.
+  targetName: readings
+  targetDescription: All reading values contained within this meter reading.
+- source: MeterReading
+  target: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: meterReadings
+  sourceDescription: All meter readings obtained from this usage point.
+  targetCardinality: 0..1
+  targetName: usagePoint
+  targetDescription: Usage point from which this meter reading (set of values) has been obtained.

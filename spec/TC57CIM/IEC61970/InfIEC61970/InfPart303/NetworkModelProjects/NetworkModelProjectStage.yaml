@@ -2,9 +2,9 @@ name: NetworkModelProjectStage
 attributes:
 - name: changesetVersion
   type: Integer
-- name: plannedCommissionedDate
-  type: DateTime
 - name: commissionedDate
+  type: DateTime
+- name: plannedCommissionedDate
   type: DateTime
 ancestors:
 - NetworkModelProjectComponent2
@@ -18,12 +18,12 @@ associations:
 - source: NetworkModelProjectStage
   target: AnnotatedProjectDependency
   sourceCardinality: "1"
-  sourceName: dependentOnStage
-  targetCardinality: 0..1
-  targetName: dependencyDependentOnStage
-- source: NetworkModelProjectStage
-  target: AnnotatedProjectDependency
-  sourceCardinality: "1"
   sourceName: dependingStage
   targetCardinality: 0..*
   targetName: denpendecyDependingStage
+- source: NetworkModelProjectStage
+  target: AnnotatedProjectDependency
+  sourceCardinality: "1"
+  sourceName: dependentOnStage
+  targetCardinality: 0..1
+  targetName: dependencyDependentOnStage

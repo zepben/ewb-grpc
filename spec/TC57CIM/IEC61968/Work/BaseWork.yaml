@@ -13,9 +13,17 @@ attributes:
 ancestors:
 - Document
 descendants:
-- WorkTask
 - Work
+- WorkTask
 associations:
+- source: BaseWork
+  target: WorkTimeSchedule
+  sourceCardinality: 0..1
+  sourceName: baseWork
+  sourceDescription: Time schedule for this work or work task.
+  targetCardinality: 0..*
+  targetName: timeSchedules
+  targetDescription: All time schedules for this work or work task.
 - source: BaseWork
   target: WorkActivityRecord
   sourceCardinality: 0..1
@@ -32,11 +40,3 @@ associations:
   targetCardinality: 0..1
   targetName: workLocation
   targetDescription: Location for this work/task.
-- source: BaseWork
-  target: WorkTimeSchedule
-  sourceCardinality: 0..1
-  sourceName: baseWork
-  sourceDescription: Time schedule for this work or work task.
-  targetCardinality: 0..*
-  targetName: timeSchedules
-  targetDescription: All time schedules for this work or work task.

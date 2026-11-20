@@ -8,14 +8,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: AltGeneratingUnitMeas
-  target: ControlAreaGeneratingUnit
-  sourceCardinality: 0..*
-  sourceName: altGeneratingUnitMeas
-  sourceDescription: The link to prioritized measurements for this GeneratingUnit.
-  targetCardinality: "1"
-  targetName: controlAreaGeneratingUnit
-  targetDescription: The control area generating unit to which the prioritized measurement assignment is applied.
-- source: AltGeneratingUnitMeas
   target: AnalogValue
   sourceCardinality: 0..*
   sourceName: altGeneratingUnit
@@ -23,3 +15,11 @@ associations:
   targetCardinality: "1"
   targetName: analogValue
   targetDescription: The specific analog value used as a source.
+- source: AltGeneratingUnitMeas
+  target: ControlAreaGeneratingUnit
+  sourceCardinality: 0..*
+  sourceName: altGeneratingUnitMeas
+  sourceDescription: The link to prioritized measurements for this GeneratingUnit.
+  targetCardinality: "1"
+  targetName: controlAreaGeneratingUnit
+  targetDescription: The control area generating unit to which the prioritized measurement assignment is applied.

@@ -7,14 +7,6 @@ attributes:
   description: The kind of location. Typical values might be center, extent, primary, secondary, etc.
 associations:
 - source: EnvironmentalLocationType
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: environmentalLocationKind
-  sourceDescription: Kind of environmental location which this location is.
-  targetCardinality: 0..1
-  targetName: location
-  targetDescription: Location of this instance of ths kind of environmental location.
-- source: EnvironmentalLocationType
   target: EnvironmentalAlert
   sourceCardinality: 1..*
   sourceName: environmentalLocationKind
@@ -30,3 +22,11 @@ associations:
   targetCardinality: 0..*
   targetName: environmentalPhenomenon
   targetDescription: Environmental phenomenon for which this location is of relevance.
+- source: EnvironmentalLocationType
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: environmentalLocationKind
+  sourceDescription: Kind of environmental location which this location is.
+  targetCardinality: 0..1
+  targetName: location
+  targetDescription: Location of this instance of ths kind of environmental location.

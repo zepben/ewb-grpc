@@ -11,6 +11,12 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Craft
+  target: Capability
+  sourceCardinality: 0..*
+  sourceName: crafts
+  targetCardinality: 0..*
+  targetName: capabilities
+- source: Craft
   target: OldPerson
   sourceCardinality: 0..*
   sourceName: crafts
@@ -22,9 +28,3 @@ associations:
   sourceName: crafts
   targetCardinality: 0..*
   targetName: skills
-- source: Craft
-  target: Capability
-  sourceCardinality: 0..*
-  sourceName: crafts
-  targetCardinality: 0..*
-  targetName: capabilities

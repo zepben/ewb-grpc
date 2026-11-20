@@ -71,14 +71,14 @@ attributes:
   description: Output results from the case identifying the reason the unit was committed by the software.
 associations:
 - source: DotInstruction
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: dotInstruction
-  targetCardinality: 0..1
-  targetName: registeredResource
-- source: DotInstruction
   target: InstructionClearingDOT
   sourceCardinality: 1..*
   sourceName: dotInstruction
   targetCardinality: 1..*
   targetName: instructionClearingDOT
+- source: DotInstruction
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: dotInstruction
+  targetCardinality: 0..1
+  targetName: registeredResource

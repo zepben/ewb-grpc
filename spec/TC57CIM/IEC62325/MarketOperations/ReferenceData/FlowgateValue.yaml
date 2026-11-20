@@ -23,14 +23,14 @@ attributes:
   description: Net Energy flow in flowgate for the associated FlowgatePartner
 associations:
 - source: FlowgateValue
-  target: FlowgatePartner
-  sourceCardinality: 0..1
-  sourceName: flowgateValue
-  targetCardinality: 0..1
-  targetName: flowgatePartner
-- source: FlowgateValue
   target: Flowgate
   sourceCardinality: 0..*
   sourceName: flowgateValue
   targetCardinality: "1"
   targetName: flowgate
+- source: FlowgateValue
+  target: FlowgatePartner
+  sourceCardinality: 0..1
+  sourceName: flowgateValue
+  targetCardinality: 0..1
+  targetName: flowgatePartner

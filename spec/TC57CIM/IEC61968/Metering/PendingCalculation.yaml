@@ -24,14 +24,6 @@ attributes:
     It is never used in conjunction with 'scalarFloat', only with 'scalarDenominator'.
 associations:
 - source: PendingCalculation
-  target: ReadingType
-  sourceCardinality: 0..1
-  sourceName: pendingCalculation
-  sourceDescription: Pending calculation that produced this reading type.
-  targetCardinality: "1"
-  targetName: readingType
-  targetDescription: Reading type resulting from this pending conversion.
-- source: PendingCalculation
   target: IntervalBlock
   sourceCardinality: 0..1
   sourceName: pendingCalculation
@@ -40,3 +32,11 @@ associations:
   targetCardinality: 0..*
   targetName: intervalBlocks
   targetDescription: All blocks of interval reading values to which this pending conversion applies.
+- source: PendingCalculation
+  target: ReadingType
+  sourceCardinality: 0..1
+  sourceName: pendingCalculation
+  sourceDescription: Pending calculation that produced this reading type.
+  targetCardinality: "1"
+  targetName: readingType
+  targetDescription: Reading type resulting from this pending conversion.

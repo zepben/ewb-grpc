@@ -7,10 +7,6 @@ descendants:
 - NetworkModelProjectChange
 associations:
 - source: NetworkModelProjectComponent
-  target: NetworkModelProjectDocument
-  sourceCardinality: 0..*
-  targetCardinality: 0..*
-- source: NetworkModelProjectComponent
   target: NetworkModelProject
   sourceCardinality: 0..*
   sourceName: containedProject
@@ -18,6 +14,10 @@ associations:
   targetCardinality: "1"
   targetName: containingProject
   targetDescription: The parent project of this project.
+- source: NetworkModelProjectComponent
+  target: NetworkModelProjectDocument
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
 - source: NetworkModelProjectComponent
   target: NetworkModelProjectRelationship
   sourceCardinality: "1"

@@ -4,39 +4,39 @@ description: Turbine-governor function block whose behaviour is described by ref
 ancestors:
 - DynamicsFunctionBlock
 descendants:
-- TurbineGovernorUserDefined
-- GovSteamSGO
-- GovSteamFV4
-- GovSteamFV3
-- GovSteamFV2
-- GovSteamEU
-- GovSteamBB
-- GovSteam2
-- GovSteam1
-- GovSteam0
-- GovHydroWPID
-- GovHydroWEH
-- GovHydroR
-- GovHydroPID2
-- GovHydroPID
-- GovHydroPelton
-- GovHydroFrancis
-- GovHydroDD
-- GovHydro4
-- GovHydro3
-- GovHydro2
-- GovHydro1
-- GovGASTWD
-- GovGAST4
-- GovGAST3
-- GovGAST2
-- GovGAST1
-- GovGAST
-- GovCT2
 - GovCT1
-- GovSteamIEEE1
-- GovHydroIEEE2
+- GovCT2
+- GovGAST
+- GovGAST1
+- GovGAST2
+- GovGAST3
+- GovGAST4
+- GovGASTWD
+- GovHydro1
+- GovHydro2
+- GovHydro3
+- GovHydro4
+- GovHydroDD
+- GovHydroFrancis
 - GovHydroIEEE0
+- GovHydroIEEE2
+- GovHydroPID
+- GovHydroPID2
+- GovHydroPelton
+- GovHydroR
+- GovHydroWEH
+- GovHydroWPID
+- GovSteam0
+- GovSteam1
+- GovSteam2
+- GovSteamBB
+- GovSteamEU
+- GovSteamFV2
+- GovSteamFV3
+- GovSteamFV4
+- GovSteamIEEE1
+- GovSteamSGO
+- TurbineGovernorUserDefined
 associations:
 - source: TurbineGovernorDynamics
   target: AsynchronousMachineDynamics
@@ -48,14 +48,6 @@ associations:
   targetDescription: Asynchronous machine model with which this turbine-governor model is associated. TurbineGovernorDynamics
     shall have either an association to SynchronousMachineDynamics or to AsynchronousMachineDynamics.
 - source: TurbineGovernorDynamics
-  target: TurbineLoadControllerDynamics
-  sourceCardinality: "1"
-  sourceName: turbineGovernorDynamics
-  sourceDescription: Turbine-governor controlled by this turbine load controller.
-  targetCardinality: 0..1
-  targetName: turbineLoadControllerDynamics
-  targetDescription: Turbine load controller providing input to this turbine-governor.
-- source: TurbineGovernorDynamics
   target: SynchronousMachineDynamics
   sourceCardinality: 0..*
   sourceName: turbineGovernorDynamics
@@ -65,3 +57,11 @@ associations:
   targetName: synchronousMachineDynamics
   targetDescription: Synchronous machine model with which this turbine-governor model is associated. TurbineGovernorDynamics
     shall have either an association to SynchronousMachineDynamics or to AsynchronousMachineDynamics.
+- source: TurbineGovernorDynamics
+  target: TurbineLoadControllerDynamics
+  sourceCardinality: "1"
+  sourceName: turbineGovernorDynamics
+  sourceDescription: Turbine-governor controlled by this turbine load controller.
+  targetCardinality: 0..1
+  targetName: turbineLoadControllerDynamics
+  targetDescription: Turbine load controller providing input to this turbine-governor.

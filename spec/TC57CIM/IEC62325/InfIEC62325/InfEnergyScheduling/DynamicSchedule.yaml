@@ -12,13 +12,11 @@ ancestors:
 - BasicIntervalSchedule
 associations:
 - source: DynamicSchedule
-  target: SubControlArea
+  target: MktMeasurement
   sourceCardinality: 0..*
-  sourceName: send_DynamicSchedules
-  sourceDescription: A control area can send dynamic schedules to other control areas
+  sourceName: dynamicSchedule
   targetCardinality: "1"
-  targetName: send_SubControlArea
-  targetDescription: A control area can send dynamic schedules to other control areas
+  targetName: mktMeasurement
 - source: DynamicSchedule
   target: SubControlArea
   sourceCardinality: 0..*
@@ -28,8 +26,10 @@ associations:
   targetName: receive_SubControlArea
   targetDescription: A control area can receive dynamic schedules from other control areas
 - source: DynamicSchedule
-  target: MktMeasurement
+  target: SubControlArea
   sourceCardinality: 0..*
-  sourceName: dynamicSchedule
+  sourceName: send_DynamicSchedules
+  sourceDescription: A control area can send dynamic schedules to other control areas
   targetCardinality: "1"
-  targetName: mktMeasurement
+  targetName: send_SubControlArea
+  targetDescription: A control area can send dynamic schedules to other control areas

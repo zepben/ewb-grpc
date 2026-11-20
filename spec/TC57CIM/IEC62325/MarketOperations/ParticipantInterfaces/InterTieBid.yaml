@@ -8,14 +8,14 @@ ancestors:
 - ResourceBid
 associations:
 - source: InterTieBid
-  target: RegisteredInterTie
-  sourceCardinality: 0..1
-  sourceName: interTieBid
-  targetCardinality: 0..1
-  targetName: registeredInterTie
-- source: InterTieBid
   target: RampRateCurve
   sourceCardinality: 0..1
   sourceName: interTieBid
   targetCardinality: 0..*
   targetName: rampRateCurve
+- source: InterTieBid
+  target: RegisteredInterTie
+  sourceCardinality: 0..1
+  sourceName: interTieBid
+  targetCardinality: 0..1
+  targetName: registeredInterTie

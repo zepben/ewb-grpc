@@ -42,14 +42,6 @@ associations:
   targetName: diagram
   targetDescription: A diagram object is part of a diagram.
 - source: DiagramObject
-  target: VisibilityLayer
-  sourceCardinality: 0..*
-  sourceName: visibleObjects
-  sourceDescription: A visibility layer can contain one or more diagram objects.
-  targetCardinality: 0..*
-  targetName: visibilityLayers
-  targetDescription: A diagram object can be part of multiple visibility layers.
-- source: DiagramObject
   target: DiagramObjectPoint
   sourceCardinality: "1"
   sourceName: diagramObject
@@ -75,3 +67,11 @@ associations:
   targetCardinality: 0..1
   targetName: identifiedObject
   targetDescription: The domain object to which this diagram object is associated.
+- source: DiagramObject
+  target: VisibilityLayer
+  sourceCardinality: 0..*
+  sourceName: visibleObjects
+  sourceDescription: A visibility layer can contain one or more diagram objects.
+  targetCardinality: 0..*
+  targetName: visibilityLayers
+  targetDescription: A diagram object can be part of multiple visibility layers.

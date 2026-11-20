@@ -1,6 +1,11 @@
 name: IdentifiedObject
 description: This is a root class to provide common identification for all classes needing identification and naming attributes.
 attributes:
+- name: description
+  type: String
+  nullable: true
+  description: The description is a free human readable text describing or naming the object. It may be non unique and may
+    not correlate to a naming hierarchy.
 - name: mRID
   type: String
   nullable: false
@@ -11,45 +16,40 @@ attributes:
   type: String
   nullable: true
   description: The name is any free human readable and possibly non unique text naming the object.
-- name: description
-  type: String
-  nullable: true
-  description: The description is a free human readable text describing or naming the object. It may be non unique and may
-    not correlate to a naming hierarchy.
 - name: numDiagramObjects
   type: Integer
   nullable: true
   description: Count of the DiagramObject's that are associated with this IdentifiedObject
 descendants:
-- Document
-- Location
-- Organisation
-- OrganisationRole
-- PowerSystemResource
 - ACDCTerminal
+- AnnotatedProjectDependency
+- Asset
+- AssetFunction
+- AssetInfo
 - BaseVoltage
 - ConnectivityNode
-- GeographicalRegion
+- Curve
 - Diagram
 - DiagramObject
+- Document
+- GeographicalRegion
 - IOPoint
-- Measurement
-- RemotePoint
-- PerLengthLineParameter
-- TransformerEnd
-- Asset
-- AssetInfo
-- UsagePoint
-- SubGeographicalRegion
-- TransformerStarImpedance
-- TransformerTest
-- ProtectionRelayScheme
+- Location
 - Loop
-- AssetFunction
-- Curve
+- Measurement
 - NetworkModelProjectComponent
 - NetworkModelProjectStageConflict
-- AnnotatedProjectDependency
+- Organisation
+- OrganisationRole
+- PerLengthLineParameter
+- PowerSystemResource
+- ProtectionRelayScheme
+- RemotePoint
+- SubGeographicalRegion
+- TransformerEnd
+- TransformerStarImpedance
+- TransformerTest
+- UsagePoint
 associations:
 - source: IdentifiedObject
   target: Name

@@ -18,13 +18,6 @@ attributes:
     Active power of the load in watts. Load sign convention is used, i.e. positive sign means flow out from a node.
     For voltage dependent loads the value is at rated voltage.
     Starting value for a steady state solution.
-- name: q
-  type: Double
-  nullable: true
-  description: |-
-    Reactive power of the load in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
-    For voltage dependent loads the value is at rated voltage.
-    Starting value for a steady state solution.
 - name: pfixed
   type: Integer
   nullable: true
@@ -34,6 +27,13 @@ attributes:
   type: PhaseShuntConnectionKind
   nullable: false
   description: The type of phase connection, such as wye or delta.
+- name: q
+  type: Double
+  nullable: true
+  description: |-
+    Reactive power of the load in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
+    For voltage dependent loads the value is at rated voltage.
+    Starting value for a steady state solution.
 - name: qfixed
   type: Double
   nullable: true

@@ -5,12 +5,6 @@ ancestors:
 - DataSet
 associations:
 - source: ChangeSet
-  target: IncrementalDatasetArg
-  sourceCardinality: "1"
-  sourceName: incrementalDataset
-  targetCardinality: 0..*
-  targetName: incrementalDatasetArg
-- source: ChangeSet
   target: ChangeSetMember
   sourceCardinality: 0..1
   sourceName: changeset
@@ -18,6 +12,12 @@ associations:
   targetCardinality: 0..*
   targetName: changeSetMember
   targetDescription: Data objects contained in the dataset.
+- source: ChangeSet
+  target: IncrementalDatasetArg
+  sourceCardinality: "1"
+  sourceName: incrementalDataset
+  targetCardinality: 0..*
+  targetName: incrementalDatasetArg
 - source: ChangeSet
   target: NetworkModelProjectChangeVersion
   sourceCardinality: 0..1

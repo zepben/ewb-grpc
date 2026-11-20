@@ -3,23 +3,17 @@ description: A transmission reservation is obtained from the OASIS system to res
   transmission path and transmission product.
 associations:
 - source: TransmissionReservation
-  target: TransactionBid
-  sourceCardinality: 0..1
-  sourceName: transmissionReservation
-  targetCardinality: 0..1
-  targetName: transactionBid
-- source: TransmissionReservation
   target: EnergyTransaction
   sourceCardinality: 0..1
   sourceName: transmissionReservation
   targetCardinality: 0..1
   targetName: energyTransaction
 - source: TransmissionReservation
-  target: TransmissionPath
+  target: ServicePoint
   sourceCardinality: 0..*
-  sourceName: transmissionReservation
-  targetCardinality: "1"
-  targetName: transmissionPath
+  sourceName: sinkReservation
+  targetCardinality: 0..1
+  targetName: sink
 - source: TransmissionReservation
   target: ServicePoint
   sourceCardinality: 0..*
@@ -27,8 +21,14 @@ associations:
   targetCardinality: 0..1
   targetName: source
 - source: TransmissionReservation
-  target: ServicePoint
-  sourceCardinality: 0..*
-  sourceName: sinkReservation
+  target: TransactionBid
+  sourceCardinality: 0..1
+  sourceName: transmissionReservation
   targetCardinality: 0..1
-  targetName: sink
+  targetName: transactionBid
+- source: TransmissionReservation
+  target: TransmissionPath
+  sourceCardinality: 0..*
+  sourceName: transmissionReservation
+  targetCardinality: "1"
+  targetName: transmissionPath

@@ -21,14 +21,6 @@ ancestors:
 - Curve
 associations:
 - source: FuelAllocationSchedule
-  target: ThermalGeneratingUnit
-  sourceCardinality: 0..*
-  sourceName: fuelAllocationSchedules
-  sourceDescription: A thermal generating unit may have one or more fuel allocation schedules.
-  targetCardinality: "1"
-  targetName: thermalGeneratingUnit
-  targetDescription: A thermal generating unit may have one or more fuel allocation schedules.
-- source: FuelAllocationSchedule
   target: FossilFuel
   sourceCardinality: 0..*
   sourceName: fuelAllocationSchedules
@@ -36,3 +28,11 @@ associations:
   targetCardinality: "1"
   targetName: fossilFuel
   targetDescription: A fuel allocation schedule shall have a fossil fuel.
+- source: FuelAllocationSchedule
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..*
+  sourceName: fuelAllocationSchedules
+  sourceDescription: A thermal generating unit may have one or more fuel allocation schedules.
+  targetCardinality: "1"
+  targetName: thermalGeneratingUnit
+  targetDescription: A thermal generating unit may have one or more fuel allocation schedules.

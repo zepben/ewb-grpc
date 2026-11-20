@@ -12,6 +12,12 @@ attributes:
     type: Double
     nullable: true
     description: Inductive reactance in ohms at maximum inductive reactive power.  Shall always be negative.
+  - name: q
+    type: Double
+    nullable: true
+    description: |-
+      Reactive power injection in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
+      Starting value for a steady state solution.
   - name: sVCControlMode
     type: SVCControlMode
     nullable: false
@@ -22,11 +28,5 @@ attributes:
     description: The reactive power output of the SVC is proportional to the difference between the voltage at the regulated
       bus and the voltage set-point. When the regulated bus voltage is equal to the voltage set-point, the reactive power output
       is zero. Must be in volts.
-  - name: q
-    type: Double
-    nullable: true
-    description: |-
-      Reactive power injection in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
-      Starting value for a steady state solution.
 ancestors:
   - RegulatingCondEq

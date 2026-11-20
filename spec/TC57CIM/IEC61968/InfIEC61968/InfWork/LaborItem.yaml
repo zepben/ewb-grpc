@@ -19,6 +19,12 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: LaborItem
+  target: OldPerson
+  sourceCardinality: 0..*
+  sourceName: laborItems
+  targetCardinality: 0..*
+  targetName: erpPersons
+- source: LaborItem
   target: WorkCostDetail
   sourceCardinality: 0..*
   sourceName: laborItems
@@ -30,9 +36,3 @@ associations:
   sourceName: laborItems
   targetCardinality: 0..1
   targetName: workTask
-- source: LaborItem
-  target: OldPerson
-  sourceCardinality: 0..*
-  sourceName: laborItems
-  targetCardinality: 0..*
-  targetName: erpPersons

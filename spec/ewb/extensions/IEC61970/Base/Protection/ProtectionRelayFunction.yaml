@@ -4,35 +4,35 @@ description: \[ZBEX\] This extension is in-line with the CIM working group for r
   <br/>
   A function that a relay implements to protect equipment.
 attributes:
+- name: directable
+  type: Boolean
+  nullable: true
+  description: \[ZBEX\] Whether this ProtectionRelayFunction responds to power flow in a given direction.
 - name: model
   type: String
   nullable: true
   description: \[ZBEX\] The protection equipment type name (manufacturer information)
+- name: powerDirection
+  type: PowerDirectionKind
+  nullable: false
+  description: \[ZBEX\] The flow of power direction used by this ProtectionRelayFunction.
+- name: protectionKind
+  type: ProtectionKind
+  nullable: false
+  description: \[ZBEX\] The kind of protection being provided by this ProtectionRelayFunction.
 - name: reclosing
   type: Boolean
   nullable: true
   description: \[ZBEX\] True if the protection equipment is reclosing or False otherwise.
+- name: relayDelayTime
+  type: Double
+  nullable: true
+  description: \[ZBEX\] The time delay from detection of abnormal conditions to relay operation in seconds.
 - name: timeLimits
   type: Float list
   nullable: true
   description: \[ZBEX\] The time limits (in seconds) for this relay function.
     Order of entries corresponds to the order of entries in thresholds.
-- name: relayDelayTime
-  type: Double
-  nullable: true
-  description: \[ZBEX\] The time delay from detection of abnormal conditions to relay operation in seconds.
-- name: protectionKind
-  type: ProtectionKind
-  nullable: false
-  description: \[ZBEX\] The kind of protection being provided by this ProtectionRelayFunction.
-- name: directable
-  type: Boolean
-  nullable: true
-  description: \[ZBEX\] Whether this ProtectionRelayFunction responds to power flow in a given direction.
-- name: powerDirection
-  type: PowerDirectionKind
-  nullable: false
-  description: \[ZBEX\] The flow of power direction used by this ProtectionRelayFunction.
 ancestors:
 - PowerSystemResource
 descendants:
@@ -42,11 +42,6 @@ descendants:
 - VoltageRelay
 associations:
 - source: ProtectionRelayFunction
-  target: RelaySetting
-  targetCardinality: 0..*
-  targetName: thresholds
-  targetDescription: \[ZBEX\] The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
-- source: ProtectionRelayFunction
   target: ProtectedSwitch
   sourceCardinality: 0..*
   sourceName: relayFunctions
@@ -54,6 +49,14 @@ associations:
   targetCardinality: 0..*
   targetName: protectedSwitches
   targetDescription: \[ZBEX\] The ProtectedSwitches operated by this ProtectionRelayFunction.
+- source: ProtectionRelayFunction
+  target: ProtectionRelayScheme
+  sourceCardinality: 0..*
+  sourceName: functions
+  sourceDescription: \[ZBEX\] The functions operated as part of this protection scheme.
+  targetCardinality: 0..*
+  targetName: schemes
+  targetDescription: \[ZBEX\] The schemes this function operates under.
 - source: ProtectionRelayFunction
   target: Sensor
   sourceCardinality: 0..*
@@ -63,10 +66,7 @@ associations:
   targetName: sensors
   targetDescription: \[ZBEX\] The Sensors for this relay function.
 - source: ProtectionRelayFunction
-  target: ProtectionRelayScheme
-  sourceCardinality: 0..*
-  sourceName: functions
-  sourceDescription: \[ZBEX\] The functions operated as part of this protection scheme.
+  target: RelaySetting
   targetCardinality: 0..*
-  targetName: schemes
-  targetDescription: \[ZBEX\] The schemes this function operates under.
+  targetName: thresholds
+  targetDescription: \[ZBEX\] The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.

@@ -5,26 +5,26 @@ ancestors:
 - ErpDocument
 associations:
 - source: ErpPOLineItem
-  target: ErpPurchaseOrder
-  sourceCardinality: 0..*
-  sourceName: erpPOLineItems
-  targetCardinality: "1"
-  targetName: erpPurchaseOrder
-- source: ErpPOLineItem
   target: AssetModelCatalogueItem
   sourceCardinality: 0..*
   sourceName: erpPOLineItems
   targetCardinality: 0..1
   targetName: assetModelCatalogueItem
 - source: ErpPOLineItem
-  target: ErpReqLineItem
-  sourceCardinality: 0..1
-  sourceName: erpPOLineItem
-  targetCardinality: 0..1
-  targetName: erpReqLineItem
+  target: ErpPurchaseOrder
+  sourceCardinality: 0..*
+  sourceName: erpPOLineItems
+  targetCardinality: "1"
+  targetName: erpPurchaseOrder
 - source: ErpPOLineItem
   target: ErpRecDelvLineItem
   sourceCardinality: 0..1
   sourceName: erpPOLineItem
   targetCardinality: 0..1
   targetName: erpRecDelLineItem
+- source: ErpPOLineItem
+  target: ErpReqLineItem
+  sourceCardinality: 0..1
+  sourceName: erpPOLineItem
+  targetCardinality: 0..1
+  targetName: erpReqLineItem

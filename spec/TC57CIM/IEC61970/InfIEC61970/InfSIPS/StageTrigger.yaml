@@ -15,13 +15,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: StageTrigger
-  target: Stage
-  sourceCardinality: 1..*
-  sourceName: stageTrigger
-  sourceDescription: A Stage consist of one or more StageTrigger.
-  targetCardinality: "1"
-  targetName: stage
-- source: StageTrigger
   target: Gate
   sourceCardinality: 0..*
   sourceName: stageTriggerArmed
@@ -50,3 +43,10 @@ associations:
   sourceDescription: When condition to the StageTrigger is met, the actions in the ProtectiveActionCollection are activated/triggered.
   targetCardinality: "1"
   targetName: protectiveActionCollection
+- source: StageTrigger
+  target: Stage
+  sourceCardinality: 1..*
+  sourceName: stageTrigger
+  sourceDescription: A Stage consist of one or more StageTrigger.
+  targetCardinality: "1"
+  targetName: stage

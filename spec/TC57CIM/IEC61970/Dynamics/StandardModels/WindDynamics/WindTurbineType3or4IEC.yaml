@@ -3,17 +3,9 @@ description: Parent class supporting relationships to IEC wind turbines type 3 a
 ancestors:
 - WindTurbineType3or4Dynamics
 descendants:
-- WindTurbineType4IEC
 - WindTurbineType3IEC
+- WindTurbineType4IEC
 associations:
-- source: WindTurbineType3or4IEC
-  target: WindContQPQULimIEC
-  sourceCardinality: 0..1
-  sourceName: windTurbineType3or4IEC
-  sourceDescription: Wind generator type 3 or type 4 model with which this QP and QU limitation model is associated.
-  targetCardinality: 0..1
-  targetName: windContQPQULimIEC
-  targetDescription: QP and QU limitation model associated with this wind generator type 3 or type 4 model.
 - source: WindTurbineType3or4IEC
   target: WindContCurrLimIEC
   sourceCardinality: "1"
@@ -23,14 +15,6 @@ associations:
   targetName: windContCurrLimIEC
   targetDescription: Wind control current limitation model associated with this wind turbine type 3 or type 4 model.
 - source: WindTurbineType3or4IEC
-  target: WindProtectionIEC
-  sourceCardinality: 0..1
-  sourceName: windTurbineType3or4IEC
-  sourceDescription: Wind generator type 3 or type 4 model with which this wind turbine protection model is associated.
-  targetCardinality: "1"
-  targetName: windProtectionIEC
-  targetDescription: Wind turbune protection model associated with this wind generator type 3 or type 4 model.
-- source: WindTurbineType3or4IEC
   target: WindContQIEC
   sourceCardinality: "1"
   sourceName: windTurbineType3or4IEC
@@ -39,14 +23,6 @@ associations:
   targetName: windContQIEC
   targetDescription: Wind control Q model associated with this wind turbine type 3 or type 4 model.
 - source: WindTurbineType3or4IEC
-  target: WindRefFrameRotIEC
-  sourceCardinality: "1"
-  sourceName: windTurbineType3or4IEC
-  sourceDescription: Wind turbine type 3 or type 4 model with which this reference frame rotation model is associated.
-  targetCardinality: "1"
-  targetName: windRefFrameRotIEC
-  targetDescription: Reference frame rotation model associated with this wind turbine type 3 or type 4 model.
-- source: WindTurbineType3or4IEC
   target: WindContQLimIEC
   sourceCardinality: 0..1
   sourceName: windTurbineType3or4IEC
@@ -54,3 +30,27 @@ associations:
   targetCardinality: 0..1
   targetName: windContQLimIEC
   targetDescription: Constant Q limitation model associated with this wind generator type 3 or type 4 model.
+- source: WindTurbineType3or4IEC
+  target: WindContQPQULimIEC
+  sourceCardinality: 0..1
+  sourceName: windTurbineType3or4IEC
+  sourceDescription: Wind generator type 3 or type 4 model with which this QP and QU limitation model is associated.
+  targetCardinality: 0..1
+  targetName: windContQPQULimIEC
+  targetDescription: QP and QU limitation model associated with this wind generator type 3 or type 4 model.
+- source: WindTurbineType3or4IEC
+  target: WindProtectionIEC
+  sourceCardinality: 0..1
+  sourceName: windTurbineType3or4IEC
+  sourceDescription: Wind generator type 3 or type 4 model with which this wind turbine protection model is associated.
+  targetCardinality: "1"
+  targetName: windProtectionIEC
+  targetDescription: Wind turbune protection model associated with this wind generator type 3 or type 4 model.
+- source: WindTurbineType3or4IEC
+  target: WindRefFrameRotIEC
+  sourceCardinality: "1"
+  sourceName: windTurbineType3or4IEC
+  sourceDescription: Wind turbine type 3 or type 4 model with which this reference frame rotation model is associated.
+  targetCardinality: "1"
+  targetName: windRefFrameRotIEC
+  targetDescription: Reference frame rotation model associated with this wind turbine type 3 or type 4 model.

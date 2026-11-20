@@ -14,14 +14,6 @@ attributes:
   description: Indicates how the weather station reports observations.
 associations:
 - source: ReportingCapability
-  target: EnvironmentalMonitoringStation
-  sourceCardinality: 0..*
-  sourceName: reportingCapability
-  sourceDescription: One of the reporting capabilities of this monitoring station.
-  targetCardinality: "1"
-  targetName: environmentalMonitoringStation
-  targetDescription: The environmental monitoring station to which this set of reporting capabilities belong.
-- source: ReportingCapability
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
   sourceName: reportingCapability
@@ -29,3 +21,11 @@ associations:
   targetCardinality: 0..*
   targetName: environmentalAnalog
   targetDescription: One of the environmental value sets expressing one of the reporting capabilities.
+- source: ReportingCapability
+  target: EnvironmentalMonitoringStation
+  sourceCardinality: 0..*
+  sourceName: reportingCapability
+  sourceDescription: One of the reporting capabilities of this monitoring station.
+  targetCardinality: "1"
+  targetName: environmentalMonitoringStation
+  targetDescription: The environmental monitoring station to which this set of reporting capabilities belong.

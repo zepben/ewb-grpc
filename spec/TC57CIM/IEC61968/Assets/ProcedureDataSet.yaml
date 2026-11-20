@@ -8,32 +8,12 @@ attributes:
 ancestors:
 - Document
 descendants:
-- LabTestDataSet
 - DiagnosisDataSet
-- TestDataSet
-- MaintenanceDataSet
 - InspectionDataSet
+- LabTestDataSet
+- MaintenanceDataSet
+- TestDataSet
 associations:
-- source: ProcedureDataSet
-  target: MeasurementValue
-  sourceCardinality: 0..*
-  sourceName: procedureDataSet
-  targetCardinality: 0..*
-  targetName: measurementValue
-- source: ProcedureDataSet
-  target: TransformerObservation
-  sourceCardinality: 0..*
-  sourceName: procedureDataSets
-  targetCardinality: 0..*
-  targetName: transformerObservations
-- source: ProcedureDataSet
-  target: WorkTask
-  sourceCardinality: 0..*
-  sourceName: procedureDataSet
-  sourceDescription: Procedure data set associated with this work task.
-  targetCardinality: 0..1
-  targetName: workTask
-  targetDescription: Work task that created this procedure data set.
 - source: ProcedureDataSet
   target: Asset
   sourceCardinality: 0..*
@@ -42,6 +22,12 @@ associations:
   targetCardinality: 0..1
   targetName: asset
   targetDescription: Asset to which this procedure data set applies.
+- source: ProcedureDataSet
+  target: MeasurementValue
+  sourceCardinality: 0..*
+  sourceName: procedureDataSet
+  targetCardinality: 0..*
+  targetName: measurementValue
 - source: ProcedureDataSet
   target: Procedure
   sourceCardinality: 0..*
@@ -58,3 +44,17 @@ associations:
   targetName: properties
   targetDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
     kind of property it is, and 'value.value' attribute for the actual value.
+- source: ProcedureDataSet
+  target: TransformerObservation
+  sourceCardinality: 0..*
+  sourceName: procedureDataSets
+  targetCardinality: 0..*
+  targetName: transformerObservations
+- source: ProcedureDataSet
+  target: WorkTask
+  sourceCardinality: 0..*
+  sourceName: procedureDataSet
+  sourceDescription: Procedure data set associated with this work task.
+  targetCardinality: 0..1
+  targetName: workTask
+  targetDescription: Work task that created this procedure data set.

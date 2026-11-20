@@ -1,6 +1,16 @@
 name: RotatingMachine
 description: A rotating machine which may be used as a generator or motor.
 attributes:
+- name: p
+  type: ActivePower
+  description: |-
+    Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for a steady state solution.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for a steady state solution.
 - name: ratedPowerFactor
   type: Float
   description: Power factor (nameplate data). It is primarily used for short circuit data exchange according to IEC 60909.
@@ -15,22 +25,20 @@ attributes:
   description: |-
     Rated voltage (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according to IEC 60909.
     The attribute shall be a positive value.
-- name: p
-  type: ActivePower
-  description: |-
-    Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
-    Starting value for a steady state solution.
-- name: q
-  type: ReactivePower
-  description: |-
-    Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
-    Starting value for a steady state solution.
 ancestors:
 - RegulatingCondEq
 descendants:
 - AsynchronousMachine
 - SynchronousMachine
 associations:
+- source: RotatingMachine
+  target: GeneratingUnit
+  sourceCardinality: 0..*
+  sourceName: rotatingMachine
+  sourceDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
+  targetCardinality: 0..1
+  targetName: generatingUnit
+  targetDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
 - source: RotatingMachine
   target: HydroPump
   sourceCardinality: "1"
@@ -41,11 +49,3 @@ associations:
   targetName: hydroPump
   targetDescription: The synchronous machine drives the turbine which moves the water from a low elevation to a higher elevation.
     The direction of machine rotation for pumping may or may not be the same as for generating.
-- source: RotatingMachine
-  target: GeneratingUnit
-  sourceCardinality: 0..*
-  sourceName: rotatingMachine
-  sourceDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
-  targetCardinality: 0..1
-  targetName: generatingUnit
-  targetDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.

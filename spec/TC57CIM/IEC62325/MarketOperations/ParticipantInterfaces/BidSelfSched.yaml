@@ -51,12 +51,6 @@ ancestors:
 - RegularIntervalSchedule
 associations:
 - source: BidSelfSched
-  target: ContractRight
-  sourceCardinality: 0..*
-  sourceName: bidSelfSched
-  targetCardinality: 0..1
-  targetName: transmissionContractRight
-- source: BidSelfSched
   target: AdjacentCASet
   sourceCardinality: 0..*
   sourceName: bidSelfSched
@@ -69,14 +63,20 @@ associations:
   targetCardinality: 0..1
   targetName: hostControlArea
 - source: BidSelfSched
+  target: ProductBid
+  sourceCardinality: 0..*
+  sourceName: bidSelfSched
+  targetCardinality: "1"
+  targetName: productBid
+- source: BidSelfSched
   target: SubControlArea
   sourceCardinality: 0..*
   sourceName: bidSelfSched
   targetCardinality: 0..1
   targetName: subControlArea
 - source: BidSelfSched
-  target: ProductBid
+  target: ContractRight
   sourceCardinality: 0..*
   sourceName: bidSelfSched
-  targetCardinality: "1"
-  targetName: productBid
+  targetCardinality: 0..1
+  targetName: transmissionContractRight

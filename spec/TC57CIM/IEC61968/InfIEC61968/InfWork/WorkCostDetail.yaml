@@ -16,59 +16,17 @@ ancestors:
 - WorkDocument
 associations:
 - source: WorkCostDetail
-  target: WorkCostSummary
-  sourceCardinality: 0..1
-  sourceName: workCostDetail
-  targetCardinality: 0..1
-  targetName: workCostSummary
-- source: WorkCostDetail
-  target: ErpProjectAccounting
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: "1"
-  targetName: erpProjectAccounting
-- source: WorkCostDetail
-  target: PropertyUnit
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..*
-  targetName: propertyUnits
-- source: WorkCostDetail
-  target: OldWorkTask
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..1
-  targetName: workTask
-- source: WorkCostDetail
   target: ContractorItem
   sourceCardinality: "1"
   sourceName: workCostDetail
   targetCardinality: 0..*
   targetName: contractorItems
 - source: WorkCostDetail
-  target: Work
+  target: CostType
   sourceCardinality: 0..*
   sourceName: workCostDetails
-  targetCardinality: 0..*
-  targetName: works
-- source: WorkCostDetail
-  target: OverheadCost
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..1
-  targetName: overheadCost
-- source: WorkCostDetail
-  target: MiscCostItem
-  sourceCardinality: 0..1
-  sourceName: workCostDetail
-  targetCardinality: 0..*
-  targetName: miscCostItems
-- source: WorkCostDetail
-  target: LaborItem
-  sourceCardinality: "1"
-  sourceName: workCostDetail
-  targetCardinality: 0..*
-  targetName: laborItems
+  targetCardinality: "1"
+  targetName: costType
 - source: WorkCostDetail
   target: Design
   sourceCardinality: 0..*
@@ -76,8 +34,50 @@ associations:
   targetCardinality: 0..1
   targetName: design
 - source: WorkCostDetail
-  target: CostType
+  target: ErpProjectAccounting
   sourceCardinality: 0..*
   sourceName: workCostDetails
   targetCardinality: "1"
-  targetName: costType
+  targetName: erpProjectAccounting
+- source: WorkCostDetail
+  target: LaborItem
+  sourceCardinality: "1"
+  sourceName: workCostDetail
+  targetCardinality: 0..*
+  targetName: laborItems
+- source: WorkCostDetail
+  target: MiscCostItem
+  sourceCardinality: 0..1
+  sourceName: workCostDetail
+  targetCardinality: 0..*
+  targetName: miscCostItems
+- source: WorkCostDetail
+  target: OverheadCost
+  sourceCardinality: 0..*
+  sourceName: workCostDetails
+  targetCardinality: 0..1
+  targetName: overheadCost
+- source: WorkCostDetail
+  target: PropertyUnit
+  sourceCardinality: 0..*
+  sourceName: workCostDetails
+  targetCardinality: 0..*
+  targetName: propertyUnits
+- source: WorkCostDetail
+  target: WorkCostSummary
+  sourceCardinality: 0..1
+  sourceName: workCostDetail
+  targetCardinality: 0..1
+  targetName: workCostSummary
+- source: WorkCostDetail
+  target: Work
+  sourceCardinality: 0..*
+  sourceName: workCostDetails
+  targetCardinality: 0..*
+  targetName: works
+- source: WorkCostDetail
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  sourceName: workCostDetails
+  targetCardinality: 0..1
+  targetName: workTask

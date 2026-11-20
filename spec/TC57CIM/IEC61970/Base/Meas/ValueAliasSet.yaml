@@ -8,13 +8,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ValueAliasSet
-  target: ValueToAlias
-  sourceCardinality: "1"
+  target: Command
+  sourceCardinality: 0..1
   sourceName: valueAliasSet
-  sourceDescription: The ValueAliasSet having the ValueToAlias mappings.
-  targetCardinality: 1..*
-  targetName: values
-  targetDescription: The ValueToAlias mappings included in the set.
+  sourceDescription: The ValueAliasSet used for translation of a Control value to a name.
+  targetCardinality: 0..*
+  targetName: commands
+  targetDescription: The Commands using the set for translation.
 - source: ValueAliasSet
   target: Discrete
   sourceCardinality: 0..1
@@ -24,14 +24,6 @@ associations:
   targetName: discretes
   targetDescription: The Measurements using the set for translation.
 - source: ValueAliasSet
-  target: Command
-  sourceCardinality: 0..1
-  sourceName: valueAliasSet
-  sourceDescription: The ValueAliasSet used for translation of a Control value to a name.
-  targetCardinality: 0..*
-  targetName: commands
-  targetDescription: The Commands using the set for translation.
-- source: ValueAliasSet
   target: RaiseLowerCommand
   sourceCardinality: 0..1
   sourceName: valueAliasSet
@@ -39,3 +31,11 @@ associations:
   targetCardinality: 0..*
   targetName: raiseLowerCommands
   targetDescription: The Commands using the set for translation.
+- source: ValueAliasSet
+  target: ValueToAlias
+  sourceCardinality: "1"
+  sourceName: valueAliasSet
+  sourceDescription: The ValueAliasSet having the ValueToAlias mappings.
+  targetCardinality: 1..*
+  targetName: values
+  targetDescription: The ValueToAlias mappings included in the set.

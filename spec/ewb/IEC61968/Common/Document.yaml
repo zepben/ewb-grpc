@@ -2,36 +2,36 @@ name: Document
 description: Parent class for different groupings of information collected and managed as a part of a business process. It
   will frequently contain references to other objects, such as assets, people and power system resources.
 attributes:
-- name: title
-  type: String
-  nullable: true
-  description: Document title.
-- name: createdDateTime
-  type: DateTime
-  nullable: true
-  description: Date and time that this document was created.
 - name: authorName
   type: String
   nullable: true
   description: Name of the author of this document.
-- name: type
+- name: comment
   type: String
   nullable: true
-  description: Utility-specific classification of this document, according to its corporate standards, practices, and existing
-    IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
+  description: Free text comment.
+- name: createdDateTime
+  type: DateTime
+  nullable: true
+  description: Date and time that this document was created.
 - name: status
   type: String
   nullable: true
   description: Status of subject matter (e.g., Agreement, Work) this document represents. For status of the document itself,
     use 'docStatus' attribute.
-- name: comment
+- name: title
   type: String
   nullable: true
-  description: Free text comment.
+  description: Document title.
+- name: type
+  type: String
+  nullable: true
+  description: Utility-specific classification of this document, according to its corporate standards, practices, and existing
+    IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).
 ancestors:
 - IdentifiedObject
 descendants:
 - Agreement
-- PricingStructure
 - OperationalRestriction
+- PricingStructure
 - Tariff

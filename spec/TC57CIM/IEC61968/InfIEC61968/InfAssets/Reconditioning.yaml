@@ -8,11 +8,11 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Reconditioning
-  target: TransformerObservation
-  sourceCardinality: "1"
-  sourceName: reconditioning
-  targetCardinality: 0..*
-  targetName: transformerObservations
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: reconditionings
+  targetCardinality: 0..1
+  targetName: asset
 - source: Reconditioning
   target: CoolingPowerRating
   sourceCardinality: 0..*
@@ -20,8 +20,8 @@ associations:
   targetCardinality: 0..*
   targetName: powerRatings
 - source: Reconditioning
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: reconditionings
-  targetCardinality: 0..1
-  targetName: asset
+  target: TransformerObservation
+  sourceCardinality: "1"
+  sourceName: reconditioning
+  targetCardinality: 0..*
+  targetName: transformerObservations

@@ -1,42 +1,6 @@
 name: MarketRoleKind
 description: Kind of market role an organisation can have. This list is not exhausted, as other roles may exist.
 attributes:
-- name: energyServiceConsumer
-  description: Energy service consumer.
-- name: generatorOwner
-  description: Generator merchant owner.
-- name: generatorOperator
-  description: Generator merchant operator.
-- name: transmissionServiceProvider
-  description: Transmission service provider.
-- name: transmissionOwner
-  description: Transmission owner.
-- name: transmissionOperator
-  description: Transmission operator.
-- name: distributionProvider
-  description: Distribution provider.
-- name: loadServingEntity
-  description: Load serving entity.
-- name: purchasingSellingEntity
-  description: Purchasing selling entity.
-- name: competitiveRetailer
-  description: Competitive retailer.
-- name: reliabilityAuthority
-  description: Reliability authority.
-- name: planningAuthority
-  description: Planning authority.
-- name: balancingAuthority
-  description: Balancing authority.
-- name: interchangeAuthority
-  description: Interchange authority.
-- name: transmissionPlanner
-  description: Transmission planner.
-- name: resourcePlanner
-  description: Resource planner.
-- name: standardsDeveloper
-  description: Standards developer.
-- name: complianceMonitor
-  description: Compliance monitor.
 - name: BalanceResponsibleParty
   description: |-
     A party that has a contract proving financial security and identifying balance responsibility with the Imbalance Settlement Responsible of the Market Balance Area entitling the party to operate in the market. This is the only role allowing a party to nominate energy on a wholesale level.
@@ -47,6 +11,8 @@ attributes:
     A party that markets the difference between actual metered energy consumption and the energy bought with firm energy contracts by the Party Connected to the Grid. In addition the Balance Supplier markets any difference with the firm energy contract (of the Party Connected to the Grid) and the metered production.
     <b><i>Additional information:</i></b>
     There is only one Balance Supplier for each Accounting Point.
+- name: balancingAuthority
+  description: Balancing authority.
 - name: BillingAgent
   description: The party responsible for invoicing a concerned party.
 - name: BlockEnergyTrader
@@ -59,6 +25,10 @@ attributes:
     A party that has a contract to participate in the Capacity Market to acquire capacity through a Transmission Capacity Allocator.
 
     The capacity may be acquired on behalf of an Interconnection Trade Responsible or for sale on secondary capacity markets.
+- name: competitiveRetailer
+  description: Competitive retailer.
+- name: complianceMonitor
+  description: Compliance monitor.
 - name: Consumer
   description: |-
     A party that consumes electricity.
@@ -88,6 +58,14 @@ attributes:
     2. Ensuring that its Control Blocks respect their obligations in respect to load frequency control.
     3. Calculating the time deviation in cooperation with the associated coordination centers.
     4. Carrying out the settlement and/or compensation between its Control Blocks and against the other Coordination Center Zones.
+- name: distributionProvider
+  description: Distribution provider.
+- name: energyServiceConsumer
+  description: Energy service consumer.
+- name: generatorOperator
+  description: Generator merchant operator.
+- name: generatorOwner
+  description: Generator merchant owner.
 - name: GridAccessProvider
   description: A party responsible for providing access to the grid through an Accounting Point and its use for energy consumption
     or production to the Party Connected to the Grid.
@@ -98,11 +76,15 @@ attributes:
     A party that is responsible for settlement of the difference between the contracted quantities and the realised quantities of energy products for the Balance Responsible Parties in a Market Balance Area.
     Note:
     The Imbalance Settlement Responsible has not the responsibility to invoice. The Imbalance Settlement Responsible may delegate the invoicing responsibility to a more generic role such as a Billing Agent.
+- name: interchangeAuthority
+  description: Interchange authority.
 - name: InterconnectionTradeResponsible
   description: |-
     Is a Balance Responsible Party or depends on one. They are recognized by the Nomination Validator for the nomination of already allocated capacity.
     <b><i>Additional information:</i></b>
     This is a type of Balance Responsible Party.
+- name: loadServingEntity
+  description: Load serving entity.
 - name: MarketInformationAggregator
   description: |-
     Market Information Aggregator, A party that provides market related information that has been compiled from the figures supplied by different actors in the market. This information may also be published or distributed for general use.
@@ -115,20 +97,20 @@ attributes:
     within a Metering Grid Area.
 - name: MeterAdministrator
   description: A party responsible for keeping a database of meters.
-- name: MeterOperator
-  description: A party responsible for installing, maintaining, testing, certifying and decommissioning physical meters.
+- name: MeteredDataAggregator
+  description: A party responsible for the establishment and qualification of metered data from the Metered Data Responsible.
+    This data is aggregated according to a defined set of market rules.
 - name: MeteredDataCollector
   description: A party responsible for meter reading and quality control of the reading.
 - name: MeteredDataResponsible
   description: A party responsible for the establishment and validation of metered data based on the collected data received
     from the Metered Data Collector. The party is responsible for the history of metered data for a Metering Point.
-- name: MeteredDataAggregator
-  description: A party responsible for the establishment and qualification of metered data from the Metered Data Responsible.
-    This data is aggregated according to a defined set of market rules.
 - name: MeteringPointAdministrator
   description: A party responsible for registering the parties linked to the metering points in a Metering Grid Area. They
     are also responsible for maintaining the Metering Point technical specifications. They are responsible for creating and
     terminating metering points.
+- name: MeterOperator
+  description: A party responsible for installing, maintaining, testing, certifying and decommissioning physical meters.
 - name: MOLResponsible
   description: Responsible for the management of the available tenders for all Acquiring System Operators to establish the
     order of the reserve capacity that can be activated.
@@ -139,6 +121,8 @@ attributes:
     one Nomination Validator.
 - name: PartyConnectedToTheGrid
   description: A party that contracts for the right to consume or produce electricity at an Accounting Point.
+- name: planningAuthority
+  description: Planning authority.
 - name: Producer
   description: |-
     A party that produces electricity.
@@ -149,6 +133,8 @@ attributes:
     A party who can be brought to rights, legally and financially, for any imbalance between energy nominated and produced for all associated Accounting Points.
     <b><i>Additional information:</i></b>
     This is a type of Balance Responsible Party.
+- name: purchasingSellingEntity
+  description: Purchasing selling entity.
 - name: ReconciliationAccountable
   description: A party that is financially accountable for the reconciled volume of energy products for a profiled Accounting
     Point.
@@ -157,15 +143,21 @@ attributes:
     A party that is responsible for reconciling, within a Metering Grid Area, the volumes used in the imbalance settlement process for profiled Accounting Points and the actual metered quantities.
     Note:
     The Reconciliation Responsible may delegate the invoicing responsibility to a more generic role such as a Billing Agent.
+- name: reliabilityAuthority
+  description: Reliability authority.
 - name: ReserveAllocator
   description: Informs the market of reserve requirements, receives tenders against the requirements and in compliance with
     the prequalification criteria, determines what tenders meet requirements and assigns tenders.
+- name: resourcePlanner
+  description: Resource planner.
 - name: ResourceProvider
   description: A role that manages a resource object and provides the schedules for it
 - name: SchedulingCoordinator
   description: A party that is responsible for the schedule information and its exchange on behalf of a Balance Responsible
     Party. For example in the Polish market a Scheduling Coordinator is responsible for information interchange for scheduling
     and settlement.
+- name: standardsDeveloper
+  description: Standards developer.
 - name: SystemOperator
   description: |-
     A party that is responsible for a stable power system operation
@@ -183,3 +175,11 @@ attributes:
     Manages the allocation of transmission capacity for an Allocated Capacity Area.
     <b><i>For explicit auctions:</i></b>
     The Transmission Capacity Allocator manages, on behalf of the System Operators, the allocation of available transmission capacity for an Allocated capacity Area. They offer the available transmission capacity to the market, allocates the available transmission capacity to individual Capacity Traders and calculates the billing amount of already allocated capacities to the Capacity Traders.
+- name: transmissionOperator
+  description: Transmission operator.
+- name: transmissionOwner
+  description: Transmission owner.
+- name: transmissionPlanner
+  description: Transmission planner.
+- name: transmissionServiceProvider
+  description: Transmission service provider.

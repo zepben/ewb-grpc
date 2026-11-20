@@ -66,26 +66,18 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- ComModule
-- WorkAsset
-- StructureSupport
-- Streetlight
-- OperatingMechanism
-- InterrupterUnit
-- Joint
+- AssetContainer
 - Bushing
 - ComMedia
+- ComModule
 - FACTSDevice
-- AssetContainer
+- InterrupterUnit
+- Joint
+- OperatingMechanism
+- Streetlight
+- StructureSupport
+- WorkAsset
 associations:
-- source: Asset
-  target: ConfigurationEvent
-  sourceCardinality: 0..1
-  sourceName: changedAsset
-  sourceDescription: Asset whose change resulted in this configuration event.
-  targetCardinality: 0..*
-  targetName: configurationEvents
-  targetDescription: All configuration events created for this asset.
 - source: Asset
   target: ActivityRecord
   sourceCardinality: 0..*
@@ -95,11 +87,138 @@ associations:
   targetName: activityRecords
   targetDescription: All activity records created for this asset.
 - source: Asset
+  target: Analytic
+  sourceCardinality: 0..*
+  sourceName: asset
+  sourceDescription: Asset on which this analytic can be performed.
+  targetCardinality: 0..*
+  targetName: analytic
+  targetDescription: Analytic performed on this asset.
+- source: Asset
+  target: AnalyticScore
+  sourceCardinality: 0..1
+  sourceName: asset
+  sourceDescription: Asset to which this analytic score applies.
+  targetCardinality: 0..*
+  targetName: analyticScore
+  targetDescription: Analytic result related to this asset.
+- source: Asset
+  target: AssetContainer
+  sourceCardinality: 0..*
+  sourceName: assets
+  sourceDescription: All assets within this container asset.
+  targetCardinality: 0..1
+  targetName: assetContainer
+  targetDescription: Container of this asset.
+- source: Asset
+  target: AssetDeployment
+  sourceCardinality: 0..1
+  sourceName: asset
+  sourceDescription: Asset in this deployment.
+  targetCardinality: 0..1
+  targetName: assetDeployment
+  targetDescription: This asset's deployment.
+- source: Asset
+  target: AssetFunction
+  sourceCardinality: 0..1
+  sourceName: asset
+  targetCardinality: 0..*
+  targetName: assetFunction
+- source: Asset
+  target: AssetGroup
+  sourceCardinality: 0..*
+  sourceName: asset
+  sourceDescription: Asset which is a part of this asset group.
+  targetCardinality: 0..*
+  targetName: assetGroup
+  targetDescription: Asset group of which this asset is a part.
+- source: Asset
+  target: AssetInfo
+  sourceCardinality: 0..*
+  sourceName: assets
+  sourceDescription: All assets described by this data.
+  targetCardinality: 0..1
+  targetName: assetInfo
+  targetDescription: Data applicable to this asset.
+- source: Asset
+  target: AssetPropertyCurve
+  sourceCardinality: 0..*
+  sourceName: assets
+  targetCardinality: 0..*
+  targetName: assetPropertyCurves
+- source: Asset
+  target: SwitchOperationSummary
+  sourceCardinality: "1"
+  sourceName: breaker
+  sourceDescription: Breaker asset to which this operation information applies.
+  targetCardinality: 0..1
+  targetName: breakerOperation
+  targetDescription: Breaker operation information for this breaker.
+- source: Asset
+  target: ConfigurationEvent
+  sourceCardinality: 0..1
+  sourceName: changedAsset
+  sourceDescription: Asset whose change resulted in this configuration event.
+  targetCardinality: 0..*
+  targetName: configurationEvents
+  targetDescription: All configuration events created for this asset.
+- source: Asset
   target: ErpInventory
   sourceCardinality: 0..1
   sourceName: asset
   targetCardinality: 0..1
   targetName: erpInventory
+- source: Asset
+  target: ErpItemMaster
+  sourceCardinality: 0..1
+  sourceName: asset
+  targetCardinality: 0..1
+  targetName: erpItemMaster
+- source: Asset
+  target: ErpRecDelvLineItem
+  sourceCardinality: 0..*
+  sourceName: assets
+  targetCardinality: 0..*
+  targetName: erpRecDeliveryItems
+- source: Asset
+  target: FinancialInfo
+  sourceCardinality: 0..1
+  sourceName: asset
+  sourceDescription: The asset to which this financial information relates.
+  targetCardinality: 0..1
+  targetName: financialInfo
+  targetDescription: Financial information related to this asset.
+- source: Asset
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: assets
+  sourceDescription: All assets at this location.
+  targetCardinality: 0..1
+  targetName: location
+  targetDescription: Location of this asset.
+- source: Asset
+  target: Measurement
+  sourceCardinality: 0..1
+  sourceName: asset
+  targetCardinality: 0..*
+  targetName: measurements
+  targetDescription: Measurement related to this asset.
+- source: Asset
+  target: Medium
+  sourceCardinality: 0..*
+  sourceName: asset
+  sourceDescription: Medium with which this asset is filled.
+  targetCardinality: 0..*
+  targetName: medium
+  targetDescription: Medium with which this asset is filled.
+- source: Asset
+  target: OperationalTag
+  sourceCardinality: 0..1
+  sourceName: asset
+  sourceDescription: Asset on which this tag has been placed.
+  targetCardinality: 0..*
+  targetName: operationalTags
+  targetDescription: All operational tags placed on this asset.
 - source: Asset
   target: AssetOrganisationRole
   sourceCardinality: 0..*
@@ -109,11 +228,13 @@ associations:
   targetName: organisationRoles
   targetDescription: All roles an organisation plays for this asset.
 - source: Asset
-  target: AssetFunction
+  target: Ownership
   sourceCardinality: 0..1
   sourceName: asset
+  sourceDescription: Asset that is object of this ownership.
   targetCardinality: 0..*
-  targetName: assetFunction
+  targetName: ownerships
+  targetDescription: All ownerships of this asset.
 - source: Asset
   target: PowerSystemResource
   sourceCardinality: 0..*
@@ -125,33 +246,21 @@ associations:
   targetDescription: All power system resources used to electrically model this asset. For example, transformer asset is electrically
     modelled with a transformer and its windings and tap changer.
 - source: Asset
-  target: AssetContainer
-  sourceCardinality: 0..*
-  sourceName: assets
-  sourceDescription: All assets within this container asset.
-  targetCardinality: 0..1
-  targetName: assetContainer
-  targetDescription: Container of this asset.
-- source: Asset
-  target: AssetPropertyCurve
-  sourceCardinality: 0..*
-  sourceName: assets
-  targetCardinality: 0..*
-  targetName: assetPropertyCurves
-- source: Asset
-  target: ErpRecDelvLineItem
-  sourceCardinality: 0..*
-  sourceName: assets
-  targetCardinality: 0..*
-  targetName: erpRecDeliveryItems
-- source: Asset
-  target: AssetDeployment
+  target: ProcedureDataSet
   sourceCardinality: 0..1
   sourceName: asset
-  sourceDescription: Asset in this deployment.
-  targetCardinality: 0..1
-  targetName: assetDeployment
-  targetDescription: This asset's deployment.
+  sourceDescription: Asset to which this procedure data set applies.
+  targetCardinality: 0..*
+  targetName: procedureDataSet
+  targetDescription: Procedure data set that applies to this asset.
+- source: Asset
+  target: Procedure
+  sourceCardinality: 0..*
+  sourceName: assets
+  sourceDescription: All assets to which this procedure applies.
+  targetCardinality: 0..*
+  targetName: procedures
+  targetDescription: All procedures applicable to this asset.
 - source: Asset
   target: ProductAssetModel
   sourceCardinality: 0..*
@@ -167,36 +276,11 @@ associations:
   targetCardinality: 0..*
   targetName: reconditionings
 - source: Asset
-  target: AssetInfo
+  target: ReliabilityInfo
   sourceCardinality: 0..*
   sourceName: assets
-  sourceDescription: All assets described by this data.
-  targetCardinality: 0..1
-  targetName: assetInfo
-  targetDescription: Data applicable to this asset.
-- source: Asset
-  target: Measurement
-  sourceCardinality: 0..1
-  sourceName: asset
   targetCardinality: 0..*
-  targetName: measurements
-  targetDescription: Measurement related to this asset.
-- source: Asset
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: assets
-  sourceDescription: All assets at this location.
-  targetCardinality: 0..1
-  targetName: location
-  targetDescription: Location of this asset.
-- source: Asset
-  target: ProcedureDataSet
-  sourceCardinality: 0..1
-  sourceName: asset
-  sourceDescription: Asset to which this procedure data set applies.
-  targetCardinality: 0..*
-  targetName: procedureDataSet
-  targetDescription: Procedure data set that applies to this asset.
+  targetName: reliabilityInfos
 - source: Asset
   target: WorkTask
   sourceCardinality: 0..*
@@ -206,35 +290,12 @@ associations:
   targetName: replacementWorkTasks
   targetDescription: All work tasks on replacement of this old asset.
 - source: Asset
-  target: AssetGroup
+  target: ScheduledEvent
   sourceCardinality: 0..*
-  sourceName: asset
-  sourceDescription: Asset which is a part of this asset group.
+  sourceName: assets
   targetCardinality: 0..*
-  targetName: assetGroup
-  targetDescription: Asset group of which this asset is a part.
-- source: Asset
-  target: SwitchOperationSummary
-  sourceCardinality: "1"
-  sourceName: breaker
-  sourceDescription: Breaker asset to which this operation information applies.
-  targetCardinality: 0..1
-  targetName: breakerOperation
-  targetDescription: Breaker operation information for this breaker.
-- source: Asset
-  target: Medium
-  sourceCardinality: 0..*
-  sourceName: asset
-  sourceDescription: Medium with which this asset is filled.
-  targetCardinality: 0..*
-  targetName: medium
-  targetDescription: Medium with which this asset is filled.
-- source: Asset
-  target: ErpItemMaster
-  sourceCardinality: 0..1
-  sourceName: asset
-  targetCardinality: 0..1
-  targetName: erpItemMaster
+  targetName: scheduledEvents
+  targetDescription: Scheduled event related to this asset.
 - source: Asset
   target: WorkTask
   sourceCardinality: 0..*
@@ -243,64 +304,3 @@ associations:
   targetCardinality: 0..*
   targetName: workTasks
   targetDescription: All non-replacement work tasks performed on this asset.
-- source: Asset
-  target: Procedure
-  sourceCardinality: 0..*
-  sourceName: assets
-  sourceDescription: All assets to which this procedure applies.
-  targetCardinality: 0..*
-  targetName: procedures
-  targetDescription: All procedures applicable to this asset.
-- source: Asset
-  target: ReliabilityInfo
-  sourceCardinality: 0..*
-  sourceName: assets
-  targetCardinality: 0..*
-  targetName: reliabilityInfos
-- source: Asset
-  target: FinancialInfo
-  sourceCardinality: 0..1
-  sourceName: asset
-  sourceDescription: The asset to which this financial information relates.
-  targetCardinality: 0..1
-  targetName: financialInfo
-  targetDescription: Financial information related to this asset.
-- source: Asset
-  target: AnalyticScore
-  sourceCardinality: 0..1
-  sourceName: asset
-  sourceDescription: Asset to which this analytic score applies.
-  targetCardinality: 0..*
-  targetName: analyticScore
-  targetDescription: Analytic result related to this asset.
-- source: Asset
-  target: Analytic
-  sourceCardinality: 0..*
-  sourceName: asset
-  sourceDescription: Asset on which this analytic can be performed.
-  targetCardinality: 0..*
-  targetName: analytic
-  targetDescription: Analytic performed on this asset.
-- source: Asset
-  target: OperationalTag
-  sourceCardinality: 0..1
-  sourceName: asset
-  sourceDescription: Asset on which this tag has been placed.
-  targetCardinality: 0..*
-  targetName: operationalTags
-  targetDescription: All operational tags placed on this asset.
-- source: Asset
-  target: ScheduledEvent
-  sourceCardinality: 0..*
-  sourceName: assets
-  targetCardinality: 0..*
-  targetName: scheduledEvents
-  targetDescription: Scheduled event related to this asset.
-- source: Asset
-  target: Ownership
-  sourceCardinality: 0..1
-  sourceName: asset
-  sourceDescription: Asset that is object of this ownership.
-  targetCardinality: 0..*
-  targetName: ownerships
-  targetDescription: All ownerships of this asset.

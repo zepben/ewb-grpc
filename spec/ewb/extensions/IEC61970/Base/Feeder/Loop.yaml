@@ -5,6 +5,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Loop
+  target: Circuit
+  sourceCardinality: 0..1
+  sourceName: loop
+  sourceDescription: \[ZBEX\] The loop containing this circuit.
+  targetCardinality: 0..*
+  targetName: circuits
+  targetDescription: \[ZBEX\] Sub-transmission circuits that form part of this loop.
+- source: Loop
   target: Substation
   sourceCardinality: 0..*
   sourceName: energizedLoops
@@ -19,11 +27,3 @@ associations:
   targetCardinality: 0..*
   targetName: substations
   targetDescription: \[ZBEX\] The substations that normally energize this loop.
-- source: Loop
-  target: Circuit
-  sourceCardinality: 0..1
-  sourceName: loop
-  sourceDescription: \[ZBEX\] The loop containing this circuit.
-  targetCardinality: 0..*
-  targetName: circuits
-  targetDescription: \[ZBEX\] Sub-transmission circuits that form part of this loop.

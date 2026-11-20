@@ -4,21 +4,13 @@ ancestors:
 - ConnectivityNodeContainer
 descendants:
 - Feeder
-- Substation
+- HvCustomer
 - Line
 - LvFeeder
-- Site
-- HvCustomer
 - LvSubstation
+- Site
+- Substation
 associations:
-- source: EquipmentContainer
-  target: Equipment
-  sourceCardinality: 0..1
-  sourceName: equipmentContainer
-  sourceDescription: Container of this equipment.
-  targetCardinality: 0..*
-  targetName: equipment
-  targetDescription: Contained equipment.
 - source: EquipmentContainer
   target: Equipment
   sourceCardinality: 0..1
@@ -27,3 +19,11 @@ associations:
   targetCardinality: 0..*
   targetName: currentEquipment
   targetDescription: Contained equipment relative to the current state of the network.
+- source: EquipmentContainer
+  target: Equipment
+  sourceCardinality: 0..1
+  sourceName: equipmentContainer
+  sourceDescription: Container of this equipment.
+  targetCardinality: 0..*
+  targetName: equipment
+  targetDescription: Contained equipment.

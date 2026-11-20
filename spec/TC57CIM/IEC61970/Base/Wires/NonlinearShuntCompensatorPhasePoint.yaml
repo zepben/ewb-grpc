@@ -3,15 +3,15 @@ description: A per phase non linear shunt compensator bank or section admittance
   instances associated with a NonlinearShuntCompensatorPhase shall be equal to ShuntCompensatorPhase.maximumSections. ShuntCompensator.sections
   shall only be set to one of the NonlinearShuntCompenstorPhasePoint.sectionNumber. There is no interpolation between NonlinearShuntCompenstorPhasePoint-s.
 attributes:
-- name: sectionNumber
-  type: Integer
-  description: The number of the section.
 - name: b
   type: Susceptance
   description: Positive sequence shunt (charging) susceptance per section.
 - name: g
   type: Conductance
   description: Positive sequence shunt (charging) conductance per section.
+- name: sectionNumber
+  type: Integer
+  description: The number of the section.
 associations:
 - source: NonlinearShuntCompensatorPhasePoint
   target: NonlinearShuntCompensatorPhase

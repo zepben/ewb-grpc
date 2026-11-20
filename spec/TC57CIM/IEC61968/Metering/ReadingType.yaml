@@ -86,21 +86,13 @@ associations:
   targetName: consumptionTariffIntervals
   targetDescription: All tariff intervals with consumption described by this reading type.
 - source: ReadingType
-  target: Reading
-  sourceCardinality: "1"
+  target: IntervalBlock
+  sourceCardinality: 0..1
   sourceName: readingType
-  sourceDescription: Type information for this reading value.
+  sourceDescription: Type information for interval reading values contained in this block.
   targetCardinality: 0..*
-  targetName: readings
-  targetDescription: All reading values with this type information.
-- source: ReadingType
-  target: PendingCalculation
-  sourceCardinality: "1"
-  sourceName: readingType
-  sourceDescription: Reading type resulting from this pending conversion.
-  targetCardinality: 0..1
-  targetName: pendingCalculation
-  targetDescription: Pending calculation that produced this reading type.
+  targetName: intervalBlocks
+  targetDescription: All blocks containing interval reading values with this type information.
 - source: ReadingType
   target: MetrologyRequirement
   sourceCardinality: 1..*
@@ -110,10 +102,18 @@ associations:
   targetName: metrologyRequirements
   targetDescription: All metrology requirements that require this reading type to be collected.
 - source: ReadingType
-  target: IntervalBlock
-  sourceCardinality: 0..1
+  target: PendingCalculation
+  sourceCardinality: "1"
   sourceName: readingType
-  sourceDescription: Type information for interval reading values contained in this block.
+  sourceDescription: Reading type resulting from this pending conversion.
+  targetCardinality: 0..1
+  targetName: pendingCalculation
+  targetDescription: Pending calculation that produced this reading type.
+- source: ReadingType
+  target: Reading
+  sourceCardinality: "1"
+  sourceName: readingType
+  sourceDescription: Type information for this reading value.
   targetCardinality: 0..*
-  targetName: intervalBlocks
-  targetDescription: All blocks containing interval reading values with this type information.
+  targetName: readings
+  targetDescription: All reading values with this type information.

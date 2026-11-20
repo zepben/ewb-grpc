@@ -79,17 +79,17 @@ associations:
   targetCardinality: 0..*
   targetName: rampRateCurve
 - source: GeneratingBid
-  target: SecurityConstraints
-  sourceCardinality: 0..1
-  sourceName: generatingBid
-  targetCardinality: 0..*
-  targetName: securityConstraints
-- source: GeneratingBid
   target: RegisteredGenerator
   sourceCardinality: 0..*
   sourceName: generatingBids
   targetCardinality: 0..1
   targetName: registeredGenerator
+- source: GeneratingBid
+  target: SecurityConstraints
+  sourceCardinality: 0..1
+  sourceName: generatingBid
+  targetCardinality: 0..*
+  targetName: securityConstraints
 - source: GeneratingBid
   target: StartUpCostCurve
   sourceCardinality: 0..*

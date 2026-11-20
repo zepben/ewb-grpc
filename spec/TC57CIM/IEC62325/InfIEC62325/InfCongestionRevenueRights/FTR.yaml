@@ -21,11 +21,11 @@ ancestors:
 - Agreement
 associations:
 - source: FTR
-  target: Pnode
+  target: EnergyPriceCurve
   sourceCardinality: 0..*
   sourceName: ftrs
-  targetCardinality: 0..*
-  targetName: pnodes
+  targetCardinality: 0..1
+  targetName: energyPriceCurve
 - source: FTR
   target: Flowgate
   sourceCardinality: 0..*
@@ -33,8 +33,8 @@ associations:
   targetCardinality: 0..1
   targetName: flowgate
 - source: FTR
-  target: EnergyPriceCurve
+  target: Pnode
   sourceCardinality: 0..*
   sourceName: ftrs
-  targetCardinality: 0..1
-  targetName: energyPriceCurve
+  targetCardinality: 0..*
+  targetName: pnodes

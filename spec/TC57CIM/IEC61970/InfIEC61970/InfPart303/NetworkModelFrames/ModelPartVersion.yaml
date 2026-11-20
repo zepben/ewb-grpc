@@ -6,6 +6,18 @@ ancestors:
 - ModelToBeDeleted
 associations:
 - source: ModelPartVersion
+  target: AssemblyManifest
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+- source: ModelPartVersion
+  target: CompleteModelToBeDeleted
+  sourceCardinality: 0..*
+  targetCardinality: 0..*
+- source: ModelPartVersion
+  target: DataSet
+  sourceCardinality: "1"
+  targetCardinality: 0..*
+- source: ModelPartVersion
   target: ModelPartSpecification
   sourceCardinality: 0..*
   sourceName: model
@@ -13,15 +25,3 @@ associations:
   targetCardinality: "1"
   targetName: modelSpecification
   targetDescription: Model specification of the modelt.
-- source: ModelPartVersion
-  target: DataSet
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-- source: ModelPartVersion
-  target: CompleteModelToBeDeleted
-  sourceCardinality: 0..*
-  targetCardinality: 0..*
-- source: ModelPartVersion
-  target: AssemblyManifest
-  sourceCardinality: 0..*
-  targetCardinality: 0..*

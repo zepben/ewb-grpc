@@ -10,14 +10,14 @@ ancestors:
 - RegisteredResource
 associations:
 - source: RegisteredDistributedResource
-  target: ResponseMethod
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: responseMethods
-- source: RegisteredDistributedResource
   target: ResourcePerformanceRating
   sourceCardinality: "1"
   sourceName: registeredResource
   targetCardinality: 0..*
   targetName: resourcePerformanceRatings
+- source: RegisteredDistributedResource
+  target: ResponseMethod
+  sourceCardinality: "1"
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: responseMethods

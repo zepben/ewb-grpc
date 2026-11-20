@@ -7,12 +7,6 @@ attributes:
   description: Used to calculate load "participation" of a connectivity node in an host control area
 associations:
 - source: SysLoadDistributionFactor
-  target: MktConnectivityNode
-  sourceCardinality: 0..1
-  sourceName: sysLoadDistribuFactor
-  targetCardinality: "1"
-  targetName: mktConnectivityNode
-- source: SysLoadDistributionFactor
   target: DistributionFactorSet
   sourceCardinality: 0..*
   sourceName: sysLoadDistribuFactor
@@ -24,3 +18,9 @@ associations:
   sourceName: sysLoadDistribuFactor
   targetCardinality: "1"
   targetName: hostControlArea
+- source: SysLoadDistributionFactor
+  target: MktConnectivityNode
+  sourceCardinality: 0..1
+  sourceName: sysLoadDistribuFactor
+  targetCardinality: "1"
+  targetName: mktConnectivityNode

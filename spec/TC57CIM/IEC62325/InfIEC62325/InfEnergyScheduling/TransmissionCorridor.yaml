@@ -4,14 +4,6 @@ ancestors:
 - PowerSystemResource
 associations:
 - source: TransmissionCorridor
-  target: TransmissionRightOfWay
-  sourceCardinality: "1"
-  sourceName: transmissionCorridor
-  sourceDescription: A transmission right-of-way is a member of a transmission corridor
-  targetCardinality: 1..*
-  targetName: transmissionRightOfWays
-  targetDescription: A transmission right-of-way is a member of a transmission corridor
-- source: TransmissionCorridor
   target: TransmissionPath
   sourceCardinality: "1"
   sourceName: for
@@ -19,3 +11,11 @@ associations:
   targetCardinality: 0..*
   targetName: containedIn
   targetDescription: A TransmissionPath is contained in a TransmissionCorridor.
+- source: TransmissionCorridor
+  target: TransmissionRightOfWay
+  sourceCardinality: "1"
+  sourceName: transmissionCorridor
+  sourceDescription: A transmission right-of-way is a member of a transmission corridor
+  targetCardinality: 1..*
+  targetName: transmissionRightOfWays
+  targetDescription: A transmission right-of-way is a member of a transmission corridor

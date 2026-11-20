@@ -4,14 +4,6 @@ ancestors:
 - AssetInfo
 associations:
 - source: TransformerTankInfo
-  target: TransformerEndInfo
-  sourceCardinality: 0..1
-  sourceName: transformerTankInfo
-  sourceDescription: Transformer tank data that this end description is part of.
-  targetCardinality: 0..*
-  targetName: transformerEndInfos
-  targetDescription: Data for all the ends described by this transformer tank data.
-- source: TransformerTankInfo
   target: PowerTransformerInfo
   sourceCardinality: 0..*
   sourceName: transformerTankInfos
@@ -19,3 +11,11 @@ associations:
   targetCardinality: 0..1
   targetName: powerTransformerInfo
   targetDescription: Power transformer data that this tank description is part of.
+- source: TransformerTankInfo
+  target: TransformerEndInfo
+  sourceCardinality: 0..1
+  sourceName: transformerTankInfo
+  sourceDescription: Transformer tank data that this end description is part of.
+  targetCardinality: 0..*
+  targetName: transformerEndInfos
+  targetDescription: Data for all the ends described by this transformer tank data.

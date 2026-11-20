@@ -18,6 +18,12 @@ ancestors:
 - EquipmentContainer
 associations:
 - source: Bay
+  target: Circuit
+  sourceCardinality: 0..*
+  sourceName: endBay
+  targetCardinality: 0..1
+  targetName: circuit
+- source: Bay
   target: Substation
   sourceCardinality: 0..*
   sourceName: bays
@@ -33,9 +39,3 @@ associations:
   targetCardinality: 0..1
   targetName: voltageLevel
   targetDescription: The voltage level containing this bay.
-- source: Bay
-  target: Circuit
-  sourceCardinality: 0..*
-  sourceName: endBay
-  targetCardinality: 0..1
-  targetName: circuit

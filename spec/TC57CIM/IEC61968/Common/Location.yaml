@@ -37,10 +37,18 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- Zone
 - UsagePointLocation
 - WorkLocation
+- Zone
 associations:
+- source: Location
+  target: Asset
+  sourceCardinality: 0..1
+  sourceName: location
+  sourceDescription: Location of this asset.
+  targetCardinality: 0..*
+  targetName: assets
+  targetDescription: All assets at this location.
 - source: Location
   target: ConfigurationEvent
   sourceCardinality: 0..1
@@ -50,11 +58,82 @@ associations:
   targetName: configurationEvents
   targetDescription: All configuration events created for this location.
 - source: Location
+  target: CoordinateSystem
+  sourceCardinality: 0..*
+  sourceName: locations
+  sourceDescription: All locations described with position points in this coordinate system.
+  targetCardinality: 0..1
+  targetName: coordinateSystem
+  targetDescription: Coordinate system used to describe position points of this location.
+- source: Location
+  target: Crew
+  sourceCardinality: 0..1
+  sourceName: location
+  targetCardinality: 0..*
+  targetName: crew
+- source: Location
+  target: OldCrew
+  sourceCardinality: 0..*
+  sourceName: locations
+  targetCardinality: 0..*
+  targetName: crews
+- source: Location
+  target: EnvironmentalLocationType
+  sourceCardinality: 0..1
+  sourceName: location
+  sourceDescription: Location of this instance of ths kind of environmental location.
+  targetCardinality: 0..*
+  targetName: environmentalLocationKind
+  targetDescription: Kind of environmental location which this location is.
+- source: Location
+  target: EnvironmentalMonitoringStation
+  sourceCardinality: 0..1
+  sourceName: location
+  sourceDescription: Location of this monitoring station.
+  targetCardinality: 0..*
+  targetName: environmentalMonitoringStation
+  targetDescription: Monitoring station located at this location.
+- source: Location
+  target: Fault
+  sourceCardinality: 0..1
+  sourceName: location
+  targetCardinality: 0..*
+  targetName: fault
+- source: Location
+  target: AssetLocationHazard
+  sourceCardinality: 0..*
+  sourceName: locations
+  sourceDescription: The location of this hazard.
+  targetCardinality: 0..*
+  targetName: hazards
+  targetDescription: All asset hazards at this location.
+- source: Location
+  target: Incident
+  sourceCardinality: 0..1
+  sourceName: location
+  sourceDescription: Location of this incident.
+  targetCardinality: 0..1
+  targetName: incident
+  targetDescription: Incident at this location.
+- source: Location
+  target: LandProperty
+  sourceCardinality: 0..*
+  sourceName: locations
+  sourceDescription: The spatail description of a piece of property.
+  targetCardinality: 0..*
+  targetName: landProperties
+- source: Location
   target: Measurement
   sourceCardinality: 0..*
   sourceName: locations
   targetCardinality: 0..*
   targetName: measurements
+- source: Location
+  target: OutageOrder
+  sourceCardinality: 0..*
+  sourceName: location
+  targetCardinality: 0..1
+  targetName: outageOrder
 - source: Location
   target: PositionPoint
   sourceCardinality: "1"
@@ -72,99 +151,20 @@ associations:
   targetName: powerSystemResources
   targetDescription: All power system resources at this location.
 - source: Location
-  target: SwitchingOrder
-  sourceCardinality: 0..*
-  sourceName: location
-  targetCardinality: 0..1
-  targetName: switchingOrder
-- source: Location
-  target: Crew
-  sourceCardinality: 0..1
-  sourceName: location
-  targetCardinality: 0..*
-  targetName: crew
-- source: Location
-  target: CoordinateSystem
-  sourceCardinality: 0..*
-  sourceName: locations
-  sourceDescription: All locations described with position points in this coordinate system.
-  targetCardinality: 0..1
-  targetName: coordinateSystem
-  targetDescription: Coordinate system used to describe position points of this location.
-- source: Location
   target: Route
   sourceCardinality: 0..*
   sourceName: locations
   targetCardinality: 0..*
   targetName: routes
 - source: Location
-  target: LandProperty
-  sourceCardinality: 0..*
-  sourceName: locations
-  sourceDescription: The spatail description of a piece of property.
-  targetCardinality: 0..*
-  targetName: landProperties
-- source: Location
-  target: AssetLocationHazard
-  sourceCardinality: 0..*
-  sourceName: locations
-  sourceDescription: The location of this hazard.
-  targetCardinality: 0..*
-  targetName: hazards
-  targetDescription: All asset hazards at this location.
-- source: Location
-  target: OldCrew
-  sourceCardinality: 0..*
-  sourceName: locations
-  targetCardinality: 0..*
-  targetName: crews
-- source: Location
-  target: Incident
-  sourceCardinality: 0..1
-  sourceName: location
-  sourceDescription: Location of this incident.
-  targetCardinality: 0..1
-  targetName: incident
-  targetDescription: Incident at this location.
-- source: Location
-  target: Fault
-  sourceCardinality: 0..1
-  sourceName: location
-  targetCardinality: 0..*
-  targetName: fault
-- source: Location
-  target: OutageOrder
+  target: SwitchingOrder
   sourceCardinality: 0..*
   sourceName: location
   targetCardinality: 0..1
-  targetName: outageOrder
+  targetName: switchingOrder
 - source: Location
   target: TroubleOrder
   sourceCardinality: 0..1
   sourceName: location
   targetCardinality: 0..1
   targetName: troubleOrder
-- source: Location
-  target: Asset
-  sourceCardinality: 0..1
-  sourceName: location
-  sourceDescription: Location of this asset.
-  targetCardinality: 0..*
-  targetName: assets
-  targetDescription: All assets at this location.
-- source: Location
-  target: EnvironmentalLocationType
-  sourceCardinality: 0..1
-  sourceName: location
-  sourceDescription: Location of this instance of ths kind of environmental location.
-  targetCardinality: 0..*
-  targetName: environmentalLocationKind
-  targetDescription: Kind of environmental location which this location is.
-- source: Location
-  target: EnvironmentalMonitoringStation
-  sourceCardinality: 0..1
-  sourceName: location
-  sourceDescription: Location of this monitoring station.
-  targetCardinality: 0..*
-  targetName: environmentalMonitoringStation
-  targetDescription: Monitoring station located at this location.

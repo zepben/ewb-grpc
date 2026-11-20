@@ -11,14 +11,14 @@ associations:
   targetCardinality: "1"
   targetName: mktContingency
 - source: ContingencyConstraintLimit
-  target: SecurityConstraintSum
-  sourceCardinality: 0..*
-  sourceName: contingencyConstraintLimits
-  targetCardinality: "1"
-  targetName: securityConstraintSum
-- source: ContingencyConstraintLimit
   target: MWLimitSchedule
   sourceCardinality: "1"
   sourceName: securityConstraintLimit
   targetCardinality: "1"
   targetName: mwLimitSchedules
+- source: ContingencyConstraintLimit
+  target: SecurityConstraintSum
+  sourceCardinality: 0..*
+  sourceName: contingencyConstraintLimits
+  targetCardinality: "1"
+  targetName: securityConstraintSum

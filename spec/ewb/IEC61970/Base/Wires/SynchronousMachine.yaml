@@ -45,6 +45,10 @@ attributes:
   type: Float
   nullable: true
   description: Factor to calculate the breaking current (Section 4.5.2.1 in IEC 60909-0). Used only for single fed short circuit on a generator (Section 4.3.4.2. in IEC 60909-0).
+- name: operatingMode
+  type: SynchronousMachineKind
+  nullable: false
+  description: Current mode of operation.
 - name: r
   type: Double
   nullable: true
@@ -69,6 +73,10 @@ attributes:
   type: Double
   nullable: true
   description: Saturated Direct-axis transient reactance as a percentage. The attribute is primarily used for short circuit calculations according to ANSI.
+- name: type
+  type: SynchronousMachineKind
+  nullable: false
+  description: Modes that this synchronous machine can operate in.
 - name: x0
   type: Double
   nullable: true
@@ -77,14 +85,6 @@ attributes:
   type: Double
   nullable: true
   description: Negative sequence reactance as a percentage.
-- name: type
-  type: SynchronousMachineKind
-  nullable: false
-  description: Modes that this synchronous machine can operate in.
-- name: operatingMode
-  type: SynchronousMachineKind
-  nullable: false
-  description: Current mode of operation.
 ancestors:
 - RotatingMachine
 associations:

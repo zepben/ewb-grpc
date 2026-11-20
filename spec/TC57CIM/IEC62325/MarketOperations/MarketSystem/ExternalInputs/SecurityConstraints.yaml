@@ -15,11 +15,11 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: SecurityConstraints
-  target: RTO
-  sourceCardinality: 0..*
+  target: Flowgate
+  sourceCardinality: 0..1
   sourceName: securityConstraints
   targetCardinality: 0..1
-  targetName: rto
+  targetName: flowgate
 - source: SecurityConstraints
   target: GeneratingBid
   sourceCardinality: 0..*
@@ -27,8 +27,8 @@ associations:
   targetCardinality: 0..1
   targetName: generatingBid
 - source: SecurityConstraints
-  target: Flowgate
-  sourceCardinality: 0..1
+  target: RTO
+  sourceCardinality: 0..*
   sourceName: securityConstraints
   targetCardinality: 0..1
-  targetName: flowgate
+  targetName: rto

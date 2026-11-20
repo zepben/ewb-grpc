@@ -11,26 +11,6 @@ ancestors:
 - BaseWork
 associations:
 - source: Work
-  target: Project
-  sourceCardinality: 0..*
-  sourceName: works
-  targetCardinality: 0..1
-  targetName: project
-- source: Work
-  target: WorkTask
-  sourceCardinality: "1"
-  sourceName: work
-  sourceDescription: Work this task belongs to.
-  targetCardinality: 0..*
-  targetName: workTasks
-  targetDescription: All tasks in this work.
-- source: Work
-  target: ErpProjectAccounting
-  sourceCardinality: 0..*
-  sourceName: works
-  targetCardinality: 0..1
-  targetName: erpProjectAccounting
-- source: Work
   target: Appointment
   sourceCardinality: 0..*
   sourceName: works
@@ -39,35 +19,11 @@ associations:
   targetName: appointments
   targetDescription: All appointments for this work.
 - source: Work
-  target: WorkCostDetail
-  sourceCardinality: 0..*
-  sourceName: works
-  targetCardinality: 0..*
-  targetName: workCostDetails
-- source: Work
-  target: WorkBillingInfo
-  sourceCardinality: 0..*
-  sourceName: works
-  targetCardinality: 0..1
-  targetName: workBillingInfo
-- source: Work
-  target: Design
-  sourceCardinality: 0..1
-  sourceName: work
-  targetCardinality: 0..*
-  targetName: designs
-- source: Work
   target: BusinessCase
   sourceCardinality: 0..*
   sourceName: works
   targetCardinality: 0..1
   targetName: businessCase
-- source: Work
-  target: WorkFlowStep
-  sourceCardinality: 0..1
-  sourceName: work
-  targetCardinality: 0..*
-  targetName: workFlowSteps
 - source: Work
   target: Customer
   sourceCardinality: 0..*
@@ -77,6 +33,18 @@ associations:
   targetName: customers
   targetDescription: All the customers for which this work is performed.
 - source: Work
+  target: Design
+  sourceCardinality: 0..1
+  sourceName: work
+  targetCardinality: 0..*
+  targetName: designs
+- source: Work
+  target: ErpProjectAccounting
+  sourceCardinality: 0..*
+  sourceName: works
+  targetCardinality: 0..1
+  targetName: erpProjectAccounting
+- source: Work
   target: Incident
   sourceCardinality: 0..*
   sourceName: works
@@ -84,3 +52,35 @@ associations:
   targetCardinality: 0..*
   targetName: incidents
   targetDescription: All incidents being addressed by this work.
+- source: Work
+  target: Project
+  sourceCardinality: 0..*
+  sourceName: works
+  targetCardinality: 0..1
+  targetName: project
+- source: Work
+  target: WorkBillingInfo
+  sourceCardinality: 0..*
+  sourceName: works
+  targetCardinality: 0..1
+  targetName: workBillingInfo
+- source: Work
+  target: WorkCostDetail
+  sourceCardinality: 0..*
+  sourceName: works
+  targetCardinality: 0..*
+  targetName: workCostDetails
+- source: Work
+  target: WorkFlowStep
+  sourceCardinality: 0..1
+  sourceName: work
+  targetCardinality: 0..*
+  targetName: workFlowSteps
+- source: Work
+  target: WorkTask
+  sourceCardinality: "1"
+  sourceName: work
+  sourceDescription: Work this task belongs to.
+  targetCardinality: 0..*
+  targetName: workTasks
+  targetDescription: All tasks in this work.

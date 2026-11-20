@@ -23,14 +23,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Register
-  target: EndDeviceFunction
-  sourceCardinality: 0..*
-  sourceName: registers
-  sourceDescription: All registers for quantities metered by this end device function.
-  targetCardinality: 0..1
-  targetName: endDeviceFunction
-  targetDescription: End device function metering quantities displayed by this register.
-- source: Register
   target: Channel
   sourceCardinality: 0..1
   sourceName: register
@@ -38,6 +30,14 @@ associations:
   targetCardinality: 0..*
   targetName: channels
   targetDescription: All channels that collect/report values from this register.
+- source: Register
+  target: EndDeviceFunction
+  sourceCardinality: 0..*
+  sourceName: registers
+  sourceDescription: All registers for quantities metered by this end device function.
+  targetCardinality: 0..1
+  targetName: endDeviceFunction
+  targetDescription: End device function metering quantities displayed by this register.
 - source: Register
   target: UsagePoint
   sourceCardinality: 0..*

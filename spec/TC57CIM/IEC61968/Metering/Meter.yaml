@@ -13,6 +13,14 @@ ancestors:
 - EndDevice
 associations:
 - source: Meter
+  target: MeterMultiplier
+  sourceCardinality: 0..1
+  sourceName: meter
+  sourceDescription: Meter applying this multiplier.
+  targetCardinality: 0..*
+  targetName: meterMultipliers
+  targetDescription: All multipliers applied at this meter.
+- source: Meter
   target: MeterReading
   sourceCardinality: 0..1
   sourceName: meter
@@ -21,13 +29,13 @@ associations:
   targetName: meterReadings
   targetDescription: All meter readings provided by this meter.
 - source: Meter
-  target: MeterMultiplier
+  target: MeterWorkTask
   sourceCardinality: 0..1
-  sourceName: meter
-  sourceDescription: Meter applying this multiplier.
+  sourceName: oldMeter
+  sourceDescription: Old meter replaced by this work task.
   targetCardinality: 0..*
-  targetName: meterMultipliers
-  targetDescription: All multipliers applied at this meter.
+  targetName: meterReplacementWorkTasks
+  targetDescription: All work tasks on replacement of this old meter.
 - source: Meter
   target: MeterWorkTask
   sourceCardinality: 0..1
@@ -44,11 +52,3 @@ associations:
   targetCardinality: 0..*
   targetName: vendingTransactions
   targetDescription: All vending transactions on this meter.
-- source: Meter
-  target: MeterWorkTask
-  sourceCardinality: 0..1
-  sourceName: oldMeter
-  sourceDescription: Old meter replaced by this work task.
-  targetCardinality: 0..*
-  targetName: meterReplacementWorkTasks
-  targetDescription: All work tasks on replacement of this old meter.

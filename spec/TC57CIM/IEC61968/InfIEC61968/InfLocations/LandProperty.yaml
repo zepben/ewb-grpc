@@ -18,19 +18,11 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: LandProperty
-  target: LocationGrant
-  sourceCardinality: 0..1
-  sourceName: landProperty
-  sourceDescription: Land property this location grant applies to.
+  target: AssetContainer
+  sourceCardinality: 0..*
+  sourceName: landProperties
   targetCardinality: 0..*
-  targetName: locationGrants
-  targetDescription: All location grants this land property has.
-- source: LandProperty
-  target: ErpSiteLevelData
-  sourceCardinality: 0..1
-  sourceName: landProperty
-  targetCardinality: 0..*
-  targetName: erpSiteLevelDatas
+  targetName: assetContainers
 - source: LandProperty
   target: PropertyOrganisationRole
   sourceCardinality: 1..
@@ -44,11 +36,19 @@ associations:
   targetCardinality: 0..*
   targetName: erpPersonRoles
 - source: LandProperty
-  target: AssetContainer
-  sourceCardinality: 0..*
-  sourceName: landProperties
+  target: ErpSiteLevelData
+  sourceCardinality: 0..1
+  sourceName: landProperty
   targetCardinality: 0..*
-  targetName: assetContainers
+  targetName: erpSiteLevelDatas
+- source: LandProperty
+  target: LocationGrant
+  sourceCardinality: 0..1
+  sourceName: landProperty
+  sourceDescription: Land property this location grant applies to.
+  targetCardinality: 0..*
+  targetName: locationGrants
+  targetDescription: All location grants this land property has.
 - source: LandProperty
   target: Location
   sourceCardinality: 0..*

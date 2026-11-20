@@ -1,6 +1,9 @@
 name: SwitchPhase
 description: Single phase of a multi-phase switch when its attributes might be different per phase.
 attributes:
+- name: closed
+  type: Boolean
+  description: The attribute tells if the switch is considered closed when used as input to topology processing.
 - name: normalOpen
   type: Boolean
   description: Used in cases when no Measurement for the status value is present. If the SwitchPhase has a status measurement
@@ -13,9 +16,6 @@ attributes:
   type: SinglePhaseKind
   description: Phase of this SwitchPhase on the side with terminal sequence number equal to 2.  Should be a phase contained
     in that terminal’s Terminal.phases attribute.
-- name: closed
-  type: Boolean
-  description: The attribute tells if the switch is considered closed when used as input to topology processing.
 - name: ratedCurrent
   type: CurrentFlow
   description: |-

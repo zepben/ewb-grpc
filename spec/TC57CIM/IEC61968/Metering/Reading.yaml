@@ -15,14 +15,6 @@ ancestors:
 - BaseReading
 associations:
 - source: Reading
-  target: ReadingType
-  sourceCardinality: 0..*
-  sourceName: readings
-  sourceDescription: All reading values with this type information.
-  targetCardinality: "1"
-  targetName: readingType
-  targetDescription: Type information for this reading value.
-- source: Reading
   target: MeterReading
   sourceCardinality: 0..*
   sourceName: readings
@@ -30,3 +22,11 @@ associations:
   targetCardinality: 0..*
   targetName: meterReadings
   targetDescription: All meter readings (sets of values) containing this reading value.
+- source: Reading
+  target: ReadingType
+  sourceCardinality: 0..*
+  sourceName: readings
+  sourceDescription: All reading values with this type information.
+  targetCardinality: "1"
+  targetName: readingType
+  targetDescription: Type information for this reading value.

@@ -39,6 +39,14 @@ descendants:
 - MktACLineSegment
 associations:
 - source: ACLineSegment
+  target: ACLineSegmentPhase
+  sourceCardinality: "1"
+  sourceName: acLineSegment
+  sourceDescription: The line segment to which the phase belongs.
+  targetCardinality: 0..*
+  targetName: acLineSegmentPhases
+  targetDescription: The line segment phases which belong to the line segment.
+- source: ACLineSegment
   target: Clamp
   sourceCardinality: "1"
   sourceName: acLineSegment
@@ -46,20 +54,6 @@ associations:
   targetCardinality: 0..*
   targetName: clamp
   targetDescription: The clamps connected to the line segment.
-- source: ACLineSegment
-  target: WireSpacingInfo
-  sourceCardinality: 0..*
-  sourceName: acLineSegment
-  targetCardinality: 0..1
-  targetName: wireSpacingInfo
-- source: ACLineSegment
-  target: PerLengthImpedance
-  sourceCardinality: 0..*
-  sourceName: acLineSegments
-  sourceDescription: All line segments described by this per-length impedance.
-  targetCardinality: 0..1
-  targetName: perLengthImpedance
-  targetDescription: Per-length impedance of this line segment.
 - source: ACLineSegment
   target: Cut
   sourceCardinality: "1"
@@ -77,13 +71,15 @@ associations:
   targetName: lineFaults
   targetDescription: The line faults of the line segment.
 - source: ACLineSegment
-  target: ACLineSegmentPhase
-  sourceCardinality: "1"
-  sourceName: acLineSegment
-  sourceDescription: The line segment to which the phase belongs.
-  targetCardinality: 0..*
-  targetName: acLineSegmentPhases
-  targetDescription: The line segment phases which belong to the line segment.
+  target: GroundAction
+  sourceCardinality: 0..1
+  sourceName: alongACLineSegment
+  sourceDescription: The line segment that this ground action will affect. This is the only way to access relationship to
+    clamp in case the ground needs to be placed along the line segment.
+  targetCardinality: 0..1
+  targetName: lineGroundingAction
+  targetDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead
+    of at its terminals).
 - source: ACLineSegment
   target: JumperAction
   sourceCardinality: 0..*
@@ -95,12 +91,16 @@ associations:
   targetDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
     of at its terminals).
 - source: ACLineSegment
-  target: GroundAction
-  sourceCardinality: 0..1
-  sourceName: alongACLineSegment
-  sourceDescription: The line segment that this ground action will affect. This is the only way to access relationship to
-    clamp in case the ground needs to be placed along the line segment.
+  target: PerLengthImpedance
+  sourceCardinality: 0..*
+  sourceName: acLineSegments
+  sourceDescription: All line segments described by this per-length impedance.
   targetCardinality: 0..1
-  targetName: lineGroundingAction
-  targetDescription: Ground action involving clamp usage (for the case when the ground is applied along the line segment instead
-    of at its terminals).
+  targetName: perLengthImpedance
+  targetDescription: Per-length impedance of this line segment.
+- source: ACLineSegment
+  target: WireSpacingInfo
+  sourceCardinality: 0..*
+  sourceName: acLineSegment
+  targetCardinality: 0..1
+  targetName: wireSpacingInfo

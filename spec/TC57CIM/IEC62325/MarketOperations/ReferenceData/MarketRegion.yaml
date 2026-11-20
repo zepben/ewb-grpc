@@ -5,6 +5,12 @@ ancestors:
 - AggregateNode
 associations:
 - source: MarketRegion
+  target: ExPostMarketRegionResults
+  sourceCardinality: "1"
+  sourceName: marketRegion
+  targetCardinality: 0..*
+  targetName: exPostMarketRegionResults
+- source: MarketRegion
   target: MarketRegionResults
   sourceCardinality: "1"
   sourceName: marketRegion
@@ -16,9 +22,3 @@ associations:
   sourceName: marketRegion
   targetCardinality: 0..*
   targetName: reserveDemandCurve
-- source: MarketRegion
-  target: ExPostMarketRegionResults
-  sourceCardinality: "1"
-  sourceName: marketRegion
-  targetCardinality: 0..*
-  targetName: exPostMarketRegionResults

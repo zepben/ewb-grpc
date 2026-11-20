@@ -4,14 +4,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: RatioTapChangerTable
-  target: RatioTapChangerTablePoint
-  sourceCardinality: "1"
-  sourceName: ratioTapChangerTable
-  sourceDescription: Table of this point.
-  targetCardinality: 1..*
-  targetName: ratioTapChangerTablePoint
-  targetDescription: Points of this table.
-- source: RatioTapChangerTable
   target: RatioTapChanger
   sourceCardinality: 0..1
   sourceName: ratioTapChangerTable
@@ -19,3 +11,11 @@ associations:
   targetCardinality: 0..*
   targetName: ratioTapChanger
   targetDescription: The ratio tap changer of this tap ratio table.
+- source: RatioTapChangerTable
+  target: RatioTapChangerTablePoint
+  sourceCardinality: "1"
+  sourceName: ratioTapChangerTable
+  sourceDescription: Table of this point.
+  targetCardinality: 1..*
+  targetName: ratioTapChangerTablePoint
+  targetDescription: Points of this table.

@@ -8,12 +8,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: AdjacentCASet
-  target: SubControlArea
-  sourceCardinality: 0..1
-  sourceName: adjacentCASet
-  targetCardinality: 0..*
-  targetName: subControlArea
-- source: AdjacentCASet
   target: BidSelfSched
   sourceCardinality: 0..1
   sourceName: adjacentCASet
@@ -26,14 +20,20 @@ associations:
   targetCardinality: 0..1
   targetName: hostControlArea
 - source: AdjacentCASet
+  target: RegisteredResource
+  sourceCardinality: 0..1
+  sourceName: adjacentCASet
+  targetCardinality: 0..*
+  targetName: registeredResource
+- source: AdjacentCASet
   target: RTO
   sourceCardinality: 0..*
   sourceName: adjacentCASet
   targetCardinality: "1"
   targetName: rto
 - source: AdjacentCASet
-  target: RegisteredResource
+  target: SubControlArea
   sourceCardinality: 0..1
   sourceName: adjacentCASet
   targetCardinality: 0..*
-  targetName: registeredResource
+  targetName: subControlArea

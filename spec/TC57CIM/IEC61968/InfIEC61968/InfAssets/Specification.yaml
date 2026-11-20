@@ -6,11 +6,25 @@ ancestors:
 - Document
 associations:
 - source: Specification
+  target: UserAttribute
+  sourceCardinality: 0..1
+  sourceName: propertySpecification
+  targetCardinality: 0..*
+  targetName: assetProperites
+  targetDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
+    to specify what kind of property it is, and 'value.value' attribute for the actual value.
+- source: Specification
   target: AssetPropertyCurve
   sourceCardinality: 0..1
   sourceName: specification
   targetCardinality: 0..*
   targetName: assetPropertyCurves
+- source: Specification
+  target: DimensionsInfo
+  sourceCardinality: 0..*
+  sourceName: specifications
+  targetCardinality: 0..*
+  targetName: dimensionsInfos
 - source: Specification
   target: Medium
   sourceCardinality: 0..1
@@ -24,18 +38,6 @@ associations:
   targetCardinality: 0..*
   targetName: qualificationRequirements
 - source: Specification
-  target: ReliabilityInfo
-  sourceCardinality: 0..1
-  sourceName: specification
-  targetCardinality: 0..*
-  targetName: reliabilityInfos
-- source: Specification
-  target: DimensionsInfo
-  sourceCardinality: 0..*
-  sourceName: specifications
-  targetCardinality: 0..*
-  targetName: dimensionsInfos
-- source: Specification
   target: UserAttribute
   sourceCardinality: 0..1
   sourceName: ratingSpecification
@@ -45,10 +47,8 @@ associations:
     used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g.,
     voltage, current), and 'value' attribute for the actual value and unit information of the rating.
 - source: Specification
-  target: UserAttribute
+  target: ReliabilityInfo
   sourceCardinality: 0..1
-  sourceName: propertySpecification
+  sourceName: specification
   targetCardinality: 0..*
-  targetName: assetProperites
-  targetDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
-    to specify what kind of property it is, and 'value.value' attribute for the actual value.
+  targetName: reliabilityInfos

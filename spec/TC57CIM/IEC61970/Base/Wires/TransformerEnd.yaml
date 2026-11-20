@@ -29,9 +29,40 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- TransformerTankEnd
 - PowerTransformerEnd
+- TransformerTankEnd
 associations:
+- source: TransformerEnd
+  target: BaseVoltage
+  sourceCardinality: 0..*
+  sourceName: transformerEnds
+  sourceDescription: Transformer ends at the base voltage.  This is essential for PU calculation.
+  targetCardinality: 0..1
+  targetName: baseVoltage
+  targetDescription: Base voltage of the transformer end.  This is essential for PU calculation.
+- source: TransformerEnd
+  target: TransformerCoreAdmittance
+  sourceCardinality: 0..*
+  sourceName: transformerEnd
+  sourceDescription: All transformer ends having this core admittance.
+  targetCardinality: 0..1
+  targetName: coreAdmittance
+  targetDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values
+    of the transformer should be supplied for one transformer end only.
+- source: TransformerEnd
+  target: TransformerMeshImpedance
+  sourceCardinality: "1"
+  sourceName: fromTransformerEnd
+  sourceDescription: From end this mesh impedance is connected to. It determines the voltage reference.
+  targetCardinality: 0..*
+  targetName: fromMeshImpedance
+  targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
+- source: TransformerEnd
+  target: WindingInsulation
+  sourceCardinality: "1"
+  sourceName: fromWinding
+  targetCardinality: 0..*
+  targetName: fromWindingInsulations
 - source: TransformerEnd
   target: PhaseTapChanger
   sourceCardinality: "1"
@@ -41,15 +72,6 @@ associations:
   targetName: phaseTapChanger
   targetDescription: Phase tap changer associated with this transformer end.
 - source: TransformerEnd
-  target: TransformerStarImpedance
-  sourceCardinality: 0..*
-  sourceName: transformerEnd
-  sourceDescription: All transformer ends having this star impedance.
-  targetCardinality: 0..1
-  targetName: starImpedance
-  targetDescription: (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention,
-    for a two winding transformer, the full values of the transformer should be entered on the high voltage end (endNumber=1).
-- source: TransformerEnd
   target: RatioTapChanger
   sourceCardinality: "1"
   sourceName: transformerEnd
@@ -58,13 +80,14 @@ associations:
   targetName: ratioTapChanger
   targetDescription: Ratio tap changer associated with this transformer end.
 - source: TransformerEnd
-  target: BaseVoltage
+  target: TransformerStarImpedance
   sourceCardinality: 0..*
-  sourceName: transformerEnds
-  sourceDescription: Transformer ends at the base voltage.  This is essential for PU calculation.
+  sourceName: transformerEnd
+  sourceDescription: All transformer ends having this star impedance.
   targetCardinality: 0..1
-  targetName: baseVoltage
-  targetDescription: Base voltage of the transformer end.  This is essential for PU calculation.
+  targetName: starImpedance
+  targetDescription: (accurate for 2- or 3-winding transformers only) Pi-model impedances of this transformer end. By convention,
+    for a two winding transformer, the full values of the transformer should be entered on the high voltage end (endNumber=1).
 - source: TransformerEnd
   target: Terminal
   sourceCardinality: 0..*
@@ -82,31 +105,8 @@ associations:
   targetName: toMeshImpedance
   targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
 - source: TransformerEnd
-  target: TransformerMeshImpedance
-  sourceCardinality: "1"
-  sourceName: fromTransformerEnd
-  sourceDescription: From end this mesh impedance is connected to. It determines the voltage reference.
-  targetCardinality: 0..*
-  targetName: fromMeshImpedance
-  targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
-- source: TransformerEnd
-  target: TransformerCoreAdmittance
-  sourceCardinality: 0..*
-  sourceName: transformerEnd
-  sourceDescription: All transformer ends having this core admittance.
-  targetCardinality: 0..1
-  targetName: coreAdmittance
-  targetDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values
-    of the transformer should be supplied for one transformer end only.
-- source: TransformerEnd
   target: WindingInsulation
   sourceCardinality: "1"
   sourceName: toWinding
   targetCardinality: 0..*
   targetName: toWindingInsulations
-- source: TransformerEnd
-  target: WindingInsulation
-  sourceCardinality: "1"
-  sourceName: fromWinding
-  targetCardinality: 0..*
-  targetName: fromWindingInsulations

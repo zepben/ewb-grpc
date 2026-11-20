@@ -9,12 +9,6 @@ ancestors:
 - Document
 associations:
 - source: Incident
-  target: UnplannedOutage
-  sourceCardinality: 0..*
-  sourceName: incident
-  targetCardinality: 0..1
-  targetName: unplannedOutage
-- source: Incident
   target: CustomerNotification
   sourceCardinality: 0..1
   sourceName: incident
@@ -31,13 +25,13 @@ associations:
   targetName: incidentHazard
   targetDescription: All hazards associated with this incident.
 - source: Incident
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: incidents
-  sourceDescription: All incidents being addressed by this work.
-  targetCardinality: 0..*
-  targetName: works
-  targetDescription: All works addressing this incident.
+  target: Location
+  sourceCardinality: 0..1
+  sourceName: incident
+  sourceDescription: Incident at this location.
+  targetCardinality: 0..1
+  targetName: location
+  targetDescription: Location of this incident.
 - source: Incident
   target: Outage
   sourceCardinality: 0..*
@@ -55,13 +49,11 @@ associations:
   targetName: owner
   targetDescription: Operator who owns this incident.
 - source: Incident
-  target: Location
+  target: TroubleOrder
   sourceCardinality: 0..1
   sourceName: incident
-  sourceDescription: Incident at this location.
   targetCardinality: 0..1
-  targetName: location
-  targetDescription: Location of this incident.
+  targetName: troubleOrder
 - source: Incident
   target: TroubleTicket
   sourceCardinality: 0..1
@@ -71,8 +63,16 @@ associations:
   targetName: troubleTickets
   targetDescription: All trouble tickets reporting this incident.
 - source: Incident
-  target: TroubleOrder
-  sourceCardinality: 0..1
+  target: UnplannedOutage
+  sourceCardinality: 0..*
   sourceName: incident
   targetCardinality: 0..1
-  targetName: troubleOrder
+  targetName: unplannedOutage
+- source: Incident
+  target: Work
+  sourceCardinality: 0..*
+  sourceName: incidents
+  sourceDescription: All incidents being addressed by this work.
+  targetCardinality: 0..*
+  targetName: works
+  targetDescription: All works addressing this incident.

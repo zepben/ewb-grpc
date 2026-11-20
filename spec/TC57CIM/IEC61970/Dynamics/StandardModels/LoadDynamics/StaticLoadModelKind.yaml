@@ -1,6 +1,9 @@
 name: StaticLoadModelKind
 description: Type of static load model.
 attributes:
+- name: constantZ
+  description: The load is represented as a constant impedance.  ConstantZ equations are used  for active and reactive power
+    and no attributes are required.
 - name: exponential
   description: |-
     This model is an exponential representation of the load. Exponential equations for active and reactive power are used and the following attributes are required:
@@ -16,6 +19,3 @@ attributes:
     This model separates the frequency-dependent load (primarily motors) from other load.  ZIP2 equations for active and reactive power are used and the following attributes are required:
     kp1, kp2, kp3, kq4, kpf
     kq1, kq2, kq3, kq4, kqf.
-- name: constantZ
-  description: The load is represented as a constant impedance.  ConstantZ equations are used  for active and reactive power
-    and no attributes are required.

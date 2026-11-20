@@ -23,18 +23,6 @@ attributes:
   description: The Short Term Rating for the branch
 associations:
 - source: BranchEndFlow
-  target: MktSeriesCompensator
-  sourceCardinality: 0..1
-  sourceName: endBFlow
-  targetCardinality: 0..*
-  targetName: mktSeriesCompensatorEndBFlow
-- source: BranchEndFlow
-  target: MktSeriesCompensator
-  sourceCardinality: 0..1
-  sourceName: endAFlow
-  targetCardinality: 0..*
-  targetName: mktSeriresCompensatorEndAFlow
-- source: BranchEndFlow
   target: MktACLineSegment
   sourceCardinality: 0..1
   sourceName: endAFlow
@@ -49,12 +37,24 @@ associations:
 - source: BranchEndFlow
   target: MktPowerTransformer
   sourceCardinality: 0..1
+  sourceName: endAFlow
+  targetCardinality: 0..*
+  targetName: mktPowerTransformerEndAFlow
+- source: BranchEndFlow
+  target: MktPowerTransformer
+  sourceCardinality: 0..1
   sourceName: endBFlow
   targetCardinality: 0..*
   targetName: mktPowerTransformerEndBFlow
 - source: BranchEndFlow
-  target: MktPowerTransformer
+  target: MktSeriesCompensator
+  sourceCardinality: 0..1
+  sourceName: endBFlow
+  targetCardinality: 0..*
+  targetName: mktSeriesCompensatorEndBFlow
+- source: BranchEndFlow
+  target: MktSeriesCompensator
   sourceCardinality: 0..1
   sourceName: endAFlow
   targetCardinality: 0..*
-  targetName: mktPowerTransformerEndAFlow
+  targetName: mktSeriresCompensatorEndAFlow

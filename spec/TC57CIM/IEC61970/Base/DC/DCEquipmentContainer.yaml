@@ -8,14 +8,6 @@ descendants:
 - DCLine
 associations:
 - source: DCEquipmentContainer
-  target: DCTopologicalNode
-  sourceCardinality: 0..1
-  sourceName: dcEquipmentContainer
-  sourceDescription: The connectivity node container to which the topological node belongs.
-  targetCardinality: 0..*
-  targetName: dcTopologicalNode
-  targetDescription: The topological nodes which belong to this connectivity node container.
-- source: DCEquipmentContainer
   target: DCNode
   sourceCardinality: "1"
   sourceName: dcEquipmentContainer
@@ -23,3 +15,11 @@ associations:
   targetCardinality: 0..*
   targetName: dcNodes
   targetDescription: The DC nodes contained in the DC equipment container.
+- source: DCEquipmentContainer
+  target: DCTopologicalNode
+  sourceCardinality: 0..1
+  sourceName: dcEquipmentContainer
+  sourceDescription: The connectivity node container to which the topological node belongs.
+  targetCardinality: 0..*
+  targetName: dcTopologicalNode
+  targetDescription: The topological nodes which belong to this connectivity node container.

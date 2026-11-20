@@ -18,6 +18,14 @@ descendants:
 - AggregateScore
 associations:
 - source: AnalyticScore
+  target: Analytic
+  sourceCardinality: 0..*
+  sourceName: analyticScore
+  sourceDescription: Analytic score produced by this analytic.
+  targetCardinality: 0..1
+  targetName: analytic
+  targetDescription: Analytic which was executed to arrive at this analytic score..
+- source: AnalyticScore
   target: Asset
   sourceCardinality: 0..*
   sourceName: analyticScore
@@ -25,14 +33,6 @@ associations:
   targetCardinality: 0..1
   targetName: asset
   targetDescription: Asset to which this analytic score applies.
-- source: AnalyticScore
-  target: AssetGroup
-  sourceCardinality: 0..*
-  sourceName: analyticScore
-  sourceDescription: Analytic score for this asset group.
-  targetCardinality: 0..1
-  targetName: assetGroup
-  targetDescription: Asset group to which this analytic score applies..
 - source: AnalyticScore
   target: AggregateScore
   sourceCardinality: 1..*
@@ -42,10 +42,10 @@ associations:
   targetName: assetAggregateScore
   targetDescription: Aggregate score to which this analytic score contributed.
 - source: AnalyticScore
-  target: Analytic
+  target: AssetGroup
   sourceCardinality: 0..*
   sourceName: analyticScore
-  sourceDescription: Analytic score produced by this analytic.
+  sourceDescription: Analytic score for this asset group.
   targetCardinality: 0..1
-  targetName: analytic
-  targetDescription: Analytic which was executed to arrive at this analytic score..
+  targetName: assetGroup
+  targetDescription: Asset group to which this analytic score applies..

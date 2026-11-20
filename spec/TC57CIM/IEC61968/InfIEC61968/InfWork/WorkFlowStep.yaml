@@ -11,14 +11,14 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: WorkFlowStep
-  target: OldWorkTask
-  sourceCardinality: 0..1
-  sourceName: workFlowStep
-  targetCardinality: 0..*
-  targetName: workTasks
-- source: WorkFlowStep
   target: Work
   sourceCardinality: 0..*
   sourceName: workFlowSteps
   targetCardinality: 0..1
   targetName: work
+- source: WorkFlowStep
+  target: OldWorkTask
+  sourceCardinality: 0..1
+  sourceName: workFlowStep
+  targetCardinality: 0..*
+  targetName: workTasks

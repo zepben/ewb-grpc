@@ -22,26 +22,26 @@ ancestors:
 - ErpIdentifiedObject
 associations:
 - source: ErpLedgerEntry
-  target: ErpLedBudLineItem
-  sourceCardinality: 0..1
-  sourceName: erpLedBudLineItem
-  targetCardinality: 0..1
-  targetName: erpLedgerEntry
-- source: ErpLedgerEntry
   target: ErpJournalEntry
   sourceCardinality: 0..1
   sourceName: erpLedgerEntry
   targetCardinality: 0..1
   targetName: erpJounalEntry
 - source: ErpLedgerEntry
-  target: UserAttribute
-  sourceCardinality: 0..*
-  sourceName: erpLedgerEntries
-  targetCardinality: 0..*
-  targetName: userAttributes
-- source: ErpLedgerEntry
   target: ErpLedger
   sourceCardinality: 0..*
   sourceName: erpLedgerEntries
   targetCardinality: "1"
   targetName: erpLedger
+- source: ErpLedgerEntry
+  target: ErpLedBudLineItem
+  sourceCardinality: 0..1
+  sourceName: erpLedBudLineItem
+  targetCardinality: 0..1
+  targetName: erpLedgerEntry
+- source: ErpLedgerEntry
+  target: UserAttribute
+  sourceCardinality: 0..*
+  sourceName: erpLedgerEntries
+  targetCardinality: 0..*
+  targetName: userAttributes

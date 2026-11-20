@@ -11,14 +11,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ClassificationCondition
-  target: PhenomenonClassification
-  sourceCardinality: 0..*
-  sourceName: classificationCondition
-  sourceDescription: Condition contributing to the classification of this phenomenon.
-  targetCardinality: 0..1
-  targetName: phenomenonClassification
-  targetDescription: Phenomenon classification to which this condition relates.
-- source: ClassificationCondition
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
   sourceName: classificationCondition
@@ -34,3 +26,11 @@ associations:
   targetCardinality: 0..*
   targetName: environmentalStringMeasurement
   targetDescription: String measurement which contributes to the definition of this classification condition.
+- source: ClassificationCondition
+  target: PhenomenonClassification
+  sourceCardinality: 0..*
+  sourceName: classificationCondition
+  sourceDescription: Condition contributing to the classification of this phenomenon.
+  targetCardinality: 0..1
+  targetName: phenomenonClassification
+  targetDescription: Phenomenon classification to which this condition relates.

@@ -33,6 +33,12 @@ ancestors:
 - Curve
 associations:
 - source: InterchangeSchedule
+  target: InterchangeETCData
+  sourceCardinality: 0..1
+  sourceName: interchangeSchedule
+  targetCardinality: 0..*
+  targetName: interchangeETCData
+- source: InterchangeSchedule
   target: SchedulingPoint
   sourceCardinality: 0..*
   sourceName: interchangeSchedule
@@ -44,9 +50,3 @@ associations:
   sourceName: interchangeSchedule
   targetCardinality: 0..1
   targetName: registeredInterTie
-- source: InterchangeSchedule
-  target: InterchangeETCData
-  sourceCardinality: 0..1
-  sourceName: interchangeSchedule
-  targetCardinality: 0..*
-  targetName: interchangeETCData

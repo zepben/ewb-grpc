@@ -24,14 +24,6 @@ ancestors:
 - PowerSystemResource
 associations:
 - source: CogenerationPlant
-  target: ThermalGeneratingUnit
-  sourceCardinality: 0..1
-  sourceName: cogenerationPlant
-  sourceDescription: A thermal generating unit may be a member of a cogeneration plant.
-  targetCardinality: 0..*
-  targetName: thermalGeneratingUnits
-  targetDescription: A thermal generating unit may be a member of a cogeneration plant.
-- source: CogenerationPlant
   target: SteamSendoutSchedule
   sourceCardinality: "1"
   sourceName: cogenerationPlant
@@ -39,3 +31,11 @@ associations:
   targetCardinality: "1"
   targetName: steamSendoutSchedule
   targetDescription: A cogeneration plant has a steam sendout schedule.
+- source: CogenerationPlant
+  target: ThermalGeneratingUnit
+  sourceCardinality: 0..1
+  sourceName: cogenerationPlant
+  sourceDescription: A thermal generating unit may be a member of a cogeneration plant.
+  targetCardinality: 0..*
+  targetName: thermalGeneratingUnits
+  targetDescription: A thermal generating unit may be a member of a cogeneration plant.

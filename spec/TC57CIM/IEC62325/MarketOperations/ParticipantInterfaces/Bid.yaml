@@ -14,22 +14,28 @@ ancestors:
 - Document
 descendants:
 - AreaLoadBid
+- DefaultBid
 - ResourceBid
 - TransactionBid
-- DefaultBid
 associations:
+- source: Bid
+  target: ActionRequest
+  sourceCardinality: 0..*
+  sourceName: bid
+  targetCardinality: "1"
+  targetName: actionRequest
+- source: Bid
+  target: BidHourlySchedule
+  sourceCardinality: "1"
+  sourceName: bid
+  targetCardinality: 0..*
+  targetName: bidHourlySchedule
 - source: Bid
   target: ChargeProfile
   sourceCardinality: 0..1
   sourceName: bid
   targetCardinality: 0..*
   targetName: chargeProfiles
-- source: Bid
-  target: MitigatedBidSegment
-  sourceCardinality: "1"
-  sourceName: bid
-  targetCardinality: 0..*
-  targetName: mitigatedBidSegment
 - source: Bid
   target: EnergyMarket
   sourceCardinality: 0..*
@@ -49,17 +55,11 @@ associations:
   targetCardinality: 0..*
   targetName: mitigatedBid
 - source: Bid
-  target: ActionRequest
-  sourceCardinality: 0..*
-  sourceName: bid
-  targetCardinality: "1"
-  targetName: actionRequest
-- source: Bid
-  target: BidHourlySchedule
+  target: MitigatedBidSegment
   sourceCardinality: "1"
   sourceName: bid
   targetCardinality: 0..*
-  targetName: bidHourlySchedule
+  targetName: mitigatedBidSegment
 - source: Bid
   target: ProductBid
   sourceCardinality: "1"

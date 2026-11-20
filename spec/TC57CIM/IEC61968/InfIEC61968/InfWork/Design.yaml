@@ -16,41 +16,11 @@ ancestors:
 - WorkDocument
 associations:
 - source: Design
-  target: OldWorkTask
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..*
-  targetName: workTasks
-- source: Design
-  target: WorkCostDetail
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..*
-  targetName: workCostDetails
-- source: Design
-  target: ErpBOM
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..*
-  targetName: erpBOMs
-- source: Design
   target: ConditionFactor
   sourceCardinality: 0..*
   sourceName: designs
   targetCardinality: 0..*
   targetName: conditionFactors
-- source: Design
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: designs
-  targetCardinality: 0..1
-  targetName: work
-- source: Design
-  target: ErpQuoteLineItem
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..1
-  targetName: erpQuoteLineItem
 - source: Design
   target: DesignLocation
   sourceCardinality: 1..*
@@ -63,3 +33,33 @@ associations:
   sourceName: designs
   targetCardinality: 0..*
   targetName: designLocationsCUs
+- source: Design
+  target: ErpBOM
+  sourceCardinality: 0..1
+  sourceName: design
+  targetCardinality: 0..*
+  targetName: erpBOMs
+- source: Design
+  target: ErpQuoteLineItem
+  sourceCardinality: 0..1
+  sourceName: design
+  targetCardinality: 0..1
+  targetName: erpQuoteLineItem
+- source: Design
+  target: Work
+  sourceCardinality: 0..*
+  sourceName: designs
+  targetCardinality: 0..1
+  targetName: work
+- source: Design
+  target: WorkCostDetail
+  sourceCardinality: 0..1
+  sourceName: design
+  targetCardinality: 0..*
+  targetName: workCostDetails
+- source: Design
+  target: OldWorkTask
+  sourceCardinality: 0..1
+  sourceName: design
+  targetCardinality: 0..*
+  targetName: workTasks

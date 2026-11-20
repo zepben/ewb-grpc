@@ -4,6 +4,10 @@ description: Set of spatial coordinates that determine a point, defined in the c
   a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like
   a substation or a geographical zone - in this case, have first and last position point with the same values).
 attributes:
+- name: sequenceNumber
+  type: Integer
+  nullable: false
+  description: Order of the position point within the parent location geometry.
 - name: xPosition
   type: Float
   nullable: false
@@ -12,10 +16,6 @@ attributes:
   type: Float
   nullable: false
   description: Y axis position.
-- name: sequenceNumber
-  type: Integer
-  nullable: false
-  description: Order of the position point within the parent location geometry.
 associations:
 - source: PositionPoint
   target: Location

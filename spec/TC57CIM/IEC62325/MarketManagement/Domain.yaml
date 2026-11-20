@@ -4,12 +4,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Domain
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: domain
-  targetCardinality: 0..*
-  targetName: registeredResource
-- source: Domain
   target: MarketDocument
   sourceCardinality: 0..*
   sourceName: domain
@@ -27,6 +21,12 @@ associations:
   sourceName: domain
   targetCardinality: 0..*
   targetName: quantity
+- source: Domain
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: domain
+  targetCardinality: 0..*
+  targetName: registeredResource
 - source: Domain
   target: TimeSeries
   sourceCardinality: 0..*

@@ -44,18 +44,6 @@ ancestors:
 - Document
 associations:
 - source: BillDeterminant
-  target: ChargeProfileData
-  sourceCardinality: 0..1
-  sourceName: billDeterminant
-  targetCardinality: 0..*
-  targetName: chargeProfileData
-- source: BillDeterminant
-  target: MktUserAttribute
-  sourceCardinality: 0..*
-  sourceName: billDeterminant
-  targetCardinality: 0..*
-  targetName: mktUserAttribute
-- source: BillDeterminant
   target: ChargeComponent
   sourceCardinality: 0..*
   sourceName: billDeterminants
@@ -69,3 +57,15 @@ associations:
   sourceName: billDeterminant
   targetCardinality: 0..1
   targetName: chargeProfile
+- source: BillDeterminant
+  target: ChargeProfileData
+  sourceCardinality: 0..1
+  sourceName: billDeterminant
+  targetCardinality: 0..*
+  targetName: chargeProfileData
+- source: BillDeterminant
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  sourceName: billDeterminant
+  targetCardinality: 0..*
+  targetName: mktUserAttribute

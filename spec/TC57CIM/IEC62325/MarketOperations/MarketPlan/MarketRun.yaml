@@ -41,14 +41,6 @@ associations:
   targetCardinality: "1"
   targetName: market
 - source: MarketRun
-  target: PlannedMarket
-  sourceCardinality: 0..*
-  sourceName: marketRun
-  sourceDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
-  targetCardinality: "1"
-  targetName: plannedMarket
-  targetDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
-- source: MarketRun
   target: MarketActualEvent
   sourceCardinality: 0..1
   sourceName: marketRun
@@ -58,3 +50,11 @@ associations:
   targetCardinality: 1..*
   targetName: marketActualEvent
   targetDescription: All actual events that trigger this market run.
+- source: MarketRun
+  target: PlannedMarket
+  sourceCardinality: 0..*
+  sourceName: marketRun
+  sourceDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.
+  targetCardinality: "1"
+  targetName: plannedMarket
+  targetDescription: A planned market could have multiple market runs for the reason that a planned market could have a rerun.

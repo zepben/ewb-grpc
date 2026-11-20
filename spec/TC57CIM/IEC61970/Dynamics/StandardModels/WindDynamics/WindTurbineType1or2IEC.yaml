@@ -6,18 +6,10 @@ description: |-
 ancestors:
 - WindTurbineType1or2Dynamics
 descendants:
-- WindGenTurbineType2IEC
-- WindGenTurbineType1bIEC
 - WindGenTurbineType1aIEC
+- WindGenTurbineType1bIEC
+- WindGenTurbineType2IEC
 associations:
-- source: WindTurbineType1or2IEC
-  target: WindProtectionIEC
-  sourceCardinality: 0..1
-  sourceName: windTurbineType1or2IEC
-  sourceDescription: Wind generator type 1 or type 2 model with which this wind turbine protection model is associated.
-  targetCardinality: "1"
-  targetName: windProtectionIEC
-  targetDescription: Wind turbune protection model associated with this wind generator type 1 or type 2 model.
 - source: WindTurbineType1or2IEC
   target: WindMechIEC
   sourceCardinality: 0..1
@@ -26,3 +18,11 @@ associations:
   targetCardinality: "1"
   targetName: windMechIEC
   targetDescription: Wind mechanical model associated with this wind generator type 1 or type 2 model.
+- source: WindTurbineType1or2IEC
+  target: WindProtectionIEC
+  sourceCardinality: 0..1
+  sourceName: windTurbineType1or2IEC
+  sourceDescription: Wind generator type 1 or type 2 model with which this wind turbine protection model is associated.
+  targetCardinality: "1"
+  targetName: windProtectionIEC
+  targetDescription: Wind turbune protection model associated with this wind generator type 1 or type 2 model.

@@ -6,14 +6,6 @@ ancestors:
 - LoadDynamics
 associations:
 - source: LoadAggregate
-  target: LoadStatic
-  sourceCardinality: "1"
-  sourceName: loadAggregate
-  sourceDescription: Aggregate load to which this aggregate static load belongs.
-  targetCardinality: 0..1
-  targetName: loadStatic
-  targetDescription: Aggregate static load associated with this aggregate load.
-- source: LoadAggregate
   target: LoadMotor
   sourceCardinality: "1"
   sourceName: loadAggregate
@@ -21,3 +13,11 @@ associations:
   targetCardinality: 0..1
   targetName: loadMotor
   targetDescription: Aggregate motor (dynamic) load associated with this aggregate load.
+- source: LoadAggregate
+  target: LoadStatic
+  sourceCardinality: "1"
+  sourceName: loadAggregate
+  sourceDescription: Aggregate load to which this aggregate static load belongs.
+  targetCardinality: 0..1
+  targetName: loadStatic
+  targetDescription: Aggregate static load associated with this aggregate load.

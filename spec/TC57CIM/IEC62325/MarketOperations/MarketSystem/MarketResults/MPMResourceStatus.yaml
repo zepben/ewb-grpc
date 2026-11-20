@@ -9,17 +9,17 @@ attributes:
     'N' - not applicable
 associations:
 - source: MPMResourceStatus
-  target: MPMTestCategory
-  sourceCardinality: 0..*
-  sourceName: mpmResourceStatus
-  targetCardinality: "1"
-  targetName: mpmTestCategory
-- source: MPMResourceStatus
   target: MitigatedBidClearing
   sourceCardinality: 0..*
   sourceName: mpmResourceStatus
   targetCardinality: 1..*
   targetName: mitigatedBidClearing
+- source: MPMResourceStatus
+  target: MPMTestCategory
+  sourceCardinality: 0..*
+  sourceName: mpmResourceStatus
+  targetCardinality: "1"
+  targetName: mpmTestCategory
 - source: MPMResourceStatus
   target: RegisteredResource
   sourceCardinality: 0..*

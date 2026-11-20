@@ -4,6 +4,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: PhenomenonClassification
+  target: ClassificationCondition
+  sourceCardinality: 0..1
+  sourceName: phenomenonClassification
+  sourceDescription: Phenomenon classification to which this condition relates.
+  targetCardinality: 0..*
+  targetName: classificationCondition
+  targetDescription: Condition contributing to the classification of this phenomenon.
+- source: PhenomenonClassification
   target: EnvironmentalDataAuthority
   sourceCardinality: 0..*
   sourceName: phenomenonClassification
@@ -18,11 +26,3 @@ associations:
   sourceDescription: The classification of this phenomenon.
   targetCardinality: 0..*
   targetName: environmentalPhenomenon
-- source: PhenomenonClassification
-  target: ClassificationCondition
-  sourceCardinality: 0..1
-  sourceName: phenomenonClassification
-  sourceDescription: Phenomenon classification to which this condition relates.
-  targetCardinality: 0..*
-  targetName: classificationCondition
-  targetDescription: Condition contributing to the classification of this phenomenon.

@@ -2,6 +2,10 @@ name: UsagePoint
 description: Logical or physical point in the network to which readings or events may be attributed. Used at the place where
   a physical or virtual meter may be located; however, it is not required that a meter be present.
 attributes:
+- name: approvedInverterCapacity
+  type: Integer
+  nullable: true
+  description: \[ZBEX\] The approved inverter capacity at this UsagePoint in volt-amperes.
 - name: connectionCategory
   type: String
   nullable: true
@@ -19,21 +23,14 @@ attributes:
   description: Phase code. Number of wires and specific nominal phases can be deduced from enumeration literal values. For
     example, ABCN is three-phase, four-wire, s12n (splitSecondary12N) is single-phase, three-wire, and s1n and s2n are single-phase,
     two-wire.
-- name: approvedInverterCapacity
-  type: Integer
-  nullable: true
-  description: \[ZBEX\] The approved inverter capacity at this UsagePoint in volt-amperes.
 ancestors:
 - IdentifiedObject
 associations:
 - source: UsagePoint
-  target: Equipment
-  sourceCardinality: 0..*
-  sourceName: usagePoints
-  sourceDescription: All usage points connected to the electrical grid through this equipment.
+  target: ContactDetails
   targetCardinality: 0..*
-  targetName: equipments
-  targetDescription: All equipment connecting this usage point to the electrical grid.
+  targetName: contacts
+  targetDescription: \[ZBEX\] All contact details for this UsagePoint.
 - source: UsagePoint
   target: EndDevice
   sourceCardinality: 0..*
@@ -43,12 +40,15 @@ associations:
   targetName: endDevices
   targetDescription: All end devices at this usage point.
 - source: UsagePoint
+  target: Equipment
+  sourceCardinality: 0..*
+  sourceName: usagePoints
+  sourceDescription: All usage points connected to the electrical grid through this equipment.
+  targetCardinality: 0..*
+  targetName: equipments
+  targetDescription: All equipment connecting this usage point to the electrical grid.
+- source: UsagePoint
   target: Location
   targetCardinality: 0..1
   targetName: usagePointLocation
   targetDescription: Location of this usage point.
-- source: UsagePoint
-  target: ContactDetails
-  targetCardinality: 0..*
-  targetName: contacts
-  targetDescription: \[ZBEX\] All contact details for this UsagePoint.

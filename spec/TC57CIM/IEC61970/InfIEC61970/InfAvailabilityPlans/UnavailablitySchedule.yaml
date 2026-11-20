@@ -8,15 +8,15 @@ associations:
   sourceCardinality: 0..*
   targetCardinality: 0..1
 - source: UnavailablitySchedule
-  target: EquipmentUnavailabilitySchedule
-  sourceCardinality: "1"
-  targetCardinality: 0..*
-- source: UnavailablitySchedule
   target: UnavailabilityScheduleDependency
   sourceCardinality: "1"
   sourceName: unavailabilityScheduleImpacts
   targetCardinality: 0..*
   targetName: dependsOn
+- source: UnavailablitySchedule
+  target: EquipmentUnavailabilitySchedule
+  sourceCardinality: "1"
+  targetCardinality: 0..*
 - source: UnavailablitySchedule
   target: UnavailabilityScheduleDependency
   sourceCardinality: "1"

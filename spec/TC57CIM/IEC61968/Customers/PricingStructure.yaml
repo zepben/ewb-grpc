@@ -29,15 +29,21 @@ ancestors:
 - Document
 associations:
 - source: PricingStructure
-  target: UsagePoint
+  target: CustomerAgreement
   sourceCardinality: 0..*
   sourceName: pricingStructures
-  sourceDescription: All pricing structures applicable to this service delivery point (with prepayment meter running as a
-    stand-alone device, with no CustomerAgreement or Customer).
+  sourceDescription: All pricing structures applicable to this customer agreement.
   targetCardinality: 0..*
-  targetName: usagePoints
-  targetDescription: All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement
-    or Customer) to which this pricing structure applies.
+  targetName: customerAgreements
+  targetDescription: All customer agreements with this pricing structure.
+- source: PricingStructure
+  target: ServiceCategory
+  sourceCardinality: 0..*
+  sourceName: pricingStructures
+  sourceDescription: All pricing structures applicable to this service category.
+  targetCardinality: "1"
+  targetName: serviceCategory
+  targetDescription: Service category to which this pricing structure applies.
 - source: PricingStructure
   target: Tariff
   sourceCardinality: 0..*
@@ -55,18 +61,12 @@ associations:
   targetName: transactions
   targetDescription: All transactions applying this pricing structure.
 - source: PricingStructure
-  target: ServiceCategory
+  target: UsagePoint
   sourceCardinality: 0..*
   sourceName: pricingStructures
-  sourceDescription: All pricing structures applicable to this service category.
-  targetCardinality: "1"
-  targetName: serviceCategory
-  targetDescription: Service category to which this pricing structure applies.
-- source: PricingStructure
-  target: CustomerAgreement
-  sourceCardinality: 0..*
-  sourceName: pricingStructures
-  sourceDescription: All pricing structures applicable to this customer agreement.
+  sourceDescription: All pricing structures applicable to this service delivery point (with prepayment meter running as a
+    stand-alone device, with no CustomerAgreement or Customer).
   targetCardinality: 0..*
-  targetName: customerAgreements
-  targetDescription: All customer agreements with this pricing structure.
+  targetName: usagePoints
+  targetDescription: All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement
+    or Customer) to which this pricing structure applies.

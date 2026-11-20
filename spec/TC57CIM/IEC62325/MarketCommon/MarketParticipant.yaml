@@ -8,11 +8,11 @@ descendants:
 - SchedulingCoordinator
 associations:
 - source: MarketParticipant
-  target: MarketPerson
-  sourceCardinality: 0..*
+  target: Bid
+  sourceCardinality: 0..1
   sourceName: marketParticipant
   targetCardinality: 0..*
-  targetName: marketPerson
+  targetName: bid
 - source: MarketParticipant
   target: MarketDocument
   sourceCardinality: 0..*
@@ -20,23 +20,11 @@ associations:
   targetCardinality: 0..*
   targetName: marketDocument
 - source: MarketParticipant
-  target: SchedulingCoordinator
-  sourceCardinality: 0..1
-  sourceName: marketParticipant
-  targetCardinality: 0..*
-  targetName: schedulingCoordinator
-- source: MarketParticipant
-  target: Bid
-  sourceCardinality: 0..1
-  sourceName: marketParticipant
-  targetCardinality: 0..*
-  targetName: bid
-- source: MarketParticipant
-  target: TimeSeries
+  target: MarketPerson
   sourceCardinality: 0..*
   sourceName: marketParticipant
   targetCardinality: 0..*
-  targetName: timeSeries
+  targetName: marketPerson
 - source: MarketParticipant
   target: MarketRole
   sourceCardinality: 0..*
@@ -49,3 +37,15 @@ associations:
   sourceName: marketParticipant
   targetCardinality: 0..*
   targetName: registeredResource
+- source: MarketParticipant
+  target: SchedulingCoordinator
+  sourceCardinality: 0..1
+  sourceName: marketParticipant
+  targetCardinality: 0..*
+  targetName: schedulingCoordinator
+- source: MarketParticipant
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: marketParticipant
+  targetCardinality: 0..*
+  targetName: timeSeries

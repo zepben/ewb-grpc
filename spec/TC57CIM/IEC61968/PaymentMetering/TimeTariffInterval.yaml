@@ -21,14 +21,6 @@ associations:
   targetName: charges
   targetDescription: All charges used to define this time tariff interval.
 - source: TimeTariffInterval
-  target: TariffProfile
-  sourceCardinality: 0..*
-  sourceName: timeTariffIntervals
-  sourceDescription: All time tariff intervals used to define this tariff profile.
-  targetCardinality: 0..*
-  targetName: tariffProfiles
-  targetDescription: All tariff profiles defined by this time tariff interval.
-- source: TimeTariffInterval
   target: ConsumptionTariffInterval
   sourceCardinality: 0..*
   sourceName: touTariffIntervals
@@ -37,3 +29,11 @@ associations:
   targetName: consumptionTariffIntervals
   targetDescription: All consumption tariff intervals that introduce variation in this time of use tariff interval; allows
     to express e.g., peak hour prices that are different with different consumption blocks.
+- source: TimeTariffInterval
+  target: TariffProfile
+  sourceCardinality: 0..*
+  sourceName: timeTariffIntervals
+  sourceDescription: All time tariff intervals used to define this tariff profile.
+  targetCardinality: 0..*
+  targetName: tariffProfiles
+  targetDescription: All tariff profiles defined by this time tariff interval.

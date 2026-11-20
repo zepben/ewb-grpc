@@ -4,12 +4,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: CalculationMethodHierarchy
-  target: MeasurementValue
-  sourceCardinality: 0..1
+  target: CalculationMethodOrder
+  sourceCardinality: "1"
   sourceName: calculationMethodHierarchy
-  targetCardinality: 0..1
-  targetName: measurementValue
-  targetDescription: Measurement value to which this calculation method hierarchy applies.
+  sourceDescription: The calculation method hierarchy of which this order of statistical calculation is a member.
+  targetCardinality: 0..*
+  targetName: calculationMethodOrder
+  targetDescription: Order of a statistical calculation associated with this calculation method hierarchy.
 - source: CalculationMethodHierarchy
   target: Measurement
   sourceCardinality: 0..1
@@ -19,10 +20,9 @@ associations:
   targetName: measurement
   targetDescription: Measurement to which this calculation method hierarchy applies.
 - source: CalculationMethodHierarchy
-  target: CalculationMethodOrder
-  sourceCardinality: "1"
+  target: MeasurementValue
+  sourceCardinality: 0..1
   sourceName: calculationMethodHierarchy
-  sourceDescription: The calculation method hierarchy of which this order of statistical calculation is a member.
-  targetCardinality: 0..*
-  targetName: calculationMethodOrder
-  targetDescription: Order of a statistical calculation associated with this calculation method hierarchy.
+  targetCardinality: 0..1
+  targetName: measurementValue
+  targetDescription: Measurement value to which this calculation method hierarchy applies.

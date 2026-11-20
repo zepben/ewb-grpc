@@ -4,30 +4,6 @@ ancestors:
 - ConnectivityNode
 associations:
 - source: MktConnectivityNode
-  target: NodeConstraintTerm
-  sourceCardinality: "1"
-  sourceName: mktConnectivityNode
-  targetCardinality: 0..*
-  targetName: nodeConstraintTerm
-- source: MktConnectivityNode
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: mktConnectivityNode
-  targetCardinality: "1"
-  targetName: rto
-- source: MktConnectivityNode
-  target: SysLoadDistributionFactor
-  sourceCardinality: "1"
-  sourceName: mktConnectivityNode
-  targetCardinality: 0..1
-  targetName: sysLoadDistribuFactor
-- source: MktConnectivityNode
-  target: LossSensitivity
-  sourceCardinality: "1"
-  sourceName: mktConnectivityNode
-  targetCardinality: 0..*
-  targetName: lossPenaltyFactor
-- source: MktConnectivityNode
   target: CnodeDistributionFactor
   sourceCardinality: "1"
   sourceName: mktConnectivityNode
@@ -40,8 +16,32 @@ associations:
   targetCardinality: 0..1
   targetName: individualPnode
 - source: MktConnectivityNode
+  target: LossSensitivity
+  sourceCardinality: "1"
+  sourceName: mktConnectivityNode
+  targetCardinality: 0..*
+  targetName: lossPenaltyFactor
+- source: MktConnectivityNode
+  target: NodeConstraintTerm
+  sourceCardinality: "1"
+  sourceName: mktConnectivityNode
+  targetCardinality: 0..*
+  targetName: nodeConstraintTerm
+- source: MktConnectivityNode
   target: RegisteredResource
   sourceCardinality: 0..1
   sourceName: mktConnectivityNode
   targetCardinality: 0..*
   targetName: registeredResource
+- source: MktConnectivityNode
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: mktConnectivityNode
+  targetCardinality: "1"
+  targetName: rto
+- source: MktConnectivityNode
+  target: SysLoadDistributionFactor
+  sourceCardinality: "1"
+  sourceName: mktConnectivityNode
+  targetCardinality: 0..1
+  targetName: sysLoadDistribuFactor

@@ -31,6 +31,12 @@ associations:
   targetName: chargeType
   targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
 - source: MajorChargeGroup
+  target: MarketInvoice
+  sourceCardinality: 1..*
+  sourceName: majorChargeGroup
+  targetCardinality: 0..*
+  targetName: marketInvoice
+- source: MajorChargeGroup
   target: MarketScheduledEvent
   sourceCardinality: 0..1
   sourceName: majorChargeGroup
@@ -42,9 +48,3 @@ associations:
   sourceName: majorChargeGroup
   targetCardinality: 0..*
   targetName: settlement
-- source: MajorChargeGroup
-  target: MarketInvoice
-  sourceCardinality: 1..*
-  sourceName: majorChargeGroup
-  targetCardinality: 0..*
-  targetName: marketInvoice

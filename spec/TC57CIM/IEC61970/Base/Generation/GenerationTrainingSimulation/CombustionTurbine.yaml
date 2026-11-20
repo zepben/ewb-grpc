@@ -40,14 +40,6 @@ associations:
   targetName: airCompressor
   targetDescription: A CAES air compressor is driven by combustion turbine.
 - source: CombustionTurbine
-  target: HeatRecoveryBoiler
-  sourceCardinality: 0..*
-  sourceName: combustionTurbines
-  sourceDescription: A combustion turbine may have a heat recovery boiler for making steam.
-  targetCardinality: 0..1
-  targetName: heatRecoveryBoiler
-  targetDescription: A combustion turbine may have a heat recovery boiler for making steam.
-- source: CombustionTurbine
   target: CTTempActivePowerCurve
   sourceCardinality: "1"
   sourceName: combustionTurbine
@@ -55,3 +47,11 @@ associations:
   targetCardinality: 0..1
   targetName: ctTempActivePowerCurve
   targetDescription: A combustion turbine may have an active power versus ambient temperature relationship.
+- source: CombustionTurbine
+  target: HeatRecoveryBoiler
+  sourceCardinality: 0..*
+  sourceName: combustionTurbines
+  sourceDescription: A combustion turbine may have a heat recovery boiler for making steam.
+  targetCardinality: 0..1
+  targetName: heatRecoveryBoiler
+  targetDescription: A combustion turbine may have a heat recovery boiler for making steam.

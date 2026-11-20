@@ -10,13 +10,6 @@ associations:
   targetCardinality: 0..*
   targetName: bushingInsulationPFs
 - source: Bushing
-  target: Terminal
-  sourceCardinality: 0..1
-  sourceName: bushing
-  targetCardinality: 0..1
-  targetName: terminal
-  targetDescription: Terminal to which this bushing is attached.
-- source: Bushing
   target: InterrupterUnit
   sourceCardinality: 0..*
   sourceName: bushing
@@ -36,3 +29,10 @@ associations:
   targetCardinality: 0..1
   targetName: movingContact
   targetDescription: Moving contact of interrupter to which this bushing is attached.
+- source: Bushing
+  target: Terminal
+  sourceCardinality: 0..1
+  sourceName: bushing
+  targetCardinality: 0..1
+  targetName: terminal
+  targetDescription: Terminal to which this bushing is attached.

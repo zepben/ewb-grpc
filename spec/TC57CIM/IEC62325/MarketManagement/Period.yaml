@@ -9,12 +9,6 @@ attributes:
   description: The start and end date and time for a given interval.
 associations:
 - source: Period
-  target: Reason
-  sourceCardinality: 0..*
-  sourceName: period
-  targetCardinality: 0..*
-  targetName: reason
-- source: Period
   target: MarketDocument
   sourceCardinality: 0..*
   sourceName: period
@@ -26,6 +20,12 @@ associations:
   sourceName: period
   targetCardinality: 0..*
   targetName: point
+- source: Period
+  target: Reason
+  sourceCardinality: 0..*
+  sourceName: period
+  targetCardinality: 0..*
+  targetName: reason
 - source: Period
   target: TimeSeries
   sourceCardinality: 0..*

@@ -14,6 +14,14 @@ ancestors:
 - Document
 associations:
 - source: MerchantAccount
+  target: MerchantAgreement
+  sourceCardinality: 0..*
+  sourceName: merchantAccounts
+  sourceDescription: All merchant accounts instantiated as a result of this merchant agreement.
+  targetCardinality: 0..1
+  targetName: merchantAgreement
+  targetDescription: Merchant agreement that instantiated this merchant account.
+- source: MerchantAccount
   target: Transactor
   sourceCardinality: 0..*
   sourceName: merchantAccounts
@@ -29,11 +37,3 @@ associations:
   targetCardinality: 0..*
   targetName: vendorShifts
   targetDescription: All vendor shifts that operate on this merchant account.
-- source: MerchantAccount
-  target: MerchantAgreement
-  sourceCardinality: 0..*
-  sourceName: merchantAccounts
-  sourceDescription: All merchant accounts instantiated as a result of this merchant agreement.
-  targetCardinality: 0..1
-  targetName: merchantAgreement
-  targetDescription: Merchant agreement that instantiated this merchant account.

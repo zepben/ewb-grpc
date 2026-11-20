@@ -15,14 +15,14 @@ attributes:
   description: Minimum DC voltage (Vdcmin).
 associations:
 - source: DCvoltageControl
-  target: VSCtype1
-  sourceCardinality: "1"
-  sourceName: dcVoltageControl
-  targetCardinality: 0..1
-  targetName: vscType1
-- source: DCvoltageControl
   target: Delay
   sourceCardinality: 0..1
   sourceName: dcVoltageControl
   targetCardinality: "1"
   targetName: delay
+- source: DCvoltageControl
+  target: VSCtype1
+  sourceCardinality: "1"
+  sourceName: dcVoltageControl
+  targetCardinality: 0..1
+  targetName: vscType1

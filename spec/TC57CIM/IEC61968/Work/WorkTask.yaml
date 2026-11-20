@@ -40,11 +40,27 @@ attributes:
 ancestors:
 - BaseWork
 descendants:
-- OldWorkTask
-- MeterWorkTask
-- RepairWorkTask
 - MaintenanceWorkTask
+- MeterWorkTask
+- OldWorkTask
+- RepairWorkTask
 associations:
+- source: WorkTask
+  target: Asset
+  sourceCardinality: 0..*
+  sourceName: workTasks
+  sourceDescription: All non-replacement work tasks performed on this asset.
+  targetCardinality: 0..*
+  targetName: assets
+  targetDescription: All assets on which this non-replacement work task is performed.
+- source: WorkTask
+  target: Crew
+  sourceCardinality: 0..*
+  sourceName: workTasks
+  sourceDescription: All work tasks this crew participates in.
+  targetCardinality: 0..*
+  targetName: crews
+  targetDescription: All crews participating in this work task.
 - source: WorkTask
   target: MaterialItem
   sourceCardinality: 0..1
@@ -59,36 +75,6 @@ associations:
   targetCardinality: 0..*
   targetName: oldAsset
   targetDescription: Old asset replaced by this work task.
-- source: WorkTask
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  sourceDescription: All non-replacement work tasks performed on this asset.
-  targetCardinality: 0..*
-  targetName: assets
-  targetDescription: All assets on which this non-replacement work task is performed.
-- source: WorkTask
-  target: TroubleOrder
-  sourceCardinality: 0..*
-  sourceName: workTask
-  targetCardinality: 0..1
-  targetName: troubleOrder
-- source: WorkTask
-  target: Crew
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  sourceDescription: All work tasks this crew participates in.
-  targetCardinality: 0..*
-  targetName: crews
-  targetDescription: All crews participating in this work task.
-- source: WorkTask
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  sourceDescription: All tasks in this work.
-  targetCardinality: "1"
-  targetName: work
-  targetDescription: Work this task belongs to.
 - source: WorkTask
   target: ProcedureDataSet
   sourceCardinality: 0..1
@@ -105,3 +91,17 @@ associations:
   targetCardinality: 0..1
   targetName: switchingPlan
   targetDescription: Switching plan executed by this work task.
+- source: WorkTask
+  target: TroubleOrder
+  sourceCardinality: 0..*
+  sourceName: workTask
+  targetCardinality: 0..1
+  targetName: troubleOrder
+- source: WorkTask
+  target: Work
+  sourceCardinality: 0..*
+  sourceName: workTasks
+  sourceDescription: All tasks in this work.
+  targetCardinality: "1"
+  targetName: work
+  targetDescription: Work this task belongs to.

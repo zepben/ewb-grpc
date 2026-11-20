@@ -9,18 +9,6 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: QualificationRequirement
-  target: Specification
-  sourceCardinality: 0..*
-  sourceName: qualificationRequirements
-  targetCardinality: 0..*
-  targetName: specifications
-- source: QualificationRequirement
-  target: OldWorkTask
-  sourceCardinality: 0..*
-  sourceName: qualificationRequirements
-  targetCardinality: 0..*
-  targetName: workTasks
-- source: QualificationRequirement
   target: CULaborItem
   sourceCardinality: 0..*
   sourceName: qualificationRequirements
@@ -32,3 +20,15 @@ associations:
   sourceName: qualificationRequirements
   targetCardinality: 0..*
   targetName: skills
+- source: QualificationRequirement
+  target: Specification
+  sourceCardinality: 0..*
+  sourceName: qualificationRequirements
+  targetCardinality: 0..*
+  targetName: specifications
+- source: QualificationRequirement
+  target: OldWorkTask
+  sourceCardinality: 0..*
+  sourceName: qualificationRequirements
+  targetCardinality: 0..*
+  targetName: workTasks

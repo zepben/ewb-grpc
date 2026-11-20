@@ -50,6 +50,24 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: TransformerObservation
+  target: BushingInsulationPF
+  sourceCardinality: 0..1
+  sourceName: transformerObservation
+  targetCardinality: 0..*
+  targetName: bushingInsultationPFs
+- source: TransformerObservation
+  target: ProcedureDataSet
+  sourceCardinality: 0..*
+  sourceName: transformerObservations
+  targetCardinality: 0..*
+  targetName: procedureDataSets
+- source: TransformerObservation
+  target: Reconditioning
+  sourceCardinality: 0..*
+  sourceName: transformerObservations
+  targetCardinality: "1"
+  targetName: reconditioning
+- source: TransformerObservation
   target: TransformerTank
   sourceCardinality: 0..*
   sourceName: transformerObservations
@@ -61,21 +79,3 @@ associations:
   sourceName: transformerObservation
   targetCardinality: 0..*
   targetName: windingInsulationPFs
-- source: TransformerObservation
-  target: BushingInsulationPF
-  sourceCardinality: 0..1
-  sourceName: transformerObservation
-  targetCardinality: 0..*
-  targetName: bushingInsultationPFs
-- source: TransformerObservation
-  target: Reconditioning
-  sourceCardinality: 0..*
-  sourceName: transformerObservations
-  targetCardinality: "1"
-  targetName: reconditioning
-- source: TransformerObservation
-  target: ProcedureDataSet
-  sourceCardinality: 0..*
-  sourceName: transformerObservations
-  targetCardinality: 0..*
-  targetName: procedureDataSets

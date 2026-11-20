@@ -16,12 +16,6 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: CULaborItem
-  target: QualificationRequirement
-  sourceCardinality: 0..*
-  sourceName: cuLaborItems
-  targetCardinality: 0..*
-  targetName: qualificationRequirements
-- source: CULaborItem
   target: CompatibleUnit
   sourceCardinality: 0..*
   sourceName: cuLaborItems
@@ -33,3 +27,9 @@ associations:
   sourceName: cuLaborItems
   targetCardinality: 0..1
   targetName: cuLaborCode
+- source: CULaborItem
+  target: QualificationRequirement
+  sourceCardinality: 0..*
+  sourceName: cuLaborItems
+  targetCardinality: 0..*
+  targetName: qualificationRequirements

@@ -53,6 +53,12 @@ ancestors:
 - ResourceBid
 associations:
 - source: LoadBid
+  target: AreaLoadBid
+  sourceCardinality: 0..*
+  sourceName: loadBid
+  targetCardinality: 0..1
+  targetName: areaLoadBid
+- source: LoadBid
   target: LoadReductionPriceCurve
   sourceCardinality: "1"
   sourceName: loadBid
@@ -64,12 +70,6 @@ associations:
   sourceName: loadBid
   targetCardinality: 0..*
   targetName: rampRateCurve
-- source: LoadBid
-  target: AreaLoadBid
-  sourceCardinality: 0..*
-  sourceName: loadBid
-  targetCardinality: 0..1
-  targetName: areaLoadBid
 - source: LoadBid
   target: RegisteredLoad
   sourceCardinality: 0..*

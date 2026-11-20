@@ -5,14 +5,6 @@ ancestors:
 - Document
 associations:
 - source: OperationalTag
-  target: PowerSystemResource
-  sourceCardinality: 0..*
-  sourceName: operationalTags
-  sourceDescription: All operational tags placed on this power system resource.
-  targetCardinality: 0..1
-  targetName: powerSystemResource
-  targetDescription: Power system resource on which this tag has been placed.
-- source: OperationalTag
   target: Asset
   sourceCardinality: 0..*
   sourceName: operationalTags
@@ -20,6 +12,14 @@ associations:
   targetCardinality: 0..1
   targetName: asset
   targetDescription: Asset on which this tag has been placed.
+- source: OperationalTag
+  target: PowerSystemResource
+  sourceCardinality: 0..*
+  sourceName: operationalTags
+  sourceDescription: All operational tags placed on this power system resource.
+  targetCardinality: 0..1
+  targetName: powerSystemResource
+  targetDescription: Power system resource on which this tag has been placed.
 - source: OperationalTag
   target: TagAction
   sourceCardinality: 0..1

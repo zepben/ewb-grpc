@@ -27,11 +27,11 @@ associations:
   targetCardinality: 0..*
   targetName: childCostTypes
 - source: CostType
-  target: WorkCostDetail
-  sourceCardinality: "1"
+  target: CompatibleUnit
+  sourceCardinality: 0..1
   sourceName: costType
   targetCardinality: 0..*
-  targetName: workCostDetails
+  targetName: compatibleUnits
 - source: CostType
   target: ErpJournalEntry
   sourceCardinality: 0..*
@@ -39,8 +39,8 @@ associations:
   targetCardinality: 0..*
   targetName: erpJournalEntries
 - source: CostType
-  target: CompatibleUnit
-  sourceCardinality: 0..1
+  target: WorkCostDetail
+  sourceCardinality: "1"
   sourceName: costType
   targetCardinality: 0..*
-  targetName: compatibleUnits
+  targetName: workCostDetails

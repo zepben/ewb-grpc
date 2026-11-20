@@ -4,6 +4,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: DCNode
+  target: DCEquipmentContainer
+  sourceCardinality: 0..*
+  sourceName: dcNodes
+  sourceDescription: The DC nodes contained in the DC equipment container.
+  targetCardinality: "1"
+  targetName: dcEquipmentContainer
+  targetDescription: The DC container for the DC nodes.
+- source: DCNode
   target: DCBaseTerminal
   sourceCardinality: 0..1
   sourceName: dcNode
@@ -21,11 +29,3 @@ associations:
   targetName: dcTopologicalNode
   targetDescription: The DC topological node to which this DC connectivity node is assigned.  May depend on the current state
     of switches in the network.
-- source: DCNode
-  target: DCEquipmentContainer
-  sourceCardinality: 0..*
-  sourceName: dcNodes
-  sourceDescription: The DC nodes contained in the DC equipment container.
-  targetCardinality: "1"
-  targetName: dcEquipmentContainer
-  targetDescription: The DC container for the DC nodes.

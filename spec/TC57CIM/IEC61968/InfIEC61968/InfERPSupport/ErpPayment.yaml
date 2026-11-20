@@ -10,11 +10,11 @@ ancestors:
 - ErpDocument
 associations:
 - source: ErpPayment
-  target: ErpRecLineItem
+  target: ErpInvoiceLineItem
   sourceCardinality: 0..*
   sourceName: erpPayments
   targetCardinality: 0..*
-  targetName: erpRecLineItems
+  targetName: erpInvoiceLineItems
 - source: ErpPayment
   target: ErpPayableLineItem
   sourceCardinality: 0..*
@@ -22,8 +22,8 @@ associations:
   targetCardinality: 0..*
   targetName: erpPayableLineItems
 - source: ErpPayment
-  target: ErpInvoiceLineItem
+  target: ErpRecLineItem
   sourceCardinality: 0..*
   sourceName: erpPayments
   targetCardinality: 0..*
-  targetName: erpInvoiceLineItems
+  targetName: erpRecLineItems

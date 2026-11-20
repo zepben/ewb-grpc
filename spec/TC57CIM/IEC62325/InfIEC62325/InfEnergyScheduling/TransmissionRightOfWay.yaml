@@ -4,6 +4,12 @@ ancestors:
 - PowerSystemResource
 associations:
 - source: TransmissionRightOfWay
+  target: MktLine
+  sourceCardinality: 0..1
+  sourceName: transmissionRightOfWay
+  targetCardinality: 0..*
+  targetName: mktLine
+- source: TransmissionRightOfWay
   target: TransmissionCorridor
   sourceCardinality: 1..*
   sourceName: transmissionRightOfWays
@@ -11,9 +17,3 @@ associations:
   targetCardinality: "1"
   targetName: transmissionCorridor
   targetDescription: A transmission right-of-way is a member of a transmission corridor
-- source: TransmissionRightOfWay
-  target: MktLine
-  sourceCardinality: 0..1
-  sourceName: transmissionRightOfWay
-  targetCardinality: 0..*
-  targetName: mktLine

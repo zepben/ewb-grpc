@@ -15,6 +15,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Charge
+  target: AuxiliaryAccount
+  sourceCardinality: 0..*
+  sourceName: charges
+  sourceDescription: All charges levied on this account.
+  targetCardinality: 0..*
+  targetName: auxiliaryAccounts
+  targetDescription: All auxiliary accounts to which this charge has to be levied.
+- source: Charge
   target: Charge
   sourceCardinality: 0..1
   sourceName: parentCharge
@@ -38,11 +46,3 @@ associations:
   targetCardinality: 0..*
   targetName: timeTariffIntervals
   targetDescription: Tariff intervals to which this time-based charge has to be levied.
-- source: Charge
-  target: AuxiliaryAccount
-  sourceCardinality: 0..*
-  sourceName: charges
-  sourceDescription: All charges levied on this account.
-  targetCardinality: 0..*
-  targetName: auxiliaryAccounts
-  targetDescription: All auxiliary accounts to which this charge has to be levied.

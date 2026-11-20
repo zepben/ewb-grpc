@@ -4,6 +4,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ModelOperationDescription
+  target: ModelOperation
+  sourceCardinality: "1"
+  sourceName: modelOperationDescription
+  sourceDescription: The type of the model operation.
+  targetCardinality: 0..*
+  targetName: modelOperation
+  targetDescription: The instances of operations that conform to this operation type.
+- source: ModelOperationDescription
   target: ModelOperationArgDescription
   sourceCardinality: "1"
   sourceName: modelOperationDefinition
@@ -12,11 +20,3 @@ associations:
   targetCardinality: 0..*
   targetName: operationDatasetArgDescription
   targetDescription: The type of dataset roles that can be used for a type of general model operation.
-- source: ModelOperationDescription
-  target: ModelOperation
-  sourceCardinality: "1"
-  sourceName: modelOperationDescription
-  sourceDescription: The type of the model operation.
-  targetCardinality: 0..*
-  targetName: modelOperation
-  targetDescription: The instances of operations that conform to this operation type.

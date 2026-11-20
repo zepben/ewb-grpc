@@ -2,6 +2,10 @@ name: Control
 description: Control is used for supervisory/device control. It represents control outputs that are used to change the state
   in a process, e.g. close or open breaker, a set point value or a raise lower command.
 attributes:
+- name: controlType
+  type: String
+  description: Specifies the type of Control, e.g. BreakerOn/Off, GeneratorVoltageSetPoint, TieLineFlow etc. The ControlType.name
+    shall be unique among all specified types and describe the type.
 - name: operationInProgress
   type: Boolean
   description: Indicates that a client is currently sending control commands that has not completed.
@@ -14,25 +18,19 @@ attributes:
 - name: unitSymbol
   type: UnitSymbol
   description: The unit of measure of the controlled quantity.
-- name: controlType
-  type: String
-  description: Specifies the type of Control, e.g. BreakerOn/Off, GeneratorVoltageSetPoint, TieLineFlow etc. The ControlType.name
-    shall be unique among all specified types and describe the type.
 ancestors:
 - IOPoint
 descendants:
-- Command
 - AccumulatorReset
 - AnalogControl
+- Command
 associations:
 - source: Control
-  target: RemoteControl
-  sourceCardinality: "1"
+  target: ControlAction
+  sourceCardinality: 0..1
   sourceName: control
-  sourceDescription: The Control for the RemoteControl point.
   targetCardinality: 0..1
-  targetName: remoteControl
-  targetDescription: The remote point controlling the physical actuator.
+  targetName: controlAction
 - source: Control
   target: PowerSystemResource
   sourceCardinality: 0..*
@@ -43,8 +41,10 @@ associations:
   targetName: powerSystemResource
   targetDescription: Regulating device governed by this control output.
 - source: Control
-  target: ControlAction
-  sourceCardinality: 0..1
+  target: RemoteControl
+  sourceCardinality: "1"
   sourceName: control
+  sourceDescription: The Control for the RemoteControl point.
   targetCardinality: 0..1
-  targetName: controlAction
+  targetName: remoteControl
+  targetDescription: The remote point controlling the physical actuator.

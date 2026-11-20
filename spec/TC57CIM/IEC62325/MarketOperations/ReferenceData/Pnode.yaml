@@ -9,27 +9,21 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- IndividualPnode
 - AggregatedPnode
+- IndividualPnode
 associations:
 - source: Pnode
-  target: SubControlArea
+  target: AggregateNode
   sourceCardinality: 0..*
   sourceName: pnode
-  targetCardinality: 0..1
-  targetName: subControlArea
+  targetCardinality: 0..*
+  targetName: aggregateNode
 - source: Pnode
-  target: Trade
-  sourceCardinality: 0..1
+  target: CommodityDefinition
+  sourceCardinality: "1"
   sourceName: pnode
   targetCardinality: 0..*
-  targetName: trade
-- source: Pnode
-  target: TransactionBid
-  sourceCardinality: 0..1
-  sourceName: receipt_Pnode
-  targetCardinality: 0..*
-  targetName: receiptTransactionBids
+  targetName: commodityDefinition
 - source: Pnode
   target: TransactionBid
   sourceCardinality: 0..1
@@ -43,23 +37,11 @@ associations:
   targetCardinality: 0..*
   targetName: exPostResults
 - source: Pnode
-  target: PnodeResults
-  sourceCardinality: 0..1
-  sourceName: pnode
-  targetCardinality: 1..*
-  targetName: pnodeResults
-- source: Pnode
-  target: CRRSegment
+  target: FTR
   sourceCardinality: 0..*
-  sourceName: source
+  sourceName: pnodes
   targetCardinality: 0..*
-  targetName: sourceCRRSegment
-- source: Pnode
-  target: CRRSegment
-  sourceCardinality: 0..*
-  sourceName: sink
-  targetCardinality: 0..*
-  targetName: sinkCRRSegment
+  targetName: ftrs
 - source: Pnode
   target: MktMeasurement
   sourceCardinality: 0..1
@@ -69,6 +51,24 @@ associations:
   targetName: mktMeasurement
   targetDescription: Allows Measurements to be associated to Pnodes.
 - source: Pnode
+  target: OrgPnodeAllocation
+  sourceCardinality: "1"
+  sourceName: pnode
+  targetCardinality: 0..*
+  targetName: orgPnodeAllocation
+- source: Pnode
+  target: PnodeResults
+  sourceCardinality: 0..1
+  sourceName: pnode
+  targetCardinality: 1..*
+  targetName: pnodeResults
+- source: Pnode
+  target: TransactionBid
+  sourceCardinality: 0..1
+  sourceName: receipt_Pnode
+  targetCardinality: 0..*
+  targetName: receiptTransactionBids
+- source: Pnode
   target: RegisteredResource
   sourceCardinality: 0..1
   sourceName: pnode
@@ -77,32 +77,32 @@ associations:
   targetName: registeredResources
   targetDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
 - source: Pnode
-  target: AggregateNode
-  sourceCardinality: 0..*
-  sourceName: pnode
-  targetCardinality: 0..*
-  targetName: aggregateNode
-- source: Pnode
-  target: FTR
-  sourceCardinality: 0..*
-  sourceName: pnodes
-  targetCardinality: 0..*
-  targetName: ftrs
-- source: Pnode
-  target: OrgPnodeAllocation
-  sourceCardinality: "1"
-  sourceName: pnode
-  targetCardinality: 0..*
-  targetName: orgPnodeAllocation
-- source: Pnode
   target: RTO
   sourceCardinality: 0..*
   sourceName: pnodes
   targetCardinality: 0..1
   targetName: rto
 - source: Pnode
-  target: CommodityDefinition
-  sourceCardinality: "1"
+  target: CRRSegment
+  sourceCardinality: 0..*
+  sourceName: sink
+  targetCardinality: 0..*
+  targetName: sinkCRRSegment
+- source: Pnode
+  target: CRRSegment
+  sourceCardinality: 0..*
+  sourceName: source
+  targetCardinality: 0..*
+  targetName: sourceCRRSegment
+- source: Pnode
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: pnode
+  targetCardinality: 0..1
+  targetName: subControlArea
+- source: Pnode
+  target: Trade
+  sourceCardinality: 0..1
   sourceName: pnode
   targetCardinality: 0..*
-  targetName: commodityDefinition
+  targetName: trade

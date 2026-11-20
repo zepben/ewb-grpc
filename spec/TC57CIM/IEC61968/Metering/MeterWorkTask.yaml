@@ -4,14 +4,6 @@ ancestors:
 - WorkTask
 associations:
 - source: MeterWorkTask
-  target: UsagePoint
-  sourceCardinality: 0..*
-  sourceName: meterServiceWorkTasks
-  sourceDescription: All meter service work tasks at this usage point.
-  targetCardinality: 0..1
-  targetName: usagePoint
-  targetDescription: Usage point to which this meter service work task applies.
-- source: MeterWorkTask
   target: Meter
   sourceCardinality: 0..*
   sourceName: meterServiceWorkTask
@@ -27,3 +19,11 @@ associations:
   targetCardinality: 0..1
   targetName: oldMeter
   targetDescription: Old meter replaced by this work task.
+- source: MeterWorkTask
+  target: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: meterServiceWorkTasks
+  sourceDescription: All meter service work tasks at this usage point.
+  targetCardinality: 0..1
+  targetName: usagePoint
+  targetDescription: Usage point to which this meter service work task applies.

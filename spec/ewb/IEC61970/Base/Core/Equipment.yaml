@@ -1,6 +1,10 @@
 name: Equipment
 description: The parts of a power system that are physical devices, electronic or mechanical.
 attributes:
+- name: commissionedDate
+  type: Datetime
+  nullable: true
+  description: The date this equipment was commissioned into service.
 - name: inService
   type: Boolean
   nullable: true
@@ -10,16 +14,12 @@ attributes:
 - name: normallyInService
   type: Boolean
   nullable: true
-- name: commissionedDate
-  type: Datetime
-  nullable: true
-  description: The date this equipment was commissioned into service.
 ancestors:
 - PowerSystemResource
 descendants:
+- AuxiliaryEquipment
 - ConductingEquipment
 - PowerElectronicsUnit
-- AuxiliaryEquipment
 - ProtectionRelaySystem
 associations:
 - source: Equipment
@@ -39,14 +39,6 @@ associations:
   targetName: currentContainers
   targetDescription: Container of this equipment if the equipment belongs to the current network state
 - source: Equipment
-  target: UsagePoint
-  sourceCardinality: 0..*
-  sourceName: equipment
-  sourceDescription: All equipment connecting this usage point to the electrical grid.
-  targetCardinality: 0..*
-  targetName: usagePoints
-  targetDescription: All usage points connected to the electrical grid through this equipment.
-- source: Equipment
   target: OperationalRestriction
   sourceCardinality: 0..*
   sourceName: equipment
@@ -54,3 +46,11 @@ associations:
   targetCardinality: 0..*
   targetName: operationalRestrictions
   targetDescription: All operational restrictions for this equipment.
+- source: Equipment
+  target: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: equipment
+  sourceDescription: All equipment connecting this usage point to the electrical grid.
+  targetCardinality: 0..*
+  targetName: usagePoints
+  targetDescription: All usage points connected to the electrical grid through this equipment.

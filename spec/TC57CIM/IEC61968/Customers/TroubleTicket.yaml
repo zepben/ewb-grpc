@@ -26,14 +26,6 @@ ancestors:
 - Document
 associations:
 - source: TroubleTicket
-  target: IncidentHazard
-  sourceCardinality: 0..1
-  sourceName: troubleTicket
-  sourceDescription: Trouble ticket associated with this hazard.
-  targetCardinality: 0..*
-  targetName: incidentHazard
-  targetDescription: All hazards reported with this trouble ticket.
-- source: TroubleTicket
   target: Customer
   sourceCardinality: 0..*
   sourceName: troubleTickets
@@ -50,11 +42,13 @@ associations:
   targetName: incident
   targetDescription: Incident reported in this trouble ticket
 - source: TroubleTicket
-  target: ServiceLocation
-  sourceCardinality: 0..*
+  target: IncidentHazard
+  sourceCardinality: 0..1
   sourceName: troubleTicket
-  targetCardinality: "1"
-  targetName: serviceLocation
+  sourceDescription: Trouble ticket associated with this hazard.
+  targetCardinality: 0..*
+  targetName: incidentHazard
+  targetDescription: All hazards reported with this trouble ticket.
 - source: TroubleTicket
   target: CustomerNotification
   sourceCardinality: 0..*
@@ -64,14 +58,20 @@ associations:
   targetName: notification
   targetDescription: Notification for this trouble ticket.
 - source: TroubleTicket
-  target: UnplannedOutage
+  target: ServiceLocation
   sourceCardinality: 0..*
   sourceName: troubleTicket
-  targetCardinality: 0..1
-  targetName: unplannedOutage
+  targetCardinality: "1"
+  targetName: serviceLocation
 - source: TroubleTicket
   target: TroubleOrder
   sourceCardinality: 0..*
   sourceName: troubleTicket
   targetCardinality: 0..1
   targetName: troubleOrder
+- source: TroubleTicket
+  target: UnplannedOutage
+  sourceCardinality: 0..*
+  sourceName: troubleTicket
+  targetCardinality: 0..1
+  targetName: unplannedOutage

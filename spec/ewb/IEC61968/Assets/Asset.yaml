@@ -6,19 +6,19 @@ description: Tangible resource of the utility, including power system equipment,
 ancestors:
 - IdentifiedObject
 descendants:
-- Streetlight
 - AssetContainer
+- Streetlight
 associations:
-- source: Asset
-  target: AssetOrganisationRole
-  targetCardinality: 0..*
-  targetName: organisationRoles
-  targetDescription: All roles an organisation plays for this asset.
 - source: Asset
   target: Location
   targetCardinality: 0..1
   targetName: location
   targetDescription: Location of this asset.
+- source: Asset
+  target: AssetOrganisationRole
+  targetCardinality: 0..*
+  targetName: organisationRoles
+  targetDescription: All roles an organisation plays for this asset.
 - source: Asset
   target: PowerSystemResource
   targetCardinality: 0..*

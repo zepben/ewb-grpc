@@ -11,17 +11,11 @@ ancestors:
 - Document
 associations:
 - source: AssetModelCatalogueItem
-  target: ErpQuoteLineItem
-  sourceCardinality: 0..1
-  sourceName: assetModelCatalogueItem
-  targetCardinality: 0..*
-  targetName: erpQuoteLineItems
-- source: AssetModelCatalogueItem
-  target: ErpPOLineItem
-  sourceCardinality: 0..1
-  sourceName: assetModelCatalogueItem
-  targetCardinality: 0..*
-  targetName: erpPOLineItems
+  target: ProductAssetModel
+  sourceCardinality: 0..*
+  sourceName: assetModelCatalogueItems
+  targetCardinality: 0..1
+  targetName: assetModel
 - source: AssetModelCatalogueItem
   target: AssetModelCatalogue
   sourceCardinality: 0..*
@@ -29,8 +23,14 @@ associations:
   targetCardinality: "1"
   targetName: assetModelCatalogue
 - source: AssetModelCatalogueItem
-  target: ProductAssetModel
-  sourceCardinality: 0..*
-  sourceName: assetModelCatalogueItems
-  targetCardinality: 0..1
-  targetName: assetModel
+  target: ErpPOLineItem
+  sourceCardinality: 0..1
+  sourceName: assetModelCatalogueItem
+  targetCardinality: 0..*
+  targetName: erpPOLineItems
+- source: AssetModelCatalogueItem
+  target: ErpQuoteLineItem
+  sourceCardinality: 0..1
+  sourceName: assetModelCatalogueItem
+  targetCardinality: 0..*
+  targetName: erpQuoteLineItems

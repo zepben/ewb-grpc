@@ -17,6 +17,12 @@ ancestors:
 - Profile
 associations:
 - source: ChargeProfile
+  target: Bid
+  sourceCardinality: 0..*
+  sourceName: chargeProfiles
+  targetCardinality: 0..1
+  targetName: bid
+- source: ChargeProfile
   target: BillDeterminant
   sourceCardinality: 0..1
   sourceName: chargeProfile
@@ -34,9 +40,3 @@ associations:
   sourceName: chargeProfiles
   targetCardinality: 0..1
   targetName: passTroughBill
-- source: ChargeProfile
-  target: Bid
-  sourceCardinality: 0..*
-  sourceName: chargeProfiles
-  targetCardinality: 0..1
-  targetName: bid

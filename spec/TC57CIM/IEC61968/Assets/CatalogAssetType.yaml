@@ -23,17 +23,19 @@ descendants:
 - GeneratorTypeAsset
 associations:
 - source: CatalogAssetType
-  target: TypeAssetCatalogue
-  sourceCardinality: 0..*
-  sourceName: typeAssets
-  targetCardinality: 0..1
-  targetName: typeAssetCatalogue
-- source: CatalogAssetType
-  target: ErpReqLineItem
+  target: AssetInfo
   sourceCardinality: 0..1
-  sourceName: typeAsset
+  sourceName: catalogAssetType
+  sourceDescription: Asset information (nameplate) for this catalog asset type.
+  targetCardinality: 0..1
+  targetName: assetInfo
+  targetDescription: Generic nameplate information associated with this catalog asset type.
+- source: CatalogAssetType
+  target: CompatibleUnit
+  sourceCardinality: 0..1
+  sourceName: genericAssetModel
   targetCardinality: 0..*
-  targetName: erpReqLineItems
+  targetName: compatibleUnits
 - source: CatalogAssetType
   target: ErpBomItemData
   sourceCardinality: 0..1
@@ -47,11 +49,11 @@ associations:
   targetCardinality: 0..*
   targetName: erpInventoryIssues
 - source: CatalogAssetType
-  target: CompatibleUnit
+  target: ErpReqLineItem
   sourceCardinality: 0..1
-  sourceName: genericAssetModel
+  sourceName: typeAsset
   targetCardinality: 0..*
-  targetName: compatibleUnits
+  targetName: erpReqLineItems
 - source: CatalogAssetType
   target: ProductAssetModel
   sourceCardinality: 0..1
@@ -61,10 +63,8 @@ associations:
   targetName: productAssetModel
   targetDescription: Product asset model conforming to this catalog asset type.
 - source: CatalogAssetType
-  target: AssetInfo
-  sourceCardinality: 0..1
-  sourceName: catalogAssetType
-  sourceDescription: Asset information (nameplate) for this catalog asset type.
+  target: TypeAssetCatalogue
+  sourceCardinality: 0..*
+  sourceName: typeAssets
   targetCardinality: 0..1
-  targetName: assetInfo
-  targetDescription: Generic nameplate information associated with this catalog asset type.
+  targetName: typeAssetCatalogue

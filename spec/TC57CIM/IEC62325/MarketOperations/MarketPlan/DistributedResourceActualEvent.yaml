@@ -24,14 +24,14 @@ associations:
     to a Market. These ActualDemandResponseEvents can have many InstructionClearing Instructions for specified RegisteredResources
     or DemandResponse AggregateNodes.
 - source: DistributedResourceActualEvent
-  target: ResourcePerformanceEvaluation
-  sourceCardinality: "1"
-  sourceName: demandResponseActualEvent
-  targetCardinality: 0..*
-  targetName: resourcePerformanceEvaluations
-- source: DistributedResourceActualEvent
   target: InstructionClearingDOT
   sourceCardinality: 0..1
   sourceName: demandResponseActualEvent
   targetCardinality: 0..*
   targetName: instructionClearingDOT
+- source: DistributedResourceActualEvent
+  target: ResourcePerformanceEvaluation
+  sourceCardinality: "1"
+  sourceName: demandResponseActualEvent
+  targetCardinality: 0..*
+  targetName: resourcePerformanceEvaluations

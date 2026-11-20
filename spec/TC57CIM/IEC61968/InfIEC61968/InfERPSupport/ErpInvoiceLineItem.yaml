@@ -32,35 +32,18 @@ ancestors:
 - ErpDocument
 associations:
 - source: ErpInvoiceLineItem
-  target: ErpJournalEntry
-  sourceCardinality: 0..1
-  sourceName: erpInvoiceLineItem
-  targetCardinality: 0..*
-  targetName: erpJournalEntries
-- source: ErpInvoiceLineItem
   target: ErpInvoiceLineItem
   sourceCardinality: 0..*
   sourceName: componentErpInvoiceLineItems
   targetCardinality: 0..1
   targetName: containerErpInvoiceLineItem
 - source: ErpInvoiceLineItem
-  target: ErpRecLineItem
-  sourceCardinality: 0..1
-  sourceName: erpInvoiceLineItem
-  targetCardinality: 0..1
-  targetName: erpRecLineItem
-- source: ErpInvoiceLineItem
-  target: ErpPayment
+  target: CustomerBillingInfo
   sourceCardinality: 0..*
   sourceName: erpInvoiceLineItems
   targetCardinality: 0..*
-  targetName: erpPayments
-- source: ErpInvoiceLineItem
-  target: ErpPayableLineItem
-  sourceCardinality: 0..1
-  sourceName: erpInvoiceLineItem
-  targetCardinality: 0..1
-  targetName: erpPayableLineItem
+  targetName: customerBillingInfos
+  targetDescription: Customer billing for services rendered.
 - source: ErpInvoiceLineItem
   target: ErpInvoice
   sourceCardinality: 0..*
@@ -68,17 +51,23 @@ associations:
   targetCardinality: "1"
   targetName: erpInvoice
 - source: ErpInvoiceLineItem
-  target: UserAttribute
-  sourceCardinality: 0..*
-  sourceName: erpInvoiceLineItems
+  target: ErpJournalEntry
+  sourceCardinality: 0..1
+  sourceName: erpInvoiceLineItem
   targetCardinality: 0..*
-  targetName: userAttributes
+  targetName: erpJournalEntries
 - source: ErpInvoiceLineItem
-  target: ErpRecDelvLineItem
+  target: ErpPayableLineItem
   sourceCardinality: 0..1
   sourceName: erpInvoiceLineItem
   targetCardinality: 0..1
-  targetName: erpRecDelvLineItem
+  targetName: erpPayableLineItem
+- source: ErpInvoiceLineItem
+  target: ErpPayment
+  sourceCardinality: 0..*
+  sourceName: erpInvoiceLineItems
+  targetCardinality: 0..*
+  targetName: erpPayments
 - source: ErpInvoiceLineItem
   target: ErpQuoteLineItem
   sourceCardinality: 0..1
@@ -88,15 +77,26 @@ associations:
   targetCardinality: 0..1
   targetName: erpQuoteLineItem
 - source: ErpInvoiceLineItem
+  target: ErpRecDelvLineItem
+  sourceCardinality: 0..1
+  sourceName: erpInvoiceLineItem
+  targetCardinality: 0..1
+  targetName: erpRecDelvLineItem
+- source: ErpInvoiceLineItem
+  target: ErpRecLineItem
+  sourceCardinality: 0..1
+  sourceName: erpInvoiceLineItem
+  targetCardinality: 0..1
+  targetName: erpRecLineItem
+- source: ErpInvoiceLineItem
+  target: UserAttribute
+  sourceCardinality: 0..*
+  sourceName: erpInvoiceLineItems
+  targetCardinality: 0..*
+  targetName: userAttributes
+- source: ErpInvoiceLineItem
   target: WorkBillingInfo
   sourceCardinality: 0..*
   sourceName: erpLineItems
   targetCardinality: 0..*
   targetName: workBillingInfos
-- source: ErpInvoiceLineItem
-  target: CustomerBillingInfo
-  sourceCardinality: 0..*
-  sourceName: erpInvoiceLineItems
-  targetCardinality: 0..*
-  targetName: customerBillingInfos
-  targetDescription: Customer billing for services rendered.

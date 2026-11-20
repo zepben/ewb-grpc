@@ -15,13 +15,13 @@ ancestors:
 - Shift
 associations:
 - source: VendorShift
-  target: Transaction
-  sourceCardinality: 0..1
-  sourceName: vendorShift
-  sourceDescription: Vendor shift during which this transaction was recorded.
-  targetCardinality: 0..*
-  targetName: transactions
-  targetDescription: All transactions recorded during this vendor shift.
+  target: MerchantAccount
+  sourceCardinality: 0..*
+  sourceName: vendorShifts
+  sourceDescription: All vendor shifts that operate on this merchant account.
+  targetCardinality: 0..1
+  targetName: merchantAccount
+  targetDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).
 - source: VendorShift
   target: Receipt
   sourceCardinality: 0..1
@@ -31,6 +31,14 @@ associations:
   targetName: receipts
   targetDescription: All receipts recorded during this vendor shift.
 - source: VendorShift
+  target: Transaction
+  sourceCardinality: 0..1
+  sourceName: vendorShift
+  sourceDescription: Vendor shift during which this transaction was recorded.
+  targetCardinality: 0..*
+  targetName: transactions
+  targetDescription: All transactions recorded during this vendor shift.
+- source: VendorShift
   target: Vendor
   sourceCardinality: 0..*
   sourceName: vendorShifts
@@ -38,11 +46,3 @@ associations:
   targetCardinality: 0..1
   targetName: vendor
   targetDescription: Vendor that opens and owns this vendor shift.
-- source: VendorShift
-  target: MerchantAccount
-  sourceCardinality: 0..*
-  sourceName: vendorShifts
-  sourceDescription: All vendor shifts that operate on this merchant account.
-  targetCardinality: 0..1
-  targetName: merchantAccount
-  targetDescription: Merchant account this vendor shift periodically debits (based on aggregated transactions).

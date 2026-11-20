@@ -4,14 +4,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: MitigatedBid
-  target: MitigatedBidClearing
-  sourceCardinality: 0..*
-  sourceName: mitigatedBid
-  targetCardinality: 1..*
-  targetName: mitigatedBidClearing
-- source: MitigatedBid
   target: Bid
   sourceCardinality: 0..*
   sourceName: mitigatedBid
   targetCardinality: 0..1
   targetName: bid
+- source: MitigatedBid
+  target: MitigatedBidClearing
+  sourceCardinality: 0..*
+  sourceName: mitigatedBid
+  targetCardinality: 1..*
+  targetName: mitigatedBidClearing

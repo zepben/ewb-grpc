@@ -2,14 +2,14 @@ name: EnergyComponent
 ancestors:
 - IdentifiedObject
 descendants:
-- ProportionalDistributionComponent
 - BlockDispatchComponent
+- ProportionalDistributionComponent
 associations:
 - source: EnergyComponent
-  target: EnergyGroup
+  target: EnergyConnection
   sourceCardinality: 0..*
   targetCardinality: "1"
 - source: EnergyComponent
-  target: EnergyConnection
+  target: EnergyGroup
   sourceCardinality: 0..*
   targetCardinality: "1"

@@ -8,14 +8,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ServiceCategory
-  target: PricingStructure
-  sourceCardinality: "1"
-  sourceName: serviceCategory
-  sourceDescription: Service category to which this pricing structure applies.
-  targetCardinality: 0..*
-  targetName: pricingStructures
-  targetDescription: All pricing structures applicable to this service category.
-- source: ServiceCategory
   target: ConfigurationEvent
   sourceCardinality: 0..1
   sourceName: changedServiceCategory
@@ -24,14 +16,6 @@ associations:
   targetName: configurationEvents
   targetDescription: All configuration events created for this service category.
 - source: ServiceCategory
-  target: UsagePoint
-  sourceCardinality: 0..1
-  sourceName: serviceCategory
-  sourceDescription: Service category delivered by this usage point.
-  targetCardinality: 0..*
-  targetName: usagePoints
-  targetDescription: All usage points that deliver this category of service.
-- source: ServiceCategory
   target: CustomerAgreement
   sourceCardinality: 0..1
   sourceName: serviceCategory
@@ -39,3 +23,19 @@ associations:
   targetCardinality: 0..*
   targetName: customerAgreements
   targetDescription: All customer agreements with this service category.
+- source: ServiceCategory
+  target: PricingStructure
+  sourceCardinality: "1"
+  sourceName: serviceCategory
+  sourceDescription: Service category to which this pricing structure applies.
+  targetCardinality: 0..*
+  targetName: pricingStructures
+  targetDescription: All pricing structures applicable to this service category.
+- source: ServiceCategory
+  target: UsagePoint
+  sourceCardinality: 0..1
+  sourceName: serviceCategory
+  sourceDescription: Service category delivered by this usage point.
+  targetCardinality: 0..*
+  targetName: usagePoints
+  targetDescription: All usage points that deliver this category of service.

@@ -13,13 +13,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: DemandResponseProgram
-  target: UsagePointGroup
+  target: CustomerAgreement
   sourceCardinality: 0..*
   sourceName: demandResponsePrograms
-  sourceDescription: All demand response programs this usage point group is enrolled in.
+  sourceDescription: All demand response programs the customer is enrolled in through this customer agreement.
   targetCardinality: 0..*
-  targetName: usagePointGroups
-  targetDescription: All usage point groups enrolled in this demand response program.
+  targetName: customerAgreements
+  targetDescription: All customer agreements through which the customer is enrolled in this demand response program.
 - source: DemandResponseProgram
   target: EndDeviceGroup
   sourceCardinality: 0..*
@@ -29,10 +29,10 @@ associations:
   targetName: endDeviceGroups
   targetDescription: All groups of end devices enrolled in this demand response program.
 - source: DemandResponseProgram
-  target: CustomerAgreement
+  target: UsagePointGroup
   sourceCardinality: 0..*
   sourceName: demandResponsePrograms
-  sourceDescription: All demand response programs the customer is enrolled in through this customer agreement.
+  sourceDescription: All demand response programs this usage point group is enrolled in.
   targetCardinality: 0..*
-  targetName: customerAgreements
-  targetDescription: All customer agreements through which the customer is enrolled in this demand response program.
+  targetName: usagePointGroups
+  targetDescription: All usage point groups enrolled in this demand response program.

@@ -10,14 +10,14 @@ attributes:
   description: Net Dispatched MW
 associations:
 - source: InterTieResults
-  target: InterTieClearing
-  sourceCardinality: 0..*
-  sourceName: interTieResults
-  targetCardinality: 0..1
-  targetName: interTieClearing
-- source: InterTieResults
   target: Flowgate
   sourceCardinality: 1..*
   sourceName: interTieResults
   targetCardinality: "1"
   targetName: flowgate
+- source: InterTieResults
+  target: InterTieClearing
+  sourceCardinality: 0..*
+  sourceName: interTieResults
+  targetCardinality: 0..1
+  targetName: interTieClearing

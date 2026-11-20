@@ -8,11 +8,11 @@ ancestors:
 - WorkDocument
 associations:
 - source: Project
-  target: Project
-  sourceCardinality: 0..1
-  sourceName: parentProject
-  targetCardinality: 0..*
-  targetName: subProjects
+  target: BusinessCase
+  sourceCardinality: 0..*
+  sourceName: projects
+  targetCardinality: 0..1
+  targetName: businessCase
 - source: Project
   target: ErpProjectAccounting
   sourceCardinality: 0..*
@@ -20,11 +20,11 @@ associations:
   targetCardinality: "1"
   targetName: erpProjectAccounting
 - source: Project
-  target: BusinessCase
-  sourceCardinality: 0..*
-  sourceName: projects
-  targetCardinality: 0..1
-  targetName: businessCase
+  target: Project
+  sourceCardinality: 0..1
+  sourceName: parentProject
+  targetCardinality: 0..*
+  targetName: subProjects
 - source: Project
   target: Work
   sourceCardinality: 0..1

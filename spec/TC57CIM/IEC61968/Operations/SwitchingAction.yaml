@@ -17,33 +17,27 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
-- TagAction
-- SwitchAction
-- JumperAction
+- ClampAction
+- ClearanceAction
+- ControlAction
+- CutAction
+- EnergyConsumerAction
+- EnergySourceAction
 - GenericAction
 - GroundAction
-- EnergySourceAction
-- CutAction
-- ClearanceAction
-- VerificationAction
-- ShuntCompensatorAction
+- JumperAction
 - MeasurementAction
-- EnergyConsumerAction
-- ControlAction
-- ClampAction
+- ShuntCompensatorAction
+- SwitchAction
+- TagAction
+- VerificationAction
 associations:
 - source: SwitchingAction
-  target: SwitchingPlan
-  sourceCardinality: 0..*
-  sourceName: switchingAction
-  targetCardinality: 0..1
-  targetName: switchingPlan
-- source: SwitchingAction
-  target: SwitchingEvent
+  target: Crew
   sourceCardinality: "1"
   sourceName: switchingAction
-  targetCardinality: 0..1
-  targetName: switchingEvent
+  targetCardinality: 0..*
+  targetName: crew
 - source: SwitchingAction
   target: Operator
   sourceCardinality: 0..*
@@ -53,11 +47,17 @@ associations:
   targetName: operator
   targetDescription: Operator responsible for this switching step.
 - source: SwitchingAction
-  target: Crew
+  target: SwitchingEvent
   sourceCardinality: "1"
   sourceName: switchingAction
-  targetCardinality: 0..*
-  targetName: crew
+  targetCardinality: 0..1
+  targetName: switchingEvent
+- source: SwitchingAction
+  target: SwitchingPlan
+  sourceCardinality: 0..*
+  sourceName: switchingAction
+  targetCardinality: 0..1
+  targetName: switchingPlan
 - source: SwitchingAction
   target: SwitchingStep
   sourceCardinality: "1"

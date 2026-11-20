@@ -4,11 +4,6 @@ ancestors:
 - Line
 associations:
 - source: Circuit
-  target: Terminal
-  targetCardinality: 0..*
-  targetName: endTerminals
-  targetDescription: Terminals at the end of the circuit.
-- source: Circuit
   target: Substation
   sourceCardinality: 0..*
   sourceName: circuits
@@ -16,6 +11,11 @@ associations:
   targetCardinality: 0..*
   targetName: endSubstations
   targetDescription: Simplification of the CIM association via Bay to Circuit
+- source: Circuit
+  target: Terminal
+  targetCardinality: 0..*
+  targetName: endTerminals
+  targetDescription: Terminals at the end of the circuit.
 - source: Circuit
   target: Loop
   sourceCardinality: 0..*

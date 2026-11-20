@@ -20,6 +20,18 @@ ancestors:
 - WorkDocument
 associations:
 - source: TypeMaterial
+  target: CUMaterialItem
+  sourceCardinality: 0..1
+  sourceName: typeMaterial
+  targetCardinality: 0..*
+  targetName: cuMaterialItems
+- source: TypeMaterial
+  target: ErpIssueInventory
+  sourceCardinality: 0..1
+  sourceName: typeMaterial
+  targetCardinality: 0..*
+  targetName: erpIssueInventories
+- source: TypeMaterial
   target: ErpReqLineItem
   sourceCardinality: 0..1
   sourceName: typeMaterial
@@ -31,15 +43,3 @@ associations:
   sourceName: typeMaterial
   targetCardinality: 0..*
   targetName: materialItems
-- source: TypeMaterial
-  target: ErpIssueInventory
-  sourceCardinality: 0..1
-  sourceName: typeMaterial
-  targetCardinality: 0..*
-  targetName: erpIssueInventories
-- source: TypeMaterial
-  target: CUMaterialItem
-  sourceCardinality: 0..1
-  sourceName: typeMaterial
-  targetCardinality: 0..*
-  targetName: cuMaterialItems

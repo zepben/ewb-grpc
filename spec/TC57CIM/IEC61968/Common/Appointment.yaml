@@ -11,14 +11,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Appointment
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: appointments
-  sourceDescription: All appointments for this work.
-  targetCardinality: 0..*
-  targetName: works
-  targetDescription: All works for this appointment.
-- source: Appointment
   target: PersonRole
   sourceCardinality: 0..*
   sourceName: appointments
@@ -26,3 +18,11 @@ associations:
   targetCardinality: 0..*
   targetName: persons
   targetDescription: All persons for this appointment.
+- source: Appointment
+  target: Work
+  sourceCardinality: 0..*
+  sourceName: appointments
+  sourceDescription: All appointments for this work.
+  targetCardinality: 0..*
+  targetName: works
+  targetDescription: All works for this appointment.

@@ -4,11 +4,11 @@ ancestors:
 - Pnode
 associations:
 - source: IndividualPnode
-  target: PnodeDistributionFactor
-  sourceCardinality: "1"
+  target: CongestionArea
+  sourceCardinality: 0..*
   sourceName: individualPnode
   targetCardinality: 0..*
-  targetName: pnodeDistributionFactor
+  targetName: congestionArea
 - source: IndividualPnode
   target: GenDistributionFactor
   sourceCardinality: 0..1
@@ -28,8 +28,8 @@ associations:
   targetCardinality: "1"
   targetName: mktConnectivityNode
 - source: IndividualPnode
-  target: CongestionArea
-  sourceCardinality: 0..*
+  target: PnodeDistributionFactor
+  sourceCardinality: "1"
   sourceName: individualPnode
   targetCardinality: 0..*
-  targetName: congestionArea
+  targetName: pnodeDistributionFactor

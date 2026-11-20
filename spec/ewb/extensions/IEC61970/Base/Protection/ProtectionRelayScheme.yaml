@@ -7,14 +7,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ProtectionRelayScheme
-  target: ProtectionRelaySystem
-  sourceCardinality: 0..*
-  sourceName: schemes
-  sourceDescription: \[ZBEX\] The schemes implemented by this ProtectionRelaySystem.
-  targetCardinality: 0..1
-  targetName: system
-  targetDescription: \[ZBEX\] The system this scheme belongs to.
-- source: ProtectionRelayScheme
   target: ProtectionRelayFunction
   sourceCardinality: 0..*
   sourceName: schemes
@@ -22,3 +14,11 @@ associations:
   targetCardinality: 0..*
   targetName: functions
   targetDescription: \[ZBEX\] The functions operated as part of this protection scheme.
+- source: ProtectionRelayScheme
+  target: ProtectionRelaySystem
+  sourceCardinality: 0..*
+  sourceName: schemes
+  sourceDescription: \[ZBEX\] The schemes implemented by this ProtectionRelaySystem.
+  targetCardinality: 0..1
+  targetName: system
+  targetDescription: \[ZBEX\] The system this scheme belongs to.

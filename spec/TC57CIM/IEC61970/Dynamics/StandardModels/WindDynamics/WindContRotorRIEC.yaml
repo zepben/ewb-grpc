@@ -36,14 +36,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: WindContRotorRIEC
-  target: WindGenTurbineType2IEC
-  sourceCardinality: "1"
-  sourceName: windContRotorRIEC
-  sourceDescription: Wind control rotor resistance model associated with wind turbine type 2 model.
-  targetCardinality: "1"
-  targetName: windGenTurbineType2IEC
-  targetDescription: Wind turbine type 2 model with whitch this wind control rotor resistance model is associated.
-- source: WindContRotorRIEC
   target: WindDynamicsLookupTable
   sourceCardinality: 0..1
   sourceName: windContRotorRIEC
@@ -51,3 +43,11 @@ associations:
   targetCardinality: 1..*
   targetName: windDynamicsLookupTable
   targetDescription: The wind dynamics lookup table associated with this rotor resistance control model.
+- source: WindContRotorRIEC
+  target: WindGenTurbineType2IEC
+  sourceCardinality: "1"
+  sourceName: windContRotorRIEC
+  sourceDescription: Wind control rotor resistance model associated with wind turbine type 2 model.
+  targetCardinality: "1"
+  targetName: windGenTurbineType2IEC
+  targetDescription: Wind turbine type 2 model with whitch this wind control rotor resistance model is associated.

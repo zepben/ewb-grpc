@@ -3,14 +3,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: AlternateModel
-  target: DataSet
-  sourceCardinality: 0..1
-  sourceName: alternateModel
-  sourceDescription: The alternate model using the data.
-  targetCardinality: "1"
-  targetName: dataset
-  targetDescription: The data belonging to the alternate model.
-- source: AlternateModel
   target: AlternateModelGroup
   sourceCardinality: 0..*
   sourceName: alternateModel
@@ -18,3 +10,11 @@ associations:
   targetCardinality: "1"
   targetName: alternateModelGroup
   targetDescription: The group of alternate models for which one alternate is used.
+- source: AlternateModel
+  target: DataSet
+  sourceCardinality: 0..1
+  sourceName: alternateModel
+  sourceDescription: The alternate model using the data.
+  targetCardinality: "1"
+  targetName: dataset
+  targetDescription: The data belonging to the alternate model.

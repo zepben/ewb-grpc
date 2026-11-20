@@ -12,20 +12,25 @@ attributes:
 ancestors:
 - IOPoint
 descendants:
-- AnalogValue
 - AccumulatorValue
-- StringMeasurementValue
-- DiscreteValue
+- AnalogValue
 - BaseReading
+- DiscreteValue
+- StringMeasurementValue
 associations:
 - source: MeasurementValue
-  target: RemoteSource
-  sourceCardinality: "1"
+  target: CalculationMethodHierarchy
+  sourceCardinality: 0..1
   sourceName: measurementValue
-  sourceDescription: Link to the physical telemetered point associated with this measurement.
+  sourceDescription: Measurement value to which this calculation method hierarchy applies.
   targetCardinality: 0..1
-  targetName: remoteSource
-  targetDescription: Link to the physical telemetered point associated with this measurement.
+  targetName: calculationMethodHierarchy
+- source: MeasurementValue
+  target: OldPerson
+  sourceCardinality: 0..*
+  sourceName: measurementValues
+  targetCardinality: 0..1
+  targetName: erpPerson
 - source: MeasurementValue
   target: MeasurementValueQuality
   sourceCardinality: "1"
@@ -44,21 +49,16 @@ associations:
   targetDescription: A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc.
     User conventions for the names of sources are contained in the introduction to IEC 61970-301.
 - source: MeasurementValue
-  target: OldPerson
-  sourceCardinality: 0..*
-  sourceName: measurementValues
-  targetCardinality: 0..1
-  targetName: erpPerson
-- source: MeasurementValue
   target: ProcedureDataSet
   sourceCardinality: 0..*
   sourceName: measurementValue
   targetCardinality: 0..*
   targetName: procedureDataSet
 - source: MeasurementValue
-  target: CalculationMethodHierarchy
-  sourceCardinality: 0..1
+  target: RemoteSource
+  sourceCardinality: "1"
   sourceName: measurementValue
-  sourceDescription: Measurement value to which this calculation method hierarchy applies.
+  sourceDescription: Link to the physical telemetered point associated with this measurement.
   targetCardinality: 0..1
-  targetName: calculationMethodHierarchy
+  targetName: remoteSource
+  targetDescription: Link to the physical telemetered point associated with this measurement.

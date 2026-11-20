@@ -8,14 +8,14 @@ ancestors:
 - ErpIdentifiedObject
 associations:
 - source: ErpLedBudLineItem
-  target: ErpLedgerBudget
-  sourceCardinality: 0..*
-  sourceName: erpLedBudLineItems
-  targetCardinality: "1"
-  targetName: erpLedgerBudget
-- source: ErpLedBudLineItem
   target: ErpLedgerEntry
   sourceCardinality: 0..1
   sourceName: erpLedgerEntry
   targetCardinality: 0..1
   targetName: erpLedBudLineItem
+- source: ErpLedBudLineItem
+  target: ErpLedgerBudget
+  sourceCardinality: 0..*
+  sourceName: erpLedBudLineItems
+  targetCardinality: "1"
+  targetName: erpLedgerBudget

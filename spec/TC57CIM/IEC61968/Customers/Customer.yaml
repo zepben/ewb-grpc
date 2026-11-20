@@ -27,14 +27,6 @@ ancestors:
 - OrganisationRole
 associations:
 - source: Customer
-  target: EndDevice
-  sourceCardinality: 0..1
-  sourceName: customer
-  sourceDescription: Customer owning this end device.
-  targetCardinality: 0..*
-  targetName: endDevices
-  targetDescription: All end devices of this customer.
-- source: Customer
   target: Customer
   sourceName: customer
   targetCardinality: 0..*
@@ -56,19 +48,27 @@ associations:
   targetName: customerAgreements
   targetDescription: All agreements of this customer.
 - source: Customer
+  target: CustomerNotification
+  sourceCardinality: 0..1
+  sourceName: customer
+  sourceDescription: Customer requiring this notification.
+  targetCardinality: 0..*
+  targetName: customerNotifications
+  targetDescription: All notifications required by this customer.
+- source: Customer
+  target: EndDevice
+  sourceCardinality: 0..1
+  sourceName: customer
+  sourceDescription: Customer owning this end device.
+  targetCardinality: 0..*
+  targetName: endDevices
+  targetDescription: All end devices of this customer.
+- source: Customer
   target: OldPerson
   sourceCardinality: 0..1
   sourceName: customerData
   targetCardinality: 0..*
   targetName: erpPersons
-- source: Customer
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: customers
-  sourceDescription: All the customers for which this work is performed.
-  targetCardinality: 0..*
-  targetName: works
-  targetDescription: All the works performed for this customer.
 - source: Customer
   target: OutagePlan
   sourceCardinality: 0..*
@@ -78,6 +78,12 @@ associations:
   targetName: outagePlan
   targetDescription: The outage plan that identifies the customers that are affected.
 - source: Customer
+  target: PlannedOutageNotification
+  sourceCardinality: 0..*
+  sourceName: customer
+  targetCardinality: 0..*
+  targetName: plannedOutageNotification
+- source: Customer
   target: TroubleTicket
   sourceCardinality: 0..1
   sourceName: customer
@@ -86,16 +92,10 @@ associations:
   targetName: troubleTickets
   targetDescription: All trouble tickets for this customer.
 - source: Customer
-  target: CustomerNotification
-  sourceCardinality: 0..1
-  sourceName: customer
-  sourceDescription: Customer requiring this notification.
-  targetCardinality: 0..*
-  targetName: customerNotifications
-  targetDescription: All notifications required by this customer.
-- source: Customer
-  target: PlannedOutageNotification
+  target: Work
   sourceCardinality: 0..*
-  sourceName: customer
+  sourceName: customers
+  sourceDescription: All the customers for which this work is performed.
   targetCardinality: 0..*
-  targetName: plannedOutageNotification
+  targetName: works
+  targetDescription: All the works performed for this customer.

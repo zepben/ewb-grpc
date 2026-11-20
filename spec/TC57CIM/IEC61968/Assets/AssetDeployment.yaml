@@ -23,14 +23,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: AssetDeployment
-  target: BaseVoltage
-  sourceCardinality: 0..*
-  sourceName: networkAssetDeployment
-  sourceDescription: A network asset deployment at this base voltage level.
-  targetCardinality: "1"
-  targetName: baseVoltage
-  targetDescription: Base voltage of this network asset deployment.
-- source: AssetDeployment
   target: Asset
   sourceCardinality: 0..1
   sourceName: assetDeployment
@@ -38,3 +30,11 @@ associations:
   targetCardinality: 0..1
   targetName: asset
   targetDescription: Asset in this deployment.
+- source: AssetDeployment
+  target: BaseVoltage
+  sourceCardinality: 0..*
+  sourceName: networkAssetDeployment
+  sourceDescription: A network asset deployment at this base voltage level.
+  targetCardinality: "1"
+  targetName: baseVoltage
+  targetDescription: Base voltage of this network asset deployment.

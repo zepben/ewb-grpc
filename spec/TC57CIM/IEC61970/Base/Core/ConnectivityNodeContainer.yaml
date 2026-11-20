@@ -3,17 +3,9 @@ description: A base class for all objects that may contain connectivity nodes or
 ancestors:
 - PowerSystemResource
 descendants:
-- EquivalentNetwork
 - EquipmentContainer
+- EquivalentNetwork
 associations:
-- source: ConnectivityNodeContainer
-  target: TopologicalNode
-  sourceCardinality: 0..1
-  sourceName: connectivityNodeContainer
-  sourceDescription: The connectivity node container to which the topological node belongs.
-  targetCardinality: 0..*
-  targetName: topologicalNode
-  targetDescription: The topological nodes which belong to this connectivity node container.
 - source: ConnectivityNodeContainer
   target: ConnectivityNode
   sourceCardinality: "1"
@@ -22,3 +14,11 @@ associations:
   targetCardinality: 0..*
   targetName: connectivityNodes
   targetDescription: Connectivity nodes which belong to this connectivity node container.
+- source: ConnectivityNodeContainer
+  target: TopologicalNode
+  sourceCardinality: 0..1
+  sourceName: connectivityNodeContainer
+  sourceDescription: The connectivity node container to which the topological node belongs.
+  targetCardinality: 0..*
+  targetName: topologicalNode
+  targetDescription: The topological nodes which belong to this connectivity node container.

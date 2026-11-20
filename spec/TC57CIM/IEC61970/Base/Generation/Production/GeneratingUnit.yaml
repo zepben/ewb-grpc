@@ -127,38 +127,22 @@ attributes:
 - name: tieLinePF
   type: Float
   description: Generating unit economic participation factor.
-- name: variableCost
-  type: Money
-  description: The variable cost component of production per unit of ActivePower.
 - name: totalEfficiency
   type: PerCent
   description: The efficiency of the unit in converting the fuel into electrical energy.
+- name: variableCost
+  type: Money
+  description: The variable cost component of production per unit of ActivePower.
 ancestors:
 - Equipment
 descendants:
-- WindGeneratingUnit
-- NuclearGeneratingUnit
-- ThermalGeneratingUnit
 - HydroGeneratingUnit
-- SolarGeneratingUnit
 - MktGeneratingUnit
+- NuclearGeneratingUnit
+- SolarGeneratingUnit
+- ThermalGeneratingUnit
+- WindGeneratingUnit
 associations:
-- source: GeneratingUnit
-  target: RotatingMachine
-  sourceCardinality: 0..1
-  sourceName: generatingUnit
-  sourceDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
-  targetCardinality: 0..*
-  targetName: rotatingMachine
-  targetDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
-- source: GeneratingUnit
-  target: GenUnitOpSchedule
-  sourceCardinality: "1"
-  sourceName: generatingUnit
-  sourceDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
-  targetCardinality: 0..1
-  targetName: genUnitOpSchedule
-  targetDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
 - source: GeneratingUnit
   target: ControlAreaGeneratingUnit
   sourceCardinality: "1"
@@ -168,6 +152,22 @@ associations:
   targetCardinality: 0..*
   targetName: controlAreaGeneratingUnit
   targetDescription: ControlArea specifications for this generating unit.
+- source: GeneratingUnit
+  target: GenUnitOpCostCurve
+  sourceCardinality: "1"
+  sourceName: generatingUnit
+  sourceDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
+  targetCardinality: 0..*
+  targetName: genUnitOpCostCurves
+  targetDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
+- source: GeneratingUnit
+  target: GenUnitOpSchedule
+  sourceCardinality: "1"
+  sourceName: generatingUnit
+  sourceDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
+  targetCardinality: 0..1
+  targetName: genUnitOpSchedule
+  targetDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
 - source: GeneratingUnit
   target: GrossToNetActivePowerCurve
   sourceCardinality: "1"
@@ -179,10 +179,10 @@ associations:
   targetDescription: A generating unit may have a gross active power to net active power curve, describing the losses and
     auxiliary power requirements of the unit.
 - source: GeneratingUnit
-  target: GenUnitOpCostCurve
-  sourceCardinality: "1"
+  target: RotatingMachine
+  sourceCardinality: 0..1
   sourceName: generatingUnit
-  sourceDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
+  sourceDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.
   targetCardinality: 0..*
-  targetName: genUnitOpCostCurves
-  targetDescription: A generating unit may have one or more cost curves, depending upon fuel mixture and fuel cost.
+  targetName: rotatingMachine
+  targetDescription: A synchronous machine may operate as a generator and as such becomes a member of a generating unit.

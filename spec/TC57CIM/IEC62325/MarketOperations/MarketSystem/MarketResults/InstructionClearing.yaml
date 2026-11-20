@@ -4,18 +4,6 @@ ancestors:
 - MarketFactors
 associations:
 - source: InstructionClearing
-  target: ResourceDeploymentStatus
-  sourceCardinality: 0..1
-  sourceName: instructionClearing
-  targetCardinality: 0..*
-  targetName: resourceDeploymentStatus
-- source: InstructionClearing
-  target: Instructions
-  sourceCardinality: 1..*
-  sourceName: instructionClearing
-  targetCardinality: 1..*
-  targetName: instructions
-- source: InstructionClearing
   target: DistributedResourceActualEvent
   sourceCardinality: 0..*
   sourceName: instructionClearing
@@ -27,3 +15,15 @@ associations:
   targetDescription: ActualDemandResponseEvents may exist that are not part of a cordinated MarketActualEvent associated to
     a Market. These ActualDemandResponseEvents can have many InstructionClearing Instructions for specified RegisteredResources
     or Distributed Energy Resource type of AggregateNodes.
+- source: InstructionClearing
+  target: Instructions
+  sourceCardinality: 1..*
+  sourceName: instructionClearing
+  targetCardinality: 1..*
+  targetName: instructions
+- source: InstructionClearing
+  target: ResourceDeploymentStatus
+  sourceCardinality: 0..1
+  sourceName: instructionClearing
+  targetCardinality: 0..*
+  targetName: resourceDeploymentStatus

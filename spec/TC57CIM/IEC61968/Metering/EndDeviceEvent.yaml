@@ -16,21 +16,13 @@ ancestors:
 - ActivityRecord
 associations:
 - source: EndDeviceEvent
-  target: UsagePoint
+  target: EndDevice
   sourceCardinality: 0..*
   sourceName: endDeviceEvents
-  sourceDescription: All end device events reported for this usage point.
+  sourceDescription: All events reported by this end device.
   targetCardinality: 0..1
-  targetName: usagePoint
-  targetDescription: Usage point for which this end device event is reported.
-- source: EndDeviceEvent
-  target: EndDeviceEventType
-  sourceCardinality: 0..*
-  sourceName: endDeviceEvents
-  sourceDescription: All end device events of this type.
-  targetCardinality: "1"
-  targetName: endDeviceEventType
-  targetDescription: Type of this end device event.
+  targetName: endDevice
+  targetDescription: End device that reported this end device event.
 - source: EndDeviceEvent
   target: EndDeviceEventDetail
   sourceCardinality: 0..1
@@ -40,13 +32,13 @@ associations:
   targetName: endDeviceEventDetails
   targetDescription: All details of this end device event.
 - source: EndDeviceEvent
-  target: EndDevice
+  target: EndDeviceEventType
   sourceCardinality: 0..*
   sourceName: endDeviceEvents
-  sourceDescription: All events reported by this end device.
-  targetCardinality: 0..1
-  targetName: endDevice
-  targetDescription: End device that reported this end device event.
+  sourceDescription: All end device events of this type.
+  targetCardinality: "1"
+  targetName: endDeviceEventType
+  targetDescription: Type of this end device event.
 - source: EndDeviceEvent
   target: MeterReading
   sourceCardinality: 0..*
@@ -55,3 +47,11 @@ associations:
   targetCardinality: 0..1
   targetName: meterReading
   targetDescription: Set of measured values to which this event applies.
+- source: EndDeviceEvent
+  target: UsagePoint
+  sourceCardinality: 0..*
+  sourceName: endDeviceEvents
+  sourceDescription: All end device events reported for this usage point.
+  targetCardinality: 0..1
+  targetName: usagePoint
+  targetDescription: Usage point for which this end device event is reported.

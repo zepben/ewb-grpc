@@ -16,12 +16,11 @@ attributes:
   description: The description of the type of the quantity.
 associations:
 - source: Quantity
-  target: Quantity
+  target: Domain
   sourceCardinality: 0..*
-  sourceName: detail_Quantity
-  sourceDescription: Additional information related to the associated quantity.
-  targetCardinality: 0..1
-  targetName: quantity
+  sourceName: quantity
+  targetCardinality: 0..*
+  targetName: domain
 - source: Quantity
   target: Point
   sourceCardinality: 0..*
@@ -29,11 +28,12 @@ associations:
   targetCardinality: 0..*
   targetName: point
 - source: Quantity
-  target: Domain
+  target: Quantity
   sourceCardinality: 0..*
-  sourceName: quantity
-  targetCardinality: 0..*
-  targetName: domain
+  sourceName: detail_Quantity
+  sourceDescription: Additional information related to the associated quantity.
+  targetCardinality: 0..1
+  targetName: quantity
 - source: Quantity
   target: TimeSeries
   sourceCardinality: 0..*

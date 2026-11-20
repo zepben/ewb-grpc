@@ -32,13 +32,11 @@ associations:
   targetCardinality: 0..*
   targetName: fieldDispatchHistory
 - source: Crew
-  target: WorkTask
+  target: Location
   sourceCardinality: 0..*
-  sourceName: crews
-  sourceDescription: All crews participating in this work task.
-  targetCardinality: 0..*
-  targetName: workTasks
-  targetDescription: All work tasks this crew participates in.
+  sourceName: crew
+  targetCardinality: 0..1
+  targetName: location
 - source: Crew
   target: Outage
   sourceCardinality: 0..*
@@ -60,8 +58,10 @@ associations:
   targetName: workAssets
   targetDescription: All work assets used by this crew.
 - source: Crew
-  target: Location
+  target: WorkTask
   sourceCardinality: 0..*
-  sourceName: crew
-  targetCardinality: 0..1
-  targetName: location
+  sourceName: crews
+  sourceDescription: All crews participating in this work task.
+  targetCardinality: 0..*
+  targetName: workTasks
+  targetDescription: All work tasks this crew participates in.

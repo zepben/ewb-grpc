@@ -5,6 +5,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ModelPartSpecification
+  target: AssemblyDescription
+  sourceCardinality: 0..*
+  sourceName: modelSpecification
+  sourceDescription: The models that are part of the assembly descrption.
+  targetCardinality: 0..*
+  targetName: assemblyDescription
+  targetDescription: The assembly description into which model parts should be included.
+- source: ModelPartSpecification
   target: ModelAuthoritySet
   sourceCardinality: 0..*
   sourceName: modelSpecification
@@ -20,11 +28,3 @@ associations:
   targetCardinality: 0..*
   targetName: model
   targetDescription: Modle parts conforming to the model part specification.
-- source: ModelPartSpecification
-  target: AssemblyDescription
-  sourceCardinality: 0..*
-  sourceName: modelSpecification
-  sourceDescription: The models that are part of the assembly descrption.
-  targetCardinality: 0..*
-  targetName: assemblyDescription
-  targetDescription: The assembly description into which model parts should be included.

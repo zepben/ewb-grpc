@@ -4,14 +4,6 @@ ancestors:
 - StringMeasurement
 associations:
 - source: EnvironmentalStringMeasurement
-  target: EnvironmentalInformation
-  sourceCardinality: 0..*
-  sourceName: environmentalStringMeasurement
-  sourceDescription: Environmental string measurement associated with this forecast or observation.
-  targetCardinality: 0..1
-  targetName: environmentalInformation
-  targetDescription: Observation or forecast with which this environmental string is associated.
-- source: EnvironmentalStringMeasurement
   target: ClassificationCondition
   sourceCardinality: 0..*
   sourceName: environmentalStringMeasurement
@@ -19,3 +11,11 @@ associations:
   targetCardinality: 0..1
   targetName: classificationCondition
   targetDescription: Classification condition which this string measurement helps define.
+- source: EnvironmentalStringMeasurement
+  target: EnvironmentalInformation
+  sourceCardinality: 0..*
+  sourceName: environmentalStringMeasurement
+  sourceDescription: Environmental string measurement associated with this forecast or observation.
+  targetCardinality: 0..1
+  targetName: environmentalInformation
+  targetDescription: Observation or forecast with which this environmental string is associated.

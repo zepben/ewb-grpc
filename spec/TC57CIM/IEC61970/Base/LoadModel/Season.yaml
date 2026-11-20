@@ -11,14 +11,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Season
-  target: SeasonDayTypeSchedule
-  sourceCardinality: 0..1
-  sourceName: season
-  sourceDescription: Season for the Schedule.
-  targetCardinality: 0..*
-  targetName: seasonDayTypeSchedules
-  targetDescription: Schedules that use this Season.
-- source: Season
   target: ScheduledLimitValue
   sourceCardinality: 0..1
   sourceName: season
@@ -26,3 +18,11 @@ associations:
   targetCardinality: 0..*
   targetName: scheduledLimits
   targetDescription: The scheduled limits associated with the season.
+- source: Season
+  target: SeasonDayTypeSchedule
+  sourceCardinality: 0..1
+  sourceName: season
+  sourceDescription: Season for the Schedule.
+  targetCardinality: 0..*
+  targetName: seasonDayTypeSchedules
+  targetDescription: Schedules that use this Season.

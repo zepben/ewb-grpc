@@ -10,6 +10,14 @@ ancestors:
 - Shift
 associations:
 - source: CashierShift
+  target: Cashier
+  sourceCardinality: 0..*
+  sourceName: cashierShifts
+  sourceDescription: All shifts operated by this cashier.
+  targetCardinality: 0..1
+  targetName: cashier
+  targetDescription: Cashier operating this shift.
+- source: CashierShift
   target: PointOfSale
   sourceCardinality: 0..*
   sourceName: cashierShifts
@@ -33,11 +41,3 @@ associations:
   targetCardinality: 0..*
   targetName: transactions
   targetDescription: All transactions recorded during this cashier shift.
-- source: CashierShift
-  target: Cashier
-  sourceCardinality: 0..*
-  sourceName: cashierShifts
-  sourceDescription: All shifts operated by this cashier.
-  targetCardinality: 0..1
-  targetName: cashier
-  targetDescription: Cashier operating this shift.

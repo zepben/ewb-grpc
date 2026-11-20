@@ -4,12 +4,6 @@ ancestors:
 - ResourceGroupReq
 associations:
 - source: ReserveReq
-  target: SensitivityPriceCurve
-  sourceCardinality: 0..1
-  sourceName: reserveReq
-  targetCardinality: 0..1
-  targetName: sensitivityPriceCurve
-- source: ReserveReq
   target: MarketProduct
   sourceCardinality: 0..*
   sourceName: reserveReqs
@@ -23,3 +17,9 @@ associations:
   sourceName: reserveReq
   targetCardinality: "1"
   targetName: reserveReqCurve
+- source: ReserveReq
+  target: SensitivityPriceCurve
+  sourceCardinality: 0..1
+  sourceName: reserveReq
+  targetCardinality: 0..1
+  targetName: sensitivityPriceCurve

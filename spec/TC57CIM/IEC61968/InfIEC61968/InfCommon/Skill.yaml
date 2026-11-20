@@ -15,12 +15,6 @@ ancestors:
 - Document
 associations:
 - source: Skill
-  target: QualificationRequirement
-  sourceCardinality: 0..*
-  sourceName: skills
-  targetCardinality: 0..*
-  targetName: qualificationRequirements
-- source: Skill
   target: Craft
   sourceCardinality: 0..*
   sourceName: skills
@@ -32,3 +26,9 @@ associations:
   sourceName: skills
   targetCardinality: 0..1
   targetName: erpPerson
+- source: Skill
+  target: QualificationRequirement
+  sourceCardinality: 0..*
+  sourceName: skills
+  targetCardinality: 0..*
+  targetName: qualificationRequirements

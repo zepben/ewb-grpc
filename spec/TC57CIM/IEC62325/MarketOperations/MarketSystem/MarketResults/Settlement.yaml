@@ -8,26 +8,26 @@ ancestors:
 - Document
 associations:
 - source: Settlement
-  target: MajorChargeGroup
-  sourceCardinality: 0..*
-  sourceName: settlement
-  targetCardinality: 1..*
-  targetName: majorChargeGroup
-- source: Settlement
   target: EnergyMarket
   sourceCardinality: 0..*
   sourceName: settlements
   targetCardinality: 0..1
   targetName: energyMarket
 - source: Settlement
-  target: MarketLedgerEntry
+  target: MajorChargeGroup
   sourceCardinality: 0..*
   sourceName: settlement
-  targetCardinality: 0..*
-  targetName: marketLedgerEntry
+  targetCardinality: 1..*
+  targetName: majorChargeGroup
 - source: Settlement
   target: MarketInvoiceLineItem
   sourceCardinality: 0..*
   sourceName: settlement
   targetCardinality: 0..*
   targetName: marketInvoiceLineItem
+- source: Settlement
+  target: MarketLedgerEntry
+  sourceCardinality: 0..*
+  sourceName: settlement
+  targetCardinality: 0..*
+  targetName: marketLedgerEntry

@@ -5,14 +5,14 @@ attributes:
   type: String
   nullable: true
   description: \[ZBEX\] The type of curve used for the Relay.
-- name: recloseFast
-  type: Boolean
-  nullable: true
-  description: \[ZBEX\] True if recloseDelays are associated with a fast Curve, False otherwise.
 - name: recloseDelays
   type: Double list
   nullable: true
   description: \[ZBEX\] The reclose delays for this curve and relay type (in seconds). The index of the list is the
     reclose step, and the value is the overall delay time.
+- name: recloseFast
+  type: Boolean
+  nullable: true
+  description: \[ZBEX\] True if recloseDelays are associated with a fast Curve, False otherwise.
 ancestors:
 - AssetInfo

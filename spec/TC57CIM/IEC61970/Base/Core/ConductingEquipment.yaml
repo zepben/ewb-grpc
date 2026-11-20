@@ -4,19 +4,65 @@ description: The parts of the AC power system that are designed to carry current
 ancestors:
 - Equipment
 descendants:
-- PowerTransformer
-- Switch
+- ACDCConverter
 - Clamp
 - Conductor
-- EquivalentEquipment
-- SeriesCompensator
-- Ground
 - Connector
 - EarthFaultCompensator
-- ACDCConverter
 - EnergyConnection
+- EquivalentEquipment
+- Ground
 - MktConductingEquipment
+- PowerTransformer
+- SeriesCompensator
+- Switch
 associations:
+- source: ConductingEquipment
+  target: BaseVoltage
+  sourceCardinality: 0..*
+  sourceName: conductingEquipment
+  sourceDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used
+    and only one base voltage applies.  For example, not used for transformers.
+  targetCardinality: 0..1
+  targetName: baseVoltage
+  targetDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and
+    only one base voltage applies.  For example, not used for transformers.
+- source: ConductingEquipment
+  target: GroundAction
+  sourceCardinality: 0..1
+  sourceName: groundedEquipment
+  sourceDescription: Equipment being grounded with this operation. In case of placing a ground anywhere along a line segment,
+    you must use the clamp (to get the distance from one terminal), so use the explicit relation with line segment. In all
+    other cases (including placing the ground at a line segment terminal), reference to one or more conducting equipment is
+    sufficient.
+  targetCardinality: 0..1
+  targetName: groundingAction
+  targetDescription: Action involving grounding operation on this conducting equipment.
+- source: ConductingEquipment
+  target: JumperAction
+  sourceCardinality: 0..*
+  sourceName: jumpedEquipments
+  sourceDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the
+    conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment,
+    you must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of
+    placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is sufficient.
+  targetCardinality: 0..1
+  targetName: jumpingAction
+  targetDescription: Jumper action involving jumping operation on this conducting equipment.
+- source: ConductingEquipment
+  target: Outage
+  sourceCardinality: 0..*
+  sourceName: outageIsolationEquipment
+  targetCardinality: 0..1
+  targetName: outage
+- source: ConductingEquipment
+  target: ProtectionEquipment
+  sourceCardinality: 0..*
+  sourceName: conductingEquipments
+  sourceDescription: Protection equipment may be used to protect specific conducting equipment.
+  targetCardinality: 0..*
+  targetName: protectionEquipments
+  targetDescription: Protection equipment  used to protect specific conducting equipment.
 - source: ConductingEquipment
   target: ProtectiveActionAdjustment
   sourceCardinality: "1"
@@ -37,24 +83,6 @@ associations:
   targetName: svStatus
   targetDescription: The status state variable associated with this conducting equipment.
 - source: ConductingEquipment
-  target: ProtectionEquipment
-  sourceCardinality: 0..*
-  sourceName: conductingEquipments
-  sourceDescription: Protection equipment may be used to protect specific conducting equipment.
-  targetCardinality: 0..*
-  targetName: protectionEquipments
-  targetDescription: Protection equipment  used to protect specific conducting equipment.
-- source: ConductingEquipment
-  target: BaseVoltage
-  sourceCardinality: 0..*
-  sourceName: conductingEquipment
-  sourceDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used
-    and only one base voltage applies.  For example, not used for transformers.
-  targetCardinality: 0..1
-  targetName: baseVoltage
-  targetDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and
-    only one base voltage applies.  For example, not used for transformers.
-- source: ConductingEquipment
   target: Terminal
   sourceCardinality: "1"
   sourceName: conductingEquipment
@@ -64,31 +92,3 @@ associations:
   targetName: terminals
   targetDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
     connectivity nodes or topological nodes.
-- source: ConductingEquipment
-  target: JumperAction
-  sourceCardinality: 0..*
-  sourceName: jumpedEquipments
-  sourceDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the
-    conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment,
-    you must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of
-    placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is sufficient.
-  targetCardinality: 0..1
-  targetName: jumpingAction
-  targetDescription: Jumper action involving jumping operation on this conducting equipment.
-- source: ConductingEquipment
-  target: GroundAction
-  sourceCardinality: 0..1
-  sourceName: groundedEquipment
-  sourceDescription: Equipment being grounded with this operation. In case of placing a ground anywhere along a line segment,
-    you must use the clamp (to get the distance from one terminal), so use the explicit relation with line segment. In all
-    other cases (including placing the ground at a line segment terminal), reference to one or more conducting equipment is
-    sufficient.
-  targetCardinality: 0..1
-  targetName: groundingAction
-  targetDescription: Action involving grounding operation on this conducting equipment.
-- source: ConductingEquipment
-  target: Outage
-  sourceCardinality: 0..*
-  sourceName: outageIsolationEquipment
-  targetCardinality: 0..1
-  targetName: outage

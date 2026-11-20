@@ -16,20 +16,6 @@ ancestors:
 - Agreement
 associations:
 - source: CustomerAgreement
-  target: ServiceLocation
-  sourceCardinality: 0..*
-  sourceName: customerAgreements
-  sourceDescription: All customer agreements regulating this service location.
-  targetCardinality: 0..*
-  targetName: serviceLocations
-  targetDescription: All service locations regulated by this customer agreement.
-- source: CustomerAgreement
-  target: StandardIndustryCode
-  sourceCardinality: 0..*
-  sourceName: customerAgreements
-  targetCardinality: 0..1
-  targetName: standardIndustryCode
-- source: CustomerAgreement
   target: AuxiliaryAgreement
   sourceCardinality: 0..1
   sourceName: customerAgreement
@@ -38,29 +24,21 @@ associations:
   targetName: auxiliaryAgreements
   targetDescription: All (non-service related) auxiliary agreements that refer to this customer agreement.
 - source: CustomerAgreement
-  target: PricingStructure
+  target: Customer
   sourceCardinality: 0..*
   sourceName: customerAgreements
-  sourceDescription: All customer agreements with this pricing structure.
-  targetCardinality: 0..*
-  targetName: pricingStructures
-  targetDescription: All pricing structures applicable to this customer agreement.
+  sourceDescription: All agreements of this customer.
+  targetCardinality: "1"
+  targetName: customer
+  targetDescription: Customer for this agreement.
 - source: CustomerAgreement
-  target: ServiceCategory
+  target: CustomerAccount
   sourceCardinality: 0..*
   sourceName: customerAgreements
-  sourceDescription: All customer agreements with this service category.
-  targetCardinality: 0..1
-  targetName: serviceCategory
-  targetDescription: Service category for this agreement.
-- source: CustomerAgreement
-  target: UsagePoint
-  sourceCardinality: 0..1
-  sourceName: customerAgreement
-  sourceDescription: Customer agreement regulating this service delivery point.
-  targetCardinality: 0..*
-  targetName: usagePoints
-  targetDescription: All service delivery points regulated by this customer agreement.
+  sourceDescription: All agreements for this customer account.
+  targetCardinality: "1"
+  targetName: customerAccount
+  targetDescription: Customer account owning this agreement.
 - source: CustomerAgreement
   target: DemandResponseProgram
   sourceCardinality: 0..*
@@ -78,6 +56,30 @@ associations:
   targetName: meterReadings
   targetDescription: (could be deprecated in the future) All meter readings for this customer agreement.
 - source: CustomerAgreement
+  target: PricingStructure
+  sourceCardinality: 0..*
+  sourceName: customerAgreements
+  sourceDescription: All customer agreements with this pricing structure.
+  targetCardinality: 0..*
+  targetName: pricingStructures
+  targetDescription: All pricing structures applicable to this customer agreement.
+- source: CustomerAgreement
+  target: ServiceCategory
+  sourceCardinality: 0..*
+  sourceName: customerAgreements
+  sourceDescription: All customer agreements with this service category.
+  targetCardinality: 0..1
+  targetName: serviceCategory
+  targetDescription: Service category for this agreement.
+- source: CustomerAgreement
+  target: ServiceLocation
+  sourceCardinality: 0..*
+  sourceName: customerAgreements
+  sourceDescription: All customer agreements regulating this service location.
+  targetCardinality: 0..*
+  targetName: serviceLocations
+  targetDescription: All service locations regulated by this customer agreement.
+- source: CustomerAgreement
   target: ServiceSupplier
   sourceCardinality: 0..*
   sourceName: customerAgreements
@@ -86,18 +88,16 @@ associations:
   targetName: serviceSupplier
   targetDescription: Service supplier for this customer agreement.
 - source: CustomerAgreement
-  target: CustomerAccount
+  target: StandardIndustryCode
   sourceCardinality: 0..*
   sourceName: customerAgreements
-  sourceDescription: All agreements for this customer account.
-  targetCardinality: "1"
-  targetName: customerAccount
-  targetDescription: Customer account owning this agreement.
+  targetCardinality: 0..1
+  targetName: standardIndustryCode
 - source: CustomerAgreement
-  target: Customer
-  sourceCardinality: 0..*
-  sourceName: customerAgreements
-  sourceDescription: All agreements of this customer.
-  targetCardinality: "1"
-  targetName: customer
-  targetDescription: Customer for this agreement.
+  target: UsagePoint
+  sourceCardinality: 0..1
+  sourceName: customerAgreement
+  sourceDescription: Customer agreement regulating this service delivery point.
+  targetCardinality: 0..*
+  targetName: usagePoints
+  targetDescription: All service delivery points regulated by this customer agreement.

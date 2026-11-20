@@ -11,12 +11,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: FuelRegion
-  target: RegisteredGenerator
-  sourceCardinality: 0..1
-  sourceName: fuelRegion
-  targetCardinality: 0..*
-  targetName: registeredGenerator
-- source: FuelRegion
   target: GasPrice
   sourceCardinality: "1"
   sourceName: fuelRegion
@@ -28,6 +22,12 @@ associations:
   sourceName: fuelRegion
   targetCardinality: "1"
   targetName: oilPrice
+- source: FuelRegion
+  target: RegisteredGenerator
+  sourceCardinality: 0..1
+  sourceName: fuelRegion
+  targetCardinality: 0..*
+  targetName: registeredGenerator
 - source: FuelRegion
   target: RTO
   sourceCardinality: 0..*

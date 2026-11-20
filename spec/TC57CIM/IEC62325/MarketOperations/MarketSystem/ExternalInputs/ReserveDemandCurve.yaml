@@ -13,14 +13,14 @@ ancestors:
 - Curve
 associations:
 - source: ReserveDemandCurve
-  target: MarketRegion
-  sourceCardinality: 0..*
-  sourceName: reserveDemandCurve
-  targetCardinality: "1"
-  targetName: marketRegion
-- source: ReserveDemandCurve
   target: ASRequirements
   sourceCardinality: 1..*
   sourceName: reserveDemandCurve
   targetCardinality: "1"
   targetName: asRequirements
+- source: ReserveDemandCurve
+  target: MarketRegion
+  sourceCardinality: 0..*
+  sourceName: reserveDemandCurve
+  targetCardinality: "1"
+  targetName: marketRegion

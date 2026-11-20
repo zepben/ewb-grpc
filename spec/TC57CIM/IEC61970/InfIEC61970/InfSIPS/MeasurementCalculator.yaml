@@ -8,16 +8,16 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: MeasurementCalculator
-  target: PinMeasurement
-  sourceCardinality: 0..1
-  sourceName: measurementCalculator
-  sourceDescription: Result of the calculation used as input to a gate.
-  targetCardinality: 0..*
-  targetName: pinMeasurement
-- source: MeasurementCalculator
   target: MeasurementCalculatorInput
   sourceCardinality: "1"
   sourceName: measurementCalculator
   targetCardinality: 1..*
   targetName: measurementCalculatorInput
   targetDescription: Used in the calculation.
+- source: MeasurementCalculator
+  target: PinMeasurement
+  sourceCardinality: 0..1
+  sourceName: measurementCalculator
+  sourceDescription: Result of the calculation used as input to a gate.
+  targetCardinality: 0..*
+  targetName: pinMeasurement

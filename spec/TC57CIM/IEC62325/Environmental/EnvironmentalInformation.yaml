@@ -12,6 +12,14 @@ descendants:
 - Observation
 associations:
 - source: EnvironmentalInformation
+  target: EnvironmentalAnalog
+  sourceCardinality: 0..1
+  sourceName: environmentalInformation
+  sourceDescription: Observation or forecast with which this environmental analog measurement is associated.
+  targetCardinality: 0..*
+  targetName: environmentalAnalog
+  targetDescription: Environmental analog associated with this observation or forecast.
+- source: EnvironmentalInformation
   target: EnvironmentalDataProvider
   sourceCardinality: 0..*
   sourceName: environmentalInformation
@@ -35,14 +43,6 @@ associations:
   targetCardinality: 0..*
   targetName: environmentalEvent
   targetDescription: Environmental event to which this forecast or observation relates.
-- source: EnvironmentalInformation
-  target: EnvironmentalAnalog
-  sourceCardinality: 0..1
-  sourceName: environmentalInformation
-  sourceDescription: Observation or forecast with which this environmental analog measurement is associated.
-  targetCardinality: 0..*
-  targetName: environmentalAnalog
-  targetDescription: Environmental analog associated with this observation or forecast.
 - source: EnvironmentalInformation
   target: EnvironmentalPhenomenon
   sourceCardinality: 0..1

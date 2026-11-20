@@ -11,14 +11,6 @@ attributes:
   description: Name of the name type.
 associations:
 - source: NameType
-  target: NameTypeAuthority
-  sourceCardinality: 0..*
-  sourceName: nameTypes
-  sourceDescription: All name types managed by this authority.
-  targetCardinality: 0..1
-  targetName: nameTypeAuthority
-  targetDescription: Authority responsible for managing names of this type.
-- source: NameType
   target: Name
   sourceCardinality: "1"
   sourceName: nameType
@@ -26,3 +18,11 @@ associations:
   targetCardinality: 0..*
   targetName: names
   targetDescription: All names of this type.
+- source: NameType
+  target: NameTypeAuthority
+  sourceCardinality: 0..*
+  sourceName: nameTypes
+  sourceDescription: All name types managed by this authority.
+  targetCardinality: 0..1
+  targetName: nameTypeAuthority
+  targetDescription: Authority responsible for managing names of this type.

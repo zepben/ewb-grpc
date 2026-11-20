@@ -55,14 +55,6 @@ attributes:
   type: Float
   description: Minimum ratio of zero sequence impedance to its positive sequence impedance (Z(0)/Z(1) min). Used for short
     circuit data exchange according to IEC 60909.
-- name: referencePriority
-  type: Integer
-  description: Priority of unit for use as powerflow voltage phase angle reference bus selection. 0 = don t care (default)
-    1 = highest priority. 2 is less than 1 and so on.
-- name: voltageFactor
-  type: PU
-  description: Voltage factor in pu, which was used to calculate short-circuit current Ik" and power Sk".  Used only if short
-    circuit calculations are done according to superposition method.
 - name: p
   type: ActivePower
   description: |-
@@ -73,5 +65,13 @@ attributes:
   description: |-
     Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
     Starting value for steady state solutions.
+- name: referencePriority
+  type: Integer
+  description: Priority of unit for use as powerflow voltage phase angle reference bus selection. 0 = don t care (default)
+    1 = highest priority. 2 is less than 1 and so on.
+- name: voltageFactor
+  type: PU
+  description: Voltage factor in pu, which was used to calculate short-circuit current Ik" and power Sk".  Used only if short
+    circuit calculations are done according to superposition method.
 ancestors:
 - RegulatingCondEq

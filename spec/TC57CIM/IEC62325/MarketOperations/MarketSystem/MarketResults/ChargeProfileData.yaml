@@ -12,14 +12,14 @@ attributes:
   description: The value of an interval given a profile type (amount, price, or quantity), subject to the UOM.
 associations:
 - source: ChargeProfileData
-  target: ChargeProfile
-  sourceCardinality: 0..*
-  sourceName: chargeProfileData
-  targetCardinality: 0..1
-  targetName: chargeProfile
-- source: ChargeProfileData
   target: BillDeterminant
   sourceCardinality: 0..*
   sourceName: chargeProfileData
   targetCardinality: 0..1
   targetName: billDeterminant
+- source: ChargeProfileData
+  target: ChargeProfile
+  sourceCardinality: 0..*
+  sourceName: chargeProfileData
+  targetCardinality: 0..1
+  targetName: chargeProfile

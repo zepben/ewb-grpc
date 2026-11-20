@@ -10,13 +10,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: UsagePointGroup
-  target: UsagePoint
+  target: DemandResponseProgram
   sourceCardinality: 0..*
   sourceName: usagePointGroups
-  sourceDescription: All groups to which this usage point belongs.
+  sourceDescription: All usage point groups enrolled in this demand response program.
   targetCardinality: 0..*
-  targetName: usagePoints
-  targetDescription: All usage points in this group.
+  targetName: demandResponsePrograms
+  targetDescription: All demand response programs this usage point group is enrolled in.
 - source: UsagePointGroup
   target: EndDeviceControl
   sourceCardinality: 0..*
@@ -26,10 +26,10 @@ associations:
   targetName: endDeviceControls
   targetDescription: All end device controls sending commands to this usage point group.
 - source: UsagePointGroup
-  target: DemandResponseProgram
+  target: UsagePoint
   sourceCardinality: 0..*
   sourceName: usagePointGroups
-  sourceDescription: All usage point groups enrolled in this demand response program.
+  sourceDescription: All groups to which this usage point belongs.
   targetCardinality: 0..*
-  targetName: demandResponsePrograms
-  targetDescription: All demand response programs this usage point group is enrolled in.
+  targetName: usagePoints
+  targetDescription: All usage points in this group.

@@ -32,14 +32,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: WindPitchContPowerIEC
-  target: WindGenTurbineType2IEC
-  sourceCardinality: "1"
-  sourceName: windPitchContPowerIEC
-  sourceDescription: Pitch control power model associated with this wind turbine type 2 model.
-  targetCardinality: 0..1
-  targetName: windGenTurbineType2IEC
-  targetDescription: Wind turbine type 2 model with which this pitch control power model is associated.
-- source: WindPitchContPowerIEC
   target: WindDynamicsLookupTable
   sourceCardinality: 0..1
   sourceName: windPitchContPowerIEC
@@ -55,3 +47,11 @@ associations:
   targetCardinality: 0..1
   targetName: windGenTurbineType1bIEC
   targetDescription: Wind turbine type 1B model with which this pitch control power model is associated.
+- source: WindPitchContPowerIEC
+  target: WindGenTurbineType2IEC
+  sourceCardinality: "1"
+  sourceName: windPitchContPowerIEC
+  sourceDescription: Pitch control power model associated with this wind turbine type 2 model.
+  targetCardinality: 0..1
+  targetName: windGenTurbineType2IEC
+  targetDescription: Wind turbine type 2 model with which this pitch control power model is associated.

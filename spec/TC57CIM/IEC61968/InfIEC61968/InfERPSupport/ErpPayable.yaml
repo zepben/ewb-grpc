@@ -5,14 +5,14 @@ ancestors:
 - ErpDocument
 associations:
 - source: ErpPayable
-  target: ErpPayableLineItem
-  sourceCardinality: "1"
-  sourceName: erpPayable
-  targetCardinality: 0..*
-  targetName: erpPayableLineItems
-- source: ErpPayable
   target: ContractorItem
   sourceCardinality: 0..*
   sourceName: erpPayables
   targetCardinality: 0..*
   targetName: contractorItems
+- source: ErpPayable
+  target: ErpPayableLineItem
+  sourceCardinality: "1"
+  sourceName: erpPayable
+  targetCardinality: 0..*
+  targetName: erpPayableLineItems

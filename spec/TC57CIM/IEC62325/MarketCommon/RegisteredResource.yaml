@@ -96,11 +96,11 @@ descendants:
 - RegisteredLoad
 associations:
 - source: RegisteredResource
-  target: ForbiddenRegion
+  target: AdjacentCASet
   sourceCardinality: 0..*
   sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: forbiddenRegion
+  targetCardinality: 0..1
+  targetName: adjacentCASet
 - source: RegisteredResource
   target: AggregateNode
   sourceCardinality: 0..*
@@ -110,83 +110,11 @@ associations:
   targetName: aggregateNode
   targetDescription: An AggregateNode may be associated with up to many RegisteredResources.
 - source: RegisteredResource
-  target: DispatchInstReply
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: dispatchInstReply
-- source: RegisteredResource
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: timeSeries
-- source: RegisteredResource
-  target: RampRateCurve
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: rampRateCurve
-- source: RegisteredResource
-  target: ContractDistributionFactor
+  target: AllocationResultValues
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: contractDistributionFactor
-- source: RegisteredResource
-  target: OrgResOwnership
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: orgResOwnership
-- source: RegisteredResource
-  target: RMROperatorInput
-  sourceCardinality: 0..1
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: rmrOperatorInput
-- source: RegisteredResource
-  target: ResourceDispatchResults
-  sourceCardinality: 0..1
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: resourceDispatchResults
-- source: RegisteredResource
-  target: SubstitutionResourceList
-  sourceCardinality: 0..1
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: substitutionResourceList
-- source: RegisteredResource
-  target: AdjacentCASet
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..1
-  targetName: adjacentCASet
-- source: RegisteredResource
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: subControlArea
-- source: RegisteredResource
-  target: MarketParticipant
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..1
-  targetName: marketParticipant
-- source: RegisteredResource
-  target: IntermittentResourceEligibility
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: intermittentResourceEligibility
-- source: RegisteredResource
-  target: FormerReference
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: formerReference
+  targetName: allocationResultValues
 - source: RegisteredResource
   target: Commitments
   sourceCardinality: "1"
@@ -194,23 +122,101 @@ associations:
   targetCardinality: 0..*
   targetName: commitments
 - source: RegisteredResource
-  target: MPMResourceStatus
+  target: ContractDistributionFactor
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: mpmResourceStatus
+  targetName: contractDistributionFactor
 - source: RegisteredResource
-  target: RUCAwardInstruction
-  sourceCardinality: 0..1
+  target: ControlAreaDesignation
+  sourceCardinality: 0..*
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: rucAwardInstruction
+  targetName: controlAreaDesignation
 - source: RegisteredResource
-  target: AllocationResultValues
+  target: DefaultBid
+  sourceCardinality: "1"
+  sourceName: registeredResource
+  targetCardinality: 0..1
+  targetName: defaultBid
+- source: RegisteredResource
+  target: DispatchInstReply
+  sourceCardinality: "1"
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: dispatchInstReply
+- source: RegisteredResource
+  target: Domain
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: domain
+- source: RegisteredResource
+  target: DopInstruction
+  sourceCardinality: 0..1
+  sourceName: registeredResouce
+  targetCardinality: 0..*
+  targetName: dopInstruction
+- source: RegisteredResource
+  target: DotInstruction
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: allocationResultValues
+  targetName: dotInstruction
+- source: RegisteredResource
+  target: EnergyMarket
+  sourceCardinality: 0..*
+  sourceName: registeredResources
+  targetCardinality: 0..*
+  targetName: energyMarkets
+- source: RegisteredResource
+  target: ExpectedEnergyValues
+  sourceCardinality: 0..1
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: expectedEnergyValues
+- source: RegisteredResource
+  target: ExPostResourceResults
+  sourceCardinality: 0..1
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: exPostResourceResults
+- source: RegisteredResource
+  target: ForbiddenRegion
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: forbiddenRegion
+- source: RegisteredResource
+  target: FormerReference
+  sourceCardinality: "1"
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: formerReference
+- source: RegisteredResource
+  target: HostControlArea
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..1
+  targetName: hostControlArea
+- source: RegisteredResource
+  target: Instructions
+  sourceCardinality: "1"
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: instructions
+- source: RegisteredResource
+  target: IntermittentResourceEligibility
+  sourceCardinality: "1"
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: intermittentResourceEligibility
+- source: RegisteredResource
+  target: SchedulingPoint
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: interTie
 - source: RegisteredResource
   target: LoadFollowingInst
   sourceCardinality: "1"
@@ -218,11 +224,67 @@ associations:
   targetCardinality: 0..*
   targetName: loadFollowingInst
 - source: RegisteredResource
-  target: ResourceLoadFollowingInst
+  target: LoadFollowingOperatorInput
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: resourceLoadFollowingInst
+  targetName: loadFollowingOperatorInput
+- source: RegisteredResource
+  target: MarketObjectStatus
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: marketObjectStatus
+- source: RegisteredResource
+  target: MarketParticipant
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..1
+  targetName: marketParticipant
+- source: RegisteredResource
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..1
+  targetName: mktConnectivityNode
+- source: RegisteredResource
+  target: MPMResourceStatus
+  sourceCardinality: 0..1
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: mpmResourceStatus
+- source: RegisteredResource
+  target: MPMTestThreshold
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: mpmTestThreshold
+- source: RegisteredResource
+  target: OrgResOwnership
+  sourceCardinality: "1"
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: orgResOwnership
+- source: RegisteredResource
+  target: Pnode
+  sourceCardinality: 0..*
+  sourceName: registeredResources
+  sourceDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
+  targetCardinality: 0..1
+  targetName: pnode
+  targetDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
+- source: RegisteredResource
+  target: RampRateCurve
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: rampRateCurve
+- source: RegisteredResource
+  target: Reason
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: reason
 - source: RegisteredResource
   target: ResourceCertification
   sourceCardinality: "1"
@@ -234,47 +296,11 @@ associations:
   targetDescription: RegisteredResources are qualified for resource ancillary service types (which include market product
     types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
 - source: RegisteredResource
-  target: ExpectedEnergyValues
+  target: ResourceAwardInstruction
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: expectedEnergyValues
-- source: RegisteredResource
-  target: Reason
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: reason
-- source: RegisteredResource
-  target: ResourceCertification
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: resourceCertification
-- source: RegisteredResource
-  target: SchedulingPoint
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: interTie
-- source: RegisteredResource
-  target: MktConnectivityNode
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..1
-  targetName: mktConnectivityNode
-- source: RegisteredResource
-  target: ResourceGroup
-  sourceCardinality: 1..*
-  sourceName: registeredResources
-  targetCardinality: 0..*
-  targetName: resourceGroups
-- source: RegisteredResource
-  target: DopInstruction
-  sourceCardinality: 0..1
-  sourceName: registeredResouce
-  targetCardinality: 0..*
-  targetName: dopInstruction
+  targetName: resourceAwardInstruction
 - source: RegisteredResource
   target: ResourceCapacity
   sourceCardinality: 0..*
@@ -282,88 +308,62 @@ associations:
   targetCardinality: 0..*
   targetName: resourceCapacity
 - source: RegisteredResource
+  target: ResourceCertification
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: resourceCertification
+- source: RegisteredResource
+  target: ResourceDispatchResults
+  sourceCardinality: 0..1
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: resourceDispatchResults
+- source: RegisteredResource
+  target: ResourceGroup
+  sourceCardinality: 1..*
+  sourceName: registeredResources
+  targetCardinality: 0..*
+  targetName: resourceGroups
+- source: RegisteredResource
+  target: ResourceLoadFollowingInst
+  sourceCardinality: 0..1
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: resourceLoadFollowingInst
+- source: RegisteredResource
   target: ResourceVerifiableCosts
   sourceCardinality: "1"
   sourceName: registeredResource
   targetCardinality: 0..1
   targetName: resourceVerifiableCosts
 - source: RegisteredResource
-  target: DefaultBid
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..1
-  targetName: defaultBid
-- source: RegisteredResource
-  target: MarketObjectStatus
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: marketObjectStatus
-- source: RegisteredResource
-  target: ControlAreaDesignation
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: controlAreaDesignation
-- source: RegisteredResource
-  target: LoadFollowingOperatorInput
+  target: RMROperatorInput
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: loadFollowingOperatorInput
+  targetName: rmrOperatorInput
 - source: RegisteredResource
-  target: MPMTestThreshold
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: mpmTestThreshold
-- source: RegisteredResource
-  target: ResourceAwardInstruction
+  target: RUCAwardInstruction
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: resourceAwardInstruction
+  targetName: rucAwardInstruction
 - source: RegisteredResource
-  target: ExPostResourceResults
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: registeredResource
+  targetCardinality: 0..*
+  targetName: subControlArea
+- source: RegisteredResource
+  target: SubstitutionResourceList
   sourceCardinality: 0..1
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: exPostResourceResults
+  targetName: substitutionResourceList
 - source: RegisteredResource
-  target: Instructions
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: instructions
-- source: RegisteredResource
-  target: Pnode
-  sourceCardinality: 0..*
-  sourceName: registeredResources
-  sourceDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
-  targetCardinality: 0..1
-  targetName: pnode
-  targetDescription: A registered resource injects power at one or more connectivity nodes related to a pnode
-- source: RegisteredResource
-  target: HostControlArea
-  sourceCardinality: 0..*
-  sourceName: registeredResource
-  targetCardinality: 0..1
-  targetName: hostControlArea
-- source: RegisteredResource
-  target: Domain
+  target: TimeSeries
   sourceCardinality: 0..*
   sourceName: registeredResource
   targetCardinality: 0..*
-  targetName: domain
-- source: RegisteredResource
-  target: EnergyMarket
-  sourceCardinality: 0..*
-  sourceName: registeredResources
-  targetCardinality: 0..*
-  targetName: energyMarkets
-- source: RegisteredResource
-  target: DotInstruction
-  sourceCardinality: 0..1
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: dotInstruction
+  targetName: timeSeries

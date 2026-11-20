@@ -16,6 +16,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: TransmissionPath
+  target: ServicePoint
+  sourceCardinality: 0..*
+  sourceName: podTransmissionPath
+  sourceDescription: A transmission path has a "point-of-delivery" service point
+  targetCardinality: "1"
+  targetName: deliveryPoint
+  targetDescription: A transmission path has a "point-of-delivery" service point
+- source: TransmissionPath
   target: TransmissionCorridor
   sourceCardinality: 0..*
   sourceName: containedIn
@@ -23,20 +31,6 @@ associations:
   targetCardinality: "1"
   targetName: for
   targetDescription: A TransmissionPath is contained in a TransmissionCorridor.
-- source: TransmissionPath
-  target: TransmissionReservation
-  sourceCardinality: "1"
-  sourceName: transmissionPath
-  targetCardinality: 0..*
-  targetName: transmissionReservation
-- source: TransmissionPath
-  target: ServicePoint
-  sourceCardinality: 0..*
-  sourceName: porTransmissionPath
-  sourceDescription: A transmission path has a "point-of-receipt" service point
-  targetCardinality: "1"
-  targetName: pointOfReceipt
-  targetDescription: A transmission path has a "point-of-receipt" service point
 - source: TransmissionPath
   target: TransmissionProduct
   sourceCardinality: 0..*
@@ -48,8 +42,14 @@ associations:
 - source: TransmissionPath
   target: ServicePoint
   sourceCardinality: 0..*
-  sourceName: podTransmissionPath
-  sourceDescription: A transmission path has a "point-of-delivery" service point
+  sourceName: porTransmissionPath
+  sourceDescription: A transmission path has a "point-of-receipt" service point
   targetCardinality: "1"
-  targetName: deliveryPoint
-  targetDescription: A transmission path has a "point-of-delivery" service point
+  targetName: pointOfReceipt
+  targetDescription: A transmission path has a "point-of-receipt" service point
+- source: TransmissionPath
+  target: TransmissionReservation
+  sourceCardinality: "1"
+  sourceName: transmissionPath
+  targetCardinality: 0..*
+  targetName: transmissionReservation

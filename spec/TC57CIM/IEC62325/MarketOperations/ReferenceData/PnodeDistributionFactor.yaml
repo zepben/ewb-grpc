@@ -23,14 +23,14 @@ associations:
   targetCardinality: "1"
   targetName: aggregatedPnode
 - source: PnodeDistributionFactor
-  target: IndividualPnode
-  sourceCardinality: 0..*
-  sourceName: pnodeDistributionFactor
-  targetCardinality: "1"
-  targetName: individualPnode
-- source: PnodeDistributionFactor
   target: BidDistributionFactor
   sourceCardinality: 0..*
   sourceName: pnodeDistributionFactor
   targetCardinality: 0..1
   targetName: bidDistributionFactor
+- source: PnodeDistributionFactor
+  target: IndividualPnode
+  sourceCardinality: 0..*
+  sourceName: pnodeDistributionFactor
+  targetCardinality: "1"
+  targetName: individualPnode

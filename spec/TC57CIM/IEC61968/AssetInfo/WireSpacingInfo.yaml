@@ -18,19 +18,11 @@ ancestors:
 - AssetInfo
 associations:
 - source: WireSpacingInfo
-  target: WirePosition
+  target: ACLineSegment
   sourceCardinality: 0..1
   sourceName: wireSpacingInfo
-  sourceDescription: Wire spacing data this wire position belongs to.
-  targetCardinality: 1..*
-  targetName: wirePositions
-  targetDescription: All positions of single wires (phase or neutral) making the conductor.
-- source: WireSpacingInfo
-  target: Structure
-  sourceCardinality: 0..*
-  sourceName: wireSpacingInfos
   targetCardinality: 0..*
-  targetName: structures
+  targetName: acLineSegment
 - source: WireSpacingInfo
   target: DuctBank
   sourceCardinality: 0..*
@@ -38,8 +30,16 @@ associations:
   targetCardinality: 0..1
   targetName: ductBank
 - source: WireSpacingInfo
-  target: ACLineSegment
+  target: Structure
+  sourceCardinality: 0..*
+  sourceName: wireSpacingInfos
+  targetCardinality: 0..*
+  targetName: structures
+- source: WireSpacingInfo
+  target: WirePosition
   sourceCardinality: 0..1
   sourceName: wireSpacingInfo
-  targetCardinality: 0..*
-  targetName: acLineSegment
+  sourceDescription: Wire spacing data this wire position belongs to.
+  targetCardinality: 1..*
+  targetName: wirePositions
+  targetDescription: All positions of single wires (phase or neutral) making the conductor.

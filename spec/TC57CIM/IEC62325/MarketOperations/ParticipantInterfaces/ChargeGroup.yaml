@@ -20,12 +20,6 @@ associations:
   targetName: chargeGroupParent
   targetDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
 - source: ChargeGroup
-  target: MktUserAttribute
-  sourceCardinality: 0..*
-  sourceName: chargeGroup
-  targetCardinality: 0..*
-  targetName: mktUserAttribute
-- source: ChargeGroup
   target: ChargeType
   sourceCardinality: 0..*
   sourceName: chargeGroup
@@ -33,3 +27,9 @@ associations:
   targetCardinality: 0..*
   targetName: chargeType
   targetDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
+- source: ChargeGroup
+  target: MktUserAttribute
+  sourceCardinality: 0..*
+  sourceName: chargeGroup
+  targetCardinality: 0..*
+  targetName: mktUserAttribute

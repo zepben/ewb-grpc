@@ -14,14 +14,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: GenICompensationForGenJ
-  target: VCompIEEEType2
-  sourceCardinality: 2..*
-  sourceName: genICompensationForGenJ
-  sourceDescription: Compensation of this voltage compensator's generator for current flow out of another generator.
-  targetCardinality: "1"
-  targetName: vcompIEEEType2
-  targetDescription: The standard IEEE type 2 voltage compensator of this compensation.
-- source: GenICompensationForGenJ
   target: SynchronousMachineDynamics
   sourceCardinality: 0..*
   sourceName: genICompensationForGenJ
@@ -29,3 +21,11 @@ associations:
   targetCardinality: "1"
   targetName: synchronousMachineDynamics
   targetDescription: Standard synchronous machine out of which current flow is being compensated for.
+- source: GenICompensationForGenJ
+  target: VCompIEEEType2
+  sourceCardinality: 2..*
+  sourceName: genICompensationForGenJ
+  sourceDescription: Compensation of this voltage compensator's generator for current flow out of another generator.
+  targetCardinality: "1"
+  targetName: vcompIEEEType2
+  targetDescription: The standard IEEE type 2 voltage compensator of this compensation.

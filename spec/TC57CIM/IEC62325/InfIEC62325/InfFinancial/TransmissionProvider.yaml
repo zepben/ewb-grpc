@@ -6,14 +6,6 @@ ancestors:
 - Organisation
 associations:
 - source: TransmissionProvider
-  target: TransmissionProduct
-  sourceCardinality: "1"
-  sourceName: transmissionProvider
-  sourceDescription: A TransmissionProvider offers a TransmissionProduct.
-  targetCardinality: 1..*
-  targetName: transmissionProducts
-  targetDescription: A TransmissionProvider offers a TransmissionProduct.
-- source: TransmissionProvider
   target: LossProfile
   sourceCardinality: 0..1
   sourceName: hasLoss_
@@ -23,3 +15,11 @@ associations:
   targetName: for
   targetDescription: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
     TransmissionProvider must be one of the participating entities in the EnergyTransaction.
+- source: TransmissionProvider
+  target: TransmissionProduct
+  sourceCardinality: "1"
+  sourceName: transmissionProvider
+  sourceDescription: A TransmissionProvider offers a TransmissionProduct.
+  targetCardinality: 1..*
+  targetName: transmissionProducts
+  targetDescription: A TransmissionProvider offers a TransmissionProduct.

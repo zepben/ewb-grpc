@@ -12,14 +12,6 @@ ancestors:
 - Document
 associations:
 - source: TariffProfile
-  target: TimeTariffInterval
-  sourceCardinality: 0..*
-  sourceName: tariffProfiles
-  sourceDescription: All tariff profiles defined by this time tariff interval.
-  targetCardinality: 0..*
-  targetName: timeTariffIntervals
-  targetDescription: All time tariff intervals used to define this tariff profile.
-- source: TariffProfile
   target: ConsumptionTariffInterval
   sourceCardinality: 0..*
   sourceName: tariffProfiles
@@ -35,3 +27,11 @@ associations:
   targetCardinality: 0..*
   targetName: tariffs
   targetDescription: All tariffs defined by this tariff profile.
+- source: TariffProfile
+  target: TimeTariffInterval
+  sourceCardinality: 0..*
+  sourceName: tariffProfiles
+  sourceDescription: All tariff profiles defined by this time tariff interval.
+  targetCardinality: 0..*
+  targetName: timeTariffIntervals
+  targetDescription: All time tariff intervals used to define this tariff profile.

@@ -4,26 +4,12 @@ description: Asset that is aggregation of other assets such as conductors, trans
 ancestors:
 - Asset
 descendants:
-- EndDevice
-- Structure
-- Facility
-- DuctBank
 - Cabinet
+- DuctBank
+- EndDevice
+- Facility
+- Structure
 associations:
-- source: AssetContainer
-  target: Seal
-  sourceCardinality: 0..1
-  sourceName: assetContainer
-  sourceDescription: Asset container to which this seal is applied.
-  targetCardinality: 0..*
-  targetName: seals
-  targetDescription: All seals applied to this asset container.
-- source: AssetContainer
-  target: LandProperty
-  sourceCardinality: 0..*
-  sourceName: assetContainers
-  targetCardinality: 0..*
-  targetName: landProperties
 - source: AssetContainer
   target: Asset
   sourceCardinality: 0..1
@@ -32,3 +18,17 @@ associations:
   targetCardinality: 0..*
   targetName: assets
   targetDescription: All assets within this container asset.
+- source: AssetContainer
+  target: LandProperty
+  sourceCardinality: 0..*
+  sourceName: assetContainers
+  targetCardinality: 0..*
+  targetName: landProperties
+- source: AssetContainer
+  target: Seal
+  sourceCardinality: 0..1
+  sourceName: assetContainer
+  sourceDescription: Asset container to which this seal is applied.
+  targetCardinality: 0..*
+  targetName: seals
+  targetDescription: All seals applied to this asset container.

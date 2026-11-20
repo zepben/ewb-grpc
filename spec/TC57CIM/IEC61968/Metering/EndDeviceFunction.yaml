@@ -7,18 +7,10 @@ attributes:
 ancestors:
 - AssetFunction
 descendants:
+- ComFunction
 - ConnectDisconnectFunction
 - SimpleEndDeviceFunction
-- ComFunction
 associations:
-- source: EndDeviceFunction
-  target: Register
-  sourceCardinality: 0..1
-  sourceName: endDeviceFunction
-  sourceDescription: End device function metering quantities displayed by this register.
-  targetCardinality: 0..*
-  targetName: registers
-  targetDescription: All registers for quantities metered by this end device function.
 - source: EndDeviceFunction
   target: EndDevice
   sourceCardinality: 0..*
@@ -27,3 +19,11 @@ associations:
   targetCardinality: 0..1
   targetName: endDevice
   targetDescription: End device that performs this function.
+- source: EndDeviceFunction
+  target: Register
+  sourceCardinality: 0..1
+  sourceName: endDeviceFunction
+  sourceDescription: End device function metering quantities displayed by this register.
+  targetCardinality: 0..*
+  targetName: registers
+  targetDescription: All registers for quantities metered by this end device function.

@@ -51,9 +51,15 @@ attributes:
 ancestors:
 - AssetInfo
 descendants:
-- OverheadWireInfo
 - CableInfo
+- OverheadWireInfo
 associations:
+- source: WireInfo
+  target: ACLineSegmentPhase
+  sourceCardinality: 0..1
+  sourceName: wireInfo
+  targetCardinality: 0..*
+  targetName: acLineSegmentPhase
 - source: WireInfo
   target: WirePhaseInfo
   sourceCardinality: 0..1
@@ -62,9 +68,3 @@ associations:
   targetCardinality: 0..*
   targetName: wirePhaseInfo
   targetDescription: Wire phase information associated with this wire information.
-- source: WireInfo
-  target: ACLineSegmentPhase
-  sourceCardinality: 0..1
-  sourceName: wireInfo
-  targetCardinality: 0..*
-  targetName: acLineSegmentPhase

@@ -10,14 +10,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Route
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: routes
-  targetCardinality: 0..*
-  targetName: locations
-- source: Route
   target: OldCrew
   sourceCardinality: 0..1
   sourceName: route
   targetCardinality: 0..*
   targetName: crews
+- source: Route
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: routes
+  targetCardinality: 0..*
+  targetName: locations

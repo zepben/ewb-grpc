@@ -2,6 +2,9 @@ name: AsynchronousMachine
 description: A rotating machine whose shaft rotates asynchronously with the electrical field.  Also known as an induction
   machine with no external connection to the rotor windings, e.g. squirrel-cage induction machine.
 attributes:
+- name: asynchronousMachineType
+  type: AsynchronousMachineKind
+  description: Indicates the type of Asynchronous Machine (motor or generator).
 - name: converterFedDrive
   type: Boolean
   description: Indicates whether the machine is a converter fed drive. Used for short circuit data exchange according to IEC
@@ -63,9 +66,6 @@ attributes:
 - name: xs
   type: Reactance
   description: Synchronous reactance (greater than xp).
-- name: asynchronousMachineType
-  type: AsynchronousMachineKind
-  description: Indicates the type of Asynchronous Machine (motor or generator).
 ancestors:
 - RotatingMachine
 associations:

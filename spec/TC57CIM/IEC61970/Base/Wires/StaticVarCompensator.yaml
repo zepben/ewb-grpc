@@ -10,6 +10,11 @@ attributes:
 - name: inductiveRating
   type: Reactance
   description: Inductive reactance at maximum inductive reactive power.  Shall always be negative.
+- name: q
+  type: ReactivePower
+  description: |-
+    Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    Starting value for a steady state solution.
 - name: slope
   type: VoltagePerReactivePower
   description: |-
@@ -23,11 +28,6 @@ attributes:
   description: The reactive power output of the SVC is proportional to the difference between the voltage at the regulated
     bus and the voltage setpoint.  When the regulated bus voltage is equal to the voltage setpoint, the reactive power output
     is zero.
-- name: q
-  type: ReactivePower
-  description: |-
-    Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
-    Starting value for a steady state solution.
 ancestors:
 - RegulatingCondEq
 associations:

@@ -8,14 +8,6 @@ descendants:
 - IPAccessPoint
 associations:
 - source: CommunicationLink
-  target: RemoteUnit
-  sourceCardinality: 1..*
-  sourceName: communicationLinks
-  sourceDescription: RTUs may be attached to communication links.
-  targetCardinality: 0..*
-  targetName: remoteUnits
-  targetDescription: RTUs may be attached to communication links.
-- source: CommunicationLink
   target: BilateralExchangeActor
   sourceCardinality: 0..n
   sourceName: communicationLink
@@ -23,3 +15,11 @@ associations:
   targetCardinality: 0..1
   targetName: bilateralExchangeActor
   targetDescription: ICCP data provider or consumer using communication addressing for a Bilateral table.
+- source: CommunicationLink
+  target: RemoteUnit
+  sourceCardinality: 1..*
+  sourceName: communicationLinks
+  sourceDescription: RTUs may be attached to communication links.
+  targetCardinality: 0..*
+  targetName: remoteUnits
+  targetDescription: RTUs may be attached to communication links.

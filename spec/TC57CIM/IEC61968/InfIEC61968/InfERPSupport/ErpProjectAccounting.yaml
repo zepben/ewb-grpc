@@ -6,17 +6,17 @@ ancestors:
 - ErpDocument
 associations:
 - source: ErpProjectAccounting
-  target: Project
-  sourceCardinality: "1"
-  sourceName: erpProjectAccounting
-  targetCardinality: 0..*
-  targetName: projects
-- source: ErpProjectAccounting
   target: ErpTimeEntry
   sourceCardinality: 0..1
   sourceName: erpProjectAccounting
   targetCardinality: 0..*
   targetName: erpTimeEntries
+- source: ErpProjectAccounting
+  target: Project
+  sourceCardinality: "1"
+  sourceName: erpProjectAccounting
+  targetCardinality: 0..*
+  targetName: projects
 - source: ErpProjectAccounting
   target: WorkCostDetail
   sourceCardinality: "1"

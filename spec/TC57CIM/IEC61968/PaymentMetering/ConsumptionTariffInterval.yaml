@@ -14,15 +14,6 @@ attributes:
     start of the next interval or until it is reset to the start of the first interval by TariffProfile.tariffCycle.
 associations:
 - source: ConsumptionTariffInterval
-  target: TimeTariffInterval
-  sourceCardinality: 0..*
-  sourceName: consumptionTariffIntervals
-  sourceDescription: All consumption tariff intervals that introduce variation in this time of use tariff interval; allows
-    to express e.g., peak hour prices that are different with different consumption blocks.
-  targetCardinality: 0..*
-  targetName: touTariffIntervals
-  targetDescription: All time of use tariff intervals influenced by this consumption tariff interval.
-- source: ConsumptionTariffInterval
   target: Charge
   sourceCardinality: 0..*
   sourceName: consumptionTariffIntervals
@@ -46,3 +37,12 @@ associations:
   targetCardinality: 0..*
   targetName: tariffProfiles
   targetDescription: All tariff profiles defined by this consumption tariff interval.
+- source: ConsumptionTariffInterval
+  target: TimeTariffInterval
+  sourceCardinality: 0..*
+  sourceName: consumptionTariffIntervals
+  sourceDescription: All consumption tariff intervals that introduce variation in this time of use tariff interval; allows
+    to express e.g., peak hour prices that are different with different consumption blocks.
+  targetCardinality: 0..*
+  targetName: touTariffIntervals
+  targetDescription: All time of use tariff intervals influenced by this consumption tariff interval.

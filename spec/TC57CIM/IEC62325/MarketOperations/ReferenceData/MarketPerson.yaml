@@ -49,14 +49,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: MarketPerson
-  target: MarketSkill
-  sourceCardinality: 0..1
-  sourceName: marketPerson
-  targetCardinality: 0..*
-  targetName: marketSkills
-- source: MarketPerson
   target: MarketParticipant
   sourceCardinality: 0..*
   sourceName: marketPerson
   targetCardinality: 0..*
   targetName: marketParticipant
+- source: MarketPerson
+  target: MarketSkill
+  sourceCardinality: 0..1
+  sourceName: marketPerson
+  targetCardinality: 0..*
+  targetName: marketSkills

@@ -10,11 +10,11 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: DesignLocation
-  target: MiscCostItem
-  sourceCardinality: 0..1
-  sourceName: designLocation
+  target: ConditionFactor
+  sourceCardinality: 0..*
+  sourceName: designLocations
   targetCardinality: 0..*
-  targetName: miscCostItems
+  targetName: conditionFactors
 - source: DesignLocation
   target: DesignLocationCU
   sourceCardinality: 0..1
@@ -28,20 +28,20 @@ associations:
   targetCardinality: 1..*
   targetName: designs
 - source: DesignLocation
-  target: ConditionFactor
-  sourceCardinality: 0..*
-  sourceName: designLocations
+  target: ErpBomItemData
+  sourceCardinality: 0..1
+  sourceName: designLocation
   targetCardinality: 0..*
-  targetName: conditionFactors
+  targetName: erpBomItemDatas
+- source: DesignLocation
+  target: MiscCostItem
+  sourceCardinality: 0..1
+  sourceName: designLocation
+  targetCardinality: 0..*
+  targetName: miscCostItems
 - source: DesignLocation
   target: WorkLocation
   sourceCardinality: 0..*
   sourceName: designLocations
   targetCardinality: 1..*
   targetName: workLocations
-- source: DesignLocation
-  target: ErpBomItemData
-  sourceCardinality: 0..1
-  sourceName: designLocation
-  targetCardinality: 0..*
-  targetName: erpBomItemDatas

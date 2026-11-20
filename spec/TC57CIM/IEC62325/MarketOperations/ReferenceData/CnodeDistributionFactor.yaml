@@ -12,17 +12,11 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: CnodeDistributionFactor
-  target: SubControlArea
+  target: AggregateNode
   sourceCardinality: 0..*
   sourceName: cnodeDistributionFactor
   targetCardinality: 0..1
-  targetName: subControlArea
-- source: CnodeDistributionFactor
-  target: MktConnectivityNode
-  sourceCardinality: 0..*
-  sourceName: cnodeDistributionFactor
-  targetCardinality: "1"
-  targetName: mktConnectivityNode
+  targetName: aggregateNode
 - source: CnodeDistributionFactor
   target: HostControlArea
   sourceCardinality: 0..*
@@ -30,8 +24,14 @@ associations:
   targetCardinality: 0..1
   targetName: hostControlArea
 - source: CnodeDistributionFactor
-  target: AggregateNode
+  target: MktConnectivityNode
+  sourceCardinality: 0..*
+  sourceName: cnodeDistributionFactor
+  targetCardinality: "1"
+  targetName: mktConnectivityNode
+- source: CnodeDistributionFactor
+  target: SubControlArea
   sourceCardinality: 0..*
   sourceName: cnodeDistributionFactor
   targetCardinality: 0..1
-  targetName: aggregateNode
+  targetName: subControlArea

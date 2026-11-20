@@ -11,14 +11,6 @@ ancestors:
 - Control
 associations:
 - source: Command
-  target: ValueAliasSet
-  sourceCardinality: 0..*
-  sourceName: commands
-  sourceDescription: The Commands using the set for translation.
-  targetCardinality: 0..1
-  targetName: valueAliasSet
-  targetDescription: The ValueAliasSet used for translation of a Control value to a name.
-- source: Command
   target: DiscreteValue
   sourceCardinality: 0..1
   sourceName: command
@@ -26,3 +18,11 @@ associations:
   targetCardinality: "1"
   targetName: discreteValue
   targetDescription: The MeasurementValue that is controlled.
+- source: Command
+  target: ValueAliasSet
+  sourceCardinality: 0..*
+  sourceName: commands
+  sourceDescription: The Commands using the set for translation.
+  targetCardinality: 0..1
+  targetName: valueAliasSet
+  targetDescription: The ValueAliasSet used for translation of a Control value to a name.

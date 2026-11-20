@@ -44,6 +44,34 @@ ancestors:
 - AssetInfo
 associations:
 - source: TransformerEndInfo
+  target: NoLoadTest
+  targetCardinality: 0..1
+  targetName: energisedEndNoLoadTests
+  targetDescription: All no-load test measurements in which this transformer end was energised.
+- source: TransformerEndInfo
+  target: OpenCircuitTest
+  targetCardinality: 0..1
+  targetName: energisedEndOpenCircuitTests
+  targetDescription: All open-circuit test measurements in which this transformer end was excited.
+- source: TransformerEndInfo
+  target: ShortCircuitTest
+  targetCardinality: 0..1
+  targetName: energisedEndShortCircuitTests
+  targetDescription: All short-circuit test measurements in which this transformer end was energised.
+- source: TransformerEndInfo
+  target: ShortCircuitTest
+  targetCardinality: 0..1
+  targetName: groundedEndShortCircuitTests
+  targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
+- source: TransformerEndInfo
+  target: OpenCircuitTest
+  sourceCardinality: 0..1
+  sourceName: openEnd
+  sourceDescription: Transformer end measured for induced voltage and angle in this open-circuit test.
+  targetCardinality: 0..1
+  targetName: openEndOpenCircuitTests
+  targetDescription: All open-circuit test measurements in which this transformer end was not excited.
+- source: TransformerEndInfo
   target: TransformerStarImpedance
   sourceCardinality: 0..1
   sourceName: transformerEndInfo
@@ -56,31 +84,3 @@ associations:
   targetCardinality: 0..1
   targetName: transformerTankInfo
   targetDescription: Transformer tank data that this end description is part of.
-- source: TransformerEndInfo
-  target: NoLoadTest
-  targetCardinality: 0..1
-  targetName: energisedEndNoLoadTests
-  targetDescription: All no-load test measurements in which this transformer end was energised.
-- source: TransformerEndInfo
-  target: OpenCircuitTest
-  sourceCardinality: 0..1
-  sourceName: openEnd
-  sourceDescription: Transformer end measured for induced voltage and angle in this open-circuit test.
-  targetCardinality: 0..1
-  targetName: openEndOpenCircuitTests
-  targetDescription: All open-circuit test measurements in which this transformer end was not excited.
-- source: TransformerEndInfo
-  target: OpenCircuitTest
-  targetCardinality: 0..1
-  targetName: energisedEndOpenCircuitTests
-  targetDescription: All open-circuit test measurements in which this transformer end was excited.
-- source: TransformerEndInfo
-  target: ShortCircuitTest
-  targetCardinality: 0..1
-  targetName: groundedEndShortCircuitTests
-  targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
-- source: TransformerEndInfo
-  target: ShortCircuitTest
-  targetCardinality: 0..1
-  targetName: energisedEndShortCircuitTests
-  targetDescription: All short-circuit test measurements in which this transformer end was energised.

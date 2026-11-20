@@ -22,18 +22,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: MarketProduct
-  target: ProductBid
-  sourceCardinality: "1"
-  sourceName: marketProduct
-  targetCardinality: 0..*
-  targetName: productBids
-- source: MarketProduct
-  target: ResourceAwardInstruction
-  sourceCardinality: "1"
-  sourceName: marketProduct
-  targetCardinality: 0..*
-  targetName: resourceAwardInstruction
-- source: MarketProduct
   target: BidError
   sourceCardinality: 0..1
   sourceName: marketProduct
@@ -46,17 +34,29 @@ associations:
   targetCardinality: 0..*
   targetName: bidPriceCap
 - source: MarketProduct
-  target: MarketRegionResults
-  sourceCardinality: 0..1
+  target: CommodityDefinition
+  sourceCardinality: "1"
   sourceName: marketProduct
-  targetCardinality: 0..1
-  targetName: marketRegionResults
+  targetCardinality: 0..*
+  targetName: commodityDefinition
 - source: MarketProduct
   target: Market
   sourceCardinality: 1..*
   sourceName: marketProducts
   targetCardinality: 0..1
   targetName: market
+- source: MarketProduct
+  target: MarketRegionResults
+  sourceCardinality: 0..1
+  sourceName: marketProduct
+  targetCardinality: 0..1
+  targetName: marketRegionResults
+- source: MarketProduct
+  target: ProductBid
+  sourceCardinality: "1"
+  sourceName: marketProduct
+  targetCardinality: 0..*
+  targetName: productBids
 - source: MarketProduct
   target: ReserveReq
   sourceCardinality: "1"
@@ -66,8 +66,8 @@ associations:
   targetName: reserveReqs
   targetDescription: Market product associated with reserve requirement must be a reserve or regulation product.
 - source: MarketProduct
-  target: CommodityDefinition
+  target: ResourceAwardInstruction
   sourceCardinality: "1"
   sourceName: marketProduct
   targetCardinality: 0..*
-  targetName: commodityDefinition
+  targetName: resourceAwardInstruction

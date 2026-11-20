@@ -24,17 +24,9 @@ attributes:
 ancestors:
 - Equipment
 descendants:
-- SynchrocheckRelay
 - CurrentRelay
+- SynchrocheckRelay
 associations:
-- source: ProtectionEquipment
-  target: ProtectedSwitch
-  sourceCardinality: 0..*
-  sourceName: operatedByProtectionEquipment
-  sourceDescription: Protection equipments that operate this ProtectedSwitch.
-  targetCardinality: 0..*
-  targetName: protectedSwitches
-  targetDescription: Protected switches operated by this ProtectionEquipment.
 - source: ProtectionEquipment
   target: ConductingEquipment
   sourceCardinality: 0..*
@@ -43,6 +35,14 @@ associations:
   targetCardinality: 0..*
   targetName: conductingEquipments
   targetDescription: Protection equipment may be used to protect specific conducting equipment.
+- source: ProtectionEquipment
+  target: ProtectedSwitch
+  sourceCardinality: 0..*
+  sourceName: operatedByProtectionEquipment
+  sourceDescription: Protection equipments that operate this ProtectedSwitch.
+  targetCardinality: 0..*
+  targetName: protectedSwitches
+  targetDescription: Protected switches operated by this ProtectionEquipment.
 - source: ProtectionEquipment
   target: ProtectiveAction
   sourceCardinality: 0..1

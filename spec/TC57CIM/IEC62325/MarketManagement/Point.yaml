@@ -21,23 +21,17 @@ associations:
   targetCardinality: 0..*
   targetName: aceTariffType
 - source: Point
-  target: Period
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: "1"
-  targetName: period
-- source: Point
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: timeSeries
-- source: Point
   target: FlowDirection
   sourceCardinality: 0..*
   sourceName: point
   targetCardinality: 0..*
   targetName: flowDirection
+- source: Point
+  target: Period
+  sourceCardinality: 0..*
+  sourceName: point
+  targetCardinality: "1"
+  targetName: period
 - source: Point
   target: Price
   sourceCardinality: 0..1
@@ -56,3 +50,9 @@ associations:
   sourceName: point
   targetCardinality: 0..*
   targetName: reason
+- source: Point
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: point
+  targetCardinality: 0..*
+  targetName: timeSeries

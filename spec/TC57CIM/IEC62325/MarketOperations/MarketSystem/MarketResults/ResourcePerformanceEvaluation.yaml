@@ -18,11 +18,11 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ResourcePerformanceEvaluation
-  target: ResourcePerformanceTimeSeriesFactor
-  sourceCardinality: "1"
-  sourceName: resourcePerformanceEvaluation
-  targetCardinality: 0..*
-  targetName: resourcePerformanceTimeSeriesFactors
+  target: DistributedResourceActualEvent
+  sourceCardinality: 0..*
+  sourceName: resourcePerformanceEvaluations
+  targetCardinality: "1"
+  targetName: demandResponseActualEvent
 - source: ResourcePerformanceEvaluation
   target: ResourcePerformanceGlobalFactor
   sourceCardinality: 0..*
@@ -30,8 +30,8 @@ associations:
   targetCardinality: 0..*
   targetName: resorcePerformanceGlobalFactor
 - source: ResourcePerformanceEvaluation
-  target: DistributedResourceActualEvent
-  sourceCardinality: 0..*
-  sourceName: resourcePerformanceEvaluations
-  targetCardinality: "1"
-  targetName: demandResponseActualEvent
+  target: ResourcePerformanceTimeSeriesFactor
+  sourceCardinality: "1"
+  sourceName: resourcePerformanceEvaluation
+  targetCardinality: 0..*
+  targetName: resourcePerformanceTimeSeriesFactors

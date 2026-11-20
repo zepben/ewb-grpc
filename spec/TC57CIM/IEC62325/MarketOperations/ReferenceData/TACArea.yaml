@@ -5,14 +5,14 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: TACArea
-  target: AreaLoadCurve
-  sourceCardinality: 0..1
-  sourceName: tacArea
-  targetCardinality: 0..*
-  targetName: areaLoadCurve
-- source: TACArea
   target: AggregatedPnode
   sourceCardinality: 0..*
   sourceName: tacArea
   targetCardinality: 0..*
   targetName: aggregatedPnode
+- source: TACArea
+  target: AreaLoadCurve
+  sourceCardinality: 0..1
+  sourceName: tacArea
+  targetCardinality: 0..*
+  targetName: areaLoadCurve

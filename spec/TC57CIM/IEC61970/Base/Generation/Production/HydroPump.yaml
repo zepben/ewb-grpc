@@ -17,14 +17,6 @@ ancestors:
 - Equipment
 associations:
 - source: HydroPump
-  target: HydroPumpOpSchedule
-  sourceCardinality: "1"
-  sourceName: hydroPump
-  sourceDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
-  targetCardinality: 0..1
-  targetName: hydroPumpOpSchedule
-  targetDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
-- source: HydroPump
   target: HydroPowerPlant
   sourceCardinality: 0..*
   sourceName: hydroPumps
@@ -32,6 +24,14 @@ associations:
   targetCardinality: 0..1
   targetName: hydroPowerPlant
   targetDescription: The hydro pump may be a member of a pumped storage plant or a pump for distributing water.
+- source: HydroPump
+  target: HydroPumpOpSchedule
+  sourceCardinality: "1"
+  sourceName: hydroPump
+  sourceDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
+  targetCardinality: 0..1
+  targetName: hydroPumpOpSchedule
+  targetDescription: The hydro pump has a pumping schedule over time, indicating when pumping is to occur.
 - source: HydroPump
   target: RotatingMachine
   sourceCardinality: 0..1

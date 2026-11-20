@@ -22,11 +22,11 @@ associations:
   targetCardinality: 0..*
   targetName: combinedCycleConfigurationMember
 - source: CombinedCycleConfiguration
-  target: CombinedCycleTransitionState
-  sourceCardinality: "1"
-  sourceName: toConfiguration
-  targetCardinality: 0..*
-  targetName: toTransitionState
+  target: CombinedCycleLogicalConfiguration
+  sourceCardinality: 1..*
+  sourceName: combinedCycleConfiguration
+  targetCardinality: 0..1
+  targetName: combinedCycleLogicalConfiguration
 - source: CombinedCycleConfiguration
   target: CombinedCycleTransitionState
   sourceCardinality: "1"
@@ -34,8 +34,8 @@ associations:
   targetCardinality: 0..*
   targetName: fromTransitionState
 - source: CombinedCycleConfiguration
-  target: CombinedCycleLogicalConfiguration
-  sourceCardinality: 1..*
-  sourceName: combinedCycleConfiguration
-  targetCardinality: 0..1
-  targetName: combinedCycleLogicalConfiguration
+  target: CombinedCycleTransitionState
+  sourceCardinality: "1"
+  sourceName: toConfiguration
+  targetCardinality: 0..*
+  targetName: toTransitionState

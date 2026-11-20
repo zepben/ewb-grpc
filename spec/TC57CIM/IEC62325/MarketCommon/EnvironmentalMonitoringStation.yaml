@@ -19,20 +19,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: EnvironmentalMonitoringStation
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: environmentalMonitoringStation
-  sourceDescription: Monitoring station located at this location.
-  targetCardinality: 0..1
-  targetName: location
-  targetDescription: Location of this monitoring station.
-- source: EnvironmentalMonitoringStation
-  target: UsagePoint
-  sourceCardinality: 0..1
-  sourceName: environmentalMonitoringStation
-  targetCardinality: 0..*
-  targetName: usagePoint
-- source: EnvironmentalMonitoringStation
   target: EnvironmentalAnalog
   sourceCardinality: 0..1
   sourceName: environmentalMonitoringStation
@@ -41,11 +27,13 @@ associations:
   targetName: environmentalAnalog
   targetDescription: Environmental analog measurement provided by this monitoring station.
 - source: EnvironmentalMonitoringStation
-  target: TimeSeries
+  target: Location
   sourceCardinality: 0..*
   sourceName: environmentalMonitoringStation
-  targetCardinality: 0..*
-  targetName: timeSeries
+  sourceDescription: Monitoring station located at this location.
+  targetCardinality: 0..1
+  targetName: location
+  targetDescription: Location of this monitoring station.
 - source: EnvironmentalMonitoringStation
   target: ReportingCapability
   sourceCardinality: "1"
@@ -54,3 +42,15 @@ associations:
   targetCardinality: 0..*
   targetName: reportingCapability
   targetDescription: One of the reporting capabilities of this monitoring station.
+- source: EnvironmentalMonitoringStation
+  target: TimeSeries
+  sourceCardinality: 0..*
+  sourceName: environmentalMonitoringStation
+  targetCardinality: 0..*
+  targetName: timeSeries
+- source: EnvironmentalMonitoringStation
+  target: UsagePoint
+  sourceCardinality: 0..1
+  sourceName: environmentalMonitoringStation
+  targetCardinality: 0..*
+  targetName: usagePoint

@@ -5,87 +5,40 @@ description: A power system resource (PSR) can be an item of equipment such as a
 ancestors:
 - IdentifiedObject
 descendants:
-- TapChanger
-- ControlArea
-- SwitchPhase
-- ConnectivityNodeContainer
-- CombinedCyclePlant
-- RemoteUnit
-- AirCompressor
-- HydroPowerPlant
-- PrimeMover
-- EnergyConsumerPhase
-- SteamSupply
-- Equipment
-- ShuntCompensatorPhase
-- CogenerationPlant
-- CAESPlant
-- RegulatingControl
-- VoltageControlZone
-- Reservoir
-- CommunicationLink
-- PowerCutZone
-- EnergySourcePhase
-- WeatherStation
-- RemedialActionScheme
-- EnergyGroup
 - ACLineSegmentPhase
-- PowerElectronicsConnectionPhase
-- WireSegmentPhase
+- AirCompressor
+- CAESPlant
+- CogenerationPlant
+- CombinedCyclePlant
+- CommunicationLink
+- ConnectivityNodeContainer
+- ControlArea
+- EnergyConsumerPhase
+- EnergyGroup
+- EnergySourcePhase
+- Equipment
+- Flowgate
 - HostControlArea
+- HydroPowerPlant
+- PowerCutZone
+- PowerElectronicsConnectionPhase
+- PrimeMover
+- RegisteredResource
+- RegulatingControl
+- RemedialActionScheme
+- RemoteUnit
+- Reservoir
+- ShuntCompensatorPhase
+- SteamSupply
+- SubControlArea
+- SwitchPhase
+- TapChanger
 - TransmissionCorridor
 - TransmissionRightOfWay
-- Flowgate
-- SubControlArea
-- RegisteredResource
+- VoltageControlZone
+- WeatherStation
+- WireSegmentPhase
 associations:
-- source: PowerSystemResource
-  target: Control
-  sourceCardinality: 0..1
-  sourceName: powerSystemResource
-  sourceDescription: Regulating device governed by this control output.
-  targetCardinality: 0..*
-  targetName: controls
-  targetDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
-    machine or capacitor bank breaker actuator.
-- source: PowerSystemResource
-  target: Measurement
-  sourceCardinality: 0..1
-  sourceName: powerSystemResource
-  sourceDescription: The power system resource that contains the measurement.
-  targetCardinality: 0..*
-  targetName: measurements
-  targetDescription: The measurements associated with this power system resource.
-- source: PowerSystemResource
-  target: PSRType
-  sourceCardinality: 0..*
-  sourceName: powerSystemResources
-  sourceDescription: Power system resources classified with this power system resource type.
-  targetCardinality: 0..1
-  targetName: psrType
-  targetDescription: Custom classification for this power system resource.
-- source: PowerSystemResource
-  target: ConfigurationEvent
-  sourceCardinality: 0..1
-  sourceName: powerSystemResource
-  targetCardinality: 0..*
-  targetName: configurationEvent
-- source: PowerSystemResource
-  target: ReportingGroup
-  sourceCardinality: 0..*
-  sourceName: powerSystemResource
-  sourceDescription: Power system resources which belong to this reporting group.
-  targetCardinality: 0..*
-  targetName: reportingGroup
-  targetDescription: Reporting groups to which this power system resource belongs.
-- source: PowerSystemResource
-  target: OperatingShare
-  sourceCardinality: "1"
-  sourceName: powerSystemResource
-  sourceDescription: The power system resource to which the share applies.
-  targetCardinality: 0..*
-  targetName: operatingShare
-  targetDescription: The operating shares of this power system resource.
 - source: PowerSystemResource
   target: AssetInfo
   sourceCardinality: 0..*
@@ -105,13 +58,58 @@ associations:
   targetDescription: All assets represented by this power system resource. For example, multiple conductor assets are electrically
     modelled as a single AC line segment.
 - source: PowerSystemResource
-  target: PSREvent
+  target: ClearanceDocument
+  sourceCardinality: 0..*
+  sourceName: taggedPSRs
+  sourceDescription: All power system resources tagged through this clearance.
+  targetCardinality: 0..*
+  targetName: clearances
+  targetDescription: All clearances applicable to this power system resource.
+- source: PowerSystemResource
+  target: ConfigurationEvent
   sourceCardinality: 0..1
   sourceName: powerSystemResource
-  sourceDescription: Power system resource that generated this event.
   targetCardinality: 0..*
-  targetName: psrEvents
-  targetDescription: All events associated with this power system resource.
+  targetName: configurationEvent
+- source: PowerSystemResource
+  target: Control
+  sourceCardinality: 0..1
+  sourceName: powerSystemResource
+  sourceDescription: Regulating device governed by this control output.
+  targetCardinality: 0..*
+  targetName: controls
+  targetDescription: The controller outputs used to actually govern a regulating device, e.g. the magnetization of a synchronous
+    machine or capacitor bank breaker actuator.
+- source: PowerSystemResource
+  target: GenericAction
+  sourceCardinality: 0..1
+  sourceName: powerSystemResource
+  targetCardinality: 0..*
+  targetName: genericAction
+- source: PowerSystemResource
+  target: Location
+  sourceCardinality: 0..*
+  sourceName: powerSystemResources
+  sourceDescription: All power system resources at this location.
+  targetCardinality: 0..1
+  targetName: location
+  targetDescription: Location of this power system resource.
+- source: PowerSystemResource
+  target: Measurement
+  sourceCardinality: 0..1
+  sourceName: powerSystemResource
+  sourceDescription: The power system resource that contains the measurement.
+  targetCardinality: 0..*
+  targetName: measurements
+  targetDescription: The measurements associated with this power system resource.
+- source: PowerSystemResource
+  target: OperatingShare
+  sourceCardinality: "1"
+  sourceName: powerSystemResource
+  sourceDescription: The power system resource to which the share applies.
+  targetCardinality: 0..*
+  targetName: operatingShare
+  targetDescription: The operating shares of this power system resource.
 - source: PowerSystemResource
   target: OperationalTag
   sourceCardinality: 0..1
@@ -121,30 +119,32 @@ associations:
   targetName: operationalTags
   targetDescription: All operational tags placed on this power system resource.
 - source: PowerSystemResource
-  target: GenericAction
+  target: PSREvent
   sourceCardinality: 0..1
   sourceName: powerSystemResource
+  sourceDescription: Power system resource that generated this event.
   targetCardinality: 0..*
-  targetName: genericAction
+  targetName: psrEvents
+  targetDescription: All events associated with this power system resource.
 - source: PowerSystemResource
-  target: ClearanceDocument
+  target: PSRType
   sourceCardinality: 0..*
-  sourceName: taggedPSRs
-  sourceDescription: All power system resources tagged through this clearance.
+  sourceName: powerSystemResources
+  sourceDescription: Power system resources classified with this power system resource type.
+  targetCardinality: 0..1
+  targetName: psrType
+  targetDescription: Custom classification for this power system resource.
+- source: PowerSystemResource
+  target: ReportingGroup
+  sourceCardinality: 0..*
+  sourceName: powerSystemResource
+  sourceDescription: Power system resources which belong to this reporting group.
   targetCardinality: 0..*
-  targetName: clearances
-  targetDescription: All clearances applicable to this power system resource.
+  targetName: reportingGroup
+  targetDescription: Reporting groups to which this power system resource belongs.
 - source: PowerSystemResource
   target: VerificationAction
   sourceCardinality: 0..1
   sourceName: powerSystemResource
   targetCardinality: 0..*
   targetName: verificationAction
-- source: PowerSystemResource
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: powerSystemResources
-  sourceDescription: All power system resources at this location.
-  targetCardinality: 0..1
-  targetName: location
-  targetDescription: Location of this power system resource.

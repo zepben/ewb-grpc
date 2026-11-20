@@ -10,14 +10,14 @@ attributes:
   description: "Total MW losses in the company \nAttribute Usage: Information purposes - Output of LPA engine."
 associations:
 - source: ExPostLossResults
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: exPostLossResults
-  targetCardinality: 0..1
-  targetName: subControlArea
-- source: ExPostLossResults
   target: ExPostLoss
   sourceCardinality: 0..*
   sourceName: exPostLossResults
   targetCardinality: "1"
   targetName: exPostLoss
+- source: ExPostLossResults
+  target: SubControlArea
+  sourceCardinality: 0..*
+  sourceName: exPostLossResults
+  targetCardinality: 0..1
+  targetName: subControlArea

@@ -39,6 +39,22 @@ description: |-
   Note: Interval Data is sometimes also called "Interval Data Readings" (IDR).
 associations:
 - source: IntervalBlock
+  target: IntervalReading
+  sourceCardinality: 0..*
+  sourceName: intervalBlocks
+  sourceDescription: All blocks containing this interval reading.
+  targetCardinality: 0..*
+  targetName: intervalReadings
+  targetDescription: Interval reading contained in this block.
+- source: IntervalBlock
+  target: MeterReading
+  sourceCardinality: 0..*
+  sourceName: intervalBlocks
+  sourceDescription: All interval blocks contained in this meter reading.
+  targetCardinality: 0..1
+  targetName: meterReading
+  targetDescription: Meter reading containing this interval block.
+- source: IntervalBlock
   target: PendingCalculation
   sourceCardinality: 0..*
   sourceName: intervalBlocks
@@ -55,19 +71,3 @@ associations:
   targetCardinality: 0..1
   targetName: readingType
   targetDescription: Type information for interval reading values contained in this block.
-- source: IntervalBlock
-  target: MeterReading
-  sourceCardinality: 0..*
-  sourceName: intervalBlocks
-  sourceDescription: All interval blocks contained in this meter reading.
-  targetCardinality: 0..1
-  targetName: meterReading
-  targetDescription: Meter reading containing this interval block.
-- source: IntervalBlock
-  target: IntervalReading
-  sourceCardinality: 0..*
-  sourceName: intervalBlocks
-  sourceDescription: All blocks containing this interval reading.
-  targetCardinality: 0..*
-  targetName: intervalReadings
-  targetDescription: Interval reading contained in this block.

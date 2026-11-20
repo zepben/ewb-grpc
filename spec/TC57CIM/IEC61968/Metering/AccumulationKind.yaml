@@ -1,8 +1,12 @@
 name: AccumulationKind
 description: Kind of accumulation behaviour for read / measured values from individual end points.
 attributes:
-- name: none
-  description: Not applicable, or implied by the unit of measure.
+- name: boundedQuantity
+  description: A time-independent cumulative quantity much like a 'bulkQuantity' or a 'latchingQuantity', except that the
+    accumulation stops at the maximum or minimum values. When the maximum is reached, any additional positive accumulation
+    is discarded, but negative accumulation may be accepted (thus lowering the counter.) Likewise, when the negative bound
+    is reached, any additional negative accumulation is discarded, but positive accumulation is accepted (thus increasing
+    the counter.)
 - name: bulkQuantity
   description: "A value from a register which represents the bulk quantity of a commodity. This quantity is computed as the\
     \ integral of the commodity usage rate. This value is typically used as the basis for the dial reading at the meter, and\
@@ -28,12 +32,6 @@ attributes:
   description: |-
     As if a needle is swung out on the meter face to a value to indicate the current value.
     Note: An 'indicating' value is typically measured over hundreds of milliseconds or greater, or may imply a “pusher” mechanism to capture a value. Compare this to 'instantaneous' which is measured over a shorter period of time.
-- name: summation
-  description: "A form of accumulation which is selective with respect to time. \nNote : 'summation' could be considered a\
-    \ specialisation of 'bulkQuantity' as it selectively accumulates pulses over a timing pattern (while 'bulkQuantity' accumulates\
-    \ pulses all of the time)."
-- name: timeDelay
-  description: A form of computation which introduces a time delay characteristic to the data value.
 - name: instantaneous
   description: |-
     Typically measured over the fastest period of time allowed by the definition of the metric (usually milliseconds or tens of milliseconds.)
@@ -48,9 +46,11 @@ attributes:
     \ to be set may have long since evaporated.\nIn either case, the timestamp that accompanies the value may not coincide\
     \ with the moment the value was initially set.\nIn both cases a system will need to perform an operation to clear the\
     \ latched value."
-- name: boundedQuantity
-  description: A time-independent cumulative quantity much like a 'bulkQuantity' or a 'latchingQuantity', except that the
-    accumulation stops at the maximum or minimum values. When the maximum is reached, any additional positive accumulation
-    is discarded, but negative accumulation may be accepted (thus lowering the counter.) Likewise, when the negative bound
-    is reached, any additional negative accumulation is discarded, but positive accumulation is accepted (thus increasing
-    the counter.)
+- name: none
+  description: Not applicable, or implied by the unit of measure.
+- name: summation
+  description: "A form of accumulation which is selective with respect to time. \nNote : 'summation' could be considered a\
+    \ specialisation of 'bulkQuantity' as it selectively accumulates pulses over a timing pattern (while 'bulkQuantity' accumulates\
+    \ pulses all of the time)."
+- name: timeDelay
+  description: A form of computation which introduces a time delay characteristic to the data value.

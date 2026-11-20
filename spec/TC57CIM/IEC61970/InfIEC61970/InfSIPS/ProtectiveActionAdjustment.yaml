@@ -21,6 +21,17 @@ ancestors:
 - ProtectiveAction
 associations:
 - source: ProtectiveActionAdjustment
+  target: ConductingEquipment
+  sourceCardinality: 0..*
+  sourceName: protectiveActionAdjustment
+  sourceDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+    For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float
+    will be rounded.
+  targetCardinality: "1"
+  targetName: conductingEquipment
+  targetDescription: ConductingEquipment whose operating condition is changed when this protective action adjustment gets
+    activated.
+- source: ProtectiveActionAdjustment
   target: DCConductingEquipment
   sourceCardinality: 0..*
   sourceName: protectiveActionAdjustment
@@ -34,14 +45,3 @@ associations:
   targetCardinality: 0..1
   targetName: measurement
   targetDescription: The measurement is used to control the operation of an equipment.
-- source: ProtectiveActionAdjustment
-  target: ConductingEquipment
-  sourceCardinality: 0..*
-  sourceName: protectiveActionAdjustment
-  sourceDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
-    For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float
-    will be rounded.
-  targetCardinality: "1"
-  targetName: conductingEquipment
-  targetDescription: ConductingEquipment whose operating condition is changed when this protective action adjustment gets
-    activated.

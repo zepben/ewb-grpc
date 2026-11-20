@@ -19,14 +19,6 @@ attributes:
   description: Trigger for this notification.
 associations:
 - source: CustomerNotification
-  target: TroubleTicket
-  sourceCardinality: 0..*
-  sourceName: notification
-  sourceDescription: Notification for this trouble ticket.
-  targetCardinality: 0..*
-  targetName: troubleTickets
-  targetDescription: All trouble tickets with this notification.
-- source: CustomerNotification
   target: Customer
   sourceCardinality: 0..*
   sourceName: customerNotifications
@@ -42,3 +34,11 @@ associations:
   targetCardinality: 0..1
   targetName: incident
   targetDescription: Incident as a subject of this customer notification.
+- source: CustomerNotification
+  target: TroubleTicket
+  sourceCardinality: 0..*
+  sourceName: notification
+  sourceDescription: Notification for this trouble ticket.
+  targetCardinality: 0..*
+  targetName: troubleTickets
+  targetDescription: All trouble tickets with this notification.

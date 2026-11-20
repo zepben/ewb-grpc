@@ -10,14 +10,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: AlertTypeList
-  target: EnvironmentalDataAuthority
-  sourceCardinality: 0..*
-  sourceName: alertTypeList
-  sourceDescription: A specific version of a list of alerts published by this environmental data authority.
-  targetCardinality: 0..1
-  targetName: environmentalDataAuthority
-  targetDescription: The environmental data authority responsible for publishing this list of alert types.
-- source: AlertTypeList
   target: EnvironmentalAlert
   sourceCardinality: "1"
   sourceName: alertTypeList
@@ -25,3 +17,11 @@ associations:
   targetCardinality: 0..*
   targetName: environmentalAlert
   targetDescription: An alert whose type is drawn from this alert type list.
+- source: AlertTypeList
+  target: EnvironmentalDataAuthority
+  sourceCardinality: 0..*
+  sourceName: alertTypeList
+  sourceDescription: A specific version of a list of alerts published by this environmental data authority.
+  targetCardinality: 0..1
+  targetName: environmentalDataAuthority
+  targetDescription: The environmental data authority responsible for publishing this list of alert types.

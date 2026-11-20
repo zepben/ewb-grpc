@@ -5,17 +5,9 @@ description: An electrical connection point at a piece of DC conducting equipmen
 ancestors:
 - ACDCTerminal
 descendants:
-- DCTerminal
 - ACDCConverterDCTerminal
+- DCTerminal
 associations:
-- source: DCBaseTerminal
-  target: DCTopologicalNode
-  sourceCardinality: 0..*
-  sourceName: dcTerminals
-  sourceDescription: See association end TopologicalNode.Terminal.
-  targetCardinality: 0..1
-  targetName: dcTopologicalNode
-  targetDescription: See association end Terminal.TopologicalNode.
 - source: DCBaseTerminal
   target: DCNode
   sourceCardinality: 0..*
@@ -24,3 +16,11 @@ associations:
   targetCardinality: 0..1
   targetName: dcNode
   targetDescription: The DC connectivity node to which this DC base terminal connects with zero impedance.
+- source: DCBaseTerminal
+  target: DCTopologicalNode
+  sourceCardinality: 0..*
+  sourceName: dcTerminals
+  sourceDescription: See association end TopologicalNode.Terminal.
+  targetCardinality: 0..1
+  targetName: dcTopologicalNode
+  targetDescription: See association end Terminal.TopologicalNode.

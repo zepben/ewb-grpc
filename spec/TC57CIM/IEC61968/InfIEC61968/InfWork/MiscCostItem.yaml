@@ -23,6 +23,12 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: MiscCostItem
+  target: DesignLocation
+  sourceCardinality: 0..*
+  sourceName: miscCostItems
+  targetCardinality: 0..1
+  targetName: designLocation
+- source: MiscCostItem
   target: WorkCostDetail
   sourceCardinality: 0..*
   sourceName: miscCostItems
@@ -34,9 +40,3 @@ associations:
   sourceName: miscCostItems
   targetCardinality: 0..1
   targetName: workTask
-- source: MiscCostItem
-  target: DesignLocation
-  sourceCardinality: 0..*
-  sourceName: miscCostItems
-  targetCardinality: 0..1
-  targetName: designLocation

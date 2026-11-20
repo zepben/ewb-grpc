@@ -4,14 +4,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: EquipmentLimitSeriesComponent
-  target: SeriesEquipmentDependentLimit
-  sourceCardinality: 0..*
-  sourceName: equipmentLimitSeriesComponent
-  sourceDescription: Equipment linkages that participates in the limit calculation.
-  targetCardinality: "1"
-  targetName: seriesEquipmentDependentLimit
-  targetDescription: Calculation in which the refernce to equipment applies.
-- source: EquipmentLimitSeriesComponent
   target: Equipment
   sourceCardinality: 0..*
   sourceName: eqiupmentLimitSeriesComponent
@@ -20,3 +12,11 @@ associations:
   targetName: equipment
   targetDescription: Equipment contributing toward the series limit.   The reference here is to Equipment rather than a specific
     limit on the equipment so the grouiping can be reused for multiple limits of different types on the same instance of equipment.
+- source: EquipmentLimitSeriesComponent
+  target: SeriesEquipmentDependentLimit
+  sourceCardinality: 0..*
+  sourceName: equipmentLimitSeriesComponent
+  sourceDescription: Equipment linkages that participates in the limit calculation.
+  targetCardinality: "1"
+  targetName: seriesEquipmentDependentLimit
+  targetDescription: Calculation in which the refernce to equipment applies.

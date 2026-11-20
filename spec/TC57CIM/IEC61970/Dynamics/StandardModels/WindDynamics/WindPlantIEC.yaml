@@ -4,14 +4,6 @@ ancestors:
 - WindPlantDynamics
 associations:
 - source: WindPlantIEC
-  target: WindPlantReactiveControlIEC
-  sourceCardinality: "1"
-  sourceName: windPlantIEC
-  sourceDescription: Wind plant reactive control model associated with this wind plant.
-  targetCardinality: "1"
-  targetName: windPlantReactiveControlIEC
-  targetDescription: Wind plant model with which this wind reactive control is associated.
-- source: WindPlantIEC
   target: WindPlantFreqPcontrolIEC
   sourceCardinality: "1"
   sourceName: windPlantIEC
@@ -19,3 +11,11 @@ associations:
   targetCardinality: "1"
   targetName: windPlantFreqPcontrolIEC
   targetDescription: Wind plant frequency and active power control model associated with this wind plant.
+- source: WindPlantIEC
+  target: WindPlantReactiveControlIEC
+  sourceCardinality: "1"
+  sourceName: windPlantIEC
+  sourceDescription: Wind plant reactive control model associated with this wind plant.
+  targetCardinality: "1"
+  targetName: windPlantReactiveControlIEC
+  targetDescription: Wind plant model with which this wind reactive control is associated.

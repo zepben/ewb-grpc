@@ -7,27 +7,35 @@ description: |-
 ancestors:
 - IdentifiedObject
 descendants:
-- FaultIndicatorInfo
-- CurrentTransformerInfo
-- CompositeSwitchInfo
-- SurgeArresterInfo
-- ProtectionEquipmentInfo
-- PotentialTransformerInfo
-- EndDeviceInfo
-- WireSpacingInfo
-- WireInfo
-- TransformerTankInfo
-- TransformerEndInfo
-- TapChangerInfo
-- SwitchInfo
-- ShuntCompensatorInfo
-- PowerTransformerInfo
-- OperatingMechanismInfo
-- InterrupterUnitInfo
-- BushingInfo
 - BusbarSectionInfo
+- BushingInfo
+- CompositeSwitchInfo
+- CurrentTransformerInfo
+- EndDeviceInfo
+- FaultIndicatorInfo
+- InterrupterUnitInfo
+- OperatingMechanismInfo
+- PotentialTransformerInfo
+- PowerTransformerInfo
+- ProtectionEquipmentInfo
+- ShuntCompensatorInfo
+- SurgeArresterInfo
+- SwitchInfo
+- TapChangerInfo
+- TransformerEndInfo
+- TransformerTankInfo
 - WireAssemblyInfo
+- WireInfo
+- WireSpacingInfo
 associations:
+- source: AssetInfo
+  target: Asset
+  sourceCardinality: 0..1
+  sourceName: assetInfo
+  sourceDescription: Data applicable to this asset.
+  targetCardinality: 0..*
+  targetName: assets
+  targetDescription: All assets described by this data.
 - source: AssetInfo
   target: CatalogAssetType
   sourceCardinality: 0..1
@@ -52,11 +60,3 @@ associations:
   targetCardinality: 0..1
   targetName: productAssetModel
   targetDescription: Product asset model which conforms to this catalog asset type.
-- source: AssetInfo
-  target: Asset
-  sourceCardinality: 0..1
-  sourceName: assetInfo
-  sourceDescription: Data applicable to this asset.
-  targetCardinality: 0..*
-  targetName: assets
-  targetDescription: All assets described by this data.

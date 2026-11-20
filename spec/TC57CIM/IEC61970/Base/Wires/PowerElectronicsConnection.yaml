@@ -2,6 +2,10 @@ name: PowerElectronicsConnection
 description: A connection to the AC network for energy production or consumption that uses power electronics rather than rotating
   machines.
 attributes:
+- name: maxIFault
+  type: PU
+  description: Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection
+    will trip or bypass.
 - name: maxQ
   type: ReactivePower
   description: Maximum reactive power limit. This is the maximum (nameplate) limit for the unit.
@@ -47,21 +51,9 @@ attributes:
 - name: xn
   type: Reactance
   description: Negative sequence Thevenin reactance.
-- name: maxIFault
-  type: PU
-  description: Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection
-    will trip or bypass.
 ancestors:
 - RegulatingCondEq
 associations:
-- source: PowerElectronicsConnection
-  target: PowerElectronicsUnit
-  sourceCardinality: "1"
-  sourceName: powerElectronicsConnection
-  sourceDescription: A power electronics unit has a connection to the AC network.
-  targetCardinality: 0..*
-  targetName: powerElectronicsUnit
-  targetDescription: An AC network connection may have several power electronics units connecting through it.
 - source: PowerElectronicsConnection
   target: PowerElectronicsConnectionPhase
   sourceCardinality: "1"
@@ -70,6 +62,14 @@ associations:
   targetCardinality: 0..*
   targetName: powerElectronicsConnectionPhase
   targetDescription: The individual phases models for the power electronics connection.
+- source: PowerElectronicsConnection
+  target: PowerElectronicsUnit
+  sourceCardinality: "1"
+  sourceName: powerElectronicsConnection
+  sourceDescription: A power electronics unit has a connection to the AC network.
+  targetCardinality: 0..*
+  targetName: powerElectronicsUnit
+  targetDescription: An AC network connection may have several power electronics units connecting through it.
 - source: PowerElectronicsConnection
   target: WindTurbineType3or4Dynamics
   sourceCardinality: "1"

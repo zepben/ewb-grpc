@@ -3,19 +3,11 @@ description: Analog (float) measurement of relevance in the environmental domain
 ancestors:
 - Analog
 descendants:
-- GeosphericAnalog
 - AtmosphericAnalog
+- GeosphericAnalog
 - HydrosphericAnalog
 - SpaceAnalog
 associations:
-- source: EnvironmentalAnalog
-  target: EnvironmentalInformation
-  sourceCardinality: 0..*
-  sourceName: environmentalAnalog
-  sourceDescription: Environmental analog associated with this observation or forecast.
-  targetCardinality: 0..1
-  targetName: environmentalInformation
-  targetDescription: Observation or forecast with which this environmental analog measurement is associated.
 - source: EnvironmentalAnalog
   target: ClassificationCondition
   sourceCardinality: 0..*
@@ -25,13 +17,13 @@ associations:
   targetName: classificationCondition
   targetDescription: Classification condition which this analog helps define.
 - source: EnvironmentalAnalog
-  target: ReportingCapability
+  target: EnvironmentalInformation
   sourceCardinality: 0..*
   sourceName: environmentalAnalog
-  sourceDescription: One of the environmental value sets expressing one of the reporting capabilities.
+  sourceDescription: Environmental analog associated with this observation or forecast.
   targetCardinality: 0..1
-  targetName: reportingCapability
-  targetDescription: The reporting capability this environmental value set helps define.
+  targetName: environmentalInformation
+  targetDescription: Observation or forecast with which this environmental analog measurement is associated.
 - source: EnvironmentalAnalog
   target: EnvironmentalMonitoringStation
   sourceCardinality: 0..*
@@ -40,3 +32,11 @@ associations:
   targetCardinality: 0..1
   targetName: environmentalMonitoringStation
   targetDescription: Monitoring station which provides this environmental analog measurement.
+- source: EnvironmentalAnalog
+  target: ReportingCapability
+  sourceCardinality: 0..*
+  sourceName: environmentalAnalog
+  sourceDescription: One of the environmental value sets expressing one of the reporting capabilities.
+  targetCardinality: 0..1
+  targetName: reportingCapability
+  targetDescription: The reporting capability this environmental value set helps define.

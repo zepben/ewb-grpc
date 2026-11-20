@@ -14,12 +14,6 @@ attributes:
     in the associated CommodityDefinition class.
 associations:
 - source: CommodityPrice
-  target: PriceDescriptor
-  sourceCardinality: 1..*
-  sourceName: commodityPrice
-  targetCardinality: "1"
-  targetName: priceDescriptor
-- source: CommodityPrice
   target: CommodityDefinition
   sourceCardinality: 1..*
   sourceName: commodityPrice
@@ -31,3 +25,9 @@ associations:
   sourceName: commodityPrice
   targetCardinality: 0..1
   targetName: pnodeClearing
+- source: CommodityPrice
+  target: PriceDescriptor
+  sourceCardinality: 1..*
+  sourceName: commodityPrice
+  targetCardinality: "1"
+  targetName: priceDescriptor

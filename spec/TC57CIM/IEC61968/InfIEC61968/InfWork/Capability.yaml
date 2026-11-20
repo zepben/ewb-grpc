@@ -16,11 +16,11 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: Capability
-  target: OldWorkTask
+  target: Craft
   sourceCardinality: 0..*
   sourceName: capabilities
   targetCardinality: 0..*
-  targetName: workTasks
+  targetName: crafts
 - source: Capability
   target: OldCrew
   sourceCardinality: 0..*
@@ -28,8 +28,8 @@ associations:
   targetCardinality: 0..1
   targetName: crew
 - source: Capability
-  target: Craft
+  target: OldWorkTask
   sourceCardinality: 0..*
   sourceName: capabilities
   targetCardinality: 0..*
-  targetName: crafts
+  targetName: workTasks

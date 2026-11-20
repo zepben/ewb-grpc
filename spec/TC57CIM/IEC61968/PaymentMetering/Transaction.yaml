@@ -31,29 +31,13 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Transaction
-  target: Meter
+  target: AuxiliaryAccount
   sourceCardinality: 0..*
-  sourceName: vendingTransactions
-  sourceDescription: All vending transactions on this meter.
+  sourceName: paymentTransactions
+  sourceDescription: All payments against this account.
   targetCardinality: 0..1
-  targetName: meter
-  targetDescription: Meter for this vending transaction.
-- source: Transaction
-  target: VendorShift
-  sourceCardinality: 0..*
-  sourceName: transactions
-  sourceDescription: All transactions recorded during this vendor shift.
-  targetCardinality: 0..1
-  targetName: vendorShift
-  targetDescription: Vendor shift during which this transaction was recorded.
-- source: Transaction
-  target: Receipt
-  sourceCardinality: 1..*
-  sourceName: transactions
-  sourceDescription: All transactions recorded for this receipted payment.
-  targetCardinality: 0..1
-  targetName: receipt
-  targetDescription: The receipted payment for which this transaction has been recorded.
+  targetName: auxiliaryAccount
+  targetDescription: Auxiliary account for this payment transaction.
 - source: Transaction
   target: CashierShift
   sourceCardinality: 0..*
@@ -63,13 +47,21 @@ associations:
   targetName: cashierShift
   targetDescription: Cashier shift during which this transaction was recorded.
 - source: Transaction
-  target: AuxiliaryAccount
+  target: CustomerAccount
   sourceCardinality: 0..*
   sourceName: paymentTransactions
-  sourceDescription: All payments against this account.
+  sourceDescription: All payment transactions for this customer account.
   targetCardinality: 0..1
-  targetName: auxiliaryAccount
-  targetDescription: Auxiliary account for this payment transaction.
+  targetName: customerAccount
+  targetDescription: Customer account for this payment transaction.
+- source: Transaction
+  target: Meter
+  sourceCardinality: 0..*
+  sourceName: vendingTransactions
+  sourceDescription: All vending transactions on this meter.
+  targetCardinality: 0..1
+  targetName: meter
+  targetDescription: Meter for this vending transaction.
 - source: Transaction
   target: PricingStructure
   sourceCardinality: 0..*
@@ -79,13 +71,13 @@ associations:
   targetName: pricingStructure
   targetDescription: Pricing structure applicable for this transaction.
 - source: Transaction
-  target: CustomerAccount
-  sourceCardinality: 0..*
-  sourceName: paymentTransactions
-  sourceDescription: All payment transactions for this customer account.
+  target: Receipt
+  sourceCardinality: 1..*
+  sourceName: transactions
+  sourceDescription: All transactions recorded for this receipted payment.
   targetCardinality: 0..1
-  targetName: customerAccount
-  targetDescription: Customer account for this payment transaction.
+  targetName: receipt
+  targetDescription: The receipted payment for which this transaction has been recorded.
 - source: Transaction
   target: UserAttribute
   sourceCardinality: 0..1
@@ -95,3 +87,11 @@ associations:
   targetName: userAttributes
   targetDescription: All snapshots of meter parameters recorded at the time of this transaction. Use 'name' and 'value.value'
     attributes to specify name and value of a parameter from meter.
+- source: Transaction
+  target: VendorShift
+  sourceCardinality: 0..*
+  sourceName: transactions
+  sourceDescription: All transactions recorded during this vendor shift.
+  targetCardinality: 0..1
+  targetName: vendorShift
+  targetDescription: Vendor shift during which this transaction was recorded.

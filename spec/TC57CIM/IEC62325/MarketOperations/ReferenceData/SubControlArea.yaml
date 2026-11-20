@@ -34,17 +34,41 @@ ancestors:
 - PowerSystemResource
 associations:
 - source: SubControlArea
+  target: AdjacentCASet
+  sourceCardinality: 0..*
+  sourceName: subControlArea
+  targetCardinality: 0..1
+  targetName: adjacentCASet
+- source: SubControlArea
+  target: AggregateNode
+  sourceCardinality: 0..*
+  sourceName: subControlArea
+  targetCardinality: 0..*
+  targetName: aggregateNode
+- source: SubControlArea
+  target: AreaReserveSpec
+  sourceCardinality: 0..*
+  sourceName: subControlArea
+  targetCardinality: "1"
+  targetName: areaReserveSpecification
+- source: SubControlArea
   target: BidSelfSched
   sourceCardinality: 0..1
   sourceName: subControlArea
   targetCardinality: 0..*
   targetName: bidSelfSched
 - source: SubControlArea
-  target: GeneralClearingResults
+  target: CnodeDistributionFactor
   sourceCardinality: 0..1
   sourceName: subControlArea
   targetCardinality: 0..*
-  targetName: generalClearingResults
+  targetName: cnodeDistributionFactor
+- source: SubControlArea
+  target: ControlAreaDesignation
+  sourceCardinality: 0..*
+  sourceName: subControlArea
+  targetCardinality: 0..*
+  targetName: controlAreaDesignation
 - source: SubControlArea
   target: EnergyTransaction
   sourceCardinality: "1"
@@ -54,19 +78,23 @@ associations:
   targetName: export_EnergyTransactions
   targetDescription: Energy is transferred between interchange areas
 - source: SubControlArea
-  target: EnergyTransaction
-  sourceCardinality: "1"
-  sourceName: import_SubControlArea
-  sourceDescription: Energy is transferred between interchange areas
-  targetCardinality: 0..*
-  targetName: import_EnergyTransactions
-  targetDescription: Energy is transferred between interchange areas
-- source: SubControlArea
-  target: LossClearingResults
+  target: ExPostLossResults
   sourceCardinality: 0..1
   sourceName: subControlArea
-  targetCardinality: 1..*
-  targetName: lossClearingResults
+  targetCardinality: 0..*
+  targetName: exPostLossResults
+- source: SubControlArea
+  target: Flowgate
+  sourceCardinality: 0..1
+  sourceName: from_SubControlArea
+  targetCardinality: 0..*
+  targetName: from_Flowgate
+- source: SubControlArea
+  target: GeneralClearingResults
+  sourceCardinality: 0..1
+  sourceName: subControlArea
+  targetCardinality: 0..*
+  targetName: generalClearingResults
 - source: SubControlArea
   target: HostControlArea
   sourceCardinality: 0..*
@@ -76,11 +104,27 @@ associations:
   targetName: hostControlArea
   targetDescription: The interchange area  may operate as a control area
 - source: SubControlArea
-  target: AreaReserveSpec
-  sourceCardinality: 0..*
+  target: EnergyTransaction
+  sourceCardinality: "1"
+  sourceName: import_SubControlArea
+  sourceDescription: Energy is transferred between interchange areas
+  targetCardinality: 0..*
+  targetName: import_EnergyTransactions
+  targetDescription: Energy is transferred between interchange areas
+- source: SubControlArea
+  target: InadvertentAccount
+  sourceCardinality: "1"
   sourceName: subControlArea
-  targetCardinality: "1"
-  targetName: areaReserveSpecification
+  sourceDescription: A control area can have one or more net inadvertent interchange accounts
+  targetCardinality: 0..*
+  targetName: inadvertentAccount
+  targetDescription: A control area can have one or more net inadvertent interchange accounts
+- source: SubControlArea
+  target: LossClearingResults
+  sourceCardinality: 0..1
+  sourceName: subControlArea
+  targetCardinality: 1..*
+  targetName: lossClearingResults
 - source: SubControlArea
   target: Pnode
   sourceCardinality: 0..1
@@ -90,11 +134,17 @@ associations:
 - source: SubControlArea
   target: DynamicSchedule
   sourceCardinality: "1"
-  sourceName: send_SubControlArea
-  sourceDescription: A control area can send dynamic schedules to other control areas
+  sourceName: receive_SubControlArea
+  sourceDescription: A control area can receive dynamic schedules from other control areas
   targetCardinality: 0..*
-  targetName: send_DynamicSchedules
-  targetDescription: A control area can send dynamic schedules to other control areas
+  targetName: receive_DynamicSchedules
+  targetDescription: A control area can receive dynamic schedules from other control areas
+- source: SubControlArea
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: subControlArea
+  targetCardinality: 0..*
+  targetName: registeredResource
 - source: SubControlArea
   target: RTO
   sourceCardinality: 0..*
@@ -102,11 +152,13 @@ associations:
   targetCardinality: "1"
   targetName: rto
 - source: SubControlArea
-  target: ControlAreaDesignation
-  sourceCardinality: 0..*
-  sourceName: subControlArea
+  target: DynamicSchedule
+  sourceCardinality: "1"
+  sourceName: send_SubControlArea
+  sourceDescription: A control area can send dynamic schedules to other control areas
   targetCardinality: 0..*
-  targetName: controlAreaDesignation
+  targetName: send_DynamicSchedules
+  targetDescription: A control area can send dynamic schedules to other control areas
 - source: SubControlArea
   target: TieLine
   sourceCardinality: "1"
@@ -118,38 +170,6 @@ associations:
   targetDescription: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's
     boundary for a ControlAreaOperator or CustomerConsumer.
 - source: SubControlArea
-  target: AggregateNode
-  sourceCardinality: 0..*
-  sourceName: subControlArea
-  targetCardinality: 0..*
-  targetName: aggregateNode
-- source: SubControlArea
-  target: Flowgate
-  sourceCardinality: 0..1
-  sourceName: to_SubControlArea
-  targetCardinality: 0..*
-  targetName: to_Flowgate
-- source: SubControlArea
-  target: DynamicSchedule
-  sourceCardinality: "1"
-  sourceName: receive_SubControlArea
-  sourceDescription: A control area can receive dynamic schedules from other control areas
-  targetCardinality: 0..*
-  targetName: receive_DynamicSchedules
-  targetDescription: A control area can receive dynamic schedules from other control areas
-- source: SubControlArea
-  target: AdjacentCASet
-  sourceCardinality: 0..*
-  sourceName: subControlArea
-  targetCardinality: 0..1
-  targetName: adjacentCASet
-- source: SubControlArea
-  target: CnodeDistributionFactor
-  sourceCardinality: 0..1
-  sourceName: subControlArea
-  targetCardinality: 0..*
-  targetName: cnodeDistributionFactor
-- source: SubControlArea
   target: TieLine
   sourceCardinality: "1"
   sourceName: sideB_SubControlArea
@@ -160,28 +180,8 @@ associations:
   targetDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's
     boundary for a ControlAreaOperator or CustomerConsumer.
 - source: SubControlArea
-  target: InadvertentAccount
-  sourceCardinality: "1"
-  sourceName: subControlArea
-  sourceDescription: A control area can have one or more net inadvertent interchange accounts
-  targetCardinality: 0..*
-  targetName: inadvertentAccount
-  targetDescription: A control area can have one or more net inadvertent interchange accounts
-- source: SubControlArea
   target: Flowgate
   sourceCardinality: 0..1
-  sourceName: from_SubControlArea
+  sourceName: to_SubControlArea
   targetCardinality: 0..*
-  targetName: from_Flowgate
-- source: SubControlArea
-  target: ExPostLossResults
-  sourceCardinality: 0..1
-  sourceName: subControlArea
-  targetCardinality: 0..*
-  targetName: exPostLossResults
-- source: SubControlArea
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: subControlArea
-  targetCardinality: 0..*
-  targetName: registeredResource
+  targetName: to_Flowgate

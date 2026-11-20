@@ -1,6 +1,14 @@
 name: ICCPVirtualControlCentre
 description: This contains the information that a particular actor exposes for a particular agreed upon ICCP Bilateral Table.
 attributes:
+- name: applicationSecurityRequirement
+  type: ApplicationSecurityKind
+  description: Specifies the expected security mechanism, per IEC 62351-4, to be utilized.
+- name: calling
+  type: Boolean
+  description: Used to indicate if the Provider is responsible for initiating the TASE.2 connection.  If the value is TRUE,
+    the provider is responsible for establishing the association.  If the value is FALSE, the peer provider of the Bilateral
+    Table will need to establish the association.
 - name: clientAndServer
   type: Boolean
   description: |-
@@ -11,17 +19,6 @@ attributes:
   type: Integer
   description: Specifies the fastest update interval that can be provided for integrity information and Transfer Set creation.
     The value is in seconds.
-- name: calling
-  type: Boolean
-  description: Used to indicate if the Provider is responsible for initiating the TASE.2 connection.  If the value is TRUE,
-    the provider is responsible for establishing the association.  If the value is FALSE, the peer provider of the Bilateral
-    Table will need to establish the association.
-- name: transportSecurityRequirement
-  type: Boolean
-  description: If true, then transport level security as specified by IEC 62351-6 is required.
-- name: applicationSecurityRequirement
-  type: ApplicationSecurityKind
-  description: Specifies the expected security mechanism, per IEC 62351-4, to be utilized.
 - name: nameOfLocalICC
   type: String
   description: Specifies the ICC scope name that the remote can use to access the information in the Bilateral Table if the
@@ -45,5 +42,8 @@ attributes:
   type: Boolean
   description: 'Per IEC 60870-6-702:  If true indicates support for accounts.  The use of this block was deprecated in Edition
     3.'
+- name: transportSecurityRequirement
+  type: Boolean
+  description: If true, then transport level security as specified by IEC 62351-6 is required.
 ancestors:
 - BilateralExchangeActor

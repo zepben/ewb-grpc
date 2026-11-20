@@ -2,8 +2,6 @@ name: FlowDirectionKind
 description: Kind of flow direction for reading/measured  values proper to some commodities such as, for example, energy,
   power, demand.
 attributes:
-- name: none
-  description: Not Applicable (N/A)
 - name: forward
   description: |-
     "Delivered," or "Imported" as defined 61968-2.
@@ -30,24 +28,26 @@ attributes:
     |Forward| - |Reverse|, See 61968-2.
 
     Note: In some systems, the value passed as a “net” value could become negative. In other systems the value passed as a “net” value is always a positive number, and rolls-over and rolls-under as needed.
+- name: none
+  description: Not Applicable (N/A)
+- name: q1minusQ4
+  description: Q1 minus Q4
 - name: q1plusQ2
   description: Reactive positive quadrants. (The term “lagging” is preferred.)
 - name: q1plusQ3
   description: Quadrants 1 and 3
 - name: q1plusQ4
   description: Quadrants 1 and 4 usually represent forward active energy
-- name: q1minusQ4
-  description: Q1 minus Q4
+- name: q2minusQ3
+  description: Q2 minus Q3
 - name: q2plusQ3
   description: Quadrants 2 and 3 usually represent reverse active energy
 - name: q2plusQ4
   description: Quadrants 2 and 4
-- name: q2minusQ3
-  description: Q2 minus Q3
-- name: q3plusQ4
-  description: Reactive negative quadrants. (The term “leading” is preferred.)
 - name: q3minusQ2
   description: Q3 minus Q2
+- name: q3plusQ4
+  description: Reactive negative quadrants. (The term “leading” is preferred.)
 - name: quadrant1
   description: Q1 only
 - name: quadrant2

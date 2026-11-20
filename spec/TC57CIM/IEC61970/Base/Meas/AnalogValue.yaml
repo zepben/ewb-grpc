@@ -8,13 +8,13 @@ ancestors:
 - MeasurementValue
 associations:
 - source: AnalogValue
-  target: AnalogControl
+  target: AltGeneratingUnitMeas
   sourceCardinality: "1"
   sourceName: analogValue
-  sourceDescription: The MeasurementValue that is controlled.
-  targetCardinality: 0..1
-  targetName: analogControl
-  targetDescription: The Control variable associated with the MeasurementValue.
+  sourceDescription: The specific analog value used as a source.
+  targetCardinality: 0..*
+  targetName: altGeneratingUnit
+  targetDescription: The alternate generating unit for which this measurement value applies.
 - source: AnalogValue
   target: AltTieMeas
   sourceCardinality: "1"
@@ -24,14 +24,6 @@ associations:
   targetName: altTieMeas
   targetDescription: The usage of the measurement within the control area specification.
 - source: AnalogValue
-  target: AltGeneratingUnitMeas
-  sourceCardinality: "1"
-  sourceName: analogValue
-  sourceDescription: The specific analog value used as a source.
-  targetCardinality: 0..*
-  targetName: altGeneratingUnit
-  targetDescription: The alternate generating unit for which this measurement value applies.
-- source: AnalogValue
   target: Analog
   sourceCardinality: 0..*
   sourceName: analogValues
@@ -39,3 +31,11 @@ associations:
   targetCardinality: "1"
   targetName: analog
   targetDescription: Measurement to which this value is connected.
+- source: AnalogValue
+  target: AnalogControl
+  sourceCardinality: "1"
+  sourceName: analogValue
+  sourceDescription: The MeasurementValue that is controlled.
+  targetCardinality: 0..1
+  targetName: analogControl
+  targetDescription: The Control variable associated with the MeasurementValue.

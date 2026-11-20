@@ -4,6 +4,14 @@ ancestors:
 - WindTurbineType3or4IEC
 associations:
 - source: WindTurbineType3IEC
+  target: WindAeroOneDimIEC
+  sourceCardinality: "1"
+  sourceName: windTurbineType3IEC
+  sourceDescription: Wind turbine type 3 model with which this wind aerodynamic model is associated.
+  targetCardinality: 0..1
+  targetName: windAeroOneDimIEC
+  targetDescription: Wind aerodynamic model associated with this wind generator type 3 model.
+- source: WindTurbineType3IEC
   target: WindAeroTwoDimIEC
   sourceCardinality: "1"
   sourceName: windTurbineType3IEC
@@ -11,14 +19,6 @@ associations:
   targetCardinality: 0..1
   targetName: windAeroTwoDimIEC
   targetDescription: Wind aerodynamic model associated with this wind turbine type 3 model.
-- source: WindTurbineType3IEC
-  target: WindMechIEC
-  sourceCardinality: 0..1
-  sourceName: windTurbineType3IEC
-  sourceDescription: Wind turbine type 3 model with which this wind mechanical model is associated.
-  targetCardinality: "1"
-  targetName: windMechIEC
-  targetDescription: Wind mechanical model associated with this wind turbine type 3 model.
 - source: WindTurbineType3IEC
   target: WindContPitchAngleIEC
   sourceCardinality: "1"
@@ -28,14 +28,6 @@ associations:
   targetName: windContPitchAngleIEC
   targetDescription: Wind control pitch angle model associated with this wind turbine type 3.
 - source: WindTurbineType3IEC
-  target: WindGenType3IEC
-  sourceCardinality: 0..1
-  sourceName: windTurbineType3IEC
-  sourceDescription: Wind turbine type 3 model with which this wind generator type 3 is associated.
-  targetCardinality: 0..1
-  targetName: windGenType3IEC
-  targetDescription: Wind generator type 3 model associated with this wind turbine type 3 model.
-- source: WindTurbineType3IEC
   target: WindContPType3IEC
   sourceCardinality: "1"
   sourceName: windTurbineType3IEC
@@ -44,10 +36,18 @@ associations:
   targetName: windContPType3IEC
   targetDescription: Wind control P type 3 model associated with this wind turbine type 3 model.
 - source: WindTurbineType3IEC
-  target: WindAeroOneDimIEC
-  sourceCardinality: "1"
+  target: WindGenType3IEC
+  sourceCardinality: 0..1
   sourceName: windTurbineType3IEC
-  sourceDescription: Wind turbine type 3 model with which this wind aerodynamic model is associated.
+  sourceDescription: Wind turbine type 3 model with which this wind generator type 3 is associated.
   targetCardinality: 0..1
-  targetName: windAeroOneDimIEC
-  targetDescription: Wind aerodynamic model associated with this wind generator type 3 model.
+  targetName: windGenType3IEC
+  targetDescription: Wind generator type 3 model associated with this wind turbine type 3 model.
+- source: WindTurbineType3IEC
+  target: WindMechIEC
+  sourceCardinality: 0..1
+  sourceName: windTurbineType3IEC
+  sourceDescription: Wind turbine type 3 model with which this wind mechanical model is associated.
+  targetCardinality: "1"
+  targetName: windMechIEC
+  targetDescription: Wind mechanical model associated with this wind turbine type 3 model.

@@ -90,14 +90,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: WindContPType3IEC
-  target: WindTurbineType3IEC
-  sourceCardinality: "1"
-  sourceName: windContPType3IEC
-  sourceDescription: Wind control P type 3 model associated with this wind turbine type 3 model.
-  targetCardinality: "1"
-  targetName: windTurbineType3IEC
-  targetDescription: Wind turbine type 3 model with which this wind control P type 3 model is associated.
-- source: WindContPType3IEC
   target: WindDynamicsLookupTable
   sourceCardinality: 0..1
   sourceName: windContPType3IEC
@@ -105,3 +97,11 @@ associations:
   targetCardinality: 1..*
   targetName: windDynamicsLookupTable
   targetDescription: The wind dynamics lookup table associated with this P control type 3 model.
+- source: WindContPType3IEC
+  target: WindTurbineType3IEC
+  sourceCardinality: "1"
+  sourceName: windContPType3IEC
+  sourceDescription: Wind control P type 3 model associated with this wind turbine type 3 model.
+  targetCardinality: "1"
+  targetName: windTurbineType3IEC
+  targetDescription: Wind turbine type 3 model with which this wind control P type 3 model is associated.

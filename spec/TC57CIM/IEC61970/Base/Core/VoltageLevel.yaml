@@ -16,14 +16,6 @@ ancestors:
 - EquipmentContainer
 associations:
 - source: VoltageLevel
-  target: Bay
-  sourceCardinality: 0..1
-  sourceName: voltageLevel
-  sourceDescription: The voltage level containing this bay.
-  targetCardinality: 0..*
-  targetName: bays
-  targetDescription: The bays within this voltage level.
-- source: VoltageLevel
   target: BaseVoltage
   sourceCardinality: 0..*
   sourceName: voltageLevel
@@ -31,6 +23,14 @@ associations:
   targetCardinality: "1"
   targetName: baseVoltage
   targetDescription: The base voltage used for all equipment within the voltage level.
+- source: VoltageLevel
+  target: Bay
+  sourceCardinality: 0..1
+  sourceName: voltageLevel
+  sourceDescription: The voltage level containing this bay.
+  targetCardinality: 0..*
+  targetName: bays
+  targetDescription: The bays within this voltage level.
 - source: VoltageLevel
   target: Substation
   sourceCardinality: 0..*

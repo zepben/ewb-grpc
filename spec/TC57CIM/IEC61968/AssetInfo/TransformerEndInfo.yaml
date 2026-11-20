@@ -47,46 +47,21 @@ associations:
   targetDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and
     core losses. The full values of the transformer should be supplied for one transformer end info only.
 - source: TransformerEndInfo
-  target: TransformerMeshImpedance
+  target: NoLoadTest
   sourceCardinality: 0..1
-  sourceName: fromTransformerEndInfo
-  sourceDescription: '''from'' transformer end datasheet this mesh impedance is calculated from. It determines the voltage
-    reference.'
+  sourceName: energisedEnd
+  sourceDescription: Transformer end that current is applied to in this no-load test.
   targetCardinality: 0..*
-  targetName: fromMeshImpedances
-  targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
+  targetName: energisedEndNoLoadTests
+  targetDescription: All no-load test measurements in which this transformer end was energised.
 - source: TransformerEndInfo
-  target: TransformerStarImpedance
-  sourceCardinality: 0..1
-  sourceName: transformerEndInfo
-  sourceDescription: Transformer end datasheet used to calculate this transformer star impedance.
-  targetCardinality: 0..1
-  targetName: transformerStarImpedance
-  targetDescription: Transformer star impedance calculated from this transformer end datasheet.
-- source: TransformerEndInfo
-  target: TransformerMeshImpedance
-  sourceCardinality: 0..*
-  sourceName: toTransformerEndInfos
-  sourceDescription: All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.
+  target: OpenCircuitTest
+  sourceCardinality: "1"
+  sourceName: energisedEnd
+  sourceDescription: Transformer end that current is applied to in this open-circuit test.
   targetCardinality: 0..*
-  targetName: toMeshImpedances
-  targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
-- source: TransformerEndInfo
-  target: TransformerTankInfo
-  sourceCardinality: 1..*
-  sourceName: transformerEndInfos
-  sourceDescription: Data for all the ends described by this transformer tank data.
-  targetCardinality: "1"
-  targetName: transformerTankInfo
-  targetDescription: Transformer tank data that this end description is part of.
-- source: TransformerEndInfo
-  target: ShortCircuitTest
-  sourceCardinality: 1..*
-  sourceName: groundedEnds
-  sourceDescription: All ends short-circuited in this short-circuit test.
-  targetCardinality: 0..*
-  targetName: groundedEndShortCircuitTests
-  targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
+  targetName: energisedEndOpenCircuitTests
+  targetDescription: All open-circuit test measurements in which this transformer end was excited.
 - source: TransformerEndInfo
   target: ShortCircuitTest
   sourceCardinality: "1"
@@ -97,6 +72,23 @@ associations:
   targetName: energisedEndShortCircuitTests
   targetDescription: All short-circuit test measurements in which this transformer end was energised.
 - source: TransformerEndInfo
+  target: TransformerMeshImpedance
+  sourceCardinality: 0..1
+  sourceName: fromTransformerEndInfo
+  sourceDescription: '''from'' transformer end datasheet this mesh impedance is calculated from. It determines the voltage
+    reference.'
+  targetCardinality: 0..*
+  targetName: fromMeshImpedances
+  targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
+- source: TransformerEndInfo
+  target: ShortCircuitTest
+  sourceCardinality: 1..*
+  sourceName: groundedEnds
+  sourceDescription: All ends short-circuited in this short-circuit test.
+  targetCardinality: 0..*
+  targetName: groundedEndShortCircuitTests
+  targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
+- source: TransformerEndInfo
   target: OpenCircuitTest
   sourceCardinality: "1"
   sourceName: openEnd
@@ -105,18 +97,26 @@ associations:
   targetName: openEndOpenCircuitTests
   targetDescription: All open-circuit test measurements in which this transformer end was not excited.
 - source: TransformerEndInfo
-  target: OpenCircuitTest
-  sourceCardinality: "1"
-  sourceName: energisedEnd
-  sourceDescription: Transformer end that current is applied to in this open-circuit test.
+  target: TransformerMeshImpedance
+  sourceCardinality: 0..*
+  sourceName: toTransformerEndInfos
+  sourceDescription: All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.
   targetCardinality: 0..*
-  targetName: energisedEndOpenCircuitTests
-  targetDescription: All open-circuit test measurements in which this transformer end was excited.
+  targetName: toMeshImpedances
+  targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
 - source: TransformerEndInfo
-  target: NoLoadTest
+  target: TransformerStarImpedance
   sourceCardinality: 0..1
-  sourceName: energisedEnd
-  sourceDescription: Transformer end that current is applied to in this no-load test.
-  targetCardinality: 0..*
-  targetName: energisedEndNoLoadTests
-  targetDescription: All no-load test measurements in which this transformer end was energised.
+  sourceName: transformerEndInfo
+  sourceDescription: Transformer end datasheet used to calculate this transformer star impedance.
+  targetCardinality: 0..1
+  targetName: transformerStarImpedance
+  targetDescription: Transformer star impedance calculated from this transformer end datasheet.
+- source: TransformerEndInfo
+  target: TransformerTankInfo
+  sourceCardinality: 1..*
+  sourceName: transformerEndInfos
+  sourceDescription: Data for all the ends described by this transformer tank data.
+  targetCardinality: "1"
+  targetName: transformerTankInfo
+  targetDescription: Transformer tank data that this end description is part of.

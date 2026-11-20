@@ -5,14 +5,14 @@ attributes:
   type: Float
 associations:
 - source: ExPostMarketRegionResults
-  target: MarketRegion
-  sourceCardinality: 0..*
-  sourceName: exPostMarketRegionResults
-  targetCardinality: "1"
-  targetName: marketRegion
-- source: ExPostMarketRegionResults
   target: ExPostMarketRegion
   sourceCardinality: 0..1
   sourceName: exPostMarketRegionResults
   targetCardinality: "1"
   targetName: exPostMarketRegion
+- source: ExPostMarketRegionResults
+  target: MarketRegion
+  sourceCardinality: 0..*
+  sourceName: exPostMarketRegionResults
+  targetCardinality: "1"
+  targetName: marketRegion

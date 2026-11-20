@@ -1,8 +1,5 @@
 name: DispatchSchedule
 attributes:
-- name: timeIntervalUnit
-  type: TimeIntervalKind
-  description: The unit of measure for the time axis of the dispatch schedule.
 - name: confidence
   type: PerCent
 - name: curveStyleKind
@@ -18,16 +15,19 @@ attributes:
 - name: timeIntervalDuration
   type: Integer
   description: The length of time for each interval in the dispatch schedule.
+- name: timeIntervalUnit
+  type: TimeIntervalKind
+  description: The unit of measure for the time axis of the dispatch schedule.
 associations:
-- source: DispatchSchedule
-  target: DERMonitorableParameter
-  sourceCardinality: 0..*
-  sourceName: dispatchSchedule
-  targetCardinality: "1"
-  targetName: derMonitorableParameter
 - source: DispatchSchedule
   target: DERCurveData
   sourceCardinality: 0..1
   sourceName: dispatchSchedule
   targetCardinality: 0..*
   targetName: derCurveData
+- source: DispatchSchedule
+  target: DERMonitorableParameter
+  sourceCardinality: 0..*
+  sourceName: dispatchSchedule
+  targetCardinality: "1"
+  targetName: derMonitorableParameter

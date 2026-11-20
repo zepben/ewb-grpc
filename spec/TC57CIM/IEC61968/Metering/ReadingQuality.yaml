@@ -15,14 +15,6 @@ attributes:
   description: Date and time at which the quality code was assigned or ascertained.
 associations:
 - source: ReadingQuality
-  target: ReadingQualityType
-  sourceCardinality: 0..*
-  sourceName: readingQualities
-  sourceDescription: All reading qualities of this type.
-  targetCardinality: "1"
-  targetName: readingQualityType
-  targetDescription: Type of this reading quality.
-- source: ReadingQuality
   target: BaseReading
   sourceCardinality: 0..*
   sourceName: readingQualities
@@ -30,3 +22,11 @@ associations:
   targetCardinality: 0..1
   targetName: reading
   targetDescription: Reading value to which this quality applies.
+- source: ReadingQuality
+  target: ReadingQualityType
+  sourceCardinality: 0..*
+  sourceName: readingQualities
+  sourceDescription: All reading qualities of this type.
+  targetCardinality: "1"
+  targetName: readingQualityType
+  targetDescription: Type of this reading quality.

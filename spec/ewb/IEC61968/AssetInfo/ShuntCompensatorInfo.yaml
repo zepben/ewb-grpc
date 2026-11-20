@@ -1,10 +1,10 @@
 name: ShuntCompensatorInfo
 description: Properties of shunt capacitor, shunt reactor or switchable bank of shunt capacitor or reactor assets.
 attributes:
-- name: ratedVoltage
-  type: Double
+- name: maxPowerLoss
+  type: Integer
   nullable: true
-  description: Rated voltage in volts.
+  description: Maximum allowed apparent power loss in volt-amperes.
 - name: ratedCurrent
   type: Double
   nullable: true
@@ -13,9 +13,9 @@ attributes:
   type: Double
   nullable: true
   description: Rated reactive power in volt-amperes reactive.
-- name: maxPowerLoss
-  type: Integer
+- name: ratedVoltage
+  type: Double
   nullable: true
-  description: Maximum allowed apparent power loss in volt-amperes.
+  description: Rated voltage in volts.
 ancestors:
 - AssetInfo

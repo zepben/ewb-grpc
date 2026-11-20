@@ -36,14 +36,14 @@ ancestors:
 - ErpDocument
 associations:
 - source: ErpInvoice
-  target: ErpInvoiceLineItem
-  sourceCardinality: "1"
-  sourceName: erpInvoice
-  targetCardinality: 0..*
-  targetName: erpInvoiceLineItems
-- source: ErpInvoice
   target: CustomerAccount
   sourceCardinality: 0..*
   sourceName: erpInvoicees
   targetCardinality: 0..1
   targetName: customerAccount
+- source: ErpInvoice
+  target: ErpInvoiceLineItem
+  sourceCardinality: "1"
+  sourceName: erpInvoice
+  targetCardinality: 0..*
+  targetName: erpInvoiceLineItems

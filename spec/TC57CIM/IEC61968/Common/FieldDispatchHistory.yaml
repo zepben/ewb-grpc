@@ -4,18 +4,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: FieldDispatchHistory
-  target: UnplannedOutage
-  sourceCardinality: 0..1
-  sourceName: fieldDispatchHistory
-  targetCardinality: 0..1
-  targetName: unplannedOutage
-- source: FieldDispatchHistory
-  target: PlannedOutage
-  sourceCardinality: 0..1
-  sourceName: fieldDispatchHistory
-  targetCardinality: 0..1
-  targetName: plannedOutage
-- source: FieldDispatchHistory
   target: Crew
   sourceCardinality: 0..*
   sourceName: fieldDispatchHistory
@@ -27,3 +15,15 @@ associations:
   sourceName: fieldDispatchHistory
   targetCardinality: 0..*
   targetName: fieldDispatchStep
+- source: FieldDispatchHistory
+  target: PlannedOutage
+  sourceCardinality: 0..1
+  sourceName: fieldDispatchHistory
+  targetCardinality: 0..1
+  targetName: plannedOutage
+- source: FieldDispatchHistory
+  target: UnplannedOutage
+  sourceCardinality: 0..1
+  sourceName: fieldDispatchHistory
+  targetCardinality: 0..1
+  targetName: unplannedOutage

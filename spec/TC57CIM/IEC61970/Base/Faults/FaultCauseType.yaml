@@ -4,6 +4,12 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: FaultCauseType
+  target: ConfigurationEvent
+  sourceCardinality: "1"
+  sourceName: faultCauseType
+  targetCardinality: 0..*
+  targetName: configurationEvent
+- source: FaultCauseType
   target: Fault
   sourceCardinality: 0..*
   sourceName: faultCauseTypes
@@ -11,9 +17,3 @@ associations:
   targetCardinality: 0..*
   targetName: faults
   targetDescription: All faults with this cause type.
-- source: FaultCauseType
-  target: ConfigurationEvent
-  sourceCardinality: "1"
-  sourceName: faultCauseType
-  targetCardinality: 0..*
-  targetName: configurationEvent

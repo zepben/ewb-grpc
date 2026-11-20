@@ -91,18 +91,6 @@ attributes:
   type: String
 associations:
 - source: ResourceAwardInstruction
-  target: SelfScheduleBreakdown
-  sourceCardinality: "1"
-  sourceName: resourceAwardInstruction
-  targetCardinality: 0..*
-  targetName: selfScheduleBreakdown
-- source: ResourceAwardInstruction
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: resourceAwardInstruction
-  targetCardinality: 0..1
-  targetName: registeredResource
-- source: ResourceAwardInstruction
   target: ResourceAwardClearing
   sourceCardinality: 1..*
   sourceName: resourceAwardInstruction
@@ -114,3 +102,15 @@ associations:
   sourceName: resourceAwardInstruction
   targetCardinality: "1"
   targetName: marketProduct
+- source: ResourceAwardInstruction
+  target: RegisteredResource
+  sourceCardinality: 0..*
+  sourceName: resourceAwardInstruction
+  targetCardinality: 0..1
+  targetName: registeredResource
+- source: ResourceAwardInstruction
+  target: SelfScheduleBreakdown
+  sourceCardinality: "1"
+  sourceName: resourceAwardInstruction
+  targetCardinality: 0..*
+  targetName: selfScheduleBreakdown

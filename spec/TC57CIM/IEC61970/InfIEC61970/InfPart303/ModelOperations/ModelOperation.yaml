@@ -8,14 +8,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: ModelOperation
-  target: ModelOperationDescription
-  sourceCardinality: 0..*
-  sourceName: modelOperation
-  sourceDescription: The instances of operations that conform to this operation type.
-  targetCardinality: "1"
-  targetName: modelOperationDescription
-  targetDescription: The type of the model operation.
-- source: ModelOperation
   target: ModelOperationArg
   sourceCardinality: "1"
   sourceName: modelOperation
@@ -23,6 +15,14 @@ associations:
   targetCardinality: 0..*
   targetName: modelOperationArg
   targetDescription: Arguments of the operation.
+- source: ModelOperation
+  target: ModelOperationDescription
+  sourceCardinality: 0..*
+  sourceName: modelOperation
+  sourceDescription: The instances of operations that conform to this operation type.
+  targetCardinality: "1"
+  targetName: modelOperationDescription
+  targetDescription: The type of the model operation.
 - source: ModelOperation
   target: ModelOperationSequence
   sourceCardinality: 0..*

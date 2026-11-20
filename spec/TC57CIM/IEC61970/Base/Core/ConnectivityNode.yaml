@@ -6,16 +6,6 @@ descendants:
 - MktConnectivityNode
 associations:
 - source: ConnectivityNode
-  target: TopologicalNode
-  sourceCardinality: 0..*
-  sourceName: connectivityNodes
-  sourceDescription: The connectivity nodes combine together to form this topological node.  May depend on the current state
-    of switches in the network.
-  targetCardinality: 0..1
-  targetName: topologicalNode
-  targetDescription: The topological node to which this connectivity node is assigned.  May depend on the current state of
-    switches in the network.
-- source: ConnectivityNode
   target: ConnectivityNodeContainer
   sourceCardinality: 0..*
   sourceName: connectivityNodes
@@ -31,3 +21,13 @@ associations:
   targetCardinality: 0..*
   targetName: terminals
   targetDescription: Terminals interconnected with zero impedance at a this connectivity node.
+- source: ConnectivityNode
+  target: TopologicalNode
+  sourceCardinality: 0..*
+  sourceName: connectivityNodes
+  sourceDescription: The connectivity nodes combine together to form this topological node.  May depend on the current state
+    of switches in the network.
+  targetCardinality: 0..1
+  targetName: topologicalNode
+  targetDescription: The topological node to which this connectivity node is assigned.  May depend on the current state of
+    switches in the network.

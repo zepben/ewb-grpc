@@ -3,22 +3,10 @@ description: Information about a particular location for various forms of work.
 ancestors:
 - Location
 descendants:
-- ServiceLocation
-- MaintenanceLocation
 - InternalLocation
+- MaintenanceLocation
+- ServiceLocation
 associations:
-- source: WorkLocation
-  target: OneCallRequest
-  sourceCardinality: 0..*
-  sourceName: workLocations
-  targetCardinality: 0..1
-  targetName: oneCallRequest
-- source: WorkLocation
-  target: DesignLocation
-  sourceCardinality: 1..*
-  sourceName: workLocations
-  targetCardinality: 0..*
-  targetName: designLocations
 - source: WorkLocation
   target: BaseWork
   sourceCardinality: 0..1
@@ -27,3 +15,15 @@ associations:
   targetCardinality: 0..*
   targetName: baseWorks
   targetDescription: All works/tasks at this location.
+- source: WorkLocation
+  target: DesignLocation
+  sourceCardinality: 1..*
+  sourceName: workLocations
+  targetCardinality: 0..*
+  targetName: designLocations
+- source: WorkLocation
+  target: OneCallRequest
+  sourceCardinality: 0..*
+  sourceName: workLocations
+  targetCardinality: 0..1
+  targetName: oneCallRequest

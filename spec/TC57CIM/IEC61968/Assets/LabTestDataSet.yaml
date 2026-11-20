@@ -1,29 +1,21 @@
 name: LabTestDataSet
 description: Results of testing done by a lab.
 attributes:
-- name: reasonForTest
-  type: TestReason
-  description: Reason for performing test.
-- name: testEquipmentID
-  type: String
-  description: Identity of lab equipment used to perform test.
 - name: conclusion
   type: String
   description: Conclusion drawn from test results.
 - name: conclusionConfidence
   type: String
   description: Description of confidence in conclusion.
+- name: reasonForTest
+  type: TestReason
+  description: Reason for performing test.
+- name: testEquipmentID
+  type: String
+  description: Identity of lab equipment used to perform test.
 ancestors:
 - ProcedureDataSet
 associations:
-- source: LabTestDataSet
-  target: Specimen
-  sourceCardinality: 0..*
-  sourceName: labTestDataSet
-  sourceDescription: Results from lab testing done on specimen.
-  targetCardinality: 0..1
-  targetName: specimen
-  targetDescription: Specimen on which lab testing done in determining results.
 - source: LabTestDataSet
   target: AssetTestLab
   sourceCardinality: 0..*
@@ -32,3 +24,11 @@ associations:
   targetCardinality: 0..1
   targetName: assetTestLab
   targetDescription: Test lab which produced this set of lab test results.
+- source: LabTestDataSet
+  target: Specimen
+  sourceCardinality: 0..*
+  sourceName: labTestDataSet
+  sourceDescription: Results from lab testing done on specimen.
+  targetCardinality: 0..1
+  targetName: specimen
+  targetDescription: Specimen on which lab testing done in determining results.

@@ -23,15 +23,6 @@ attributes:
 - name: phaseConnection
   type: PhaseShuntConnectionKind
   description: The type of phase connection, such as wye or delta.
-- name: switchOnCount
-  type: Integer
-  description: The switch on count since the capacitor count was last reset or initialized.
-- name: switchOnDate
-  type: DateTime
-  description: The date and time when the capacitor bank was last switched on.
-- name: voltageSensitivity
-  type: VoltagePerReactivePower
-  description: Voltage sensitivity required for the device to regulate the bus voltage, in voltage/reactive power.
 - name: sections
   type: Float
   description: "Shunt compensator sections in use. Starting value for steady state solution. The attribute shall be a positive\
@@ -42,14 +33,29 @@ attributes:
     \ and admittance is zero. Linear interpolation of conductance and admittance between the previous and next integer section\
     \ is applied in case of non-integer values.\nFor NonlinearShuntCompensator-s shall only be set to one of the NonlinearShuntCompenstorPoint.sectionNumber.\
     \ There is no interpolation between NonlinearShuntCompenstorPoint-s."
+- name: switchOnCount
+  type: Integer
+  description: The switch on count since the capacitor count was last reset or initialized.
+- name: switchOnDate
+  type: DateTime
+  description: The date and time when the capacitor bank was last switched on.
+- name: voltageSensitivity
+  type: VoltagePerReactivePower
+  description: Voltage sensitivity required for the device to regulate the bus voltage, in voltage/reactive power.
 ancestors:
 - RegulatingCondEq
 descendants:
 - LinearShuntCompensator
+- MktShuntCompensator
 - NonlinearShuntCompensator
 - SVC
-- MktShuntCompensator
 associations:
+- source: ShuntCompensator
+  target: ShuntCompensatorAction
+  sourceCardinality: 0..1
+  sourceName: shuntCompensator
+  targetCardinality: 0..1
+  targetName: shuntCompensatorAction
 - source: ShuntCompensator
   target: ShuntCompensatorPhase
   sourceCardinality: "1"
@@ -58,12 +64,6 @@ associations:
   targetCardinality: 0..*
   targetName: shuntCompensatorPhase
   targetDescription: The individual phases models for the shunt compensator.
-- source: ShuntCompensator
-  target: ShuntCompensatorAction
-  sourceCardinality: 0..1
-  sourceName: shuntCompensator
-  targetCardinality: 0..1
-  targetName: shuntCompensatorAction
 - source: ShuntCompensator
   target: SvShuntCompensatorSections
   sourceCardinality: "1"

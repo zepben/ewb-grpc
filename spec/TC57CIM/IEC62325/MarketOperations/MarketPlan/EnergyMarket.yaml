@@ -5,17 +5,11 @@ ancestors:
 - Market
 associations:
 - source: EnergyMarket
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: energyMarkets
-  targetCardinality: 0..1
-  targetName: rto
-- source: EnergyMarket
-  target: Settlement
-  sourceCardinality: 0..1
+  target: Bid
+  sourceCardinality: "1"
   sourceName: energyMarket
   targetCardinality: 0..*
-  targetName: settlements
+  targetName: bids
 - source: EnergyMarket
   target: MarketResults
   sourceCardinality: "1"
@@ -29,8 +23,14 @@ associations:
   targetCardinality: 0..*
   targetName: registeredResources
 - source: EnergyMarket
-  target: Bid
-  sourceCardinality: "1"
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: energyMarkets
+  targetCardinality: 0..1
+  targetName: rto
+- source: EnergyMarket
+  target: Settlement
+  sourceCardinality: 0..1
   sourceName: energyMarket
   targetCardinality: 0..*
-  targetName: bids
+  targetName: settlements

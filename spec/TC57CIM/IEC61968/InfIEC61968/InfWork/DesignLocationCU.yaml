@@ -26,17 +26,11 @@ ancestors:
 - WorkIdentifiedObject
 associations:
 - source: DesignLocationCU
-  target: OldWorkTask
+  target: CompatibleUnit
   sourceCardinality: 0..*
   sourceName: designLocationCUs
   targetCardinality: 0..*
-  targetName: workTasks
-- source: DesignLocationCU
-  target: Design
-  sourceCardinality: 0..*
-  sourceName: designLocationsCUs
-  targetCardinality: 0..*
-  targetName: designs
+  targetName: compatibleUnits
 - source: DesignLocationCU
   target: ConditionFactor
   sourceCardinality: 0..*
@@ -56,8 +50,14 @@ associations:
   targetCardinality: 0..1
   targetName: designLocation
 - source: DesignLocationCU
-  target: CompatibleUnit
+  target: Design
+  sourceCardinality: 0..*
+  sourceName: designLocationsCUs
+  targetCardinality: 0..*
+  targetName: designs
+- source: DesignLocationCU
+  target: OldWorkTask
   sourceCardinality: 0..*
   sourceName: designLocationCUs
   targetCardinality: 0..*
-  targetName: compatibleUnits
+  targetName: workTasks

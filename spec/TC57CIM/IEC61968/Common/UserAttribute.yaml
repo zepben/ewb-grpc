@@ -15,22 +15,17 @@ descendants:
 - MktUserAttribute
 associations:
 - source: UserAttribute
-  target: Specification
+  target: ErpInvoiceLineItem
   sourceCardinality: 0..*
-  sourceName: ratings
-  sourceDescription: UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be
-    used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g.,
-    voltage, current), and 'value' attribute for the actual value and unit information of the rating.
-  targetCardinality: 0..1
-  targetName: ratingSpecification
+  sourceName: userAttributes
+  targetCardinality: 0..*
+  targetName: erpInvoiceLineItems
 - source: UserAttribute
-  target: Specification
+  target: ErpLedgerEntry
   sourceCardinality: 0..*
-  sourceName: assetProperites
-  sourceDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
-    to specify what kind of property it is, and 'value.value' attribute for the actual value.
-  targetCardinality: 0..1
-  targetName: propertySpecification
+  sourceName: userAttributes
+  targetCardinality: 0..*
+  targetName: erpLedgerEntries
 - source: UserAttribute
   target: ProcedureDataSet
   sourceCardinality: 0..*
@@ -40,6 +35,23 @@ associations:
   targetCardinality: 0..*
   targetName: procedureDataSets
 - source: UserAttribute
+  target: Specification
+  sourceCardinality: 0..*
+  sourceName: assetProperites
+  sourceDescription: UserAttributes used to specify further properties of the asset covered with this specification. Use 'name'
+    to specify what kind of property it is, and 'value.value' attribute for the actual value.
+  targetCardinality: 0..1
+  targetName: propertySpecification
+- source: UserAttribute
+  target: Specification
+  sourceCardinality: 0..*
+  sourceName: ratings
+  sourceDescription: UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be
+    used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g.,
+    voltage, current), and 'value' attribute for the actual value and unit information of the rating.
+  targetCardinality: 0..1
+  targetName: ratingSpecification
+- source: UserAttribute
   target: Transaction
   sourceCardinality: 0..*
   sourceName: userAttributes
@@ -48,15 +60,3 @@ associations:
   targetCardinality: 0..1
   targetName: transaction
   targetDescription: Transaction for which this snapshot has been recorded.
-- source: UserAttribute
-  target: ErpLedgerEntry
-  sourceCardinality: 0..*
-  sourceName: userAttributes
-  targetCardinality: 0..*
-  targetName: erpLedgerEntries
-- source: UserAttribute
-  target: ErpInvoiceLineItem
-  sourceCardinality: 0..*
-  sourceName: userAttributes
-  targetCardinality: 0..*
-  targetName: erpInvoiceLineItems

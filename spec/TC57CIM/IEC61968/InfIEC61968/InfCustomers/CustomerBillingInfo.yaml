@@ -39,15 +39,15 @@ ancestors:
 - Document
 associations:
 - source: CustomerBillingInfo
+  target: CustomerAccount
+  sourceCardinality: 0..*
+  sourceName: customerBillingInfos
+  targetCardinality: 0..1
+  targetName: customerAccount
+- source: CustomerBillingInfo
   target: ErpInvoiceLineItem
   sourceCardinality: 0..*
   sourceName: customerBillingInfos
   sourceDescription: Customer billing for services rendered.
   targetCardinality: 0..*
   targetName: erpInvoiceLineItems
-- source: CustomerBillingInfo
-  target: CustomerAccount
-  sourceCardinality: 0..*
-  sourceName: customerBillingInfos
-  targetCardinality: 0..1
-  targetName: customerAccount

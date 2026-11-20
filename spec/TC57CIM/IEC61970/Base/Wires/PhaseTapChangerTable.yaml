@@ -4,14 +4,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: PhaseTapChangerTable
-  target: PhaseTapChangerTabular
-  sourceCardinality: 0..1
-  sourceName: phaseTapChangerTable
-  sourceDescription: The phase tap changer table for this phase tap changer.
-  targetCardinality: 0..*
-  targetName: phaseTapChangerTabular
-  targetDescription: The phase tap changers to which this phase tap table applies.
-- source: PhaseTapChangerTable
   target: PhaseTapChangerTablePoint
   sourceCardinality: "1"
   sourceName: phaseTapChangerTable
@@ -19,3 +11,11 @@ associations:
   targetCardinality: 1..*
   targetName: phaseTapChangerTablePoint
   targetDescription: The points of this table.
+- source: PhaseTapChangerTable
+  target: PhaseTapChangerTabular
+  sourceCardinality: 0..1
+  sourceName: phaseTapChangerTable
+  sourceDescription: The phase tap changer table for this phase tap changer.
+  targetCardinality: 0..*
+  targetName: phaseTapChangerTabular
+  targetDescription: The phase tap changers to which this phase tap table applies.

@@ -17,17 +17,19 @@ ancestors:
 - Document
 associations:
 - source: CustomerAccount
-  target: ErpInvoice
-  sourceCardinality: 0..1
+  target: AccountNotification
+  sourceCardinality: "1"
   sourceName: customerAccount
   targetCardinality: 0..*
-  targetName: erpInvoicees
+  targetName: accountNotification
 - source: CustomerAccount
-  target: WorkBillingInfo
-  sourceCardinality: 0..1
-  sourceName: customerAccount
-  targetCardinality: 0..*
-  targetName: workBillingInfos
+  target: Customer
+  sourceCardinality: 0..*
+  sourceName: customerAccounts
+  sourceDescription: All accounts of this customer.
+  targetCardinality: "1"
+  targetName: customer
+  targetDescription: Customer owning this account.
 - source: CustomerAccount
   target: CustomerAgreement
   sourceCardinality: "1"
@@ -37,6 +39,18 @@ associations:
   targetName: customerAgreements
   targetDescription: All agreements for this customer account.
 - source: CustomerAccount
+  target: CustomerBillingInfo
+  sourceCardinality: 0..1
+  sourceName: customerAccount
+  targetCardinality: 0..*
+  targetName: customerBillingInfos
+- source: CustomerAccount
+  target: ErpInvoice
+  sourceCardinality: 0..1
+  sourceName: customerAccount
+  targetCardinality: 0..*
+  targetName: erpInvoicees
+- source: CustomerAccount
   target: Transaction
   sourceCardinality: 0..1
   sourceName: customerAccount
@@ -45,22 +59,8 @@ associations:
   targetName: paymentTransactions
   targetDescription: All payment transactions for this customer account.
 - source: CustomerAccount
-  target: AccountNotification
-  sourceCardinality: "1"
-  sourceName: customerAccount
-  targetCardinality: 0..*
-  targetName: accountNotification
-- source: CustomerAccount
-  target: CustomerBillingInfo
+  target: WorkBillingInfo
   sourceCardinality: 0..1
   sourceName: customerAccount
   targetCardinality: 0..*
-  targetName: customerBillingInfos
-- source: CustomerAccount
-  target: Customer
-  sourceCardinality: 0..*
-  sourceName: customerAccounts
-  sourceDescription: All accounts of this customer.
-  targetCardinality: "1"
-  targetName: customer
-  targetDescription: Customer owning this account.
+  targetName: workBillingInfos

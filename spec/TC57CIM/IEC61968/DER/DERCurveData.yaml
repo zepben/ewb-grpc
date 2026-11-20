@@ -12,14 +12,14 @@ attributes:
   type: DateTime
 associations:
 - source: DERCurveData
-  target: DispatchSchedule
-  sourceCardinality: 0..*
-  sourceName: derCurveData
-  targetCardinality: 0..1
-  targetName: dispatchSchedule
-- source: DERCurveData
   target: DERMonitorableParameter
   sourceCardinality: 0..1
   sourceName: derCurveData
   targetCardinality: "1"
   targetName: derMonitorableParameter
+- source: DERCurveData
+  target: DispatchSchedule
+  sourceCardinality: 0..*
+  sourceName: derCurveData
+  targetCardinality: 0..1
+  targetName: dispatchSchedule

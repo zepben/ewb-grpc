@@ -4,14 +4,6 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: SubGeographicalRegion
-  target: Substation
-  sourceCardinality: 0..1
-  sourceName: subGeographicalRegion
-  sourceDescription: The SubGeographicalRegion containing the substation.
-  targetCardinality: 0..*
-  targetName: substations
-  targetDescription: The substations in this sub-geographical region.
-- source: SubGeographicalRegion
   target: GeographicalRegion
   sourceCardinality: 0..*
   sourceName: subGeographicalRegion
@@ -19,3 +11,11 @@ associations:
   targetCardinality: 0..1
   targetName: geographicalRegion
   targetDescription: The geographical region which this sub-geographical region is within.
+- source: SubGeographicalRegion
+  target: Substation
+  sourceCardinality: 0..1
+  sourceName: subGeographicalRegion
+  sourceDescription: The SubGeographicalRegion containing the substation.
+  targetCardinality: 0..*
+  targetName: substations
+  targetDescription: The substations in this sub-geographical region.

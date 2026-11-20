@@ -4,14 +4,14 @@ ancestors:
 - MarketFactors
 associations:
 - source: AncillaryServiceClearing
-  target: MarketRegionResults
-  sourceCardinality: 0..1
-  sourceName: ancillaryServiceClearing
-  targetCardinality: 1..*
-  targetName: marketRegionResults
-- source: AncillaryServiceClearing
   target: MarketCaseClearing
   sourceCardinality: 0..*
   sourceName: marketProductClearing
   targetCardinality: 0..1
   targetName: marketCaseClearing
+- source: AncillaryServiceClearing
+  target: MarketRegionResults
+  sourceCardinality: 0..1
+  sourceName: ancillaryServiceClearing
+  targetCardinality: 1..*
+  targetName: marketRegionResults

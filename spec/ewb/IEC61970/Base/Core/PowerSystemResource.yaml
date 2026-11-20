@@ -11,15 +11,15 @@ attributes:
 ancestors:
 - IdentifiedObject
 descendants:
+- AcLineSegmentPhase
 - ConnectivityNodeContainer
-- Equipment
-- TapChanger
-- ProtectionRelayFunction
 - EnergyConsumerPhase
 - EnergySourcePhase
+- Equipment
 - PowerElectronicsConnectionPhase
+- ProtectionRelayFunction
 - RegulatingControl
-- AcLineSegmentPhase
+- TapChanger
 associations:
 - source: PowerSystemResource
   target: AssetInfo
@@ -27,12 +27,12 @@ associations:
   targetName: assetInfo
   targetDescription: Datasheet information for this power system resource.
 - source: PowerSystemResource
-  target: Location
-  targetCardinality: 0..1
-  targetName: location
-  targetDescription: Location of this power system resource.
-- source: PowerSystemResource
   target: Asset
   targetCardinality: 0..*
   targetName: assets
   targetDescription: All assets represented by this power system resource. For example, multiple conductor assets are electrically modelled as a single AC line segment.
+- source: PowerSystemResource
+  target: Location
+  targetCardinality: 0..1
+  targetName: location
+  targetDescription: Location of this power system resource.

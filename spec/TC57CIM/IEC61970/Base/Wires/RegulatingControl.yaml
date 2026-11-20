@@ -20,6 +20,15 @@ attributes:
   type: Boolean
   description: The regulation is performed in a discrete mode. This applies to equipment with discrete controls, e.g. tap
     changers and shunt compensators.
+- name: enabled
+  type: Boolean
+  description: The flag tells if regulation is enabled.
+- name: maxAllowedTargetValue
+  type: Float
+  description: Maximum allowed target value (RegulatingControl.targetValue).
+- name: minAllowedTargetValue
+  type: Float
+  description: Minimum allowed target value (RegulatingControl.targetValue).
 - name: mode
   type: RegulatingControlModeKind
   description: The regulating control mode presently available.  This specification allows for determining the kind of regulation
@@ -39,21 +48,19 @@ attributes:
 - name: targetValueUnitMultiplier
   type: UnitMultiplier
   description: Specify the multiplier for used for the targetValue.
-- name: enabled
-  type: Boolean
-  description: The flag tells if regulation is enabled.
-- name: maxAllowedTargetValue
-  type: Float
-  description: Maximum allowed target value (RegulatingControl.targetValue).
-- name: minAllowedTargetValue
-  type: Float
-  description: Minimum allowed target value (RegulatingControl.targetValue).
 ancestors:
 - PowerSystemResource
 descendants:
-- TapChangerControl
 - ShuntCompensatorControl
+- TapChangerControl
 associations:
+- source: RegulatingControl
+  target: ProtectiveActionRegulation
+  sourceCardinality: "1"
+  sourceName: regulatingControl
+  targetCardinality: 0..*
+  targetName: protectiveActionRegulation
+  targetDescription: Enable/disable a regulating control or set new target value.
 - source: RegulatingControl
   target: RegulatingCondEq
   sourceCardinality: 0..1
@@ -80,10 +87,3 @@ associations:
   targetDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node,
     since the terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model
     regulation at a terminal of a bus bar object.
-- source: RegulatingControl
-  target: ProtectiveActionRegulation
-  sourceCardinality: "1"
-  sourceName: regulatingControl
-  targetCardinality: 0..*
-  targetName: protectiveActionRegulation
-  targetDescription: Enable/disable a regulating control or set new target value.

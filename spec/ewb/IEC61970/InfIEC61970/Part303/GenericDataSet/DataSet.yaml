@@ -3,6 +3,10 @@ description: |-
   A generic container of a version of instance data. The MRID can be used in an audit trail, not in reusable script intended to work with new versions of data.
   A dataset could be serialized multiple times and in multiple technologies, yet retain the same identity.
 attributes:
+- name: description
+  type: String
+  description: The description is a free human readable text describing or naming the object. It may be non unique and may
+    not correlate to a naming hierarchy.
 - name: mRID
   type: String
   description: |-
@@ -11,9 +15,5 @@ attributes:
 - name: name
   type: String
   description: The name is any free human readable and possibly non unique text naming the object.
-- name: description
-  type: String
-  description: The description is a free human readable text describing or naming the object. It may be non unique and may
-    not correlate to a naming hierarchy.
 descendants:
 - ChangeSet

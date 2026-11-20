@@ -4,18 +4,13 @@ ancestors:
 - EquipmentContainer
 associations:
 - source: LvFeeder
-  target: Terminal
-  targetCardinality: 0..1
-  targetName: normalHeadTerminal
-  targetDescription: \[ZBEX\] The normal head terminal of this LV feeder, typically the LV terminal of a distribution transformer, or the downstream terminal of a LV switch below a distribution transformer.
-- source: LvFeeder
-  target: Feeder
+  target: Equipment
   sourceCardinality: 0..*
-  sourceName: normalEnergizedLvFeeders
+  sourceName: currentLvFeeders
   sourceDescription: \[ZBEX\] The LV feeders that are normally energized by the feeder.
   targetCardinality: 0..*
-  targetName: normalEnergizingFeeders
-  targetDescription: \[ZBEX\] The HV/MV feeders that energize this LV feeder.
+  targetName: currentEquipment
+  targetDescription: \[ZBEX\] Contained equipment using the current state of the network.
 - source: LvFeeder
   target: Feeder
   sourceCardinality: 0..*
@@ -25,13 +20,13 @@ associations:
   targetName: currentlyEnergizingFeeders
   targetDescription: \[ZBEX\] The HV/MV feeders that energize this LV feeder in the current state of the network.
 - source: LvFeeder
-  target: Equipment
+  target: Feeder
   sourceCardinality: 0..*
-  sourceName: currentLvFeeders
+  sourceName: normalEnergizedLvFeeders
   sourceDescription: \[ZBEX\] The LV feeders that are normally energized by the feeder.
   targetCardinality: 0..*
-  targetName: currentEquipment
-  targetDescription: \[ZBEX\] Contained equipment using the current state of the network.
+  targetName: normalEnergizingFeeders
+  targetDescription: \[ZBEX\] The HV/MV feeders that energize this LV feeder.
 - source: LvFeeder
   target: LvSubstation
   sourceCardinality: 0..*
@@ -40,3 +35,8 @@ associations:
   targetCardinality: 0..1
   targetName: normalEnergizingLvSubstations
   targetDescription: \[ZBEX\] The LvSubstations that nominally energize the LvFeeder. Also used for naming purposes.
+- source: LvFeeder
+  target: Terminal
+  targetCardinality: 0..1
+  targetName: normalHeadTerminal
+  targetDescription: \[ZBEX\] The normal head terminal of this LV feeder, typically the LV terminal of a distribution transformer, or the downstream terminal of a LV switch below a distribution transformer.

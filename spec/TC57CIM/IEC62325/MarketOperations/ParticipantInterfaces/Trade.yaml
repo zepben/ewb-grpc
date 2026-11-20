@@ -48,17 +48,35 @@ ancestors:
 - IdentifiedObject
 associations:
 - source: Trade
-  target: TradeError
-  sourceCardinality: 0..1
+  target: ActionRequest
+  sourceCardinality: 0..*
   sourceName: trade
-  targetCardinality: 0..*
-  targetName: tradeError
+  targetCardinality: "1"
+  targetName: actionRequest
+- source: Trade
+  target: SchedulingCoordinator
+  sourceCardinality: 0..*
+  sourceName: fromSCTrade
+  targetCardinality: "1"
+  targetName: from_SC
 - source: Trade
   target: Pnode
   sourceCardinality: 0..*
   sourceName: trade
   targetCardinality: 0..1
   targetName: pnode
+- source: Trade
+  target: RegisteredGenerator
+  sourceCardinality: 0..*
+  sourceName: trade
+  targetCardinality: 0..1
+  targetName: registeredGenerator
+- source: Trade
+  target: SchedulingCoordinator
+  sourceCardinality: 0..*
+  sourceName: submitFromSCTrade
+  targetCardinality: 0..1
+  targetName: submitFromSchedulingCoordinator
 - source: Trade
   target: SchedulingCoordinator
   sourceCardinality: 0..*
@@ -72,29 +90,11 @@ associations:
   targetCardinality: "1"
   targetName: to_SC
 - source: Trade
-  target: SchedulingCoordinator
-  sourceCardinality: 0..*
-  sourceName: fromSCTrade
-  targetCardinality: "1"
-  targetName: from_SC
-- source: Trade
-  target: SchedulingCoordinator
-  sourceCardinality: 0..*
-  sourceName: submitFromSCTrade
-  targetCardinality: 0..1
-  targetName: submitFromSchedulingCoordinator
-- source: Trade
-  target: ActionRequest
-  sourceCardinality: 0..*
+  target: TradeError
+  sourceCardinality: 0..1
   sourceName: trade
-  targetCardinality: "1"
-  targetName: actionRequest
-- source: Trade
-  target: RegisteredGenerator
-  sourceCardinality: 0..*
-  sourceName: trade
-  targetCardinality: 0..1
-  targetName: registeredGenerator
+  targetCardinality: 0..*
+  targetName: tradeError
 - source: Trade
   target: TradeProduct
   sourceCardinality: 0..*

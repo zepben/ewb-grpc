@@ -11,17 +11,17 @@ ancestors:
 - MarketFactors
 associations:
 - source: SecurityConstraintSum
+  target: BaseCaseConstraintLimit
+  sourceCardinality: "1"
+  sourceName: securityConstraintSum
+  targetCardinality: 0..1
+  targetName: baseCaseConstraintLimit
+- source: SecurityConstraintSum
   target: ConstraintTerm
   sourceCardinality: "1"
   sourceName: securityConstraintSum
   targetCardinality: 0..*
   targetName: constraintTerms
-- source: SecurityConstraintSum
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: securityConstraintsLinear
-  targetCardinality: 0..1
-  targetName: rto
 - source: SecurityConstraintSum
   target: ContingencyConstraintLimit
   sourceCardinality: "1"
@@ -29,14 +29,14 @@ associations:
   targetCardinality: 0..*
   targetName: contingencyConstraintLimits
 - source: SecurityConstraintSum
-  target: BaseCaseConstraintLimit
-  sourceCardinality: "1"
-  sourceName: securityConstraintSum
-  targetCardinality: 0..1
-  targetName: baseCaseConstraintLimit
-- source: SecurityConstraintSum
   target: DefaultConstraintLimit
   sourceCardinality: "1"
   sourceName: securityConstraintSum
   targetCardinality: 0..1
   targetName: defaultConstraintLimit
+- source: SecurityConstraintSum
+  target: RTO
+  sourceCardinality: 0..*
+  sourceName: securityConstraintsLinear
+  targetCardinality: 0..1
+  targetName: rto

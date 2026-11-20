@@ -5,14 +5,14 @@ ancestors:
 - Curve
 associations:
 - source: StartUpCostCurve
-  target: RegisteredGenerator
-  sourceCardinality: 0..*
-  sourceName: startUpCostCurves
-  targetCardinality: 0..*
-  targetName: registeredGenerators
-- source: StartUpCostCurve
   target: GeneratingBid
   sourceCardinality: 0..1
   sourceName: startUpCostCurve
   targetCardinality: 0..*
   targetName: generatingBid
+- source: StartUpCostCurve
+  target: RegisteredGenerator
+  sourceCardinality: 0..*
+  sourceName: startUpCostCurves
+  targetCardinality: 0..*
+  targetName: registeredGenerators

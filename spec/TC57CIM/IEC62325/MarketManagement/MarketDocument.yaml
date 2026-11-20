@@ -6,17 +6,11 @@ descendants:
 - MarketAgreement
 associations:
 - source: MarketDocument
-  target: MarketDocument
+  target: AceTariffType
   sourceCardinality: 0..*
   sourceName: marketDocument
   targetCardinality: 0..*
-  targetName: selfMarketDocument
-- source: MarketDocument
-  target: Domain
-  sourceCardinality: 0..*
-  sourceName: marketDocument
-  targetCardinality: 0..*
-  targetName: domain
+  targetName: aceTariffType
 - source: MarketDocument
   target: AttributeInstanceComponent
   sourceCardinality: 0..*
@@ -24,23 +18,29 @@ associations:
   targetCardinality: 0..*
   targetName: attributeInstanceComponent
 - source: MarketDocument
-  target: Period
-  sourceCardinality: 0..*
-  sourceName: marketDocument
-  targetCardinality: 0..*
-  targetName: period
-- source: MarketDocument
   target: DateAndOrTime
   sourceCardinality: 0..*
   sourceName: marketDocument
   targetCardinality: 0..*
   targetName: dateAndOrTime
 - source: MarketDocument
-  target: AceTariffType
+  target: Domain
   sourceCardinality: 0..*
   sourceName: marketDocument
   targetCardinality: 0..*
-  targetName: aceTariffType
+  targetName: domain
+- source: MarketDocument
+  target: MarketParticipant
+  sourceCardinality: 0..*
+  sourceName: marketDocument
+  targetCardinality: 0..*
+  targetName: marketParticipant
+- source: MarketDocument
+  target: Period
+  sourceCardinality: 0..*
+  sourceName: marketDocument
+  targetCardinality: 0..*
+  targetName: period
 - source: MarketDocument
   target: Process
   sourceCardinality: 0..*
@@ -54,14 +54,14 @@ associations:
   targetCardinality: 0..*
   targetName: reason
 - source: MarketDocument
+  target: MarketDocument
+  sourceCardinality: 0..*
+  sourceName: marketDocument
+  targetCardinality: 0..*
+  targetName: selfMarketDocument
+- source: MarketDocument
   target: TimeSeries
   sourceCardinality: 0..*
   sourceName: marketDocument
   targetCardinality: 0..*
   targetName: timeSeries
-- source: MarketDocument
-  target: MarketParticipant
-  sourceCardinality: 0..*
-  sourceName: marketDocument
-  targetCardinality: 0..*
-  targetName: marketParticipant
