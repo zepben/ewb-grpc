@@ -1,17 +1,16 @@
 name: CSCDynamics
-description: CSC function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or by
-  definition of a user-defined model.</font>
+description: CSC function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or by definition of a user-defined model.</font>
 ancestors:
-- HVDCDynamics
+  - HVDCDynamics
 descendants:
-- CSCUserDefined
-- CSCtype1
+  - CSCUserDefined
+  - CSCtype1
 associations:
-- source: CSCDynamics
-  target: CsConverter
-  sourceCardinality: 0..1
-  sourceName: cscDynamics
-  sourceDescription: Current source converter dynamics model used to describe dynamic behaviour of this converter.
-  targetCardinality: "1"
-  targetName: csConverter
-  targetDescription: Current source converter to which current source converter dynamics model applies.
+  - source: CSCDynamics
+    target: CsConverter
+    sourceCardinality: 0..1
+    sourceName: cscDynamics
+    sourceDescription: Current source converter dynamics model used to describe dynamic behaviour of this converter.
+    targetCardinality: "1"
+    targetName: csConverter
+    targetDescription: Current source converter to which current source converter dynamics model applies.

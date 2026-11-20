@@ -1,27 +1,24 @@
 name: PositionPoint
-description: Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'.
-  Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe
-  a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like
-  a substation or a geographical zone - in this case, have first and last position point with the same values).
+description: Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values).
 attributes:
-- name: sequenceNumber
-  type: Integer
-  nullable: false
-  description: Order of the position point within the parent location geometry.
-- name: xPosition
-  type: Float
-  nullable: false
-  description: X axis position.
-- name: yPosition
-  type: Float
-  nullable: false
-  description: Y axis position.
+  - name: sequenceNumber
+    type: Integer
+    description: Order of the position point within the parent location geometry.
+    nullable: false
+  - name: xPosition
+    type: Float
+    description: X axis position.
+    nullable: false
+  - name: yPosition
+    type: Float
+    description: Y axis position.
+    nullable: false
 associations:
-- source: PositionPoint
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: positionPoints
-  sourceDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
-  targetCardinality: "1"
-  targetName: location
-  targetDescription: Location described by this position point.
+  - source: PositionPoint
+    target: Location
+    sourceCardinality: 0..*
+    sourceName: positionPoints
+    sourceDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+    targetCardinality: "1"
+    targetName: location
+    targetDescription: Location described by this position point.

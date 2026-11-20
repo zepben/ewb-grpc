@@ -1,21 +1,21 @@
 name: NonConformLoadGroup
 description: Loads that do not follow a daily and seasonal load variation pattern.
 ancestors:
-- LoadGroup
+  - LoadGroup
 associations:
-- source: NonConformLoadGroup
-  target: NonConformLoad
-  sourceCardinality: 0..1
-  sourceName: loadGroup
-  sourceDescription: Group of this ConformLoad.
-  targetCardinality: 0..*
-  targetName: energyConsumers
-  targetDescription: Conform loads assigned to this ConformLoadGroup.
-- source: NonConformLoadGroup
-  target: NonConformLoadSchedule
-  sourceCardinality: "1"
-  sourceName: nonConformLoadGroup
-  sourceDescription: The NonConformLoadGroup where the NonConformLoadSchedule belongs.
-  targetCardinality: 0..*
-  targetName: nonConformLoadSchedules
-  targetDescription: The NonConformLoadSchedules in the NonConformLoadGroup.
+  - source: NonConformLoadGroup
+    target: NonConformLoad
+    sourceCardinality: 0..1
+    sourceName: loadGroup
+    sourceDescription: Group of this ConformLoad.
+    targetCardinality: 0..*
+    targetName: energyConsumers
+    targetDescription: Conform loads assigned to this ConformLoadGroup.
+  - source: NonConformLoadGroup
+    target: NonConformLoadSchedule
+    sourceCardinality: "1"
+    sourceName: nonConformLoadGroup
+    sourceDescription: The NonConformLoadGroup where the NonConformLoadSchedule belongs.
+    targetCardinality: 0..*
+    targetName: nonConformLoadSchedules
+    targetDescription: The NonConformLoadSchedules in the NonConformLoadGroup.

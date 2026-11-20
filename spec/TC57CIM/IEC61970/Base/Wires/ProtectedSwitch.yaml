@@ -1,29 +1,29 @@
 name: ProtectedSwitch
 description: A ProtectedSwitch is a switching device that can be operated by ProtectionEquipment.
 attributes:
-- name: breakingCapacity
-  type: CurrentFlow
-  description: The maximum fault current a breaking device can break safely under prescribed conditions of use.
+  - name: breakingCapacity
+    type: CurrentFlow
+    description: The maximum fault current a breaking device can break safely under prescribed conditions of use.
 ancestors:
-- Switch
+  - Switch
 descendants:
-- Breaker
-- LoadBreakSwitch
-- Recloser
+  - Breaker
+  - LoadBreakSwitch
+  - Recloser
 associations:
-- source: ProtectedSwitch
-  target: ProtectionEquipment
-  sourceCardinality: 0..*
-  sourceName: protectedSwitches
-  sourceDescription: Protected switches operated by this ProtectionEquipment.
-  targetCardinality: 0..*
-  targetName: operatedByProtectionEquipment
-  targetDescription: Protection equipments that operate this ProtectedSwitch.
-- source: ProtectedSwitch
-  target: RecloseSequence
-  sourceCardinality: "1"
-  sourceName: protectedSwitch
-  sourceDescription: A breaker may have zero or more automatic reclosures after a trip occurs.
-  targetCardinality: 0..*
-  targetName: recloseSequences
-  targetDescription: A breaker may have zero or more automatic reclosures after a trip occurs.
+  - source: ProtectedSwitch
+    target: ProtectionEquipment
+    sourceCardinality: 0..*
+    sourceName: protectedSwitches
+    sourceDescription: Protected switches operated by this ProtectionEquipment.
+    targetCardinality: 0..*
+    targetName: operatedByProtectionEquipment
+    targetDescription: Protection equipments that operate this ProtectedSwitch.
+  - source: ProtectedSwitch
+    target: RecloseSequence
+    sourceCardinality: "1"
+    sourceName: protectedSwitch
+    sourceDescription: A breaker may have zero or more automatic reclosures after a trip occurs.
+    targetCardinality: 0..*
+    targetName: recloseSequences
+    targetDescription: A breaker may have zero or more automatic reclosures after a trip occurs.

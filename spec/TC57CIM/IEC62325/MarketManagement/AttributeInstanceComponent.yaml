@@ -1,25 +1,25 @@
 name: AttributeInstanceComponent
 description: A class used to provide information about an attribute.
 attributes:
-- name: attribute
-  type: String
-  description: The identification of the formal name of an attribute.
-- name: attributeValue
-  type: String
-  description: The instance value of the attribute.
-- name: position
-  type: Integer
-  description: A sequential value representing a relative sequence number.
+  - name: attribute
+    type: String
+    description: The identification of the formal name of an attribute.
+  - name: attributeValue
+    type: String
+    description: The instance value of the attribute.
+  - name: position
+    type: Integer
+    description: A sequential value representing a relative sequence number.
 associations:
-- source: AttributeInstanceComponent
-  target: MarketDocument
-  sourceCardinality: 0..*
-  sourceName: attributeInstanceComponent
-  targetCardinality: 0..*
-  targetName: marketDocument
-- source: AttributeInstanceComponent
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: attributeInstanceComponent
-  targetCardinality: 0..*
-  targetName: timeSeries
+  - source: AttributeInstanceComponent
+    target: MarketDocument
+    sourceCardinality: 0..*
+    sourceName: attributeInstanceComponent
+    targetCardinality: 0..*
+    targetName: marketDocument
+  - source: AttributeInstanceComponent
+    target: TimeSeries
+    sourceCardinality: 0..*
+    sourceName: attributeInstanceComponent
+    targetCardinality: 0..*
+    targetName: timeSeries

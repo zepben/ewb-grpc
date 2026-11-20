@@ -4,26 +4,25 @@ description: |-
   The cut terminals are oriented towards the line segment terminals with the same sequence number. Hence the cut terminal with sequence number equal to 1 is oriented to the line segment's terminal with sequence number equal to 1.
   The cut terminals also act as connection points for jumpers and other equipment, e.g. a mobile generator. To enable this, connectivity nodes are placed at the cut terminals. Once the connectivity nodes are in place any conducting equipment can be connected at them.
 attributes:
-- name: lengthFromTerminal1
-  type: Length
-  description: The length to the place where the cut is located starting from side one of the cut line segment, i.e. the line
-    segment Terminal with sequenceNumber equal to 1.
+  - name: lengthFromTerminal1
+    type: Length
+    description: The length to the place where the cut is located starting from side one of the cut line segment, i.e. the line segment Terminal with sequenceNumber equal to 1.
 ancestors:
-- Switch
+  - Switch
 associations:
-- source: Cut
-  target: ACLineSegment
-  sourceCardinality: 0..*
-  sourceName: cut
-  sourceDescription: Cuts applied to the line segment.
-  targetCardinality: "1"
-  targetName: acLineSegment
-  targetDescription: The line segment to which the cut is applied.
-- source: Cut
-  target: CutAction
-  sourceCardinality: 0..1
-  sourceName: cut
-  sourceDescription: Cut on which this action is taken.
-  targetCardinality: 0..1
-  targetName: cutAction
-  targetDescription: Action taken with this cut.
+  - source: Cut
+    target: ACLineSegment
+    sourceCardinality: 0..*
+    sourceName: cut
+    sourceDescription: Cuts applied to the line segment.
+    targetCardinality: "1"
+    targetName: acLineSegment
+    targetDescription: The line segment to which the cut is applied.
+  - source: Cut
+    target: CutAction
+    sourceCardinality: 0..1
+    sourceName: cut
+    sourceDescription: Cut on which this action is taken.
+    targetCardinality: 0..1
+    targetName: cutAction
+    targetDescription: Action taken with this cut.

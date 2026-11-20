@@ -1,35 +1,35 @@
 name: IndividualPnode
 description: Individual pricing node based on Pnode.
 ancestors:
-- Pnode
+  - Pnode
 associations:
-- source: IndividualPnode
-  target: CongestionArea
-  sourceCardinality: 0..*
-  sourceName: individualPnode
-  targetCardinality: 0..*
-  targetName: congestionArea
-- source: IndividualPnode
-  target: GenDistributionFactor
-  sourceCardinality: 0..1
-  sourceName: individualPnode
-  targetCardinality: 0..1
-  targetName: genDistributionFactor
-- source: IndividualPnode
-  target: LoadDistributionFactor
-  sourceCardinality: 0..1
-  sourceName: individualPnode
-  targetCardinality: 0..1
-  targetName: loadDistributionFactor
-- source: IndividualPnode
-  target: MktConnectivityNode
-  sourceCardinality: 0..1
-  sourceName: individualPnode
-  targetCardinality: "1"
-  targetName: mktConnectivityNode
-- source: IndividualPnode
-  target: PnodeDistributionFactor
-  sourceCardinality: "1"
-  sourceName: individualPnode
-  targetCardinality: 0..*
-  targetName: pnodeDistributionFactor
+  - source: IndividualPnode
+    target: CongestionArea
+    sourceCardinality: 0..*
+    sourceName: individualPnode
+    targetCardinality: 0..*
+    targetName: congestionArea
+  - source: IndividualPnode
+    target: GenDistributionFactor
+    sourceCardinality: 0..1
+    sourceName: individualPnode
+    targetCardinality: 0..1
+    targetName: genDistributionFactor
+  - source: IndividualPnode
+    target: LoadDistributionFactor
+    sourceCardinality: 0..1
+    sourceName: individualPnode
+    targetCardinality: 0..1
+    targetName: loadDistributionFactor
+  - source: IndividualPnode
+    target: MktConnectivityNode
+    sourceCardinality: 0..1
+    sourceName: individualPnode
+    targetCardinality: "1"
+    targetName: mktConnectivityNode
+  - source: IndividualPnode
+    target: PnodeDistributionFactor
+    sourceCardinality: "1"
+    sourceName: individualPnode
+    targetCardinality: 0..*
+    targetName: pnodeDistributionFactor

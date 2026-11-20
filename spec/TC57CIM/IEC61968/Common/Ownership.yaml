@@ -1,25 +1,25 @@
 name: Ownership
 description: Ownership of e.g. asset.
 attributes:
-- name: share
-  type: PerCent
-  description: Share of this ownership.
+  - name: share
+    type: PerCent
+    description: Share of this ownership.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: Ownership
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: ownerships
-  sourceDescription: All ownerships of this asset.
-  targetCardinality: 0..1
-  targetName: asset
-  targetDescription: Asset that is object of this ownership.
-- source: Ownership
-  target: AssetOwner
-  sourceCardinality: 0..*
-  sourceName: ownerships
-  sourceDescription: All ownerships of this owner.
-  targetCardinality: 0..1
-  targetName: assetOwner
-  targetDescription: Asset owner that is subject in this ownership.
+  - source: Ownership
+    target: Asset
+    sourceCardinality: 0..*
+    sourceName: ownerships
+    sourceDescription: All ownerships of this asset.
+    targetCardinality: 0..1
+    targetName: asset
+    targetDescription: Asset that is object of this ownership.
+  - source: Ownership
+    target: AssetOwner
+    sourceCardinality: 0..*
+    sourceName: ownerships
+    sourceDescription: All ownerships of this owner.
+    targetCardinality: 0..1
+    targetName: assetOwner
+    targetDescription: Asset owner that is subject in this ownership.

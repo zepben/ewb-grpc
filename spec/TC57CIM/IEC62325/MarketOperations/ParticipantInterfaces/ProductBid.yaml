@@ -1,43 +1,43 @@
 name: ProductBid
 description: Component of a bid that pertains to one market product.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: ProductBid
-  target: Bid
-  sourceCardinality: 1..*
-  sourceName: productBids
-  sourceDescription: A bid comprises one or more product bids of market products
-  targetCardinality: "1"
-  targetName: bid
-  targetDescription: A bid comprises one or more product bids of market products
-- source: ProductBid
-  target: BidDistributionFactor
-  sourceCardinality: "1"
-  sourceName: productBid
-  targetCardinality: 0..*
-  targetName: bidDistributionFactor
-- source: ProductBid
-  target: BidHourlyProductSchedule
-  sourceCardinality: "1"
-  sourceName: productBid
-  targetCardinality: 0..*
-  targetName: bidHourlyProductSchedule
-- source: ProductBid
-  target: BidPriceSchedule
-  sourceCardinality: "1"
-  sourceName: productBid
-  targetCardinality: 0..*
-  targetName: bidSchedule
-- source: ProductBid
-  target: BidSelfSched
-  sourceCardinality: "1"
-  sourceName: productBid
-  targetCardinality: 0..*
-  targetName: bidSelfSched
-- source: ProductBid
-  target: MarketProduct
-  sourceCardinality: 0..*
-  sourceName: productBids
-  targetCardinality: "1"
-  targetName: marketProduct
+  - source: ProductBid
+    target: Bid
+    sourceCardinality: 1..*
+    sourceName: productBids
+    sourceDescription: A bid comprises one or more product bids of market products
+    targetCardinality: "1"
+    targetName: bid
+    targetDescription: A bid comprises one or more product bids of market products
+  - source: ProductBid
+    target: BidDistributionFactor
+    sourceCardinality: "1"
+    sourceName: productBid
+    targetCardinality: 0..*
+    targetName: bidDistributionFactor
+  - source: ProductBid
+    target: BidHourlyProductSchedule
+    sourceCardinality: "1"
+    sourceName: productBid
+    targetCardinality: 0..*
+    targetName: bidHourlyProductSchedule
+  - source: ProductBid
+    target: BidPriceSchedule
+    sourceCardinality: "1"
+    sourceName: productBid
+    targetCardinality: 0..*
+    targetName: bidSchedule
+  - source: ProductBid
+    target: BidSelfSched
+    sourceCardinality: "1"
+    sourceName: productBid
+    targetCardinality: 0..*
+    targetName: bidSelfSched
+  - source: ProductBid
+    target: MarketProduct
+    sourceCardinality: 0..*
+    sourceName: productBids
+    targetCardinality: "1"
+    targetName: marketProduct

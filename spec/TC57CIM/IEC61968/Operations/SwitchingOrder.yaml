@@ -1,24 +1,24 @@
 name: SwitchingOrder
 description: Transmits a switching plan to a crew in order for the plan to be executed.
 attributes:
-- name: comment
-  type: String
-  description: Free-form comment associated with the switching order.
-- name: plannedExecutionInterval
-  type: DateTimeInterval
-  description: The planned start and end time for the switching order.
+  - name: comment
+    type: String
+    description: Free-form comment associated with the switching order.
+  - name: plannedExecutionInterval
+    type: DateTimeInterval
+    description: The planned start and end time for the switching order.
 ancestors:
-- Document
+  - Document
 associations:
-- source: SwitchingOrder
-  target: Location
-  sourceCardinality: 0..1
-  sourceName: switchingOrder
-  targetCardinality: 0..*
-  targetName: location
-- source: SwitchingOrder
-  target: SwitchingPlan
-  sourceCardinality: 0..1
-  sourceName: switchingOrder
-  targetCardinality: 0..1
-  targetName: switchingPlan
+  - source: SwitchingOrder
+    target: Location
+    sourceCardinality: 0..1
+    sourceName: switchingOrder
+    targetCardinality: 0..*
+    targetName: location
+  - source: SwitchingOrder
+    target: SwitchingPlan
+    sourceCardinality: 0..1
+    sourceName: switchingOrder
+    targetCardinality: 0..1
+    targetName: switchingPlan

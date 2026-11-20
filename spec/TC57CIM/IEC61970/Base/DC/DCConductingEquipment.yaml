@@ -1,33 +1,32 @@
 name: DCConductingEquipment
-description: The parts of the DC power system that are designed to carry current or that are conductively connected through
-  DC terminals.
+description: The parts of the DC power system that are designed to carry current or that are conductively connected through DC terminals.
 attributes:
-- name: ratedUdc
-  type: Voltage
-  description: Rated DC device voltage. The attribute shall be a positive value. It is configuration data used in power flow.
+  - name: ratedUdc
+    type: Voltage
+    description: Rated DC device voltage. The attribute shall be a positive value. It is configuration data used in power flow.
 ancestors:
-- Equipment
+  - Equipment
 descendants:
-- DCBusbar
-- DCChopper
-- DCGround
-- DCLineSegment
-- DCSeriesDevice
-- DCShunt
-- DCSwitch
+  - DCBusbar
+  - DCChopper
+  - DCGround
+  - DCLineSegment
+  - DCSeriesDevice
+  - DCShunt
+  - DCSwitch
 associations:
-- source: DCConductingEquipment
-  target: DCTerminal
-  sourceCardinality: "1"
-  sourceName: dcConductingEquipment
-  sourceDescription: An DC  terminal belong to a DC conducting equipment.
-  targetCardinality: 0..*
-  targetName: dcTerminals
-  targetDescription: A DC conducting equipment has DC terminals.
-- source: DCConductingEquipment
-  target: ProtectiveActionAdjustment
-  sourceCardinality: "1"
-  sourceName: dcConductingEquipment
-  sourceDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
-  targetCardinality: 0..*
-  targetName: protectiveActionAdjustment
+  - source: DCConductingEquipment
+    target: DCTerminal
+    sourceCardinality: "1"
+    sourceName: dcConductingEquipment
+    sourceDescription: An DC  terminal belong to a DC conducting equipment.
+    targetCardinality: 0..*
+    targetName: dcTerminals
+    targetDescription: A DC conducting equipment has DC terminals.
+  - source: DCConductingEquipment
+    target: ProtectiveActionAdjustment
+    sourceCardinality: "1"
+    sourceName: dcConductingEquipment
+    sourceDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+    targetCardinality: 0..*
+    targetName: protectiveActionAdjustment

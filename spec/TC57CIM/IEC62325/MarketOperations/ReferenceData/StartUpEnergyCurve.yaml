@@ -1,12 +1,11 @@
 name: StartUpEnergyCurve
-description: The energy consumption of a generating resource to complete a start-up from the StartUpEnergyCurve. Definition
-  of the StartUpEnergyCurve includes, xvalue as the cooling time and y1value as the MW value.
+description: The energy consumption of a generating resource to complete a start-up from the StartUpEnergyCurve. Definition of the StartUpEnergyCurve includes, xvalue as the cooling time and y1value as the MW value.
 ancestors:
-- Curve
+  - Curve
 associations:
-- source: StartUpEnergyCurve
-  target: RegisteredGenerator
-  sourceCardinality: 0..1
-  sourceName: startUpEnergyCurve
-  targetCardinality: 0..1
-  targetName: registeredGenerator
+  - source: StartUpEnergyCurve
+    target: RegisteredGenerator
+    sourceCardinality: 0..1
+    sourceName: startUpEnergyCurve
+    targetCardinality: 0..1
+    targetName: registeredGenerator

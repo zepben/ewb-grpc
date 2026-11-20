@@ -1,29 +1,27 @@
 name: TransformerTank
-description: An assembly of two or more coupled windings that transform electrical power between voltage levels. These windings
-  are bound on a common core and placed in the same tank. Transformer tank can be used to model both single-phase and 3-phase
-  transformers.
+description: An assembly of two or more coupled windings that transform electrical power between voltage levels. These windings are bound on a common core and placed in the same tank. Transformer tank can be used to model both single-phase and 3-phase transformers.
 ancestors:
-- Equipment
+  - Equipment
 associations:
-- source: TransformerTank
-  target: PowerTransformer
-  sourceCardinality: 0..*
-  sourceName: transformerTanks
-  sourceDescription: All transformers that belong to this bank.
-  targetCardinality: 0..1
-  targetName: powerTransformer
-  targetDescription: Bank this transformer belongs to.
-- source: TransformerTank
-  target: TransformerObservation
-  sourceCardinality: 0..1
-  sourceName: transformer
-  targetCardinality: 0..*
-  targetName: transformerObservations
-- source: TransformerTank
-  target: TransformerTankEnd
-  sourceCardinality: 0..1
-  sourceName: transformerTank
-  sourceDescription: Transformer this winding belongs to.
-  targetCardinality: 1..*
-  targetName: transformerTankEnds
-  targetDescription: All windings of this transformer.
+  - source: TransformerTank
+    target: PowerTransformer
+    sourceCardinality: 0..*
+    sourceName: transformerTanks
+    sourceDescription: All transformers that belong to this bank.
+    targetCardinality: 0..1
+    targetName: powerTransformer
+    targetDescription: Bank this transformer belongs to.
+  - source: TransformerTank
+    target: TransformerObservation
+    sourceCardinality: 0..1
+    sourceName: transformer
+    targetCardinality: 0..*
+    targetName: transformerObservations
+  - source: TransformerTank
+    target: TransformerTankEnd
+    sourceCardinality: 0..1
+    sourceName: transformerTank
+    sourceDescription: Transformer this winding belongs to.
+    targetCardinality: 1..*
+    targetName: transformerTankEnds
+    targetDescription: All windings of this transformer.

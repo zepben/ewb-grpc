@@ -1,29 +1,29 @@
 name: MeterWorkTask
 description: Work task involving meters.
 ancestors:
-- WorkTask
+  - WorkTask
 associations:
-- source: MeterWorkTask
-  target: Meter
-  sourceCardinality: 0..*
-  sourceName: meterServiceWorkTask
-  sourceDescription: All non-replacement work tasks on this meter.
-  targetCardinality: 0..1
-  targetName: meter
-  targetDescription: Meter on which this non-replacement work task is performed.
-- source: MeterWorkTask
-  target: Meter
-  sourceCardinality: 0..*
-  sourceName: meterReplacementWorkTasks
-  sourceDescription: All work tasks on replacement of this old meter.
-  targetCardinality: 0..1
-  targetName: oldMeter
-  targetDescription: Old meter replaced by this work task.
-- source: MeterWorkTask
-  target: UsagePoint
-  sourceCardinality: 0..*
-  sourceName: meterServiceWorkTasks
-  sourceDescription: All meter service work tasks at this usage point.
-  targetCardinality: 0..1
-  targetName: usagePoint
-  targetDescription: Usage point to which this meter service work task applies.
+  - source: MeterWorkTask
+    target: Meter
+    sourceCardinality: 0..*
+    sourceName: meterServiceWorkTask
+    sourceDescription: All non-replacement work tasks on this meter.
+    targetCardinality: 0..1
+    targetName: meter
+    targetDescription: Meter on which this non-replacement work task is performed.
+  - source: MeterWorkTask
+    target: Meter
+    sourceCardinality: 0..*
+    sourceName: meterReplacementWorkTasks
+    sourceDescription: All work tasks on replacement of this old meter.
+    targetCardinality: 0..1
+    targetName: oldMeter
+    targetDescription: Old meter replaced by this work task.
+  - source: MeterWorkTask
+    target: UsagePoint
+    sourceCardinality: 0..*
+    sourceName: meterServiceWorkTasks
+    sourceDescription: All meter service work tasks at this usage point.
+    targetCardinality: 0..1
+    targetName: usagePoint
+    targetDescription: Usage point to which this meter service work task applies.

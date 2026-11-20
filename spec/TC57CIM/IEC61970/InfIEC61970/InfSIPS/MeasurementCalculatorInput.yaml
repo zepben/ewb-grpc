@@ -1,27 +1,26 @@
 name: MeasurementCalculatorInput
 description: Input to measurement calculation.  Support Analog, Discrete and Accumulator.
 attributes:
-- name: absoluteValue
-  type: Boolean
-  description: If true, use the absolute value for the calculation.
-- name: order
-  type: Integer
-  description: Positive number that defines the order of the operant in the calculation. 0 = default. The order is not relevant
-    (e.g. summation).
+  - name: absoluteValue
+    type: Boolean
+    description: If true, use the absolute value for the calculation.
+  - name: order
+    type: Integer
+    description: Positive number that defines the order of the operant in the calculation. 0 = default. The order is not relevant (e.g. summation).
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: MeasurementCalculatorInput
-  target: Measurement
-  sourceCardinality: 0..*
-  sourceName: measurementCalculatorInput
-  targetCardinality: "1"
-  targetName: measurement
-  targetDescription: Measurement used as input to a calculation.
-- source: MeasurementCalculatorInput
-  target: MeasurementCalculator
-  sourceCardinality: 1..*
-  sourceName: measurementCalculatorInput
-  sourceDescription: Used in the calculation.
-  targetCardinality: "1"
-  targetName: measurementCalculator
+  - source: MeasurementCalculatorInput
+    target: Measurement
+    sourceCardinality: 0..*
+    sourceName: measurementCalculatorInput
+    targetCardinality: "1"
+    targetName: measurement
+    targetDescription: Measurement used as input to a calculation.
+  - source: MeasurementCalculatorInput
+    target: MeasurementCalculator
+    sourceCardinality: 1..*
+    sourceName: measurementCalculatorInput
+    sourceDescription: Used in the calculation.
+    targetCardinality: "1"
+    targetName: measurementCalculator

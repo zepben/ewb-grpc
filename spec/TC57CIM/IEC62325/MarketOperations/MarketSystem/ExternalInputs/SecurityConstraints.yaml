@@ -1,34 +1,33 @@
 name: SecurityConstraints
-description: Typical for regional transmission operators (RTOs), these constraints include transmission as well as generation
-  group constraints identified in both base case and critical contingency cases.
+description: Typical for regional transmission operators (RTOs), these constraints include transmission as well as generation group constraints identified in both base case and critical contingency cases.
 attributes:
-- name: actualMW
-  type: ActivePower
-  description: Actual branch or group of branches MW flow (only for transmission constraints)
-- name: maxMW
-  type: ActivePower
-  description: Maximum MW limit
-- name: minMW
-  type: ActivePower
-  description: Minimum MW limit (only for transmission constraints).
+  - name: actualMW
+    type: ActivePower
+    description: Actual branch or group of branches MW flow (only for transmission constraints)
+  - name: maxMW
+    type: ActivePower
+    description: Maximum MW limit
+  - name: minMW
+    type: ActivePower
+    description: Minimum MW limit (only for transmission constraints).
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: SecurityConstraints
-  target: Flowgate
-  sourceCardinality: 0..1
-  sourceName: securityConstraints
-  targetCardinality: 0..1
-  targetName: flowgate
-- source: SecurityConstraints
-  target: GeneratingBid
-  sourceCardinality: 0..*
-  sourceName: securityConstraints
-  targetCardinality: 0..1
-  targetName: generatingBid
-- source: SecurityConstraints
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: securityConstraints
-  targetCardinality: 0..1
-  targetName: rto
+  - source: SecurityConstraints
+    target: Flowgate
+    sourceCardinality: 0..1
+    sourceName: securityConstraints
+    targetCardinality: 0..1
+    targetName: flowgate
+  - source: SecurityConstraints
+    target: GeneratingBid
+    sourceCardinality: 0..*
+    sourceName: securityConstraints
+    targetCardinality: 0..1
+    targetName: generatingBid
+  - source: SecurityConstraints
+    target: RTO
+    sourceCardinality: 0..*
+    sourceName: securityConstraints
+    targetCardinality: 0..1
+    targetName: rto

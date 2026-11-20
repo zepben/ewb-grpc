@@ -1,14 +1,13 @@
 name: PenstockLossCurve
-description: Relationship between penstock head loss (in meters) and  total discharge through the penstock (in cubic meters
-  per second). One or more turbines may be connected to the same penstock.
+description: Relationship between penstock head loss (in meters) and  total discharge through the penstock (in cubic meters per second). One or more turbines may be connected to the same penstock.
 ancestors:
-- Curve
+  - Curve
 associations:
-- source: PenstockLossCurve
-  target: HydroGeneratingUnit
-  sourceCardinality: 0..1
-  sourceName: penstockLossCurve
-  sourceDescription: A hydro generating unit has a penstock loss curve.
-  targetCardinality: "1"
-  targetName: hydroGeneratingUnit
-  targetDescription: A hydro generating unit has a penstock loss curve.
+  - source: PenstockLossCurve
+    target: HydroGeneratingUnit
+    sourceCardinality: 0..1
+    sourceName: penstockLossCurve
+    sourceDescription: A hydro generating unit has a penstock loss curve.
+    targetCardinality: "1"
+    targetName: hydroGeneratingUnit
+    targetDescription: A hydro generating unit has a penstock loss curve.

@@ -1,28 +1,27 @@
 name: RotatingMachine
 description: A rotating machine which may be used as a generator or motor.
 attributes:
-- name: p
-  type: Integer
-  nullable: true
-  description: Active power injection in watts. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
-- name: q
-  type: Double
-  nullable: true
-  description: Reactive power injection in VAr. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
-- name: ratedPowerFactor
-  type: Float
-  nullable: true
-  description: Power factor (nameplate data). It is primarily used for short circuit data exchange according to IEC 60909. The attribute cannot be a negative value.
-- name: ratedS
-  type: Integer
-  nullable: true
-  description: Nameplate apparent power rating for the unit in volt-amperes (VA). The attribute shall have a positive value.
-- name: ratedU
-  type: Double
-  nullable: true
-  description: Rated voltage in volts (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according to IEC 60909. 
-    The attribute shall be a positive value.
+  - name: p
+    type: Integer
+    description: Active power injection in watts. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
+    nullable: true
+  - name: q
+    type: Double
+    description: Reactive power injection in VAr. Load sign convention is used, i.e. positive sign means flow out from a node. Starting value for a steady state solution.
+    nullable: true
+  - name: ratedPowerFactor
+    type: Float
+    description: Power factor (nameplate data). It is primarily used for short circuit data exchange according to IEC 60909. The attribute cannot be a negative value.
+    nullable: true
+  - name: ratedS
+    type: Integer
+    description: Nameplate apparent power rating for the unit in volt-amperes (VA). The attribute shall have a positive value.
+    nullable: true
+  - name: ratedU
+    type: Double
+    description: Rated voltage in volts (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according to IEC 60909. The attribute shall be a positive value.
+    nullable: true
 ancestors:
-- RegulatingCondEq
+  - RegulatingCondEq
 descendants:
-- SynchronousMachine
+  - SynchronousMachine

@@ -1,72 +1,71 @@
 name: Gate
 description: Logical gate than support logical operation based on the input.
 attributes:
-- name: kind
-  type: GateLogicKind
-  description: The logical operation of the gate.
+  - name: kind
+    type: GateLogicKind
+    description: The logical operation of the gate.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: Gate
-  target: GateInputPin
-  sourceCardinality: "1"
-  sourceName: gate
-  targetCardinality: 1..*
-  targetName: gateInputPin
-  targetDescription: Input to the gate.
-- source: Gate
-  target: PinGate
-  sourceCardinality: "1"
-  sourceName: gateOutput
-  targetCardinality: 0..*
-  targetName: pinGate
-- source: Gate
-  target: ProtectiveAction
-  sourceCardinality: 0..1
-  sourceName: gateComCondition
-  targetCardinality: 0..*
-  targetName: protectiveActionCom
-  targetDescription: For the ProtectiveAction to be activated the condition for communication needs to be met (true).
-- source: Gate
-  target: ProtectiveAction
-  sourceCardinality: 0..1
-  sourceName: gateEnabledCondition
-  sourceDescription: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
-  targetCardinality: 0..*
-  targetName: protectiveActionEnabled
-- source: Gate
-  target: RemedialActionScheme
-  sourceCardinality: 0..1
-  sourceName: gateArmed
-  sourceDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).
-  targetCardinality: 0..*
-  targetName: remedialActionScheme
-- source: Gate
-  target: StageTrigger
-  sourceCardinality: 0..1
-  sourceName: gateTrigger
-  sourceDescription: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
-  targetCardinality: 0..*
-  targetName: stageTrigger
-- source: Gate
-  target: StageTrigger
-  sourceCardinality: 0..1
-  sourceName: gateArmed
-  sourceDescription: Association to a Gate that through a gate logic and input pin defines arming of the StageTrigger.
-  targetCardinality: 0..*
-  targetName: stageTriggerArmed
-- source: Gate
-  target: StageTrigger
-  sourceCardinality: 0..1
-  sourceName: gateComCondition
-  sourceDescription: For the StageTrigger to active the set of protective actions the condition for communication needs to
-    be met (true).
-  targetCardinality: 0..*
-  targetName: stageTriggerCom
-- source: Gate
-  target: TriggerCondition
-  sourceCardinality: "1"
-  sourceName: gateTrigger
-  sourceDescription: The resulting Gate that is the condition for the Trigger.
-  targetCardinality: 0..*
-  targetName: triggerCondition
+  - source: Gate
+    target: GateInputPin
+    sourceCardinality: "1"
+    sourceName: gate
+    targetCardinality: 1..*
+    targetName: gateInputPin
+    targetDescription: Input to the gate.
+  - source: Gate
+    target: PinGate
+    sourceCardinality: "1"
+    sourceName: gateOutput
+    targetCardinality: 0..*
+    targetName: pinGate
+  - source: Gate
+    target: ProtectiveAction
+    sourceCardinality: 0..1
+    sourceName: gateComCondition
+    targetCardinality: 0..*
+    targetName: protectiveActionCom
+    targetDescription: For the ProtectiveAction to be activated the condition for communication needs to be met (true).
+  - source: Gate
+    target: ProtectiveAction
+    sourceCardinality: 0..1
+    sourceName: gateEnabledCondition
+    sourceDescription: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
+    targetCardinality: 0..*
+    targetName: protectiveActionEnabled
+  - source: Gate
+    target: RemedialActionScheme
+    sourceCardinality: 0..1
+    sourceName: gateArmed
+    sourceDescription: Gate that through a gate logic and input pin defines arming of the Remedial Action Schemes (RAS).
+    targetCardinality: 0..*
+    targetName: remedialActionScheme
+  - source: Gate
+    target: StageTrigger
+    sourceCardinality: 0..1
+    sourceName: gateTrigger
+    sourceDescription: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
+    targetCardinality: 0..*
+    targetName: stageTrigger
+  - source: Gate
+    target: StageTrigger
+    sourceCardinality: 0..1
+    sourceName: gateArmed
+    sourceDescription: Association to a Gate that through a gate logic and input pin defines arming of the StageTrigger.
+    targetCardinality: 0..*
+    targetName: stageTriggerArmed
+  - source: Gate
+    target: StageTrigger
+    sourceCardinality: 0..1
+    sourceName: gateComCondition
+    sourceDescription: For the StageTrigger to active the set of protective actions the condition for communication needs to be met (true).
+    targetCardinality: 0..*
+    targetName: stageTriggerCom
+  - source: Gate
+    target: TriggerCondition
+    sourceCardinality: "1"
+    sourceName: gateTrigger
+    sourceDescription: The resulting Gate that is the condition for the Trigger.
+    targetCardinality: 0..*
+    targetName: triggerCondition

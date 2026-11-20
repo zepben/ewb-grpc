@@ -1,18 +1,17 @@
 name: PSREvent
-description: Event recording the change in operational status of a power system resource; may be for an event that has already
-  occurred or for a planned activity.
+description: Event recording the change in operational status of a power system resource; may be for an event that has already occurred or for a planned activity.
 attributes:
-- name: kind
-  type: PSREventKind
-  description: Kind of event.
+  - name: kind
+    type: PSREventKind
+    description: Kind of event.
 ancestors:
-- ActivityRecord
+  - ActivityRecord
 associations:
-- source: PSREvent
-  target: PowerSystemResource
-  sourceCardinality: 0..*
-  sourceName: psrEvents
-  sourceDescription: All events associated with this power system resource.
-  targetCardinality: 0..1
-  targetName: powerSystemResource
-  targetDescription: Power system resource that generated this event.
+  - source: PSREvent
+    target: PowerSystemResource
+    sourceCardinality: 0..*
+    sourceName: psrEvents
+    sourceDescription: All events associated with this power system resource.
+    targetCardinality: 0..1
+    targetName: powerSystemResource
+    targetDescription: Power system resource that generated this event.

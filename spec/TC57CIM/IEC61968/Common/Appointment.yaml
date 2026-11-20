@@ -1,28 +1,28 @@
 name: Appointment
 description: Meeting time and location.
 attributes:
-- name: callAhead
-  type: Boolean
-  description: True if requested to call customer when someone is about to arrive at their premises.
-- name: meetingInterval
-  type: DateTimeInterval
-  description: Date and time reserved for appointment.
+  - name: callAhead
+    type: Boolean
+    description: True if requested to call customer when someone is about to arrive at their premises.
+  - name: meetingInterval
+    type: DateTimeInterval
+    description: Date and time reserved for appointment.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: Appointment
-  target: PersonRole
-  sourceCardinality: 0..*
-  sourceName: appointments
-  sourceDescription: All appointments for this person.
-  targetCardinality: 0..*
-  targetName: persons
-  targetDescription: All persons for this appointment.
-- source: Appointment
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: appointments
-  sourceDescription: All appointments for this work.
-  targetCardinality: 0..*
-  targetName: works
-  targetDescription: All works for this appointment.
+  - source: Appointment
+    target: PersonRole
+    sourceCardinality: 0..*
+    sourceName: appointments
+    sourceDescription: All appointments for this person.
+    targetCardinality: 0..*
+    targetName: persons
+    targetDescription: All persons for this appointment.
+  - source: Appointment
+    target: Work
+    sourceCardinality: 0..*
+    sourceName: appointments
+    sourceDescription: All appointments for this work.
+    targetCardinality: 0..*
+    targetName: works
+    targetDescription: All works for this appointment.

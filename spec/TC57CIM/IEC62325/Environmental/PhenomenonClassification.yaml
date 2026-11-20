@@ -1,28 +1,28 @@
 name: PhenomenonClassification
 description: A pre-defined phenomenon classification as defined by a particular authority.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: PhenomenonClassification
-  target: ClassificationCondition
-  sourceCardinality: 0..1
-  sourceName: phenomenonClassification
-  sourceDescription: Phenomenon classification to which this condition relates.
-  targetCardinality: 0..*
-  targetName: classificationCondition
-  targetDescription: Condition contributing to the classification of this phenomenon.
-- source: PhenomenonClassification
-  target: EnvironmentalDataAuthority
-  sourceCardinality: 0..*
-  sourceName: phenomenonClassification
-  sourceDescription: Phenomenon classification defined by this environmental data authority.
-  targetCardinality: 0..1
-  targetName: environmentalDataAuthority
-  targetDescription: Authority defining this environmental phenomenon.
-- source: PhenomenonClassification
-  target: EnvironmentalPhenomenon
-  sourceCardinality: 0..1
-  sourceName: phenomenonClassification
-  sourceDescription: The classification of this phenomenon.
-  targetCardinality: 0..*
-  targetName: environmentalPhenomenon
+  - source: PhenomenonClassification
+    target: ClassificationCondition
+    sourceCardinality: 0..1
+    sourceName: phenomenonClassification
+    sourceDescription: Phenomenon classification to which this condition relates.
+    targetCardinality: 0..*
+    targetName: classificationCondition
+    targetDescription: Condition contributing to the classification of this phenomenon.
+  - source: PhenomenonClassification
+    target: EnvironmentalDataAuthority
+    sourceCardinality: 0..*
+    sourceName: phenomenonClassification
+    sourceDescription: Phenomenon classification defined by this environmental data authority.
+    targetCardinality: 0..1
+    targetName: environmentalDataAuthority
+    targetDescription: Authority defining this environmental phenomenon.
+  - source: PhenomenonClassification
+    target: EnvironmentalPhenomenon
+    sourceCardinality: 0..1
+    sourceName: phenomenonClassification
+    sourceDescription: The classification of this phenomenon.
+    targetCardinality: 0..*
+    targetName: environmentalPhenomenon

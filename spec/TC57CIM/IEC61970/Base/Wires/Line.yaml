@@ -1,16 +1,16 @@
 name: Line
 description: Contains equipment beyond a substation belonging to a power transmission line.
 ancestors:
-- EquipmentContainer
+  - EquipmentContainer
 descendants:
-- Circuit
-- MktLine
+  - Circuit
+  - MktLine
 associations:
-- source: Line
-  target: SubGeographicalRegion
-  sourceCardinality: 0..*
-  sourceName: lines
-  sourceDescription: The lines within the sub-geographical region.
-  targetCardinality: 0..1
-  targetName: region
-  targetDescription: The sub-geographical region of the line.
+  - source: Line
+    target: SubGeographicalRegion
+    sourceCardinality: 0..*
+    sourceName: lines
+    sourceDescription: The lines within the sub-geographical region.
+    targetCardinality: 0..1
+    targetName: region
+    targetDescription: The sub-geographical region of the line.

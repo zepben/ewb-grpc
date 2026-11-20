@@ -1,22 +1,19 @@
 name: OperatonalLimitTypeScaling
-description: One operational limit type scales values of another operational limit type when under the same operational limit
-  set.    This applies to any operational limit assigned to the target operational limit type and without other limit dependency
-  models.
+description: One operational limit type scales values of another operational limit type when under the same operational limit set.    This applies to any operational limit assigned to the target operational limit type and without other limit dependency models.
 attributes:
-- name: scalingPercent
-  type: PerCent
-  description: The percentage scaling of the source limit to compute the target limit.  Applys to operational limits within
-    an operaitonal limit set when both source and target operational limit types exist.
+  - name: scalingPercent
+    type: PerCent
+    description: The percentage scaling of the source limit to compute the target limit.  Applys to operational limits within an operaitonal limit set when both source and target operational limit types exist.
 associations:
-- source: OperatonalLimitTypeScaling
-  target: OperationalLimitType
-  sourceCardinality: 0..*
-  sourceName: sourceOperationalLimitTypeScaling
-  targetCardinality: 0..1
-  targetName: sourceOperationalLimitType
-- source: OperatonalLimitTypeScaling
-  target: OperationalLimitType
-  sourceCardinality: 0..1
-  sourceName: targetOperationalLimitmTypeScaling
-  targetCardinality: "1"
-  targetName: targetOperationalLimit
+  - source: OperatonalLimitTypeScaling
+    target: OperationalLimitType
+    sourceCardinality: 0..*
+    sourceName: sourceOperationalLimitTypeScaling
+    targetCardinality: 0..1
+    targetName: sourceOperationalLimitType
+  - source: OperatonalLimitTypeScaling
+    target: OperationalLimitType
+    sourceCardinality: 0..1
+    sourceName: targetOperationalLimitmTypeScaling
+    targetCardinality: "1"
+    targetName: targetOperationalLimit

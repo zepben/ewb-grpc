@@ -1,64 +1,61 @@
 name: Terminal
-description: An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection
-  points called connectivity nodes.
+description: An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.
 attributes:
-- name: currentFeederDirection
-  type: FeederDirection
-  nullable: false
-  description: Stores the direction of the feeder head relative to this terminal in the current state of the network.
-- name: currentPhases
-  type: PhaseCode
-  nullable: false
-  description: Represents the current network phasing condition. Mirrors the exported Terminal.currentPhases values.
-- name: normalFeederDirection
-  type: FeederDirection
-  nullable: false
-  description: Stores the direction of the feeder head relative to this terminal in the normal state of the network.
-- name: normalPhases
-  type: PhaseCode
-  nullable: false
-  description: Represents the normal network phasing condition. Mirrors the exported Terminal.normalPhases values.
-- name: phases
-  type: PhaseCode
-  nullable: false
-  description: Represents the normal network phasing condition.
-- name: sequenceNumber
-  type: Integer
-  nullable: false
-  description: This Terminal's sequence number.
-- name: tracedPhases
-  type: Integer
-  description: |
-    The traced phase status:
-                    |      uint32      |
-                    | 16 bits |16 bits |
-    Network status: | current | normal |
-    Network state phase status:
-                   |              16 bits              |
-                   | 4 bits | 4 bits | 4 bits | 4 bits |
-    Nominal phase: |   N    |    C   | B/Y/s2 | A/X/s1 |
-    Each nominal phase (actual phase):
-                  |                 4 bits                |
-                  |  1 bit  |  1 bit  |  1 bit  |  1 bit  |
-    Actual Phase: |    N    |    C    |    B    |    A    |
+  - name: currentFeederDirection
+    type: FeederDirection
+    description: Stores the direction of the feeder head relative to this terminal in the current state of the network.
+    nullable: false
+  - name: currentPhases
+    type: PhaseCode
+    description: Represents the current network phasing condition. Mirrors the exported Terminal.currentPhases values.
+    nullable: false
+  - name: normalFeederDirection
+    type: FeederDirection
+    description: Stores the direction of the feeder head relative to this terminal in the normal state of the network.
+    nullable: false
+  - name: normalPhases
+    type: PhaseCode
+    description: Represents the normal network phasing condition. Mirrors the exported Terminal.normalPhases values.
+    nullable: false
+  - name: phases
+    type: PhaseCode
+    description: Represents the normal network phasing condition.
+    nullable: false
+  - name: sequenceNumber
+    type: Integer
+    description: This Terminal's sequence number.
+    nullable: false
+  - name: tracedPhases
+    type: Integer
+    description: |
+      The traced phase status:
+                      |      uint32      |
+                      | 16 bits |16 bits |
+      Network status: | current | normal |
+      Network state phase status:
+                     |              16 bits              |
+                     | 4 bits | 4 bits | 4 bits | 4 bits |
+      Nominal phase: |   N    |    C   | B/Y/s2 | A/X/s1 |
+      Each nominal phase (actual phase):
+                    |                 4 bits                |
+                    |  1 bit  |  1 bit  |  1 bit  |  1 bit  |
+      Actual Phase: |    N    |    C    |    B    |    A    |
 ancestors:
-- ACDCTerminal
+  - ACDCTerminal
 associations:
-- source: Terminal
-  target: ConductingEquipment
-  sourceCardinality: 0..*
-  sourceName: terminals
-  sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via
-    connectivity nodes or topological nodes.
-  targetCardinality: 0..1
-  targetName: conductingEquipment
-  targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected
-    to other conducting equipment terminals via connectivity nodes or topological nodes.
-- source: Terminal
-  target: ConnectivityNode
-  sourceCardinality: 0..*
-  sourceName: terminals
-  sourceDescription: Terminals interconnected with zero impedance at a this connectivity node.
-  targetCardinality: 0..1
-  targetName: connectivityNode
-  targetDescription: The connectivity node to which this terminal connects with zero impedance.
+  - source: Terminal
+    target: ConductingEquipment
+    sourceCardinality: 0..*
+    sourceName: terminals
+    sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+    targetCardinality: 0..1
+    targetName: conductingEquipment
+    targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+  - source: Terminal
+    target: ConnectivityNode
+    sourceCardinality: 0..*
+    sourceName: terminals
+    sourceDescription: Terminals interconnected with zero impedance at a this connectivity node.
+    targetCardinality: 0..1
+    targetName: connectivityNode
+    targetDescription: The connectivity node to which this terminal connects with zero impedance.

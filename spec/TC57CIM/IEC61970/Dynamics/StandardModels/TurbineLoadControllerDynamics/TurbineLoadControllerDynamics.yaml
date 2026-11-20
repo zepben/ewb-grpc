@@ -1,17 +1,16 @@
 name: TurbineLoadControllerDynamics
-description: Turbine load controller function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
-  by definition of a user-defined model.</font>
+description: Turbine load controller function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or by definition of a user-defined model.</font>
 ancestors:
-- DynamicsFunctionBlock
+  - DynamicsFunctionBlock
 descendants:
-- TurbLCFB1
-- TurbineLoadControllerUserDefined
+  - TurbLCFB1
+  - TurbineLoadControllerUserDefined
 associations:
-- source: TurbineLoadControllerDynamics
-  target: TurbineGovernorDynamics
-  sourceCardinality: 0..1
-  sourceName: turbineLoadControllerDynamics
-  sourceDescription: Turbine load controller providing input to this turbine-governor.
-  targetCardinality: "1"
-  targetName: turbineGovernorDynamics
-  targetDescription: Turbine-governor controlled by this turbine load controller.
+  - source: TurbineLoadControllerDynamics
+    target: TurbineGovernorDynamics
+    sourceCardinality: 0..1
+    sourceName: turbineLoadControllerDynamics
+    sourceDescription: Turbine load controller providing input to this turbine-governor.
+    targetCardinality: "1"
+    targetName: turbineGovernorDynamics
+    targetDescription: Turbine-governor controlled by this turbine load controller.

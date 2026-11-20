@@ -5,49 +5,43 @@ description: |-
   One Customer Billing Statement is produced for all Agreements under a CustomerAccount per billing cycle date defined in 'CustomerAccount.billingCycle'.
   The history of CustomerBillingInfo, Invoices and Payments is to be maintained in associated ActivityRecords.
 attributes:
-- name: billingDate
-  type: Date
-  description: Business date designated for the billing run which produced this CustomerBillingInfo.
-- name: dueDate
-  type: Date
-  description: Calculated date upon which a customer billing amount is due, used in the invoicing process to determine when
-    a Customer's Payment is delinquent. It takes into consideration the regulatory criteria and the Customer's requested due
-    date. In the absence of a Customer requested due date, the due date is typically calculated from the regulated number
-    of days and the 'billingDate'.
-- name: kind
-  type: CustomerBillingKind
-  description: Kind of bill customer receives.
-- name: lastPaymentAmt
-  type: Money
-  description: Amount of the last payment received from the customer. It is retained in the Customer Billing system, although
-    the details of each payment are tracked in the ERP system.
-- name: lastPaymentDate
-  type: Date
-  description: Date of the last payment received from the customer. It is retained in the Customer Billing system, although
-    the details of each payment are tracked in the ERP system.
-- name: outBalance
-  type: Money
-  description: Outstanding balance on the CustomerAccount as of the statement date.
-- name: pymtPlanAmt
-  type: Money
-  description: Monthly amortized amount due during each billing cycle for the CustomerAccount balance for which the Payment
-    Plan is set-up.
-- name: pymtPlanType
-  type: String
-  description: Type of payment plan.
+  - name: billingDate
+    type: Date
+    description: Business date designated for the billing run which produced this CustomerBillingInfo.
+  - name: dueDate
+    type: Date
+    description: Calculated date upon which a customer billing amount is due, used in the invoicing process to determine when a Customer's Payment is delinquent. It takes into consideration the regulatory criteria and the Customer's requested due date. In the absence of a Customer requested due date, the due date is typically calculated from the regulated number of days and the 'billingDate'.
+  - name: kind
+    type: CustomerBillingKind
+    description: Kind of bill customer receives.
+  - name: lastPaymentAmt
+    type: Money
+    description: Amount of the last payment received from the customer. It is retained in the Customer Billing system, although the details of each payment are tracked in the ERP system.
+  - name: lastPaymentDate
+    type: Date
+    description: Date of the last payment received from the customer. It is retained in the Customer Billing system, although the details of each payment are tracked in the ERP system.
+  - name: outBalance
+    type: Money
+    description: Outstanding balance on the CustomerAccount as of the statement date.
+  - name: pymtPlanAmt
+    type: Money
+    description: Monthly amortized amount due during each billing cycle for the CustomerAccount balance for which the Payment Plan is set-up.
+  - name: pymtPlanType
+    type: String
+    description: Type of payment plan.
 ancestors:
-- Document
+  - Document
 associations:
-- source: CustomerBillingInfo
-  target: CustomerAccount
-  sourceCardinality: 0..*
-  sourceName: customerBillingInfos
-  targetCardinality: 0..1
-  targetName: customerAccount
-- source: CustomerBillingInfo
-  target: ErpInvoiceLineItem
-  sourceCardinality: 0..*
-  sourceName: customerBillingInfos
-  sourceDescription: Customer billing for services rendered.
-  targetCardinality: 0..*
-  targetName: erpInvoiceLineItems
+  - source: CustomerBillingInfo
+    target: CustomerAccount
+    sourceCardinality: 0..*
+    sourceName: customerBillingInfos
+    targetCardinality: 0..1
+    targetName: customerAccount
+  - source: CustomerBillingInfo
+    target: ErpInvoiceLineItem
+    sourceCardinality: 0..*
+    sourceName: customerBillingInfos
+    sourceDescription: Customer billing for services rendered.
+    targetCardinality: 0..*
+    targetName: erpInvoiceLineItems

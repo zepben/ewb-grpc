@@ -1,21 +1,21 @@
 name: IncidentHazard
 description: Hazardous situation associated with an incident. Examples are line down, gas leak, fire, etc.
 ancestors:
-- Hazard
+  - Hazard
 associations:
-- source: IncidentHazard
-  target: Incident
-  sourceCardinality: 0..*
-  sourceName: incidentHazard
-  sourceDescription: All hazards associated with this incident.
-  targetCardinality: 0..1
-  targetName: incident
-  targetDescription: Incident associated with this hazard.
-- source: IncidentHazard
-  target: TroubleTicket
-  sourceCardinality: 0..*
-  sourceName: incidentHazard
-  sourceDescription: All hazards reported with this trouble ticket.
-  targetCardinality: 0..1
-  targetName: troubleTicket
-  targetDescription: Trouble ticket associated with this hazard.
+  - source: IncidentHazard
+    target: Incident
+    sourceCardinality: 0..*
+    sourceName: incidentHazard
+    sourceDescription: All hazards associated with this incident.
+    targetCardinality: 0..1
+    targetName: incident
+    targetDescription: Incident associated with this hazard.
+  - source: IncidentHazard
+    target: TroubleTicket
+    sourceCardinality: 0..*
+    sourceName: incidentHazard
+    sourceDescription: All hazards reported with this trouble ticket.
+    targetCardinality: 0..1
+    targetName: troubleTicket
+    targetDescription: Trouble ticket associated with this hazard.

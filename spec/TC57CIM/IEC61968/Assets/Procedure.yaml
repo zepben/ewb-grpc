@@ -1,51 +1,51 @@
 name: Procedure
 description: Documented procedure for various types of work or work tasks on assets.
 attributes:
-- name: instruction
-  type: String
-  description: Textual description of this procedure.
-- name: kind
-  type: ProcedureKind
-  description: Kind of procedure.
-- name: sequenceNumber
-  type: String
-  description: Sequence number in a sequence of procedures being performed.
+  - name: instruction
+    type: String
+    description: Textual description of this procedure.
+  - name: kind
+    type: ProcedureKind
+    description: Kind of procedure.
+  - name: sequenceNumber
+    type: String
+    description: Sequence number in a sequence of procedures being performed.
 ancestors:
-- Document
+  - Document
 associations:
-- source: Procedure
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: procedures
-  sourceDescription: All procedures applicable to this asset.
-  targetCardinality: 0..*
-  targetName: assets
-  targetDescription: All assets to which this procedure applies.
-- source: Procedure
-  target: CompatibleUnit
-  sourceCardinality: 0..*
-  sourceName: procedures
-  targetCardinality: 0..*
-  targetName: compatibleUnits
-- source: Procedure
-  target: Limit
-  sourceCardinality: 0..*
-  sourceName: procedures
-  targetCardinality: 0..*
-  targetName: limits
-- source: Procedure
-  target: Measurement
-  sourceCardinality: 0..*
-  sourceName: procedures
-  sourceDescription: Measurements are specified in types of documents, such as procedures.
-  targetCardinality: 0..*
-  targetName: measurements
-  targetDescription: Document containing this measurement.
-- source: Procedure
-  target: ProcedureDataSet
-  sourceCardinality: 0..1
-  sourceName: procedure
-  sourceDescription: Procedure capturing this data set.
-  targetCardinality: 0..*
-  targetName: procedureDataSets
-  targetDescription: All data sets captured by this procedure.
+  - source: Procedure
+    target: Asset
+    sourceCardinality: 0..*
+    sourceName: procedures
+    sourceDescription: All procedures applicable to this asset.
+    targetCardinality: 0..*
+    targetName: assets
+    targetDescription: All assets to which this procedure applies.
+  - source: Procedure
+    target: CompatibleUnit
+    sourceCardinality: 0..*
+    sourceName: procedures
+    targetCardinality: 0..*
+    targetName: compatibleUnits
+  - source: Procedure
+    target: Limit
+    sourceCardinality: 0..*
+    sourceName: procedures
+    targetCardinality: 0..*
+    targetName: limits
+  - source: Procedure
+    target: Measurement
+    sourceCardinality: 0..*
+    sourceName: procedures
+    sourceDescription: Measurements are specified in types of documents, such as procedures.
+    targetCardinality: 0..*
+    targetName: measurements
+    targetDescription: Document containing this measurement.
+  - source: Procedure
+    target: ProcedureDataSet
+    sourceCardinality: 0..1
+    sourceName: procedure
+    sourceDescription: Procedure capturing this data set.
+    targetCardinality: 0..*
+    targetName: procedureDataSets
+    targetDescription: All data sets captured by this procedure.

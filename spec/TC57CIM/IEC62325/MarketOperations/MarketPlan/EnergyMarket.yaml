@@ -1,36 +1,35 @@
 name: EnergyMarket
-description: Energy and Ancillary Market (e.g. Energy, Spinning Reserve, Non-Spinning Reserve) with a description of the Market
-  operation control parameters.
+description: Energy and Ancillary Market (e.g. Energy, Spinning Reserve, Non-Spinning Reserve) with a description of the Market operation control parameters.
 ancestors:
-- Market
+  - Market
 associations:
-- source: EnergyMarket
-  target: Bid
-  sourceCardinality: "1"
-  sourceName: energyMarket
-  targetCardinality: 0..*
-  targetName: bids
-- source: EnergyMarket
-  target: MarketResults
-  sourceCardinality: "1"
-  sourceName: energyMarket
-  targetCardinality: 0..1
-  targetName: marketResults
-- source: EnergyMarket
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: energyMarkets
-  targetCardinality: 0..*
-  targetName: registeredResources
-- source: EnergyMarket
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: energyMarkets
-  targetCardinality: 0..1
-  targetName: rto
-- source: EnergyMarket
-  target: Settlement
-  sourceCardinality: 0..1
-  sourceName: energyMarket
-  targetCardinality: 0..*
-  targetName: settlements
+  - source: EnergyMarket
+    target: Bid
+    sourceCardinality: "1"
+    sourceName: energyMarket
+    targetCardinality: 0..*
+    targetName: bids
+  - source: EnergyMarket
+    target: MarketResults
+    sourceCardinality: "1"
+    sourceName: energyMarket
+    targetCardinality: 0..1
+    targetName: marketResults
+  - source: EnergyMarket
+    target: RegisteredResource
+    sourceCardinality: 0..*
+    sourceName: energyMarkets
+    targetCardinality: 0..*
+    targetName: registeredResources
+  - source: EnergyMarket
+    target: RTO
+    sourceCardinality: 0..*
+    sourceName: energyMarkets
+    targetCardinality: 0..1
+    targetName: rto
+  - source: EnergyMarket
+    target: Settlement
+    sourceCardinality: 0..1
+    sourceName: energyMarket
+    targetCardinality: 0..*
+    targetName: settlements

@@ -1,33 +1,29 @@
 name: EquipmentContainer
 description: A modelling construct to provide a root class for containing equipment.
 ancestors:
-- ConnectivityNodeContainer
+  - ConnectivityNodeContainer
 descendants:
-- Bay
-- DCEquipmentContainer
-- Feeder
-- Line
-- Plant
-- Substation
-- VoltageLevel
+  - Bay
+  - DCEquipmentContainer
+  - Feeder
+  - Line
+  - Plant
+  - Substation
+  - VoltageLevel
 associations:
-- source: EquipmentContainer
-  target: Equipment
-  sourceCardinality: 0..*
-  sourceName: additionalEquipmentContainer
-  sourceDescription: Additional equipment container beyond the primary equipment container.  The equipment is contained in
-    another equipment container, but also grouped with this equipment container.
-  targetCardinality: 0..*
-  targetName: additionalGroupedEquipment
-  targetDescription: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is
-    contained in another equipment container, but also grouped with this equipment container.  Examples include when a switch
-    contained in a substation is also desired to be grouped with a line contianer or when a switch is included in a secondary
-    substation and also grouped in a feeder.
-- source: EquipmentContainer
-  target: Equipment
-  sourceCardinality: 0..1
-  sourceName: equipmentContainer
-  sourceDescription: Container of this equipment.
-  targetCardinality: 0..*
-  targetName: equipments
-  targetDescription: Contained equipment.
+  - source: EquipmentContainer
+    target: Equipment
+    sourceCardinality: 0..*
+    sourceName: additionalEquipmentContainer
+    sourceDescription: Additional equipment container beyond the primary equipment container.  The equipment is contained in another equipment container, but also grouped with this equipment container.
+    targetCardinality: 0..*
+    targetName: additionalGroupedEquipment
+    targetDescription: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is contained in another equipment container, but also grouped with this equipment container.  Examples include when a switch contained in a substation is also desired to be grouped with a line contianer or when a switch is included in a secondary substation and also grouped in a feeder.
+  - source: EquipmentContainer
+    target: Equipment
+    sourceCardinality: 0..1
+    sourceName: equipmentContainer
+    sourceDescription: Container of this equipment.
+    targetCardinality: 0..*
+    targetName: equipments
+    targetDescription: Contained equipment.

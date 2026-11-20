@@ -1,56 +1,54 @@
 name: Equipment
 description: The parts of a power system that are physical devices, electronic or mechanical.
 attributes:
-- name: commissionedDate
-  type: Datetime
-  nullable: true
-  description: The date this equipment was commissioned into service.
-- name: inService
-  type: Boolean
-  nullable: true
-  description: Specifies the availability of the equipment. True means the equipment is available for topology processing,
-    which determines if the equipment is energized or not. False means that the equipment is treated by network applications
-    as if it is not in the model.
-- name: normallyInService
-  type: Boolean
-  nullable: true
+  - name: commissionedDate
+    type: Datetime
+    description: The date this equipment was commissioned into service.
+    nullable: true
+  - name: inService
+    type: Boolean
+    description: Specifies the availability of the equipment. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.
+    nullable: true
+  - name: normallyInService
+    type: Boolean
+    nullable: true
 ancestors:
-- PowerSystemResource
+  - PowerSystemResource
 descendants:
-- AuxiliaryEquipment
-- ConductingEquipment
-- PowerElectronicsUnit
-- ProtectionRelaySystem
+  - AuxiliaryEquipment
+  - ConductingEquipment
+  - PowerElectronicsUnit
+  - ProtectionRelaySystem
 associations:
-- source: Equipment
-  target: EquipmentContainer
-  sourceCardinality: 0..*
-  sourceName: equipment
-  sourceDescription: Contained equipment.
-  targetCardinality: 0..1
-  targetName: containers
-  targetDescription: Container of this equipment.
-- source: Equipment
-  target: EquipmentContainer
-  sourceCardinality: 0..*
-  sourceName: equipment
-  sourceDescription: Contained equipment.
-  targetCardinality: 0..1
-  targetName: currentContainers
-  targetDescription: Container of this equipment if the equipment belongs to the current network state
-- source: Equipment
-  target: OperationalRestriction
-  sourceCardinality: 0..*
-  sourceName: equipment
-  sourceDescription: All equipments to which this restriction applies.
-  targetCardinality: 0..*
-  targetName: operationalRestrictions
-  targetDescription: All operational restrictions for this equipment.
-- source: Equipment
-  target: UsagePoint
-  sourceCardinality: 0..*
-  sourceName: equipment
-  sourceDescription: All equipment connecting this usage point to the electrical grid.
-  targetCardinality: 0..*
-  targetName: usagePoints
-  targetDescription: All usage points connected to the electrical grid through this equipment.
+  - source: Equipment
+    target: EquipmentContainer
+    sourceCardinality: 0..*
+    sourceName: equipment
+    sourceDescription: Contained equipment.
+    targetCardinality: 0..1
+    targetName: containers
+    targetDescription: Container of this equipment.
+  - source: Equipment
+    target: EquipmentContainer
+    sourceCardinality: 0..*
+    sourceName: equipment
+    sourceDescription: Contained equipment.
+    targetCardinality: 0..1
+    targetName: currentContainers
+    targetDescription: Container of this equipment if the equipment belongs to the current network state
+  - source: Equipment
+    target: OperationalRestriction
+    sourceCardinality: 0..*
+    sourceName: equipment
+    sourceDescription: All equipments to which this restriction applies.
+    targetCardinality: 0..*
+    targetName: operationalRestrictions
+    targetDescription: All operational restrictions for this equipment.
+  - source: Equipment
+    target: UsagePoint
+    sourceCardinality: 0..*
+    sourceName: equipment
+    sourceDescription: All equipment connecting this usage point to the electrical grid.
+    targetCardinality: 0..*
+    targetName: usagePoints
+    targetDescription: All usage points connected to the electrical grid through this equipment.

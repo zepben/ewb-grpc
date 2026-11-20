@@ -1,42 +1,42 @@
 name: TroubleOrder
 description: Trouble order sends an incident to a crew to initiate a response to an unplanned outage.
 attributes:
-- name: comment
-  type: String
-  description: Free-form comment associated with the trouble order.
-- name: plannedExecutionInterval
-  type: DateTimeInterval
-  description: The planned start and end time for the trouble order.
+  - name: comment
+    type: String
+    description: Free-form comment associated with the trouble order.
+  - name: plannedExecutionInterval
+    type: DateTimeInterval
+    description: The planned start and end time for the trouble order.
 ancestors:
-- Document
+  - Document
 associations:
-- source: TroubleOrder
-  target: Incident
-  sourceCardinality: 0..1
-  sourceName: troubleOrder
-  targetCardinality: 0..1
-  targetName: incident
-- source: TroubleOrder
-  target: Location
-  sourceCardinality: 0..1
-  sourceName: troubleOrder
-  targetCardinality: 0..1
-  targetName: location
-- source: TroubleOrder
-  target: TroubleTicket
-  sourceCardinality: 0..1
-  sourceName: troubleOrder
-  targetCardinality: 0..*
-  targetName: troubleTicket
-- source: TroubleOrder
-  target: UnplannedOutage
-  sourceCardinality: 0..*
-  sourceName: troubleOrder
-  targetCardinality: 0..1
-  targetName: unplannedOutage
-- source: TroubleOrder
-  target: WorkTask
-  sourceCardinality: 0..1
-  sourceName: troubleOrder
-  targetCardinality: 0..*
-  targetName: workTask
+  - source: TroubleOrder
+    target: Incident
+    sourceCardinality: 0..1
+    sourceName: troubleOrder
+    targetCardinality: 0..1
+    targetName: incident
+  - source: TroubleOrder
+    target: Location
+    sourceCardinality: 0..1
+    sourceName: troubleOrder
+    targetCardinality: 0..1
+    targetName: location
+  - source: TroubleOrder
+    target: TroubleTicket
+    sourceCardinality: 0..1
+    sourceName: troubleOrder
+    targetCardinality: 0..*
+    targetName: troubleTicket
+  - source: TroubleOrder
+    target: UnplannedOutage
+    sourceCardinality: 0..*
+    sourceName: troubleOrder
+    targetCardinality: 0..1
+    targetName: unplannedOutage
+  - source: TroubleOrder
+    target: WorkTask
+    sourceCardinality: 0..1
+    sourceName: troubleOrder
+    targetCardinality: 0..*
+    targetName: workTask

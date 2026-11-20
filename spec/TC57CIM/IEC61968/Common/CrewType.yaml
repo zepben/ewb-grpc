@@ -1,14 +1,13 @@
 name: CrewType
-description: Custom description of the type of crew. This may be used to determine the type of work the crew can be assigned
-  to. Examples include repair, tree trimming, switching, etc.
+description: Custom description of the type of crew. This may be used to determine the type of work the crew can be assigned to. Examples include repair, tree trimming, switching, etc.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: CrewType
-  target: Crew
-  sourceCardinality: 0..1
-  sourceName: crewType
-  sourceDescription: Type of this crew.
-  targetCardinality: 0..*
-  targetName: crews
-  targetDescription: All crews of this type.
+  - source: CrewType
+    target: Crew
+    sourceCardinality: 0..1
+    sourceName: crewType
+    sourceDescription: Type of this crew.
+    targetCardinality: 0..*
+    targetName: crews
+    targetDescription: All crews of this type.

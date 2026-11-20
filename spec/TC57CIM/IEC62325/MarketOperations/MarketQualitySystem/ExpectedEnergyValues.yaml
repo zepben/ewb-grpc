@@ -1,20 +1,20 @@
 name: ExpectedEnergyValues
 description: Model Expected Energy from Market Clearing.
 attributes:
-- name: energyTypeCode
-  type: String
-- name: expectedMwh
-  type: Float
+  - name: energyTypeCode
+    type: String
+  - name: expectedMwh
+    type: Float
 associations:
-- source: ExpectedEnergyValues
-  target: ExpectedEnergy
-  sourceCardinality: 1..*
-  sourceName: expectedEnergyValues
-  targetCardinality: "1"
-  targetName: expectedEnergy
-- source: ExpectedEnergyValues
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: expectedEnergyValues
-  targetCardinality: 0..1
-  targetName: registeredResource
+  - source: ExpectedEnergyValues
+    target: ExpectedEnergy
+    sourceCardinality: 1..*
+    sourceName: expectedEnergyValues
+    targetCardinality: "1"
+    targetName: expectedEnergy
+  - source: ExpectedEnergyValues
+    target: RegisteredResource
+    sourceCardinality: 0..*
+    sourceName: expectedEnergyValues
+    targetCardinality: 0..1
+    targetName: registeredResource

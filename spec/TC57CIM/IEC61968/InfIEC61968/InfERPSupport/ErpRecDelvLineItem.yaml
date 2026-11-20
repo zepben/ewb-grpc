@@ -1,33 +1,32 @@
 name: ErpRecDelvLineItem
-description: Of an ErpReceiveDelivery, this is an individually received good or service by the Organisation receiving goods
-  or services. It may be used to indicate receipt of goods in conjunction with a purchase order line item.
+description: Of an ErpReceiveDelivery, this is an individually received good or service by the Organisation receiving goods or services. It may be used to indicate receipt of goods in conjunction with a purchase order line item.
 attributes:
-- name: status
-  type: Status
+  - name: status
+    type: Status
 ancestors:
-- ErpIdentifiedObject
+  - ErpIdentifiedObject
 associations:
-- source: ErpRecDelvLineItem
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: erpRecDeliveryItems
-  targetCardinality: 0..*
-  targetName: assets
-- source: ErpRecDelvLineItem
-  target: ErpInvoiceLineItem
-  sourceCardinality: 0..1
-  sourceName: erpRecDelvLineItem
-  targetCardinality: 0..1
-  targetName: erpInvoiceLineItem
-- source: ErpRecDelvLineItem
-  target: ErpPOLineItem
-  sourceCardinality: 0..1
-  sourceName: erpRecDelLineItem
-  targetCardinality: 0..1
-  targetName: erpPOLineItem
-- source: ErpRecDelvLineItem
-  target: ErpReceiveDelivery
-  sourceCardinality: 0..*
-  sourceName: erpRecDelvLineItems
-  targetCardinality: "1"
-  targetName: erpReceiveDelivery
+  - source: ErpRecDelvLineItem
+    target: Asset
+    sourceCardinality: 0..*
+    sourceName: erpRecDeliveryItems
+    targetCardinality: 0..*
+    targetName: assets
+  - source: ErpRecDelvLineItem
+    target: ErpInvoiceLineItem
+    sourceCardinality: 0..1
+    sourceName: erpRecDelvLineItem
+    targetCardinality: 0..1
+    targetName: erpInvoiceLineItem
+  - source: ErpRecDelvLineItem
+    target: ErpPOLineItem
+    sourceCardinality: 0..1
+    sourceName: erpRecDelLineItem
+    targetCardinality: 0..1
+    targetName: erpPOLineItem
+  - source: ErpRecDelvLineItem
+    target: ErpReceiveDelivery
+    sourceCardinality: 0..*
+    sourceName: erpRecDelvLineItems
+    targetCardinality: "1"
+    targetName: erpReceiveDelivery

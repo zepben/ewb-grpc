@@ -1,66 +1,63 @@
 name: CustomerAccount
-description: Assignment of a group of products and services purchased by the customer through a customer agreement, used as
-  a mechanism for customer billing and payment. It contains common information from the various types of customer agreements
-  to create billings (invoices) for a customer and receive payment.
+description: Assignment of a group of products and services purchased by the customer through a customer agreement, used as a mechanism for customer billing and payment. It contains common information from the various types of customer agreements to create billings (invoices) for a customer and receive payment.
 attributes:
-- name: billingCycle
-  type: String
-  description: Cycle day on which the associated customer account will normally be billed, used to determine when to produce
-    the billing.
-- name: budgetBill
-  type: String
-  description: Budget bill code.
-- name: lastBillAmount
-  type: Money
-  description: The last amount that will be billed to the customer prior to shut off of the account.
+  - name: billingCycle
+    type: String
+    description: Cycle day on which the associated customer account will normally be billed, used to determine when to produce the billing.
+  - name: budgetBill
+    type: String
+    description: Budget bill code.
+  - name: lastBillAmount
+    type: Money
+    description: The last amount that will be billed to the customer prior to shut off of the account.
 ancestors:
-- Document
+  - Document
 associations:
-- source: CustomerAccount
-  target: AccountNotification
-  sourceCardinality: "1"
-  sourceName: customerAccount
-  targetCardinality: 0..*
-  targetName: accountNotification
-- source: CustomerAccount
-  target: Customer
-  sourceCardinality: 0..*
-  sourceName: customerAccounts
-  sourceDescription: All accounts of this customer.
-  targetCardinality: "1"
-  targetName: customer
-  targetDescription: Customer owning this account.
-- source: CustomerAccount
-  target: CustomerAgreement
-  sourceCardinality: "1"
-  sourceName: customerAccount
-  sourceDescription: Customer account owning this agreement.
-  targetCardinality: 0..*
-  targetName: customerAgreements
-  targetDescription: All agreements for this customer account.
-- source: CustomerAccount
-  target: CustomerBillingInfo
-  sourceCardinality: 0..1
-  sourceName: customerAccount
-  targetCardinality: 0..*
-  targetName: customerBillingInfos
-- source: CustomerAccount
-  target: ErpInvoice
-  sourceCardinality: 0..1
-  sourceName: customerAccount
-  targetCardinality: 0..*
-  targetName: erpInvoicees
-- source: CustomerAccount
-  target: Transaction
-  sourceCardinality: 0..1
-  sourceName: customerAccount
-  sourceDescription: Customer account for this payment transaction.
-  targetCardinality: 0..*
-  targetName: paymentTransactions
-  targetDescription: All payment transactions for this customer account.
-- source: CustomerAccount
-  target: WorkBillingInfo
-  sourceCardinality: 0..1
-  sourceName: customerAccount
-  targetCardinality: 0..*
-  targetName: workBillingInfos
+  - source: CustomerAccount
+    target: AccountNotification
+    sourceCardinality: "1"
+    sourceName: customerAccount
+    targetCardinality: 0..*
+    targetName: accountNotification
+  - source: CustomerAccount
+    target: Customer
+    sourceCardinality: 0..*
+    sourceName: customerAccounts
+    sourceDescription: All accounts of this customer.
+    targetCardinality: "1"
+    targetName: customer
+    targetDescription: Customer owning this account.
+  - source: CustomerAccount
+    target: CustomerAgreement
+    sourceCardinality: "1"
+    sourceName: customerAccount
+    sourceDescription: Customer account owning this agreement.
+    targetCardinality: 0..*
+    targetName: customerAgreements
+    targetDescription: All agreements for this customer account.
+  - source: CustomerAccount
+    target: CustomerBillingInfo
+    sourceCardinality: 0..1
+    sourceName: customerAccount
+    targetCardinality: 0..*
+    targetName: customerBillingInfos
+  - source: CustomerAccount
+    target: ErpInvoice
+    sourceCardinality: 0..1
+    sourceName: customerAccount
+    targetCardinality: 0..*
+    targetName: erpInvoicees
+  - source: CustomerAccount
+    target: Transaction
+    sourceCardinality: 0..1
+    sourceName: customerAccount
+    sourceDescription: Customer account for this payment transaction.
+    targetCardinality: 0..*
+    targetName: paymentTransactions
+    targetDescription: All payment transactions for this customer account.
+  - source: CustomerAccount
+    target: WorkBillingInfo
+    sourceCardinality: 0..1
+    sourceName: customerAccount
+    targetCardinality: 0..*
+    targetName: workBillingInfos

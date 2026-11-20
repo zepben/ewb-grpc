@@ -1,24 +1,24 @@
 name: ChangeSetMember
 description: A CRUD-style data object.
 descendants:
-- ObjectCreation
-- ObjectDeletion
-- ObjectModification
-- ObjectReverseModification
+  - ObjectCreation
+  - ObjectDeletion
+  - ObjectModification
+  - ObjectReverseModification
 associations:
-- source: ChangeSetMember
-  target: ChangeSet
-  sourceCardinality: 0..*
-  sourceName: changeSetMember
-  sourceDescription: Data objects contained in the dataset.
-  targetCardinality: 0..1
-  targetName: changeset
-  targetDescription: Dataset containing the data objects.
-- source: ChangeSetMember
-  target: IdentifiedObject
-  sourceCardinality: 0..*
-  sourceName: targetingCIMDataObject
-  sourceDescription: Data objects registered.
-  targetCardinality: "1"
-  targetName: targetObject
-  targetDescription: The registered CIM object.
+  - source: ChangeSetMember
+    target: ChangeSet
+    sourceCardinality: 0..*
+    sourceName: changeSetMember
+    sourceDescription: Data objects contained in the dataset.
+    targetCardinality: 0..1
+    targetName: changeset
+    targetDescription: Dataset containing the data objects.
+  - source: ChangeSetMember
+    target: IdentifiedObject
+    sourceCardinality: 0..*
+    sourceName: targetingCIMDataObject
+    sourceDescription: Data objects registered.
+    targetCardinality: "1"
+    targetName: targetObject
+    targetDescription: The registered CIM object.

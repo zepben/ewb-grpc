@@ -1,50 +1,49 @@
 name: MajorChargeGroup
-description: 'A Major Charge Group is the same as Invoice Type which provides the highest level of grouping for charge types
-  configuration. Examples: Market, FERC, RMR.'
+description: "A Major Charge Group is the same as Invoice Type which provides the highest level of grouping for charge types configuration. Examples: Market, FERC, RMR."
 attributes:
-- name: effectiveDate
-  type: DateTime
-- name: frequencyType
-  type: String
-- name: invoiceType
-  type: String
-- name: requireAutorun
-  type: String
-- name: revisionNumber
-  type: String
-  description: Revision number for the major charge group
-- name: runType
-  type: String
-- name: runVersion
-  type: String
-- name: terminationDate
-  type: DateTime
+  - name: effectiveDate
+    type: DateTime
+  - name: frequencyType
+    type: String
+  - name: invoiceType
+    type: String
+  - name: requireAutorun
+    type: String
+  - name: revisionNumber
+    type: String
+    description: Revision number for the major charge group
+  - name: runType
+    type: String
+  - name: runVersion
+    type: String
+  - name: terminationDate
+    type: DateTime
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: MajorChargeGroup
-  target: ChargeType
-  sourceCardinality: 0..*
-  sourceName: majorChargeGroup
-  sourceDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
-  targetCardinality: 0..*
-  targetName: chargeType
-  targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
-- source: MajorChargeGroup
-  target: MarketInvoice
-  sourceCardinality: 1..*
-  sourceName: majorChargeGroup
-  targetCardinality: 0..*
-  targetName: marketInvoice
-- source: MajorChargeGroup
-  target: MarketScheduledEvent
-  sourceCardinality: 0..1
-  sourceName: majorChargeGroup
-  targetCardinality: 0..*
-  targetName: mktScheduledEvent
-- source: MajorChargeGroup
-  target: Settlement
-  sourceCardinality: 1..*
-  sourceName: majorChargeGroup
-  targetCardinality: 0..*
-  targetName: settlement
+  - source: MajorChargeGroup
+    target: ChargeType
+    sourceCardinality: 0..*
+    sourceName: majorChargeGroup
+    sourceDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
+    targetCardinality: 0..*
+    targetName: chargeType
+    targetDescription: A MajorChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n MajorChargeGroup.
+  - source: MajorChargeGroup
+    target: MarketInvoice
+    sourceCardinality: 1..*
+    sourceName: majorChargeGroup
+    targetCardinality: 0..*
+    targetName: marketInvoice
+  - source: MajorChargeGroup
+    target: MarketScheduledEvent
+    sourceCardinality: 0..1
+    sourceName: majorChargeGroup
+    targetCardinality: 0..*
+    targetName: mktScheduledEvent
+  - source: MajorChargeGroup
+    target: Settlement
+    sourceCardinality: 1..*
+    sourceName: majorChargeGroup
+    targetCardinality: 0..*
+    targetName: settlement

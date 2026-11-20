@@ -11,16 +11,16 @@ attributes:
     type: DateTime
     description: When the component was last updated.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- NetworkModelProject
-- NetworkModelProjectStage
+  - NetworkModelProject
+  - NetworkModelProjectStage
 associations:
-- source: NetworkModelProjectComponent
-  target: NetworkModelProject
-  sourceCardinality: 0..*
-  sourceName: children
-  sourceDescription: Projects that are included in this parent project.
-  targetCardinality: "1"
-  targetName: parent
-  targetDescription: The parent project of this project.
+  - source: NetworkModelProjectComponent
+    target: NetworkModelProject
+    sourceCardinality: 0..*
+    sourceName: children
+    sourceDescription: Projects that are included in this parent project.
+    targetCardinality: "1"
+    targetName: parent
+    targetDescription: The parent project of this project.

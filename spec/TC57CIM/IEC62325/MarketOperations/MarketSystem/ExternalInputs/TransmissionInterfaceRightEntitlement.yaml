@@ -1,29 +1,28 @@
 name: TransmissionInterfaceRightEntitlement
-description: This is formally called the branch group ETC/TOR entitlement with the inclusion of CVR as ETC. This could be
-  also used to represent the TR entitlement on a POR/POD.
+description: This is formally called the branch group ETC/TOR entitlement with the inclusion of CVR as ETC. This could be also used to represent the TR entitlement on a POR/POD.
 attributes:
-- name: entitlement
-  type: Float
-  description: the entitlement
-- name: POD
-  type: String
-  description: point of delivery
-- name: POR
-  type: String
-  description: point of receipt
-- name: startOperatingDate
-  type: DateTime
-  description: Operating date and hour when the entitlement applies
+  - name: entitlement
+    type: Float
+    description: the entitlement
+  - name: POD
+    type: String
+    description: point of delivery
+  - name: POR
+    type: String
+    description: point of receipt
+  - name: startOperatingDate
+    type: DateTime
+    description: Operating date and hour when the entitlement applies
 associations:
-- source: TransmissionInterfaceRightEntitlement
-  target: ContractRight
-  sourceCardinality: 0..*
-  sourceName: transmissionInterfaceEntitlement
-  targetCardinality: "1"
-  targetName: contractRight
-- source: TransmissionInterfaceRightEntitlement
-  target: Flowgate
-  sourceCardinality: 0..*
-  sourceName: tranmissionRightEntitlement
-  targetCardinality: 0..1
-  targetName: flowgate
+  - source: TransmissionInterfaceRightEntitlement
+    target: ContractRight
+    sourceCardinality: 0..*
+    sourceName: transmissionInterfaceEntitlement
+    targetCardinality: "1"
+    targetName: contractRight
+  - source: TransmissionInterfaceRightEntitlement
+    target: Flowgate
+    sourceCardinality: 0..*
+    sourceName: tranmissionRightEntitlement
+    targetCardinality: 0..1
+    targetName: flowgate

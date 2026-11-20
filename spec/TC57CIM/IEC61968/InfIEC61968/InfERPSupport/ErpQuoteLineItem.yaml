@@ -1,40 +1,39 @@
 name: ErpQuoteLineItem
 description: Of an ErpQuote, the item or product quoted along with quantity, price and other descriptive information.
 attributes:
-- name: status
-  type: Status
+  - name: status
+    type: Status
 ancestors:
-- ErpIdentifiedObject
+  - ErpIdentifiedObject
 associations:
-- source: ErpQuoteLineItem
-  target: AssetModelCatalogueItem
-  sourceCardinality: 0..*
-  sourceName: erpQuoteLineItems
-  targetCardinality: 0..1
-  targetName: assetModelCatalogueItem
-- source: ErpQuoteLineItem
-  target: Design
-  sourceCardinality: 0..1
-  sourceName: erpQuoteLineItem
-  targetCardinality: 0..1
-  targetName: design
-- source: ErpQuoteLineItem
-  target: ErpInvoiceLineItem
-  sourceCardinality: 0..1
-  sourceName: erpQuoteLineItem
-  targetCardinality: 0..1
-  targetName: erpInvoiceLineItem
-  targetDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making
-    a payment. An invoice is required for this to occur.
-- source: ErpQuoteLineItem
-  target: ErpQuote
-  sourceCardinality: 0..*
-  sourceName: erpQuoteLineItems
-  targetCardinality: "1"
-  targetName: erpQuote
-- source: ErpQuoteLineItem
-  target: ErpReqLineItem
-  sourceCardinality: 0..1
-  sourceName: erpQuoteLineItem
-  targetCardinality: 0..1
-  targetName: erpReqLineItem
+  - source: ErpQuoteLineItem
+    target: AssetModelCatalogueItem
+    sourceCardinality: 0..*
+    sourceName: erpQuoteLineItems
+    targetCardinality: 0..1
+    targetName: assetModelCatalogueItem
+  - source: ErpQuoteLineItem
+    target: Design
+    sourceCardinality: 0..1
+    sourceName: erpQuoteLineItem
+    targetCardinality: 0..1
+    targetName: design
+  - source: ErpQuoteLineItem
+    target: ErpInvoiceLineItem
+    sourceCardinality: 0..1
+    sourceName: erpQuoteLineItem
+    targetCardinality: 0..1
+    targetName: erpInvoiceLineItem
+    targetDescription: Some utilities provide quotes to customer for services, where the customer accepts the quote by making a payment. An invoice is required for this to occur.
+  - source: ErpQuoteLineItem
+    target: ErpQuote
+    sourceCardinality: 0..*
+    sourceName: erpQuoteLineItems
+    targetCardinality: "1"
+    targetName: erpQuote
+  - source: ErpQuoteLineItem
+    target: ErpReqLineItem
+    sourceCardinality: 0..1
+    sourceName: erpQuoteLineItem
+    targetCardinality: 0..1
+    targetName: erpReqLineItem

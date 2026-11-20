@@ -1,33 +1,33 @@
 name: AssetGroup
 description: A grouping of assets created for a purpose such as fleet analytics, inventory or compliance management.
 attributes:
-- name: kind
-  type: AssetGroupKind
-  description: Kind of asset group this asset group is.
+  - name: kind
+    type: AssetGroupKind
+    description: Kind of asset group this asset group is.
 ancestors:
-- Document
+  - Document
 associations:
-- source: AssetGroup
-  target: Analytic
-  sourceCardinality: 0..*
-  sourceName: assetGroup
-  sourceDescription: Asset group on which this analytic can be performed.
-  targetCardinality: 0..*
-  targetName: analytic
-  targetDescription: Analytic which can be performed on this asset group.
-- source: AssetGroup
-  target: AnalyticScore
-  sourceCardinality: 0..1
-  sourceName: assetGroup
-  sourceDescription: Asset group to which this analytic score applies..
-  targetCardinality: 0..*
-  targetName: analyticScore
-  targetDescription: Analytic score for this asset group.
-- source: AssetGroup
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: assetGroup
-  sourceDescription: Asset group of which this asset is a part.
-  targetCardinality: 0..*
-  targetName: asset
-  targetDescription: Asset which is a part of this asset group.
+  - source: AssetGroup
+    target: Analytic
+    sourceCardinality: 0..*
+    sourceName: assetGroup
+    sourceDescription: Asset group on which this analytic can be performed.
+    targetCardinality: 0..*
+    targetName: analytic
+    targetDescription: Analytic which can be performed on this asset group.
+  - source: AssetGroup
+    target: AnalyticScore
+    sourceCardinality: 0..1
+    sourceName: assetGroup
+    sourceDescription: Asset group to which this analytic score applies..
+    targetCardinality: 0..*
+    targetName: analyticScore
+    targetDescription: Analytic score for this asset group.
+  - source: AssetGroup
+    target: Asset
+    sourceCardinality: 0..*
+    sourceName: assetGroup
+    sourceDescription: Asset group of which this asset is a part.
+    targetCardinality: 0..*
+    targetName: asset
+    targetDescription: Asset which is a part of this asset group.

@@ -1,32 +1,32 @@
 name: ErpPayableLineItem
 description: Of an ErpPayable, a line item references an ErpInvoiceLineitem or other source such as credit memos.
 attributes:
-- name: status
-  type: Status
+  - name: status
+    type: Status
 ancestors:
-- ErpIdentifiedObject
+  - ErpIdentifiedObject
 associations:
-- source: ErpPayableLineItem
-  target: ErpInvoiceLineItem
-  sourceCardinality: 0..1
-  sourceName: erpPayableLineItem
-  targetCardinality: 0..1
-  targetName: erpInvoiceLineItem
-- source: ErpPayableLineItem
-  target: ErpJournalEntry
-  sourceCardinality: 0..*
-  sourceName: erpPayableLineItems
-  targetCardinality: 0..*
-  targetName: erpJournalEntries
-- source: ErpPayableLineItem
-  target: ErpPayable
-  sourceCardinality: 0..*
-  sourceName: erpPayableLineItems
-  targetCardinality: "1"
-  targetName: erpPayable
-- source: ErpPayableLineItem
-  target: ErpPayment
-  sourceCardinality: 0..*
-  sourceName: erpPayableLineItems
-  targetCardinality: 0..*
-  targetName: erpPayments
+  - source: ErpPayableLineItem
+    target: ErpInvoiceLineItem
+    sourceCardinality: 0..1
+    sourceName: erpPayableLineItem
+    targetCardinality: 0..1
+    targetName: erpInvoiceLineItem
+  - source: ErpPayableLineItem
+    target: ErpJournalEntry
+    sourceCardinality: 0..*
+    sourceName: erpPayableLineItems
+    targetCardinality: 0..*
+    targetName: erpJournalEntries
+  - source: ErpPayableLineItem
+    target: ErpPayable
+    sourceCardinality: 0..*
+    sourceName: erpPayableLineItems
+    targetCardinality: "1"
+    targetName: erpPayable
+  - source: ErpPayableLineItem
+    target: ErpPayment
+    sourceCardinality: 0..*
+    sourceName: erpPayableLineItems
+    targetCardinality: 0..*
+    targetName: erpPayments

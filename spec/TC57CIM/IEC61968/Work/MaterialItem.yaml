@@ -1,22 +1,21 @@
 name: MaterialItem
-description: The physical consumable supply used for work and other purposes. It includes items such as nuts, bolts, brackets,
-  glue, etc.
+description: The physical consumable supply used for work and other purposes. It includes items such as nuts, bolts, brackets, glue, etc.
 attributes:
-- name: quantity
-  type: IntegerQuantity
-  description: Quantity of material used.
+  - name: quantity
+    type: IntegerQuantity
+    description: Quantity of material used.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: MaterialItem
-  target: TypeMaterial
-  sourceCardinality: 0..*
-  sourceName: materialItems
-  targetCardinality: 0..1
-  targetName: typeMaterial
-- source: MaterialItem
-  target: WorkTask
-  sourceCardinality: 0..*
-  sourceName: materialItems
-  targetCardinality: 0..1
-  targetName: workTask
+  - source: MaterialItem
+    target: TypeMaterial
+    sourceCardinality: 0..*
+    sourceName: materialItems
+    targetCardinality: 0..1
+    targetName: typeMaterial
+  - source: MaterialItem
+    target: WorkTask
+    sourceCardinality: 0..*
+    sourceName: materialItems
+    targetCardinality: 0..1
+    targetName: workTask

@@ -1,44 +1,39 @@
 name: JumperAction
 description: Action on jumper as a switching step.
 attributes:
-- name: kind
-  type: TempEquipActionKind
-  description: Switching action to perform.
+  - name: kind
+    type: TempEquipActionKind
+    description: Switching action to perform.
 ancestors:
-- SwitchingAction
+  - SwitchingAction
 associations:
-- source: JumperAction
-  target: ACLineSegment
-  sourceCardinality: 0..1
-  sourceName: lineJumpingAction
-  sourceDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead
-    of at its terminals).
-  targetCardinality: 0..*
-  targetName: acLineSegments
-  targetDescription: The line segment that this jumper action will affect. This is the only way to access relationship to
-    clamp in case the jumper needs to connect along the line segment.
-- source: JumperAction
-  target: Clamp
-  sourceCardinality: 0..1
-  sourceName: jumperAction
-  targetCardinality: 0..1
-  targetName: clamp
-- source: JumperAction
-  target: ConductingEquipment
-  sourceCardinality: 0..1
-  sourceName: jumpingAction
-  sourceDescription: Jumper action involving jumping operation on this conducting equipment.
-  targetCardinality: 0..*
-  targetName: jumpedEquipments
-  targetDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the
-    conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment,
-    you must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of
-    placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is sufficient.
-- source: JumperAction
-  target: Jumper
-  sourceCardinality: 0..1
-  sourceName: jumperAction
-  sourceDescription: Action taken with this jumper.
-  targetCardinality: 0..1
-  targetName: jumper
-  targetDescription: Jumper on which this action is taken.
+  - source: JumperAction
+    target: ACLineSegment
+    sourceCardinality: 0..1
+    sourceName: lineJumpingAction
+    sourceDescription: Jumper action involving clamp usage (for the case when the jumper is applied along the line segment instead of at its terminals).
+    targetCardinality: 0..*
+    targetName: acLineSegments
+    targetDescription: The line segment that this jumper action will affect. This is the only way to access relationship to clamp in case the jumper needs to connect along the line segment.
+  - source: JumperAction
+    target: Clamp
+    sourceCardinality: 0..1
+    sourceName: jumperAction
+    targetCardinality: 0..1
+    targetName: clamp
+  - source: JumperAction
+    target: ConductingEquipment
+    sourceCardinality: 0..1
+    sourceName: jumpingAction
+    sourceDescription: Jumper action involving jumping operation on this conducting equipment.
+    targetCardinality: 0..*
+    targetName: jumpedEquipments
+    targetDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment, you must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is sufficient.
+  - source: JumperAction
+    target: Jumper
+    sourceCardinality: 0..1
+    sourceName: jumperAction
+    sourceDescription: Action taken with this jumper.
+    targetCardinality: 0..1
+    targetName: jumper
+    targetDescription: Jumper on which this action is taken.

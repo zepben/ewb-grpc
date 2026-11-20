@@ -1,16 +1,13 @@
 name: GenUnitOpSchedule
-description: 'The generating unit''s Operator-approved current operating schedule (or plan), typically produced with the aid
-  of unit commitment type analyses. The X-axis represents absolute time. The Y1-axis represents the status (0=off-line and
-  unavailable: 1=available: 2=must run: 3=must run at fixed power value: etc.). The Y2-axis represents the must run fixed
-  power value where required.'
+description: "The generating unit's Operator-approved current operating schedule (or plan), typically produced with the aid of unit commitment type analyses. The X-axis represents absolute time. The Y1-axis represents the status (0=off-line and unavailable: 1=available: 2=must run: 3=must run at fixed power value: etc.). The Y2-axis represents the must run fixed power value where required."
 ancestors:
-- RegularIntervalSchedule
+  - RegularIntervalSchedule
 associations:
-- source: GenUnitOpSchedule
-  target: GeneratingUnit
-  sourceCardinality: 0..1
-  sourceName: genUnitOpSchedule
-  sourceDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
-  targetCardinality: "1"
-  targetName: generatingUnit
-  targetDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
+  - source: GenUnitOpSchedule
+    target: GeneratingUnit
+    sourceCardinality: 0..1
+    sourceName: genUnitOpSchedule
+    sourceDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.
+    targetCardinality: "1"
+    targetName: generatingUnit
+    targetDescription: A generating unit may have an operating schedule, indicating the planned operation of the unit.

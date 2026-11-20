@@ -1,17 +1,16 @@
 name: AggregateScore
-description: An aggregated indicative scoring by an analytic, which is based on other analytic scores, that can be used to
-  characterize the health of or the risk associated with one or more assets.
+description: An aggregated indicative scoring by an analytic, which is based on other analytic scores, that can be used to characterize the health of or the risk associated with one or more assets.
 ancestors:
-- AnalyticScore
+  - AnalyticScore
 descendants:
-- HealthScore
-- RiskScore
+  - HealthScore
+  - RiskScore
 associations:
-- source: AggregateScore
-  target: AnalyticScore
-  sourceCardinality: 0..1
-  sourceName: assetAggregateScore
-  sourceDescription: Aggregate score to which this analytic score contributed.
-  targetCardinality: 1..*
-  targetName: analyticScore
-  targetDescription: Analytic score contributing to this aggregate score.
+  - source: AggregateScore
+    target: AnalyticScore
+    sourceCardinality: 0..1
+    sourceName: assetAggregateScore
+    sourceDescription: Aggregate score to which this analytic score contributed.
+    targetCardinality: 1..*
+    targetName: analyticScore
+    targetDescription: Analytic score contributing to this aggregate score.

@@ -1,39 +1,39 @@
 name: AdjacentCASet
 description: Groups Adjacent Control Areas.
 attributes:
-- name: 'lossPercentage '
-  type: Float
-  description: Loss percentage
+  - name: "lossPercentage "
+    type: Float
+    description: Loss percentage
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: AdjacentCASet
-  target: BidSelfSched
-  sourceCardinality: 0..1
-  sourceName: adjacentCASet
-  targetCardinality: 0..*
-  targetName: bidSelfSched
-- source: AdjacentCASet
-  target: HostControlArea
-  sourceCardinality: 0..1
-  sourceName: adjacentCASet
-  targetCardinality: 0..1
-  targetName: hostControlArea
-- source: AdjacentCASet
-  target: RegisteredResource
-  sourceCardinality: 0..1
-  sourceName: adjacentCASet
-  targetCardinality: 0..*
-  targetName: registeredResource
-- source: AdjacentCASet
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: adjacentCASet
-  targetCardinality: "1"
-  targetName: rto
-- source: AdjacentCASet
-  target: SubControlArea
-  sourceCardinality: 0..1
-  sourceName: adjacentCASet
-  targetCardinality: 0..*
-  targetName: subControlArea
+  - source: AdjacentCASet
+    target: BidSelfSched
+    sourceCardinality: 0..1
+    sourceName: adjacentCASet
+    targetCardinality: 0..*
+    targetName: bidSelfSched
+  - source: AdjacentCASet
+    target: HostControlArea
+    sourceCardinality: 0..1
+    sourceName: adjacentCASet
+    targetCardinality: 0..1
+    targetName: hostControlArea
+  - source: AdjacentCASet
+    target: RegisteredResource
+    sourceCardinality: 0..1
+    sourceName: adjacentCASet
+    targetCardinality: 0..*
+    targetName: registeredResource
+  - source: AdjacentCASet
+    target: RTO
+    sourceCardinality: 0..*
+    sourceName: adjacentCASet
+    targetCardinality: "1"
+    targetName: rto
+  - source: AdjacentCASet
+    target: SubControlArea
+    sourceCardinality: 0..1
+    sourceName: adjacentCASet
+    targetCardinality: 0..*
+    targetName: subControlArea
