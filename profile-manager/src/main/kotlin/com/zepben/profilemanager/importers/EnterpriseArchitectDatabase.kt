@@ -184,9 +184,9 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
 
             while (classes.next()) {
                 val c = Class(
-                    classes.getInt("Object_ID"),
-                    classes.getString("Name").trim(),
-                    classes.getString("Note")?.fixWindowsNewLines()
+                    id = classes.getInt("Object_ID"),
+                    name = classes.getString("Name").trim(),
+                    description = classes.getString("Note")?.fixWindowsNewLines()
                 )
                 item.addChild(c)
             }

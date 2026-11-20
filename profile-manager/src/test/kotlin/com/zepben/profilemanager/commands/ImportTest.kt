@@ -93,6 +93,7 @@ class ImportTest {
             """
             name: YesNo
             type: enum
+            description: Yes or no.
             attributes:
             - name: "NO"
               type: enum
@@ -202,7 +203,7 @@ class ImportTest {
                     "INSERT INTO t_package VALUES (1, 'Model', 0, NULL), (2, 'CIM', 1, NULL), (3, 'Grid', 2, NULL), (4, 'Core', 3, NULL)",
                     """INSERT INTO t_object VALUES (10, 'Equipment', 'Class', 4, NULL), (11, 'ConductingEquipment', 'Class', 4, NULL),
                        (12, 'Terminal', 'Class', 4, NULL), (15, 'Switch', 'Class', 4, NULL), (13, 'A note', 'Note', 4, NULL), (14, 'Outside', 'Class', 1, NULL),
-                       (20, 'YesNo', 'Class', 4, NULL), (21, 'Hub', 'Class', 4, NULL), (22, 'Spoke', 'Class', 4, NULL), (23, 'Rim', 'Class', 4, NULL),
+                       (20, 'YesNo', 'Class', 4, 'Yes or no.'), (21, 'Hub', 'Class', 4, NULL), (22, 'Spoke', 'Class', 4, NULL), (23, 'Rim', 'Class', 4, NULL),
                        (24, 'Axle', 'Class', 4, NULL), (25, 'Tyre', 'Class', 4, NULL)""",
                     // Inserted out of order, to check they are written alphabetically, ignoring case.
                     """INSERT INTO t_attribute VALUES (202, 20, 'YES', NULL, 'Yes.', 0, 'enum'), (201, 20, 'NO', NULL, NULL, 1, 'enum'),
