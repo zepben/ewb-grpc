@@ -1,35 +1,34 @@
 name: DynamicSchedule
-description: A continuously variable component of a control area's MW net interchange schedule. Dynamic schedules are sent
-  and received by control areas.
+description: A continuously variable component of a control area's MW net interchange schedule. Dynamic schedules are sent and received by control areas.
 attributes:
-- name: dynSchedSignRev
-  type: Boolean
-  description: Dynamic schedule sign reversal required (true/false)
-- name: dynSchedStatus
-  type: String
-  description: The "active" or "inactive" status of the dynamic schedule
+  - name: dynSchedSignRev
+    type: Boolean
+    description: Dynamic schedule sign reversal required (true/false)
+  - name: dynSchedStatus
+    type: String
+    description: The "active" or "inactive" status of the dynamic schedule
 ancestors:
-- BasicIntervalSchedule
+  - BasicIntervalSchedule
 associations:
-- source: DynamicSchedule
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: send_DynamicSchedules
-  sourceDescription: A control area can send dynamic schedules to other control areas
-  targetCardinality: "1"
-  targetName: send_SubControlArea
-  targetDescription: A control area can send dynamic schedules to other control areas
-- source: DynamicSchedule
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: receive_DynamicSchedules
-  sourceDescription: A control area can receive dynamic schedules from other control areas
-  targetCardinality: "1"
-  targetName: receive_SubControlArea
-  targetDescription: A control area can receive dynamic schedules from other control areas
-- source: DynamicSchedule
-  target: MktMeasurement
-  sourceCardinality: 0..*
-  sourceName: dynamicSchedule
-  targetCardinality: "1"
-  targetName: mktMeasurement
+  - source: DynamicSchedule
+    target: MktMeasurement
+    sourceCardinality: 0..*
+    sourceName: dynamicSchedule
+    targetCardinality: "1"
+    targetName: mktMeasurement
+  - source: DynamicSchedule
+    target: SubControlArea
+    sourceCardinality: 0..*
+    sourceName: receive_DynamicSchedules
+    sourceDescription: A control area can receive dynamic schedules from other control areas
+    targetCardinality: "1"
+    targetName: receive_SubControlArea
+    targetDescription: A control area can receive dynamic schedules from other control areas
+  - source: DynamicSchedule
+    target: SubControlArea
+    sourceCardinality: 0..*
+    sourceName: send_DynamicSchedules
+    sourceDescription: A control area can send dynamic schedules to other control areas
+    targetCardinality: "1"
+    targetName: send_SubControlArea
+    targetDescription: A control area can send dynamic schedules to other control areas

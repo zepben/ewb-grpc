@@ -1,15 +1,14 @@
 name: AssetModelCatalogue
-description: Catalogue of available types of products and materials that are used to build or install, maintain or operate
-  an Asset. Each catalogue item is for a specific product (AssetModel) available from a specific supplier.
+description: Catalogue of available types of products and materials that are used to build or install, maintain or operate an Asset. Each catalogue item is for a specific product (AssetModel) available from a specific supplier.
 attributes:
-- name: status
-  type: Status
+  - name: status
+    type: Status
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: AssetModelCatalogue
-  target: AssetModelCatalogueItem
-  sourceCardinality: "1"
-  sourceName: assetModelCatalogue
-  targetCardinality: 0..*
-  targetName: assetModelCatalogueItems
+  - source: AssetModelCatalogue
+    target: AssetModelCatalogueItem
+    sourceCardinality: "1"
+    sourceName: assetModelCatalogue
+    targetCardinality: 0..*
+    targetName: assetModelCatalogueItems

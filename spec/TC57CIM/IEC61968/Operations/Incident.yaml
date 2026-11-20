@@ -1,78 +1,77 @@
 name: Incident
-description: Description of a problem in the field that may be reported in a trouble ticket or come from another source. It
-  may have to do with an outage.
+description: Description of a problem in the field that may be reported in a trouble ticket or come from another source. It may have to do with an outage.
 attributes:
-- name: cause
-  type: String
-  description: Cause of this incident.
+  - name: cause
+    type: String
+    description: Cause of this incident.
 ancestors:
-- Document
+  - Document
 associations:
-- source: Incident
-  target: UnplannedOutage
-  sourceCardinality: 0..*
-  sourceName: incident
-  targetCardinality: 0..1
-  targetName: unplannedOutage
-- source: Incident
-  target: CustomerNotification
-  sourceCardinality: 0..1
-  sourceName: incident
-  sourceDescription: Incident as a subject of this customer notification.
-  targetCardinality: 0..*
-  targetName: customerNotifications
-  targetDescription: All notifications for a customer related to the status change of this incident.
-- source: Incident
-  target: IncidentHazard
-  sourceCardinality: 0..1
-  sourceName: incident
-  sourceDescription: Incident associated with this hazard.
-  targetCardinality: 0..*
-  targetName: incidentHazard
-  targetDescription: All hazards associated with this incident.
-- source: Incident
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: incidents
-  sourceDescription: All incidents being addressed by this work.
-  targetCardinality: 0..*
-  targetName: works
-  targetDescription: All works addressing this incident.
-- source: Incident
-  target: Outage
-  sourceCardinality: 0..*
-  sourceName: incident
-  sourceDescription: Incident reported in trouble call that results in this outage.
-  targetCardinality: 0..1
-  targetName: outage
-  targetDescription: Outage for this incident.
-- source: Incident
-  target: Operator
-  sourceCardinality: 0..*
-  sourceName: incidents
-  sourceDescription: All incidents owned by this operator.
-  targetCardinality: 0..1
-  targetName: owner
-  targetDescription: Operator who owns this incident.
-- source: Incident
-  target: Location
-  sourceCardinality: 0..1
-  sourceName: incident
-  sourceDescription: Incident at this location.
-  targetCardinality: 0..1
-  targetName: location
-  targetDescription: Location of this incident.
-- source: Incident
-  target: TroubleTicket
-  sourceCardinality: 0..1
-  sourceName: incident
-  sourceDescription: Incident reported in this trouble ticket
-  targetCardinality: 0..*
-  targetName: troubleTickets
-  targetDescription: All trouble tickets reporting this incident.
-- source: Incident
-  target: TroubleOrder
-  sourceCardinality: 0..1
-  sourceName: incident
-  targetCardinality: 0..1
-  targetName: troubleOrder
+  - source: Incident
+    target: CustomerNotification
+    sourceCardinality: 0..1
+    sourceName: incident
+    sourceDescription: Incident as a subject of this customer notification.
+    targetCardinality: 0..*
+    targetName: customerNotifications
+    targetDescription: All notifications for a customer related to the status change of this incident.
+  - source: Incident
+    target: IncidentHazard
+    sourceCardinality: 0..1
+    sourceName: incident
+    sourceDescription: Incident associated with this hazard.
+    targetCardinality: 0..*
+    targetName: incidentHazard
+    targetDescription: All hazards associated with this incident.
+  - source: Incident
+    target: Location
+    sourceCardinality: 0..1
+    sourceName: incident
+    sourceDescription: Incident at this location.
+    targetCardinality: 0..1
+    targetName: location
+    targetDescription: Location of this incident.
+  - source: Incident
+    target: Outage
+    sourceCardinality: 0..*
+    sourceName: incident
+    sourceDescription: Incident reported in trouble call that results in this outage.
+    targetCardinality: 0..1
+    targetName: outage
+    targetDescription: Outage for this incident.
+  - source: Incident
+    target: Operator
+    sourceCardinality: 0..*
+    sourceName: incidents
+    sourceDescription: All incidents owned by this operator.
+    targetCardinality: 0..1
+    targetName: owner
+    targetDescription: Operator who owns this incident.
+  - source: Incident
+    target: TroubleOrder
+    sourceCardinality: 0..1
+    sourceName: incident
+    targetCardinality: 0..1
+    targetName: troubleOrder
+  - source: Incident
+    target: TroubleTicket
+    sourceCardinality: 0..1
+    sourceName: incident
+    sourceDescription: Incident reported in this trouble ticket
+    targetCardinality: 0..*
+    targetName: troubleTickets
+    targetDescription: All trouble tickets reporting this incident.
+  - source: Incident
+    target: UnplannedOutage
+    sourceCardinality: 0..*
+    sourceName: incident
+    targetCardinality: 0..1
+    targetName: unplannedOutage
+  - source: Incident
+    target: Work
+    sourceCardinality: 0..*
+    sourceName: incidents
+    sourceDescription: All incidents being addressed by this work.
+    targetCardinality: 0..*
+    targetName: works
+    targetDescription: All works addressing this incident.

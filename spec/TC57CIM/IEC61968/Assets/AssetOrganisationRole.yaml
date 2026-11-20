@@ -1,19 +1,19 @@
 name: AssetOrganisationRole
 description: Role an organisation plays with respect to asset.
 ancestors:
-- OrganisationRole
+  - OrganisationRole
 descendants:
-- Maintainer
-- AssetTestSampleTaker
-- AssetUser
-- AssetTestLab
-- AssetOwner
+  - AssetOwner
+  - AssetTestLab
+  - AssetTestSampleTaker
+  - AssetUser
+  - Maintainer
 associations:
-- source: AssetOrganisationRole
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: organisationRoles
-  sourceDescription: All roles an organisation plays for this asset.
-  targetCardinality: 0..*
-  targetName: assets
-  targetDescription: All assets for this organisation role.
+  - source: AssetOrganisationRole
+    target: Asset
+    sourceCardinality: 0..*
+    sourceName: organisationRoles
+    sourceDescription: All roles an organisation plays for this asset.
+    targetCardinality: 0..*
+    targetName: assets
+    targetDescription: All assets for this organisation role.

@@ -15,10 +15,12 @@ class YamlFileSystem(exportLocation: File) : Exporter(exportLocation) {
         configuration = YamlConfiguration(
             strictMode = false,
             encodeDefaults = false,
-            breakScalarsAt = 120,
+            breakScalarsAt = Int.MAX_VALUE,
+            encodingIndentationSize = 2,
+            sequenceBlockIndent = 2,
             singleLineStringStyle = SingleLineStringStyle.PlainExceptAmbiguous,
             multiLineStringStyle = MultiLineStringStyle.Literal,
-
+            ambiguousQuoteStyle = AmbiguousQuoteStyle.DoubleQuoted,
         )
     )
 
@@ -76,12 +78,18 @@ class YamlFileSystem(exportLocation: File) : Exporter(exportLocation) {
  */
 private val yaml11Boolean = Regex("""^(\s*(?:- )?[A-Za-z_]\w*: |\s*- )(yes|Yes|YES|no|No|NO|on|On|ON|off|Off|OFF)$""")
 
+/**
+ * A single-quoted scalar taking up the rest of the line, after a key or list item. A `'` inside it is escaped as `''`.
+ */
+private val singleQuoted = Regex("""^(\s*(?:- )?[A-Za-z_]\w*: |\s*- )'((?:[^']|'')*)'$""")
+
 /** A line starting a block scalar, e.g. `  description: |-`, whose content is the following, more indented, lines. */
 private val blockScalarStart = Regex("""^\s*(?:- )?[A-Za-z_]\w*: [|>][-+]?$""")
 
 /**
- * Tidy YAML written by kaml for writing to a file: quote values YAML 1.1 parsers would read as booleans, and end it
- * with a single newline. Lines inside block scalars are text, so are left alone.
+ * Tidy YAML written by kaml for writing to a file: quote values YAML 1.1 parsers would read as booleans, prefer double
+ * quotes to single quotes as Prettier does with `singleQuote: false`, and end it with a single newline. Lines inside
+ * block scalars are text, so are left alone.
  */
 internal fun finishYaml(yaml: String): String {
     var blockIndent: Int? = null
@@ -91,6 +99,16 @@ internal fun finishYaml(yaml: String): String {
             return@joinToString line
 
         blockIndent = if (blockScalarStart.matches(line)) indent else null
-        line.replace(yaml11Boolean, "$1\"$2\"")
+        line.replace(yaml11Boolean, "$1\"$2\"").replace(singleQuoted) { doubleQuoted(it.groupValues[1], it.groupValues[2]) }
     }
 }
+
+/**
+ * Rewrite the single-quoted scalar [quoted] after [prefix] in double quotes, as Prettier does. It stays single-quoted
+ * if it contains a `"` or `\`, which would need escaping in double quotes.
+ */
+private fun doubleQuoted(prefix: String, quoted: String): String =
+    if ('"' in quoted || '\\' in quoted)
+        "$prefix'$quoted'"
+    else
+        "$prefix\"${quoted.replace("''", "'")}\""

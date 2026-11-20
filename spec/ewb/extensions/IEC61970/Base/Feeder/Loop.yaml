@@ -1,29 +1,28 @@
 name: Loop
-description: \[ZBEX\] Sub-transmission circuits are usually arranged in loops so that a single line failure does not cut
-  off service to many customers for more than a short time.
+description: \[ZBEX\] Sub-transmission circuits are usually arranged in loops so that a single line failure does not cut off service to many customers for more than a short time.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: Loop
-  target: Substation
-  sourceCardinality: 0..*
-  sourceName: energizedLoops
-  sourceDescription: \[ZBEX\] The loops that are energizing this substation.
-  targetCardinality: 0..*
-  targetName: energizingSubstations
-  targetDescription: \[ZBEX\] Substations that are energized by this loop.
-- source: Loop
-  target: Substation
-  sourceCardinality: 0..*
-  sourceName: loops
-  targetCardinality: 0..*
-  targetName: substations
-  targetDescription: \[ZBEX\] The substations that normally energize this loop.
-- source: Loop
-  target: Circuit
-  sourceCardinality: 0..1
-  sourceName: loop
-  sourceDescription: \[ZBEX\] The loop containing this circuit.
-  targetCardinality: 0..*
-  targetName: circuits
-  targetDescription: \[ZBEX\] Sub-transmission circuits that form part of this loop.
+  - source: Loop
+    target: Circuit
+    sourceCardinality: 0..1
+    sourceName: loop
+    sourceDescription: \[ZBEX\] The loop containing this circuit.
+    targetCardinality: 0..*
+    targetName: circuits
+    targetDescription: \[ZBEX\] Sub-transmission circuits that form part of this loop.
+  - source: Loop
+    target: Substation
+    sourceCardinality: 0..*
+    sourceName: energizedLoops
+    sourceDescription: \[ZBEX\] The loops that are energizing this substation.
+    targetCardinality: 0..*
+    targetName: energizingSubstations
+    targetDescription: \[ZBEX\] Substations that are energized by this loop.
+  - source: Loop
+    target: Substation
+    sourceCardinality: 0..*
+    sourceName: loops
+    targetCardinality: 0..*
+    targetName: substations
+    targetDescription: \[ZBEX\] The substations that normally energize this loop.

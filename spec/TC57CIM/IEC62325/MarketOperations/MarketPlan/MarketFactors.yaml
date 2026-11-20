@@ -1,50 +1,50 @@
 name: MarketFactors
 description: Aggregation of market information relative for a specific time interval.
 attributes:
-- name: intervalEndTime
-  type: DateTime
-  description: The end of the time interval for which requirement is defined.
-- name: intervalStartTime
-  type: DateTime
-  description: The start of the time interval for which requirement is defined.
+  - name: intervalEndTime
+    type: DateTime
+    description: The end of the time interval for which requirement is defined.
+  - name: intervalStartTime
+    type: DateTime
+    description: The start of the time interval for which requirement is defined.
 ancestors:
-- Document
+  - Document
 descendants:
-- TransactionBidClearing
-- MPMClearing
-- SecurityConstraintsClearing
-- MarketCaseClearing
-- InterTieClearing
-- ExPostLoss
-- ExPostMarketRegion
-- ExPostPricing
-- ExPostResource
-- AncillaryServiceClearing
-- CommitmentClearing
-- ConstraintClearing
-- GeneralClearing
-- InstructionClearing
-- InstructionClearingDOP
-- InstructionClearingDOT
-- LossClearing
-- MitigatedBidClearing
-- PnodeClearing
-- RMROperatorInput
-- ResourceAwardClearing
-- ResourceClearing
-- SecurityConstraintSum
-- IntermittentResourceEligibility
-- LossSensitivity
+  - AncillaryServiceClearing
+  - CommitmentClearing
+  - ConstraintClearing
+  - ExPostLoss
+  - ExPostMarketRegion
+  - ExPostPricing
+  - ExPostResource
+  - GeneralClearing
+  - InstructionClearing
+  - InstructionClearingDOP
+  - InstructionClearingDOT
+  - InterTieClearing
+  - IntermittentResourceEligibility
+  - LossClearing
+  - LossSensitivity
+  - MPMClearing
+  - MarketCaseClearing
+  - MitigatedBidClearing
+  - PnodeClearing
+  - RMROperatorInput
+  - ResourceAwardClearing
+  - ResourceClearing
+  - SecurityConstraintSum
+  - SecurityConstraintsClearing
+  - TransactionBidClearing
 associations:
-- source: MarketFactors
-  target: Market
-  sourceCardinality: 0..*
-  sourceName: marketFactors
-  targetCardinality: 0..1
-  targetName: market
-- source: MarketFactors
-  target: MktActivityRecord
-  sourceCardinality: 0..*
-  sourceName: marketFactors
-  targetCardinality: 0..*
-  targetName: mktActivityRecord
+  - source: MarketFactors
+    target: Market
+    sourceCardinality: 0..*
+    sourceName: marketFactors
+    targetCardinality: 0..1
+    targetName: market
+  - source: MarketFactors
+    target: MktActivityRecord
+    sourceCardinality: 0..*
+    sourceName: marketFactors
+    targetCardinality: 0..*
+    targetName: mktActivityRecord

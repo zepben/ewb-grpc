@@ -1,15 +1,13 @@
 name: Profile
-description: Describes the existence of a profile.  The MRID is usually defined as a static value by the document or artifact
-  that defines the contents of the profile and the rules for using the profile.
+description: Describes the existence of a profile.  The MRID is usually defined as a static value by the document or artifact that defines the contents of the profile and the rules for using the profile.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: Profile
-  target: DataSet
-  sourceCardinality: 1..*
-  sourceName: profile
-  sourceDescription: The profiles that describe the contents of the data set and the rules governing the contents of the data
-    set.
-  targetCardinality: 0..*
-  targetName: dataSet
-  targetDescription: The data sets that make use of the profile.
+  - source: Profile
+    target: DataSet
+    sourceCardinality: 1..*
+    sourceName: profile
+    sourceDescription: The profiles that describe the contents of the data set and the rules governing the contents of the data set.
+    targetCardinality: 0..*
+    targetName: dataSet
+    targetDescription: The data sets that make use of the profile.

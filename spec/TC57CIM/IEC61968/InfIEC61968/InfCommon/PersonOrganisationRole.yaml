@@ -1,16 +1,15 @@
 name: PersonOrganisationRole
 description: Role an organisation plays with respect to persons.
 attributes:
-- name: clientID
-  type: String
-  description: Identifiers of the person held by an organisation, such as a government agency (federal, state, province, city,
-    county), financial institutions, etc.
+  - name: clientID
+    type: String
+    description: Identifiers of the person held by an organisation, such as a government agency (federal, state, province, city, county), financial institutions, etc.
 ancestors:
-- OrganisationRole
+  - OrganisationRole
 associations:
-- source: PersonOrganisationRole
-  target: OldPerson
-  sourceCardinality: 0..*
-  sourceName: organisationRoles
-  targetCardinality: "1"
-  targetName: erpPerson
+  - source: PersonOrganisationRole
+    target: OldPerson
+    sourceCardinality: 0..*
+    sourceName: organisationRoles
+    targetCardinality: "1"
+    targetName: erpPerson

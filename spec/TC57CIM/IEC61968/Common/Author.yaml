@@ -1,21 +1,21 @@
 name: Author
 description: Person who created document or activity record.
 ancestors:
-- DocumentPersonRole
+  - DocumentPersonRole
 associations:
-- source: Author
-  target: Document
-  sourceCardinality: 0..1
-  sourceName: author
-  sourceDescription: Author of this document.
-  targetCardinality: 0..*
-  targetName: documents
-  targetDescription: All documents of this this author.
-- source: Author
-  target: ActivityRecord
-  sourceCardinality: 0..1
-  sourceName: author
-  sourceDescription: Author of this activity record.
-  targetCardinality: 0..*
-  targetName: activityRecords
-  targetDescription: All activity records with this author.
+  - source: Author
+    target: ActivityRecord
+    sourceCardinality: 0..1
+    sourceName: author
+    sourceDescription: Author of this activity record.
+    targetCardinality: 0..*
+    targetName: activityRecords
+    targetDescription: All activity records with this author.
+  - source: Author
+    target: Document
+    sourceCardinality: 0..1
+    sourceName: author
+    sourceDescription: Author of this document.
+    targetCardinality: 0..*
+    targetName: documents
+    targetDescription: All documents of this this author.

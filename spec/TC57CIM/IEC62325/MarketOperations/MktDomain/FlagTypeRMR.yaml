@@ -1,13 +1,17 @@
 name: FlagTypeRMR
+type: enum
 description: |-
   Indicates whether the unit is RMR and it's condition type, for example:
   N' - not an RMR unit
   '1' - RMR Condition 1 unit
   '2' - RMR Condition 2 unit
 attributes:
-- name: N
-  description: '''N'' - not an RMR unit'
-- name: "1"
-  description: '''1'' - RMR Condition 1 unit'
-- name: "2"
-  description: '''2'' - RMR Condition 2 unit'
+  - name: "1"
+    type: enum
+    description: "'1' - RMR Condition 1 unit"
+  - name: "2"
+    type: enum
+    description: "'2' - RMR Condition 2 unit"
+  - name: N
+    type: enum
+    description: "'N' - not an RMR unit"

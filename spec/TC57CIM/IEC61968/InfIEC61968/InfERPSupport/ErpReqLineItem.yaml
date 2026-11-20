@@ -1,48 +1,48 @@
 name: ErpReqLineItem
 description: Information that describes a requested item and its attributes.
 attributes:
-- name: code
-  type: String
-- name: cost
-  type: Money
-  description: Cost of material.
-- name: deliveryDate
-  type: Date
-- name: quantity
-  type: Integer
-  description: ' Quantity of item requisitioned.'
-- name: status
-  type: Status
+  - name: code
+    type: String
+  - name: cost
+    type: Money
+    description: Cost of material.
+  - name: deliveryDate
+    type: Date
+  - name: quantity
+    type: Integer
+    description: " Quantity of item requisitioned."
+  - name: status
+    type: Status
 ancestors:
-- ErpIdentifiedObject
+  - ErpIdentifiedObject
 associations:
-- source: ErpReqLineItem
-  target: ErpRequisition
-  sourceCardinality: 0..*
-  sourceName: erpReqLineItems
-  targetCardinality: "1"
-  targetName: erpRequisition
-- source: ErpReqLineItem
-  target: ErpPOLineItem
-  sourceCardinality: 0..1
-  sourceName: erpReqLineItem
-  targetCardinality: 0..1
-  targetName: erpPOLineItem
-- source: ErpReqLineItem
-  target: ErpQuoteLineItem
-  sourceCardinality: 0..1
-  sourceName: erpReqLineItem
-  targetCardinality: 0..1
-  targetName: erpQuoteLineItem
-- source: ErpReqLineItem
-  target: TypeMaterial
-  sourceCardinality: 0..*
-  sourceName: erpReqLineItems
-  targetCardinality: 0..1
-  targetName: typeMaterial
-- source: ErpReqLineItem
-  target: CatalogAssetType
-  sourceCardinality: 0..*
-  sourceName: erpReqLineItems
-  targetCardinality: 0..1
-  targetName: typeAsset
+  - source: ErpReqLineItem
+    target: ErpPOLineItem
+    sourceCardinality: 0..1
+    sourceName: erpReqLineItem
+    targetCardinality: 0..1
+    targetName: erpPOLineItem
+  - source: ErpReqLineItem
+    target: ErpQuoteLineItem
+    sourceCardinality: 0..1
+    sourceName: erpReqLineItem
+    targetCardinality: 0..1
+    targetName: erpQuoteLineItem
+  - source: ErpReqLineItem
+    target: ErpRequisition
+    sourceCardinality: 0..*
+    sourceName: erpReqLineItems
+    targetCardinality: "1"
+    targetName: erpRequisition
+  - source: ErpReqLineItem
+    target: CatalogAssetType
+    sourceCardinality: 0..*
+    sourceName: erpReqLineItems
+    targetCardinality: 0..1
+    targetName: typeAsset
+  - source: ErpReqLineItem
+    target: TypeMaterial
+    sourceCardinality: 0..*
+    sourceName: erpReqLineItems
+    targetCardinality: 0..1
+    targetName: typeMaterial

@@ -1,24 +1,24 @@
 name: CombinedCycleConfigurationMember
 description: Configuration Member of CCP Configuration.
 attributes:
-- name: primary
-  type: Boolean
-  description: primary configuration.
-- name: steam
-  type: Boolean
-  description: Steam plant.
+  - name: primary
+    type: Boolean
+    description: primary configuration.
+  - name: steam
+    type: Boolean
+    description: Steam plant.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: CombinedCycleConfigurationMember
-  target: MktThermalGeneratingUnit
-  sourceCardinality: 0..*
-  sourceName: combinedCycleConfigurationMember
-  targetCardinality: "1"
-  targetName: mktThermalGeneratingUnit
-- source: CombinedCycleConfigurationMember
-  target: CombinedCycleConfiguration
-  sourceCardinality: 0..*
-  sourceName: combinedCycleConfigurationMember
-  targetCardinality: "1"
-  targetName: combinedCycleConfiguration
+  - source: CombinedCycleConfigurationMember
+    target: CombinedCycleConfiguration
+    sourceCardinality: 0..*
+    sourceName: combinedCycleConfigurationMember
+    targetCardinality: "1"
+    targetName: combinedCycleConfiguration
+  - source: CombinedCycleConfigurationMember
+    target: MktThermalGeneratingUnit
+    sourceCardinality: 0..*
+    sourceName: combinedCycleConfigurationMember
+    targetCardinality: "1"
+    targetName: mktThermalGeneratingUnit

@@ -4,17 +4,17 @@ description: |-
 
   This is used by ERP systems to transfer Bill of Material information between two business applications.
 ancestors:
-- ErpDocument
+  - ErpDocument
 associations:
-- source: ErpBOM
-  target: ErpBomItemData
-  sourceCardinality: "1"
-  sourceName: erpBOM
-  targetCardinality: 0..*
-  targetName: erpBomItemDatas
-- source: ErpBOM
-  target: Design
-  sourceCardinality: 0..*
-  sourceName: erpBOMs
-  targetCardinality: 0..1
-  targetName: design
+  - source: ErpBOM
+    target: Design
+    sourceCardinality: 0..*
+    sourceName: erpBOMs
+    targetCardinality: 0..1
+    targetName: design
+  - source: ErpBOM
+    target: ErpBomItemData
+    sourceCardinality: "1"
+    sourceName: erpBOM
+    targetCardinality: 0..*
+    targetName: erpBomItemDatas

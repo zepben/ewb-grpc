@@ -1,142 +1,141 @@
 name: Flowgate
-description: A flowgate, is single or group of transmission elements intended to model MW flow impact relating to transmission
-  limitations and transmission service usage.
+description: A flowgate, is single or group of transmission elements intended to model MW flow impact relating to transmission limitations and transmission service usage.
 attributes:
-- name: direction
-  type: InterTieDirection
-  description: The direction of the flowgate, export or import
-- name: exportMWRating
-  type: ActivePower
-  description: Export MW rating
-- name: importMWRating
-  type: ActivePower
-  description: Import MW rating
+  - name: direction
+    type: InterTieDirection
+    description: The direction of the flowgate, export or import
+  - name: exportMWRating
+    type: ActivePower
+    description: Export MW rating
+  - name: importMWRating
+    type: ActivePower
+    description: Import MW rating
 ancestors:
-- PowerSystemResource
+  - PowerSystemResource
 associations:
-- source: Flowgate
-  target: InterTieResults
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 1..*
-  targetName: interTieResults
-- source: Flowgate
-  target: FTR
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: ftrs
-- source: Flowgate
-  target: ContractDistributionFactor
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: contractDistributionFactor
-- source: Flowgate
-  target: FlowgateRelief
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: flowgateRelief
-- source: Flowgate
-  target: FlowgateValue
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: flowgateValue
-- source: Flowgate
-  target: RegisteredInterTie
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: registeredInterTie
-- source: Flowgate
-  target: SchedulingPoint
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: interTie
-- source: Flowgate
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: to_Flowgate
-  targetCardinality: 0..1
-  targetName: to_SubControlArea
-- source: Flowgate
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: from_Flowgate
-  targetCardinality: 0..1
-  targetName: from_SubControlArea
-- source: Flowgate
-  target: ConstraintResults
-  sourceCardinality: "1"
-  sourceName: flowgate
-  targetCardinality: 1..*
-  targetName: constraintResults
-- source: Flowgate
-  target: SecurityConstraints
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..1
-  targetName: securityConstraints
-- source: Flowgate
-  target: TransmissionCapacity
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: transmissionCapacity
-- source: Flowgate
-  target: TransmissionInterfaceRightEntitlement
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: tranmissionRightEntitlement
-- source: Flowgate
-  target: MktPowerTransformer
-  sourceCardinality: 0..*
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: mktPowerTransformer
-- source: Flowgate
-  target: MktLine
-  sourceCardinality: 0..*
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: mktLine
-- source: Flowgate
-  target: HostControlArea
-  sourceCardinality: 0..*
-  sourceName: flowgate
-  targetCardinality: 0..1
-  targetName: hostControlArea
-- source: Flowgate
-  target: ViolationLimit
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: violationLimits
-- source: Flowgate
-  target: GeneratingUnitDynamicValues
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: generatingUnitDynamicValues
-- source: Flowgate
-  target: GenericConstraints
-  sourceCardinality: 0..*
-  sourceName: flowgate
-  targetCardinality: 0..1
-  targetName: genericConstraints
-- source: Flowgate
-  target: CongestionRevenueRight
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..1
-  targetName: congestionRevenueRight
-- source: Flowgate
-  target: MktTerminal
-  sourceCardinality: 0..1
-  sourceName: flowgate
-  targetCardinality: 0..*
-  targetName: mktTerminal
+  - source: Flowgate
+    target: CongestionRevenueRight
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..1
+    targetName: congestionRevenueRight
+  - source: Flowgate
+    target: ConstraintResults
+    sourceCardinality: "1"
+    sourceName: flowgate
+    targetCardinality: 1..*
+    targetName: constraintResults
+  - source: Flowgate
+    target: ContractDistributionFactor
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: contractDistributionFactor
+  - source: Flowgate
+    target: FlowgateRelief
+    sourceCardinality: "1"
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: flowgateRelief
+  - source: Flowgate
+    target: FlowgateValue
+    sourceCardinality: "1"
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: flowgateValue
+  - source: Flowgate
+    target: SubControlArea
+    sourceCardinality: 0..*
+    sourceName: from_Flowgate
+    targetCardinality: 0..1
+    targetName: from_SubControlArea
+  - source: Flowgate
+    target: FTR
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: ftrs
+  - source: Flowgate
+    target: GeneratingUnitDynamicValues
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: generatingUnitDynamicValues
+  - source: Flowgate
+    target: GenericConstraints
+    sourceCardinality: 0..*
+    sourceName: flowgate
+    targetCardinality: 0..1
+    targetName: genericConstraints
+  - source: Flowgate
+    target: HostControlArea
+    sourceCardinality: 0..*
+    sourceName: flowgate
+    targetCardinality: 0..1
+    targetName: hostControlArea
+  - source: Flowgate
+    target: SchedulingPoint
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: interTie
+  - source: Flowgate
+    target: InterTieResults
+    sourceCardinality: "1"
+    sourceName: flowgate
+    targetCardinality: 1..*
+    targetName: interTieResults
+  - source: Flowgate
+    target: MktLine
+    sourceCardinality: 0..*
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: mktLine
+  - source: Flowgate
+    target: MktPowerTransformer
+    sourceCardinality: 0..*
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: mktPowerTransformer
+  - source: Flowgate
+    target: MktTerminal
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: mktTerminal
+  - source: Flowgate
+    target: RegisteredInterTie
+    sourceCardinality: "1"
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: registeredInterTie
+  - source: Flowgate
+    target: SecurityConstraints
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..1
+    targetName: securityConstraints
+  - source: Flowgate
+    target: SubControlArea
+    sourceCardinality: 0..*
+    sourceName: to_Flowgate
+    targetCardinality: 0..1
+    targetName: to_SubControlArea
+  - source: Flowgate
+    target: TransmissionInterfaceRightEntitlement
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: tranmissionRightEntitlement
+  - source: Flowgate
+    target: TransmissionCapacity
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: transmissionCapacity
+  - source: Flowgate
+    target: ViolationLimit
+    sourceCardinality: 0..1
+    sourceName: flowgate
+    targetCardinality: 0..*
+    targetName: violationLimits

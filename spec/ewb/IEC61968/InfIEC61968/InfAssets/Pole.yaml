@@ -1,18 +1,18 @@
 name: Pole
 description: Pole asset.
 attributes:
-- name: classification
-  type: String
-  nullable: true
-  description: 'Pole class: 1, 2, 3, 4, 5, 6, 7, H1, H2, Other, Unknown.'
+  - name: classification
+    type: String
+    description: "Pole class: 1, 2, 3, 4, 5, 6, 7, H1, H2, Other, Unknown."
+    nullable: true
 ancestors:
-- Structure
+  - Structure
 associations:
-- source: Pole
-  target: Streetlight
-  sourceCardinality: 0..1
-  sourceName: pole
-  sourceDescription: Pole to which thiss streetlight is attached.
-  targetCardinality: 0..*
-  targetName: streetlights
-  targetDescription: All streetlights attached to this pole.
+  - source: Pole
+    target: Streetlight
+    sourceCardinality: 0..1
+    sourceName: pole
+    sourceDescription: Pole to which thiss streetlight is attached.
+    targetCardinality: 0..*
+    targetName: streetlights
+    targetDescription: All streetlights attached to this pole.

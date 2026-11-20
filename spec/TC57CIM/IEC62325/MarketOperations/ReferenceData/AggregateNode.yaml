@@ -1,63 +1,61 @@
 name: AggregateNode
-description: An aggregated node can define a typed grouping further defined by the AnodeType enumeratuion. Types range from
-  System Zone/Regions to Market Energy Regions to Aggregated Loads and Aggregated Generators.
+description: An aggregated node can define a typed grouping further defined by the AnodeType enumeratuion. Types range from System Zone/Regions to Market Energy Regions to Aggregated Loads and Aggregated Generators.
 attributes:
-- name: anodeType
-  type: AnodeType
-  description: Type of aggregated node
-- name: qualifASOrder
-  type: Integer
-  description: Processing Order for AS self-provisions for this region. The priority of this attribute directs the awards
-    of any resource that resides in overlapping regions. The regions are processed in priority manner.
+  - name: anodeType
+    type: AnodeType
+    description: Type of aggregated node
+  - name: qualifASOrder
+    type: Integer
+    description: Processing Order for AS self-provisions for this region. The priority of this attribute directs the awards of any resource that resides in overlapping regions. The regions are processed in priority manner.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- LoadAggregationPoint
-- MSSZone
-- MarketRegion
-- RUCZone
+  - LoadAggregationPoint
+  - MSSZone
+  - MarketRegion
+  - RUCZone
 associations:
-- source: AggregateNode
-  target: CnodeDistributionFactor
-  sourceCardinality: 0..1
-  sourceName: aggregateNode
-  targetCardinality: 0..*
-  targetName: cnodeDistributionFactor
-- source: AggregateNode
-  target: Pnode
-  sourceCardinality: 0..*
-  sourceName: aggregateNode
-  targetCardinality: 0..*
-  targetName: pnode
-- source: AggregateNode
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: aggregateNode
-  targetCardinality: 0..*
-  targetName: subControlArea
-- source: AggregateNode
-  target: RTO
-  sourceCardinality: 0..*
-  sourceName: aggregateNode
-  targetCardinality: "1"
-  targetName: rto
-- source: AggregateNode
-  target: Instructions
-  sourceCardinality: 0..1
-  sourceName: aggregateNode
-  targetCardinality: 0..*
-  targetName: instruction
-- source: AggregateNode
-  target: AreaLoadCurve
-  sourceCardinality: 0..1
-  sourceName: aggregateNode
-  targetCardinality: 0..*
-  targetName: areaLoadCurve
-- source: AggregateNode
-  target: RegisteredResource
-  sourceCardinality: 0..1
-  sourceName: aggregateNode
-  sourceDescription: An AggregateNode may be associated with up to many RegisteredResources.
-  targetCardinality: 0..*
-  targetName: registeredResource
-  targetDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.
+  - source: AggregateNode
+    target: AreaLoadCurve
+    sourceCardinality: 0..1
+    sourceName: aggregateNode
+    targetCardinality: 0..*
+    targetName: areaLoadCurve
+  - source: AggregateNode
+    target: CnodeDistributionFactor
+    sourceCardinality: 0..1
+    sourceName: aggregateNode
+    targetCardinality: 0..*
+    targetName: cnodeDistributionFactor
+  - source: AggregateNode
+    target: Instructions
+    sourceCardinality: 0..1
+    sourceName: aggregateNode
+    targetCardinality: 0..*
+    targetName: instruction
+  - source: AggregateNode
+    target: Pnode
+    sourceCardinality: 0..*
+    sourceName: aggregateNode
+    targetCardinality: 0..*
+    targetName: pnode
+  - source: AggregateNode
+    target: RegisteredResource
+    sourceCardinality: 0..1
+    sourceName: aggregateNode
+    sourceDescription: An AggregateNode may be associated with up to many RegisteredResources.
+    targetCardinality: 0..*
+    targetName: registeredResource
+    targetDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.
+  - source: AggregateNode
+    target: RTO
+    sourceCardinality: 0..*
+    sourceName: aggregateNode
+    targetCardinality: "1"
+    targetName: rto
+  - source: AggregateNode
+    target: SubControlArea
+    sourceCardinality: 0..*
+    sourceName: aggregateNode
+    targetCardinality: 0..*
+    targetName: subControlArea

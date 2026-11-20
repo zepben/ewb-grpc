@@ -1,21 +1,21 @@
 name: Streetlight
 description: Streetlight asset.
 attributes:
-- name: lightRating
-  type: Integer
-  nullable: true
-  description: Power rating of light in watts.
-- name: lampKind
-  type: StreetlightLampKind
-  description: Lamp kind.
+  - name: lampKind
+    type: StreetlightLampKind
+    description: Lamp kind.
+  - name: lightRating
+    type: Integer
+    description: Power rating of light in watts.
+    nullable: true
 ancestors:
-- Asset
+  - Asset
 associations:
-- source: Streetlight
-  target: Pole
-  sourceCardinality: 0..*
-  sourceName: streetlights
-  sourceDescription: All streetlights attached to this pole.
-  targetCardinality: 0..1
-  targetName: pole
-  targetDescription: Pole to which thiss streetlight is attached.
+  - source: Streetlight
+    target: Pole
+    sourceCardinality: 0..*
+    sourceName: streetlights
+    sourceDescription: All streetlights attached to this pole.
+    targetCardinality: 0..1
+    targetName: pole
+    targetDescription: Pole to which thiss streetlight is attached.

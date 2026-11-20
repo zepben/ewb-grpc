@@ -1,21 +1,18 @@
 name: ProtectionRelaySystem
-description: \[ZBEX\] This extension is in-line with the CIM working group for replacing the `protection` package, can
-  be replaced when the working group outcome is merged into the CIM model.
-  <br/>
-  A relay system for controlling ProtectedSwitches.
+description: \[ZBEX\] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working group outcome is merged into the CIM model. <br/> A relay system for controlling ProtectedSwitches.
 attributes:
-- name: protectionKind
-  type: ProtectionKind
-  nullable: false
-  description: \[ZBEX\] The kind of protection being provided by this protection equipment.
+  - name: protectionKind
+    type: ProtectionKind
+    description: \[ZBEX\] The kind of protection being provided by this protection equipment.
+    nullable: false
 ancestors:
-- Equipment
+  - Equipment
 associations:
-- source: ProtectionRelaySystem
-  target: ProtectionRelayScheme
-  sourceCardinality: 0..1
-  sourceName: system
-  sourceDescription: \[ZBEX\] The system this scheme belongs to.
-  targetCardinality: 0..*
-  targetName: schemes
-  targetDescription: \[ZBEX\] The schemes implemented by this ProtectionRelaySystem.
+  - source: ProtectionRelaySystem
+    target: ProtectionRelayScheme
+    sourceCardinality: 0..1
+    sourceName: system
+    sourceDescription: \[ZBEX\] The system this scheme belongs to.
+    targetCardinality: 0..*
+    targetName: schemes
+    targetDescription: \[ZBEX\] The schemes implemented by this ProtectionRelaySystem.

@@ -1,27 +1,26 @@
 name: DiscontinuousExcitationControlDynamics
-description: Discontinuous excitation control function block whose behaviour is described by reference to a standard model
-  <font color="#0f0f0f">or by definition of a user-defined model</font>.
+description: Discontinuous excitation control function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or by definition of a user-defined model</font>.
 ancestors:
-- DynamicsFunctionBlock
+  - DynamicsFunctionBlock
 descendants:
-- DiscontinuousExcitationControlUserDefined
-- DiscExcContIEEEDEC3A
-- DiscExcContIEEEDEC2A
-- DiscExcContIEEEDEC1A
+  - DiscExcContIEEEDEC1A
+  - DiscExcContIEEEDEC2A
+  - DiscExcContIEEEDEC3A
+  - DiscontinuousExcitationControlUserDefined
 associations:
-- source: DiscontinuousExcitationControlDynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  sourceName: discontinuousExcitationControlDynamics
-  sourceDescription: Discontinuous excitation control model associated with this excitation system model.
-  targetCardinality: "1"
-  targetName: excitationSystemDynamics
-  targetDescription: Excitation system model with which this discontinuous excitation control model is associated.
-- source: DiscontinuousExcitationControlDynamics
-  target: RemoteInputSignal
-  sourceCardinality: 0..1
-  sourceName: discontinuousExcitationControlDynamics
-  sourceDescription: Discontinuous excitation control model using this remote input signal.
-  targetCardinality: 0..1
-  targetName: remoteInputSignal
-  targetDescription: Remote input signal used by this discontinuous excitation control system model.
+  - source: DiscontinuousExcitationControlDynamics
+    target: ExcitationSystemDynamics
+    sourceCardinality: 0..1
+    sourceName: discontinuousExcitationControlDynamics
+    sourceDescription: Discontinuous excitation control model associated with this excitation system model.
+    targetCardinality: "1"
+    targetName: excitationSystemDynamics
+    targetDescription: Excitation system model with which this discontinuous excitation control model is associated.
+  - source: DiscontinuousExcitationControlDynamics
+    target: RemoteInputSignal
+    sourceCardinality: 0..1
+    sourceName: discontinuousExcitationControlDynamics
+    sourceDescription: Discontinuous excitation control model using this remote input signal.
+    targetCardinality: 0..1
+    targetName: remoteInputSignal
+    targetDescription: Remote input signal used by this discontinuous excitation control system model.

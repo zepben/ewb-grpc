@@ -1,16 +1,16 @@
 name: PinEquipment
 description: Value associated with Equipment is used as compare.
 attributes:
-- name: kind
-  type: PinEquipmentKind
-  description: The compare operation done on the equipment.
+  - name: kind
+    type: PinEquipmentKind
+    description: The compare operation done on the equipment.
 ancestors:
-- GateInputPin
+  - GateInputPin
 associations:
-- source: PinEquipment
-  target: Equipment
-  sourceCardinality: 0..*
-  sourceName: pinEquipment
-  targetCardinality: "1"
-  targetName: equipment
-  targetDescription: The Equipment that should be used in compare.
+  - source: PinEquipment
+    target: Equipment
+    sourceCardinality: 0..*
+    sourceName: pinEquipment
+    targetCardinality: "1"
+    targetName: equipment
+    targetDescription: The Equipment that should be used in compare.

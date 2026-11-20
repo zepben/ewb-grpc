@@ -1,13 +1,13 @@
 name: EnergyConnection
 description: A connection of energy generation or consumption on the power system model.
 ancestors:
-- ConductingEquipment
+  - ConductingEquipment
 descendants:
-- RegulatingCondEq
-- EnergySource
-- EnergyConsumer
+  - EnergyConsumer
+  - EnergySource
+  - RegulatingCondEq
 associations:
-- source: EnergyConnection
-  target: EnergyComponent
-  sourceCardinality: "1"
-  targetCardinality: 0..*
+  - source: EnergyConnection
+    target: EnergyComponent
+    sourceCardinality: "1"
+    targetCardinality: 0..*

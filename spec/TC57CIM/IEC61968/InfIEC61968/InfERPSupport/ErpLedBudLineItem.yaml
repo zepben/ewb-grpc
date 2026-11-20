@@ -1,21 +1,20 @@
 name: ErpLedBudLineItem
-description: Individual entry of a given Ledger Budget, typically containing information such as amount, accounting date,
-  accounting period, and is associated with the applicable general ledger account.
+description: Individual entry of a given Ledger Budget, typically containing information such as amount, accounting date, accounting period, and is associated with the applicable general ledger account.
 attributes:
-- name: status
-  type: Status
+  - name: status
+    type: Status
 ancestors:
-- ErpIdentifiedObject
+  - ErpIdentifiedObject
 associations:
-- source: ErpLedBudLineItem
-  target: ErpLedgerBudget
-  sourceCardinality: 0..*
-  sourceName: erpLedBudLineItems
-  targetCardinality: "1"
-  targetName: erpLedgerBudget
-- source: ErpLedBudLineItem
-  target: ErpLedgerEntry
-  sourceCardinality: 0..1
-  sourceName: erpLedgerEntry
-  targetCardinality: 0..1
-  targetName: erpLedBudLineItem
+  - source: ErpLedBudLineItem
+    target: ErpLedgerEntry
+    sourceCardinality: 0..1
+    sourceName: erpLedgerEntry
+    targetCardinality: 0..1
+    targetName: erpLedBudLineItem
+  - source: ErpLedBudLineItem
+    target: ErpLedgerBudget
+    sourceCardinality: 0..*
+    sourceName: erpLedBudLineItems
+    targetCardinality: "1"
+    targetName: erpLedgerBudget

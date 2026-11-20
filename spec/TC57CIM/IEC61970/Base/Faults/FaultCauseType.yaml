@@ -1,19 +1,19 @@
 name: FaultCauseType
 description: Type of cause of the fault.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: FaultCauseType
-  target: Fault
-  sourceCardinality: 0..*
-  sourceName: faultCauseTypes
-  sourceDescription: All types of fault cause.
-  targetCardinality: 0..*
-  targetName: faults
-  targetDescription: All faults with this cause type.
-- source: FaultCauseType
-  target: ConfigurationEvent
-  sourceCardinality: "1"
-  sourceName: faultCauseType
-  targetCardinality: 0..*
-  targetName: configurationEvent
+  - source: FaultCauseType
+    target: ConfigurationEvent
+    sourceCardinality: "1"
+    sourceName: faultCauseType
+    targetCardinality: 0..*
+    targetName: configurationEvent
+  - source: FaultCauseType
+    target: Fault
+    sourceCardinality: 0..*
+    sourceName: faultCauseTypes
+    sourceDescription: All types of fault cause.
+    targetCardinality: 0..*
+    targetName: faults
+    targetDescription: All faults with this cause type.

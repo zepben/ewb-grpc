@@ -1,38 +1,37 @@
 name: PerLengthSequenceImpedance
-description: Sequence impedance and admittance parameters per unit length, for transposed lines of 1, 2, or 3 phases. For
-  1-phase lines, define x=x0=xself. For 2-phase lines, define x=xs-xm and x0=xs+xm.
+description: Sequence impedance and admittance parameters per unit length, for transposed lines of 1, 2, or 3 phases. For 1-phase lines, define x=x0=xself. For 2-phase lines, define x=xs-xm and x0=xs+xm.
 attributes:
-- name: b0ch
-  type: Double
-  nullable: true
-  description: Zero sequence shunt (charging) susceptance, siemens per metre.
-- name: bch
-  type: Double
-  nullable: true
-  description: Positive sequence shunt (charging) susceptance, siemens per metre.
-- name: g0ch
-  type: Double
-  nullable: true
-  description: Zero sequence shunt (charging) conductance, siemens per metre.
-- name: gch
-  type: Double
-  nullable: true
-  description: Positive sequence shunt (charging) conductance, siemens per metre.
-- name: r
-  type: Double
-  nullable: true
-  description: Positive sequence series resistance, ohms per metre.
-- name: r0
-  type: Double
-  nullable: true
-  description: Zero sequence series resistance, ohms per metre.
-- name: x
-  type: Double
-  nullable: true
-  description: Positive sequence series reactance, ohms per metre.
-- name: x0
-  type: Double
-  nullable: true
-  description: Zero sequence series reactance, ohms per metre.
+  - name: b0ch
+    type: Double
+    description: Zero sequence shunt (charging) susceptance, siemens per metre.
+    nullable: true
+  - name: bch
+    type: Double
+    description: Positive sequence shunt (charging) susceptance, siemens per metre.
+    nullable: true
+  - name: g0ch
+    type: Double
+    description: Zero sequence shunt (charging) conductance, siemens per metre.
+    nullable: true
+  - name: gch
+    type: Double
+    description: Positive sequence shunt (charging) conductance, siemens per metre.
+    nullable: true
+  - name: r
+    type: Double
+    description: Positive sequence series resistance, ohms per metre.
+    nullable: true
+  - name: r0
+    type: Double
+    description: Zero sequence series resistance, ohms per metre.
+    nullable: true
+  - name: x
+    type: Double
+    description: Positive sequence series reactance, ohms per metre.
+    nullable: true
+  - name: x0
+    type: Double
+    description: Zero sequence series reactance, ohms per metre.
+    nullable: true
 ancestors:
-- PerLengthImpedance
+  - PerLengthImpedance

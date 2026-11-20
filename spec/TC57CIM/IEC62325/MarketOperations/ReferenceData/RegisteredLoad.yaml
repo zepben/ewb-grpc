@@ -6,27 +6,27 @@ description: |-
 
   Loads that are served indirectly, for example - through an energy retailer or a vertical utility, should be modeled as RegisteredDistributedResources. Examples of RegisteredDistributedResources would include: distribution level storage, distribution level generation and distribution level demand response.
 attributes:
-- name: blockLoadTransfer
-  type: Boolean
-  description: Emergency operating procedure - Flag to indicate that the Resource is Block Load pseudo resource.
-- name: dynamicallyScheduledLoadResource
-  type: Boolean
-  description: Flag to indicate that a Load Resource is part of a DSR Load
-- name: dynamicallyScheduledQualification
-  type: Boolean
-  description: Qualification status (used for DSR qualification).
+  - name: blockLoadTransfer
+    type: Boolean
+    description: Emergency operating procedure - Flag to indicate that the Resource is Block Load pseudo resource.
+  - name: dynamicallyScheduledLoadResource
+    type: Boolean
+    description: Flag to indicate that a Load Resource is part of a DSR Load
+  - name: dynamicallyScheduledQualification
+    type: Boolean
+    description: Qualification status (used for DSR qualification).
 ancestors:
-- RegisteredResource
+  - RegisteredResource
 associations:
-- source: RegisteredLoad
-  target: LoadBid
-  sourceCardinality: 0..1
-  sourceName: registeredLoad
-  targetCardinality: 0..*
-  targetName: loadBids
-- source: RegisteredLoad
-  target: AuxiliaryObject
-  sourceCardinality: 0..1
-  sourceName: registeredLoad
-  targetCardinality: 0..*
-  targetName: auxillaryObject
+  - source: RegisteredLoad
+    target: AuxiliaryObject
+    sourceCardinality: 0..1
+    sourceName: registeredLoad
+    targetCardinality: 0..*
+    targetName: auxillaryObject
+  - source: RegisteredLoad
+    target: LoadBid
+    sourceCardinality: 0..1
+    sourceName: registeredLoad
+    targetCardinality: 0..*
+    targetName: loadBids

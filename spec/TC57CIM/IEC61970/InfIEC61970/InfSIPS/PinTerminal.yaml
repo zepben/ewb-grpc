@@ -1,16 +1,16 @@
 name: PinTerminal
 description: Value associated with Terminal is used as compare.
 attributes:
-- name: kind
-  type: PinTerminalKind
-  description: The compare operation done on the terminal.
+  - name: kind
+    type: PinTerminalKind
+    description: The compare operation done on the terminal.
 ancestors:
-- GateInputPin
+  - GateInputPin
 associations:
-- source: PinTerminal
-  target: Terminal
-  sourceCardinality: 0..*
-  sourceName: pinTerminal
-  targetCardinality: "1"
-  targetName: terminal
-  targetDescription: The Terminal that should be used in compare.
+  - source: PinTerminal
+    target: Terminal
+    sourceCardinality: 0..*
+    sourceName: pinTerminal
+    targetCardinality: "1"
+    targetName: terminal
+    targetDescription: The Terminal that should be used in compare.

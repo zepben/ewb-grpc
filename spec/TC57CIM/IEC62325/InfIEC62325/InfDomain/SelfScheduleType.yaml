@@ -1,4 +1,5 @@
 name: SelfScheduleType
+type: enum
 description: |-
   self schedule types
 
@@ -11,23 +12,39 @@ description: |-
   ORFC
   SP
 attributes:
-- name: PT
-- name: ETC
-- name: TOR
-- name: RMR
-- name: RMT
-- name: RGMR
-- name: ORFC
-- name: SP
-  description: Self-Provision
-- name: IFM
-- name: RUC
-- name: RA
-  description: RA Obligations
-- name: PUMP_ETC
-- name: PUMP_TOR
-- name: BAS
-  description: Base Schedule
-- name: LOF
-  description: Lay-off schedule
-- name: WHL
+  - name: BAS
+    type: enum
+    description: Base Schedule
+  - name: ETC
+    type: enum
+  - name: IFM
+    type: enum
+  - name: LOF
+    type: enum
+    description: Lay-off schedule
+  - name: ORFC
+    type: enum
+  - name: PT
+    type: enum
+  - name: PUMP_ETC
+    type: enum
+  - name: PUMP_TOR
+    type: enum
+  - name: RA
+    type: enum
+    description: RA Obligations
+  - name: RGMR
+    type: enum
+  - name: RMR
+    type: enum
+  - name: RMT
+    type: enum
+  - name: RUC
+    type: enum
+  - name: SP
+    type: enum
+    description: Self-Provision
+  - name: TOR
+    type: enum
+  - name: WHL
+    type: enum

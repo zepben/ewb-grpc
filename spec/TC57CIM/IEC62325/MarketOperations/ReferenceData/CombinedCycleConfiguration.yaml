@@ -3,39 +3,39 @@ description: |-
   Configuration options for combined cycle units.
   For example, a Combined Cycle with (CT1, CT2, ST1) will have (CT1, ST1) and (CT2, ST1) configurations as part of(1CT + 1STlogicalconfiguration).
 attributes:
-- name: primaryConfiguration
-  type: Boolean
-  description: Whether this CombinedCycleConfiguration is the primary configuration in the associated Logical configuration?
-- name: ShutdownFlag
-  type: Boolean
-  description: Whether Combined Cycle Plant can be shut-down in this Configuration?
-- name: StartupFlag
-  type: Boolean
-  description: Whether Combined Cycle Plant can be started in this Logical Configuration?
+  - name: primaryConfiguration
+    type: Boolean
+    description: Whether this CombinedCycleConfiguration is the primary configuration in the associated Logical configuration?
+  - name: ShutdownFlag
+    type: Boolean
+    description: Whether Combined Cycle Plant can be shut-down in this Configuration?
+  - name: StartupFlag
+    type: Boolean
+    description: Whether Combined Cycle Plant can be started in this Logical Configuration?
 ancestors:
-- RegisteredGenerator
+  - RegisteredGenerator
 associations:
-- source: CombinedCycleConfiguration
-  target: CombinedCycleConfigurationMember
-  sourceCardinality: "1"
-  sourceName: combinedCycleConfiguration
-  targetCardinality: 0..*
-  targetName: combinedCycleConfigurationMember
-- source: CombinedCycleConfiguration
-  target: CombinedCycleTransitionState
-  sourceCardinality: "1"
-  sourceName: toConfiguration
-  targetCardinality: 0..*
-  targetName: toTransitionState
-- source: CombinedCycleConfiguration
-  target: CombinedCycleTransitionState
-  sourceCardinality: "1"
-  sourceName: fromConfiguration
-  targetCardinality: 0..*
-  targetName: fromTransitionState
-- source: CombinedCycleConfiguration
-  target: CombinedCycleLogicalConfiguration
-  sourceCardinality: 1..*
-  sourceName: combinedCycleConfiguration
-  targetCardinality: 0..1
-  targetName: combinedCycleLogicalConfiguration
+  - source: CombinedCycleConfiguration
+    target: CombinedCycleConfigurationMember
+    sourceCardinality: "1"
+    sourceName: combinedCycleConfiguration
+    targetCardinality: 0..*
+    targetName: combinedCycleConfigurationMember
+  - source: CombinedCycleConfiguration
+    target: CombinedCycleLogicalConfiguration
+    sourceCardinality: 1..*
+    sourceName: combinedCycleConfiguration
+    targetCardinality: 0..1
+    targetName: combinedCycleLogicalConfiguration
+  - source: CombinedCycleConfiguration
+    target: CombinedCycleTransitionState
+    sourceCardinality: "1"
+    sourceName: fromConfiguration
+    targetCardinality: 0..*
+    targetName: fromTransitionState
+  - source: CombinedCycleConfiguration
+    target: CombinedCycleTransitionState
+    sourceCardinality: "1"
+    sourceName: toConfiguration
+    targetCardinality: 0..*
+    targetName: toTransitionState

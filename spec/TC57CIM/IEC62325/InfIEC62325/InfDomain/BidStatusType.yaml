@@ -1,4 +1,5 @@
 name: BidStatusType
+type: enum
 description: |-
   Status indication for bids
 
@@ -13,15 +14,25 @@ description: |-
   CL - Clean Bid
   RP - Replicated Bid
 attributes:
-- name: RP
-  description: Replicated
-- name: RJ
-- name: I
-- name: CV
-- name: CM
-- name: V
-- name: M
-- name: CX
-- name: O
-- name: CL
-  description: Clean
+  - name: CL
+    type: enum
+    description: Clean
+  - name: CM
+    type: enum
+  - name: CV
+    type: enum
+  - name: CX
+    type: enum
+  - name: I
+    type: enum
+  - name: M
+    type: enum
+  - name: O
+    type: enum
+  - name: RJ
+    type: enum
+  - name: RP
+    type: enum
+    description: Replicated
+  - name: V
+    type: enum

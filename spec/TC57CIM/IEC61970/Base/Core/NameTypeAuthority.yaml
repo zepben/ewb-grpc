@@ -1,19 +1,18 @@
 name: NameTypeAuthority
-description: Authority responsible for creation and management of names of a given type; typically an organization or an enterprise
-  system.
+description: Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.
 attributes:
-- name: description
-  type: String
-  description: Description of the name type authority.
-- name: name
-  type: String
-  description: Name of the name type authority.
+  - name: description
+    type: String
+    description: Description of the name type authority.
+  - name: name
+    type: String
+    description: Name of the name type authority.
 associations:
-- source: NameTypeAuthority
-  target: NameType
-  sourceCardinality: 0..1
-  sourceName: nameTypeAuthority
-  sourceDescription: Authority responsible for managing names of this type.
-  targetCardinality: 0..*
-  targetName: nameTypes
-  targetDescription: All name types managed by this authority.
+  - source: NameTypeAuthority
+    target: NameType
+    sourceCardinality: 0..1
+    sourceName: nameTypeAuthority
+    sourceDescription: Authority responsible for managing names of this type.
+    targetCardinality: 0..*
+    targetName: nameTypes
+    targetDescription: All name types managed by this authority.

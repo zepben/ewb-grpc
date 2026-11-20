@@ -1,4 +1,5 @@
 name: MarketProductTypeAsReq
+type: enum
 description: |-
   RU - Regulation Up
   RD - Regulation Down
@@ -6,12 +7,17 @@ description: |-
   NR - Nonspin Reserve
   AS - Upward Ancillary Service
 attributes:
-- name: RU
-  description: regulation up
-- name: RD
-  description: regulation down
-- name: SR
-  description: spinning reserve
-- name: NR
-  description: non spinning reserve
-- name: AS
+  - name: AS
+    type: enum
+  - name: NR
+    type: enum
+    description: non spinning reserve
+  - name: RD
+    type: enum
+    description: regulation down
+  - name: RU
+    type: enum
+    description: regulation up
+  - name: SR
+    type: enum
+    description: spinning reserve

@@ -1,4 +1,5 @@
 name: BidMitigationStatus
+type: enum
 description: |-
   For example:
   'S' - Mitigated by SMPM because of "misconduct"
@@ -8,9 +9,15 @@ description: |-
   'B' - Mitigated because of "misconduct" both by SMPM and modified by LMLM because of RMR rules
   'O' - original
 attributes:
-- name: S
-- name: L
-- name: R
-- name: M
-- name: B
-- name: O
+  - name: B
+    type: enum
+  - name: L
+    type: enum
+  - name: M
+    type: enum
+  - name: O
+    type: enum
+  - name: R
+    type: enum
+  - name: S
+    type: enum

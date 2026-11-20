@@ -1,14 +1,19 @@
 name: CrewStatusKind
+type: enum
 description: Defines the current status of the Crew - assigned, arrived, etc.
 attributes:
-- name: arrived
-  description: the crew is on site at the outage location
-- name: assigned
-  description: the crew has been assigned to work on a task
-- name: awaitingCrewAssignment
-  description: Indicates that the work is awaiting one or more crews to be assigned
-- name: enroute
-  description: the crew has been dispatched to work on an outage
-- name: fieldComplete
-  description: the crew has corrected the outage in the field.  The equipment or other devices may not be energized at this
-    time.
+  - name: arrived
+    type: enum
+    description: the crew is on site at the outage location
+  - name: assigned
+    type: enum
+    description: the crew has been assigned to work on a task
+  - name: awaitingCrewAssignment
+    type: enum
+    description: Indicates that the work is awaiting one or more crews to be assigned
+  - name: enroute
+    type: enum
+    description: the crew has been dispatched to work on an outage
+  - name: fieldComplete
+    type: enum
+    description: the crew has corrected the outage in the field.  The equipment or other devices may not be energized at this time.

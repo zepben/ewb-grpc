@@ -1,25 +1,24 @@
 name: WindTurbineType1or2Dynamics
-description: Parent class supporting relationships to wind turbines type 1 and type 2 and their control models.  Generator
-  model for wind turbine of type 1 or type 2 is a standard asynchronous generator model.
+description: Parent class supporting relationships to wind turbines type 1 and type 2 and their control models.  Generator model for wind turbine of type 1 or type 2 is a standard asynchronous generator model.
 ancestors:
-- DynamicsFunctionBlock
+  - DynamicsFunctionBlock
 descendants:
-- WindType1or2UserDefined
-- WindTurbineType1or2IEC
+  - WindTurbineType1or2IEC
+  - WindType1or2UserDefined
 associations:
-- source: WindTurbineType1or2Dynamics
-  target: AsynchronousMachineDynamics
-  sourceCardinality: 0..1
-  sourceName: windTurbineType1or2Dynamics
-  sourceDescription: Wind generator type 1 or type 2 model associated with this asynchronous machine model.
-  targetCardinality: "1"
-  targetName: asynchronousMachineDynamics
-  targetDescription: Asynchronous machine model with which this wind generator type 1 or type 2 model is associated.
-- source: WindTurbineType1or2Dynamics
-  target: RemoteInputSignal
-  sourceCardinality: 0..1
-  sourceName: windTurbineType1or2Dynamics
-  sourceDescription: Wind generator type 1 or type 2 model using this remote input signal.
-  targetCardinality: 0..1
-  targetName: remoteInputSignal
-  targetDescription: Remote input signal used by this wind generator type 1 or type 2 model.
+  - source: WindTurbineType1or2Dynamics
+    target: AsynchronousMachineDynamics
+    sourceCardinality: 0..1
+    sourceName: windTurbineType1or2Dynamics
+    sourceDescription: Wind generator type 1 or type 2 model associated with this asynchronous machine model.
+    targetCardinality: "1"
+    targetName: asynchronousMachineDynamics
+    targetDescription: Asynchronous machine model with which this wind generator type 1 or type 2 model is associated.
+  - source: WindTurbineType1or2Dynamics
+    target: RemoteInputSignal
+    sourceCardinality: 0..1
+    sourceName: windTurbineType1or2Dynamics
+    sourceDescription: Wind generator type 1 or type 2 model using this remote input signal.
+    targetCardinality: 0..1
+    targetName: remoteInputSignal
+    targetDescription: Remote input signal used by this wind generator type 1 or type 2 model.

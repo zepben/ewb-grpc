@@ -1,38 +1,36 @@
 name: PhaseImpedanceData
-description: "Impedance and conductance matrix element values. \nThe diagonal elements are described by the elements having\
-  \ the same toPhase and fromPhase value and the off diagonal elements have different toPhase and fromPhase values.  The matrix\
-  \ can also be stored in symmetric lower triangular format using the row and column attributes, which map to ACLineSegmentPhase.sequenceNumber."
+description: "Impedance and conductance matrix element values. \nThe diagonal elements are described by the elements having the same toPhase and fromPhase value and the off diagonal elements have different toPhase and fromPhase values.  The matrix can also be stored in symmetric lower triangular format using the row and column attributes, which map to ACLineSegmentPhase.sequenceNumber."
 attributes:
-- name: b
-  type: Double
-  nullable: true
-  description: Susceptance matrix element value, siemens per metre.
-- name: r
-  type: Double
-  nullable: true
-  description: Resistance matrix element value, ohms per metre.
-- name: x
-  type: Double
-  nullable: true
-  description: Reactance matrix element value, ohms per metre.
-- name: g
-  type: Double
-  nullable: true
-  description: Conductance matrix element value, siemens per metre.
-- name: fromPhase
-  type: SinglePhaseKind
-  nullable: false
-  description: Refer to the class description.
-- name: toPhase
-  type: SinglePhaseKind
-  nullable: false
-  description: Refer to the class description.
+  - name: b
+    type: Double
+    description: Susceptance matrix element value, siemens per metre.
+    nullable: true
+  - name: fromPhase
+    type: SinglePhaseKind
+    description: Refer to the class description.
+    nullable: false
+  - name: g
+    type: Double
+    description: Conductance matrix element value, siemens per metre.
+    nullable: true
+  - name: r
+    type: Double
+    description: Resistance matrix element value, ohms per metre.
+    nullable: true
+  - name: toPhase
+    type: SinglePhaseKind
+    description: Refer to the class description.
+    nullable: false
+  - name: x
+    type: Double
+    description: Reactance matrix element value, ohms per metre.
+    nullable: true
 associations:
-- source: PhaseImpedanceData
-  target: PerLengthPhaseImpedance
-  sourceCardinality: 0..*
-  sourceName: phaseImpedanceData
-  sourceDescription: All data that belong to this conductor phase impedance.
-  targetCardinality: 0..1
-  targetName: phaseImpedance
-  targetDescription: Conductor phase impedance to which this data belongs.
+  - source: PhaseImpedanceData
+    target: PerLengthPhaseImpedance
+    sourceCardinality: 0..*
+    sourceName: phaseImpedanceData
+    sourceDescription: All data that belong to this conductor phase impedance.
+    targetCardinality: 0..1
+    targetName: phaseImpedance
+    targetDescription: Conductor phase impedance to which this data belongs.

@@ -1,30 +1,30 @@
 name: LossClearingResults
 description: Provides the MW loss for RUC Zones, subcontrol areas, and the total loss.
 attributes:
-- name: lossMW
-  type: Float
+  - name: lossMW
+    type: Float
 associations:
-- source: LossClearingResults
-  target: SubControlArea
-  sourceCardinality: 1..*
-  sourceName: lossClearingResults
-  targetCardinality: 0..1
-  targetName: subControlArea
-- source: LossClearingResults
-  target: HostControlArea
-  sourceCardinality: 0..*
-  sourceName: lossClearingResults
-  targetCardinality: 0..1
-  targetName: hostControlArea
-- source: LossClearingResults
-  target: LossClearing
-  sourceCardinality: 0..*
-  sourceName: lossClearingResults
-  targetCardinality: 0..1
-  targetName: lossClearing
-- source: LossClearingResults
-  target: RUCZone
-  sourceCardinality: 0..*
-  sourceName: lossClearingResults
-  targetCardinality: 0..1
-  targetName: rucZone
+  - source: LossClearingResults
+    target: HostControlArea
+    sourceCardinality: 0..*
+    sourceName: lossClearingResults
+    targetCardinality: 0..1
+    targetName: hostControlArea
+  - source: LossClearingResults
+    target: LossClearing
+    sourceCardinality: 0..*
+    sourceName: lossClearingResults
+    targetCardinality: 0..1
+    targetName: lossClearing
+  - source: LossClearingResults
+    target: RUCZone
+    sourceCardinality: 0..*
+    sourceName: lossClearingResults
+    targetCardinality: 0..1
+    targetName: rucZone
+  - source: LossClearingResults
+    target: SubControlArea
+    sourceCardinality: 1..*
+    sourceName: lossClearingResults
+    targetCardinality: 0..1
+    targetName: subControlArea

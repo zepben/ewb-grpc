@@ -1,17 +1,17 @@
 name: AssetStringMeasurement
 description: Definition of type of string measurement useful in asset domain.
 attributes:
-- name: kind
-  type: AssetStringKind
-  description: Kind of string useful in asset domain.
+  - name: kind
+    type: AssetStringKind
+    description: Kind of string useful in asset domain.
 ancestors:
-- StringMeasurement
+  - StringMeasurement
 associations:
-- source: AssetStringMeasurement
-  target: TestStandard
-  sourceCardinality: 0..*
-  sourceName: assetString
-  sourceDescription: An asset health string related to this lab test standard.
-  targetCardinality: 0..1
-  targetName: testStandard
-  targetDescription: Test standard which describes this asset string measurement.
+  - source: AssetStringMeasurement
+    target: TestStandard
+    sourceCardinality: 0..*
+    sourceName: assetString
+    sourceDescription: An asset health string related to this lab test standard.
+    targetCardinality: 0..1
+    targetName: testStandard
+    targetDescription: Test standard which describes this asset string measurement.

@@ -1,18 +1,18 @@
 name: ExPostMarketRegionResults
 description: Model of expost calculation of cleared MW on a region basis.  Includes cleared price.
 attributes:
-- name: exPostClearedPrice
-  type: Float
+  - name: exPostClearedPrice
+    type: Float
 associations:
-- source: ExPostMarketRegionResults
-  target: MarketRegion
-  sourceCardinality: 0..*
-  sourceName: exPostMarketRegionResults
-  targetCardinality: "1"
-  targetName: marketRegion
-- source: ExPostMarketRegionResults
-  target: ExPostMarketRegion
-  sourceCardinality: 0..1
-  sourceName: exPostMarketRegionResults
-  targetCardinality: "1"
-  targetName: exPostMarketRegion
+  - source: ExPostMarketRegionResults
+    target: ExPostMarketRegion
+    sourceCardinality: 0..1
+    sourceName: exPostMarketRegionResults
+    targetCardinality: "1"
+    targetName: exPostMarketRegion
+  - source: ExPostMarketRegionResults
+    target: MarketRegion
+    sourceCardinality: 0..*
+    sourceName: exPostMarketRegionResults
+    targetCardinality: "1"
+    targetName: marketRegion

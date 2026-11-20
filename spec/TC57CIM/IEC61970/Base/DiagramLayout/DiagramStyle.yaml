@@ -1,14 +1,13 @@
 name: DiagramStyle
-description: The diagram style refers to a style used by the originating system for a diagram.  A diagram style describes
-  information such as schematic, geographic, etc.
+description: The diagram style refers to a style used by the originating system for a diagram.  A diagram style describes information such as schematic, geographic, etc.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: DiagramStyle
-  target: Diagram
-  sourceCardinality: 0..1
-  sourceName: diagramStyle
-  sourceDescription: A Diagram may have a DiagramStyle.
-  targetCardinality: 0..*
-  targetName: diagram
-  targetDescription: A DiagramStyle can be used by many Diagrams.
+  - source: DiagramStyle
+    target: Diagram
+    sourceCardinality: 0..1
+    sourceName: diagramStyle
+    sourceDescription: A Diagram may have a DiagramStyle.
+    targetCardinality: 0..*
+    targetName: diagram
+    targetDescription: A DiagramStyle can be used by many Diagrams.

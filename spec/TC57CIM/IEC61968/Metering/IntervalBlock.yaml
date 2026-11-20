@@ -38,36 +38,35 @@ description: |-
   Data captured at regular intervals of time. Interval data could be captured as incremental data, absolute data, or relative data. The source for the data is usually a tariff quantity or an engineering quantity. Data is typically captured in time-tagged, uniform, fixed-length intervals of 5 min, 10 min, 15 min, 30 min, or 60 min.
   Note: Interval Data is sometimes also called "Interval Data Readings" (IDR).
 associations:
-- source: IntervalBlock
-  target: PendingCalculation
-  sourceCardinality: 0..*
-  sourceName: intervalBlocks
-  sourceDescription: All blocks of interval reading values to which this pending conversion applies.
-  targetCardinality: 0..1
-  targetName: pendingCalculation
-  targetDescription: Pending calculation to apply to interval reading values contained by this block (after which the resulting
-    reading type is different than the original because it reflects the conversion result).
-- source: IntervalBlock
-  target: ReadingType
-  sourceCardinality: 0..*
-  sourceName: intervalBlocks
-  sourceDescription: All blocks containing interval reading values with this type information.
-  targetCardinality: 0..1
-  targetName: readingType
-  targetDescription: Type information for interval reading values contained in this block.
-- source: IntervalBlock
-  target: MeterReading
-  sourceCardinality: 0..*
-  sourceName: intervalBlocks
-  sourceDescription: All interval blocks contained in this meter reading.
-  targetCardinality: 0..1
-  targetName: meterReading
-  targetDescription: Meter reading containing this interval block.
-- source: IntervalBlock
-  target: IntervalReading
-  sourceCardinality: 0..*
-  sourceName: intervalBlocks
-  sourceDescription: All blocks containing this interval reading.
-  targetCardinality: 0..*
-  targetName: intervalReadings
-  targetDescription: Interval reading contained in this block.
+  - source: IntervalBlock
+    target: IntervalReading
+    sourceCardinality: 0..*
+    sourceName: intervalBlocks
+    sourceDescription: All blocks containing this interval reading.
+    targetCardinality: 0..*
+    targetName: intervalReadings
+    targetDescription: Interval reading contained in this block.
+  - source: IntervalBlock
+    target: MeterReading
+    sourceCardinality: 0..*
+    sourceName: intervalBlocks
+    sourceDescription: All interval blocks contained in this meter reading.
+    targetCardinality: 0..1
+    targetName: meterReading
+    targetDescription: Meter reading containing this interval block.
+  - source: IntervalBlock
+    target: PendingCalculation
+    sourceCardinality: 0..*
+    sourceName: intervalBlocks
+    sourceDescription: All blocks of interval reading values to which this pending conversion applies.
+    targetCardinality: 0..1
+    targetName: pendingCalculation
+    targetDescription: Pending calculation to apply to interval reading values contained by this block (after which the resulting reading type is different than the original because it reflects the conversion result).
+  - source: IntervalBlock
+    target: ReadingType
+    sourceCardinality: 0..*
+    sourceName: intervalBlocks
+    sourceDescription: All blocks containing interval reading values with this type information.
+    targetCardinality: 0..1
+    targetName: readingType
+    targetDescription: Type information for interval reading values contained in this block.

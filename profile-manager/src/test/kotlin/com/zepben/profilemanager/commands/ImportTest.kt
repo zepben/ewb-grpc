@@ -49,7 +49,7 @@ class ImportTest {
         assertTrue(out.resolve("CIM/Grid/Core/Terminal.yaml").isFile)
 
         val text = file.readText()
-        assertTrue("\n\n  - path:" in text || "\n\n- path:" in text, "Diagrams should be separated by blank lines:\n$text")
+        assertTrue("\n\n  - path:" in text, "Diagrams should be indented and separated by blank lines:\n$text")
 
         assertEquals(
             DiagramFile(
@@ -85,17 +85,21 @@ class ImportTest {
     }
 
     @Test
-    fun `writes enum literals without types, quoting YAML 1_1 booleans`() {
+    fun `writes enum classes and literals with enum types, quoting YAML 1_1 booleans`() {
         val out = importSpec()
 
         val text = out.resolve("CIM/Grid/Core/YesNo.yaml").readText()
         assertEquals(
             """
             name: YesNo
+            type: enum
+            description: Yes or no.
             attributes:
-            - name: "NO"
-            - name: "YES"
-              description: Yes.
+              - name: "NO"
+                type: enum
+              - name: "YES"
+                type: enum
+                description: Yes.
 
             """.trimIndent(),
             text,
@@ -110,7 +114,7 @@ class ImportTest {
     fun `writes attributes alphabetically`() {
         val out = importSpec()
 
-        assertEquals(listOf("a", "b", "C"), out.resolve("CIM/Grid/Core/Terminal.yaml").valuesOf("- name"))
+        assertEquals(listOf("a", "b", "C"), out.resolve("CIM/Grid/Core/Terminal.yaml").valuesOf("  - name"))
     }
 
     @Test
@@ -118,7 +122,7 @@ class ImportTest {
         val out = importSpec()
 
         // By role: rim, shaft, spokes, tyre.
-        assertEquals(listOf("Rim", "Axle", "Spoke", "Tyre"), out.resolve("CIM/Grid/Core/Hub.yaml").valuesOf("  target"))
+        assertEquals(listOf("Rim", "Axle", "Spoke", "Tyre"), out.resolve("CIM/Grid/Core/Hub.yaml").valuesOf("    target"))
     }
 
     @Test
@@ -165,6 +169,31 @@ class ImportTest {
     }
 
     @Test
+    fun `prefers double quotes unless the value needs escaping in them`() {
+        assertEquals(
+            """
+            - name: "a: b"
+            - "it's: here"
+            - name: 'say "hi": now'
+            - name: 'a\: b'
+            description: |-
+              'kept: as is'
+
+            """.trimIndent(),
+            finishYaml(
+                """
+                - name: 'a: b'
+                - 'it''s: here'
+                - name: 'say "hi": now'
+                - name: 'a\: b'
+                description: |-
+                  'kept: as is'
+                """.trimIndent(),
+            ),
+        )
+    }
+
+    @Test
     fun `slugs diagram names`() {
         assertEquals("FieldDispatchHistory", uniqueSlug("Field Dispatch History", emptySet()))
         assertEquals("600-1EU_extension", uniqueSlug("600-1 EU_extension", emptySet()))
@@ -199,7 +228,7 @@ class ImportTest {
                     "INSERT INTO t_package VALUES (1, 'Model', 0, NULL), (2, 'CIM', 1, NULL), (3, 'Grid', 2, NULL), (4, 'Core', 3, NULL)",
                     """INSERT INTO t_object VALUES (10, 'Equipment', 'Class', 4, NULL), (11, 'ConductingEquipment', 'Class', 4, NULL),
                        (12, 'Terminal', 'Class', 4, NULL), (15, 'Switch', 'Class', 4, NULL), (13, 'A note', 'Note', 4, NULL), (14, 'Outside', 'Class', 1, NULL),
-                       (20, 'YesNo', 'Class', 4, NULL), (21, 'Hub', 'Class', 4, NULL), (22, 'Spoke', 'Class', 4, NULL), (23, 'Rim', 'Class', 4, NULL),
+                       (20, 'YesNo', 'Class', 4, 'Yes or no.'), (21, 'Hub', 'Class', 4, NULL), (22, 'Spoke', 'Class', 4, NULL), (23, 'Rim', 'Class', 4, NULL),
                        (24, 'Axle', 'Class', 4, NULL), (25, 'Tyre', 'Class', 4, NULL)""",
                     // Inserted out of order, to check they are written alphabetically, ignoring case.
                     """INSERT INTO t_attribute VALUES (202, 20, 'YES', NULL, 'Yes.', 0, 'enum'), (201, 20, 'NO', NULL, NULL, 1, 'enum'),

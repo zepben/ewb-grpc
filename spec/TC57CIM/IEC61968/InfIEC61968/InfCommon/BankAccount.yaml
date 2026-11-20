@@ -1,27 +1,27 @@
 name: BankAccount
 description: Bank account.
 attributes:
-- name: accountNumber
-  type: String
-  description: Account reference number.
+  - name: accountNumber
+    type: String
+    description: Account reference number.
 ancestors:
-- Document
+  - Document
 descendants:
-- ErpBankAccount
+  - ErpBankAccount
 associations:
-- source: BankAccount
-  target: Bank
-  sourceCardinality: 0..*
-  sourceName: bankAccounts
-  sourceDescription: All BankAccounts this Bank provides.
-  targetCardinality: 0..1
-  targetName: bank
-  targetDescription: Bank that provides this BankAccount.
-- source: BankAccount
-  target: ServiceSupplier
-  sourceCardinality: 0..*
-  sourceName: bankAccounts
-  sourceDescription: All BackAccounts this ServiceSupplier owns.
-  targetCardinality: 0..1
-  targetName: serviceSupplier
-  targetDescription: ServiceSupplier that is owner of this BankAccount.
+  - source: BankAccount
+    target: Bank
+    sourceCardinality: 0..*
+    sourceName: bankAccounts
+    sourceDescription: All BankAccounts this Bank provides.
+    targetCardinality: 0..1
+    targetName: bank
+    targetDescription: Bank that provides this BankAccount.
+  - source: BankAccount
+    target: ServiceSupplier
+    sourceCardinality: 0..*
+    sourceName: bankAccounts
+    sourceDescription: All BackAccounts this ServiceSupplier owns.
+    targetCardinality: 0..1
+    targetName: serviceSupplier
+    targetDescription: ServiceSupplier that is owner of this BankAccount.

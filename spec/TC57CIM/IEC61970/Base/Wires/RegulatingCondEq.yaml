@@ -1,25 +1,24 @@
 name: RegulatingCondEq
-description: A type of conducting equipment that can regulate a quantity (i.e. voltage or flow) at a specific point in the
-  network.
+description: A type of conducting equipment that can regulate a quantity (i.e. voltage or flow) at a specific point in the network.
 attributes:
-- name: controlEnabled
-  type: Boolean
-  description: Specifies the regulation status of the equipment.  True is regulating, false is not regulating.
+  - name: controlEnabled
+    type: Boolean
+    description: Specifies the regulation status of the equipment.  True is regulating, false is not regulating.
 ancestors:
-- EnergyConnection
+  - EnergyConnection
 descendants:
-- RotatingMachine
-- StaticVarCompensator
-- ShuntCompensator
-- FrequencyConverter
-- ExternalNetworkInjection
-- PowerElectronicsConnection
+  - ExternalNetworkInjection
+  - FrequencyConverter
+  - PowerElectronicsConnection
+  - RotatingMachine
+  - ShuntCompensator
+  - StaticVarCompensator
 associations:
-- source: RegulatingCondEq
-  target: RegulatingControl
-  sourceCardinality: 1..*
-  sourceName: regulatingCondEq
-  sourceDescription: The equipment that participates in this regulating control scheme.
-  targetCardinality: 0..1
-  targetName: regulatingControl
-  targetDescription: The regulating control scheme in which this equipment participates.
+  - source: RegulatingCondEq
+    target: RegulatingControl
+    sourceCardinality: 1..*
+    sourceName: regulatingCondEq
+    sourceDescription: The equipment that participates in this regulating control scheme.
+    targetCardinality: 0..1
+    targetName: regulatingControl
+    targetDescription: The regulating control scheme in which this equipment participates.

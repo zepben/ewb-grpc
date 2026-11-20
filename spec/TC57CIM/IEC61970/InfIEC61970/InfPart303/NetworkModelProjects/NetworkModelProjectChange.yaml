@@ -1,14 +1,13 @@
 name: NetworkModelProjectChange
-description: Network model project change described by versions of an associated change set.  Has persistent identity over
-  multiple versions of the associated change set.
+description: Network model project change described by versions of an associated change set.  Has persistent identity over multiple versions of the associated change set.
 ancestors:
-- NetworkModelProjectComponent
+  - NetworkModelProjectComponent
 associations:
-- source: NetworkModelProjectChange
-  target: NetworkModelProjectChangeVersion
-  sourceCardinality: "1"
-  sourceName: networkModelProjectChange
-  sourceDescription: The persistent network model project change to which this version applies.
-  targetCardinality: 1..*
-  targetName: networkModelProjectChangeVersion
-  targetDescription: A specific version of the network model project change.
+  - source: NetworkModelProjectChange
+    target: NetworkModelProjectChangeVersion
+    sourceCardinality: "1"
+    sourceName: networkModelProjectChange
+    sourceDescription: The persistent network model project change to which this version applies.
+    targetCardinality: 1..*
+    targetName: networkModelProjectChangeVersion
+    targetDescription: A specific version of the network model project change.

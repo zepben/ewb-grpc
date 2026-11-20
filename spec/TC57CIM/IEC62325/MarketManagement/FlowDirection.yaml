@@ -1,19 +1,19 @@
 name: FlowDirection
 description: The coded identification of the direction of energy flow.
 attributes:
-- name: direction
-  type: String
-  description: The coded identification of the direction of energy flow.
+  - name: direction
+    type: String
+    description: The coded identification of the direction of energy flow.
 associations:
-- source: FlowDirection
-  target: Point
-  sourceCardinality: 0..*
-  sourceName: flowDirection
-  targetCardinality: 0..*
-  targetName: point
-- source: FlowDirection
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: flowDirection
-  targetCardinality: 0..*
-  targetName: timeSeries
+  - source: FlowDirection
+    target: Point
+    sourceCardinality: 0..*
+    sourceName: flowDirection
+    targetCardinality: 0..*
+    targetName: point
+  - source: FlowDirection
+    target: TimeSeries
+    sourceCardinality: 0..*
+    sourceName: flowDirection
+    targetCardinality: 0..*
+    targetName: timeSeries

@@ -4,30 +4,30 @@ description: |-
   There may be a related end device function that identifies a sensor or control point within a metering application or communications systems (e.g., water, gas, electricity).
   Some devices may use an optical port that conforms to the ANSI C12.18 standard for communications.
 ancestors:
-- AssetContainer
+  - AssetContainer
 descendants:
-- Meter
+  - Meter
 associations:
-- source: EndDevice
-  target: UsagePoint
-  sourceCardinality: 0..*
-  sourceName: endDevices
-  sourceDescription: All end devices at this usage point.
-  targetCardinality: 0..*
-  targetName: usagePoints
-  targetDescription: Usage point to which this end device belongs.
-- source: EndDevice
-  target: Customer
-  targetCardinality: 0..1
-  targetName: customer
-  targetDescription: Customer owning this end device.
-- source: EndDevice
-  target: Location
-  targetCardinality: 0..1
-  targetName: location
-  targetDescription: Service location whose service delivery is measured by this end device.
-- source: EndDevice
-  target: EndDeviceFunction
-  targetCardinality: 0..*
-  targetName: endDeviceFunctions
-  targetDescription: All end device functions this end device performs.
+  - source: EndDevice
+    target: Customer
+    targetCardinality: 0..1
+    targetName: customer
+    targetDescription: Customer owning this end device.
+  - source: EndDevice
+    target: EndDeviceFunction
+    targetCardinality: 0..*
+    targetName: endDeviceFunctions
+    targetDescription: All end device functions this end device performs.
+  - source: EndDevice
+    target: Location
+    targetCardinality: 0..1
+    targetName: location
+    targetDescription: Service location whose service delivery is measured by this end device.
+  - source: EndDevice
+    target: UsagePoint
+    sourceCardinality: 0..*
+    sourceName: endDevices
+    sourceDescription: All end devices at this usage point.
+    targetCardinality: 0..*
+    targetName: usagePoints
+    targetDescription: Usage point to which this end device belongs.

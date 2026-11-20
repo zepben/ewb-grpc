@@ -1,14 +1,13 @@
 name: EquipmentFault
-description: A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal
-  to the equipment.
+description: A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.
 ancestors:
-- Fault
+  - Fault
 associations:
-- source: EquipmentFault
-  target: Terminal
-  sourceCardinality: 0..*
-  sourceName: equipmentFaults
-  sourceDescription: The equipment faults at this terminal.
-  targetCardinality: 0..1
-  targetName: terminal
-  targetDescription: The terminal connecting to the bus to which the fault is applied.
+  - source: EquipmentFault
+    target: Terminal
+    sourceCardinality: 0..*
+    sourceName: equipmentFaults
+    sourceDescription: The equipment faults at this terminal.
+    targetCardinality: 0..1
+    targetName: terminal
+    targetDescription: The terminal connecting to the bus to which the fault is applied.

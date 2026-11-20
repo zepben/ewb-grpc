@@ -1,190 +1,184 @@
 name: ProprietaryParameterDynamics
-description: "Supports definition of one or more parameters of several different datatypes for use by proprietary user-defined\
-  \ models.  \nThis class does not inherit from IdentifiedObject since it is not intended that a single instance of it be\
-  \ referenced by more than one proprietary user-defined model instance."
+description: "Supports definition of one or more parameters of several different datatypes for use by proprietary user-defined models.  \nThis class does not inherit from IdentifiedObject since it is not intended that a single instance of it be referenced by more than one proprietary user-defined model instance."
 attributes:
-- name: booleanParameterValue
-  type: Boolean
-  description: Boolean parameter value. If this attribute is populated, integerParameterValue and floatParameterValue will
-    not be.
-- name: floatParameterValue
-  type: Float
-  description: Floating point parameter value.  If this attribute is populated, booleanParameterValue and integerParameterValue
-    will not be.
-- name: integerParameterValue
-  type: Integer
-  description: Integer parameter value.  If this attribute is populated, booleanParameterValue and floatParameterValue will
-    not be.
-- name: parameterNumber
-  type: Integer
-  description: Sequence number of the parameter among the set of parameters associated with the related proprietary user-defined
-    model.
+  - name: booleanParameterValue
+    type: Boolean
+    description: Boolean parameter value. If this attribute is populated, integerParameterValue and floatParameterValue will not be.
+  - name: floatParameterValue
+    type: Float
+    description: Floating point parameter value.  If this attribute is populated, booleanParameterValue and integerParameterValue will not be.
+  - name: integerParameterValue
+    type: Integer
+    description: Integer parameter value.  If this attribute is populated, booleanParameterValue and floatParameterValue will not be.
+  - name: parameterNumber
+    type: Integer
+    description: Sequence number of the parameter among the set of parameters associated with the related proprietary user-defined model.
 associations:
-- source: ProprietaryParameterDynamics
-  target: LoadUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: loadUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: VoltageCompensatorUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: voltageCompensatorUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: PFVArControllerType2UserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: pfVArControllerType2UserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: VoltageAdjusterUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: voltageAdjusterUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: PFVArControllerType1UserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: pfVArControllerType1UserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: DiscontinuousExcitationControlUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: discontinuousExcitationControlUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: PowerSystemStabilizerUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: powerSystemStabilizerUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: UnderexcitationLimiterUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: underexcitationLimiterUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: OverexcitationLimiterUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: overexcitationLimiterUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: ExcitationSystemUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: excitationSystemUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: MechanicalLoadUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: mechanicalLoadUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: TurbineLoadControllerUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: turbineLoadControllerUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: TurbineGovernorUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: turbineGovernorUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: AsynchronousMachineUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: asynchronousMachineUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: SynchronousMachineUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: synchronousMachineUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: SVCUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: svcUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: VSCUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: vscUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: CSCUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: cscUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: WindPlantUserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: windPlantUserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: WindType3or4UserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: windType3or4UserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
-- source: ProprietaryParameterDynamics
-  target: WindType1or2UserDefined
-  sourceCardinality: 0..*
-  sourceName: proprietaryParameterDynamics
-  sourceDescription: Parameter of this proprietary user-defined model.
-  targetCardinality: 0..1
-  targetName: windType1or2UserDefined
-  targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: AsynchronousMachineUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: asynchronousMachineUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: CSCUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: cscUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: DiscontinuousExcitationControlUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: discontinuousExcitationControlUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: ExcitationSystemUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: excitationSystemUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: LoadUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: loadUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: MechanicalLoadUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: mechanicalLoadUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: OverexcitationLimiterUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: overexcitationLimiterUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: PFVArControllerType1UserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: pfVArControllerType1UserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: PFVArControllerType2UserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: pfVArControllerType2UserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: PowerSystemStabilizerUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: powerSystemStabilizerUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: SVCUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: svcUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: SynchronousMachineUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: synchronousMachineUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: TurbineGovernorUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: turbineGovernorUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: TurbineLoadControllerUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: turbineLoadControllerUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: UnderexcitationLimiterUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: underexcitationLimiterUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: VoltageAdjusterUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: voltageAdjusterUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: VoltageCompensatorUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: voltageCompensatorUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: VSCUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: vscUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: WindPlantUserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: windPlantUserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: WindType1or2UserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: windType1or2UserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.
+  - source: ProprietaryParameterDynamics
+    target: WindType3or4UserDefined
+    sourceCardinality: 0..*
+    sourceName: proprietaryParameterDynamics
+    sourceDescription: Parameter of this proprietary user-defined model.
+    targetCardinality: 0..1
+    targetName: windType3or4UserDefined
+    targetDescription: Proprietary user-defined model with which this parameter is associated.

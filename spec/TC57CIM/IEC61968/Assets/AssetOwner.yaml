@@ -1,13 +1,13 @@
 name: AssetOwner
 description: Owner of the asset.
 ancestors:
-- AssetOrganisationRole
+  - AssetOrganisationRole
 associations:
-- source: AssetOwner
-  target: Ownership
-  sourceCardinality: 0..1
-  sourceName: assetOwner
-  sourceDescription: Asset owner that is subject in this ownership.
-  targetCardinality: 0..*
-  targetName: ownerships
-  targetDescription: All ownerships of this owner.
+  - source: AssetOwner
+    target: Ownership
+    sourceCardinality: 0..1
+    sourceName: assetOwner
+    sourceDescription: Asset owner that is subject in this ownership.
+    targetCardinality: 0..*
+    targetName: ownerships
+    targetDescription: All ownerships of this owner.

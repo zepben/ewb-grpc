@@ -1,66 +1,65 @@
 name: SwitchingAction
 description: Atomic switching action.
 attributes:
-- name: executedDateTime
-  type: DateTime
-  description: Actual date and time of this switching step.
-- name: issuedDateTime
-  type: DateTime
-  description: Date and time when the crew was given the instruction to execute the action; not applicable if the action is
-    performed by operator remote control.
-- name: phases
-  type: PhaseCode
-  description: Phases of the Switching Action
-- name: plannedDateTime
-  type: DateTime
-  description: Planned date and time of this switching step.
+  - name: executedDateTime
+    type: DateTime
+    description: Actual date and time of this switching step.
+  - name: issuedDateTime
+    type: DateTime
+    description: Date and time when the crew was given the instruction to execute the action; not applicable if the action is performed by operator remote control.
+  - name: phases
+    type: PhaseCode
+    description: Phases of the Switching Action
+  - name: plannedDateTime
+    type: DateTime
+    description: Planned date and time of this switching step.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- TagAction
-- SwitchAction
-- JumperAction
-- GenericAction
-- GroundAction
-- EnergySourceAction
-- CutAction
-- ClearanceAction
-- VerificationAction
-- ShuntCompensatorAction
-- MeasurementAction
-- EnergyConsumerAction
-- ControlAction
-- ClampAction
+  - ClampAction
+  - ClearanceAction
+  - ControlAction
+  - CutAction
+  - EnergyConsumerAction
+  - EnergySourceAction
+  - GenericAction
+  - GroundAction
+  - JumperAction
+  - MeasurementAction
+  - ShuntCompensatorAction
+  - SwitchAction
+  - TagAction
+  - VerificationAction
 associations:
-- source: SwitchingAction
-  target: SwitchingPlan
-  sourceCardinality: 0..*
-  sourceName: switchingAction
-  targetCardinality: 0..1
-  targetName: switchingPlan
-- source: SwitchingAction
-  target: SwitchingEvent
-  sourceCardinality: "1"
-  sourceName: switchingAction
-  targetCardinality: 0..1
-  targetName: switchingEvent
-- source: SwitchingAction
-  target: Operator
-  sourceCardinality: 0..*
-  sourceName: switchingSteps
-  sourceDescription: All switching steps this operator is responsible for.
-  targetCardinality: 0..1
-  targetName: operator
-  targetDescription: Operator responsible for this switching step.
-- source: SwitchingAction
-  target: Crew
-  sourceCardinality: "1"
-  sourceName: switchingAction
-  targetCardinality: 0..*
-  targetName: crew
-- source: SwitchingAction
-  target: SwitchingStep
-  sourceCardinality: "1"
-  sourceName: switchingAction
-  targetCardinality: 0..1
-  targetName: switchingStep
+  - source: SwitchingAction
+    target: Crew
+    sourceCardinality: "1"
+    sourceName: switchingAction
+    targetCardinality: 0..*
+    targetName: crew
+  - source: SwitchingAction
+    target: Operator
+    sourceCardinality: 0..*
+    sourceName: switchingSteps
+    sourceDescription: All switching steps this operator is responsible for.
+    targetCardinality: 0..1
+    targetName: operator
+    targetDescription: Operator responsible for this switching step.
+  - source: SwitchingAction
+    target: SwitchingEvent
+    sourceCardinality: "1"
+    sourceName: switchingAction
+    targetCardinality: 0..1
+    targetName: switchingEvent
+  - source: SwitchingAction
+    target: SwitchingPlan
+    sourceCardinality: 0..*
+    sourceName: switchingAction
+    targetCardinality: 0..1
+    targetName: switchingPlan
+  - source: SwitchingAction
+    target: SwitchingStep
+    sourceCardinality: "1"
+    sourceName: switchingAction
+    targetCardinality: 0..1
+    targetName: switchingStep

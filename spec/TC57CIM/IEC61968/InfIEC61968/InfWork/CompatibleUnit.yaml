@@ -1,78 +1,78 @@
 name: CompatibleUnit
 description: A pre-planned job model containing labor, material, and accounting requirements for standardized job planning.
 attributes:
-- name: estCost
-  type: Money
-  description: Estimated total cost for perfoming CU.
-- name: quantity
-  type: String
-  description: The quantity, unit of measure, and multiplier at the CU level that applies to the materials.
+  - name: estCost
+    type: Money
+    description: Estimated total cost for perfoming CU.
+  - name: quantity
+    type: String
+    description: The quantity, unit of measure, and multiplier at the CU level that applies to the materials.
 ancestors:
-- WorkDocument
+  - WorkDocument
 associations:
-- source: CompatibleUnit
-  target: DesignLocationCU
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: designLocationCUs
-- source: CompatibleUnit
-  target: CUGroup
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..1
-  targetName: cuGroup
-- source: CompatibleUnit
-  target: CatalogAssetType
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..1
-  targetName: genericAssetModel
-- source: CompatibleUnit
-  target: Procedure
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: procedures
-- source: CompatibleUnit
-  target: PropertyUnit
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..1
-  targetName: propertyUnit
-- source: CompatibleUnit
-  target: CostType
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..1
-  targetName: costType
-- source: CompatibleUnit
-  target: CUWorkEquipmentItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuWorkEquipmentItems
-- source: CompatibleUnit
-  target: CUMaterialItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuMaterialItems
-- source: CompatibleUnit
-  target: CULaborItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuLaborItems
-- source: CompatibleUnit
-  target: CUContractorItem
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..*
-  targetName: cuContractorItems
-- source: CompatibleUnit
-  target: CUAllowableAction
-  sourceCardinality: 0..*
-  sourceName: compatibleUnits
-  targetCardinality: 0..1
-  targetName: cuAllowableAction
+  - source: CompatibleUnit
+    target: CostType
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..1
+    targetName: costType
+  - source: CompatibleUnit
+    target: CUAllowableAction
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..1
+    targetName: cuAllowableAction
+  - source: CompatibleUnit
+    target: CUContractorItem
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..*
+    targetName: cuContractorItems
+  - source: CompatibleUnit
+    target: CUGroup
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..1
+    targetName: cuGroup
+  - source: CompatibleUnit
+    target: CULaborItem
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..*
+    targetName: cuLaborItems
+  - source: CompatibleUnit
+    target: CUMaterialItem
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..*
+    targetName: cuMaterialItems
+  - source: CompatibleUnit
+    target: CUWorkEquipmentItem
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..*
+    targetName: cuWorkEquipmentItems
+  - source: CompatibleUnit
+    target: DesignLocationCU
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..*
+    targetName: designLocationCUs
+  - source: CompatibleUnit
+    target: CatalogAssetType
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..1
+    targetName: genericAssetModel
+  - source: CompatibleUnit
+    target: Procedure
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..*
+    targetName: procedures
+  - source: CompatibleUnit
+    target: PropertyUnit
+    sourceCardinality: 0..*
+    sourceName: compatibleUnits
+    targetCardinality: 0..1
+    targetName: propertyUnit

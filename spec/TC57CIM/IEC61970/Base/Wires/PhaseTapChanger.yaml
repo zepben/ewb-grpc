@@ -1,18 +1,17 @@
 name: PhaseTapChanger
-description: A transformer phase shifting tap model that controls the phase angle difference across the power transformer
-  and potentially the active power flow through the power transformer.  This phase tap model may also impact the voltage magnitude.
+description: A transformer phase shifting tap model that controls the phase angle difference across the power transformer and potentially the active power flow through the power transformer.  This phase tap model may also impact the voltage magnitude.
 ancestors:
-- TapChanger
+  - TapChanger
 descendants:
-- PhaseTapChangerLinear
-- PhaseTapChangerNonLinear
-- PhaseTapChangerTabular
+  - PhaseTapChangerLinear
+  - PhaseTapChangerNonLinear
+  - PhaseTapChangerTabular
 associations:
-- source: PhaseTapChanger
-  target: TransformerEnd
-  sourceCardinality: 0..1
-  sourceName: phaseTapChanger
-  sourceDescription: Phase tap changer associated with this transformer end.
-  targetCardinality: "1"
-  targetName: transformerEnd
-  targetDescription: Transformer end to which this phase tap changer belongs.
+  - source: PhaseTapChanger
+    target: TransformerEnd
+    sourceCardinality: 0..1
+    sourceName: phaseTapChanger
+    sourceDescription: Phase tap changer associated with this transformer end.
+    targetCardinality: "1"
+    targetName: transformerEnd
+    targetDescription: Transformer end to which this phase tap changer belongs.

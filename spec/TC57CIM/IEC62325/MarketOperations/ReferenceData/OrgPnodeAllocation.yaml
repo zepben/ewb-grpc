@@ -1,15 +1,15 @@
 name: OrgPnodeAllocation
 description: This class models the allocation between asset owners and pricing nodes.
 attributes:
-- name: maxMWAllocation
-  type: ActivePower
-  description: Maximum MW for the Source/Sink for the Allocation
+  - name: maxMWAllocation
+    type: ActivePower
+    description: Maximum MW for the Source/Sink for the Allocation
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: OrgPnodeAllocation
-  target: Pnode
-  sourceCardinality: 0..*
-  sourceName: orgPnodeAllocation
-  targetCardinality: "1"
-  targetName: pnode
+  - source: OrgPnodeAllocation
+    target: Pnode
+    sourceCardinality: 0..*
+    sourceName: orgPnodeAllocation
+    targetCardinality: "1"
+    targetName: pnode

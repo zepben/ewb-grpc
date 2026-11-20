@@ -1,10 +1,13 @@
 name: ApplicationSecurityKind
+type: enum
 description: Specifies the expected security mechanism, per IEC 62351-4, to be utilized.
 attributes:
-- name: nonSecure
-  description: Indicates that an application security shall not be used in order to allow establishment of an MSS association.
-- name: secure
-  description: Indicates that the A-security-profile as specified in Clause 11 (or IEC TS 62351-4:2007) shall be used in order
-    to allow establishment of an MMS association.
-- name: endToEndSecure
-  description: Indicates that E2E-security shall be used in order to allow establishment of an MMS association.
+  - name: endToEndSecure
+    type: enum
+    description: Indicates that E2E-security shall be used in order to allow establishment of an MMS association.
+  - name: nonSecure
+    type: enum
+    description: Indicates that an application security shall not be used in order to allow establishment of an MSS association.
+  - name: secure
+    type: enum
+    description: Indicates that the A-security-profile as specified in Clause 11 (or IEC TS 62351-4:2007) shall be used in order to allow establishment of an MMS association.

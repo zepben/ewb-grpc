@@ -1,35 +1,35 @@
 name: ContractorItem
 description: Contractor information for work task.
 attributes:
-- name: activityCode
-  type: String
-  description: ' Activity code identifies a specific and distinguishable unit of work.'
-- name: bidAmount
-  type: Money
-  description: The amount that a given contractor will charge for performing this unit of work.
-- name: cost
-  type: Money
-  description: The total amount charged.
-- name: status
-  type: Status
+  - name: activityCode
+    type: String
+    description: " Activity code identifies a specific and distinguishable unit of work."
+  - name: bidAmount
+    type: Money
+    description: The amount that a given contractor will charge for performing this unit of work.
+  - name: cost
+    type: Money
+    description: The total amount charged.
+  - name: status
+    type: Status
 ancestors:
-- WorkIdentifiedObject
+  - WorkIdentifiedObject
 associations:
-- source: ContractorItem
-  target: ErpPayable
-  sourceCardinality: 0..*
-  sourceName: contractorItems
-  targetCardinality: 0..*
-  targetName: erpPayables
-- source: ContractorItem
-  target: WorkCostDetail
-  sourceCardinality: 0..*
-  sourceName: contractorItems
-  targetCardinality: "1"
-  targetName: workCostDetail
-- source: ContractorItem
-  target: OldWorkTask
-  sourceCardinality: 0..*
-  sourceName: contractorItems
-  targetCardinality: 0..1
-  targetName: workTask
+  - source: ContractorItem
+    target: ErpPayable
+    sourceCardinality: 0..*
+    sourceName: contractorItems
+    targetCardinality: 0..*
+    targetName: erpPayables
+  - source: ContractorItem
+    target: WorkCostDetail
+    sourceCardinality: 0..*
+    sourceName: contractorItems
+    targetCardinality: "1"
+    targetName: workCostDetail
+  - source: ContractorItem
+    target: OldWorkTask
+    sourceCardinality: 0..*
+    sourceName: contractorItems
+    targetCardinality: 0..1
+    targetName: workTask

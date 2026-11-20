@@ -1,86 +1,82 @@
 name: TransformerEndInfo
 description: Transformer end data.
 attributes:
-- name: connectionKind
-  type: WindingConnection
-  description: Kind of connection.
-- name: emergencyS
-  type: Integer
-  nullable: true
-  description: Apparent power in volt amperes that the winding can carry under emergency conditions (also called long-term emergency power).
-- name: endNumber
-  type: Integer
-  nullable: true
-  description: Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
-    Highest voltage winding should be 1.
-- name: insulationU
-  type: Double
-  nullable: true
-  description: Basic insulation level voltage rating in volts.
-- name: phaseAngleClock
-  type: Integer
-  nullable: true
-  description: 'Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}.
-    For example, to express the second winding in code ''Dyn11'', set attributes as follows: ''endNumber''=2, ''connectionKind''
-    = Yn and ''phaseAngleClock'' = 11.'
-- name: r
-  type: Double
-  nullable: true
-  description: DC resistance in ohms.
-- name: ratedS
-  type: Integer
-  nullable: true
-  description: Normal apparent power rating in volt-amperes.
-- name: ratedU
-  type: Double
-  nullable: true
-  description: 'Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase
-    windings.'
-- name: shortTermS
-  type: Integer
-  nullable: true
-  description: Apparent power in volt-amperes that this winding can carry for a short period of time (in emergency).
+  - name: connectionKind
+    type: WindingConnection
+    description: Kind of connection.
+  - name: emergencyS
+    type: Integer
+    description: Apparent power in volt amperes that the winding can carry under emergency conditions (also called long-term emergency power).
+    nullable: true
+  - name: endNumber
+    type: Integer
+    description: Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute. Highest voltage winding should be 1.
+    nullable: true
+  - name: insulationU
+    type: Double
+    description: Basic insulation level voltage rating in volts.
+    nullable: true
+  - name: phaseAngleClock
+    type: Integer
+    description: "Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}. For example, to express the second winding in code 'Dyn11', set attributes as follows: 'endNumber'=2, 'connectionKind' = Yn and 'phaseAngleClock' = 11."
+    nullable: true
+  - name: r
+    type: Double
+    description: DC resistance in ohms.
+    nullable: true
+  - name: ratedS
+    type: Integer
+    description: Normal apparent power rating in volt-amperes.
+    nullable: true
+  - name: ratedU
+    type: Double
+    description: "Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings."
+    nullable: true
+  - name: shortTermS
+    type: Integer
+    description: Apparent power in volt-amperes that this winding can carry for a short period of time (in emergency).
+    nullable: true
 ancestors:
-- AssetInfo
+  - AssetInfo
 associations:
-- source: TransformerEndInfo
-  target: TransformerStarImpedance
-  sourceCardinality: 0..1
-  sourceName: transformerEndInfo
-  sourceDescription: Transformer end datasheet used to calculate this transformer star impedance.
-  targetCardinality: 0..1
-  targetName: transformerStarImpedance
-  targetDescription: Transformer star impedance calculated from this transformer end datasheet.
-- source: TransformerEndInfo
-  target: TransformerTankInfo
-  targetCardinality: 0..1
-  targetName: transformerTankInfo
-  targetDescription: Transformer tank data that this end description is part of.
-- source: TransformerEndInfo
-  target: NoLoadTest
-  targetCardinality: 0..1
-  targetName: energisedEndNoLoadTests
-  targetDescription: All no-load test measurements in which this transformer end was energised.
-- source: TransformerEndInfo
-  target: OpenCircuitTest
-  sourceCardinality: 0..1
-  sourceName: openEnd
-  sourceDescription: Transformer end measured for induced voltage and angle in this open-circuit test.
-  targetCardinality: 0..1
-  targetName: openEndOpenCircuitTests
-  targetDescription: All open-circuit test measurements in which this transformer end was not excited.
-- source: TransformerEndInfo
-  target: OpenCircuitTest
-  targetCardinality: 0..1
-  targetName: energisedEndOpenCircuitTests
-  targetDescription: All open-circuit test measurements in which this transformer end was excited.
-- source: TransformerEndInfo
-  target: ShortCircuitTest
-  targetCardinality: 0..1
-  targetName: groundedEndShortCircuitTests
-  targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
-- source: TransformerEndInfo
-  target: ShortCircuitTest
-  targetCardinality: 0..1
-  targetName: energisedEndShortCircuitTests
-  targetDescription: All short-circuit test measurements in which this transformer end was energised.
+  - source: TransformerEndInfo
+    target: NoLoadTest
+    targetCardinality: 0..1
+    targetName: energisedEndNoLoadTests
+    targetDescription: All no-load test measurements in which this transformer end was energised.
+  - source: TransformerEndInfo
+    target: OpenCircuitTest
+    targetCardinality: 0..1
+    targetName: energisedEndOpenCircuitTests
+    targetDescription: All open-circuit test measurements in which this transformer end was excited.
+  - source: TransformerEndInfo
+    target: ShortCircuitTest
+    targetCardinality: 0..1
+    targetName: energisedEndShortCircuitTests
+    targetDescription: All short-circuit test measurements in which this transformer end was energised.
+  - source: TransformerEndInfo
+    target: ShortCircuitTest
+    targetCardinality: 0..1
+    targetName: groundedEndShortCircuitTests
+    targetDescription: All short-circuit test measurements in which this transformer end was short-circuited.
+  - source: TransformerEndInfo
+    target: OpenCircuitTest
+    sourceCardinality: 0..1
+    sourceName: openEnd
+    sourceDescription: Transformer end measured for induced voltage and angle in this open-circuit test.
+    targetCardinality: 0..1
+    targetName: openEndOpenCircuitTests
+    targetDescription: All open-circuit test measurements in which this transformer end was not excited.
+  - source: TransformerEndInfo
+    target: TransformerStarImpedance
+    sourceCardinality: 0..1
+    sourceName: transformerEndInfo
+    sourceDescription: Transformer end datasheet used to calculate this transformer star impedance.
+    targetCardinality: 0..1
+    targetName: transformerStarImpedance
+    targetDescription: Transformer star impedance calculated from this transformer end datasheet.
+  - source: TransformerEndInfo
+    target: TransformerTankInfo
+    targetCardinality: 0..1
+    targetName: transformerTankInfo
+    targetDescription: Transformer tank data that this end description is part of.

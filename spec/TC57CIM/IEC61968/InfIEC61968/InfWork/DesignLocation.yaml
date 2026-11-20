@@ -1,47 +1,47 @@
 name: DesignLocation
 description: A logical part of the design (e.g., pole and all equipment on a pole). This includes points and spans.
 attributes:
-- name: spanLength
-  type: Length
-  description: The legth of the span from the previous pole to this pole.
-- name: status
-  type: Status
+  - name: spanLength
+    type: Length
+    description: The legth of the span from the previous pole to this pole.
+  - name: status
+    type: Status
 ancestors:
-- WorkIdentifiedObject
+  - WorkIdentifiedObject
 associations:
-- source: DesignLocation
-  target: MiscCostItem
-  sourceCardinality: 0..1
-  sourceName: designLocation
-  targetCardinality: 0..*
-  targetName: miscCostItems
-- source: DesignLocation
-  target: DesignLocationCU
-  sourceCardinality: 0..1
-  sourceName: designLocation
-  targetCardinality: 0..*
-  targetName: designLocationCUs
-- source: DesignLocation
-  target: Design
-  sourceCardinality: 0..*
-  sourceName: designLocations
-  targetCardinality: 1..*
-  targetName: designs
-- source: DesignLocation
-  target: ConditionFactor
-  sourceCardinality: 0..*
-  sourceName: designLocations
-  targetCardinality: 0..*
-  targetName: conditionFactors
-- source: DesignLocation
-  target: WorkLocation
-  sourceCardinality: 0..*
-  sourceName: designLocations
-  targetCardinality: 1..*
-  targetName: workLocations
-- source: DesignLocation
-  target: ErpBomItemData
-  sourceCardinality: 0..1
-  sourceName: designLocation
-  targetCardinality: 0..*
-  targetName: erpBomItemDatas
+  - source: DesignLocation
+    target: ConditionFactor
+    sourceCardinality: 0..*
+    sourceName: designLocations
+    targetCardinality: 0..*
+    targetName: conditionFactors
+  - source: DesignLocation
+    target: DesignLocationCU
+    sourceCardinality: 0..1
+    sourceName: designLocation
+    targetCardinality: 0..*
+    targetName: designLocationCUs
+  - source: DesignLocation
+    target: Design
+    sourceCardinality: 0..*
+    sourceName: designLocations
+    targetCardinality: 1..*
+    targetName: designs
+  - source: DesignLocation
+    target: ErpBomItemData
+    sourceCardinality: 0..1
+    sourceName: designLocation
+    targetCardinality: 0..*
+    targetName: erpBomItemDatas
+  - source: DesignLocation
+    target: MiscCostItem
+    sourceCardinality: 0..1
+    sourceName: designLocation
+    targetCardinality: 0..*
+    targetName: miscCostItems
+  - source: DesignLocation
+    target: WorkLocation
+    sourceCardinality: 0..*
+    sourceName: designLocations
+    targetCardinality: 1..*
+    targetName: workLocations

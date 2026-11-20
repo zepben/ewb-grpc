@@ -4,97 +4,96 @@ description: |-
   There may be a related end device function that identifies a sensor or control point within a metering application or communications systems (e.g., water, gas, electricity).
   Some devices may use an optical port that conforms to the ANSI C12.18 standard for communications.
 attributes:
-- name: amrSystem
-  type: String
-  description: Automated meter reading (AMR) or other communication system responsible for communications to this end device.
-- name: installCode
-  type: String
-  description: Installation code.
-- name: isPan
-  type: Boolean
-  description: If true, this is a premises area network (PAN) device.
-- name: isSmartInverter
-  type: Boolean
-- name: isVirtual
-  type: Boolean
-  description: If true, there is no physical device. As an example, a virtual meter can be defined to aggregate the consumption
-    for two or more physical meters. Otherwise, this is a physical hardware device.
-- name: timeZoneOffset
-  type: Minutes
-  description: Time zone offset relative to GMT for the location of this end device.
+  - name: amrSystem
+    type: String
+    description: Automated meter reading (AMR) or other communication system responsible for communications to this end device.
+  - name: installCode
+    type: String
+    description: Installation code.
+  - name: isPan
+    type: Boolean
+    description: If true, this is a premises area network (PAN) device.
+  - name: isSmartInverter
+    type: Boolean
+  - name: isVirtual
+    type: Boolean
+    description: If true, there is no physical device. As an example, a virtual meter can be defined to aggregate the consumption for two or more physical meters. Otherwise, this is a physical hardware device.
+  - name: timeZoneOffset
+    type: Minutes
+    description: Time zone offset relative to GMT for the location of this end device.
 ancestors:
-- AssetContainer
+  - AssetContainer
 descendants:
-- Meter
+  - Meter
 associations:
-- source: EndDevice
-  target: EndDeviceFunction
-  sourceCardinality: 0..1
-  sourceName: endDevice
-  sourceDescription: End device that performs this function.
-  targetCardinality: 0..*
-  targetName: endDeviceFunctions
-  targetDescription: All end device functions this end device performs.
-- source: EndDevice
-  target: EndDeviceInfo
-  sourceCardinality: 0..*
-  sourceName: endDevices
-  sourceDescription: All end devices described with this data.
-  targetCardinality: 0..1
-  targetName: endDeviceInfo
-  targetDescription: End device data.
-- source: EndDevice
-  target: DispatchablePowerCapability
-  sourceCardinality: 0..1
-  sourceName: endDevice
-  sourceDescription: The generic class to support all field end devices such as meters or smart inverters
-  targetCardinality: 0..*
-  targetName: dispatchablePowerCapability
-- source: EndDevice
-  target: EndDeviceGroup
-  sourceCardinality: 0..*
-  sourceName: endDevices
-  sourceDescription: All end devices this end device group refers to.
-  targetCardinality: 0..*
-  targetName: endDeviceGroups
-  targetDescription: All end device groups referring to this end device.
-- source: EndDevice
-  target: UsagePoint
-  sourceCardinality: 0..*
-  sourceName: endDevices
-  sourceDescription: All end devices at this usage point.
-  targetCardinality: 0..1
-  targetName: usagePoint
-  targetDescription: Usage point to which this end device belongs.
-- source: EndDevice
-  target: EndDeviceControl
-  sourceCardinality: 0..*
-  sourceName: endDevices
-  sourceDescription: All end devices receiving commands from this end device control.
-  targetCardinality: 0..*
-  targetName: endDeviceControls
-  targetDescription: All end device controls sending commands to this end device.
-- source: EndDevice
-  target: EndDeviceEvent
-  sourceCardinality: 0..1
-  sourceName: endDevice
-  sourceDescription: End device that reported this end device event.
-  targetCardinality: 0..*
-  targetName: endDeviceEvents
-  targetDescription: All events reported by this end device.
-- source: EndDevice
-  target: ServiceLocation
-  sourceCardinality: 0..*
-  sourceName: endDevices
-  sourceDescription: All end devices that measure the service delivered to this service location.
-  targetCardinality: 0..1
-  targetName: serviceLocation
-  targetDescription: Service location whose service delivery is measured by this end device.
-- source: EndDevice
-  target: Customer
-  sourceCardinality: 0..*
-  sourceName: endDevices
-  sourceDescription: All end devices of this customer.
-  targetCardinality: 0..1
-  targetName: customer
-  targetDescription: Customer owning this end device.
+  - source: EndDevice
+    target: Customer
+    sourceCardinality: 0..*
+    sourceName: endDevices
+    sourceDescription: All end devices of this customer.
+    targetCardinality: 0..1
+    targetName: customer
+    targetDescription: Customer owning this end device.
+  - source: EndDevice
+    target: DispatchablePowerCapability
+    sourceCardinality: 0..1
+    sourceName: endDevice
+    sourceDescription: The generic class to support all field end devices such as meters or smart inverters
+    targetCardinality: 0..*
+    targetName: dispatchablePowerCapability
+  - source: EndDevice
+    target: EndDeviceControl
+    sourceCardinality: 0..*
+    sourceName: endDevices
+    sourceDescription: All end devices receiving commands from this end device control.
+    targetCardinality: 0..*
+    targetName: endDeviceControls
+    targetDescription: All end device controls sending commands to this end device.
+  - source: EndDevice
+    target: EndDeviceEvent
+    sourceCardinality: 0..1
+    sourceName: endDevice
+    sourceDescription: End device that reported this end device event.
+    targetCardinality: 0..*
+    targetName: endDeviceEvents
+    targetDescription: All events reported by this end device.
+  - source: EndDevice
+    target: EndDeviceFunction
+    sourceCardinality: 0..1
+    sourceName: endDevice
+    sourceDescription: End device that performs this function.
+    targetCardinality: 0..*
+    targetName: endDeviceFunctions
+    targetDescription: All end device functions this end device performs.
+  - source: EndDevice
+    target: EndDeviceGroup
+    sourceCardinality: 0..*
+    sourceName: endDevices
+    sourceDescription: All end devices this end device group refers to.
+    targetCardinality: 0..*
+    targetName: endDeviceGroups
+    targetDescription: All end device groups referring to this end device.
+  - source: EndDevice
+    target: EndDeviceInfo
+    sourceCardinality: 0..*
+    sourceName: endDevices
+    sourceDescription: All end devices described with this data.
+    targetCardinality: 0..1
+    targetName: endDeviceInfo
+    targetDescription: End device data.
+  - source: EndDevice
+    target: ServiceLocation
+    sourceCardinality: 0..*
+    sourceName: endDevices
+    sourceDescription: All end devices that measure the service delivered to this service location.
+    targetCardinality: 0..1
+    targetName: serviceLocation
+    targetDescription: Service location whose service delivery is measured by this end device.
+  - source: EndDevice
+    target: UsagePoint
+    sourceCardinality: 0..*
+    sourceName: endDevices
+    sourceDescription: All end devices at this usage point.
+    targetCardinality: 0..1
+    targetName: usagePoint
+    targetDescription: Usage point to which this end device belongs.

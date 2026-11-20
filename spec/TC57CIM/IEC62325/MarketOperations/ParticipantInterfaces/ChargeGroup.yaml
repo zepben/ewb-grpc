@@ -1,35 +1,34 @@
 name: ChargeGroup
-description: Charge Group is the grouping of Charge Types for settlement invoicing purpose.  Examples such as Ancillary Services,
-  Interests, etc.
+description: Charge Group is the grouping of Charge Types for settlement invoicing purpose.  Examples such as Ancillary Services, Interests, etc.
 attributes:
-- name: effectiveDate
-  type: DateTime
-- name: marketCode
-  type: String
-- name: terminationDate
-  type: DateTime
+  - name: effectiveDate
+    type: DateTime
+  - name: marketCode
+    type: String
+  - name: terminationDate
+    type: DateTime
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: ChargeGroup
-  target: ChargeGroup
-  sourceCardinality: 0..*
-  sourceName: chargeGroupChild
-  sourceDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
-  targetCardinality: 0..1
-  targetName: chargeGroupParent
-  targetDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
-- source: ChargeGroup
-  target: MktUserAttribute
-  sourceCardinality: 0..*
-  sourceName: chargeGroup
-  targetCardinality: 0..*
-  targetName: mktUserAttribute
-- source: ChargeGroup
-  target: ChargeType
-  sourceCardinality: 0..*
-  sourceName: chargeGroup
-  sourceDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
-  targetCardinality: 0..*
-  targetName: chargeType
-  targetDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
+  - source: ChargeGroup
+    target: ChargeGroup
+    sourceCardinality: 0..*
+    sourceName: chargeGroupChild
+    sourceDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
+    targetCardinality: 0..1
+    targetName: chargeGroupParent
+    targetDescription: A ChargeGroup instance can have relationships with other ChargeGroup instances.
+  - source: ChargeGroup
+    target: ChargeType
+    sourceCardinality: 0..*
+    sourceName: chargeGroup
+    sourceDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
+    targetCardinality: 0..*
+    targetName: chargeType
+    targetDescription: A ChargeGroup can have 0-n ChargeType. A ChargeType can associate to 0-n ChargeGroup.
+  - source: ChargeGroup
+    target: MktUserAttribute
+    sourceCardinality: 0..*
+    sourceName: chargeGroup
+    targetCardinality: 0..*
+    targetName: mktUserAttribute

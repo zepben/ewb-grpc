@@ -3,30 +3,30 @@ description: |-
   Transformer star impedance (Pi-model) that accurately reflects impedance for transformers with 2 or 3 windings. For transformers with 4 or more windings, TransformerMeshImpedance class shall be used.
   For transmission networks use PowerTransformerEnd impedances (r, r0, x, x0, b, b0, g and g0).
 attributes:
-- name: r
-  type: Double
-  nullable: true
-  description: Resistance of the transformer end in ohms.
-- name: r0
-  type: Double
-  nullable: true
-  description: Zero sequence series resistance of the transformer end in ohms.
-- name: x
-  type: Double
-  nullable: true
-  description: Positive sequence series reactance of the transformer end in ohms.
-- name: x0
-  type: Double
-  nullable: true
-  description: Zero sequence series reactance of the transformer end in ohms.
+  - name: r
+    type: Double
+    description: Resistance of the transformer end in ohms.
+    nullable: true
+  - name: r0
+    type: Double
+    description: Zero sequence series resistance of the transformer end in ohms.
+    nullable: true
+  - name: x
+    type: Double
+    description: Positive sequence series reactance of the transformer end in ohms.
+    nullable: true
+  - name: x0
+    type: Double
+    description: Zero sequence series reactance of the transformer end in ohms.
+    nullable: true
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: TransformerStarImpedance
-  target: TransformerEndInfo
-  sourceCardinality: 0..1
-  sourceName: transformerStarImpedance
-  sourceDescription: Transformer star impedance calculated from this transformer end datasheet.
-  targetCardinality: 0..1
-  targetName: transformerEndInfo
-  targetDescription: Transformer end datasheet used to calculate this transformer star impedance.
+  - source: TransformerStarImpedance
+    target: TransformerEndInfo
+    sourceCardinality: 0..1
+    sourceName: transformerStarImpedance
+    sourceDescription: Transformer star impedance calculated from this transformer end datasheet.
+    targetCardinality: 0..1
+    targetName: transformerEndInfo
+    targetDescription: Transformer end datasheet used to calculate this transformer star impedance.

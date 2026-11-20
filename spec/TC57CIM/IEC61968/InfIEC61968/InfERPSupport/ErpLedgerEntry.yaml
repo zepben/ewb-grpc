@@ -1,47 +1,47 @@
 name: ErpLedgerEntry
 description: Details of an individual entry in a ledger, which was posted from a journal on the posted date.
 attributes:
-- name: accountID
-  type: String
-  description: Account identifier for this entry.
-- name: accountKind
-  type: ErpAccountKind
-  description: Kind of account for this entry.
-- name: amount
-  type: Money
-  description: The amount of the debit or credit for this account.
-- name: postedDateTime
-  type: DateTime
-  description: Date and time this entry was posted to the ledger.
-- name: status
-  type: Status
-- name: transactionDateTime
-  type: DateTime
-  description: Date and time journal entry was recorded.
+  - name: accountID
+    type: String
+    description: Account identifier for this entry.
+  - name: accountKind
+    type: ErpAccountKind
+    description: Kind of account for this entry.
+  - name: amount
+    type: Money
+    description: The amount of the debit or credit for this account.
+  - name: postedDateTime
+    type: DateTime
+    description: Date and time this entry was posted to the ledger.
+  - name: status
+    type: Status
+  - name: transactionDateTime
+    type: DateTime
+    description: Date and time journal entry was recorded.
 ancestors:
-- ErpIdentifiedObject
+  - ErpIdentifiedObject
 associations:
-- source: ErpLedgerEntry
-  target: ErpLedBudLineItem
-  sourceCardinality: 0..1
-  sourceName: erpLedBudLineItem
-  targetCardinality: 0..1
-  targetName: erpLedgerEntry
-- source: ErpLedgerEntry
-  target: ErpJournalEntry
-  sourceCardinality: 0..1
-  sourceName: erpLedgerEntry
-  targetCardinality: 0..1
-  targetName: erpJounalEntry
-- source: ErpLedgerEntry
-  target: UserAttribute
-  sourceCardinality: 0..*
-  sourceName: erpLedgerEntries
-  targetCardinality: 0..*
-  targetName: userAttributes
-- source: ErpLedgerEntry
-  target: ErpLedger
-  sourceCardinality: 0..*
-  sourceName: erpLedgerEntries
-  targetCardinality: "1"
-  targetName: erpLedger
+  - source: ErpLedgerEntry
+    target: ErpJournalEntry
+    sourceCardinality: 0..1
+    sourceName: erpLedgerEntry
+    targetCardinality: 0..1
+    targetName: erpJounalEntry
+  - source: ErpLedgerEntry
+    target: ErpLedger
+    sourceCardinality: 0..*
+    sourceName: erpLedgerEntries
+    targetCardinality: "1"
+    targetName: erpLedger
+  - source: ErpLedgerEntry
+    target: ErpLedBudLineItem
+    sourceCardinality: 0..1
+    sourceName: erpLedBudLineItem
+    targetCardinality: 0..1
+    targetName: erpLedgerEntry
+  - source: ErpLedgerEntry
+    target: UserAttribute
+    sourceCardinality: 0..*
+    sourceName: erpLedgerEntries
+    targetCardinality: 0..*
+    targetName: userAttributes
