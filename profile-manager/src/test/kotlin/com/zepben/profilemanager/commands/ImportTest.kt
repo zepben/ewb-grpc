@@ -49,7 +49,7 @@ class ImportTest {
         assertTrue(out.resolve("CIM/Grid/Core/Terminal.yaml").isFile)
 
         val text = file.readText()
-        assertTrue("\n\n  - path:" in text || "\n\n- path:" in text, "Diagrams should be separated by blank lines:\n$text")
+        assertTrue("\n\n  - path:" in text, "Diagrams should be indented and separated by blank lines:\n$text")
 
         assertEquals(
             DiagramFile(
@@ -95,11 +95,11 @@ class ImportTest {
             type: enum
             description: Yes or no.
             attributes:
-            - name: "NO"
-              type: enum
-            - name: "YES"
-              type: enum
-              description: Yes.
+              - name: "NO"
+                type: enum
+              - name: "YES"
+                type: enum
+                description: Yes.
 
             """.trimIndent(),
             text,
@@ -114,7 +114,7 @@ class ImportTest {
     fun `writes attributes alphabetically`() {
         val out = importSpec()
 
-        assertEquals(listOf("a", "b", "C"), out.resolve("CIM/Grid/Core/Terminal.yaml").valuesOf("- name"))
+        assertEquals(listOf("a", "b", "C"), out.resolve("CIM/Grid/Core/Terminal.yaml").valuesOf("  - name"))
     }
 
     @Test
@@ -122,7 +122,7 @@ class ImportTest {
         val out = importSpec()
 
         // By role: rim, shaft, spokes, tyre.
-        assertEquals(listOf("Rim", "Axle", "Spoke", "Tyre"), out.resolve("CIM/Grid/Core/Hub.yaml").valuesOf("  target"))
+        assertEquals(listOf("Rim", "Axle", "Spoke", "Tyre"), out.resolve("CIM/Grid/Core/Hub.yaml").valuesOf("    target"))
     }
 
     @Test
@@ -164,6 +164,31 @@ class ImportTest {
                 - Yes
                 - name: y
                 """.trimIndent() + "\n\n",
+            ),
+        )
+    }
+
+    @Test
+    fun `prefers double quotes unless the value needs escaping in them`() {
+        assertEquals(
+            """
+            - name: "a: b"
+            - "it's: here"
+            - name: 'say "hi": now'
+            - name: 'a\: b'
+            description: |-
+              'kept: as is'
+
+            """.trimIndent(),
+            finishYaml(
+                """
+                - name: 'a: b'
+                - 'it''s: here'
+                - name: 'say "hi": now'
+                - name: 'a\: b'
+                description: |-
+                  'kept: as is'
+                """.trimIndent(),
             ),
         )
     }
