@@ -85,16 +85,19 @@ class ImportTest {
     }
 
     @Test
-    fun `writes enum literals without types, quoting YAML 1_1 booleans`() {
+    fun `writes enum classes and literals with enum types, quoting YAML 1_1 booleans`() {
         val out = importSpec()
 
         val text = out.resolve("CIM/Grid/Core/YesNo.yaml").readText()
         assertEquals(
             """
             name: YesNo
+            type: enum
             attributes:
             - name: "NO"
+              type: enum
             - name: "YES"
+              type: enum
               description: Yes.
 
             """.trimIndent(),
