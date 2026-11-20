@@ -1,12 +1,17 @@
 name: ExcST7BOELselectorKind
+type: enum
 description: Types of connections for the OEL input used for static excitation systems type 7B.
 attributes:
 - name: addVref
+  type: enum
   description: The signal is added to <i>Vref</i>.  Corresponds to <i>OELin</i> = 1 on the ExcST7B diagram.
 - name: inputLVgate
+  type: enum
   description: The signal is connected into the input <i>LVGate</i>. Corresponds to <i>OELin</i> = 2 on the ExcST7B diagram.
 - name: noOELinput
+  type: enum
   description: No OEL input is used. Corresponds to <i>OELin</i> not = 1 and not = 2 and not = 3 on the ExcST7B diagram. Original
     ExcST7B model would have called this <i>OELin</i> = 0.
 - name: outputLVgate
+  type: enum
   description: The signal is connected into the output <i>LVGate</i>.  Corresponds to <i>OELin</i> = 3 on the ExcST7B diagram.
