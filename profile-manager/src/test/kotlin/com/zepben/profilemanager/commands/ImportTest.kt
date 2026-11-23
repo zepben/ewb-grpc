@@ -8,6 +8,11 @@
 
 package com.zepben.profilemanager.commands
 
+import com.charleskorn.kaml.AmbiguousQuoteStyle
+import com.charleskorn.kaml.MultiLineStringStyle
+import com.charleskorn.kaml.SingleLineStringStyle
+import com.charleskorn.kaml.Yaml
+import com.charleskorn.kaml.YamlConfiguration
 import com.zepben.profilemanager.exporters.diagrams.model.DiagramClass
 import com.zepben.profilemanager.exporters.diagrams.model.DiagramContent
 import com.zepben.profilemanager.exporters.diagrams.model.DiagramDefinition
@@ -16,6 +21,9 @@ import com.zepben.profilemanager.exporters.finishYaml
 import com.zepben.profilemanager.importers.YamlFileSystem
 import com.zepben.profilemanager.importers.uniqueSlug
 import com.zepben.profilemanager.models.Class
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import java.io.File
 import java.nio.file.Files
 import java.sql.DriverManager
@@ -140,9 +148,11 @@ class ImportTest {
         assertEquals(
             """
             - name: "ON"
-              description: |-
+              description: >-
                 Either
+
                 ON
+
                 - OFF
             - name: "off"
             - name: "true"
@@ -176,7 +186,7 @@ class ImportTest {
             - "it's: here"
             - name: 'say "hi": now'
             - name: 'a\: b'
-            description: |-
+            description: >-
               'kept: as is'
 
             """.trimIndent(),
@@ -192,6 +202,123 @@ class ImportTest {
             ),
         )
     }
+
+    @Test
+    fun `writes multi-line and long text as folded block scalars wrapped at 120`() {
+        val words = (1..30).joinToString(" ") { "word$it" }
+        val upTo16 = (1..16).joinToString(" ") { "word$it" }
+        val upTo17 = "$upTo16 word17"
+        val upTo18 = "$upTo17 word18"
+        val from17 = (17..30).joinToString(" ") { "word$it" }
+        val from18 = (18..30).joinToString(" ") { "word$it" }
+        val from19 = (19..30).joinToString(" ") { "word$it" }
+
+        assertEquals(
+            """
+            |description: >-
+            |  $upTo18
+            |  $from19
+            |attributes:
+            |  - name: a
+            |    description: >-
+            |      say "hi" $upTo16
+            |      $from17
+            |  - >-
+            |    it's $upTo17
+            |    $from18
+            |  - name: b
+            |    description: >-
+            |      Short.
+            |
+            |      Second line.
+            |  - name: c
+            |    description: >-
+            |      Has a line break.
+            |
+            |      Here.
+            |  - name: d
+            |    description: >-
+            |      Each phase:
+            |        | N | C |
+            |        | 1 | 2 |
+            |      $upTo17
+            |      $from18
+            |  - name: e
+            |    description: >2-
+            |        Starts indented.
+            |      Then not.
+            |  - name: f
+            |    description: Short.
+            |  - name: g
+            |    description: ${"x".repeat(130)}
+            |
+            """.trimMargin(),
+            finishYaml(
+                """
+                |description: $words
+                |attributes:
+                |  - name: a
+                |    description: "say \"hi\" $words"
+                |  - 'it''s $words'
+                |  - name: b
+                |    description: |-
+                |      Short.
+                |      Second line.
+                |  - name: c
+                |    description: "Has a line break.\nHere."
+                |  - name: d
+                |    description: |-
+                |      Each phase:
+                |        | N | C |
+                |        | 1 | 2 |
+                |      $words
+                |  - name: e
+                |    description: |2-
+                |        Starts indented.
+                |      Then not.
+                |  - name: f
+                |    description: Short.
+                |  - name: g
+                |    description: ${"x".repeat(130)}
+                """.trimMargin(),
+            ),
+        )
+    }
+
+    @Test
+    fun `reads folded block scalars back as the original text`() {
+        val long = (1..40).joinToString(" ") { "word$it" }
+        val texts = listOf(
+            long,
+            "Short.\nTwo lines.",
+            "$long\n\n$long\nend",
+            "Table:\n  | a | b |\n  | 1 | 2 |\nAfter.\n\n  Indented after a blank line.",
+            "  Starts indented.\nThen $long",
+            "Line breaks.\n\n\nA tab\there, \"quotes\", a \\, # and: colon $long",
+            "\nStarts with a line break.",
+            "on",
+            "x".repeat(130),
+        )
+        val written = Texts(
+            items = texts,
+            keys = texts.withIndex().associate { (i, text) -> "text$i" to text },
+            entries = texts.map { mapOf("description" to it) },
+        )
+        val encoder = Yaml(
+            configuration = YamlConfiguration(
+                breakScalarsAt = Int.MAX_VALUE,
+                singleLineStringStyle = SingleLineStringStyle.PlainExceptAmbiguous,
+                multiLineStringStyle = MultiLineStringStyle.Literal,
+                ambiguousQuoteStyle = AmbiguousQuoteStyle.DoubleQuoted,
+            ),
+        )
+        val yaml = finishYaml(encoder.encodeToString(written))
+
+        assertEquals(written, Yaml.default.decodeFromString<Texts>(yaml), yaml)
+    }
+
+    @Serializable
+    private data class Texts(val items: List<String>, val keys: Map<String, String>, val entries: List<Map<String, String>>)
 
     @Test
     fun `slugs diagram names`() {
