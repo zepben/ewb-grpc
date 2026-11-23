@@ -1,5 +1,9 @@
 name: ExcELIN1
-description: Static PI transformer fed excitation system ELIN (VATECH) - simplified model.  This model represents an all-static excitation system. A PI voltage controller establishes a desired field current set point for a proportional current controller. The integrator of the PI controller has a follow-up input to match its signal to the present field current.  A power system stabilizer with power input is included in the model.
+description: >-
+  Static PI transformer fed excitation system ELIN (VATECH) - simplified model.  This model represents an all-static
+  excitation system. A PI voltage controller establishes a desired field current set point for a proportional current
+  controller. The integrator of the PI controller has a follow-up input to match its signal to the present field
+  current.  A power system stabilizer with power input is included in the model.
 attributes:
   - name: dpnf
     type: PU
@@ -45,6 +49,8 @@ attributes:
     description: Voltage controller proportional gain (<i>Vpu</i>).  Typical value = 34,5.
   - name: xe
     type: PU
-    description: Excitation transformer effective reactance (<i>Xe</i>) (&gt;= 0).  <i>Xe</i> represents the regulation of the transformer/rectifier unit.  Typical value = 0,06.
+    description: >-
+      Excitation transformer effective reactance (<i>Xe</i>) (&gt;= 0).  <i>Xe</i> represents the regulation of the
+      transformer/rectifier unit.  Typical value = 0,06.
 ancestors:
   - ExcitationSystemDynamics

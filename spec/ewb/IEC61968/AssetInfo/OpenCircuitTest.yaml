@@ -1,5 +1,8 @@
 name: OpenCircuitTest
-description: Open-circuit test results verify winding turn ratios and phase shifts. They include induced voltage and phase shift measurements on open-circuit windings, with voltage applied to the energised end. For three-phase windings, the excitation can be a positive sequence (the default) or a zero sequence.
+description: >-
+  Open-circuit test results verify winding turn ratios and phase shifts. They include induced voltage and phase shift
+  measurements on open-circuit windings, with voltage applied to the energised end. For three-phase windings, the
+  excitation can be a positive sequence (the default) or a zero sequence.
 attributes:
   - name: energisedEndStep
     type: Integer
@@ -15,11 +18,15 @@ attributes:
     nullable: true
   - name: openEndVoltage
     type: Double
-    description: Voltage measured at the open-circuited end, with the energised end set to rated voltage and all other ends open in volts.
+    description: >-
+      Voltage measured at the open-circuited end, with the energised end set to rated voltage and all other ends open in
+      volts.
     nullable: true
   - name: phaseShift
     type: Double
-    description: Phase shift in degrees measured at the open end with the energised end set to rated voltage and all other ends open.
+    description: >-
+      Phase shift in degrees measured at the open end with the energised end set to rated voltage and all other ends
+      open.
     nullable: true
 ancestors:
   - TransformerTest

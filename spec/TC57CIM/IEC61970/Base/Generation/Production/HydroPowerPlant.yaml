@@ -1,13 +1,16 @@
 name: HydroPowerPlant
-description: A hydro power station which can generate or pump. When generating, the generator turbines receive water from an upper reservoir. When pumping, the pumps receive their water from a lower reservoir.
+description: >-
+  A hydro power station which can generate or pump. When generating, the generator turbines receive water from an upper
+  reservoir. When pumping, the pumps receive their water from a lower reservoir.
 attributes:
   - name: dischargeTravelDelay
     type: Seconds
     description: Water travel delay from tailbay to next downstream hydro power station.
   - name: genRatedP
     type: ActivePower
-    description: |-
+    description: >-
       The hydro plant's generating rating active power for rated head conditions.
+
       The attribute shall be a positive value.
   - name: hydroPlantStorageType
     type: HydroPlantStorageKind
@@ -20,13 +23,15 @@ attributes:
     description: Total plant discharge capacity.
   - name: plantRatedHead
     type: Length
-    description: |-
+    description: >-
       The plant's rated gross head.
+
       The attribute shall be a positive value.
   - name: pumpRatedP
     type: ActivePower
-    description: |-
+    description: >-
       The hydro plant's pumping rating active power for rated head conditions.
+
       The attribute shall be a positive value.
   - name: surgeTankCode
     type: String

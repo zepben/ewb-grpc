@@ -1,5 +1,7 @@
 name: ConductingEquipment
-description: The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.
+description: >-
+  The parts of the AC power system that are designed to carry current or that are conductively connected through
+  terminals.
 ancestors:
   - Equipment
 descendants:
@@ -20,15 +22,23 @@ associations:
     target: BaseVoltage
     sourceCardinality: 0..*
     sourceName: conductingEquipment
-    sourceDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used and only one base voltage applies.  For example, not used for transformers.
+    sourceDescription: >-
+      All conducting equipment with this base voltage.  Use only when there is no voltage level container used and only
+      one base voltage applies.  For example, not used for transformers.
     targetCardinality: 0..1
     targetName: baseVoltage
-    targetDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and only one base voltage applies.  For example, not used for transformers.
+    targetDescription: >-
+      Base voltage of this conducting equipment.  Use only when there is no voltage level container used and only one
+      base voltage applies.  For example, not used for transformers.
   - source: ConductingEquipment
     target: GroundAction
     sourceCardinality: 0..1
     sourceName: groundedEquipment
-    sourceDescription: Equipment being grounded with this operation. In case of placing a ground anywhere along a line segment, you must use the clamp (to get the distance from one terminal), so use the explicit relation with line segment. In all other cases (including placing the ground at a line segment terminal), reference to one or more conducting equipment is sufficient.
+    sourceDescription: >-
+      Equipment being grounded with this operation. In case of placing a ground anywhere along a line segment, you must
+      use the clamp (to get the distance from one terminal), so use the explicit relation with line segment. In all
+      other cases (including placing the ground at a line segment terminal), reference to one or more conducting
+      equipment is sufficient.
     targetCardinality: 0..1
     targetName: groundingAction
     targetDescription: Action involving grounding operation on this conducting equipment.
@@ -36,7 +46,12 @@ associations:
     target: JumperAction
     sourceCardinality: 0..*
     sourceName: jumpedEquipments
-    sourceDescription: Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the conducting equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment, you must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is sufficient.
+    sourceDescription: >-
+      Conducting equipment is affected when the jumper action connects one or both ends of a jumper to the conducting
+      equipment. If the jumper action involves placing one or both ends of a jumper anywhere along a line segment, you
+      must use the clamp (to get the distance from one terminal), using the explicit relation with clamp. In the case of
+      placing one or both ends of the jumper at a line segment terminal, reference to one or more line segments is
+      sufficient.
     targetCardinality: 0..1
     targetName: jumpingAction
     targetDescription: Jumper action involving jumping operation on this conducting equipment.
@@ -58,10 +73,14 @@ associations:
     target: ProtectiveActionAdjustment
     sourceCardinality: "1"
     sourceName: conductingEquipment
-    sourceDescription: ConductingEquipment whose operating condition is changed when this protective action adjustment gets activated.
+    sourceDescription: >-
+      ConductingEquipment whose operating condition is changed when this protective action adjustment gets activated.
     targetCardinality: 0..*
     targetName: protectiveActionAdjustment
-    targetDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated. For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float will be rounded.
+    targetDescription: >-
+      The operating condition to the Conducting Equipment is changed when protective action adjustment is activated. For
+      ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in
+      float will be rounded.
   - source: ConductingEquipment
     target: SvStatus
     sourceCardinality: "1"
@@ -74,7 +93,11 @@ associations:
     target: Terminal
     sourceCardinality: "1"
     sourceName: conductingEquipment
-    sourceDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+    sourceDescription: >-
+      The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other
+      conducting equipment terminals via connectivity nodes or topological nodes.
     targetCardinality: 0..*
     targetName: terminals
-    targetDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+    targetDescription: >-
+      Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity
+      nodes or topological nodes.

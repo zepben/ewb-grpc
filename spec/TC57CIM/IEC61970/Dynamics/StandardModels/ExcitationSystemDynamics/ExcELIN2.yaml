@@ -1,5 +1,9 @@
 name: ExcELIN2
-description: "Detailed excitation system ELIN (VATECH).  This model represents an all-static excitation system. A PI voltage controller establishes a desired field current set point for a proportional current controller. The integrator of the PI controller has a follow-up input to match its signal to the present field current.  Power system stabilizer models used in conjunction with this excitation system model: PssELIN2, PssIEEE2B, Pss2B."
+description: >-
+  Detailed excitation system ELIN (VATECH).  This model represents an all-static excitation system. A PI voltage
+  controller establishes a desired field current set point for a proportional current controller. The integrator of the
+  PI controller has a follow-up input to match its signal to the present field current.  Power system stabilizer models
+  used in conjunction with this excitation system model: PssELIN2, PssIEEE2B, Pss2B.
 attributes:
   - name: efdbas
     type: PU
@@ -42,10 +46,14 @@ attributes:
     description: Controller follow up gain (<i>PID1max</i>).  Typical value = 2.
   - name: seve1
     type: PU
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back of
+      commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0.
   - name: seve2
     type: PU
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 1.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back of
+      commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 1.
   - name: tb1
     type: Seconds
     description: Voltage controller derivative washout time constant (<i>Tb1</i>) (&gt;= 0).  Typical value = 12,45.
@@ -75,10 +83,14 @@ attributes:
     description: Limiter (<i>Upmin</i>) (&lt; ExcELIN2.upmax).  Typical value = 0.
   - name: ve1
     type: PU
-    description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>1</sub></i>) (&gt; 0).  Typical value = 3.
+    description: >-
+      Exciter alternator output voltages back of commutating reactance at which saturation is defined
+      (<i>Ve</i><i><sub>1</sub></i>) (&gt; 0).  Typical value = 3.
   - name: ve2
     type: PU
-    description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>2</sub></i>) (&gt; 0).  Typical value = 0.
+    description: >-
+      Exciter alternator output voltages back of commutating reactance at which saturation is defined
+      (<i>Ve</i><i><sub>2</sub></i>) (&gt; 0).  Typical value = 0.
   - name: xp
     type: PU
     description: Excitation transformer effective reactance (<i>Xp</i>).  Typical value = 1.

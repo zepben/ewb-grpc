@@ -3,7 +3,14 @@ description: Bus or solid fed SCR (silicon-controlled rectifier) bridge excitati
 attributes:
   - name: busFedSelector
     type: Boolean
-    description: "Fed by selector (<i>BusFedSelector</i>). \ntrue = bus fed (switch is closed)\nfalse = solid fed (switch is open).\nTypical value = true."
+    description: >-
+      Fed by selector (<i>BusFedSelector</i>).
+
+      true = bus fed (switch is closed)
+
+      false = solid fed (switch is open).
+
+      Typical value = true.
   - name: ka
     type: PU
     description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 210.
@@ -12,7 +19,14 @@ attributes:
     description: Excitation control system stabilizer gain (<i>Kf</i>) (&gt; 0).  Typical value 0,01.
   - name: r
     type: PU
-    description: "<i>rc</i> / <i>rfd</i> (<i>R</i>) (&gt;= 0). \n0 means exciter has negative current capability\n&gt; 0 means exciter does not have negative current capability.  \nTypical value = 5."
+    description: >-
+      <i>rc</i> / <i>rfd</i> (<i>R</i>) (&gt;= 0).
+
+      0 means exciter has negative current capability
+
+      &gt; 0 means exciter does not have negative current capability.
+
+      Typical value = 5.
   - name: ta
     type: Seconds
     description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,02.

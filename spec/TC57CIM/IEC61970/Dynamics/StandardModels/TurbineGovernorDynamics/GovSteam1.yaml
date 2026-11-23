@@ -84,17 +84,23 @@ attributes:
     description: Minimum valve opening (<i>Pmin</i>) (&gt;= 0 and &lt; GovSteam1.pmax).  Typical value = 0.
   - name: sdb1
     type: Boolean
-    description: |-
+    description: >-
       Intentional deadband indicator.
+
       true = intentional deadband is applied
+
       false = intentional deadband is not applied.
+
       Typical value = true.
   - name: sdb2
     type: Boolean
-    description: |-
+    description: >-
       Unintentional deadband location.
+
       true = intentional deadband is applied before point "A"
+
       false = intentional deadband is applied after point "A".
+
       Typical value = true.
   - name: t1
     type: Seconds
@@ -125,10 +131,13 @@ attributes:
     description: Maximum valve opening velocity (<i>Uo</i>) (&gt; 0).  Unit = PU / s.  Typical value = 1.
   - name: valve
     type: Boolean
-    description: |-
+    description: >-
       Nonlinear valve characteristic.
+
       true = nonlinear valve characteristic is used
+
       false = nonlinear valve characteristic is not used.
+
       Typical value = true.
 ancestors:
   - TurbineGovernorDynamics

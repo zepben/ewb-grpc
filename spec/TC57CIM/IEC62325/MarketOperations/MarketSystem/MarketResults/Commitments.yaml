@@ -1,5 +1,7 @@
 name: Commitments
-description: Provides the necessary information (on a resource basis) to capture the Startup/Shutdown commitment results. This information is relevant to all markets.
+description: >-
+  Provides the necessary information (on a resource basis) to capture the Startup/Shutdown commitment results. This
+  information is relevant to all markets.
 attributes:
   - name: commitmentType
     type: CommitmentType
@@ -18,7 +20,15 @@ attributes:
     description: Start time for the commitment period. This will be on an interval boundary.
   - name: minStatusChangeTime
     type: Integer
-    description: "SCUC commitment period start-up time. Calculated start up time based on the StartUpTimeCurve provided with the Bid.\n\nThis is a combination of StartUp time bid and Unit down time. \n\nUnits is minutes"
+    description: >-
+      SCUC commitment period start-up time. Calculated start up time based on the StartUpTimeCurve provided with the
+      Bid.
+
+
+      This is a combination of StartUp time bid and Unit down time.
+
+
+      Units is minutes
   - name: noLoadCost
     type: Float
     description: Unit no load cost in case of energy commodity

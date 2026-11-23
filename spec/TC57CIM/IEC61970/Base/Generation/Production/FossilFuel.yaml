@@ -1,5 +1,7 @@
 name: FossilFuel
-description: The fossil fuel consumed by the non-nuclear thermal generating unit.   For example, coal, oil, gas, etc.   These are the specific fuels that the generating unit can consume.
+description: >-
+  The fossil fuel consumed by the non-nuclear thermal generating unit.   For example, coal, oil, gas, etc.   These are
+  the specific fuels that the generating unit can consume.
 attributes:
   - name: fossilFuelType
     type: FuelType
@@ -9,7 +11,9 @@ attributes:
     description: The cost in terms of heat value for the given type of fuel.
   - name: fuelDispatchCost
     type: CostPerHeatUnit
-    description: "The cost of fuel used for economic dispatching which includes: fuel cost, transportation cost,  and incremental maintenance cost."
+    description: >-
+      The cost of fuel used for economic dispatching which includes: fuel cost, transportation cost,  and incremental
+      maintenance cost.
   - name: fuelEffFactor
     type: PU
     description: The efficiency factor for the fuel (per unit) in terms of the effective energy absorbed.
@@ -27,10 +31,14 @@ attributes:
     description: The fuel's fraction of pollution credit per unit of heat content.
   - name: highBreakpointP
     type: ActivePower
-    description: The active power output level of the unit at which the given type of fuel is switched on. This fuel (e.g., oil) is sometimes used to supplement the base fuel (e.g., coal) at high active power output levels.
+    description: >-
+      The active power output level of the unit at which the given type of fuel is switched on. This fuel (e.g., oil) is
+      sometimes used to supplement the base fuel (e.g., coal) at high active power output levels.
   - name: lowBreakpointP
     type: ActivePower
-    description: The active power output level of the unit at which the given type of fuel is switched off. This fuel (e.g., oil) is sometimes used to stabilize the base fuel (e.g., coal) at low active power output levels.
+    description: >-
+      The active power output level of the unit at which the given type of fuel is switched off. This fuel (e.g., oil)
+      is sometimes used to stabilize the base fuel (e.g., coal) at low active power output levels.
 ancestors:
   - IdentifiedObject
 associations:

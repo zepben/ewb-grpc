@@ -1,5 +1,8 @@
 name: MarketInvoice
-description: A roll up of invoice line items. The whole invoice has a due date and amount to be paid, with information such as customer, banks etc. being obtained through associations. The invoice roll up is based on individual line items that each contain amounts and descriptions for specific services or products.
+description: >-
+  A roll up of invoice line items. The whole invoice has a due date and amount to be paid, with information such as
+  customer, banks etc. being obtained through associations. The invoice roll up is based on individual line items that
+  each contain amounts and descriptions for specific services or products.
 attributes:
   - name: amount
     type: Money
@@ -18,7 +21,10 @@ attributes:
     description: Date on which the customer billing statement/invoice was printed/mailed.
   - name: proForma
     type: Boolean
-    description: True if payment is to be paid by a Customer to accept a particular ErpQuote (with associated Design) and have work initiated, at which time an associated ErpInvoice should automatically be generated. EprPayment.subjectStatus satisfies terms specificed in the ErpQuote.
+    description: >-
+      True if payment is to be paid by a Customer to accept a particular ErpQuote (with associated Design) and have work
+      initiated, at which time an associated ErpInvoice should automatically be generated. EprPayment.subjectStatus
+      satisfies terms specificed in the ErpQuote.
   - name: referenceNumber
     type: String
     description: Number of an invoice to be reference by this invoice.

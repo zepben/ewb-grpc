@@ -1,5 +1,7 @@
 name: Terminal
-description: An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.
+description: >-
+  An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection
+  points called connectivity nodes.
 attributes:
   - name: currentFeederDirection
     type: FeederDirection
@@ -27,15 +29,17 @@ attributes:
     nullable: false
   - name: tracedPhases
     type: Integer
-    description: |
+    description: >-
       The traced phase status:
                       |      uint32      |
                       | 16 bits |16 bits |
       Network status: | current | normal |
+
       Network state phase status:
                      |              16 bits              |
                      | 4 bits | 4 bits | 4 bits | 4 bits |
       Nominal phase: |   N    |    C   | B/Y/s2 | A/X/s1 |
+
       Each nominal phase (actual phase):
                     |                 4 bits                |
                     |  1 bit  |  1 bit  |  1 bit  |  1 bit  |
@@ -47,10 +51,14 @@ associations:
     target: ConductingEquipment
     sourceCardinality: 0..*
     sourceName: terminals
-    sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+    sourceDescription: >-
+      Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity
+      nodes or topological nodes.
     targetCardinality: 0..1
     targetName: conductingEquipment
-    targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+    targetDescription: >-
+      The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other
+      conducting equipment terminals via connectivity nodes or topological nodes.
   - source: Terminal
     target: ConnectivityNode
     sourceCardinality: 0..*

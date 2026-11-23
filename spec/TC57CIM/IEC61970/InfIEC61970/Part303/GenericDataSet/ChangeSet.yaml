@@ -1,5 +1,7 @@
 name: ChangeSet
-description: Describes a set of changes that can be applied in different situations.   A given registered target object  MRID may only be referenced once by the contained change set members.
+description: >-
+  Describes a set of changes that can be applied in different situations.   A given registered target object  MRID may
+  only be referenced once by the contained change set members.
 ancestors:
   - DataSet
 associations:
@@ -21,7 +23,8 @@ associations:
     target: NetworkModelProjectChangeVersion
     sourceCardinality: 0..1
     sourceName: changeSet
-    sourceDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
+    sourceDescription: >-
+      The details of model changes for this project.   The change set should have a new identifier if it changes.
     targetCardinality: 0..*
     targetName: networkModelProjectChangeVersion
     targetDescription: The project of the details of model changes.

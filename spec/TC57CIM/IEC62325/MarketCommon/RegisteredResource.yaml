@@ -1,5 +1,7 @@
 name: RegisteredResource
-description: A resource that is registered through the market participant registration system. Examples include generating unit, load, and non-physical generator or load.
+description: >-
+  A resource that is registered through the market participant registration system. Examples include generating unit,
+  load, and non-physical generator or load.
 attributes:
   - name: ACAFlag
     type: YesNo
@@ -12,10 +14,14 @@ attributes:
     description: Resource Commercial Operation Date.
   - name: contingencyAvailFlag
     type: YesNo
-    description: Contingent operating reserve availiability (Yes/No).  Resource is availiable to participate with capacity in contingency dispatch.
+    description: >-
+      Contingent operating reserve availiability (Yes/No).  Resource is availiable to participate with capacity in
+      contingency dispatch.
   - name: dispatchable
     type: Boolean
-    description: "Dispatchable: indicates whether the resource is dispatchable. This implies that the resource intends to submit Energy bids/offers or Ancillary Services bids/offers, or self-provided schedules."
+    description: >-
+      Dispatchable: indicates whether the resource is dispatchable. This implies that the resource intends to submit
+      Energy bids/offers or Ancillary Services bids/offers, or self-provided schedules.
   - name: ECAFlag
     type: YesNo
     description: Indication that this resource is associated with an Embedded Control area.
@@ -24,7 +30,9 @@ attributes:
     description: Flexible offer flag (Y/N).
   - name: hourlyPredispatch
     type: YesNo
-    description: Indicates need to dispatch before the start of the operating hour. Only relevant in Real-Time Market. Applies to generation, intertie and participating load resource. Value (Y/N).
+    description: >-
+      Indicates need to dispatch before the start of the operating hour. Only relevant in Real-Time Market. Applies to
+      generation, intertie and participating load resource. Value (Y/N).
   - name: isAggregatedRes
     type: YesNo
     description: A flag to indicate if a resource is an aggregated resource.
@@ -60,19 +68,27 @@ attributes:
     description: Flag to indicate that the Resource is not participating in the Market Operations.
   - name: pointOfDeliveryFlag
     type: YesNo
-    description: Indication that the registered resource is a Point of Delivery (YES) resource which implies there is a POD Loss Factor.
+    description: >-
+      Indication that the registered resource is a Point of Delivery (YES) resource which implies there is a POD Loss
+      Factor.
   - name: priceSetFlagDA
     type: YesNo
-    description: |-
-      Price setting flag: indicates whether a resource is capable of setting the Market Clearing Price (Y) for the DA market, and if not, indicates whether the resource shall submit bids for energy at $ 0 (S) or not (N).
+    description: >-
+      Price setting flag: indicates whether a resource is capable of setting the Market Clearing Price (Y) for the DA
+      market, and if not, indicates whether the resource shall submit bids for energy at $ 0 (S) or not (N).
 
-      Initially in the RegisteredGenerator class. It was moved to the RegisteredResource class for the participating load dispatch purpose.
+
+      Initially in the RegisteredGenerator class. It was moved to the RegisteredResource class for the participating
+      load dispatch purpose.
   - name: priceSetFlagRT
     type: YesNo
-    description: |-
-      Price setting flag: indicates whether a resource is capable of setting the Market Clearing Price (Y) for the RT market, and if not, indicates whether the resource shall submit bids for energy at $ 0 (S) or not (N).
+    description: >-
+      Price setting flag: indicates whether a resource is capable of setting the Market Clearing Price (Y) for the RT
+      market, and if not, indicates whether the resource shall submit bids for energy at $ 0 (S) or not (N).
 
-      Initially in the RegisteredGenerator class. It was moved to the RegisteredResource class for the participating load dispatch purpose.
+
+      Initially in the RegisteredGenerator class. It was moved to the RegisteredResource class for the participating
+      load dispatch purpose.
   - name: registrationStatus
     type: ResourceRegistrationStatus
     description: Registration Status of resource - Active, Mothballed, Planned, or Decommissioned.
@@ -100,7 +116,9 @@ associations:
     target: AggregateNode
     sourceCardinality: 0..*
     sourceName: registeredResource
-    sourceDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.
+    sourceDescription: >-
+      A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or
+      MktConnectivityNode.
     targetCardinality: 0..1
     targetName: aggregateNode
     targetDescription: An AggregateNode may be associated with up to many RegisteredResources.
@@ -284,10 +302,14 @@ associations:
     target: ResourceCertification
     sourceCardinality: "1"
     sourceName: registeredResource
-    sourceDescription: RegisteredResources are qualified for resource ancillary service types (which include market product types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
+    sourceDescription: >-
+      RegisteredResources are qualified for resource ancillary service types (which include market product types as well
+      as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
     targetCardinality: 0..*
     targetName: resourceAncillaryServiceQualification
-    targetDescription: RegisteredResources are qualified for resource ancillary service types (which include market product types as well as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
+    targetDescription: >-
+      RegisteredResources are qualified for resource ancillary service types (which include market product types as well
+      as other types such as BlackStart) by the association to the class ResourceAncillaryServiceQualification.
   - source: RegisteredResource
     target: ResourceAwardInstruction
     sourceCardinality: 0..1

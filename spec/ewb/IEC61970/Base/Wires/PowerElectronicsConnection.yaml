@@ -1,5 +1,7 @@
 name: PowerElectronicsConnection
-description: A connection to the AC network for energy production or consumption that uses power electronics rather than rotating machines.
+description: >-
+  A connection to the AC network for energy production or consumption that uses power electronics rather than rotating
+  machines.
 attributes:
   - name: inverterStandard
     type: String
@@ -7,7 +9,9 @@ attributes:
     nullable: true
   - name: invFixReactivePower
     type: Double
-    description: \[ZBEX\] Static Reactive Power, specified in a percentage output of the system. Permitted range is between -1.0 and 1.0 (inclusive), with a negative sign referring to “sink”.
+    description: >-
+      \[ZBEX\] Static Reactive Power, specified in a percentage output of the system. Permitted range is between -1.0
+      and 1.0 (inclusive), with a negative sign referring to “sink”.
     nullable: true
   - name: invReactivePowerMode
     type: Boolean
@@ -15,108 +19,156 @@ attributes:
     nullable: true
   - name: invVarRespQAtV1
     type: Double
-    description: \[ZBEX\] Power output set point 1 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
+    description: >-
+      \[ZBEX\] Power output set point 1 as a percentage of rated output for inverter Volt-VAr response mode. Permitted
+      range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
     nullable: true
   - name: invVarRespQAtV2
     type: Double
-    description: \[ZBEX\] Power output set point 2 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
+    description: >-
+      \[ZBEX\] Power output set point 2 as a percentage of rated output for inverter Volt-VAr response mode. Permitted
+      range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
     nullable: true
   - name: invVarRespQAtV3
     type: Double
-    description: \[ZBEX\] Power output set point 3 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
+    description: >-
+      \[ZBEX\] Power output set point 3 as a percentage of rated output for inverter Volt-VAr response mode. Permitted
+      range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
     nullable: true
   - name: invVarRespQAtV4
     type: Double
-    description: \[ZBEX\] Power output set point 4 as a percentage of rated output for inverter Volt-VAr response mode. Permitted range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
+    description: >-
+      \[ZBEX\] Power output set point 4 as a percentage of rated output for inverter Volt-VAr response mode. Permitted
+      range is between -0.6 and 0 (inclusive) with a negative number referring to a sink.
     nullable: true
   - name: invVarRespV1
     type: Double
-    description: \[ZBEX\] Set point 1 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 1 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300
+      (inclusive).
     nullable: true
   - name: invVarRespV2
     type: Double
-    description: \[ZBEX\] Set point 2 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 2 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300
+      (inclusive).
     nullable: true
   - name: invVarRespV3
     type: Double
-    description: \[ZBEX\] Set point 3 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 3 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300
+      (inclusive).
     nullable: true
   - name: invVarRespV4
     type: Double
-    description: \[ZBEX\] Set point 4 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 4 in volts for inverter Volt-VAr response mode. Permitted range is between 200 and 300
+      (inclusive).
     nullable: true
   - name: invVoltVarRespMode
     type: Boolean
-    description: \[ZBEX\] Volt-VAr response mode allows an inverter to consume (sink) or produce (source) reactive power depending on the measured voltage. This mode is further described in AS4777.2:2015, section 6.3.2.3. True implies the mode is enabled.
+    description: >-
+      \[ZBEX\] Volt-VAr response mode allows an inverter to consume (sink) or produce (source) reactive power depending
+      on the measured voltage. This mode is further described in AS4777.2:2015, section 6.3.2.3. True implies the mode
+      is enabled.
     nullable: true
   - name: invVoltWattRespMode
     type: Boolean
-    description: \[ZBEX\] Volt-Watt response mode allows an inverter to reduce is real power output depending on the measured voltage. This mode is further described in AS4777.2:2015, section 6.3.2.2. True implies the mode is enabled.
+    description: >-
+      \[ZBEX\] Volt-Watt response mode allows an inverter to reduce is real power output depending on the measured
+      voltage. This mode is further described in AS4777.2:2015, section 6.3.2.2. True implies the mode is enabled.
     nullable: true
   - name: invWattRespPAtV1
     type: Double
-    description: \[ZBEX\] Power output set point 1 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+    description: >-
+      \[ZBEX\] Power output set point 1 as a percentage of rated output for inverter Volt-Watt response mode. Permitted
+      range is between 0 and 0.2 (inclusive).
     nullable: true
   - name: invWattRespPAtV2
     type: Double
-    description: \[ZBEX\] Power output set point 2 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+    description: >-
+      \[ZBEX\] Power output set point 2 as a percentage of rated output for inverter Volt-Watt response mode. Permitted
+      range is between 0 and 0.2 (inclusive).
     nullable: true
   - name: invWattRespPAtV3
     type: Double
-    description: \[ZBEX\] Power output set point 3 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+    description: >-
+      \[ZBEX\] Power output set point 3 as a percentage of rated output for inverter Volt-Watt response mode. Permitted
+      range is between 0 and 0.2 (inclusive).
     nullable: true
   - name: invWattRespPAtV4
     type: Double
-    description: \[ZBEX\] Power output set point 4 as a percentage of rated output for inverter Volt-Watt response mode. Permitted range is between 0 and 0.2 (inclusive).
+    description: >-
+      \[ZBEX\] Power output set point 4 as a percentage of rated output for inverter Volt-Watt response mode. Permitted
+      range is between 0 and 0.2 (inclusive).
     nullable: true
   - name: invWattRespV1
     type: Double
-    description: \[ZBEX\] Set point 1 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 1 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265
+      (inclusive).
     nullable: true
   - name: invWattRespV2
     type: Double
-    description: \[ZBEX\] Set point 2 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 2 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265
+      (inclusive).
     nullable: true
   - name: invWattRespV3
     type: Double
-    description: \[ZBEX\] Set point 3 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 3 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265
+      (inclusive).
     nullable: true
   - name: invWattRespV4
     type: Double
-    description: \[ZBEX\] Set point 4 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265 (inclusive).
+    description: >-
+      \[ZBEX\] Set point 4 in volts for inverter Volt-Watt response mode. Permitted range is between 244 and 265
+      (inclusive).
     nullable: true
   - name: maxIFault
     type: Double
-    description: Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection will trip or bypass.
+    description: >-
+      Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection
+      will trip or bypass.
     nullable: true
   - name: maxQ
     type: Double
-    description: Maximum reactive power limit in volt-amperes reactive. This is the maximum (nameplate) limit for the unit.
+    description: >-
+      Maximum reactive power limit in volt-amperes reactive. This is the maximum (nameplate) limit for the unit.
     nullable: true
   - name: minQ
     type: Double
-    description: Minimum reactive power limit in volt-amperes reactive for the unit. This is the minimum (nameplate) limit for the unit.
+    description: >-
+      Minimum reactive power limit in volt-amperes reactive for the unit. This is the minimum (nameplate) limit for the
+      unit.
     nullable: true
   - name: p
     type: Integer
-    description: |-
+    description: >-
       Active power injection in watts. Load sign convention is used, i.e. positive sign means flow out from a node.
+
       Starting value for a steady state solution.
     nullable: true
   - name: q
     type: Double
-    description: |-
-      Reactive power injection in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      Reactive power injection in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out
+      from a node.
+
       Starting value for a steady state solution.
     nullable: true
   - name: ratedS
     type: Integer
-    description: Nameplate apparent power rating in volt-amperes for the unit. The attribute shall have a positive value.
+    description: >-
+      Nameplate apparent power rating in volt-amperes for the unit. The attribute shall have a positive value.
     nullable: true
   - name: ratedU
     type: Double
-    description: |-
-      Rated voltage (nameplate data, Ur in IEC 60909-0) in volts. It is primarily used for short circuit data exchange according to IEC 60909.
+    description: >-
+      Rated voltage (nameplate data, Ur in IEC 60909-0) in volts. It is primarily used for short circuit data exchange
+      according to IEC 60909.
+
       The attribute shall be a positive value.
     nullable: true
   - name: stopAtOverFreq
@@ -129,7 +181,9 @@ attributes:
     nullable: true
   - name: sustainOpOvervoltLimit
     type: Double
-    description: \[ZBEX\] Indicates the sustained operation overvoltage limit in volts, when the average voltage for a 10-minute period exceeds the V¬nom-max.
+    description: >-
+      \[ZBEX\] Indicates the sustained operation overvoltage limit in volts, when the average voltage for a 10-minute
+      period exceeds the V¬nom-max.
     nullable: true
 ancestors:
   - RegulatingCondEq

@@ -11,10 +11,14 @@ associations:
     target: ConductingEquipment
     sourceCardinality: 0..1
     sourceName: baseVoltage
-    sourceDescription: Base voltage of this conducting equipment.  Use only when there is no voltage level container used and only one base voltage applies.  For example, not used for transformers.
+    sourceDescription: >-
+      Base voltage of this conducting equipment.  Use only when there is no voltage level container used and only one
+      base voltage applies.  For example, not used for transformers.
     targetCardinality: 0..*
     targetName: conductingEquipment
-    targetDescription: All conducting equipment with this base voltage.  Use only when there is no voltage level container used and only one base voltage applies.  For example, not used for transformers.
+    targetDescription: >-
+      All conducting equipment with this base voltage.  Use only when there is no voltage level container used and only
+      one base voltage applies.  For example, not used for transformers.
   - source: BaseVoltage
     target: AssetDeployment
     sourceCardinality: "1"

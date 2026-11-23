@@ -6,16 +6,22 @@ attributes:
     description: Kind of connection.
   - name: emergencyS
     type: ApparentPower
-    description: Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
+    description: >-
+      Apparent power that the winding can carry under emergency conditions (also called long-term emergency power).
   - name: endNumber
     type: Integer
-    description: Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute. Highest voltage winding should be 1.
+    description: >-
+      Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
+      Highest voltage winding should be 1.
   - name: insulationU
     type: Voltage
     description: Basic insulation level voltage rating.
   - name: phaseAngleClock
     type: Integer
-    description: "Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}. For example, to express the second winding in code 'Dyn11', set attributes as follows: 'endNumber'=2, 'connectionKind' = Yn and 'phaseAngleClock' = 11."
+    description: >-
+      Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}. For
+      example, to express the second winding in code 'Dyn11', set attributes as follows: 'endNumber'=2, 'connectionKind'
+      = Yn and 'phaseAngleClock' = 11.
   - name: r
     type: Resistance
     description: DC resistance.
@@ -24,7 +30,9 @@ attributes:
     description: Normal apparent power rating.
   - name: ratedU
     type: Voltage
-    description: "Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings."
+    description: >-
+      Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase
+      windings.
   - name: shortTermS
     type: ApparentPower
     description: Apparent power that this winding can carry for a short period of time (in emergency).
@@ -40,7 +48,9 @@ associations:
     sourceDescription: Transformer end datasheet used to calculate this core admittance.
     targetCardinality: 0..1
     targetName: coreAdmittance
-    targetDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and core losses. The full values of the transformer should be supplied for one transformer end info only.
+    targetDescription: >-
+      Core admittance calculated from this transformer end datasheet, representing magnetising current and core losses.
+      The full values of the transformer should be supplied for one transformer end info only.
   - source: TransformerEndInfo
     target: NoLoadTest
     sourceCardinality: 0..1
@@ -61,7 +71,9 @@ associations:
     target: ShortCircuitTest
     sourceCardinality: "1"
     sourceName: energisedEnd
-    sourceDescription: Transformer end that voltage is applied to in this short-circuit test. The test voltage is chosen to induce rated current in the energised end.
+    sourceDescription: >-
+      Transformer end that voltage is applied to in this short-circuit test. The test voltage is chosen to induce rated
+      current in the energised end.
     targetCardinality: 0..*
     targetName: energisedEndShortCircuitTests
     targetDescription: All short-circuit test measurements in which this transformer end was energised.
@@ -69,7 +81,8 @@ associations:
     target: TransformerMeshImpedance
     sourceCardinality: 0..1
     sourceName: fromTransformerEndInfo
-    sourceDescription: "'from' transformer end datasheet this mesh impedance is calculated from. It determines the voltage reference."
+    sourceDescription: >-
+      'from' transformer end datasheet this mesh impedance is calculated from. It determines the voltage reference.
     targetCardinality: 0..*
     targetName: fromMeshImpedances
     targetDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
@@ -93,7 +106,8 @@ associations:
     target: TransformerMeshImpedance
     sourceCardinality: 0..*
     sourceName: toTransformerEndInfos
-    sourceDescription: All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.
+    sourceDescription: >-
+      All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.
     targetCardinality: 0..*
     targetName: toMeshImpedances
     targetDescription: All mesh impedances between this 'from' and other 'to' transformer ends.

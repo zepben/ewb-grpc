@@ -1,5 +1,7 @@
 name: ExcSK
-description: Slovakian excitation system.  UEL and secondary voltage control are included in this model. When this model is used, there cannot be a separate underexcitation limiter or VAr controller model.
+description: >-
+  Slovakian excitation system.  UEL and secondary voltage control are included in this model. When this model is used,
+  there cannot be a separate underexcitation limiter or VAr controller model.
 attributes:
   - name: efdmax
     type: PU
@@ -51,20 +53,26 @@ attributes:
     description: Deadband of reactive power (<i>nq</i>).  Determines the range of sensitivity.  Typical value = 0,001.
   - name: qconoff
     type: Boolean
-    description: |-
+    description: >-
       Secondary voltage control state (<i>Qc_on_off</i>).
+
       true = secondary voltage control is on
+
       false = secondary voltage control is off.
+
       Typical value = false.
   - name: qz
     type: PU
     description: Desired value (setpoint) of reactive power, manual setting (<i>Qz</i>).
   - name: remote
     type: Boolean
-    description: |-
+    description: >-
       Selector to apply automatic calculation in secondary controller model (<i>remote</i>).
+
       true = automatic calculation is activated
+
       false = manual set is active; the use of desired value of reactive power (<i>Qz</i>) is required.
+
       Typical value = true.
   - name: sbase
     type: ApparentPower
@@ -98,10 +106,14 @@ attributes:
     description: Minimum controller output (<i>URmin</i>) (&lt; ExcSK.urmax).  Typical value = -10.
   - name: vtmax
     type: PU
-    description: Maximum terminal voltage input (<i>Vtmax</i>) (&gt; ExcSK.vtmin).  Determines the range of voltage deadband.  Typical value = 1,05.
+    description: >-
+      Maximum terminal voltage input (<i>Vtmax</i>) (&gt; ExcSK.vtmin).  Determines the range of voltage
+      deadband.  Typical value = 1,05.
   - name: vtmin
     type: PU
-    description: Minimum terminal voltage input (<i>Vtmin</i>) (&lt; ExcSK.vtmax).  Determines the range of voltage deadband.  Typical value = 0,95.
+    description: >-
+      Minimum terminal voltage input (<i>Vtmin</i>) (&lt; ExcSK.vtmax).  Determines the range of voltage
+      deadband.  Typical value = 0,95.
   - name: yp
     type: PU
     description: Maximum output (<i>Yp</i>).  Typical value = 1.

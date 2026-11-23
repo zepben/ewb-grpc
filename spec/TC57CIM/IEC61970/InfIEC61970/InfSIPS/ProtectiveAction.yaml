@@ -3,7 +3,8 @@ description: A protective action for supporting the integrity of the power syste
 attributes:
   - name: enabled
     type: Boolean
-    description: The status of the class set by operation or by signal. Optional field that will override other status fields.
+    description: >-
+      The status of the class set by operation or by signal. Optional field that will override other status fields.
   - name: normalEnabled
     type: Boolean
     description: The default/normal value used when other active signal/values are missing.
@@ -27,12 +28,15 @@ associations:
     sourceName: protectiveActionEnabled
     targetCardinality: 0..1
     targetName: gateEnabledCondition
-    targetDescription: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
+    targetDescription: >-
+      Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
   - source: ProtectiveAction
     target: ProtectionEquipment
     sourceCardinality: 0..*
     sourceName: protectiveAction
-    sourceDescription: Protective action can emulate the action done by one or more protection equipment. In a node breaker model were protective equipment is model this association will be used.
+    sourceDescription: >-
+      Protective action can emulate the action done by one or more protection equipment. In a node breaker model were
+      protective equipment is model this association will be used.
     targetCardinality: 0..1
     targetName: protectionEquipment
   - source: ProtectiveAction

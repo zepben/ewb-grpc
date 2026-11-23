@@ -1,5 +1,15 @@
 name: OperationalLimit
-description: "A value and normal value associated with a specific kind of limit. \nThe sub class value and normalValue attributes vary inversely to the associated OperationalLimitType.acceptableDuration (acceptableDuration for short).  \nIf a particular piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.), the limit with the greatest acceptableDuration shall have the smallest limit value and the limit with the smallest acceptableDuration shall have the largest limit value.  Note: A large current can only be allowed to flow through a piece of equipment for a short duration without causing damage, but a lesser current can be allowed to flow for a longer duration."
+description: >-
+  A value and normal value associated with a specific kind of limit.
+
+  The sub class value and normalValue attributes vary inversely to the associated
+  OperationalLimitType.acceptableDuration (acceptableDuration for short).
+
+  If a particular piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.),
+  the limit with the greatest acceptableDuration shall have the smallest limit value and the limit with the smallest
+  acceptableDuration shall have the largest limit value.  Note: A large current can only be allowed to flow through a
+  piece of equipment for a short duration without causing damage, but a lesser current can be allowed to flow for a
+  longer duration.
 ancestors:
   - IdentifiedObject
 descendants:
@@ -15,7 +25,9 @@ associations:
     sourceDescription: The operational limits to which this limit dependency model applies.
     targetCardinality: 0..*
     targetName: limitDependencyModel
-    targetDescription: The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified then the native limit value is used.
+    targetDescription: >-
+      The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified then
+      the native limit value is used.
   - source: OperationalLimit
     target: LimitScalingLimit
     sourceCardinality: "1"

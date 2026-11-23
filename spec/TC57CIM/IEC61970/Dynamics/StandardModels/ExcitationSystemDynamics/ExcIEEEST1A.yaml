@@ -1,6 +1,10 @@
 name: ExcIEEEST1A
-description: |-
-  IEEE 421.5-2005 type ST1A model. This model represents systems in which excitation power is supplied through a transformer from the generator terminals (or the unit’s auxiliary bus) and is regulated by a controlled rectifier.  The maximum exciter voltage available from such systems is directly related to the generator terminal voltage.
+description: >-
+  IEEE 421.5-2005 type ST1A model. This model represents systems in which excitation power is supplied through a
+  transformer from the generator terminals (or the unit’s auxiliary bus) and is regulated by a controlled
+  rectifier.  The maximum exciter voltage available from such systems is directly related to the generator terminal
+  voltage.
+
   Reference: IEEE 421.5-2005, 7.1.
 attributes:
   - name: ilr
@@ -11,7 +15,9 @@ attributes:
     description: Voltage regulator gain (<i>K</i><i><sub>A</sub></i>) (&gt; 0).  Typical value = 190.
   - name: kc
     type: PU
-    description: Rectifier loading factor proportional to commutating reactance (<i>K</i><i><sub>C</sub></i>) (&gt;= 0). Typical value = 0,08.
+    description: >-
+      Rectifier loading factor proportional to commutating reactance (<i>K</i><i><sub>C</sub></i>) (&gt;= 0). Typical
+      value = 0,08.
   - name: kf
     type: PU
     description: Excitation control system stabilizer gains (<i>K</i><i><sub>F</sub></i>) (&gt;= 0).  Typical value = 0.
@@ -20,10 +26,13 @@ attributes:
     description: Exciter output current limiter gain (<i>K</i><i><sub>LR</sub></i>).  Typical value = 0.
   - name: pssin
     type: Boolean
-    description: |-
+    description: >-
       Selector of the Power System Stabilizer (PSS) input (<i>PSSin</i>).
+
       true = PSS input (<i>Vs</i>) added to error signal
+
       false = PSS input (<i>Vs</i>) added to voltage regulator output.
+
       Typical value = true.
   - name: ta
     type: Seconds
@@ -42,7 +51,8 @@ attributes:
     description: Voltage regulator time constant (<i>T</i><i><sub>C1</sub></i>) (&gt;= 0).  Typical value = 0.
   - name: tf
     type: Seconds
-    description: Excitation control system stabilizer time constant (<i>T</i><i><sub>F</sub></i>) (&gt;= 0).  Typical value = 1.
+    description: >-
+      Excitation control system stabilizer time constant (<i>T</i><i><sub>F</sub></i>) (&gt;= 0).  Typical value = 1.
   - name: uelin
     type: ExcIEEEST1AUELselectorKind
     description: Selector of the connection of the UEL input (<i>UELin</i>).  Typical value = ignoreUELsignal.

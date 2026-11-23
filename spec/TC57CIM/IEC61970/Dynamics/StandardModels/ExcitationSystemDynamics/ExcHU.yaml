@@ -12,10 +12,12 @@ attributes:
     description: AVR constant (<i>Atr</i>).  Typical value = 2,19.
   - name: emax
     type: PU
-    description: Field voltage control signal upper limit on AVR base (<i>Emax</i>) (&gt; ExcHU.emin).  Typical value = 0,996.
+    description: >-
+      Field voltage control signal upper limit on AVR base (<i>Emax</i>) (&gt; ExcHU.emin).  Typical value = 0,996.
   - name: emin
     type: PU
-    description: Field voltage control signal lower limit on AVR base (<i>Emin</i>) (&lt; ExcHU.emax).  Typical value = -0,866.
+    description: >-
+      Field voltage control signal lower limit on AVR base (<i>Emin</i>) (&lt; ExcHU.emax).  Typical value = -0,866.
   - name: imax
     type: PU
     description: Major loop PI tag output signal upper limit (<i>Imax</i>) (&gt; ExcHU.imin).  Typical value = 2,19.
@@ -36,6 +38,8 @@ attributes:
     description: Minor loop PI control tag integration time constant (<i>Ti</i>) (&gt;= 0).  Typical value = 0,01333.
   - name: tr
     type: Seconds
-    description: Filter time constant (<i>Tr</i>) (&gt;= 0). If a voltage compensator is used in conjunction with this excitation system model, <i>Tr </i>should be set to 0.  Typical value = 0,01.
+    description: >-
+      Filter time constant (<i>Tr</i>) (&gt;= 0). If a voltage compensator is used in conjunction with this excitation
+      system model, <i>Tr </i>should be set to 0.  Typical value = 0,01.
 ancestors:
   - ExcitationSystemDynamics

@@ -6,10 +6,14 @@ attributes:
     description: Part of 'current' that constitutes the arrears portion.
   - name: charges
     type: Money
-    description: "Part of 'current' that constitutes the charge portion: 'charges' = 'Charge.fixedPortion' + 'Charge.variablePortion'."
+    description: >-
+      Part of 'current' that constitutes the charge portion: 'charges' = 'Charge.fixedPortion' +
+      'Charge.variablePortion'.
   - name: current
     type: Money
-    description: "Current total amount now due: current = principle + arrears + interest + charges. Typically the rule for settlement priority is: interest dues, then arrears dues, then current dues, then charge dues."
+    description: >-
+      Current total amount now due: current = principle + arrears + interest + charges. Typically the rule for
+      settlement priority is: interest dues, then arrears dues, then current dues, then charge dues.
   - name: interest
     type: Money
     description: Part of 'current' that constitutes the interest portion.

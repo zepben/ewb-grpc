@@ -1,7 +1,10 @@
 name: ModelAuthoritySet
-description: |-
-  A Modeling Authority Set is a group of objects in a network model where the data is supplied and maintained by the same Modeling Authority.
-  This class is typically not included in instance data exchange as this information is tracked by other mechanisms in the exchange.
+description: >-
+  A Modeling Authority Set is a group of objects in a network model where the data is supplied and maintained by the
+  same Modeling Authority.
+
+  This class is typically not included in instance data exchange as this information is tracked by other mechanisms in
+  the exchange.
 ancestors:
   - IdentifiedObject
 descendants:
@@ -14,7 +17,8 @@ associations:
     sourceDescription: Modeling Authority Sets supplied and maintained by this Modeling Authority.
     targetCardinality: "1"
     targetName: modelingAuthority
-    targetDescription: Modeling Authority suppliying and maintaining the data for the objects in this Modeling Authority Set.
+    targetDescription: >-
+      Modeling Authority suppliying and maintaining the data for the objects in this Modeling Authority Set.
   - source: ModelAuthoritySet
     target: ModelPartSpecification
     sourceCardinality: 0..1

@@ -45,7 +45,9 @@ attributes:
     description: Temperature limiter gain (<i>Kt</i>).  Typical value = 3.
   - name: lmax
     type: PU
-    description: Ambient temperature load limit (<i>Lmax</i>).  <i>Lmax</i> is the turbine power output corresponding to the limiting exhaust gas temperature.  Typical value = 1.
+    description: >-
+      Ambient temperature load limit (<i>Lmax</i>).  <i>Lmax</i> is the turbine power output corresponding to the
+      limiting exhaust gas temperature.  Typical value = 1.
   - name: loadinc
     type: PU
     description: Valve position change allowed at fast rate (<i>Loadinc</i>).  Typical value = 0,05.
@@ -81,19 +83,30 @@ attributes:
     description: Maximum fuel valve opening rate (<i>Rmax</i>).  Unit = PU / s.  Typical value = 1.
   - name: t1
     type: Seconds
-    description: Governor mechanism time constant (<i>T1</i>) (&gt;= 0).  <i>T1</i> represents the natural valve positioning time constant of the governor for small disturbances, as seen when rate limiting is not in effect.  Typical value = 0,5.
+    description: >-
+      Governor mechanism time constant (<i>T1</i>) (&gt;= 0).  <i>T1</i> represents the natural valve positioning time
+      constant of the governor for small disturbances, as seen when rate limiting is not in effect.  Typical value =
+      0,5.
   - name: t2
     type: Seconds
-    description: Turbine power time constant (<i>T2</i>) (&gt;= 0). <i>T2</i> represents delay due to internal energy storage of the gas turbine engine. <i>T2</i> can be used to give a rough approximation to the delay associated with acceleration of the compressor spool of a multi-shaft engine, or with the compressibility of gas in the plenum of the free power turbine of an aero-derivative unit, for example.  Typical value = 0,5.
+    description: >-
+      Turbine power time constant (<i>T2</i>) (&gt;= 0). <i>T2</i> represents delay due to internal energy storage of
+      the gas turbine engine. <i>T2</i> can be used to give a rough approximation to the delay associated with
+      acceleration of the compressor spool of a multi-shaft engine, or with the compressibility of gas in the plenum of
+      the free power turbine of an aero-derivative unit, for example.  Typical value = 0,5.
   - name: t3
     type: Seconds
-    description: Turbine exhaust temperature time constant (<i>T3</i>) (&gt;= 0).  <i>T3</i> represents delay in the exhaust temperature and load limiting system. Typical value = 3.
+    description: >-
+      Turbine exhaust temperature time constant (<i>T3</i>) (&gt;= 0).  <i>T3</i> represents delay in the exhaust
+      temperature and load limiting system. Typical value = 3.
   - name: t4
     type: Seconds
     description: Governor lead time constant (<i>T4</i>) (&gt;= 0).  Typical value = 0.
   - name: t5
     type: Seconds
-    description: Governor lag time constant (<i>T5</i>) (&gt;= 0).  If = 0, entire gain and lead-lag block is bypassed.  Typical value = 0.
+    description: >-
+      Governor lag time constant (<i>T5</i>) (&gt;= 0).  If = 0, entire gain and lead-lag block is bypassed.  Typical
+      value = 0.
   - name: tltr
     type: Seconds
     description: Valve position averaging time constant (<i>Tltr</i>) (&gt;= 0).  Typical value = 10.

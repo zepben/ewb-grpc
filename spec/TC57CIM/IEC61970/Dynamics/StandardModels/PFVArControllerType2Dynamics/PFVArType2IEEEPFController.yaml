@@ -1,14 +1,20 @@
 name: PFVArType2IEEEPFController
-description: |-
-  IEEE PF controller type 2 which is a summing point type controller making up the outside loop of a two-loop system. This controller is implemented as a slow PI type controller. The voltage regulator forms the inner loop and is implemented as a fast controller.
+description: >-
+  IEEE PF controller type 2 which is a summing point type controller making up the outside loop of a two-loop system.
+  This controller is implemented as a slow PI type controller. The voltage regulator forms the inner loop and is
+  implemented as a fast controller.
+
   Reference: IEEE 421.5-2005, 11.4.
 attributes:
   - name: exlon
     type: Boolean
-    description: |-
+    description: >-
       Overexcitation or under excitation flag (<i>EXLON</i>)
+
       true = 1 (not in the overexcitation or underexcitation state, integral action is active)
-      false = 0 (in the overexcitation or underexcitation state, so integral action is disabled to allow the limiter to play its role).
+
+      false = 0 (in the overexcitation or underexcitation state, so integral action is disabled to allow the limiter to
+      play its role).
   - name: ki
     type: PU
     description: Integral gain of the pf controller (<i>K</i><i><sub>I</sub></i>).  Typical value = 1.

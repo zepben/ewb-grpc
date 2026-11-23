@@ -1,5 +1,9 @@
 name: NetworkModelProjectChangeVersion
-description: Describes the status and the planned implementation of the associated change set into the as-built model.    New instances of this class with new identity are instantiated upon changes to the content of this class or changes to the associated change set.  Instances of this class are considered immutable.  The case audit trail can reference this immutable data to exactly reproduce a case.
+description: >-
+  Describes the status and the planned implementation of the associated change set into the as-built model.    New
+  instances of this class with new identity are instantiated upon changes to the content of this class or changes to the
+  associated change set.  Instances of this class are considered immutable.  The case audit trail can reference this
+  immutable data to exactly reproduce a case.
 attributes:
   - name: comment
     type: String
@@ -20,7 +24,8 @@ associations:
     sourceDescription: The project of the details of model changes.
     targetCardinality: 0..1
     targetName: changeSet
-    targetDescription: The details of model changes for this project.   The change set should have a new identifier if it changes.
+    targetDescription: >-
+      The details of model changes for this project.   The change set should have a new identifier if it changes.
   - source: NetworkModelProjectChangeVersion
     target: NetworkModelProjectChange
     sourceCardinality: 1..*

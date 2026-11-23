@@ -1,41 +1,63 @@
 name: DistanceRelay
-description: \[ZBEX\] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working group outcome is merged into the CIM model. <br/> A protective device used in power systems that measures the impedance of a transmission line to determine the distance to a fault, and initiates circuit breaker tripping to isolate the faulty section and safeguard the power system.
+description: >-
+  \[ZBEX\] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced
+  when the working group outcome is merged into the CIM model. <br/> A protective device used in power systems that
+  measures the impedance of a transmission line to determine the distance to a fault, and initiates circuit breaker
+  tripping to isolate the faulty section and safeguard the power system.
 attributes:
   - name: backwardBlind
     type: Double
-    description: \[ZBEX\] The reverse blind impedance (in ohms) that defines the area to be blinded in the opposite direction of the power flow.
+    description: >-
+      \[ZBEX\] The reverse blind impedance (in ohms) that defines the area to be blinded in the opposite direction of
+      the power flow.
     nullable: true
   - name: backwardReach
     type: Double
-    description: \[ZBEX\] The reverse reach impedance (in ohms) that determines the maximum distance along the transmission line in the opposite direction of power flow for which the relay will provide protection.
+    description: >-
+      \[ZBEX\] The reverse reach impedance (in ohms) that determines the maximum distance along the transmission line in
+      the opposite direction of power flow for which the relay will provide protection.
     nullable: true
   - name: backwardReactance
     type: Double
-    description: \[ZBEX\] The reverse reactance (in ohms) that determines the maximum distance along the transmission line in the opposite direction of power flow for which the relay will provide protection.
+    description: >-
+      \[ZBEX\] The reverse reactance (in ohms) that determines the maximum distance along the transmission line in the
+      opposite direction of power flow for which the relay will provide protection.
     nullable: true
   - name: forwardBlind
     type: Double
-    description: \[ZBEX\] The forward blind impedance (in ohms) that defines the area to be blinded in the opposite direction of the power flow.
+    description: >-
+      \[ZBEX\] The forward blind impedance (in ohms) that defines the area to be blinded in the opposite direction of
+      the power flow.
     nullable: true
   - name: forwardReach
     type: Double
-    description: \[ZBEX\] The forward reach impedance (in ohms) that determines the maximum distance along the transmission line in the opposite direction of power flow for which the relay will provide protection.
+    description: >-
+      \[ZBEX\] The forward reach impedance (in ohms) that determines the maximum distance along the transmission line in
+      the opposite direction of power flow for which the relay will provide protection.
     nullable: true
   - name: forwardReactance
     type: Double
-    description: \[ZBEX\] The forward reactance (in ohms) that determines the maximum distance along the transmission line in the opposite direction of power flow for which the relay will provide protection.
+    description: >-
+      \[ZBEX\] The forward reactance (in ohms) that determines the maximum distance along the transmission line in the
+      opposite direction of power flow for which the relay will provide protection.
     nullable: true
   - name: operationPhaseAngle1
     type: Double
-    description: \[ZBEX\] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 1 relay.
+    description: >-
+      \[ZBEX\] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 1
+      relay.
     nullable: true
   - name: operationPhaseAngle2
     type: Double
-    description: \[ZBEX\] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 2 relay.
+    description: >-
+      \[ZBEX\] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 2
+      relay.
     nullable: true
   - name: operationPhaseAngle3
     type: Double
-    description: \[ZBEX\] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 3 relay.
+    description: >-
+      \[ZBEX\] The phase angle (in degrees) between voltage and current during normal operating conditions for zone 3
+      relay.
     nullable: true
 ancestors:
   - ProtectionRelayFunction

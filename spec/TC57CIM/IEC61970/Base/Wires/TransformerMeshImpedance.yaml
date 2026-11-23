@@ -1,7 +1,10 @@
 name: TransformerMeshImpedance
-description: |-
+description: >-
   Transformer mesh impedance (Delta-model) between transformer ends.
-  The typical case is that this class describes the impedance between two transformer ends pair-wise, i.e. the cardinalities at both transformer end associations are 1. However, in cases where two or more transformer ends are modelled the cardinalities are larger than 1.
+
+  The typical case is that this class describes the impedance between two transformer ends pair-wise, i.e. the
+  cardinalities at both transformer end associations are 1. However, in cases where two or more transformer ends are
+  modelled the cardinalities are larger than 1.
 attributes:
   - name: r
     type: Resistance
@@ -33,7 +36,8 @@ associations:
     sourceDescription: All mesh impedances between this 'to' and other 'from' transformer ends.
     targetCardinality: 0..1
     targetName: fromTransformerEndInfo
-    targetDescription: "'from' transformer end datasheet this mesh impedance is calculated from. It determines the voltage reference."
+    targetDescription: >-
+      'from' transformer end datasheet this mesh impedance is calculated from. It determines the voltage reference.
   - source: TransformerMeshImpedance
     target: TransformerEnd
     sourceCardinality: 0..*
@@ -49,4 +53,5 @@ associations:
     sourceDescription: All mesh impedances between this 'from' and other 'to' transformer ends.
     targetCardinality: 0..*
     targetName: toTransformerEndInfos
-    targetDescription: All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.
+    targetDescription: >-
+      All 'to' transformer end datasheets this mesh impedance for 'from' transformer end is calculated from.

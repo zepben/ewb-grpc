@@ -1,12 +1,18 @@
 name: ExcDC1A
-description: Modified IEEE DC1A direct current commutator exciter with speed input and without underexcitation limiters (UEL) inputs.
+description: >-
+  Modified IEEE DC1A direct current commutator exciter with speed input and without underexcitation limiters (UEL)
+  inputs.
 attributes:
   - name: efd1
     type: PU
-    description: Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>1</sub></i>) (&gt; 0).  Typical value = 3,1.
+    description: >-
+      Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>1</sub></i>) (&gt; 0).  Typical value =
+      3,1.
   - name: efd2
     type: PU
-    description: Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>2</sub></i>) (&gt; 0).  Typical value = 2,3.
+    description: >-
+      Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>2</sub></i>) (&gt; 0).  Typical value =
+      2,3.
   - name: efdmax
     type: PU
     description: Maximum voltage exciter output limiter (<i>Efdmax</i>) (&gt; ExcDC1A.efdmin).  Typical value = 99.
@@ -15,7 +21,14 @@ attributes:
     description: Minimum voltage exciter output limiter (<i>Efdmin</i>) (&lt; ExcDC1A.edfmax).  Typical value = -99.
   - name: exclim
     type: Boolean
-    description: "(<i>exclim</i>).  IEEE standard is ambiguous about lower limit on exciter output. \ntrue = a lower limit of zero is applied to integrator output\nfalse = a lower limit of zero is not applied to integrator output.\nTypical value = true."
+    description: >-
+      (<i>exclim</i>).  IEEE standard is ambiguous about lower limit on exciter output.
+
+      true = a lower limit of zero is applied to integrator output
+
+      false = a lower limit of zero is not applied to integrator output.
+
+      Typical value = true.
   - name: ka
     type: PU
     description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 46.
@@ -30,10 +43,14 @@ attributes:
     description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
   - name: seefd1
     type: Float
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>1</sub></i> (<i>Se[Eefd</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,33.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>1</sub></i>
+      (<i>Se[Eefd</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,33.
   - name: seefd2
     type: Float
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>2</sub></i> (<i>Se[Eefd</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,1.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>2</sub></i>
+      (<i>Se[Eefd</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,1.
   - name: ta
     type: Seconds
     description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,06.
@@ -45,7 +62,9 @@ attributes:
     description: Voltage regulator time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
   - name: te
     type: Seconds
-    description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value = 0,46.
+    description: >-
+      Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value =
+      0,46.
   - name: tf
     type: Seconds
     description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt; 0).  Typical value = 1.

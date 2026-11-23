@@ -1,5 +1,8 @@
 name: ProtectionRelayFunction
-description: \[ZBEX\] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced when the working group outcome is merged into the CIM model. <br/> A function that a relay implements to protect equipment.
+description: >-
+  \[ZBEX\] This extension is in-line with the CIM working group for replacing the `protection` package, can be replaced
+  when the working group outcome is merged into the CIM model. <br/> A function that a relay implements to protect
+  equipment.
 attributes:
   - name: directable
     type: Boolean
@@ -27,7 +30,9 @@ attributes:
     nullable: true
   - name: timeLimits
     type: Float list
-    description: \[ZBEX\] The time limits (in seconds) for this relay function. Order of entries corresponds to the order of entries in thresholds.
+    description: >-
+      \[ZBEX\] The time limits (in seconds) for this relay function. Order of entries corresponds to the order of
+      entries in thresholds.
     nullable: true
 ancestors:
   - PowerSystemResource
@@ -65,4 +70,5 @@ associations:
     target: RelaySetting
     targetCardinality: 0..*
     targetName: thresholds
-    targetDescription: \[ZBEX\] The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.
+    targetDescription: >-
+      \[ZBEX\] The thresholds for this relay function. The order of thresholds corresponds to the order of time limits.

@@ -1,5 +1,18 @@
 name: PssIEEE4B
-description: "IEEE 421.5-2005 type PSS4B power system stabilizer. The PSS4B model represents a structure based on multiple working frequency bands. Three separate bands, respectively dedicated to the low-, intermediate- and high-frequency modes of oscillations, are used in this delta omega (speed input) PSS.\nThere is an error in the in IEEE 421.5-2005 PSS4B model: the <i>Pe</i> input should read –<i>Pe</i>. This implies that the input <i>Pe</i> needs to be multiplied by -1.\nReference: IEEE 4B 421.5-2005, 8.4. \nParameter details:\nThis model has 2 input signals. They have the following fixed types (expressed in terms of InputSignalKind values): the first one is of rotorAngleFrequencyDeviation type and the second one is of generatorElectricalPower type."
+description: >-
+  IEEE 421.5-2005 type PSS4B power system stabilizer. The PSS4B model represents a structure based on multiple working
+  frequency bands. Three separate bands, respectively dedicated to the low-, intermediate- and high-frequency modes of
+  oscillations, are used in this delta omega (speed input) PSS.
+
+  There is an error in the in IEEE 421.5-2005 PSS4B model: the <i>Pe</i> input should read –<i>Pe</i>. This implies that
+  the input <i>Pe</i> needs to be multiplied by -1.
+
+  Reference: IEEE 4B 421.5-2005, 8.4.
+
+  Parameter details:
+
+  This model has 2 input signals. They have the following fixed types (expressed in terms of InputSignalKind values):
+  the first one is of rotorAngleFrequencyDeviation type and the second one is of generatorElectricalPower type.
 attributes:
   - name: bwh1
     type: Float
@@ -36,10 +49,12 @@ attributes:
     description: Intermediate band differential filter gain (<i>K</i><i><sub>I1</sub></i>).  Typical value = 66.
   - name: ki11
     type: PU
-    description: Intermediate band first lead-lag blocks coefficient (<i>K</i><i><sub>I11</sub></i>).  Typical value = 1.
+    description: >-
+      Intermediate band first lead-lag blocks coefficient (<i>K</i><i><sub>I11</sub></i>).  Typical value = 1.
   - name: ki17
     type: PU
-    description: Intermediate band first lead-lag blocks coefficient (<i>K</i><i><sub>I17</sub></i>).  Typical value = 1.
+    description: >-
+      Intermediate band first lead-lag blocks coefficient (<i>K</i><i><sub>I17</sub></i>).  Typical value = 1.
   - name: ki2
     type: PU
     description: Intermediate band differential filter gain (<i>K</i><i><sub>I2</sub></i>).  Typical value = 66.
@@ -180,27 +195,37 @@ attributes:
     description: Low band time constant (<i>T</i><i><sub>L9</sub></i>) (&gt;= 0).  Typical value = 0.
   - name: vhmax
     type: PU
-    description: High band output maximum limit (<i>V</i><i><sub>Hmax</sub></i>) (&gt; PssIEEE4B.vhmin).  Typical value = 0,6.
+    description: >-
+      High band output maximum limit (<i>V</i><i><sub>Hmax</sub></i>) (&gt; PssIEEE4B.vhmin).  Typical value = 0,6.
   - name: vhmin
     type: PU
-    description: High band output minimum limit (<i>V</i><i><sub>Hmin</sub></i>) (&lt; PssIEEE4V.vhmax).  Typical value = -0,6.
+    description: >-
+      High band output minimum limit (<i>V</i><i><sub>Hmin</sub></i>) (&lt; PssIEEE4V.vhmax).  Typical value = -0,6.
   - name: vimax
     type: PU
-    description: Intermediate band output maximum limit (<i>V</i><i><sub>Imax</sub></i>) (&gt; PssIEEE4B.vimin).  Typical value = 0,6.
+    description: >-
+      Intermediate band output maximum limit (<i>V</i><i><sub>Imax</sub></i>) (&gt; PssIEEE4B.vimin).  Typical value =
+      0,6.
   - name: vimin
     type: PU
-    description: Intermediate band output minimum limit (<i>V</i><i><sub>Imin</sub></i>) (&lt; PssIEEE4B.vimax).  Typical value = -0,6.
+    description: >-
+      Intermediate band output minimum limit (<i>V</i><i><sub>Imin</sub></i>) (&lt; PssIEEE4B.vimax).  Typical value =
+      -0,6.
   - name: vlmax
     type: PU
-    description: Low band output maximum limit (<i>V</i><i><sub>Lmax</sub></i>) (&gt; PssIEEE4B.vlmin).  Typical value = 0,075.
+    description: >-
+      Low band output maximum limit (<i>V</i><i><sub>Lmax</sub></i>) (&gt; PssIEEE4B.vlmin).  Typical value = 0,075.
   - name: vlmin
     type: PU
-    description: Low band output minimum limit (<i>V</i><i><sub>Lmin</sub></i>) (&lt; PssIEEE4B.vlmax).  Typical value = -0,075.
+    description: >-
+      Low band output minimum limit (<i>V</i><i><sub>Lmin</sub></i>) (&lt; PssIEEE4B.vlmax).  Typical value = -0,075.
   - name: vstmax
     type: PU
-    description: PSS output maximum limit (<i>V</i><i><sub>STmax</sub></i>) (&gt; PssIEEE4B.vstmin).  Typical value = 0,15.
+    description: >-
+      PSS output maximum limit (<i>V</i><i><sub>STmax</sub></i>) (&gt; PssIEEE4B.vstmin).  Typical value = 0,15.
   - name: vstmin
     type: PU
-    description: PSS output minimum limit (<i>V</i><i><sub>STmin</sub></i>) (&lt; PssIEEE4B.vstmax).  Typical value = -0,15.
+    description: >-
+      PSS output minimum limit (<i>V</i><i><sub>STmin</sub></i>) (&lt; PssIEEE4B.vstmax).  Typical value = -0,15.
 ancestors:
   - PowerSystemStabilizerDynamics

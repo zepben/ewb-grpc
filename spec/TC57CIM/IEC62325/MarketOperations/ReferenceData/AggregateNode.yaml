@@ -1,12 +1,16 @@
 name: AggregateNode
-description: An aggregated node can define a typed grouping further defined by the AnodeType enumeratuion. Types range from System Zone/Regions to Market Energy Regions to Aggregated Loads and Aggregated Generators.
+description: >-
+  An aggregated node can define a typed grouping further defined by the AnodeType enumeratuion. Types range from System
+  Zone/Regions to Market Energy Regions to Aggregated Loads and Aggregated Generators.
 attributes:
   - name: anodeType
     type: AnodeType
     description: Type of aggregated node
   - name: qualifASOrder
     type: Integer
-    description: Processing Order for AS self-provisions for this region. The priority of this attribute directs the awards of any resource that resides in overlapping regions. The regions are processed in priority manner.
+    description: >-
+      Processing Order for AS self-provisions for this region. The priority of this attribute directs the awards of any
+      resource that resides in overlapping regions. The regions are processed in priority manner.
 ancestors:
   - IdentifiedObject
 descendants:
@@ -46,7 +50,9 @@ associations:
     sourceDescription: An AggregateNode may be associated with up to many RegisteredResources.
     targetCardinality: 0..*
     targetName: registeredResource
-    targetDescription: A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or MktConnectivityNode.
+    targetDescription: >-
+      A RegisteredResource can be associated to only one AggregateNode if not connected to a Pnode or
+      MktConnectivityNode.
   - source: AggregateNode
     target: RTO
     sourceCardinality: 0..*

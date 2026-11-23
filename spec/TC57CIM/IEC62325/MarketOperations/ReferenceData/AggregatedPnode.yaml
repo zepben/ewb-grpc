@@ -1,17 +1,24 @@
 name: AggregatedPnode
-description: An aggregated pricing node is a specialized type of pricing node used to model items such as System Zone, Default Price Zone, Custom Price Zone, Control Area, Aggregated Generation, Aggregated Particpating Load, Aggregated Non-Participating Load, Trading Hub, Designated Control Area(DCA) Zone.
+description: >-
+  An aggregated pricing node is a specialized type of pricing node used to model items such as System Zone, Default
+  Price Zone, Custom Price Zone, Control Area, Aggregated Generation, Aggregated Particpating Load, Aggregated
+  Non-Participating Load, Trading Hub, Designated Control Area(DCA) Zone.
 attributes:
   - name: apnodeType
     type: ApnodeType
     description: Aggregate Price Node Types
   - name: participationCategory
     type: ParticipationCategoryMPM
-    description: |-
+    description: >-
       Designated Control Area participation in LMP price measurement
 
+
       'Y' - Participates in both Local Market Power Mitigation (LMPM) and System Market Power Mitigation (SMPM)
+
       'N' - Not included in LMP price measures
+
       'S' - Participatesin SMPM price measures
+
       'L' - Participatesin LMPM price measures
 ancestors:
   - Pnode

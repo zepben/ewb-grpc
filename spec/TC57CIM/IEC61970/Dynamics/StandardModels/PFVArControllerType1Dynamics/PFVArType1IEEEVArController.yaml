@@ -1,6 +1,7 @@
 name: PFVArType1IEEEVArController
-description: |-
+description: >-
   IEEE VAR controller type 1 which operates by moving the voltage reference directly.
+
   Reference: IEEE 421.5-2005, 11.3.
 attributes:
   - name: tvarc
@@ -17,9 +18,13 @@ attributes:
     description: Var controller reference (<i>V</i><i><sub>VARREF</sub></i>).
   - name: vvtmax
     type: PU
-    description: Maximum machine terminal voltage needed for pf/VAr controller to be enabled (<i>V</i><i><sub>VTMAX</sub></i>) (&gt; PVFArType1IEEEVArController.vvtmin).
+    description: >-
+      Maximum machine terminal voltage needed for pf/VAr controller to be enabled (<i>V</i><i><sub>VTMAX</sub></i>)
+      (&gt; PVFArType1IEEEVArController.vvtmin).
   - name: vvtmin
     type: PU
-    description: Minimum machine terminal voltage needed to enable pf/var controller (<i>V</i><i><sub>VTMIN</sub></i>) (&lt; PVFArType1IEEEVArController.vvtmax).
+    description: >-
+      Minimum machine terminal voltage needed to enable pf/var controller (<i>V</i><i><sub>VTMIN</sub></i>) (&lt;
+      PVFArType1IEEEVArController.vvtmax).
 ancestors:
   - PFVArControllerType1Dynamics

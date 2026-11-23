@@ -1,5 +1,8 @@
 name: EndDeviceGroup
-description: Abstraction for management of group communications within a two-way AMR system or the data for a group of related end devices. Commands can be issued to all of the end devices that belong to the group using a defined group address and the underlying AMR communication infrastructure. A DERGroup and a PANDeviceGroup is an EndDeviceGroup.
+description: >-
+  Abstraction for management of group communications within a two-way AMR system or the data for a group of related end
+  devices. Commands can be issued to all of the end devices that belong to the group using a defined group address and
+  the underlying AMR communication infrastructure. A DERGroup and a PANDeviceGroup is an EndDeviceGroup.
 attributes:
   - name: status
     type: Status
@@ -29,14 +32,18 @@ associations:
     target: DERGroupDispatch
     sourceCardinality: 0..*
     sourceName: endDeviceGroup
-    sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple EndDevices with a single command
+    sourceDescription: >-
+      From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+      EndDevices with a single command
     targetCardinality: 0..*
     targetName: derGroupDispatch
   - source: EndDeviceGroup
     target: DERGroupForecast
     sourceCardinality: 1..*
     sourceName: endDeviceGroup
-    sourceDescription: From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple EndDevices with a single command
+    sourceDescription: >-
+      From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
+      EndDevices with a single command
     targetCardinality: 1..*
     targetName: derGroupForecast
   - source: EndDeviceGroup

@@ -3,7 +3,8 @@ description: Modified IEEE ST4B static excitation system with maximum inner loop
 attributes:
   - name: kc
     type: PU
-    description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,113.
+    description: >-
+      Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,113.
   - name: kg
     type: PU
     description: Feedback gain constant of the inner loop field regulator (<i>Kg</i>) (&gt;= 0). Typical value = 0.
@@ -27,7 +28,14 @@ attributes:
     description: Voltage regulator proportional gain (<i>Kpr</i>).  Typical value = 10,75.
   - name: lvgate
     type: Boolean
-    description: "Selector (<i>LVGate</i>).\ntrue = <i>LVGate</i> is part of the block diagram\nfalse = <i>LVGate</i> is not part of the block diagram. \nTypical value = false."
+    description: >-
+      Selector (<i>LVGate</i>).
+
+      true = <i>LVGate</i> is part of the block diagram
+
+      false = <i>LVGate</i> is not part of the block diagram.
+
+      Typical value = false.
   - name: ta
     type: Seconds
     description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0,02.
@@ -36,7 +44,14 @@ attributes:
     description: Potential circuit phase angle (<i>theta</i><i><sub>p</sub></i>).  Typical value = 0.
   - name: uel
     type: Boolean
-    description: "Selector (<i>UEL</i>).\ntrue = <i>UEL</i> is part of block diagram\nfalse = <i>UEL</i> is not part of block diagram. \nTypical value = false."
+    description: >-
+      Selector (<i>UEL</i>).
+
+      true = <i>UEL</i> is part of block diagram
+
+      false = <i>UEL</i> is not part of block diagram.
+
+      Typical value = false.
   - name: vbmax
     type: PU
     description: Maximum excitation voltage (<i>Vbmax</i>) (&gt; 0).  Typical value = 11,63.

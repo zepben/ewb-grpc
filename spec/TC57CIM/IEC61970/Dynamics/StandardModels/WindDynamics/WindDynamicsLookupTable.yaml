@@ -12,7 +12,8 @@ attributes:
     description: Output value (<i>y</i>) for the lookup table function.
   - name: sequence
     type: Integer
-    description: Sequence numbers of the pairs of the input (<i>x</i>) and the output (<i>y</i>) of the lookup table function.
+    description: >-
+      Sequence numbers of the pairs of the input (<i>x</i>) and the output (<i>y</i>) of the lookup table function.
 ancestors:
   - IdentifiedObject
 associations:
@@ -71,7 +72,8 @@ associations:
     sourceDescription: The wind dynamics lookup table associated with this frequency and active power wind plant model.
     targetCardinality: 0..1
     targetName: windPlantFreqPcontrolIEC
-    targetDescription: The frequency and active power wind plant control model with which this wind dynamics lookup table is associated.
+    targetDescription: >-
+      The frequency and active power wind plant control model with which this wind dynamics lookup table is associated.
   - source: WindDynamicsLookupTable
     target: WindPlantReactiveControlIEC
     sourceCardinality: 1..*
@@ -79,7 +81,8 @@ associations:
     sourceDescription: The wind dynamics lookup table associated with this voltage and reactive power wind plant model.
     targetCardinality: 0..1
     targetName: windPlantReactiveControlIEC
-    targetDescription: The voltage and reactive power wind plant control model with which this wind dynamics lookup table is associated.
+    targetDescription: >-
+      The voltage and reactive power wind plant control model with which this wind dynamics lookup table is associated.
   - source: WindDynamicsLookupTable
     target: WindProtectionIEC
     sourceCardinality: 1..*

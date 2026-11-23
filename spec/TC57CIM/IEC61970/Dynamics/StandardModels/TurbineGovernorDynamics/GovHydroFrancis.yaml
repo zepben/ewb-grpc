@@ -1,17 +1,21 @@
 name: GovHydroFrancis
-description: |-
+description: >-
   Detailed hydro unit - Francis model.  This model can be used to represent three types of governors.
-  A schematic of the hydraulic system of detailed hydro unit models, such as Francis and Pelton, is provided in the DetailedHydroModelHydraulicSystem diagram.
+
+  A schematic of the hydraulic system of detailed hydro unit models, such as Francis and Pelton, is provided in the
+  DetailedHydroModelHydraulicSystem diagram.
 attributes:
   - name: am
     type: PU
-    description: Opening section <i>S</i><i><sub>EFF</sub></i> at the maximum efficiency (<i>Am</i>).  Typical value = 0,7.
+    description: >-
+      Opening section <i>S</i><i><sub>EFF</sub></i> at the maximum efficiency (<i>Am</i>).  Typical value = 0,7.
   - name: av0
     type: Area
     description: Area of the surge tank (<i>A</i><i><sub>V0</sub></i>). Unit = m<sup>2</sup>. Typical value = 30.
   - name: av1
     type: Area
-    description: Area of the compensation tank (<i>A</i><i><sub>V1</sub></i>). Unit = m<sup>2</sup>. Typical value = 700.
+    description: >-
+      Area of the compensation tank (<i>A</i><i><sub>V1</sub></i>). Unit = m<sup>2</sup>. Typical value = 700.
   - name: bp
     type: PU
     description: Droop (<i>Bp</i>).  Typical value = 0,05.
@@ -26,10 +30,14 @@ attributes:
     description: Governor control flag (<i>Cflag</i>).  Typical value = mechanicHydrolicTachoAccelerator.
   - name: h1
     type: Length
-    description: Head of compensation chamber water level with respect to the level of penstock (<i>H</i><i><sub>1</sub></i>).  Unit = km.  Typical value = 0,004.
+    description: >-
+      Head of compensation chamber water level with respect to the level of penstock
+      (<i>H</i><i><sub>1</sub></i>).  Unit = km.  Typical value = 0,004.
   - name: h2
     type: Length
-    description: Head of surge tank water level with respect to the level of penstock (<i>H</i><i><sub>2</sub></i>).  Unit = km.  Typical value = 0,040.
+    description: >-
+      Head of surge tank water level with respect to the level of penstock (<i>H</i><i><sub>2</sub></i>).  Unit =
+      km.  Typical value = 0,040.
   - name: hn
     type: Length
     description: Rated hydraulic head (<i>H</i><i><sub>n</sub></i>).  Unit = km.  Typical value = 0,250.
@@ -80,13 +88,17 @@ attributes:
     description: Maximum gate closing velocity (<i>Vc</i>).  Unit = PU / s.  Typical value = -0,06.
   - name: waterTunnelSurgeChamberSimulation
     type: Boolean
-    description: |-
+    description: >-
       Water tunnel and surge chamber simulation (<i>Tflag</i>).
+
       true = enable of water tunnel and surge chamber simulation
+
       false = inhibit of water tunnel and surge chamber simulation.
+
       Typical value = false.
   - name: zsfc
     type: Length
-    description: Head of upper water level with respect to the level of penstock (<i>Zsfc</i>). Unit = km.  Typical value = 0,025.
+    description: >-
+      Head of upper water level with respect to the level of penstock (<i>Zsfc</i>). Unit = km.  Typical value = 0,025.
 ancestors:
   - TurbineGovernorDynamics

@@ -25,12 +25,21 @@ attributes:
     description: CO concentration (in ppm, specifically in microlitre/litre).
   - name: equivalentTCGPercent
     type: enum
-    description: |-
+    description: >-
       Equivalent Total Combustible Gas (ETCG) percent.
-      An estimate, calculated from the dissolved-gas concentrations and the oil sample temperature, of what the TCG would be in a gas space in equilibrium with the oil. ETCG reflects what the TCG would be in air spaces near the oil.
+
+      An estimate, calculated from the dissolved-gas concentrations and the oil sample temperature, of what the TCG
+      would be in a gas space in equilibrium with the oil. ETCG reflects what the TCG would be in air spaces near the
+      oil.
   - name: estimatedSafeHandlingLimit
     type: enum
-    description: "Estimated Safe Handling Limit (ESHL) (in percent). Estimated safe handling limit is an estimate of the lower flammability limit (LFL) of the combustible gas mixture which the dissolved gas in the oil would give off by the oil if exposed to air. \nExpressed in percent like the equivalent total combustible gas percent, it is calculated from the dissolved-gas concentrations, the oil sample temperature, and the lower flammability limits of the individual combustible gases."
+    description: >-
+      Estimated Safe Handling Limit (ESHL) (in percent). Estimated safe handling limit is an estimate of the lower
+      flammability limit (LFL) of the combustible gas mixture which the dissolved gas in the oil would give off by the
+      oil if exposed to air.
+
+      Expressed in percent like the equivalent total combustible gas percent, it is calculated from the dissolved-gas
+      concentrations, the oil sample temperature, and the lower flammability limits of the individual combustible gases.
   - name: ethane
     type: enum
     description: C2H6 concentration (in ppm, specifically in microlitre/litre).
@@ -39,26 +48,37 @@ attributes:
     description: C2H4 concentration (in ppm, specifically in microlitre/litre).
   - name: hydran
     type: enum
-    description: |-
-      Measured composite of dissolved fault gas concentrations (in ppm, specifically in microlitre/litre). Relative sensitivity
+    description: >-
+      Measured composite of dissolved fault gas concentrations (in ppm, specifically in microlitre/litre). Relative
+      sensitivity
+
       - H2: 100 % of concentration
+
       - CO: 15 ± 4 % of concentration
+
       - C2H2: 8 ± 2 % of concentration
+
       - C2H4: 1.5 ± 0.5 % of concentration.
   - name: hydranPredicted
     type: enum
-    description: |-
-      Predicted hydran value (in ppm, specifically in microlitre/litre), calculated based on individual measured dissolved gas concentrations.
+    description: >-
+      Predicted hydran value (in ppm, specifically in microlitre/litre), calculated based on individual measured
+      dissolved gas concentrations.
+
       - H2: 100 % of concentration
+
       - CO: 15 ± 4 % of concentration
+
       - C2H2: 8 ± 2 % of concentration
+
       - C2H4: 1.5 ± 0.5 % of concentration
   - name: hydrogen
     type: enum
     description: H2 concentration (in ppm, specifically in microlitre/litre).
   - name: isobutane
     type: enum
-    description: isoC4 (C4H10) concentration (in ppm, specifically in microlitre/litre). Isobutane is also known as methylpropane.
+    description: >-
+      isoC4 (C4H10) concentration (in ppm, specifically in microlitre/litre). Isobutane is also known as methylpropane.
   - name: methane
     type: enum
     description: CH4 concentration (in ppm, specifically in microlitre/litre).
@@ -79,15 +99,23 @@ attributes:
     description: Total Combustible Gas (TCG) measured in headspace (in percent by volume).
   - name: totalDissolvedCombustibleGas
     type: enum
-    description: "Total dissolved combustible gas concentration (in ppm, specifically in microlitre/litre). Calculated by adding the ppm of combustible gasses: hydrogen (H2), methane (CH4), ethane (C2H6), ethylene (C2H4), acetylene (C2H2), and carbon monoxide (CO)."
+    description: >-
+      Total dissolved combustible gas concentration (in ppm, specifically in microlitre/litre). Calculated by adding the
+      ppm of combustible gasses: hydrogen (H2), methane (CH4), ethane (C2H6), ethylene (C2H4), acetylene (C2H2), and
+      carbon monoxide (CO).
   - name: totalDissolvedGasPercent
     type: enum
-    description: Total dissolved gas in oil (in percent by volume). Derived from the total area of all the gas peaks in the chromatogram.
+    description: >-
+      Total dissolved gas in oil (in percent by volume). Derived from the total area of all the gas peaks in the
+      chromatogram.
   - name: totalHeatGas
     type: enum
-    description: Sum of concentrations of methane, ethane, and ethylene (in ppm, specifically in microlitre/litre). Used in some diagnostic gas ratios, especially THG/acetylene, which compares “heat gas” to “arcing gas.”
+    description: >-
+      Sum of concentrations of methane, ethane, and ethylene (in ppm, specifically in microlitre/litre). Used in some
+      diagnostic gas ratios, especially THG/acetylene, which compares “heat gas” to “arcing gas.”
   - name: totalPartialPressure
     type: enum
-    description: |-
+    description: >-
       Total partial pressure (in Pa).
+
       Calculated value reflecting total of partial pressures of all combustible gasses.

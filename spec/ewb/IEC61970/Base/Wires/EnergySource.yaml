@@ -3,21 +3,29 @@ description: A generic equivalent for an energy supplier on a transmission or di
 attributes:
   - name: activePower
     type: Integer
-    description: |-
-      High voltage source active injection in watts. Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      High voltage source active injection in watts. Load sign convention is used, i.e. positive sign means flow out
+      from a node.
+
       Starting value for steady state solutions.
     nullable: true
   - name: isExternalGrid
     type: Boolean
-    description: True if this energy source represents the higher-level power grid connection to an external grid that normally is modelled as the slack bus for power flow calculations.
+    description: >-
+      True if this energy source represents the higher-level power grid connection to an external grid that normally is
+      modelled as the slack bus for power flow calculations.
     nullable: true
   - name: pMax
     type: Integer
-    description: This is the maximum active power in watts that can be produced by the source. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
+    description: >-
+      This is the maximum active power in watts that can be produced by the source. Load sign convention is used, i.e.
+      positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
     nullable: true
   - name: pMin
     type: Integer
-    description: This is the minimum active power in watts that can be produced by the source. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
+    description: >-
+      This is the minimum active power in watts that can be produced by the source. Load sign convention is used, i.e.
+      positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
     nullable: true
   - name: r
     type: Double
@@ -45,8 +53,10 @@ attributes:
     nullable: true
   - name: reactivePower
     type: Double
-    description: |-
-      High voltage source reactive injection in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      High voltage source reactive injection in volt-amperes reactive. Load sign convention is used, i.e. positive sign
+      means flow out from a node.
+
       Starting value for steady state solutions.
     nullable: true
   - name: rn
@@ -63,11 +73,17 @@ attributes:
     nullable: true
   - name: voltageAngle
     type: Double
-    description: Phase angle in radians of a-phase open circuit used when voltage characteristics need to be imposed at the node associated with the terminal of the energy source, such as when voltages and angles from the transmission level are used as input to the distribution network. The attribute shall be a positive value or zero.
+    description: >-
+      Phase angle in radians of a-phase open circuit used when voltage characteristics need to be imposed at the node
+      associated with the terminal of the energy source, such as when voltages and angles from the transmission level
+      are used as input to the distribution network. The attribute shall be a positive value or zero.
     nullable: true
   - name: voltageMagnitude
     type: Double
-    description: Phase-to-phase open circuit voltage magnitude used when voltage characteristics need to be imposed at the node associated with the terminal of the energy source, such as when voltages and angles from the transmission level are used as input to the distribution network. The attribute shall be a positive value or zero.
+    description: >-
+      Phase-to-phase open circuit voltage magnitude used when voltage characteristics need to be imposed at the node
+      associated with the terminal of the energy source, such as when voltages and angles from the transmission level
+      are used as input to the distribution network. The attribute shall be a positive value or zero.
     nullable: true
   - name: x
     type: Double

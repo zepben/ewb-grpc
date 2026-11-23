@@ -1,6 +1,7 @@
 name: VAdjIEEE
-description: |-
+description: >-
   IEEE voltage adjuster which is used to represent the voltage adjuster in either a power factor or VAr control system.
+
   Reference: IEEE 421.5-2005, 11.1.
 attributes:
   - name: adjslew
@@ -17,9 +18,11 @@ attributes:
     description: Set high to provide a continuous raise or lower (<i>V</i><i><sub>ADJF</sub></i>).
   - name: vadjmax
     type: PU
-    description: Maximum output of the adjuster (<i>V</i><i><sub>ADJMAX</sub></i>) (&gt; VAdjIEEE.vadjmin).  Typical value = 1,1.
+    description: >-
+      Maximum output of the adjuster (<i>V</i><i><sub>ADJMAX</sub></i>) (&gt; VAdjIEEE.vadjmin).  Typical value = 1,1.
   - name: vadjmin
     type: PU
-    description: Minimum output of the adjuster (<i>V</i><i><sub>ADJMIN</sub></i>) (&lt; VAdjIEEE.vadjmax).  Typical value = 0,9.
+    description: >-
+      Minimum output of the adjuster (<i>V</i><i><sub>ADJMIN</sub></i>) (&lt; VAdjIEEE.vadjmax).  Typical value = 0,9.
 ancestors:
   - VoltageAdjusterDynamics

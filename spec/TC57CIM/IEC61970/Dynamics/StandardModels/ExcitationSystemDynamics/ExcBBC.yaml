@@ -1,5 +1,8 @@
 name: ExcBBC
-description: Transformer fed static excitation system (static with ABB regulator). This model represents a static excitation system in which a gated thyristor bridge fed by a transformer at the main generator terminals feeds the main generator directly.
+description: >-
+  Transformer fed static excitation system (static with ABB regulator). This model represents a static excitation system
+  in which a gated thyristor bridge fed by a transformer at the main generator terminals feeds the main generator
+  directly.
 attributes:
   - name: efdmax
     type: PU
@@ -12,10 +15,13 @@ attributes:
     description: Steady state gain (<i>K</i>) (not = 0).  Typical value = 300.
   - name: switch
     type: Boolean
-    description: |-
+    description: >-
       Supplementary signal routing selector (<i>switch</i>).
+
       true = <i>Vs</i> connected to 3rd summing point
+
       false =  <i>Vs</i> connected to 1st summing point (see diagram).
+
       Typical value = false.
   - name: t1
     type: Seconds
@@ -37,6 +43,8 @@ attributes:
     description: Minimum control element output (<i>Vrmin</i>) (&lt; ExcBBC.vrmax).  Typical value = -5.
   - name: xe
     type: PU
-    description: Effective excitation transformer reactance (<i>Xe</i>) (&gt;= 0).  <i>Xe</i> models the regulation of the transformer/rectifier unit.  Typical value = 0,05.
+    description: >-
+      Effective excitation transformer reactance (<i>Xe</i>) (&gt;= 0).  <i>Xe</i> models the regulation of the
+      transformer/rectifier unit.  Typical value = 0,05.
 ancestors:
   - ExcitationSystemDynamics

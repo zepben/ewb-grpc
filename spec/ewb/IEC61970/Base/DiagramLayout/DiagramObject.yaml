@@ -1,15 +1,25 @@
 name: DiagramObject
-description: An object that defines one or more points in a given space. This object can be associated with anything that specializes IdentifiedObject. For single line diagrams such objects typically include such items as analog values, breakers, disconnectors, power transformers, and transmission lines.
+description: >-
+  An object that defines one or more points in a given space. This object can be associated with anything that
+  specializes IdentifiedObject. For single line diagrams such objects typically include such items as analog values,
+  breakers, disconnectors, power transformers, and transmission lines.
 attributes:
   - name: rotation
     type: Double
-    description: |-
-      Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation is clockwise.  DiagramObject.rotation=0 has the following meaning: The connection point of an element which has one terminal is pointing to the top side of the diagram. The connection point "From side" of an element which has more than one terminal is pointing to the top side of the diagram.
-      DiagramObject.rotation=90 has the following meaning: The connection point of an element which has one terminal is pointing to the right hand side of the diagram. The connection point "From side" of an element which has more than one terminal is pointing to the right hand side of the diagram.
+    description: >-
+      Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation
+      is clockwise.  DiagramObject.rotation=0 has the following meaning: The connection point of an element which has
+      one terminal is pointing to the top side of the diagram. The connection point "From side" of an element which has
+      more than one terminal is pointing to the top side of the diagram.
+
+      DiagramObject.rotation=90 has the following meaning: The connection point of an element which has one terminal is
+      pointing to the right hand side of the diagram. The connection point "From side" of an element which has more than
+      one terminal is pointing to the right hand side of the diagram.
     nullable: true
   - name: style
     type: String
-    description: A diagram object has a style associated that provides a reference for the style used in the originating system.
+    description: >-
+      A diagram object has a style associated that provides a reference for the style used in the originating system.
     nullable: true
 ancestors:
   - IdentifiedObject
@@ -26,7 +36,9 @@ associations:
     target: DiagramObjectPoint
     targetCardinality: 0..*
     targetName: diagramObjectPoints
-    targetDescription: A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or boundary (for polygons).
+    targetDescription: >-
+      A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or boundary
+      (for polygons).
   - source: DiagramObject
     target: IdentifiedObject
     targetCardinality: 0..1

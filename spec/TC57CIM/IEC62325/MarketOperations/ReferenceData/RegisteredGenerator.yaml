@@ -3,7 +3,9 @@ description: Model of a generator  that is registered to participate in the mark
 attributes:
   - name: capacityFactor
     type: PerCent
-    description: The ratio of actual energy produced by resource divided by the maximum potential energy if the resource is fully utilized. As an example, wind farms.
+    description: >-
+      The ratio of actual energy produced by resource divided by the maximum potential energy if the resource is fully
+      utilized. As an example, wind farms.
   - name: coldStartTime
     type: Float
     description: Cold start time.
@@ -23,12 +25,19 @@ attributes:
     description: Response rate in MW per minute for ramping energy up.
   - name: extremeLongStart
     type: YesNo
-    description: Some long-start up time units may need to receive start up instruction before DA market results are available.  Long-Start resources may be either physical resources within the control with start-up times greater than 18 hours or the long-start contractual inter-tie commitment that shall be completed by 6 am one-day ahead.  Therefore, there is a need for a process to determine the commitment of such resources before the DA market.
+    description: >-
+      Some long-start up time units may need to receive start up instruction before DA market results are
+      available.  Long-Start resources may be either physical resources within the control with start-up times greater
+      than 18 hours or the long-start contractual inter-tie commitment that shall be completed by 6 am one-day
+      ahead.  Therefore, there is a need for a process to determine the commitment of such resources before the DA
+      market.
   - name: fuelSource
     type: FuelSource
-    description: |-
+    description: >-
       Values: Natural Gas Based Resource, Non Natural Gas Based Resource
+
       "NG" - Natural-Gas-Based Resource - a Resource that is powered by Natural Gas
+
       "NNG" - Non-Natural-Gas-Based Resource - a Resouce that is powered by some other fuel than Natural Gas
   - name: highControlLimit
     type: ActivePower
@@ -56,16 +65,20 @@ attributes:
     description: Low limit for secondary (AGC) control
   - name: maxDependableCap
     type: ActivePower
-    description: Maximum Dependable Capacity (MNDC). Maximun Net Dependable Capacity is used in association with an RMR contract.
+    description: >-
+      Maximum Dependable Capacity (MNDC). Maximun Net Dependable Capacity is used in association with an RMR contract.
   - name: maximumAllowableSpinningReserve
     type: ActivePower
-    description: Maximum allowable spinning reserve. Spinning reserve will never be considered greater than this value regardless of the current operating point.
+    description: >-
+      Maximum allowable spinning reserve. Spinning reserve will never be considered greater than this value regardless
+      of the current operating point.
   - name: maximumOperatingLimit
     type: ActivePower
     description: This is the maximum operating MW limit the dispatcher can enter for this unit
   - name: maxMinLoadCost
     type: CostRate
-    description: The registered maximum Minimum Load Cost of a Generating Resource registered with a Cost Basis of "Bid Cost".
+    description: >-
+      The registered maximum Minimum Load Cost of a Generating Resource registered with a Cost Basis of "Bid Cost".
   - name: maxPumpingLevel
     type: ActivePower
     description: max pumping level of a hydro pump unit
@@ -121,7 +134,9 @@ attributes:
     description: The shutdown time (minutes) of the pump aspect of a pump storage unit.
   - name: quickStartFlag
     type: YesNo
-    description: Quick start flag (Yes/No). Identifies the registered generator as a quick start unit. A quick start unit is a unit that has the ability to be available for load within a 30 minute period.
+    description: >-
+      Quick start flag (Yes/No). Identifies the registered generator as a quick start unit. A quick start unit is a unit
+      that has the ability to be available for load within a 30 minute period.
   - name: rampCurveType
     type: RampCurveType
     description: Ramp curve type. Identifies the type of curve which may be a fixed, static or dynamic.
@@ -136,19 +151,25 @@ attributes:
     description: Regulation up response rate in MW per minute.
   - name: resourceSubType
     type: String
-    description: Unit sub type used by Settlements or scheduling application. Application use of the unit sub type may define the necessary types as applicable.
+    description: >-
+      Unit sub type used by Settlements or scheduling application. Application use of the unit sub type may define the
+      necessary types as applicable.
   - name: riverSystem
     type: String
     description: River System the Resource is tied to.
   - name: RMNRFlag
     type: YesNo
-    description: "Reliability must not run (RMNR) flag: indicated whether the RMR unit is set as an RMNR in the current market"
+    description: >-
+      Reliability must not run (RMNR) flag: indicated whether the RMR unit is set as an RMNR in the current market
   - name: RMRFlag
     type: FlagTypeRMR
-    description: |-
+    description: >-
       Reliability must run (RMR) flag: indicates whether the unit is RMR; Indicates whether the unit is RMR:
+
       N' - not an RMR unit
+
       '1' - RMR Condition 1 unit
+
       '2' - RMR Condition 2 unit
   - name: RMRManualIndicator
     type: YesNo
@@ -167,13 +188,18 @@ attributes:
     description: Is the Resource Synchronous Condenser capable Resource?
   - name: unitType
     type: UnitType
-    description: "Generating unit type: Combined Cycle, Gas Turbine, Hydro Turbine, Other, Photovoltaic, Hydro Pump-Turbine, Reciprocating Engine, Steam Turbine, Synchronous Condenser, Wind Turbine"
+    description: >-
+      Generating unit type: Combined Cycle, Gas Turbine, Hydro Turbine, Other, Photovoltaic, Hydro Pump-Turbine,
+      Reciprocating Engine, Steam Turbine, Synchronous Condenser, Wind Turbine
   - name: useLimitFlag
     type: YesNo
-    description: "Use limit flag: indicates if the use-limited resource is fully scheduled (or has some slack for real-time dispatch) (Y/N)"
+    description: >-
+      Use limit flag: indicates if the use-limited resource is fully scheduled (or has some slack for real-time
+      dispatch) (Y/N)
   - name: variableEnergyResource
     type: YesNo
-    description: Provides an indication that this resource is intending to participate in an intermittent resource program.
+    description: >-
+      Provides an indication that this resource is intending to participate in an intermittent resource program.
 ancestors:
   - RegisteredResource
 descendants:

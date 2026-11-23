@@ -6,17 +6,24 @@ attributes:
     description: The attribute tells if the switch is considered closed when used as input to topology processing.
   - name: normalOpen
     type: Boolean
-    description: Used in cases when no Measurement for the status value is present. If the SwitchPhase has a status measurement the Discrete.normalValue is expected to match with this value.
+    description: >-
+      Used in cases when no Measurement for the status value is present. If the SwitchPhase has a status measurement the
+      Discrete.normalValue is expected to match with this value.
   - name: phaseSide1
     type: SinglePhaseKind
-    description: Phase of this SwitchPhase on the side with terminal sequence number equal to 1. Should be a phase contained in that terminal’s phases attribute.
+    description: >-
+      Phase of this SwitchPhase on the side with terminal sequence number equal to 1. Should be a phase contained in
+      that terminal’s phases attribute.
   - name: phaseSide2
     type: SinglePhaseKind
-    description: Phase of this SwitchPhase on the side with terminal sequence number equal to 2.  Should be a phase contained in that terminal’s Terminal.phases attribute.
+    description: >-
+      Phase of this SwitchPhase on the side with terminal sequence number equal to 2.  Should be a phase contained in
+      that terminal’s Terminal.phases attribute.
   - name: ratedCurrent
     type: CurrentFlow
-    description: |-
+    description: >-
       The maximum continuous current carrying capacity in amps governed by the device material and construction.
+
       The attribute shall be a positive value.
 ancestors:
   - PowerSystemResource

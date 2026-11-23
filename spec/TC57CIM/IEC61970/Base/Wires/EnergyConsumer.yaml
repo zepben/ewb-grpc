@@ -1,7 +1,9 @@
 name: EnergyConsumer
-description: |-
+description: >-
   Generic user of energy - a  point of consumption on the power system model.
-  EnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.
+
+  EnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic
+  associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.
 attributes:
   - name: customerCount
     type: Integer
@@ -11,31 +13,43 @@ attributes:
     description: Used for Yn and Zn connections. True if the neutral is solidly grounded.
   - name: p
     type: ActivePower
-    description: |-
+    description: >-
       Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+
       For voltage dependent loads the value is at rated voltage.
+
       Starting value for a steady state solution.
   - name: pfixed
     type: ActivePower
-    description: Active power of the load that is a fixed quantity and does not vary as load group value varies. Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      Active power of the load that is a fixed quantity and does not vary as load group value varies. Load sign
+      convention is used, i.e. positive sign means flow out from a node.
   - name: pfixedPct
     type: PerCent
-    description: Fixed active power as a percentage of load group fixed active power. Used to represent the time-varying components.  Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      Fixed active power as a percentage of load group fixed active power. Used to represent the time-varying
+      components.  Load sign convention is used, i.e. positive sign means flow out from a node.
   - name: phaseConnection
     type: PhaseShuntConnectionKind
     description: The type of phase connection, such as wye or delta.
   - name: q
     type: ReactivePower
-    description: |-
+    description: >-
       Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+
       For voltage dependent loads the value is at rated voltage.
+
       Starting value for a steady state solution.
   - name: qfixed
     type: ReactivePower
-    description: Reactive power of the load that is a fixed quantity and does not vary as load group value varies. Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      Reactive power of the load that is a fixed quantity and does not vary as load group value varies. Load sign
+      convention is used, i.e. positive sign means flow out from a node.
   - name: qfixedPct
     type: PerCent
-    description: Fixed reactive power as a percentage of load group fixed reactive power. Used to represent the time-varying components.  Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      Fixed reactive power as a percentage of load group fixed reactive power. Used to represent the time-varying
+      components.  Load sign convention is used, i.e. positive sign means flow out from a node.
 ancestors:
   - EnergyConnection
 descendants:
@@ -72,7 +86,8 @@ associations:
     sourceDescription: The set of loads that have the response characteristics.
     targetCardinality: 0..1
     targetName: loadResponse
-    targetDescription: The load response characteristic of this load.  If missing, this load is assumed to be constant power.
+    targetDescription: >-
+      The load response characteristic of this load.  If missing, this load is assumed to be constant power.
   - source: EnergyConsumer
     target: PowerCutZone
     sourceCardinality: 1..*

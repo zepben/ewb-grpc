@@ -1,5 +1,7 @@
 name: TransformerCoreAdmittance
-description: The transformer core admittance.  Used to specify the core admittance of a transformer in a manner that can be shared among power transformers.
+description: >-
+  The transformer core admittance.  Used to specify the core admittance of a transformer in a manner that can be shared
+  among power transformers.
 attributes:
   - name: b
     type: Susceptance
@@ -20,7 +22,9 @@ associations:
     target: TransformerEnd
     sourceCardinality: 0..1
     sourceName: coreAdmittance
-    sourceDescription: Core admittance of this transformer end, representing magnetising current and core losses. The full values of the transformer should be supplied for one transformer end only.
+    sourceDescription: >-
+      Core admittance of this transformer end, representing magnetising current and core losses. The full values of the
+      transformer should be supplied for one transformer end only.
     targetCardinality: 0..*
     targetName: transformerEnd
     targetDescription: All transformer ends having this core admittance.
@@ -28,7 +32,9 @@ associations:
     target: TransformerEndInfo
     sourceCardinality: 0..1
     sourceName: coreAdmittance
-    sourceDescription: Core admittance calculated from this transformer end datasheet, representing magnetising current and core losses. The full values of the transformer should be supplied for one transformer end info only.
+    sourceDescription: >-
+      Core admittance calculated from this transformer end datasheet, representing magnetising current and core losses.
+      The full values of the transformer should be supplied for one transformer end info only.
     targetCardinality: 0..1
     targetName: transformerEndInfo
     targetDescription: Transformer end datasheet used to calculate this core admittance.

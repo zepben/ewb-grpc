@@ -15,13 +15,15 @@ attributes:
     description: Maximum Dn ramp rate in MW/min
   - name: maxEmergencyMW
     type: ActivePower
-    description: Power rating available for unit under emergency conditions greater than or equal to maximum economic limit.
+    description: >-
+      Power rating available for unit under emergency conditions greater than or equal to maximum economic limit.
   - name: maximumEconomicMW
     type: Float
     description: Maximum high economic MW limit, that should not exceed the maximum operating MW limit
   - name: minEmergencyMW
     type: ActivePower
-    description: Minimum power rating for unit under emergency conditions, which is less than or equal to the economic minimum.
+    description: >-
+      Minimum power rating for unit under emergency conditions, which is less than or equal to the economic minimum.
   - name: minimumEconomicMW
     type: Float
     description: Low economic MW limit that shall be greater than or equal to the minimum operating MW limit
@@ -39,7 +41,14 @@ attributes:
     description: Maximum Up ramp rate in MW/min
   - name: rampCurveType
     type: Integer
-    description: "Ramp curve type:\n0 - Fixed ramp rate independent of rate function unit MW output\n1 - Static ramp rates as a function of unit MW output only \n2 - Dynamic ramp rates as a function of unit MW output and ramping time"
+    description: >-
+      Ramp curve type:
+
+      0 - Fixed ramp rate independent of rate function unit MW output
+
+      1 - Static ramp rates as a function of unit MW output only
+
+      2 - Dynamic ramp rates as a function of unit MW output and ramping time
   - name: startupCost
     type: Float
     description: Startup cost/price
@@ -48,10 +57,13 @@ attributes:
     description: Resource startup ramp rate (MW/minute)
   - name: startUpType
     type: Integer
-    description: |-
+    description: >-
       Resource startup type:
+
       1 - Fixed startup time and fixed startup cost
+
       2 - Startup time as a function of down time and fixed startup cost
+
       3 - Startup cost as a function of down time
   - name: upTimeMax
     type: Float

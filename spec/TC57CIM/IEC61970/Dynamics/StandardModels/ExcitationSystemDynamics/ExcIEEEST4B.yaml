@@ -1,14 +1,22 @@
 name: ExcIEEEST4B
-description: |-
-  IEEE 421.5-2005 type ST4B model. This model is a variation of the type ST3A model, with a proportional plus integral (PI) regulator block replacing the lag-lead regulator characteristic that is in the ST3A model. Both potential and compound source rectifier excitation systems are modelled.  The PI regulator blocks have non-windup limits that are represented. The voltage regulator of this model is typically implemented digitally.
+description: >-
+  IEEE 421.5-2005 type ST4B model. This model is a variation of the type ST3A model, with a proportional plus integral
+  (PI) regulator block replacing the lag-lead regulator characteristic that is in the ST3A model. Both potential and
+  compound source rectifier excitation systems are modelled.  The PI regulator blocks have non-windup limits that are
+  represented. The voltage regulator of this model is typically implemented digitally.
+
   Reference: IEEE 421.5-2005, 7.4.
 attributes:
   - name: kc
     type: PU
-    description: Rectifier loading factor proportional to commutating reactance (<i>K</i><i><sub>C</sub></i>) (&gt;= 0). Typical value = 0,113.
+    description: >-
+      Rectifier loading factor proportional to commutating reactance (<i>K</i><i><sub>C</sub></i>) (&gt;= 0). Typical
+      value = 0,113.
   - name: kg
     type: PU
-    description: Feedback gain constant of the inner loop field regulator (<i>K</i><i><sub>G</sub></i>) (&gt;= 0).  Typical value = 0.
+    description: >-
+      Feedback gain constant of the inner loop field regulator (<i>K</i><i><sub>G</sub></i>) (&gt;= 0).  Typical value =
+      0.
   - name: ki
     type: PU
     description: Potential circuit gain coefficient (<i>K</i><i><sub>I</sub></i>) (&gt;= 0).  Typical value = 0.
@@ -38,10 +46,12 @@ attributes:
     description: Maximum excitation voltage (<i>V</i><i><sub>BMax</sub></i>) (&gt; 0).  Typical value = 11,63.
   - name: vmmax
     type: PU
-    description: Maximum inner loop output (<i>V</i><i><sub>MMax</sub></i>) (&gt; ExcIEEEST4B.vmmin).  Typical value = 99.
+    description: >-
+      Maximum inner loop output (<i>V</i><i><sub>MMax</sub></i>) (&gt; ExcIEEEST4B.vmmin).  Typical value = 99.
   - name: vmmin
     type: PU
-    description: Minimum inner loop output (<i>V</i><i><sub>MMin</sub></i>) (&lt; ExcIEEEST4B.vmmax).  Typical value = -99.
+    description: >-
+      Minimum inner loop output (<i>V</i><i><sub>MMin</sub></i>) (&lt; ExcIEEEST4B.vmmax).  Typical value = -99.
   - name: vrmax
     type: PU
     description: Maximum voltage regulator output (<i>V</i><i><sub>RMAX</sub></i>) (&gt; 0).  Typical value = 1.
@@ -50,6 +60,7 @@ attributes:
     description: Minimum voltage regulator output (<i>V</i><i><sub>RMIN</sub></i>) (&lt; 0).  Typical value = -0,87.
   - name: xl
     type: PU
-    description: Reactance associated with potential source (<i>X</i><i><sub>L</sub></i>) (&gt;= 0).  Typical value = 0,124.
+    description: >-
+      Reactance associated with potential source (<i>X</i><i><sub>L</sub></i>) (&gt;= 0).  Typical value = 0,124.
 ancestors:
   - ExcitationSystemDynamics

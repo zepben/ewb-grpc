@@ -1,17 +1,25 @@
 name: TapChangerControl
-description: Describes behaviour specific to tap changers, e.g. how the voltage at the end of a line varies with the load level and compensation of the voltage drop by tap adjustment.
+description: >-
+  Describes behaviour specific to tap changers, e.g. how the voltage at the end of a line varies with the load level and
+  compensation of the voltage drop by tap adjustment.
 attributes:
   - name: coGenerationEnabled
     type: Boolean
-    description: True implies cogeneration mode is enabled and that the control will regulate to the new source bushing (downline bushing), keeping locations downline from experiencing overvoltage situations.
+    description: >-
+      True implies cogeneration mode is enabled and that the control will regulate to the new source bushing (downline
+      bushing), keeping locations downline from experiencing overvoltage situations.
     nullable: true
   - name: forwardLDCBlocking
     type: Boolean
-    description: True implies this tap changer turns off/ignores reverse current flows for line drop compensation when power flow is reversed and no reverse line drop is set.
+    description: >-
+      True implies this tap changer turns off/ignores reverse current flows for line drop compensation when power flow
+      is reversed and no reverse line drop is set.
     nullable: true
   - name: limitVoltage
     type: Double
-    description: Maximum allowed regulated voltage in volts on the PT secondary, regardless of line drop compensation. Sometimes referred to as first-house protection.
+    description: >-
+      Maximum allowed regulated voltage in volts on the PT secondary, regardless of line drop compensation. Sometimes
+      referred to as first-house protection.
     nullable: true
   - name: lineDropCompensation
     type: Boolean

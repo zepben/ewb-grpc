@@ -1,30 +1,43 @@
 name: GovHydro4
-description: Hydro turbine and governor. Represents plants with straight-forward penstock configurations and hydraulic governors of the traditional 'dashpot' type.  This model can be used to represent simple, Francis/Pelton or Kaplan turbines.
+description: >-
+  Hydro turbine and governor. Represents plants with straight-forward penstock configurations and hydraulic governors of
+  the traditional 'dashpot' type.  This model can be used to represent simple, Francis/Pelton or Kaplan turbines.
 attributes:
   - name: at
     type: PU
     description: Turbine gain (<i>At</i>).  Typical value = 1,2.
   - name: bgv0
     type: PU
-    description: Kaplan blade servo point 0 (<i>Bgv0</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 0.
+    description: >-
+      Kaplan blade servo point 0 (<i>Bgv0</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 0.
   - name: bgv1
     type: PU
-    description: Kaplan blade servo point 1 (<i>Bgv1</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 0.
+    description: >-
+      Kaplan blade servo point 1 (<i>Bgv1</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 0.
   - name: bgv2
     type: PU
-    description: Kaplan blade servo point 2 (<i>Bgv2</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 0,1.
+    description: >-
+      Kaplan blade servo point 2 (<i>Bgv2</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan =
+      0,1.
   - name: bgv3
     type: PU
-    description: Kaplan blade servo point 3 (<i>Bgv3</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 0,667.
+    description: >-
+      Kaplan blade servo point 3 (<i>Bgv3</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan =
+      0,667.
   - name: bgv4
     type: PU
-    description: Kaplan blade servo point 4 (<i>Bgv4</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 0,9.
+    description: >-
+      Kaplan blade servo point 4 (<i>Bgv4</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan =
+      0,9.
   - name: bgv5
     type: PU
-    description: Kaplan blade servo point 5 (<i>Bgv5</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 1.
+    description: >-
+      Kaplan blade servo point 5 (<i>Bgv5</i>) (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 1.
   - name: bmax
     type: Float
-    description: Maximum blade adjustment factor (<i>Bmax</i>)  (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan = 1,1276.
+    description: >-
+      Maximum blade adjustment factor (<i>Bmax</i>)  (= 0 for simple, = 0 for Francis/Pelton).  Typical value for Kaplan
+      = 1,1276.
   - name: db1
     type: Frequency
     description: Intentional deadband width (<i>db1</i>).  Unit = Hz.  Typical value = 0.
@@ -33,7 +46,9 @@ attributes:
     description: Unintentional dead-band (<i>db2</i>).  Unit = MW.  Typical value = 0.
   - name: dturb
     type: PU
-    description: Turbine damping factor (<i>Dturb</i>).  Unit = delta P (PU of <i>MWbase</i>) / delta speed (PU).  Typical value for simple = 0,5, Francis/Pelton = 1,1, Kaplan = 1,1.
+    description: >-
+      Turbine damping factor (<i>Dturb</i>).  Unit = delta P (PU of <i>MWbase</i>) / delta speed (PU).  Typical value
+      for simple = 0,5, Francis/Pelton = 1,1, Kaplan = 1,1.
   - name: eps
     type: Frequency
     description: Intentional db hysteresis (<i>eps</i>).  Unit = Hz.  Typical value = 0.
@@ -45,22 +60,33 @@ attributes:
     description: Minimum gate opening, PU of <i>MWbase</i> (<i>Gmin</i>) (&lt; GovHydro4.gmax).  Typical value = 0.
   - name: gv0
     type: PU
-    description: Nonlinear gain point 0, PU gv (<i>Gv0</i>) (= 0 for simple).  Typical for Francis/Pelton = 0,1, Kaplan = 0,1.
+    description: >-
+      Nonlinear gain point 0, PU gv (<i>Gv0</i>) (= 0 for simple).  Typical for Francis/Pelton = 0,1, Kaplan = 0,1.
   - name: gv1
     type: PU
-    description: Nonlinear gain point 1, PU gv (<i>Gv1</i>) (= 0 for simple, &gt; GovHydro4.gv0 for Francis/Pelton and Kaplan). Typical value for Francis/Pelton = 0,4, Kaplan = 0,4.
+    description: >-
+      Nonlinear gain point 1, PU gv (<i>Gv1</i>) (= 0 for simple, &gt; GovHydro4.gv0 for Francis/Pelton and Kaplan).
+      Typical value for Francis/Pelton = 0,4, Kaplan = 0,4.
   - name: gv2
     type: PU
-    description: Nonlinear gain point 2, PU gv (<i>Gv2</i>) (= 0 for simple, &gt; GovHydro4.gv1 for Francis/Pelton and Kaplan). Typical value for Francis/Pelton = 0,5, Kaplan = 0,5.
+    description: >-
+      Nonlinear gain point 2, PU gv (<i>Gv2</i>) (= 0 for simple, &gt; GovHydro4.gv1 for Francis/Pelton and Kaplan).
+      Typical value for Francis/Pelton = 0,5, Kaplan = 0,5.
   - name: gv3
     type: PU
-    description: Nonlinear gain point 3, PU gv (<i>Gv3</i>)  (= 0 for simple, &gt; GovHydro4.gv2 for Francis/Pelton and Kaplan). Typical value for Francis/Pelton = 0,7, Kaplan = 0,7.
+    description: >-
+      Nonlinear gain point 3, PU gv (<i>Gv3</i>)  (= 0 for simple, &gt; GovHydro4.gv2 for Francis/Pelton and Kaplan).
+      Typical value for Francis/Pelton = 0,7, Kaplan = 0,7.
   - name: gv4
     type: PU
-    description: Nonlinear gain point 4, PU gv (<i>Gv4</i>)  (= 0 for simple, &gt; GovHydro4.gv3 for Francis/Pelton and Kaplan). Typical value for  Francis/Pelton = 0,8, Kaplan = 0,8.
+    description: >-
+      Nonlinear gain point 4, PU gv (<i>Gv4</i>)  (= 0 for simple, &gt; GovHydro4.gv3 for Francis/Pelton and Kaplan).
+      Typical value for  Francis/Pelton = 0,8, Kaplan = 0,8.
   - name: gv5
     type: PU
-    description: Nonlinear gain point 5, PU gv (<i>Gv5</i>)  (= 0 for simple, &lt; 1 and &gt; GovHydro4.gv4 for Francis/Pelton and Kaplan). Typical value for Francis/Pelton = 0,9, Kaplan = 0,9.
+    description: >-
+      Nonlinear gain point 5, PU gv (<i>Gv5</i>)  (= 0 for simple, &lt; 1 and &gt; GovHydro4.gv4 for Francis/Pelton and
+      Kaplan). Typical value for Francis/Pelton = 0,9, Kaplan = 0,9.
   - name: hdam
     type: PU
     description: Head available at dam (<i>hdam</i>).  Typical value = 1.
@@ -75,31 +101,39 @@ attributes:
     description: Nonlinear gain point 0, PU power (<i>Pgv0</i>) (= 0 for simple).  Typical value = 0.
   - name: pgv1
     type: PU
-    description: |-
+    description: >-
       Nonlinear gain point 1, PU power (<i>Pgv1</i>) (= 0 for simple).
+
       Typical value for Francis/Pelton = 0,42, Kaplan = 0,35.
   - name: pgv2
     type: PU
-    description: |-
+    description: >-
       Nonlinear gain point 2, PU power (<i>Pgv2</i>) (= 0 for simple).
+
       Typical value for Francis/Pelton = 0,56, Kaplan = 0,468.
   - name: pgv3
     type: PU
-    description: |-
+    description: >-
       Nonlinear gain point 3, PU power (<i>Pgv3</i>) (= 0 for simple).
+
       Typical value for Francis/Pelton = 0,8, Kaplan = 0,796.
   - name: pgv4
     type: PU
-    description: |-
+    description: >-
       Nonlinear gain point 4, PU power (<i>Pgv4</i>) (= 0 for simple).
+
       Typical value for Francis/Pelton = 0,9, Kaplan = 0,917.
   - name: pgv5
     type: PU
-    description: "Nonlinear gain point 5, PU power (<i>Pgv5</i>) (= 0 for simple). \nTypical value for Francis/Pelton = 0,97, Kaplan = 0,99."
+    description: >-
+      Nonlinear gain point 5, PU power (<i>Pgv5</i>) (= 0 for simple).
+
+      Typical value for Francis/Pelton = 0,97, Kaplan = 0,99.
   - name: qnl
     type: PU
-    description: |-
+    description: >-
       No-load flow at nominal head (<i>Qnl</i>).
+
       Typical value for simple = 0,08, Francis/Pelton = 0, Kaplan = 0.
   - name: rperm
     type: Seconds

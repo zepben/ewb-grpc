@@ -1,5 +1,7 @@
 name: SubControlArea
-description: An area defined for the purpose of tracking interchange with surrounding areas via tie points; may or may not serve as a control area.
+description: >-
+  An area defined for the purpose of tracking interchange with surrounding areas via tie points; may or may not serve as
+  a control area.
 attributes:
   - name: areaShortName
     type: String
@@ -9,7 +11,9 @@ attributes:
     description: Loss estimate constant coefficient
   - name: embeddedControlArea
     type: YesNo
-    description: Used in conjunction with the InternalCA flag. If the InternalCA flag is YES, this flag does not apply. If the InternaCA flag is NO, this flag provides an indication of AdjacentCA (NO) or Embedded CA (YES).
+    description: >-
+      Used in conjunction with the InternalCA flag. If the InternalCA flag is YES, this flag does not apply. If the
+      InternaCA flag is NO, this flag provides an indication of AdjacentCA (NO) or Embedded CA (YES).
   - name: internalCA
     type: YesNo
     description: A Yes/No indication that this control area is contained internal to the system.
@@ -161,18 +165,26 @@ associations:
     target: TieLine
     sourceCardinality: "1"
     sourceName: sideA_SubControlArea
-    sourceDescription: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's boundary for a ControlAreaOperator or CustomerConsumer.
+    sourceDescription: >-
+      The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's boundary
+      for a ControlAreaOperator or CustomerConsumer.
     targetCardinality: 0..*
     targetName: sideA_TieLines
-    targetDescription: The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's boundary for a ControlAreaOperator or CustomerConsumer.
+    targetDescription: >-
+      The SubControlArea is on the A side of a collection of metered points which define the SubControlArea's boundary
+      for a ControlAreaOperator or CustomerConsumer.
   - source: SubControlArea
     target: TieLine
     sourceCardinality: "1"
     sourceName: sideB_SubControlArea
-    sourceDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's boundary for a ControlAreaOperator or CustomerConsumer.
+    sourceDescription: >-
+      The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's boundary
+      for a ControlAreaOperator or CustomerConsumer.
     targetCardinality: 0..*
     targetName: sideB_TieLines
-    targetDescription: The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's boundary for a ControlAreaOperator or CustomerConsumer.
+    targetDescription: >-
+      The SubControlArea is on the B side of a collection of metered points which define the SubControlArea's boundary
+      for a ControlAreaOperator or CustomerConsumer.
   - source: SubControlArea
     target: Flowgate
     sourceCardinality: 0..1

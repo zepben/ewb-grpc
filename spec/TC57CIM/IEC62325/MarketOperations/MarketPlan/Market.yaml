@@ -1,5 +1,6 @@
 name: Market
-description: Market (e.g. Day Ahead Market, Real Time Market) with a description of the Market operation control parameters.
+description: >-
+  Market (e.g. Day Ahead Market, Real Time Market) with a description of the Market operation control parameters.
 attributes:
   - name: actualEnd
     type: DateTime
@@ -21,7 +22,10 @@ attributes:
     description: Market start time.
   - name: status
     type: String
-    description: "Market Status \n'OPEN', 'CLOSED', 'CLEARED', 'BLOCKED'"
+    description: >-
+      Market Status
+
+      'OPEN', 'CLOSED', 'CLEARED', 'BLOCKED'
   - name: timeIntervalLength
     type: Float
     description: Trading time interval length.
@@ -30,14 +34,20 @@ attributes:
     description: Market trading date
   - name: tradingPeriod
     type: String
-    description: |-
+    description: >-
       Trading period that describes the market, possibilities could be for an Energy Market:
+
       Day
+
       Hour
 
+
       For a CRR Market:
+
       Year
+
       Month
+
       Season
 ancestors:
   - IdentifiedObject

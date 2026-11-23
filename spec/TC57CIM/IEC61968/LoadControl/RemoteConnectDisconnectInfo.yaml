@@ -27,13 +27,15 @@ attributes:
     description: True if the energy usage is limited and the customer will be disconnected if they go over the limit.
   - name: needsPowerLimitCheck
     type: Boolean
-    description: True if load limit has to be checked to issue an immediate disconnect (after a connect) if load is over the limit.
+    description: >-
+      True if load limit has to be checked to issue an immediate disconnect (after a connect) if load is over the limit.
   - name: needsVoltageLimitCheck
     type: Boolean
     description: True if voltage limit has to be checked to prevent connect if voltage is over the limit.
   - name: powerLimit
     type: ActivePower
-    description: Load limit above which the connect should either not take place or should cause an immediate disconnect.
+    description: >-
+      Load limit above which the connect should either not take place or should cause an immediate disconnect.
   - name: usePushbutton
     type: Boolean
     description: True if pushbutton has to be used for connect.

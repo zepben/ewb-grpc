@@ -3,16 +3,22 @@ description: Analog represents an analog Measurement.
 attributes:
   - name: maxValue
     type: Float
-    description: Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of telemetered raw values.
+    description: >-
+      Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of
+      telemetered raw values.
   - name: minValue
     type: Float
-    description: Normal value range minimum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of telemetered raw values.
+    description: >-
+      Normal value range minimum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of
+      telemetered raw values.
   - name: normalValue
     type: Float
     description: Normal measurement value, e.g., used for percentage calculations.
   - name: positiveFlowIn
     type: Boolean
-    description: If true then this measurement is an active power, reactive power or current with the convention that a positive value measured at the Terminal means power is flowing into the related PowerSystemResource.
+    description: >-
+      If true then this measurement is an active power, reactive power or current with the convention that a positive
+      value measured at the Terminal means power is flowing into the related PowerSystemResource.
 ancestors:
   - Measurement
 descendants:

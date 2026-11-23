@@ -1,9 +1,15 @@
 name: Location
-description: The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.
+description: >-
+  The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in
+  time. It can be defined with one or more position points (coordinates) in a given coordinate system.
 attributes:
   - name: direction
     type: String
-    description: (if applicable) Direction that allows field crews to quickly find a given asset. For a given location, such as a street address, this is the relative direction in which to find the asset. For example, a streetlight may be located at the 'NW' (northwest) corner of the customer's site, or a usage point may be located on the second floor of an apartment building.
+    description: >-
+      (if applicable) Direction that allows field crews to quickly find a given asset. For a given location, such as a
+      street address, this is the relative direction in which to find the asset. For example, a streetlight may be
+      located at the 'NW' (northwest) corner of the customer's site, or a usage point may be located on the second floor
+      of an apartment building.
   - name: electronicAddress
     type: ElectronicAddress
     description: Electronic address.
@@ -21,13 +27,17 @@ attributes:
     description: Additional phone number.
   - name: secondaryAddress
     type: StreetAddress
-    description: Secondary address of the location. For example, PO Box address may have different ZIP code than that in the 'mainAddress'.
+    description: >-
+      Secondary address of the location. For example, PO Box address may have different ZIP code than that in the
+      'mainAddress'.
   - name: status
     type: Status
     description: Status of this location.
   - name: type
     type: String
-    description: Classification by utility's corporate standards and practices, relative to the location itself (e.g., geographical, functional accounting, etc., not a given property that happens to exist at that location).
+    description: >-
+      Classification by utility's corporate standards and practices, relative to the location itself (e.g.,
+      geographical, functional accounting, etc., not a given property that happens to exist at that location).
 ancestors:
   - IdentifiedObject
 descendants:
@@ -135,7 +145,8 @@ associations:
     sourceDescription: Location described by this position point.
     targetCardinality: 0..*
     targetName: positionPoints
-    targetDescription: Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
+    targetDescription: >-
+      Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.
   - source: Location
     target: PowerSystemResource
     sourceCardinality: 0..1

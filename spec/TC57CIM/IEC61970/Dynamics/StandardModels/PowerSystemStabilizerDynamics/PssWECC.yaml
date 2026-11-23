@@ -1,12 +1,20 @@
 name: PssWECC
-description: Dual input power system stabilizer, based on IEEE type 2, with modified output limiter defined by WECC (Western Electricity Coordinating Council, USA).
+description: >-
+  Dual input power system stabilizer, based on IEEE type 2, with modified output limiter defined by WECC (Western
+  Electricity Coordinating Council, USA).
 attributes:
   - name: inputSignal1Type
     type: InputSignalKind
-    description: "Type of input signal #1 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower, generatorAcceleratingPower, busVoltage, or busVoltageDerivative - shall be different than PssWECC.inputSignal2Type).  Typical value = rotorAngularFrequencyDeviation."
+    description: >-
+      Type of input signal #1 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower,
+      generatorAcceleratingPower, busVoltage, or busVoltageDerivative - shall be different than
+      PssWECC.inputSignal2Type).  Typical value = rotorAngularFrequencyDeviation.
   - name: inputSignal2Type
     type: InputSignalKind
-    description: "Type of input signal #2 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower, generatorAcceleratingPower, busVoltage, busVoltageDerivative - shall be different than PssWECC.inputSignal1Type).  Typical value = busVoltageDerivative."
+    description: >-
+      Type of input signal #2 (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower,
+      generatorAcceleratingPower, busVoltage, busVoltageDerivative - shall be different than
+      PssWECC.inputSignal1Type).  Typical value = busVoltageDerivative.
   - name: k1
     type: PU
     description: Input signal 1 gain (<i>K</i><i><sub>1</sub></i>).  Typical value = 1,13.
@@ -15,7 +23,8 @@ attributes:
     description: Input signal 2 gain (<i>K</i><i><sub>2</sub></i>).  Typical value = 0,0.
   - name: t1
     type: Seconds
-    description: Input signal 1 transducer time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).  Typical value = 0,037.
+    description: >-
+      Input signal 1 transducer time constant (<i>T</i><i><sub>1</sub></i>) (&gt;= 0).  Typical value = 0,037.
   - name: t10
     type: Seconds
     description: Lag time constant (<i>T</i><i><sub>10</sub></i>) (&gt;= 0).  Typical value = 0.

@@ -1,9 +1,13 @@
 name: PowerElectronicsConnection
-description: A connection to the AC network for energy production or consumption that uses power electronics rather than rotating machines.
+description: >-
+  A connection to the AC network for energy production or consumption that uses power electronics rather than rotating
+  machines.
 attributes:
   - name: maxIFault
     type: PU
-    description: Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection will trip or bypass.
+    description: >-
+      Maximum fault current this device will contribute, in per-unit of rated current, before the converter protection
+      will trip or bypass.
   - name: maxQ
     type: ReactivePower
     description: Maximum reactive power limit. This is the maximum (nameplate) limit for the unit.
@@ -12,29 +16,36 @@ attributes:
     description: Minimum reactive power limit for the unit. This is the minimum (nameplate) limit for the unit.
   - name: p
     type: ActivePower
-    description: |-
+    description: >-
       Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+
       Starting value for a steady state solution.
   - name: q
     type: ReactivePower
-    description: |-
+    description: >-
       Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+
       Starting value for a steady state solution.
   - name: r
     type: Resistance
-    description: Equivalent resistance (RG) of generator. RG is considered for the calculation of all currents, except for the calculation of the peak current ip. Used for short circuit data exchange according to IEC 60909.
+    description: >-
+      Equivalent resistance (RG) of generator. RG is considered for the calculation of all currents, except for the
+      calculation of the peak current ip. Used for short circuit data exchange according to IEC 60909.
   - name: r0
     type: Resistance
     description: Zero sequence resistance of the synchronous machine.
   - name: ratedS
     type: ApparentPower
-    description: |-
+    description: >-
       Nameplate apparent power rating for the unit.
+
       The attribute shall have a positive value.
   - name: ratedU
     type: Voltage
-    description: |-
-      Rated voltage (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according to IEC 60909.
+    description: >-
+      Rated voltage (nameplate data, Ur in IEC 60909-0). It is primarily used for short circuit data exchange according
+      to IEC 60909.
+
       The attribute shall be a positive value.
   - name: rn
     type: Resistance
@@ -71,7 +82,9 @@ associations:
     target: WindTurbineType3or4Dynamics
     sourceCardinality: "1"
     sourceName: powerElectronicsConnection
-    sourceDescription: The power electronics connection associated with this wind turbine type 3 or type 4 dynamics model.
+    sourceDescription: >-
+      The power electronics connection associated with this wind turbine type 3 or type 4 dynamics model.
     targetCardinality: 0..1
     targetName: windTurbineType3or4Dynamics
-    targetDescription: The wind turbine type 3 or type 4 dynamics model associated with this power electronics connection.
+    targetDescription: >-
+      The wind turbine type 3 or type 4 dynamics model associated with this power electronics connection.

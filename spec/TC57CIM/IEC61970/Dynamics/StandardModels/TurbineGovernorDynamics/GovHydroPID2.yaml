@@ -1,7 +1,11 @@
 name: GovHydroPID2
-description: |-
-  Hydro turbine and governor. Represents plants with straightforward penstock configurations and "three term" electro-hydraulic governors (i.e. Woodward<sup>TM</sup> electronic).
-  [Footnote: Woodward electronic governors are an example of suitable products available commercially. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of these products.]
+description: >-
+  Hydro turbine and governor. Represents plants with straightforward penstock configurations and "three term"
+  electro-hydraulic governors (i.e. Woodward<sup>TM</sup> electronic).
+
+  [Footnote: Woodward electronic governors are an example of suitable products available commercially. This information
+  is given for the convenience of users of this document and does not constitute an endorsement by IEC of these
+  products.]
 attributes:
   - name: atw
     type: PU
@@ -11,9 +15,11 @@ attributes:
     description: Turbine damping factor (<i>D</i>).  Unit = delta P / delta speed.  Typical value = 0.
   - name: feedbackSignal
     type: Boolean
-    description: |-
+    description: >-
       Feedback signal type flag (<i>Flag</i>).
+
       true = use gate position feedback signal
+
       false = use Pe.
   - name: g0
     type: PU
@@ -68,9 +74,11 @@ attributes:
     description: Water inertia time constant (<i>Tw</i>) (&gt;= 0).  Typical value = 0.
   - name: velmax
     type: Float
-    description: Maximum gate opening velocity (<i>Velmax</i>) (&lt; GovHydroPID2.velmin).  Unit = PU / s.  Typical value = 0.
+    description: >-
+      Maximum gate opening velocity (<i>Velmax</i>) (&lt; GovHydroPID2.velmin).  Unit = PU / s.  Typical value = 0.
   - name: velmin
     type: Float
-    description: Maximum gate closing velocity (<i>Velmin</i>) (&gt; GovHydroPID2.velmax).  Unit = PU / s.  Typical value = 0.
+    description: >-
+      Maximum gate closing velocity (<i>Velmin</i>) (&gt; GovHydroPID2.velmax).  Unit = PU / s.  Typical value = 0.
 ancestors:
   - TurbineGovernorDynamics

@@ -1,5 +1,7 @@
 name: LimitDependency
-description: A limit calculation model used to compute an operational limit based on external input such as temperature. These are intended to be shared among operational limits with the same calculation form that apply to a piece of equipment..
+description: >-
+  A limit calculation model used to compute an operational limit based on external input such as temperature. These are
+  intended to be shared among operational limits with the same calculation form that apply to a piece of equipment..
 ancestors:
   - IdentifiedObject
 descendants:
@@ -12,7 +14,8 @@ associations:
     target: Equipment
     sourceCardinality: 0..*
     sourceName: limitDependencyModel
-    sourceDescription: Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.
+    sourceDescription: >-
+      Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.
     targetCardinality: 0..1
     targetName: equipment
     targetDescription: The equipment for which this limit dependency model is organized under.
@@ -20,7 +23,9 @@ associations:
     target: OperationalLimit
     sourceCardinality: 0..*
     sourceName: limitDependencyModel
-    sourceDescription: The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified then the native limit value is used.
+    sourceDescription: >-
+      The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified then
+      the native limit value is used.
     targetCardinality: 0..*
     targetName: operationalLimit
     targetDescription: The operational limits to which this limit dependency model applies.

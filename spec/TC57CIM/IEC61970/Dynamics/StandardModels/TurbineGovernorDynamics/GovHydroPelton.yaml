@@ -1,14 +1,18 @@
 name: GovHydroPelton
-description: |-
-  Detailed hydro unit - Pelton model.  This model can be used to represent the dynamic related to water tunnel and surge chamber.
-  The DetailedHydroModelHydraulicSystem diagram, located under the GovHydroFrancis class, provides a schematic of the hydraulic system of detailed hydro unit models, such as Francis and Pelton.
+description: >-
+  Detailed hydro unit - Pelton model.  This model can be used to represent the dynamic related to water tunnel and surge
+  chamber.
+
+  The DetailedHydroModelHydraulicSystem diagram, located under the GovHydroFrancis class, provides a schematic of the
+  hydraulic system of detailed hydro unit models, such as Francis and Pelton.
 attributes:
   - name: av0
     type: Area
     description: Area of the surge tank (<i>A</i><i><sub>V0</sub></i>). Unit = m<sup>2</sup>. Typical value = 30.
   - name: av1
     type: Area
-    description: Area of the compensation tank (<i>A</i><i><sub>V1</sub></i>). Unit = m<sup>2</sup>. Typical value = 700.
+    description: >-
+      Area of the compensation tank (<i>A</i><i><sub>V1</sub></i>). Unit = m<sup>2</sup>. Typical value = 700.
   - name: bp
     type: PU
     description: Droop (<i>bp</i>).  Typical value = 0,05.
@@ -20,10 +24,14 @@ attributes:
     description: Intentional dead-band width of valve opening error (<i>DB2</i>). Unit = Hz.  Typical value = 0,01.
   - name: h1
     type: Length
-    description: Head of compensation chamber water level with respect to the level of penstock (<i>H</i><i><sub>1</sub></i>).  Unit = km.  Typical value = 0,004.
+    description: >-
+      Head of compensation chamber water level with respect to the level of penstock
+      (<i>H</i><i><sub>1</sub></i>).  Unit = km.  Typical value = 0,004.
   - name: h2
     type: Length
-    description: Head of surge tank water level with respect to the level of penstock (<i>H</i><i><sub>2</sub></i>).  Unit = km.  Typical value = 0,040.
+    description: >-
+      Head of surge tank water level with respect to the level of penstock (<i>H</i><i><sub>2</sub></i>).  Unit =
+      km.  Typical value = 0,040.
   - name: hn
     type: Length
     description: Rated hydraulic head (<i>H</i><i><sub>n</sub></i>).  Unit = km.  Typical value = 0,250.
@@ -41,14 +49,24 @@ attributes:
     description: Rated flow (<i>Q</i><i><sub>n</sub></i>). Unit = m<sup>3</sup>/s. Typical value = 250.
   - name: simplifiedPelton
     type: Boolean
-    description: |-
+    description: >-
       Simplified Pelton model simulation (<i>Sflag</i>).
+
       true = enable of simplified Pelton model simulation
+
       false = enable of complete Pelton model simulation (non-linear gain).
+
       Typical value = true.
   - name: staticCompensating
     type: Boolean
-    description: "Static compensating characteristic (<i>Cflag</i>). It should be true if simplifiedPelton = false.\ntrue = enable of static compensating characteristic \nfalse = inhibit of static compensating characteristic.\nTypical value = false."
+    description: >-
+      Static compensating characteristic (<i>Cflag</i>). It should be true if simplifiedPelton = false.
+
+      true = enable of static compensating characteristic
+
+      false = inhibit of static compensating characteristic.
+
+      Typical value = false.
   - name: ta
     type: Seconds
     description: Derivative gain (accelerometer time constant) (<i>Ta</i>) (&gt;= 0).  Typical value = 3.
@@ -87,13 +105,17 @@ attributes:
     description: Maximum servomotor valve closing velocity (<i>Vcv</i>).  Typical value = -0,1.
   - name: waterTunnelSurgeChamberSimulation
     type: Boolean
-    description: |-
+    description: >-
       Water tunnel and surge chamber simulation (<i>Tflag</i>).
+
       true = enable of water tunnel and surge chamber simulation
+
       false = inhibit of water tunnel and surge chamber simulation.
+
       Typical value = false.
   - name: zsfc
     type: Length
-    description: Head of upper water level with respect to the level of penstock (<i>Zsfc</i>).  Unit = km.  Typical value = 0,025.
+    description: >-
+      Head of upper water level with respect to the level of penstock (<i>Zsfc</i>).  Unit = km.  Typical value = 0,025.
 ancestors:
   - TurbineGovernorDynamics

@@ -3,10 +3,14 @@ description: State variable for the number of sections in service for a shunt co
 attributes:
   - name: phase
     type: SinglePhaseKind
-    description: The terminal phase at which the connection is applied.   If missing, the injection is assumed to be balanced among non-neutral phases.
+    description: >-
+      The terminal phase at which the connection is applied.   If missing, the injection is assumed to be balanced among
+      non-neutral phases.
   - name: sections
     type: Float
-    description: The number of sections in service as a continuous variable. The attribute shall be a positive value or zero. To get integer value scale with ShuntCompensator.bPerSection.
+    description: >-
+      The number of sections in service as a continuous variable. The attribute shall be a positive value or zero. To
+      get integer value scale with ShuntCompensator.bPerSection.
 ancestors:
   - StateVariable
 associations:

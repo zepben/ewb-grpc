@@ -31,7 +31,8 @@ associations:
     target: ProtectiveAction
     sourceCardinality: 0..1
     sourceName: gateEnabledCondition
-    sourceDescription: Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
+    sourceDescription: >-
+      Association to a Gate that through a gate logic and input pin defines enabling of the ProtectiveAction.
     targetCardinality: 0..*
     targetName: protectiveActionEnabled
   - source: Gate
@@ -45,7 +46,8 @@ associations:
     target: StageTrigger
     sourceCardinality: 0..1
     sourceName: gateTrigger
-    sourceDescription: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
+    sourceDescription: >-
+      The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
     targetCardinality: 0..*
     targetName: stageTrigger
   - source: Gate
@@ -59,7 +61,9 @@ associations:
     target: StageTrigger
     sourceCardinality: 0..1
     sourceName: gateComCondition
-    sourceDescription: For the StageTrigger to active the set of protective actions the condition for communication needs to be met (true).
+    sourceDescription: >-
+      For the StageTrigger to active the set of protective actions the condition for communication needs to be met
+      (true).
     targetCardinality: 0..*
     targetName: stageTriggerCom
   - source: Gate

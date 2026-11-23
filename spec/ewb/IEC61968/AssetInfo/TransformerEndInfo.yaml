@@ -6,11 +6,15 @@ attributes:
     description: Kind of connection.
   - name: emergencyS
     type: Integer
-    description: Apparent power in volt amperes that the winding can carry under emergency conditions (also called long-term emergency power).
+    description: >-
+      Apparent power in volt amperes that the winding can carry under emergency conditions (also called long-term
+      emergency power).
     nullable: true
   - name: endNumber
     type: Integer
-    description: Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute. Highest voltage winding should be 1.
+    description: >-
+      Number for this transformer end, corresponding to the end's order in the PowerTransformer.vectorGroup attribute.
+      Highest voltage winding should be 1.
     nullable: true
   - name: insulationU
     type: Double
@@ -18,7 +22,10 @@ attributes:
     nullable: true
   - name: phaseAngleClock
     type: Integer
-    description: "Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}. For example, to express the second winding in code 'Dyn11', set attributes as follows: 'endNumber'=2, 'connectionKind' = Yn and 'phaseAngleClock' = 11."
+    description: >-
+      Winding phase angle where 360 degrees are represented with clock hours, so the valid values are {0, ..., 11}. For
+      example, to express the second winding in code 'Dyn11', set attributes as follows: 'endNumber'=2, 'connectionKind'
+      = Yn and 'phaseAngleClock' = 11.
     nullable: true
   - name: r
     type: Double
@@ -30,7 +37,9 @@ attributes:
     nullable: true
   - name: ratedU
     type: Double
-    description: "Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings."
+    description: >-
+      Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase
+      windings.
     nullable: true
   - name: shortTermS
     type: Integer

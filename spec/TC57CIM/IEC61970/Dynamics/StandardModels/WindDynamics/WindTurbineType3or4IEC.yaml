@@ -1,5 +1,6 @@
 name: WindTurbineType3or4IEC
-description: Parent class supporting relationships to IEC wind turbines type 3 and type 4 including their control models.
+description: >-
+  Parent class supporting relationships to IEC wind turbines type 3 and type 4 including their control models.
 ancestors:
   - WindTurbineType3or4Dynamics
 descendants:
@@ -10,7 +11,8 @@ associations:
     target: WindContCurrLimIEC
     sourceCardinality: "1"
     sourceName: windTurbineType3or4IEC
-    sourceDescription: Wind turbine type 3 or type 4 model with which this wind control current limitation model is associated.
+    sourceDescription: >-
+      Wind turbine type 3 or type 4 model with which this wind control current limitation model is associated.
     targetCardinality: "1"
     targetName: windContCurrLimIEC
     targetDescription: Wind control current limitation model associated with this wind turbine type 3 or type 4 model.
@@ -42,7 +44,8 @@ associations:
     target: WindProtectionIEC
     sourceCardinality: 0..1
     sourceName: windTurbineType3or4IEC
-    sourceDescription: Wind generator type 3 or type 4 model with which this wind turbine protection model is associated.
+    sourceDescription: >-
+      Wind generator type 3 or type 4 model with which this wind turbine protection model is associated.
     targetCardinality: "1"
     targetName: windProtectionIEC
     targetDescription: Wind turbune protection model associated with this wind generator type 3 or type 4 model.

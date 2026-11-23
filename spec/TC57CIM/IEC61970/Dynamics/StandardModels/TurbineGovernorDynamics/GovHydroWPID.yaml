@@ -1,7 +1,10 @@
 name: GovHydroWPID
-description: |-
+description: >-
   Woodward<sup>TM</sup> PID hydro governor.
-  [Footnote: Woodward PID hydro governors are an example of suitable products available commercially. This information is given for the convenience of users of this document and does not constitute an endorsement by IEC of these products.]
+
+  [Footnote: Woodward PID hydro governors are an example of suitable products available commercially. This information
+  is given for the convenience of users of this document and does not constitute an endorsement by IEC of these
+  products.]
 attributes:
   - name: d
     type: PU
@@ -65,9 +68,11 @@ attributes:
     description: Water inertia time constant (<i>Tw</i>) (&gt;= 0).  Typical value = 0.
   - name: velmax
     type: PU
-    description: Maximum gate opening velocity (<i>Velmax</i>) (&gt; GovHydroWPID.velmin).  Unit = PU / s.  Typical value = 0.
+    description: >-
+      Maximum gate opening velocity (<i>Velmax</i>) (&gt; GovHydroWPID.velmin).  Unit = PU / s.  Typical value = 0.
   - name: velmin
     type: PU
-    description: Maximum gate closing velocity (<i>Velmin</i>) (&lt; GovHydroWPID.velmax).  Unit = PU / s.  Typical value = 0.
+    description: >-
+      Maximum gate closing velocity (<i>Velmin</i>) (&lt; GovHydroWPID.velmax).  Unit = PU / s.  Typical value = 0.
 ancestors:
   - TurbineGovernorDynamics

@@ -1,41 +1,75 @@
 name: IntervalBlock
-description: |-
-  Time sequence of readings of the same reading type. Contained interval readings may need conversion through the application of an offset and a scalar defined in associated pending.
+description: >-
+  Time sequence of readings of the same reading type. Contained interval readings may need conversion through the
+  application of an offset and a scalar defined in associated pending.
+
   Table 548 shows all association ends of IntervalBlock with other classes.
+
   Table 548 – Association ends of Metering::IntervalBlock with other classes
+
   Associations
+
   name
+
   mult to
+
   type
+
   description
 
-  0..*
-  PendingCalculation
-  0..1
-  PendingCalculation
-  Pending calculation to apply to interval reading values contained by this block (after which the resulting reading type is different than the original because it reflects the conversion result).
 
   0..*
-  IntervalReadings
+
+  PendingCalculation
+
+  0..1
+
+  PendingCalculation
+
+  Pending calculation to apply to interval reading values contained by this block (after which the resulting reading
+  type is different than the original because it reflects the conversion result).
+
+
   0..*
+
+  IntervalReadings
+
+  0..*
+
   IntervalReading
+
   Interval reading contained in this block.
 
-  0..*
-  ReadingType
-  0..1
-  ReadingType
-  Type information for interval reading values contained in this block.
 
   0..*
-  MeterReading
+
+  ReadingType
+
   0..1
+
+  ReadingType
+
+  Type information for interval reading values contained in this block.
+
+
+  0..*
+
   MeterReading
+
+  0..1
+
+  MeterReading
+
   Meter reading containing this interval block.
 
 
+
   IntervalReading
-  Data captured at regular intervals of time. Interval data could be captured as incremental data, absolute data, or relative data. The source for the data is usually a tariff quantity or an engineering quantity. Data is typically captured in time-tagged, uniform, fixed-length intervals of 5 min, 10 min, 15 min, 30 min, or 60 min.
+
+  Data captured at regular intervals of time. Interval data could be captured as incremental data, absolute data, or
+  relative data. The source for the data is usually a tariff quantity or an engineering quantity. Data is typically
+  captured in time-tagged, uniform, fixed-length intervals of 5 min, 10 min, 15 min, 30 min, or 60 min.
+
   Note: Interval Data is sometimes also called "Interval Data Readings" (IDR).
 associations:
   - source: IntervalBlock
@@ -61,7 +95,9 @@ associations:
     sourceDescription: All blocks of interval reading values to which this pending conversion applies.
     targetCardinality: 0..1
     targetName: pendingCalculation
-    targetDescription: Pending calculation to apply to interval reading values contained by this block (after which the resulting reading type is different than the original because it reflects the conversion result).
+    targetDescription: >-
+      Pending calculation to apply to interval reading values contained by this block (after which the resulting reading
+      type is different than the original because it reflects the conversion result).
   - source: IntervalBlock
     target: ReadingType
     sourceCardinality: 0..*

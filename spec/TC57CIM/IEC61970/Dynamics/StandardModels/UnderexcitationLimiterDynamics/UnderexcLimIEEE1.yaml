@@ -1,6 +1,8 @@
 name: UnderexcLimIEEE1
-description: |-
-  Type UEL1 model which has a circular limit boundary when plotted in terms of machine reactive power vs. real power output.
+description: >-
+  Type UEL1 model which has a circular limit boundary when plotted in terms of machine reactive power vs. real power
+  output.
+
   Reference: IEEE UEL1 421.5-2005, 10.1.
 attributes:
   - name: kuc
@@ -32,7 +34,8 @@ attributes:
     description: UEL lag time constant (<i>T</i><i><sub>U4</sub></i>) (&gt;= 0).  Typical value = 0.
   - name: vucmax
     type: PU
-    description: UEL maximum limit for operating point phasor magnitude (<i>V</i><i><sub>UCMAX</sub></i>).  Typical value = 5,8.
+    description: >-
+      UEL maximum limit for operating point phasor magnitude (<i>V</i><i><sub>UCMAX</sub></i>).  Typical value = 5,8.
   - name: vuimax
     type: PU
     description: UEL integrator output maximum limit (<i>V</i><i><sub>UIMAX</sub></i>) (&gt; UnderexcLimIEEE1.vuimin).
@@ -41,10 +44,12 @@ attributes:
     description: UEL integrator output minimum limit (<i>V</i><i><sub>UIMIN</sub></i>) (&lt; UnderexcLimIEEE1.vuimax).
   - name: vulmax
     type: PU
-    description: UEL output maximum limit (<i>V</i><i><sub>ULMAX</sub></i>) (&gt; UnderexcLimIEEE1.vulmin).  Typical value = 18.
+    description: >-
+      UEL output maximum limit (<i>V</i><i><sub>ULMAX</sub></i>) (&gt; UnderexcLimIEEE1.vulmin).  Typical value = 18.
   - name: vulmin
     type: PU
-    description: UEL output minimum limit (<i>V</i><i><sub>ULMIN</sub></i>) (&lt; UnderexcLimIEEE1.vulmax).  Typical value = -18.
+    description: >-
+      UEL output minimum limit (<i>V</i><i><sub>ULMIN</sub></i>) (&lt; UnderexcLimIEEE1.vulmax).  Typical value = -18.
   - name: vurmax
     type: PU
     description: UEL maximum limit for radius phasor magnitude (<i>V</i><i><sub>URMAX</sub></i>).  Typical value = 5,8.

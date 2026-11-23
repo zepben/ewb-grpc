@@ -3,7 +3,9 @@ description: \[ZBEX\] Describes behaviour specific to controlling batteries.
 attributes:
   - name: chargingRate
     type: Double
-    description: \[ZBEX\] Charging rate (input power) in percentage of maxP. The field must be set to a non-negative value between 0 and 1. (Unit - Percent)
+    description: >-
+      \[ZBEX\] Charging rate (input power) in percentage of maxP. The field must be set to a non-negative value between
+      0 and 1. (Unit - Percent)
     nullable: true
   - name: controlMode
     type: BatteryControlMode
@@ -11,11 +13,16 @@ attributes:
     nullable: false
   - name: dischargingRate
     type: Double
-    description: \[ZBEX\] Discharge rate (output power) in percentage of maxP. The field must be set to a non-negative value between 0 and 1. (Unit - Percent)
+    description: >-
+      \[ZBEX\] Discharge rate (output power) in percentage of maxP. The field must be set to a non-negative value
+      between 0 and 1. (Unit - Percent)
     nullable: true
   - name: reservePercent
     type: Double
-    description: \[ZBEX\] Percentage of the rated storage capacity that should be reserved during normal operations. This reserve acts as a safeguard, preventing the energy level from dropping below this threshold under standard conditions. The field must be set to a non-negative value between 0 and 1. (Unit - Percent)
+    description: >-
+      \[ZBEX\] Percentage of the rated storage capacity that should be reserved during normal operations. This reserve
+      acts as a safeguard, preventing the energy level from dropping below this threshold under standard conditions. The
+      field must be set to a non-negative value between 0 and 1. (Unit - Percent)
     nullable: true
 ancestors:
   - RegulatingControl

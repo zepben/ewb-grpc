@@ -3,16 +3,23 @@ description: DC side of the voltage source converter (VSC).
 attributes:
   - name: delta
     type: AngleDegrees
-    description: Angle between VsConverter.uv and ACDCConverter.uc. It is converter’s state variable used in power flow. The attribute shall be a positive value or zero.
+    description: >-
+      Angle between VsConverter.uv and ACDCConverter.uc. It is converter’s state variable used in power flow. The
+      attribute shall be a positive value or zero.
   - name: droop
     type: PU
-    description: Droop constant. The pu value is obtained as D [kV/MW] x Sb / Ubdc. The attribute shall be a positive value.
+    description: >-
+      Droop constant. The pu value is obtained as D [kV/MW] x Sb / Ubdc. The attribute shall be a positive value.
   - name: droopCompensation
     type: Resistance
-    description: Compensation constant. Used to compensate for voltage drop when controlling voltage at a distant bus. The attribute shall be a positive value.
+    description: >-
+      Compensation constant. Used to compensate for voltage drop when controlling voltage at a distant bus. The
+      attribute shall be a positive value.
   - name: maxModulationIndex
     type: Float
-    description: The maximum quotient between the AC converter voltage (Uc) and DC voltage (Ud). A factor typically less than 1. It is converter’s configuration data used in power flow.
+    description: >-
+      The maximum quotient between the AC converter voltage (Uc) and DC voltage (Ud). A factor typically less than 1. It
+      is converter’s configuration data used in power flow.
   - name: maxValveCurrent
     type: CurrentFlow
     description: The maximum current through a valve. It is converter’s configuration data.
@@ -24,25 +31,32 @@ attributes:
     description: Kind of reactive power control.
   - name: qShare
     type: PerCent
-    description: Reactive power sharing factor among parallel converters on Uac control. The attribute shall be a positive value or zero.
+    description: >-
+      Reactive power sharing factor among parallel converters on Uac control. The attribute shall be a positive value or
+      zero.
   - name: targetPhasePcc
     type: AngleDegrees
     description: Phase target at AC side, at point of common coupling. The attribute shall be a positive value.
   - name: targetPowerFactorPcc
     type: Float
-    description: Power factor target at the AC side, at point of common coupling. The attribute shall be a positive value.
+    description: >-
+      Power factor target at the AC side, at point of common coupling. The attribute shall be a positive value.
   - name: targetPWMfactor
     type: Float
     description: Magnitude of pulse-modulation factor. The attribute shall be a positive value.
   - name: targetQpcc
     type: ReactivePower
-    description: Reactive power injection target in AC grid, at point of common coupling.  Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      Reactive power injection target in AC grid, at point of common coupling.  Load sign convention is used, i.e.
+      positive sign means flow out from a node.
   - name: targetUpcc
     type: Voltage
     description: Voltage target in AC grid, at point of common coupling. The attribute shall be a positive value.
   - name: uv
     type: Voltage
-    description: Line-to-line voltage on the valve side of the converter transformer. It is converter’s state variable, result from power flow. The attribute shall be a positive value.
+    description: >-
+      Line-to-line voltage on the valve side of the converter transformer. It is converter’s state variable, result from
+      power flow. The attribute shall be a positive value.
 ancestors:
   - ACDCConverter
 associations:

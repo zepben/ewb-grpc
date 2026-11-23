@@ -1,18 +1,31 @@
 name: ProprietaryParameterDynamics
-description: "Supports definition of one or more parameters of several different datatypes for use by proprietary user-defined models.  \nThis class does not inherit from IdentifiedObject since it is not intended that a single instance of it be referenced by more than one proprietary user-defined model instance."
+description: >-
+  Supports definition of one or more parameters of several different datatypes for use by proprietary user-defined
+  models.
+
+  This class does not inherit from IdentifiedObject since it is not intended that a single instance of it be referenced
+  by more than one proprietary user-defined model instance.
 attributes:
   - name: booleanParameterValue
     type: Boolean
-    description: Boolean parameter value. If this attribute is populated, integerParameterValue and floatParameterValue will not be.
+    description: >-
+      Boolean parameter value. If this attribute is populated, integerParameterValue and floatParameterValue will not
+      be.
   - name: floatParameterValue
     type: Float
-    description: Floating point parameter value.  If this attribute is populated, booleanParameterValue and integerParameterValue will not be.
+    description: >-
+      Floating point parameter value.  If this attribute is populated, booleanParameterValue and integerParameterValue
+      will not be.
   - name: integerParameterValue
     type: Integer
-    description: Integer parameter value.  If this attribute is populated, booleanParameterValue and floatParameterValue will not be.
+    description: >-
+      Integer parameter value.  If this attribute is populated, booleanParameterValue and floatParameterValue will not
+      be.
   - name: parameterNumber
     type: Integer
-    description: Sequence number of the parameter among the set of parameters associated with the related proprietary user-defined model.
+    description: >-
+      Sequence number of the parameter among the set of parameters associated with the related proprietary user-defined
+      model.
 associations:
   - source: ProprietaryParameterDynamics
     target: AsynchronousMachineUserDefined

@@ -1,5 +1,7 @@
 name: GovHydro3
-description: Modified IEEE hydro governor-turbine. This model differs from that defined in the IEEE modelling guideline paper in that the limits on gate position and velocity do not permit "wind up" of the upstream signals.
+description: >-
+  Modified IEEE hydro governor-turbine. This model differs from that defined in the IEEE modelling guideline paper in
+  that the limits on gate position and velocity do not permit "wind up" of the upstream signals.
 attributes:
   - name: at
     type: PU
@@ -18,10 +20,13 @@ attributes:
     description: Intentional db hysteresis (<i>eps</i>).  Unit = Hz.  Typical value = 0.
   - name: governorControl
     type: Boolean
-    description: |-
+    description: >-
       Governor control flag (<i>Cflag</i>).
+
       true = PID control is active
+
       false = double derivative control is active.
+
       Typical value = true.
   - name: gv1
     type: PU

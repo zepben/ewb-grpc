@@ -9,7 +9,9 @@ attributes:
     description: The adjustment is given in value of the active value.
   - name: kind
     type: ProtectiveActionAdjustmentKind
-    description: Defines the kind of adjustment that should be done. With this value the correct attribute containing the value needs to be used.
+    description: >-
+      Defines the kind of adjustment that should be done. With this value the correct attribute containing the value
+      needs to be used.
   - name: reduce
     type: Boolean
     description: If true, the adjusted value is an reduction. Other wise it is an increase in the value.
@@ -23,17 +25,22 @@ associations:
     target: ConductingEquipment
     sourceCardinality: 0..*
     sourceName: protectiveActionAdjustment
-    sourceDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated. For ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in float will be rounded.
+    sourceDescription: >-
+      The operating condition to the Conducting Equipment is changed when protective action adjustment is activated. For
+      ShuntCompensator or other conducting equipment that operates on discrete values (integer), the values given in
+      float will be rounded.
     targetCardinality: "1"
     targetName: conductingEquipment
-    targetDescription: ConductingEquipment whose operating condition is changed when this protective action adjustment gets activated.
+    targetDescription: >-
+      ConductingEquipment whose operating condition is changed when this protective action adjustment gets activated.
   - source: ProtectiveActionAdjustment
     target: DCConductingEquipment
     sourceCardinality: 0..*
     sourceName: protectiveActionAdjustment
     targetCardinality: "1"
     targetName: dcConductingEquipment
-    targetDescription: The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
+    targetDescription: >-
+      The operating condition to the Conducting Equipment is changed when protective action adjustment is activated.
   - source: ProtectiveActionAdjustment
     target: Measurement
     sourceCardinality: 0..*

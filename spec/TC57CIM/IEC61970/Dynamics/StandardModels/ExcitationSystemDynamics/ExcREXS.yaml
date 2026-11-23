@@ -1,5 +1,8 @@
 name: ExcREXS
-description: General purpose rotating excitation system.  This model can be used to represent a wide range of excitation systems whose DC power source is an AC or DC generator. It encompasses IEEE type AC1, AC2, DC1, and DC2 excitation system models.
+description: >-
+  General purpose rotating excitation system.  This model can be used to represent a wide range of excitation systems
+  whose DC power source is an AC or DC generator. It encompasses IEEE type AC1, AC2, DC1, and DC2 excitation system
+  models.
 attributes:
   - name: e1
     type: PU
@@ -54,13 +57,16 @@ attributes:
     description: Pickup speed of V/Hz limiter (<i>Nvphz</i>).  Typical value = 0.
   - name: se1
     type: PU
-    description: Saturation factor at <i>E</i><i><sub>1</sub></i><i> </i>(<i>Se</i><i><sub>1</sub></i>).  Typical value = 0,0001.
+    description: >-
+      Saturation factor at <i>E</i><i><sub>1</sub></i><i> </i>(<i>Se</i><i><sub>1</sub></i>).  Typical value = 0,0001.
   - name: se2
     type: PU
-    description: Saturation factor at <i>E</i><i><sub>2</sub></i> (<i>Se</i><i><sub>2</sub></i>).  Typical value = 0,001.
+    description: >-
+      Saturation factor at <i>E</i><i><sub>2</sub></i> (<i>Se</i><i><sub>2</sub></i>).  Typical value = 0,001.
   - name: ta
     type: Seconds
-    description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0,01.
+    description: >-
+      Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0,01.
   - name: tb1
     type: Seconds
     description: Lag time constant (<i>Tb1</i>) (&gt;= 0).  If = 0, block is bypassed.  Typical value = 0.
@@ -78,7 +84,8 @@ attributes:
     description: Exciter field time constant (<i>Te</i>) (&gt; 0).  Typical value = 1,2.
   - name: tf
     type: Seconds
-    description: Rate feedback time constant (<i>Tf</i>) (&gt;= 0).  If = 0, the feedback path is not used.  Typical value = 1.
+    description: >-
+      Rate feedback time constant (<i>Tf</i>) (&gt;= 0).  If = 0, the feedback path is not used.  Typical value = 1.
   - name: tf1
     type: Seconds
     description: Feedback lead time constant (<i>Tf1</i>) (&gt;= 0).  Typical value = 0.

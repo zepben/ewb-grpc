@@ -3,20 +3,25 @@ description: Modified IEEE AC8B alternator-supplied rectifier excitation system 
 attributes:
   - name: inlim
     type: Boolean
-    description: |-
+    description: >-
       Input limiter indicator.
+
       true = input limiter <i>Vimax</i> and <i>Vimin</i> is considered
+
       false = input limiter <i>Vimax </i>and <i>Vimin</i> is not considered.
+
       Typical value = true.
   - name: ka
     type: PU
     description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 1.
   - name: kc
     type: PU
-    description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,55.
+    description: >-
+      Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0). Typical value = 0,55.
   - name: kd
     type: PU
-    description: Demagnetizing factor, a function of exciter alternator reactances (<i>Kd</i>) (&gt;= 0).  Typical value = 1,1.
+    description: >-
+      Demagnetizing factor, a function of exciter alternator reactances (<i>Kd</i>) (&gt;= 0).  Typical value = 1,1.
   - name: kdr
     type: PU
     description: Voltage regulator derivative gain (<i>Kdr</i>) (&gt;= 0).  Typical value = 10.
@@ -34,17 +39,24 @@ attributes:
     description: Coefficient to allow different usage of the model-speed coefficient (<i>Ks</i>).  Typical value = 0.
   - name: pidlim
     type: Boolean
-    description: |-
+    description: >-
       PID limiter indicator.
+
       true = input limiter <i>Vpidmax</i> and <i>Vpidmin</i> is considered
+
       false = input limiter <i>Vpidmax</i> and <i>Vpidmin</i> is not considered.
+
       Typical value = true.
   - name: seve1
     type: Float
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back of commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,3.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>1</sub></i>, back of
+      commutating reactance (<i>Se[Ve</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,3.
   - name: seve2
     type: Float
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back of commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 3.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Ve</i><i><sub>2</sub></i>, back of
+      commutating reactance (<i>Se[Ve</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 3.
   - name: ta
     type: Seconds
     description: Voltage regulator time constant (<i>Ta</i>) (&gt;= 0).  Typical value = 0.
@@ -53,16 +65,27 @@ attributes:
     description: Lag time constant (<i>Tdr</i>) (&gt; 0 if ExcAC8B.kdr &gt; 0).  Typical value = 0,1.
   - name: te
     type: Seconds
-    description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value = 1,2.
+    description: >-
+      Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value =
+      1,2.
   - name: telim
     type: Boolean
-    description: "Selector for the limiter on the block (<i>1/sTe</i>). \nSee diagram for meaning of true and false.\nTypical value = false."
+    description: >-
+      Selector for the limiter on the block (<i>1/sTe</i>).
+
+      See diagram for meaning of true and false.
+
+      Typical value = false.
   - name: ve1
     type: PU
-    description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>1</sub></i>) (&gt; 0).  Typical value = 6,5.
+    description: >-
+      Exciter alternator output voltages back of commutating reactance at which saturation is defined
+      (<i>Ve</i><i><sub>1</sub></i>) (&gt; 0).  Typical value = 6,5.
   - name: ve2
     type: PU
-    description: Exciter alternator output voltages back of commutating reactance at which saturation is defined (<i>Ve</i><i><sub>2</sub></i>) (&gt; 0).  Typical value = 9.
+    description: >-
+      Exciter alternator output voltages back of commutating reactance at which saturation is defined
+      (<i>Ve</i><i><sub>2</sub></i>) (&gt; 0).  Typical value = 9.
   - name: vemin
     type: PU
     description: Minimum exciter voltage output (<i>Vemin</i>) (&lt;= 0).  Typical value = 0.
@@ -89,6 +112,14 @@ attributes:
     description: Minimum voltage regulator output (<i>Vrmin</i>) (&lt; 0).  Typical value = 0.
   - name: vtmult
     type: Boolean
-    description: "Multiply by generator's terminal voltage indicator.\ntrue =the limits <i>Vrmax</i> and <i>Vrmin</i> are multiplied by the generator’s terminal voltage to represent a thyristor power stage fed from the generator terminals\nfalse = limits are not multiplied by generator's terminal voltage. \nTypical value = false."
+    description: >-
+      Multiply by generator's terminal voltage indicator.
+
+      true =the limits <i>Vrmax</i> and <i>Vrmin</i> are multiplied by the generator’s terminal voltage to represent a
+      thyristor power stage fed from the generator terminals
+
+      false = limits are not multiplied by generator's terminal voltage.
+
+      Typical value = false.
 ancestors:
   - ExcitationSystemDynamics

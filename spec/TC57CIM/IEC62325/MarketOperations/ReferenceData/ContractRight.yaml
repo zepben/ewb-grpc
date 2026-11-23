@@ -1,9 +1,13 @@
 name: ContractRight
-description: "Provides definition of Transmission Ownership Right and Existing Transmission Contract identifiers for use by SCUC. RMR contract hosting: Startup lead time, Contract Service Limits, Max Service Hours, Max MWhs, Max Start-ups, Ramp Rate, Max Net Dependable Capacity, Min Capacity and Unit Substitution for DAM/RTM to retrieve."
+description: >-
+  Provides definition of Transmission Ownership Right and Existing Transmission Contract identifiers for use by SCUC.
+  RMR contract hosting: Startup lead time, Contract Service Limits, Max Service Hours, Max MWhs, Max Start-ups, Ramp
+  Rate, Max Net Dependable Capacity, Min Capacity and Unit Substitution for DAM/RTM to retrieve.
 attributes:
   - name: chainOrder
     type: Integer
-    description: When used in conjunction with a Transmission Right contract chain, this is the precedence for the contracts.
+    description: >-
+      When used in conjunction with a Transmission Right contract chain, this is the precedence for the contracts.
   - name: contractMW
     type: Float
     description: MW value of the contract
@@ -12,19 +16,24 @@ attributes:
     description: Financial value of the contract
   - name: contractPriority
     type: Integer
-    description: Priority for the contract. This should be unique amoung all contracts for a specific resource. This value is the directive for the SCUC algorithm on the order to satisfy/cut contracts.
+    description: >-
+      Priority for the contract. This should be unique amoung all contracts for a specific resource. This value is the
+      directive for the SCUC algorithm on the order to satisfy/cut contracts.
   - name: contractStatus
     type: String
     description: Contract status
   - name: contractType
     type: ContractType
-    description: |-
+    description: >-
       type of the contract. Possible values are but not limited by:
+
 
       ETC, TOR or RMR and RMT self schedules
   - name: financialLocation
     type: YesNo
-    description: Indicator if the location associated with this contract is financial (e.g. pricing nodes) or physical (e.g. connectivity nodes).
+    description: >-
+      Indicator if the location associated with this contract is financial (e.g. pricing nodes) or physical (e.g.
+      connectivity nodes).
   - name: financialRightsDAM
     type: YesNo
     description: Flag to indicate this contract provides financial rights in the DA Market
@@ -36,10 +45,15 @@ attributes:
     description: Estimated Fuel Adder
   - name: latestSchedMinutes
     type: Integer
-    description: This indicates the latest schedule minutes (e.g. t - xx) that this resource can be notified to respond. This attribute is only used if the market type is not supplied.
+    description: >-
+      This indicates the latest schedule minutes (e.g. t - xx) that this resource can be notified to respond. This
+      attribute is only used if the market type is not supplied.
   - name: latestSchedMktType
     type: MarketType
-    description: "This indicates the latest schedule market type a contract can be applied to. This is used in conjunction with the latestSchedMinutes attribute to determine the latest time this contract can be called in. The possible values for this attribute are: DAM, RTM or it can be omitted. If omitted, the latestSchedMinutes attribute defines the value."
+    description: >-
+      This indicates the latest schedule market type a contract can be applied to. This is used in conjunction with the
+      latestSchedMinutes attribute to determine the latest time this contract can be called in. The possible values for
+      this attribute are: DAM, RTM or it can be omitted. If omitted, the latestSchedMinutes attribute defines the value.
   - name: maximumScheduleQuantity
     type: Float
     description: Maximum schedule MW quantity
@@ -69,7 +83,9 @@ attributes:
     description: Start up lead time
   - name: TRType
     type: TRType
-    description: Transmission Right type - is this an individual contract right or a chain contract right. Types = CHAIN or INDIVIDUAL
+    description: >-
+      Transmission Right type - is this an individual contract right or a chain contract right. Types = CHAIN or
+      INDIVIDUAL
 ancestors:
   - IdentifiedObject
 associations:

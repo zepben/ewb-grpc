@@ -1,5 +1,7 @@
 name: LossProfile
-description: LossProfile is associated with an EnerrgyTransaction and must be completely contained within the time frame of the EnergyProfile associated with this EnergyTransaction.
+description: >-
+  LossProfile is associated with an EnerrgyTransaction and must be completely contained within the time frame of the
+  EnergyProfile associated with this EnergyTransaction.
 ancestors:
   - Profile
 associations:
@@ -15,7 +17,11 @@ associations:
     target: TransmissionProvider
     sourceCardinality: 0..*
     sourceName: for
-    sourceDescription: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.
+    sourceDescription: >-
+      Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
+      TransmissionProvider must be one of the participating entities in the EnergyTransaction.
     targetCardinality: 0..1
     targetName: hasLoss_
-    targetDescription: Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.
+    targetDescription: >-
+      Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the
+      TransmissionProvider must be one of the participating entities in the EnergyTransaction.

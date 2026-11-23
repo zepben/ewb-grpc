@@ -6,10 +6,13 @@ attributes:
     description: Exciter output current limit reference (<i>Ilr</i>) (&gt; 0).  Typical value = 4,164.
   - name: k1
     type: Boolean
-    description: |-
+    description: >-
       Selector (<i>K1</i>).
+
       true = feedback is from <i>Ifd</i>
+
       false = feedback is not from <i>Ifd</i>.
+
       Typical value = true.
   - name: kcl
     type: PU
@@ -37,10 +40,12 @@ attributes:
     description: Voltage regulator derivative gain (<i>Kvd</i>).  Typical value = 0.
   - name: oelin
     type: ExcST6BOELselectorKind
-    description: OEL input selector (<i>OELin</i>).  Typical value = noOELinput (corresponds to <i>OELin</i> = 0 on diagram).
+    description: >-
+      OEL input selector (<i>OELin</i>).  Typical value = noOELinput (corresponds to <i>OELin</i> = 0 on diagram).
   - name: tg
     type: Seconds
-    description: Feedback time constant of inner loop field voltage regulator (<i>Tg</i>) (&gt;= 0).  Typical value = 0,02.
+    description: >-
+      Feedback time constant of inner loop field voltage regulator (<i>Tg</i>) (&gt;= 0).  Typical value = 0,02.
   - name: ts
     type: Seconds
     description: Rectifier firing time constant (<i>Ts</i>) (&gt;= 0).  Typical value = 0.
@@ -55,10 +60,13 @@ attributes:
     description: Minimum voltage regulator output (<i>Vamin</i>) (&lt; 0).  Typical value = -3,85.
   - name: vilim
     type: Boolean
-    description: |-
+    description: >-
       Selector (<i>Vilim</i>).
+
       true = <i>Vimin</i>-<i>Vimax</i> limiter is active
+
       false = <i>Vimin</i>-<i>Vimax</i> limiter is not active.
+
       Typical value = true.
   - name: vimax
     type: PU
@@ -68,7 +76,14 @@ attributes:
     description: Minimum voltage regulator input limit (<i>Vimin</i>) (&lt; ExcST6B.vimax).  Typical value = -10.
   - name: vmult
     type: Boolean
-    description: "Selector (<i>vmult</i>).\ntrue = multiply regulator output by terminal voltage\nfalse = do not multiply regulator output by terminal voltage. \nTypical value = true."
+    description: >-
+      Selector (<i>vmult</i>).
+
+      true = multiply regulator output by terminal voltage
+
+      false = do not multiply regulator output by terminal voltage.
+
+      Typical value = true.
   - name: vrmax
     type: PU
     description: Maximum voltage regulator output (<i>Vrmax</i>) (&gt; 0).  Typical value = 4,81.

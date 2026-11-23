@@ -1,5 +1,7 @@
 name: Substation
-description: A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is passed for the purposes of switching or modifying its characteristics.
+description: >-
+  A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is
+  passed for the purposes of switching or modifying its characteristics.
 ancestors:
   - EquipmentContainer
 associations:
@@ -23,10 +25,15 @@ associations:
     target: Feeder
     sourceCardinality: 0..*
     sourceName: namingSecondarySubstation
-    sourceDescription: The secondary substations that are normally energized from the feeder.  Used for naming purposes.   Should be consistent with the other associations for energizing terminal specification and the feeder energization specification.
+    sourceDescription: >-
+      The secondary substations that are normally energized from the feeder.  Used for naming purposes.   Should be
+      consistent with the other associations for energizing terminal specification and the feeder energization
+      specification.
     targetCardinality: 0..1
     targetName: namingFeeder
-    targetDescription: The primary feeder that normally energizes the secondary substation. Used for naming purposes.  Either this association or the substation to subgeographical region should be used for hierarchical containment specification.
+    targetDescription: >-
+      The primary feeder that normally energizes the secondary substation. Used for naming purposes.  Either this
+      association or the substation to subgeographical region should be used for hierarchical containment specification.
   - source: Substation
     target: Feeder
     sourceCardinality: 0..1
@@ -42,7 +49,9 @@ associations:
     sourceDescription: The substations that are normally energized by the feeder.
     targetCardinality: 0..*
     targetName: normalEnergizingFeeder
-    targetDescription: The feeders that potentially energize  the downstream substation.  Should be consistent with the associations that describe the naming hierarchy.
+    targetDescription: >-
+      The feeders that potentially energize  the downstream substation.  Should be consistent with the associations that
+      describe the naming hierarchy.
   - source: Substation
     target: SubGeographicalRegion
     sourceCardinality: 0..*

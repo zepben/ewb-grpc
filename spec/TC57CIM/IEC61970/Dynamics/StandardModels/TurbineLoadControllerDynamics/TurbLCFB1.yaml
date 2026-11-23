@@ -1,5 +1,8 @@
 name: TurbLCFB1
-description: Turbine load controller model developed by WECC.  This model represents a supervisory turbine load controller that acts to maintain turbine power at a set value by continuous adjustment of the turbine governor speed-load reference. This model is intended to represent slow reset 'outer loop' controllers managing the action of the turbine governor.
+description: >-
+  Turbine load controller model developed by WECC.  This model represents a supervisory turbine load controller that
+  acts to maintain turbine power at a set value by continuous adjustment of the turbine governor speed-load reference.
+  This model is intended to represent slow reset 'outer loop' controllers managing the action of the turbine governor.
 attributes:
   - name: db
     type: PU
@@ -12,10 +15,13 @@ attributes:
     description: Frequency bias gain (<i>Fb</i>).  Typical value = 0.
   - name: fbf
     type: Boolean
-    description: |-
+    description: >-
       Frequency bias flag (<i>Fbf</i>).
+
       true = enable frequency bias
+
       false = disable frequency bias.
+
       Typical value = false.
   - name: irmax
     type: PU
@@ -31,20 +37,26 @@ attributes:
     description: Base for power values (<i>MWbase</i>) (&gt; 0).  Unit = MW.
   - name: pbf
     type: Boolean
-    description: |-
+    description: >-
       Power controller flag (<i>Pbf</i>).
+
       true = enable load controller
+
       false = disable load controller.
+
       Typical value = false.
   - name: pmwset
     type: ActivePower
     description: Power controller setpoint (<i>Pmwset</i>) (see parameter detail 1).  Unit = MW. Typical value = 0.
   - name: speedReferenceGovernor
     type: Boolean
-    description: |-
+    description: >-
       Type of turbine governor reference (<i>Type</i>).
+
       true = speed reference governor
+
       false = load reference governor.
+
       Typical value = true.
   - name: tpelec
     type: Seconds

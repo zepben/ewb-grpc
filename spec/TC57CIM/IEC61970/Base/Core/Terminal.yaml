@@ -1,11 +1,18 @@
 name: Terminal
-description: An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.
+description: >-
+  An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection
+  points called connectivity nodes.
 attributes:
   - name: phases
     type: PhaseCode
-    description: |-
-      Represents the normal network phasing condition. If the attribute is missing, three phases (ABC) shall be assumed, except for terminals of grounding classes (specializations of EarthFaultCompensator, GroundDisconnector, GroundSwitch, and Ground) which will be assumed to be N. Therefore, phase code ABCN is explicitly declared when needed, e.g. for star point grounding equipment.
-      The phase code on terminals connecting same ConnectivityNode or same TopologicalNode as well as for equipment between two terminals shall be consistent.
+    description: >-
+      Represents the normal network phasing condition. If the attribute is missing, three phases (ABC) shall be assumed,
+      except for terminals of grounding classes (specializations of EarthFaultCompensator, GroundDisconnector,
+      GroundSwitch, and Ground) which will be assumed to be N. Therefore, phase code ABCN is explicitly declared when
+      needed, e.g. for star point grounding equipment.
+
+      The phase code on terminals connecting same ConnectivityNode or same TopologicalNode as well as for equipment
+      between two terminals shall be consistent.
 ancestors:
   - ACDCTerminal
 descendants:
@@ -44,10 +51,14 @@ associations:
     target: ConductingEquipment
     sourceCardinality: 0..*
     sourceName: terminals
-    sourceDescription: Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+    sourceDescription: >-
+      Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity
+      nodes or topological nodes.
     targetCardinality: "1"
     targetName: conductingEquipment
-    targetDescription: The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.
+    targetDescription: >-
+      The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other
+      conducting equipment terminals via connectivity nodes or topological nodes.
   - source: Terminal
     target: ConnectivityNode
     sourceCardinality: 0..*
@@ -60,7 +71,9 @@ associations:
     target: ACDCConverter
     sourceCardinality: 0..1
     sourceName: pccTerminal
-    sourceDescription: Point of common coupling terminal for this converter DC side. It is typically the terminal on the power transformer (or switch) closest to the AC network.
+    sourceDescription: >-
+      Point of common coupling terminal for this converter DC side. It is typically the terminal on the power
+      transformer (or switch) closest to the AC network.
     targetCardinality: 0..*
     targetName: converterDCSides
     targetDescription: All converters' DC sides linked to this point of common coupling terminal.
@@ -76,7 +89,10 @@ associations:
     target: MutualCoupling
     sourceCardinality: "1"
     sourceName: first_Terminal
-    sourceDescription: The starting terminal for the calculation of distances along the first branch of the mutual coupling.  Normally MutualCoupling would only be used for terminals of AC line segments.  The first and second terminals of a mutual coupling should point to different AC line segments.
+    sourceDescription: >-
+      The starting terminal for the calculation of distances along the first branch of the mutual coupling.  Normally
+      MutualCoupling would only be used for terminals of AC line segments.  The first and second terminals of a mutual
+      coupling should point to different AC line segments.
     targetCardinality: 0..*
     targetName: hasFirstMutualCoupling
     targetDescription: Mutual couplings associated with the branch as the first branch.
@@ -84,7 +100,8 @@ associations:
     target: MutualCoupling
     sourceCardinality: "1"
     sourceName: second_Terminal
-    sourceDescription: The starting terminal for the calculation of distances along the second branch of the mutual coupling.
+    sourceDescription: >-
+      The starting terminal for the calculation of distances along the second branch of the mutual coupling.
     targetCardinality: 0..*
     targetName: hasSecondMutualCoupling
     targetDescription: Mutual couplings with the branch associated as the first branch.
@@ -95,7 +112,8 @@ associations:
     sourceDescription: The normal head terminal or terminals of the feeder.
     targetCardinality: 0..1
     targetName: normalHeadFeeder
-    targetDescription: The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
+    targetDescription: >-
+      The feeder that this terminal normally feeds.  Only specified for the terminals at head of feeders.
   - source: Terminal
     target: PinTerminal
     sourceCardinality: "1"
@@ -107,7 +125,10 @@ associations:
     target: RegulatingControl
     sourceCardinality: 0..1
     sourceName: terminal
-    sourceDescription: The terminal associated with this regulating control.  The terminal is associated instead of a node, since the terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model regulation at a terminal of a bus bar object.
+    sourceDescription: >-
+      The terminal associated with this regulating control.  The terminal is associated instead of a node, since the
+      terminal could connect into either a topological node or a connectivity node.  Sometimes it is useful to model
+      regulation at a terminal of a bus bar object.
     targetCardinality: 0..*
     targetName: regulatingControl
     targetDescription: The controls regulating this terminal.
@@ -139,10 +160,16 @@ associations:
     target: TopologicalNode
     sourceCardinality: 0..*
     sourceName: terminal
-    sourceDescription: The terminals associated with the topological node.   This can be used as an alternative to the connectivity node path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if connectivity nodes are in the model, this association would probably not be used as an input specification.
+    sourceDescription: >-
+      The terminals associated with the topological node.   This can be used as an alternative to the connectivity node
+      path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if
+      connectivity nodes are in the model, this association would probably not be used as an input specification.
     targetCardinality: 0..1
     targetName: topologicalNode
-    targetDescription: The topological node associated with the terminal.   This can be used as an alternative to the connectivity node path to topological node, thus making it unnecessary to model connectivity nodes in some cases.   Note that the if connectivity nodes are in the model, this association would probably not be used as an input specification.
+    targetDescription: >-
+      The topological node associated with the terminal.   This can be used as an alternative to the connectivity node
+      path to topological node, thus making it unnecessary to model connectivity nodes in some cases.   Note that the if
+      connectivity nodes are in the model, this association would probably not be used as an input specification.
   - source: Terminal
     target: TransformerEnd
     sourceCardinality: 0..1

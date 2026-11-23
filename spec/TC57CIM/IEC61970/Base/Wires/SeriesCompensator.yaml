@@ -1,5 +1,7 @@
 name: SeriesCompensator
-description: A Series Compensator is a series capacitor or reactor or an AC transmission line without charging susceptance.  It is a two terminal device.
+description: >-
+  A Series Compensator is a series capacitor or reactor or an AC transmission line without charging susceptance.  It is
+  a two terminal device.
 attributes:
   - name: r
     type: Resistance
@@ -9,15 +11,21 @@ attributes:
     description: Zero sequence resistance.
   - name: varistorPresent
     type: Boolean
-    description: Describe if a metal oxide varistor (mov) for over voltage protection is configured in parallel with the series compensator. It is used for short circuit calculations.
+    description: >-
+      Describe if a metal oxide varistor (mov) for over voltage protection is configured in parallel with the series
+      compensator. It is used for short circuit calculations.
   - name: varistorRatedCurrent
     type: CurrentFlow
-    description: |-
-      The maximum current the varistor is designed to handle at specified duration. It is used for short circuit calculations and exchanged only if SeriesCompensator.varistorPresent is true.
+    description: >-
+      The maximum current the varistor is designed to handle at specified duration. It is used for short circuit
+      calculations and exchanged only if SeriesCompensator.varistorPresent is true.
+
       The attribute shall be a positive value.
   - name: varistorVoltageThreshold
     type: Voltage
-    description: The dc voltage at which the varistor starts conducting. It is used for short circuit calculations and exchanged only if SeriesCompensator.varistorPresent is true.
+    description: >-
+      The dc voltage at which the varistor starts conducting. It is used for short circuit calculations and exchanged
+      only if SeriesCompensator.varistorPresent is true.
   - name: x
     type: Reactance
     description: Positive sequence reactance.

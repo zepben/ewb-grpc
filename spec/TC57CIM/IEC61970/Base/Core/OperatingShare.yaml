@@ -3,13 +3,17 @@ description: Specifies the operations contract relationship between a power syst
 attributes:
   - name: percentage
     type: PerCent
-    description: Percentage operational ownership between the pair (power system resource and operating participant) associated with this share. The total percentage ownership for a power system resource should add to 100%.
+    description: >-
+      Percentage operational ownership between the pair (power system resource and operating participant) associated
+      with this share. The total percentage ownership for a power system resource should add to 100%.
 associations:
   - source: OperatingShare
     target: OperatingParticipant
     sourceCardinality: 0..*
     sourceName: operatingShare
-    sourceDescription: The operating shares of this operating participant.  An operating participant can be resused for any number of power system resources.
+    sourceDescription: >-
+      The operating shares of this operating participant.  An operating participant can be resused for any number of
+      power system resources.
     targetCardinality: "1"
     targetName: operatingParticipant
     targetDescription: The operating participant having this share with the associated power system resource.

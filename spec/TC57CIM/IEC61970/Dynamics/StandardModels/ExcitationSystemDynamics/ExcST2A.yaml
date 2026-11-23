@@ -1,5 +1,6 @@
 name: ExcST2A
-description: Modified IEEE ST2A static excitation system with another lead-lag block added to match the model defined by WECC.
+description: >-
+  Modified IEEE ST2A static excitation system with another lead-lag block added to match the model defined by WECC.
 attributes:
   - name: efdmax
     type: PU
@@ -9,7 +10,8 @@ attributes:
     description: Voltage regulator gain (<i>Ka</i>) (&gt; 0).  Typical value = 120.
   - name: kc
     type: PU
-    description: Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0).  Typical value = 1,82.
+    description: >-
+      Rectifier loading factor proportional to commutating reactance (<i>Kc</i>) (&gt;= 0).  Typical value = 1,82.
   - name: ke
     type: PU
     description: Exciter constant related to self-excited field (<i>Ke</i>).  Typical value = 1.
@@ -33,16 +35,21 @@ attributes:
     description: Voltage regulator time constant (<i>Tc</i>) (&gt;= 0).  Typical value = 0.
   - name: te
     type: Seconds
-    description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value = 0,5.
+    description: >-
+      Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value =
+      0,5.
   - name: tf
     type: Seconds
     description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt;= 0).  Typical value = 0,7.
   - name: uelin
     type: Boolean
-    description: |-
+    description: >-
       UEL input (<i>UELin</i>).
+
       true = HV gate
+
       false = add to error signal.
+
       Typical value = false.
   - name: vrmax
     type: PU

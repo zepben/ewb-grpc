@@ -1,5 +1,7 @@
 name: ResourcePerformanceEvaluation
-description: Represents an the performance evaluation of a resource deployment. Every resource deployment may have many performance evaluations, using different evaluation metrics or algorithms, or produced by different evaluation authorities.
+description: >-
+  Represents an the performance evaluation of a resource deployment. Every resource deployment may have many performance
+  evaluations, using different evaluation metrics or algorithms, or produced by different evaluation authorities.
 attributes:
   - name: effectiveEndTime
     type: DateTime
@@ -7,10 +9,14 @@ attributes:
     type: DateTime
   - name: evaluationDescription
     type: String
-    description: Description of the performance evaluation, e.g. the rating classification used (any is allowed), why the evaluation was performed, anything that describes the demand response performance evaluation.
+    description: >-
+      Description of the performance evaluation, e.g. the rating classification used (any is allowed), why the
+      evaluation was performed, anything that describes the demand response performance evaluation.
   - name: evaluationValue
     type: String
-    description: The value of the performance. as a String, any rating scheme is supported (e.g. "1","2","3" or "low", "medium", "high"). The rating scheme is described in the performanceValueDescription attribute.
+    description: >-
+      The value of the performance. as a String, any rating scheme is supported (e.g. "1","2","3" or "low", "medium",
+      "high"). The rating scheme is described in the performanceValueDescription attribute.
 ancestors:
   - IdentifiedObject
 associations:

@@ -1,12 +1,20 @@
 name: ACDCConverterDCTerminal
-description: A DC electrical connection point at the AC/DC converter. The AC/DC converter is electrically connected also to the AC side. The AC connection is inherited from the AC conducting equipment in the same way as any other AC equipment. The AC/DC converter DC terminal is separate from generic DC terminal to restrict the connection with the AC side to AC/DC converter and so that no other DC conducting equipment can be connected to the AC side.
+description: >-
+  A DC electrical connection point at the AC/DC converter. The AC/DC converter is electrically connected also to the AC
+  side. The AC connection is inherited from the AC conducting equipment in the same way as any other AC equipment. The
+  AC/DC converter DC terminal is separate from generic DC terminal to restrict the connection with the AC side to AC/DC
+  converter and so that no other DC conducting equipment can be connected to the AC side.
 attributes:
   - name: polarity
     type: DCPolarityKind
-    description: |-
-      Represents the normal network polarity condition. Depending on the converter configuration the value shall be set as follows:
+    description: >-
+      Represents the normal network polarity condition. Depending on the converter configuration the value shall be set
+      as follows:
+
       - For a monopole with two converter terminals use DCPolarityKind “positive” and “negative”.
-      - For a bi-pole or symmetric monopole with three converter terminals use DCPolarityKind “positive”, “middle” and “negative”.
+
+      - For a bi-pole or symmetric monopole with three converter terminals use DCPolarityKind “positive”, “middle” and
+      “negative”.
 ancestors:
   - DCBaseTerminal
 associations:

@@ -1,7 +1,10 @@
 name: OverexcLim2
-description: |-
-  Different from LimIEEEOEL, LimOEL2 has a fixed pickup threshold and reduces the excitation set-point by means of a non-windup integral regulator.
-  <i>Irated</i> is the rated machine excitation current (calculated from nameplate conditions: <i>V</i><i><sub>nom</sub></i>, <i>P</i><i><sub>nom</sub></i>, <i>CosPhi</i><i><sub>nom</sub></i>).
+description: >-
+  Different from LimIEEEOEL, LimOEL2 has a fixed pickup threshold and reduces the excitation set-point by means of a
+  non-windup integral regulator.
+
+  <i>Irated</i> is the rated machine excitation current (calculated from nameplate conditions:
+  <i>V</i><i><sub>nom</sub></i>, <i>P</i><i><sub>nom</sub></i>, <i>CosPhi</i><i><sub>nom</sub></i>).
 attributes:
   - name: ifdlim
     type: PU
@@ -14,6 +17,7 @@ attributes:
     description: Maximum error signal (<i>V</i><i><sub>OIMAX</sub></i>) (&gt; OverexcLim2.voimin).  Typical value = 0.
   - name: voimin
     type: PU
-    description: Minimum error signal (<i>V</i><i><sub>OIMIN</sub></i>) (&lt; OverexcLim2.voimax).  Typical value = -9999.
+    description: >-
+      Minimum error signal (<i>V</i><i><sub>OIMIN</sub></i>) (&lt; OverexcLim2.voimax).  Typical value = -9999.
 ancestors:
   - OverexcitationLimiterDynamics

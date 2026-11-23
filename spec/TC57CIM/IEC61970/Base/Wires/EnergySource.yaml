@@ -3,18 +3,23 @@ description: A generic equivalent for an energy supplier on a transmission or di
 attributes:
   - name: activePower
     type: ActivePower
-    description: |-
+    description: >-
       High voltage source active injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+
       Starting value for steady state solutions.
   - name: nominalVoltage
     type: Voltage
     description: Phase-to-phase nominal voltage.
   - name: pMax
     type: ActivePower
-    description: This is the maximum active power that can be produced by the source. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
+    description: >-
+      This is the maximum active power that can be produced by the source. Load sign convention is used, i.e. positive
+      sign means flow out from a TopologicalNode (bus) into the conducting equipment.
   - name: pMin
     type: ActivePower
-    description: This is the minimum active power that can be produced by the source. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.
+    description: >-
+      This is the minimum active power that can be produced by the source. Load sign convention is used, i.e. positive
+      sign means flow out from a TopologicalNode (bus) into the conducting equipment.
   - name: r
     type: Resistance
     description: Positive sequence Thevenin resistance.
@@ -23,18 +28,26 @@ attributes:
     description: Zero sequence Thevenin resistance.
   - name: reactivePower
     type: ReactivePower
-    description: |-
-      High voltage source reactive injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+    description: >-
+      High voltage source reactive injection. Load sign convention is used, i.e. positive sign means flow out from a
+      node.
+
       Starting value for steady state solutions.
   - name: rn
     type: Resistance
     description: Negative sequence Thevenin resistance.
   - name: voltageAngle
     type: AngleRadians
-    description: Phase angle of a-phase open circuit used when voltage characteristics need to be imposed at the node associated with the terminal of the energy source, such as when voltages and angles from the transmission level are used as input to the distribution network. The attribute shall be a positive value or zero.
+    description: >-
+      Phase angle of a-phase open circuit used when voltage characteristics need to be imposed at the node associated
+      with the terminal of the energy source, such as when voltages and angles from the transmission level are used as
+      input to the distribution network. The attribute shall be a positive value or zero.
   - name: voltageMagnitude
     type: Voltage
-    description: Phase-to-phase open circuit voltage magnitude used when voltage characteristics need to be imposed at the node associated with the terminal of the energy source, such as when voltages and angles from the transmission level are used as input to the distribution network. The attribute shall be a positive value or zero.
+    description: >-
+      Phase-to-phase open circuit voltage magnitude used when voltage characteristics need to be imposed at the node
+      associated with the terminal of the energy source, such as when voltages and angles from the transmission level
+      are used as input to the distribution network. The attribute shall be a positive value or zero.
   - name: x
     type: Reactance
     description: Positive sequence Thevenin reactance.

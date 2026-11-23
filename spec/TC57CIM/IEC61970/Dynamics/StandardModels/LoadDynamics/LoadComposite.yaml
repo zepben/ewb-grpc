@@ -1,6 +1,7 @@
 name: LoadComposite
-description: |-
+description: >-
   Combined static load and induction motor load effects.
+
   The dynamics of the motor are simplified by linearizing the induction machine equations.
 attributes:
   - name: epfd
@@ -32,9 +33,13 @@ attributes:
     description: Inertia constant (<i>H</i>) (&gt;= 0).  Typical value = 2,5.
   - name: lfac
     type: Float
-    description: Loading factor (<i>L</i><i><sub>fac</sub></i>). The ratio of initial <i>P</i> to motor MVA base.  Typical value = 0,8.
+    description: >-
+      Loading factor (<i>L</i><i><sub>fac</sub></i>). The ratio of initial <i>P</i> to motor MVA base.  Typical value =
+      0,8.
   - name: pfrac
     type: Float
-    description: Fraction of constant-power load to be represented by this motor model (<i>P</i><i><sub>FRAC</sub></i>) (&gt;= 0,0 and &lt;= 1,0).  Typical value = 0,5.
+    description: >-
+      Fraction of constant-power load to be represented by this motor model (<i>P</i><i><sub>FRAC</sub></i>) (&gt;= 0,0
+      and &lt;= 1,0).  Typical value = 0,5.
 ancestors:
   - LoadDynamics

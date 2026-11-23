@@ -3,16 +3,23 @@ description: Modified IEEE DC3A direct current commutator exciter with speed inp
 attributes:
   - name: efd1
     type: PU
-    description: Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>1</sub></i>) (&gt; 0).  Typical value = 2,6.
+    description: >-
+      Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>1</sub></i>) (&gt; 0).  Typical value =
+      2,6.
   - name: efd2
     type: PU
-    description: Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>2</sub></i>) (&gt; 0).  Typical value = 3,45.
+    description: >-
+      Exciter voltage at which exciter saturation is defined (<i>Efd</i><i><sub>2</sub></i>) (&gt; 0).  Typical value =
+      3,45.
   - name: efdlim
     type: Boolean
-    description: |-
+    description: >-
       (<i>Efdlim</i>).
+
       true = exciter output limiter is active
+
       false = exciter output limiter not active.
+
       Typical value = true.
   - name: efdmax
     type: PU
@@ -22,10 +29,13 @@ attributes:
     description: Minimum voltage exciter output limiter (<i>Efdmin</i>) (&lt; ExcDC3A.efdmax).  Typical value = -99.
   - name: exclim
     type: Boolean
-    description: |-
+    description: >-
       (<i>exclim</i>).  IEEE standard is ambiguous about lower limit on exciter output.
+
       true = a lower limit of zero is applied to integrator output
+
       false = a lower limit of zero not applied to integrator output.
+
       Typical value = true.
   - name: ke
     type: PU
@@ -41,13 +51,19 @@ attributes:
     description: Fast raise/lower contact setting (<i>Kv</i>) (&gt; 0).  Typical value = 0,05.
   - name: seefd1
     type: Float
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>1</sub></i> (<i>Se[Efd</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,1.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>1</sub></i>
+      (<i>Se[Efd</i><i><sub>1</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,1.
   - name: seefd2
     type: Float
-    description: Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>2</sub></i> (<i>Se[Efd</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,35.
+    description: >-
+      Exciter saturation function value at the corresponding exciter voltage, <i>Efd</i><i><sub>2</sub></i>
+      (<i>Se[Efd</i><i><sub>2</sub></i><i>]</i>) (&gt;= 0).  Typical value = 0,35.
   - name: te
     type: Seconds
-    description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value = 1,83.
+    description: >-
+      Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value =
+      1,83.
   - name: trh
     type: Seconds
     description: Rheostat travel time (<i>Trh</i>) (&gt; 0).  Typical value = 20.

@@ -1,9 +1,15 @@
 name: TariffProfile
-description: "A schedule of charges; structure associated with Tariff that allows the definition of complex tarif structures such as step and time of use when used in conjunction with TimeTariffInterval and Charge. Inherited 'status.value' is defined in the context of the utility's business rules, for example: active, inactive, etc."
+description: >-
+  A schedule of charges; structure associated with Tariff that allows the definition of complex tarif structures such as
+  step and time of use when used in conjunction with TimeTariffInterval and Charge. Inherited 'status.value' is defined
+  in the context of the utility's business rules, for example: active, inactive, etc.
 attributes:
   - name: tariffCycle
     type: String
-    description: "The frequency at which the tariff charge schedule is repeated. Examples are: once off on a specified date and time; hourly; daily; weekly; monthly; 3-monthly; 6-monthly; 12-monthly; etc. At the end of each cycle, the business rules are reset to start from the beginning again."
+    description: >-
+      The frequency at which the tariff charge schedule is repeated. Examples are: once off on a specified date and
+      time; hourly; daily; weekly; monthly; 3-monthly; 6-monthly; 12-monthly; etc. At the end of each cycle, the
+      business rules are reset to start from the beginning again.
 ancestors:
   - Document
 associations:

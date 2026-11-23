@@ -1,5 +1,7 @@
 name: Pss1A
-description: Single input power system stabilizer. It is a modified version in order to allow representation of various vendors' implementations on PSS type 1A.
+description: >-
+  Single input power system stabilizer. It is a modified version in order to allow representation of various vendors'
+  implementations on PSS type 1A.
 attributes:
   - name: a1
     type: PU
@@ -27,10 +29,17 @@ attributes:
     description: Notch filter parameter (<i>A</i><i><sub>8</sub></i>).
   - name: inputSignalType
     type: InputSignalKind
-    description: Type of input signal (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower, generatorAcceleratingPower, busVoltage, or busVoltageDerivative).
+    description: >-
+      Type of input signal (rotorAngularFrequencyDeviation, busFrequencyDeviation, generatorElectricalPower,
+      generatorAcceleratingPower, busVoltage, or busVoltageDerivative).
   - name: kd
     type: Boolean
-    description: "Selector (<i>Kd</i>). \ntrue = e<sup>-sTdelay</sup> used\nfalse = e<sup>-sTdelay</sup> not used."
+    description: >-
+      Selector (<i>Kd</i>).
+
+      true = e<sup>-sTdelay</sup> used
+
+      false = e<sup>-sTdelay</sup> not used.
   - name: ks
     type: PU
     description: Stabilizer gain (<i>K</i><i><sub>s</sub></i>).

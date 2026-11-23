@@ -3,10 +3,13 @@ description: Modified old IEEE type 3 excitation system.
 attributes:
   - name: exclim
     type: Boolean
-    description: |-
+    description: >-
       (<i>exclim</i>).
+
       true = lower limit of zero is applied to integrator output
+
       false = lower limit of zero not applied to integrator output.
+
       Typical value = true.
   - name: ka
     type: PU
@@ -28,7 +31,9 @@ attributes:
     description: Voltage regulator time constant (<i>Ta</i>) (&gt; 0).  Typical value = 0,01.
   - name: te
     type: Seconds
-    description: Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value = 1,83.
+    description: >-
+      Exciter time constant, integration rate associated with exciter control (<i>Te</i>) (&gt; 0).  Typical value =
+      1,83.
   - name: tf
     type: Seconds
     description: Excitation control system stabilizer time constant (<i>Tf</i>) (&gt;= 0).  Typical value = 0,675.
@@ -37,7 +42,14 @@ attributes:
     description: Available exciter voltage limiter (<i>Vb1max</i>) (&gt; 0).  Typical value = 11,63.
   - name: vblim
     type: Boolean
-    description: "Vb limiter indicator.\ntrue = exciter <i>Vbmax</i> limiter is active\nfalse = <i>Vb1max</i> is active. \nTypical value = true."
+    description: >-
+      Vb limiter indicator.
+
+      true = exciter <i>Vbmax</i> limiter is active
+
+      false = <i>Vb1max</i> is active.
+
+      Typical value = true.
   - name: vbmax
     type: PU
     description: Available exciter voltage limiter (<i>Vbmax</i>) (&gt; 0).  Typical value = 11,63.

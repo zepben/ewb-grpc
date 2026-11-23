@@ -3,20 +3,26 @@ description: Detailed Italian PSS.
 attributes:
   - name: ctw2
     type: Boolean
-    description: |-
+    description: >-
       Selector for second washout enabling (<i>C</i><i><sub>TW2</sub></i>).
+
       true = second washout filter is bypassed
+
       false = second washout filter in use.
+
       Typical value = true.
   - name: deadband
     type: PU
     description: Stabilizer output deadband (<i>DEADBAND</i>).  Typical value = 0.
   - name: isfreq
     type: Boolean
-    description: |-
+    description: >-
       Selector for frequency/shaft speed input (<i>isFreq</i>).
+
       true = speed (same meaning as InputSignaKind.rotorSpeed)
+
       false = frequency (same meaning as InputSignalKind.busFrequency).
+
       Typical value = true (same meaning as InputSignalKind.rotorSpeed).
   - name: kf
     type: Float
@@ -35,13 +41,16 @@ attributes:
     description: Lead/lag time constant (<i>T</i><i><sub>L1</sub></i>) (&gt;= 0).  Typical value = 0.
   - name: tl2
     type: Seconds
-    description: Lead/lag time constant (<i>T</i><i><sub>L2</sub></i>) (&gt;= 0).  If = 0, both blocks are bypassed.  Typical value = 0.
+    description: >-
+      Lead/lag time constant (<i>T</i><i><sub>L2</sub></i>) (&gt;= 0).  If = 0, both blocks are bypassed.  Typical value
+      = 0.
   - name: tl3
     type: Seconds
     description: Lead/lag time constant (<i>T</i><i><sub>L3</sub></i>) (&gt;= 0).  Typical value = 0.
   - name: tl4
     type: Seconds
-    description: Lead/lag time constant (T<sub>L4</sub>) (&gt;= 0).  If = 0, both blocks are bypassed.  Typical value = 0.
+    description: >-
+      Lead/lag time constant (T<sub>L4</sub>) (&gt;= 0).  If = 0, both blocks are bypassed.  Typical value = 0.
   - name: tpe
     type: Seconds
     description: Electric power filter time constant (<i>T</i><i><sub>PE</sub></i>) (&gt;= 0).  Typical value = 0,05.
@@ -53,10 +62,13 @@ attributes:
     description: Second washout (<i>T</i><i><sub>W2</sub></i>) (&gt;= 0).  Typical value = 0.
   - name: vadat
     type: Boolean
-    description: |-
+    description: >-
       <font color="#0f0f0f">Signal selector (<i>V</i><i><sub>adAtt</sub></i>).</font>
+
       <font color="#0f0f0f">true = closed (generator power is greater than <i>Pmin</i>)</font>
+
       <font color="#0f0f0f">false = open (<i>Pe</i> is smaller than <i>Pmin</i>).</font>
+
       <font color="#0f0f0f">Typical value = true.</font>
   - name: vsmn
     type: PU

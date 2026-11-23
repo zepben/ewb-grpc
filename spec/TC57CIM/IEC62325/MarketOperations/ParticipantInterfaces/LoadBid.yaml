@@ -15,8 +15,9 @@ attributes:
     description: The date represents the NextMarketDate for which the load response bids apply to.
   - name: meteredValue
     type: Boolean
-    description: |-
+    description: >-
       Flag indicated that the load reduction is metered. (See above)
+
       If priceSetting and meteredValue both equal 1, then the facility is eligible to set LMP in the real time market.
   - name: minLoad
     type: ActivePower
@@ -38,10 +39,16 @@ attributes:
     description: Maximum rate load may be restored (MW/minute)
   - name: priceSetting
     type: Boolean
-    description: Flag to indicate that the facility can set LMP Works in tandem with Metered Value.  Greater chance of this being dynamic than the Metered Value, however, it is requested that Price Setting and Metered Value stay at the same source.  Currently no customers have implemented the metering capability, but if this option is implemented, then Price Setting could become dynamic.  However, Metered Value will remain static.
+    description: >-
+      Flag to indicate that the facility can set LMP Works in tandem with Metered Value.  Greater chance of this being
+      dynamic than the Metered Value, however, it is requested that Price Setting and Metered Value stay at the same
+      source.  Currently no customers have implemented the metering capability, but if this option is implemented, then
+      Price Setting could become dynamic.  However, Metered Value will remain static.
   - name: reqNoticeTime
     type: Float
-    description: Time period that is required from an order to reduce a load to the time that it takes to get to the minimum load reduction.
+    description: >-
+      Time period that is required from an order to reduce a load to the time that it takes to get to the minimum load
+      reduction.
   - name: shutdownCost
     type: Money
     description: The fixed cost associated with committing a load reduction.

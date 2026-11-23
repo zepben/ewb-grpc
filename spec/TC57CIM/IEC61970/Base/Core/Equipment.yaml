@@ -3,16 +3,31 @@ description: The parts of a power system that are physical devices, electronic o
 attributes:
   - name: aggregate
     type: Boolean
-    description: "The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  \nThe attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection."
+    description: >-
+      The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is
+      applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes
+      necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of
+      equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent
+      obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating
+      in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.
+
+      The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.
   - name: inService
     type: Boolean
-    description: Specifies the availability of the equipment. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.
+    description: >-
+      Specifies the availability of the equipment. True means the equipment is available for topology processing, which
+      determines if the equipment is energized or not. False means that the equipment is treated by network applications
+      as if it is not in the model.
   - name: networkAnalysisEnabled
     type: Boolean
-    description: The equipment is enabled to participate in network analysis.  If unspecified, the value is assumed to be true.
+    description: >-
+      The equipment is enabled to participate in network analysis.  If unspecified, the value is assumed to be true.
   - name: normallyInService
     type: Boolean
-    description: Specifies the availability of the equipment under normal operating conditions. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.
+    description: >-
+      Specifies the availability of the equipment under normal operating conditions. True means the equipment is
+      available for topology processing, which determines if the equipment is energized or not. False means that the
+      equipment is treated by network applications as if it is not in the model.
 ancestors:
   - PowerSystemResource
 descendants:
@@ -30,10 +45,16 @@ associations:
     target: EquipmentContainer
     sourceCardinality: 0..*
     sourceName: additionalGroupedEquipment
-    sourceDescription: The additonal contained equipment.  The equipment belong to the equipment container. The equipment is contained in another equipment container, but also grouped with this equipment container.  Examples include when a switch contained in a substation is also desired to be grouped with a line contianer or when a switch is included in a secondary substation and also grouped in a feeder.
+    sourceDescription: >-
+      The additonal contained equipment.  The equipment belong to the equipment container. The equipment is contained in
+      another equipment container, but also grouped with this equipment container.  Examples include when a switch
+      contained in a substation is also desired to be grouped with a line contianer or when a switch is included in a
+      secondary substation and also grouped in a feeder.
     targetCardinality: 0..*
     targetName: additionalEquipmentContainer
-    targetDescription: Additional equipment container beyond the primary equipment container.  The equipment is contained in another equipment container, but also grouped with this equipment container.
+    targetDescription: >-
+      Additional equipment container beyond the primary equipment container.  The equipment is contained in another
+      equipment container, but also grouped with this equipment container.
   - source: Equipment
     target: ContingencyEquipment
     sourceCardinality: "1"
@@ -46,7 +67,10 @@ associations:
     target: EquipmentLimitSeriesComponent
     sourceCardinality: "1"
     sourceName: equipment
-    sourceDescription: Equipment contributing toward the series limit.   The reference here is to Equipment rather than a specific limit on the equipment so the grouiping can be reused for multiple limits of different types on the same instance of equipment.
+    sourceDescription: >-
+      Equipment contributing toward the series limit.   The reference here is to Equipment rather than a specific limit
+      on the equipment so the grouiping can be reused for multiple limits of different types on the same instance of
+      equipment.
     targetCardinality: 0..*
     targetName: eqiupmentLimitSeriesComponent
     targetDescription: Equipment limit series calculation component to which this equipment contributes.
@@ -77,7 +101,8 @@ associations:
     sourceDescription: The equipment for which this limit dependency model is organized under.
     targetCardinality: 0..*
     targetName: limitDependencyModel
-    targetDescription: Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.
+    targetDescription: >-
+      Limit dependencymodels organized under this equipment as a means for organizing the model in a tree view.
   - source: Equipment
     target: OperationalLimitSet
     sourceCardinality: 0..1
@@ -115,7 +140,9 @@ associations:
     sourceName: equipment
     targetCardinality: 0..*
     targetName: protectiveActionEquipment
-    targetDescription: Protective action is controlling equipment. This can be direct signals from the control center, or emulation of action done by protection equipment.
+    targetDescription: >-
+      Protective action is controlling equipment. This can be direct signals from the control center, or emulation of
+      action done by protection equipment.
   - source: Equipment
     target: UsagePoint
     sourceCardinality: 0..*

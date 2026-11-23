@@ -1,15 +1,19 @@
 name: StageTrigger
-description: Condition that is triggered either by TriggerCondition of by gate condition within a stage and has remedial action-s.
+description: >-
+  Condition that is triggered either by TriggerCondition of by gate condition within a stage and has remedial action-s.
 attributes:
   - name: armed
     type: Boolean
-    description: The status of the class set by operation or by signal. Optional field that will override other status fields.
+    description: >-
+      The status of the class set by operation or by signal. Optional field that will override other status fields.
   - name: normalArmed
     type: Boolean
     description: The default/normal value used when other active signal/values are missing.
   - name: priority
     type: Integer
-    description: Priority of trigger. 0 = don t care (default) 1 = highest priority. 2 is less than 1 and so on. A trigger with the highest priority will trigger first.
+    description: >-
+      Priority of trigger. 0 = don t care (default) 1 = highest priority. 2 is less than 1 and so on. A trigger with the
+      highest priority will trigger first.
 ancestors:
   - IdentifiedObject
 associations:
@@ -26,19 +30,23 @@ associations:
     sourceName: stageTriggerCom
     targetCardinality: 0..1
     targetName: gateComCondition
-    targetDescription: For the StageTrigger to active the set of protective actions the condition for communication needs to be met (true).
+    targetDescription: >-
+      For the StageTrigger to active the set of protective actions the condition for communication needs to be met
+      (true).
   - source: StageTrigger
     target: Gate
     sourceCardinality: 0..*
     sourceName: stageTrigger
     targetCardinality: 0..1
     targetName: gateTrigger
-    targetDescription: The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
+    targetDescription: >-
+      The Gate result that trigger the StageTrigger and thereby executing the a set of protective actions.
   - source: StageTrigger
     target: ProtectiveActionCollection
     sourceCardinality: 0..*
     sourceName: stageTrigger
-    sourceDescription: When condition to the StageTrigger is met, the actions in the ProtectiveActionCollection are activated/triggered.
+    sourceDescription: >-
+      When condition to the StageTrigger is met, the actions in the ProtectiveActionCollection are activated/triggered.
     targetCardinality: "1"
     targetName: protectiveActionCollection
   - source: StageTrigger
