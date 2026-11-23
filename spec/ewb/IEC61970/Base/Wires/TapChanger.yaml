@@ -3,26 +3,27 @@ description: Mechanism for changing transformer winding tap positions.
 attributes:
   - name: controlEnabled
     type: Boolean
-    description: Specifies the regulation status of the equipment.  True is regulating, false is not regulating.
     nullable: true
+    description: Specifies the regulation status of the equipment.  True is regulating, false is not regulating.
   - name: highStep
     type: Integer
+    nullable: true
     description: >-
       Highest possible tap step position, advance from neutral.
 
       The attribute shall be greater than lowStep.
 
       This tap position results in the maximum voltage boost on secondary winding(s).
-    nullable: true
   - name: lowStep
     type: Integer
+    nullable: true
     description: >-
       Lowest possible tap step position, retard from neutral.
 
       This tap position results in the maximum voltage buck on secondary winding(s).
-    nullable: true
   - name: neutralStep
     type: Integer
+    nullable: true
     description: >-
       The neutral tap step position for this winding.
 
@@ -30,9 +31,9 @@ attributes:
 
       It is the step position where the voltage is neutralU when the other terminals of the transformer are at the
       ratedU.  If there are other tap changers on the transformer those taps are kept constant at their neutralStep.
-    nullable: true
   - name: neutralU
     type: Double
+    nullable: true
     description: >-
       Voltage at which the winding operates at the neutral tap setting (in volts). It is the voltage at the terminal of
       the PowerTransformerEnd associated with the tap changer when all tap changers on the transformer are at their
@@ -42,17 +43,17 @@ attributes:
 
       This attribute is not relevant for PhaseTapChangerAsymmetrical, PhaseTapChangerSymmetrical and
       PhaseTapChangerLinear.
-    nullable: true
   - name: normalStep
     type: Integer
+    nullable: true
     description: >-
       The tap step position used in "normal" network operation for this winding. For a "Fixed" tap changer indicates the
       current physical tap setting.
 
       The attribute shall be equal to or greater than lowStep and equal to or less than highStep.
-    nullable: true
   - name: step
     type: Float
+    nullable: true
     description: >-
       Tap changer position.
 
@@ -62,7 +63,6 @@ attributes:
       as input.
 
       The attribute shall be equal to or greater than lowStep and equal to or less than highStep.
-    nullable: true
 ancestors:
   - PowerSystemResource
 descendants:

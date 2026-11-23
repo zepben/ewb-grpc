@@ -169,7 +169,7 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
             }
             val notes = attrs.getString("Notes")?.fixWindowsNewLines()
 
-            val attr = Attribute(name, type, notes)
+            val attr = Attribute(name, type, description = notes)
             item.addAttribute(attr)
         }
     }

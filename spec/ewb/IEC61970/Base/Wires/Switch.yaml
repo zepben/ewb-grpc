@@ -6,20 +6,20 @@ description: >-
 attributes:
   - name: normalOpen
     type: Boolean
+    nullable: false
     description: >-
       The attribute is used in cases when no Measurement for the status value is present. If the Switch has a status
       measurement the Discrete.normalValue is expected to match with the Switch.normalOpen.
-    nullable: false
   - name: open
     type: Boolean
-    description: The attribute tells if the switch is considered open when used as input to topology processing.
     nullable: false
+    description: The attribute tells if the switch is considered open when used as input to topology processing.
   - name: ratedCurrent
     type: Double
+    nullable: true
     description: >-
       The maximum continuous current carrying capacity in amps governed by the device material and construction. The
       attribute shall be a positive value.
-    nullable: true
 ancestors:
   - ConductingEquipment
 descendants:

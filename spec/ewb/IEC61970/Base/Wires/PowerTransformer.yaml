@@ -15,20 +15,21 @@ description: >-
 attributes:
   - name: constructionKind
     type: TransformerConstructionKind
-    description: The construction kind of this transformer
     nullable: false
+    description: The construction kind of this transformer
   - name: function
     type: TransformerFunctionKind
-    description: The function of this transformer
     nullable: false
+    description: The function of this transformer
   - name: transformerUtilisation
     type: Double
+    nullable: true
     description: >-
       The fraction of the transformer’s normal capacity (nameplate rating) that is in use. It may be expressed as the
       result of the calculation S/Sn, where S = Load on Transformer (in VA), Sn = Transformer Nameplate Rating (in VA).
-    nullable: true
   - name: vectorGroup
     type: VectorGroup
+    nullable: false
     description: >-
       Vector group of the transformer for protective relaying, e.g., Dyn1. For unbalanced transformers, this may not be
       simply determined from the constituent winding connections and phase angle displacements.
@@ -51,7 +52,6 @@ attributes:
       system being applied to the high-voltage terminals, following each other in alphabetical sequence if they are
       lettered, or in numerical sequence if they are numbered: the phasors are assumed to rotate in a counter-clockwise
       sense.
-    nullable: false
 ancestors:
   - ConductingEquipment
 associations:

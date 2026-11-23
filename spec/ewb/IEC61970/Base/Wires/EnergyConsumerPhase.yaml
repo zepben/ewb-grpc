@@ -3,28 +3,29 @@ description: A single phase of an energy consumer.
 attributes:
   - name: p
     type: Integer
+    nullable: true
     description: >-
       Active power of the load in watts. Load sign convention is used, i.e. positive sign means flow out from a node.
 
       For voltage dependent loads the value is at rated voltage.
 
       Starting value for a steady state solution.
-    nullable: true
   - name: pfixed
     type: Integer
+    nullable: true
     description: >-
       Active power of the load in watts that is a fixed quantity. Load sign convention is used, i.e. positive sign means
       flow out from a node.
-    nullable: true
   - name: phase
     type: SinglePhaseKind
+    nullable: false
     description: >-
       Phase of this energy consumer component.   If the energy consumer is wye connected, the connection is from the
       indicated phase to the central ground or neutral point.  If the energy consumer is delta connected, the phase
       indicates an energy consumer connected from the indicated phase to the next logical non-neutral phase.
-    nullable: false
   - name: q
     type: Double
+    nullable: true
     description: >-
       Reactive power of the load in volt-amperes reactive. Load sign convention is used, i.e. positive sign means flow
       out from a node.
@@ -32,13 +33,12 @@ attributes:
       For voltage dependent loads the value is at rated voltage.
 
       Starting value for a steady state solution.
-    nullable: true
   - name: qfixed
     type: Double
+    nullable: true
     description: >-
       Reactive power of the load in volt-amperes reactive that is a fixed quantity. Load sign convention is used, i.e.
       positive sign means flow out from a node.
-    nullable: true
 ancestors:
   - PowerSystemResource
 associations:

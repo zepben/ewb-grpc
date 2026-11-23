@@ -6,34 +6,34 @@ description: >-
 attributes:
   - name: directable
     type: Boolean
-    description: \[ZBEX\] Whether this ProtectionRelayFunction responds to power flow in a given direction.
     nullable: true
+    description: \[ZBEX\] Whether this ProtectionRelayFunction responds to power flow in a given direction.
   - name: model
     type: String
-    description: \[ZBEX\] The protection equipment type name (manufacturer information)
     nullable: true
+    description: \[ZBEX\] The protection equipment type name (manufacturer information)
   - name: powerDirection
     type: PowerDirectionKind
-    description: \[ZBEX\] The flow of power direction used by this ProtectionRelayFunction.
     nullable: false
+    description: \[ZBEX\] The flow of power direction used by this ProtectionRelayFunction.
   - name: protectionKind
     type: ProtectionKind
-    description: \[ZBEX\] The kind of protection being provided by this ProtectionRelayFunction.
     nullable: false
+    description: \[ZBEX\] The kind of protection being provided by this ProtectionRelayFunction.
   - name: reclosing
     type: Boolean
-    description: \[ZBEX\] True if the protection equipment is reclosing or False otherwise.
     nullable: true
+    description: \[ZBEX\] True if the protection equipment is reclosing or False otherwise.
   - name: relayDelayTime
     type: Double
-    description: \[ZBEX\] The time delay from detection of abnormal conditions to relay operation in seconds.
     nullable: true
+    description: \[ZBEX\] The time delay from detection of abnormal conditions to relay operation in seconds.
   - name: timeLimits
     type: Float list
+    nullable: true
     description: >-
       \[ZBEX\] The time limits (in seconds) for this relay function. Order of entries corresponds to the order of
       entries in thresholds.
-    nullable: true
 ancestors:
   - PowerSystemResource
 descendants:

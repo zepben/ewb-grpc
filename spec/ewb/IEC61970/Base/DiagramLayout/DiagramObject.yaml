@@ -6,6 +6,7 @@ description: >-
 attributes:
   - name: rotation
     type: Double
+    nullable: true
     description: >-
       Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation
       is clockwise.  DiagramObject.rotation=0 has the following meaning: The connection point of an element which has
@@ -15,12 +16,11 @@ attributes:
       DiagramObject.rotation=90 has the following meaning: The connection point of an element which has one terminal is
       pointing to the right hand side of the diagram. The connection point "From side" of an element which has more than
       one terminal is pointing to the right hand side of the diagram.
-    nullable: true
   - name: style
     type: String
+    nullable: true
     description: >-
       A diagram object has a style associated that provides a reference for the style used in the originating system.
-    nullable: true
 ancestors:
   - IdentifiedObject
 associations:
