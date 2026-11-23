@@ -262,8 +262,12 @@ private fun ResultSet.read(): ResultSet {
     return this
 }
 
+/**
+ * Use `\n` line breaks, and drop whitespace from the start and end of the text and trailing whitespace from each line.
+ * EA notes often have stray whitespace, which would stop the text being written as a YAML block scalar or wrapped.
+ */
 private fun String.fixWindowsNewLines(): String {
-    return trimEnd().replace("\r\n", "\n")
+    return trim().replace("\r\n", "\n").replace(Regex("""[ \t]+\n"""), "\n")
 }
 
 /**
