@@ -1,23 +1,23 @@
 name: AnalogControl
 description: An analog control used for supervisory control.
 attributes:
-- name: maxValue
-  type: Float
-  description: Normal value range maximum for any of the Control.value. Used for scaling, e.g. in bar graphs.
-- name: minValue
-  type: Float
-  description: Normal value range minimum for any of the Control.value. Used for scaling, e.g. in bar graphs.
+  - name: maxValue
+    type: Float
+    description: Normal value range maximum for any of the Control.value. Used for scaling, e.g. in bar graphs.
+  - name: minValue
+    type: Float
+    description: Normal value range minimum for any of the Control.value. Used for scaling, e.g. in bar graphs.
 ancestors:
-- Control
+  - Control
 descendants:
-- SetPoint
-- RaiseLowerCommand
+  - RaiseLowerCommand
+  - SetPoint
 associations:
-- source: AnalogControl
-  target: AnalogValue
-  sourceCardinality: 0..1
-  sourceName: analogControl
-  sourceDescription: The Control variable associated with the MeasurementValue.
-  targetCardinality: "1"
-  targetName: analogValue
-  targetDescription: The MeasurementValue that is controlled.
+  - source: AnalogControl
+    target: AnalogValue
+    sourceCardinality: 0..1
+    sourceName: analogControl
+    sourceDescription: The Control variable associated with the MeasurementValue.
+    targetCardinality: "1"
+    targetName: analogValue
+    targetDescription: The MeasurementValue that is controlled.

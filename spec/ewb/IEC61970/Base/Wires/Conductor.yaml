@@ -1,29 +1,34 @@
 name: Conductor
-description: Combination of conducting material with consistent electrical characteristics, building a single electrical system,
+description: >-
+  Combination of conducting material with consistent electrical characteristics, building a single electrical system,
   used to carry current between points in the power system.
 attributes:
-- name: length
-  type: Double
-  nullable: true
-  description: Segment length in metres for calculating line section capabilities.
-- name: designTemperature
-  type: Temperature
-  nullable: true
-  description: \[ZBEX\] The temperature in degrees Celsius for the network design of this conductor. Values are limited to integers.
-- name: designRating
-  type: Double
-  nullable: true
-  description: \[ZBEX\] The current rating in Amperes at the specified design temperature that can be used without the conductor breaching physical network design limits.
+  - name: designRating
+    type: Double
+    nullable: true
+    description: >-
+      \[ZBEX\] The current rating in Amperes at the specified design temperature that can be used without the conductor
+      breaching physical network design limits.
+  - name: designTemperature
+    type: Temperature
+    nullable: true
+    description: >-
+      \[ZBEX\] The temperature in degrees Celsius for the network design of this conductor. Values are limited to
+      integers.
+  - name: length
+    type: Double
+    nullable: true
+    description: Segment length in metres for calculating line section capabilities.
 ancestors:
-- ConductingEquipment
+  - ConductingEquipment
 descendants:
-- AcLineSegment
+  - AcLineSegment
 associations:
-- source: Conductor
-  target: WireInfo
-  sourceCardinality: 0..1
-  sourceName: conductor
-  sourceDescription: The conductor that uses this wire information.
-  targetCardinality: 0..*
-  targetName: wireInfos
-  targetDescription: Wire characteristics applied to this conductor.
+  - source: Conductor
+    target: WireInfo
+    sourceCardinality: 0..1
+    sourceName: conductor
+    sourceDescription: The conductor that uses this wire information.
+    targetCardinality: 0..*
+    targetName: wireInfos
+    targetDescription: Wire characteristics applied to this conductor.

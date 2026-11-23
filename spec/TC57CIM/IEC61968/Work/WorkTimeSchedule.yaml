@@ -1,17 +1,17 @@
 name: WorkTimeSchedule
 description: Time schedule specific to work.
 attributes:
-- name: kind
-  type: WorkTimeScheduleKind
-  description: Kind of this work schedule.
+  - name: kind
+    type: WorkTimeScheduleKind
+    description: Kind of this work schedule.
 ancestors:
-- TimeSchedule
+  - TimeSchedule
 associations:
-- source: WorkTimeSchedule
-  target: BaseWork
-  sourceCardinality: 0..*
-  sourceName: timeSchedules
-  sourceDescription: All time schedules for this work or work task.
-  targetCardinality: 0..1
-  targetName: baseWork
-  targetDescription: Time schedule for this work or work task.
+  - source: WorkTimeSchedule
+    target: BaseWork
+    sourceCardinality: 0..*
+    sourceName: timeSchedules
+    sourceDescription: All time schedules for this work or work task.
+    targetCardinality: 0..1
+    targetName: baseWork
+    targetDescription: Time schedule for this work or work task.

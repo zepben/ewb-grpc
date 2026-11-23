@@ -1,19 +1,19 @@
 name: StringMeasurementValue
 description: StringMeasurementValue represents a measurement value of type string.
 attributes:
-- name: value
-  type: String
-  description: The value to supervise.
+  - name: value
+    type: String
+    description: The value to supervise.
 ancestors:
-- MeasurementValue
+  - MeasurementValue
 descendants:
-- EnvironmentalCodedValue
+  - EnvironmentalCodedValue
 associations:
-- source: StringMeasurementValue
-  target: StringMeasurement
-  sourceCardinality: 0..*
-  sourceName: stringMeasurementValues
-  sourceDescription: The values connected to this measurement.
-  targetCardinality: "1"
-  targetName: stringMeasurement
-  targetDescription: Measurement to which this value is connected.
+  - source: StringMeasurementValue
+    target: StringMeasurement
+    sourceCardinality: 0..*
+    sourceName: stringMeasurementValues
+    sourceDescription: The values connected to this measurement.
+    targetCardinality: "1"
+    targetName: stringMeasurement
+    targetDescription: Measurement to which this value is connected.

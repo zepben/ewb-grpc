@@ -1,28 +1,29 @@
 name: MPMResourceStatus
 description: Model of results of Market Power tests, gives status of resource for the associated interval.
 attributes:
-- name: resourceStatus
-  type: String
-  description: |-
-    Interval Test Status
+  - name: resourceStatus
+    type: String
+    description: >-
+      Interval Test Status
 
-    'N' - not applicable
+
+      'N' - not applicable
 associations:
-- source: MPMResourceStatus
-  target: MPMTestCategory
-  sourceCardinality: 0..*
-  sourceName: mpmResourceStatus
-  targetCardinality: "1"
-  targetName: mpmTestCategory
-- source: MPMResourceStatus
-  target: MitigatedBidClearing
-  sourceCardinality: 0..*
-  sourceName: mpmResourceStatus
-  targetCardinality: 1..*
-  targetName: mitigatedBidClearing
-- source: MPMResourceStatus
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: mpmResourceStatus
-  targetCardinality: 0..1
-  targetName: registeredResource
+  - source: MPMResourceStatus
+    target: MitigatedBidClearing
+    sourceCardinality: 0..*
+    sourceName: mpmResourceStatus
+    targetCardinality: 1..*
+    targetName: mitigatedBidClearing
+  - source: MPMResourceStatus
+    target: MPMTestCategory
+    sourceCardinality: 0..*
+    sourceName: mpmResourceStatus
+    targetCardinality: "1"
+    targetName: mpmTestCategory
+  - source: MPMResourceStatus
+    target: RegisteredResource
+    sourceCardinality: 0..*
+    sourceName: mpmResourceStatus
+    targetCardinality: 0..1
+    targetName: registeredResource

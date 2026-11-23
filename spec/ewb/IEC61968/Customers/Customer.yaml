@@ -1,25 +1,25 @@
 name: Customer
 description: Organisation receiving services from service supplier.
 attributes:
-- name: kind
-  type: CustomerKind
-  description: Kind of customer.
-- name: numEndDevices
-  type: Integer
-  nullable: true
-  description: Count of the EndDevice's that are associated with this Customer.
-- name: specialNeed
-  type: String
-  nullable: true
-  description: True if customer organisation has special service needs such as life support, hospitals, etc.
+  - name: kind
+    type: CustomerKind
+    description: Kind of customer.
+  - name: numEndDevices
+    type: Integer
+    nullable: true
+    description: Count of the EndDevice's that are associated with this Customer.
+  - name: specialNeed
+    type: String
+    nullable: true
+    description: True if customer organisation has special service needs such as life support, hospitals, etc.
 ancestors:
-- OrganisationRole
+  - OrganisationRole
 associations:
-- source: Customer
-  target: CustomerAgreement
-  sourceCardinality: 0..1
-  sourceName: customer
-  sourceDescription: Customer for this agreement.
-  targetCardinality: 0..*
-  targetName: customerAgreements
-  targetDescription: All agreements of this customer.
+  - source: Customer
+    target: CustomerAgreement
+    sourceCardinality: 0..1
+    sourceName: customer
+    sourceDescription: Customer for this agreement.
+    targetCardinality: 0..*
+    targetName: customerAgreements
+    targetDescription: All agreements of this customer.

@@ -1,18 +1,19 @@
 name: UnavailabilitySwitchAction
-description: Relevant switching action for supporting the availability (or unavailability) plans.  This could open or close
-  a switch that is not directly connected to the unavailable equipment .
+description: >-
+  Relevant switching action for supporting the availability (or unavailability) plans.  This could open or close a
+  switch that is not directly connected to the unavailable equipment .
 attributes:
-- name: open
-  type: Boolean
-  description: The switch is to be open during the scheduled period.
+  - name: open
+    type: Boolean
+    description: The switch is to be open during the scheduled period.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: UnavailabilitySwitchAction
-  target: EquipmentUnavailabilitySchedule
-  sourceCardinality: 0..*
-  targetCardinality: "1"
-- source: UnavailabilitySwitchAction
-  target: Switch
-  sourceCardinality: 0..*
-  targetCardinality: "1"
+  - source: UnavailabilitySwitchAction
+    target: EquipmentUnavailabilitySchedule
+    sourceCardinality: 0..*
+    targetCardinality: "1"
+  - source: UnavailabilitySwitchAction
+    target: Switch
+    sourceCardinality: 0..*
+    targetCardinality: "1"

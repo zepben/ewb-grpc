@@ -1,33 +1,37 @@
 name: RatioTapChanger
-description: |-
-  A tap changer that changes the voltage ratio impacting the voltage magnitude but not the phase angle across the transformer.
+description: >-
+  A tap changer that changes the voltage ratio impacting the voltage magnitude but not the phase angle across the
+  transformer.
 
-  Angle sign convention (general): Positive value indicates a positive phase shift from the winding where the tap is located to the other winding (for a two-winding transformer).
+
+  Angle sign convention (general): Positive value indicates a positive phase shift from the winding where the tap is
+  located to the other winding (for a two-winding transformer).
 attributes:
-- name: stepVoltageIncrement
-  type: PerCent
-  description: |-
-    Tap step increment, in per cent of rated voltage of the power transformer end, per step position.
-    When the increment is negative, the voltage decreases when the tap step increases.
-- name: tculControlMode
-  type: TransformerControlMode
-  description: Specifies the regulation control mode (voltage or reactive) of the RatioTapChanger.
+  - name: stepVoltageIncrement
+    type: PerCent
+    description: >-
+      Tap step increment, in per cent of rated voltage of the power transformer end, per step position.
+
+      When the increment is negative, the voltage decreases when the tap step increases.
+  - name: tculControlMode
+    type: TransformerControlMode
+    description: Specifies the regulation control mode (voltage or reactive) of the RatioTapChanger.
 ancestors:
-- TapChanger
+  - TapChanger
 associations:
-- source: RatioTapChanger
-  target: RatioTapChangerTable
-  sourceCardinality: 0..*
-  sourceName: ratioTapChanger
-  sourceDescription: The ratio tap changer of this tap ratio table.
-  targetCardinality: 0..1
-  targetName: ratioTapChangerTable
-  targetDescription: The tap ratio table for this ratio  tap changer.
-- source: RatioTapChanger
-  target: TransformerEnd
-  sourceCardinality: 0..1
-  sourceName: ratioTapChanger
-  sourceDescription: Ratio tap changer associated with this transformer end.
-  targetCardinality: "1"
-  targetName: transformerEnd
-  targetDescription: Transformer end to which this ratio tap changer belongs.
+  - source: RatioTapChanger
+    target: RatioTapChangerTable
+    sourceCardinality: 0..*
+    sourceName: ratioTapChanger
+    sourceDescription: The ratio tap changer of this tap ratio table.
+    targetCardinality: 0..1
+    targetName: ratioTapChangerTable
+    targetDescription: The tap ratio table for this ratio  tap changer.
+  - source: RatioTapChanger
+    target: TransformerEnd
+    sourceCardinality: 0..1
+    sourceName: ratioTapChanger
+    sourceDescription: Ratio tap changer associated with this transformer end.
+    targetCardinality: "1"
+    targetName: transformerEnd
+    targetDescription: Transformer end to which this ratio tap changer belongs.

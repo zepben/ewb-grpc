@@ -1,17 +1,21 @@
 name: AreaLoadBid
-description: AreaLoadBid is not submitted by a market participant into the Markets. Instead, it is simply an aggregation of
-  all LoadBids contained wtihin a specific SubControlArea. This entity should inherit from Bid for representation of the timeframe
-  (startTime, stopTime) and the market type.
+description: >-
+  AreaLoadBid is not submitted by a market participant into the Markets. Instead, it is simply an aggregation of all
+  LoadBids contained wtihin a specific SubControlArea. This entity should inherit from Bid for representation of the
+  timeframe (startTime, stopTime) and the market type.
 attributes:
-- name: demandBidMW
-  type: Float
-  description: "The Demand Bid Megawatt for the area case. \nAttribute Usage: This is Scheduled demand MW in Day Ahead"
+  - name: demandBidMW
+    type: Float
+    description: >-
+      The Demand Bid Megawatt for the area case.
+
+      Attribute Usage: This is Scheduled demand MW in Day Ahead
 ancestors:
-- Bid
+  - Bid
 associations:
-- source: AreaLoadBid
-  target: LoadBid
-  sourceCardinality: 0..1
-  sourceName: areaLoadBid
-  targetCardinality: 0..*
-  targetName: loadBid
+  - source: AreaLoadBid
+    target: LoadBid
+    sourceCardinality: 0..1
+    sourceName: areaLoadBid
+    targetCardinality: 0..*
+    targetName: loadBid

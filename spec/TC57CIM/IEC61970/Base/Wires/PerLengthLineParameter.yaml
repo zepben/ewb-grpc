@@ -1,15 +1,15 @@
 name: PerLengthLineParameter
 description: Common type for per-length electrical catalogues describing line parameters.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- PerLengthImpedance
-- PerLengthDCLineParameter
+  - PerLengthDCLineParameter
+  - PerLengthImpedance
 associations:
-- source: PerLengthLineParameter
-  target: WireAssemblyInfo
-  sourceCardinality: 0..*
-  sourceName: perLengthLineParameter
-  sourceDescription: Per length line parameter associated with this wire assembly.
-  targetCardinality: 0..1
-  targetName: wireAssemblyInfo
+  - source: PerLengthLineParameter
+    target: WireAssemblyInfo
+    sourceCardinality: 0..*
+    sourceName: perLengthLineParameter
+    sourceDescription: Per length line parameter associated with this wire assembly.
+    targetCardinality: 0..1
+    targetName: wireAssemblyInfo

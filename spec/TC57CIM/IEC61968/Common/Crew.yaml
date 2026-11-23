@@ -1,67 +1,67 @@
 name: Crew
 description: Group of people with specific skills, tools, and vehicles.
 attributes:
-- name: status
-  type: Status
-  description: Status of this crew.
+  - name: status
+    type: Status
+    description: Status of this crew.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- OldCrew
+  - OldCrew
 associations:
-- source: Crew
-  target: CrewMember
-  sourceCardinality: 0..1
-  sourceName: crew
-  sourceDescription: Crew to which this crew member belongs.
-  targetCardinality: 0..*
-  targetName: crewMembers
-  targetDescription: All members of this crew.
-- source: Crew
-  target: CrewType
-  sourceCardinality: 0..*
-  sourceName: crews
-  sourceDescription: All crews of this type.
-  targetCardinality: 0..1
-  targetName: crewType
-  targetDescription: Type of this crew.
-- source: Crew
-  target: FieldDispatchHistory
-  sourceCardinality: 0..1
-  sourceName: crew
-  targetCardinality: 0..*
-  targetName: fieldDispatchHistory
-- source: Crew
-  target: WorkTask
-  sourceCardinality: 0..*
-  sourceName: crews
-  sourceDescription: All crews participating in this work task.
-  targetCardinality: 0..*
-  targetName: workTasks
-  targetDescription: All work tasks this crew participates in.
-- source: Crew
-  target: Outage
-  sourceCardinality: 0..*
-  sourceName: crew
-  targetCardinality: 0..*
-  targetName: outage
-- source: Crew
-  target: SwitchingAction
-  sourceCardinality: 0..*
-  sourceName: crew
-  targetCardinality: "1"
-  targetName: switchingAction
-- source: Crew
-  target: WorkAsset
-  sourceCardinality: 0..1
-  sourceName: crew
-  sourceDescription: Crew using this work asset.
-  targetCardinality: 0..*
-  targetName: workAssets
-  targetDescription: All work assets used by this crew.
-- source: Crew
-  target: Location
-  sourceCardinality: 0..*
-  sourceName: crew
-  targetCardinality: 0..1
-  targetName: location
+  - source: Crew
+    target: CrewMember
+    sourceCardinality: 0..1
+    sourceName: crew
+    sourceDescription: Crew to which this crew member belongs.
+    targetCardinality: 0..*
+    targetName: crewMembers
+    targetDescription: All members of this crew.
+  - source: Crew
+    target: CrewType
+    sourceCardinality: 0..*
+    sourceName: crews
+    sourceDescription: All crews of this type.
+    targetCardinality: 0..1
+    targetName: crewType
+    targetDescription: Type of this crew.
+  - source: Crew
+    target: FieldDispatchHistory
+    sourceCardinality: 0..1
+    sourceName: crew
+    targetCardinality: 0..*
+    targetName: fieldDispatchHistory
+  - source: Crew
+    target: Location
+    sourceCardinality: 0..*
+    sourceName: crew
+    targetCardinality: 0..1
+    targetName: location
+  - source: Crew
+    target: Outage
+    sourceCardinality: 0..*
+    sourceName: crew
+    targetCardinality: 0..*
+    targetName: outage
+  - source: Crew
+    target: SwitchingAction
+    sourceCardinality: 0..*
+    sourceName: crew
+    targetCardinality: "1"
+    targetName: switchingAction
+  - source: Crew
+    target: WorkAsset
+    sourceCardinality: 0..1
+    sourceName: crew
+    sourceDescription: Crew using this work asset.
+    targetCardinality: 0..*
+    targetName: workAssets
+    targetDescription: All work assets used by this crew.
+  - source: Crew
+    target: WorkTask
+    sourceCardinality: 0..*
+    sourceName: crews
+    sourceDescription: All crews participating in this work task.
+    targetCardinality: 0..*
+    targetName: workTasks
+    targetDescription: All work tasks this crew participates in.

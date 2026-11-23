@@ -7,13 +7,20 @@ import kotlinx.serialization.Transient
 data class Class(
     @Transient override val id: Int = 0,
     override val name: String,
+    var type: String? = null,
     val description: String? = null,
     private val attributes: MutableList<Attribute> = mutableListOf(),
     private val ancestors: MutableList<String> = mutableListOf(),
     private val descendants: MutableList<String> = mutableListOf(),
     private val associations: MutableList<Link> = mutableListOf(),
-    var type: String? = attributes.classIsEnum(),
 ) : Element() {
+
+    init {
+        if (type == null)
+            type = attributes.classIsEnum()
+        if (isEnum)
+            attributes.replaceAll { if (it.type == null) it.copy(type = "enum") else it }
+    }
 
     @Transient
     override val children: List<Element> = listOf()

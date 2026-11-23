@@ -41,7 +41,7 @@ class DiagramModelTest {
 
     private val phaseCode = Class(
         name = "PhaseCode",
-        attributes = mutableListOf(Attribute("ABC", null), Attribute("Y", null, "/[ZBEX/] Unknown phase.")),
+        attributes = mutableListOf(Attribute("ABC", null), Attribute("Y", null, description = "/[ZBEX/] Unknown phase.")),
     )
 
     private val conductingEquipment = Class(

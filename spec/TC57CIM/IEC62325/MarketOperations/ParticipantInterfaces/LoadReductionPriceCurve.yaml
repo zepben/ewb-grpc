@@ -1,12 +1,13 @@
 name: LoadReductionPriceCurve
-description: This is the price sensitivity that bidder expresses for allowing market load interruption.  Relationship between
-  price (Y1-axis) vs. MW (X-axis).
+description: >-
+  This is the price sensitivity that bidder expresses for allowing market load interruption.  Relationship between price
+  (Y1-axis) vs. MW (X-axis).
 ancestors:
-- Curve
+  - Curve
 associations:
-- source: LoadReductionPriceCurve
-  target: LoadBid
-  sourceCardinality: 0..*
-  sourceName: loadReductionPriceCurve
-  targetCardinality: "1"
-  targetName: loadBid
+  - source: LoadReductionPriceCurve
+    target: LoadBid
+    sourceCardinality: 0..*
+    sourceName: loadReductionPriceCurve
+    targetCardinality: "1"
+    targetName: loadBid

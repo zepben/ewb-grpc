@@ -1,18 +1,18 @@
 name: IncrementalDatasetArg
 description: A generic model operation argument referencing an incremental change description.
 ancestors:
-- ModelOperationArg
+  - ModelOperationArg
 associations:
-- source: IncrementalDatasetArg
-  target: ChangeSet
-  sourceCardinality: 0..*
-  sourceName: incrementalDatasetArg
-  targetCardinality: "1"
-  targetName: incrementalDataset
-- source: IncrementalDatasetArg
-  target: IncrementalDatasetArgDescription
-  sourceCardinality: 0..*
-  sourceName: incrementalDatasetArg
-  sourceDescription: The incremental dataset used for this argument instance.
-  targetCardinality: "1"
-  targetName: incrementalDatasetArgDescription
+  - source: IncrementalDatasetArg
+    target: ChangeSet
+    sourceCardinality: 0..*
+    sourceName: incrementalDatasetArg
+    targetCardinality: "1"
+    targetName: incrementalDataset
+  - source: IncrementalDatasetArg
+    target: IncrementalDatasetArgDescription
+    sourceCardinality: 0..*
+    sourceName: incrementalDatasetArg
+    sourceDescription: The incremental dataset used for this argument instance.
+    targetCardinality: "1"
+    targetName: incrementalDatasetArgDescription

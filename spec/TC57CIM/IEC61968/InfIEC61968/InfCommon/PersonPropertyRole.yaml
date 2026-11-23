@@ -1,18 +1,18 @@
 name: PersonPropertyRole
-description: 'The role of a person relative to a given piece of property. Examples of roles include: owner, renter, contractor,
-  etc.'
+description: >-
+  The role of a person relative to a given piece of property. Examples of roles include: owner, renter, contractor, etc.
 ancestors:
-- Role
+  - Role
 associations:
-- source: PersonPropertyRole
-  target: LandProperty
-  sourceCardinality: 0..*
-  sourceName: erpPersonRoles
-  targetCardinality: "1"
-  targetName: landProperty
-- source: PersonPropertyRole
-  target: OldPerson
-  sourceCardinality: 0..*
-  sourceName: landPropertyRoles
-  targetCardinality: "1"
-  targetName: person
+  - source: PersonPropertyRole
+    target: LandProperty
+    sourceCardinality: 0..*
+    sourceName: erpPersonRoles
+    targetCardinality: "1"
+    targetName: landProperty
+  - source: PersonPropertyRole
+    target: OldPerson
+    sourceCardinality: 0..*
+    sourceName: landPropertyRoles
+    targetCardinality: "1"
+    targetName: person

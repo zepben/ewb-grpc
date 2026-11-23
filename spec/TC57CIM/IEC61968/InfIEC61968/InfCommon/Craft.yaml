@@ -1,30 +1,31 @@
 name: Craft
-description: Craft of a person or a crew. Examples include overhead electric, underground electric, high pressure gas, etc.
-  This ensures necessary knowledge and skills before being allowed to perform certain types of work.
+description: >-
+  Craft of a person or a crew. Examples include overhead electric, underground electric, high pressure gas, etc. This
+  ensures necessary knowledge and skills before being allowed to perform certain types of work.
 attributes:
-- name: status
-  type: Status
-- name: type
-  type: String
-  description: Classification by utility's work mangement standards and practices.
+  - name: status
+    type: Status
+  - name: type
+    type: String
+    description: Classification by utility's work mangement standards and practices.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: Craft
-  target: OldPerson
-  sourceCardinality: 0..*
-  sourceName: crafts
-  targetCardinality: 0..*
-  targetName: erpPersons
-- source: Craft
-  target: Skill
-  sourceCardinality: 0..*
-  sourceName: crafts
-  targetCardinality: 0..*
-  targetName: skills
-- source: Craft
-  target: Capability
-  sourceCardinality: 0..*
-  sourceName: crafts
-  targetCardinality: 0..*
-  targetName: capabilities
+  - source: Craft
+    target: Capability
+    sourceCardinality: 0..*
+    sourceName: crafts
+    targetCardinality: 0..*
+    targetName: capabilities
+  - source: Craft
+    target: OldPerson
+    sourceCardinality: 0..*
+    sourceName: crafts
+    targetCardinality: 0..*
+    targetName: erpPersons
+  - source: Craft
+    target: Skill
+    sourceCardinality: 0..*
+    sourceName: crafts
+    targetCardinality: 0..*
+    targetName: skills

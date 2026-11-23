@@ -1,25 +1,27 @@
 name: BushingInsulationPF
-description: |-
+description: >-
   Bushing insulation power factor condition as a result of a test.
-  Typical status values are: Acceptable, Minor Deterioration or Moisture Absorption, Major Deterioration or Moisture Absorption, Failed.
+
+  Typical status values are: Acceptable, Minor Deterioration or Moisture Absorption, Major Deterioration or Moisture
+  Absorption, Failed.
 attributes:
-- name: status
-  type: Status
-- name: testKind
-  type: BushingInsulationPfTestKind
-  description: Kind of test for this bushing.
+  - name: status
+    type: Status
+  - name: testKind
+    type: BushingInsulationPfTestKind
+    description: Kind of test for this bushing.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: BushingInsulationPF
-  target: TransformerObservation
-  sourceCardinality: 0..*
-  sourceName: bushingInsultationPFs
-  targetCardinality: 0..1
-  targetName: transformerObservation
-- source: BushingInsulationPF
-  target: Bushing
-  sourceCardinality: 0..*
-  sourceName: bushingInsulationPFs
-  targetCardinality: 0..1
-  targetName: bushing
+  - source: BushingInsulationPF
+    target: Bushing
+    sourceCardinality: 0..*
+    sourceName: bushingInsulationPFs
+    targetCardinality: 0..1
+    targetName: bushing
+  - source: BushingInsulationPF
+    target: TransformerObservation
+    sourceCardinality: 0..*
+    sourceName: bushingInsultationPFs
+    targetCardinality: 0..1
+    targetName: transformerObservation

@@ -169,7 +169,7 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
             }
             val notes = attrs.getString("Notes")?.fixWindowsNewLines()
 
-            val attr = Attribute(name, type, notes)
+            val attr = Attribute(name, type, description = notes)
             item.addAttribute(attr)
         }
     }
@@ -184,9 +184,9 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
 
             while (classes.next()) {
                 val c = Class(
-                    classes.getInt("Object_ID"),
-                    classes.getString("Name").trim(),
-                    classes.getString("Note")?.fixWindowsNewLines()
+                    id = classes.getInt("Object_ID"),
+                    name = classes.getString("Name").trim(),
+                    description = classes.getString("Note")?.fixWindowsNewLines()
                 )
                 item.addChild(c)
             }
@@ -262,8 +262,12 @@ private fun ResultSet.read(): ResultSet {
     return this
 }
 
+/**
+ * Use `\n` line breaks, and drop whitespace from the start and end of the text and trailing whitespace from each line.
+ * EA notes often have stray whitespace, which would stop the text being written as a YAML block scalar or wrapped.
+ */
 private fun String.fixWindowsNewLines(): String {
-    return trimEnd().replace("\r\n", "\n")
+    return trim().replace("\r\n", "\n").replace(Regex("""[ \t]+\n"""), "\n")
 }
 
 /**

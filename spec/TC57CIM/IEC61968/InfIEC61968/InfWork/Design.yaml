@@ -1,65 +1,66 @@
 name: Design
-description: |-
+description: >-
   A design for consideration by customers, potential customers, or internal work.
+
   Note that the Version of design is the revision attribute that is inherited from Document.
 attributes:
-- name: costEstimate
-  type: Money
-  description: Estimated cost (not price) of design.
-- name: kind
-  type: DesignKind
-  description: Kind of this design.
-- name: price
-  type: Money
-  description: ' Price to customer for implementing design.'
+  - name: costEstimate
+    type: Money
+    description: Estimated cost (not price) of design.
+  - name: kind
+    type: DesignKind
+    description: Kind of this design.
+  - name: price
+    type: Money
+    description: Price to customer for implementing design.
 ancestors:
-- WorkDocument
+  - WorkDocument
 associations:
-- source: Design
-  target: OldWorkTask
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..*
-  targetName: workTasks
-- source: Design
-  target: WorkCostDetail
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..*
-  targetName: workCostDetails
-- source: Design
-  target: ErpBOM
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..*
-  targetName: erpBOMs
-- source: Design
-  target: ConditionFactor
-  sourceCardinality: 0..*
-  sourceName: designs
-  targetCardinality: 0..*
-  targetName: conditionFactors
-- source: Design
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: designs
-  targetCardinality: 0..1
-  targetName: work
-- source: Design
-  target: ErpQuoteLineItem
-  sourceCardinality: 0..1
-  sourceName: design
-  targetCardinality: 0..1
-  targetName: erpQuoteLineItem
-- source: Design
-  target: DesignLocation
-  sourceCardinality: 1..*
-  sourceName: designs
-  targetCardinality: 0..*
-  targetName: designLocations
-- source: Design
-  target: DesignLocationCU
-  sourceCardinality: 0..*
-  sourceName: designs
-  targetCardinality: 0..*
-  targetName: designLocationsCUs
+  - source: Design
+    target: ConditionFactor
+    sourceCardinality: 0..*
+    sourceName: designs
+    targetCardinality: 0..*
+    targetName: conditionFactors
+  - source: Design
+    target: DesignLocation
+    sourceCardinality: 1..*
+    sourceName: designs
+    targetCardinality: 0..*
+    targetName: designLocations
+  - source: Design
+    target: DesignLocationCU
+    sourceCardinality: 0..*
+    sourceName: designs
+    targetCardinality: 0..*
+    targetName: designLocationsCUs
+  - source: Design
+    target: ErpBOM
+    sourceCardinality: 0..1
+    sourceName: design
+    targetCardinality: 0..*
+    targetName: erpBOMs
+  - source: Design
+    target: ErpQuoteLineItem
+    sourceCardinality: 0..1
+    sourceName: design
+    targetCardinality: 0..1
+    targetName: erpQuoteLineItem
+  - source: Design
+    target: Work
+    sourceCardinality: 0..*
+    sourceName: designs
+    targetCardinality: 0..1
+    targetName: work
+  - source: Design
+    target: WorkCostDetail
+    sourceCardinality: 0..1
+    sourceName: design
+    targetCardinality: 0..*
+    targetName: workCostDetails
+  - source: Design
+    target: OldWorkTask
+    sourceCardinality: 0..1
+    sourceName: design
+    targetCardinality: 0..*
+    targetName: workTasks

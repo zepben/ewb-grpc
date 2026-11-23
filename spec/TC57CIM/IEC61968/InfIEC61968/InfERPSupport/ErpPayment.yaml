@@ -1,29 +1,31 @@
 name: ErpPayment
-description: Payment infromation and status for any individual line item of an ErpInvoice (e.g., when payment is from a customer).
-  ErpPayable is also updated when payment is to a supplier and ErpReceivable is updated when payment is from a customer. Multiple
-  payments can be made against a single line item and an individual payment can apply to more that one line item.
+description: >-
+  Payment infromation and status for any individual line item of an ErpInvoice (e.g., when payment is from a customer).
+  ErpPayable is also updated when payment is to a supplier and ErpReceivable is updated when payment is from a customer.
+  Multiple payments can be made against a single line item and an individual payment can apply to more that one line
+  item.
 attributes:
-- name: termsPayment
-  type: String
-  description: Payment terms (e.g., net 30).
+  - name: termsPayment
+    type: String
+    description: Payment terms (e.g., net 30).
 ancestors:
-- ErpDocument
+  - ErpDocument
 associations:
-- source: ErpPayment
-  target: ErpRecLineItem
-  sourceCardinality: 0..*
-  sourceName: erpPayments
-  targetCardinality: 0..*
-  targetName: erpRecLineItems
-- source: ErpPayment
-  target: ErpPayableLineItem
-  sourceCardinality: 0..*
-  sourceName: erpPayments
-  targetCardinality: 0..*
-  targetName: erpPayableLineItems
-- source: ErpPayment
-  target: ErpInvoiceLineItem
-  sourceCardinality: 0..*
-  sourceName: erpPayments
-  targetCardinality: 0..*
-  targetName: erpInvoiceLineItems
+  - source: ErpPayment
+    target: ErpInvoiceLineItem
+    sourceCardinality: 0..*
+    sourceName: erpPayments
+    targetCardinality: 0..*
+    targetName: erpInvoiceLineItems
+  - source: ErpPayment
+    target: ErpPayableLineItem
+    sourceCardinality: 0..*
+    sourceName: erpPayments
+    targetCardinality: 0..*
+    targetName: erpPayableLineItems
+  - source: ErpPayment
+    target: ErpRecLineItem
+    sourceCardinality: 0..*
+    sourceName: erpPayments
+    targetCardinality: 0..*
+    targetName: erpRecLineItems

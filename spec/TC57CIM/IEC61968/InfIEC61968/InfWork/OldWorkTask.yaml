@@ -1,71 +1,71 @@
 name: OldWorkTask
 description: A set of tasks is required to implement a design.
 ancestors:
-- WorkTask
+  - WorkTask
 associations:
-- source: OldWorkTask
-  target: OverheadCost
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  targetCardinality: 0..1
-  targetName: overheadCost
-- source: OldWorkTask
-  target: QualificationRequirement
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  targetCardinality: 0..*
-  targetName: qualificationRequirements
-- source: OldWorkTask
-  target: Usage
-  sourceCardinality: 0..1
-  sourceName: workTask
-  targetCardinality: 0..*
-  targetName: usages
-- source: OldWorkTask
-  target: MiscCostItem
-  sourceCardinality: 0..1
-  sourceName: workTask
-  targetCardinality: 0..*
-  targetName: miscCostItems
-- source: OldWorkTask
-  target: LaborItem
-  sourceCardinality: 0..1
-  sourceName: workTask
-  targetCardinality: 0..*
-  targetName: laborItems
-- source: OldWorkTask
-  target: ContractorItem
-  sourceCardinality: 0..1
-  sourceName: workTask
-  targetCardinality: 0..*
-  targetName: contractorItems
-- source: OldWorkTask
-  target: WorkFlowStep
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  targetCardinality: 0..1
-  targetName: workFlowStep
-- source: OldWorkTask
-  target: WorkCostDetail
-  sourceCardinality: 0..1
-  sourceName: workTask
-  targetCardinality: 0..*
-  targetName: workCostDetails
-- source: OldWorkTask
-  target: DesignLocationCU
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  targetCardinality: 0..*
-  targetName: designLocationCUs
-- source: OldWorkTask
-  target: Design
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  targetCardinality: 0..1
-  targetName: design
-- source: OldWorkTask
-  target: Capability
-  sourceCardinality: 0..*
-  sourceName: workTasks
-  targetCardinality: 0..*
-  targetName: capabilities
+  - source: OldWorkTask
+    target: Capability
+    sourceCardinality: 0..*
+    sourceName: workTasks
+    targetCardinality: 0..*
+    targetName: capabilities
+  - source: OldWorkTask
+    target: ContractorItem
+    sourceCardinality: 0..1
+    sourceName: workTask
+    targetCardinality: 0..*
+    targetName: contractorItems
+  - source: OldWorkTask
+    target: Design
+    sourceCardinality: 0..*
+    sourceName: workTasks
+    targetCardinality: 0..1
+    targetName: design
+  - source: OldWorkTask
+    target: DesignLocationCU
+    sourceCardinality: 0..*
+    sourceName: workTasks
+    targetCardinality: 0..*
+    targetName: designLocationCUs
+  - source: OldWorkTask
+    target: LaborItem
+    sourceCardinality: 0..1
+    sourceName: workTask
+    targetCardinality: 0..*
+    targetName: laborItems
+  - source: OldWorkTask
+    target: MiscCostItem
+    sourceCardinality: 0..1
+    sourceName: workTask
+    targetCardinality: 0..*
+    targetName: miscCostItems
+  - source: OldWorkTask
+    target: OverheadCost
+    sourceCardinality: 0..*
+    sourceName: workTasks
+    targetCardinality: 0..1
+    targetName: overheadCost
+  - source: OldWorkTask
+    target: QualificationRequirement
+    sourceCardinality: 0..*
+    sourceName: workTasks
+    targetCardinality: 0..*
+    targetName: qualificationRequirements
+  - source: OldWorkTask
+    target: Usage
+    sourceCardinality: 0..1
+    sourceName: workTask
+    targetCardinality: 0..*
+    targetName: usages
+  - source: OldWorkTask
+    target: WorkCostDetail
+    sourceCardinality: 0..1
+    sourceName: workTask
+    targetCardinality: 0..*
+    targetName: workCostDetails
+  - source: OldWorkTask
+    target: WorkFlowStep
+    sourceCardinality: 0..*
+    sourceName: workTasks
+    targetCardinality: 0..1
+    targetName: workFlowStep

@@ -1,13 +1,13 @@
 name: DCLine
 description: Overhead lines and/or cables connecting two or more HVDC substations.
 ancestors:
-- DCEquipmentContainer
+  - DCEquipmentContainer
 associations:
-- source: DCLine
-  target: SubGeographicalRegion
-  sourceCardinality: 0..*
-  sourceName: dcLines
-  sourceDescription: The DC lines in this sub-geographical region.
-  targetCardinality: 0..1
-  targetName: region
-  targetDescription: The SubGeographicalRegion containing the DC line.
+  - source: DCLine
+    target: SubGeographicalRegion
+    sourceCardinality: 0..*
+    sourceName: dcLines
+    sourceDescription: The DC lines in this sub-geographical region.
+    targetCardinality: 0..1
+    targetName: region
+    targetDescription: The SubGeographicalRegion containing the DC line.

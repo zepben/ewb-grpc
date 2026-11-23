@@ -1,15 +1,16 @@
 name: DiagramObjectStyle
-description: A reference to a style used by the originating system for a diagram object.  A diagram object style describes
+description: >-
+  A reference to a style used by the originating system for a diagram object.  A diagram object style describes
   information such as line thickness, shape such as circle or rectangle etc, and colour.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: DiagramObjectStyle
-  target: DiagramObject
-  sourceCardinality: 0..1
-  sourceName: diagramObjectStyle
-  sourceDescription: A diagram object has a style associated that provides a reference for the style used in the originating
-    system.
-  targetCardinality: 0..*
-  targetName: styledObjects
-  targetDescription: A style can be assigned to multiple diagram objects.
+  - source: DiagramObjectStyle
+    target: DiagramObject
+    sourceCardinality: 0..1
+    sourceName: diagramObjectStyle
+    sourceDescription: >-
+      A diagram object has a style associated that provides a reference for the style used in the originating system.
+    targetCardinality: 0..*
+    targetName: styledObjects
+    targetDescription: A style can be assigned to multiple diagram objects.

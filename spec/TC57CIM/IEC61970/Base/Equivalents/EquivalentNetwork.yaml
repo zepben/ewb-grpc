@@ -1,15 +1,16 @@
 name: EquivalentNetwork
-description: A class that groups electrical equivalents, including internal nodes, of a network that has been reduced. The
-  ConnectivityNodes contained in the equivalent are intended to reflect internal nodes of the equivalent. The boundary Connectivity
-  nodes where the equivalent connects outside itself are not contained by the equivalent.
+description: >-
+  A class that groups electrical equivalents, including internal nodes, of a network that has been reduced. The
+  ConnectivityNodes contained in the equivalent are intended to reflect internal nodes of the equivalent. The boundary
+  Connectivity nodes where the equivalent connects outside itself are not contained by the equivalent.
 ancestors:
-- ConnectivityNodeContainer
+  - ConnectivityNodeContainer
 associations:
-- source: EquivalentNetwork
-  target: EquivalentEquipment
-  sourceCardinality: 0..1
-  sourceName: equivalentNetwork
-  sourceDescription: The equivalent where the reduced model belongs.
-  targetCardinality: 0..*
-  targetName: equivalentEquipments
-  targetDescription: The associated reduced equivalents.
+  - source: EquivalentNetwork
+    target: EquivalentEquipment
+    sourceCardinality: 0..1
+    sourceName: equivalentNetwork
+    sourceDescription: The equivalent where the reduced model belongs.
+    targetCardinality: 0..*
+    targetName: equivalentEquipments
+    targetDescription: The associated reduced equivalents.

@@ -1,15 +1,15 @@
 name: MktPSRType
 description: The type of a power system resource.
 attributes:
-- name: psrType
-  type: String
-  description: The coded type of a power system resource.
+  - name: psrType
+    type: String
+    description: The coded type of a power system resource.
 ancestors:
-- PSRType
+  - PSRType
 associations:
-- source: MktPSRType
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: mktPSRType
-  targetCardinality: 0..*
-  targetName: timeSeries
+  - source: MktPSRType
+    target: TimeSeries
+    sourceCardinality: 0..*
+    sourceName: mktPSRType
+    targetCardinality: 0..*
+    targetName: timeSeries

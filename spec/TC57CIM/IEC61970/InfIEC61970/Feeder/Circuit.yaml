@@ -1,17 +1,17 @@
 name: Circuit
 description: ""
 ancestors:
-- Line
+  - Line
 associations:
-- source: Circuit
-  target: Terminal
-  sourceCardinality: 0..1
-  sourceName: circuit
-  targetCardinality: 0..*
-  targetName: endTerminal
-- source: Circuit
-  target: Bay
-  sourceCardinality: 0..1
-  sourceName: circuit
-  targetCardinality: 0..*
-  targetName: endBay
+  - source: Circuit
+    target: Bay
+    sourceCardinality: 0..1
+    sourceName: circuit
+    targetCardinality: 0..*
+    targetName: endBay
+  - source: Circuit
+    target: Terminal
+    sourceCardinality: 0..1
+    sourceName: circuit
+    targetCardinality: 0..*
+    targetName: endTerminal

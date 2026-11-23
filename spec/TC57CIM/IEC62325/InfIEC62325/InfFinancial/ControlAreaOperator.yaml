@@ -1,22 +1,23 @@
 name: ControlAreaOperator
-description: Operates the Control Area. Approves and implements energy transactions. Verifies both Inter-Control Area and
+description: >-
+  Operates the Control Area. Approves and implements energy transactions. Verifies both Inter-Control Area and
   Intra-Control Area transactions for the power system  before granting approval (and implementing) the transactions.
 ancestors:
-- Organisation
+  - Organisation
 associations:
-- source: ControlAreaOperator
-  target: TieLine
-  sourceCardinality: 0..*
-  sourceName: parentOfA
-  sourceDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
-  targetCardinality: 0..*
-  targetName: caChildOf
-  targetDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
-- source: ControlAreaOperator
-  target: HostControlArea
-  sourceCardinality: "1"
-  sourceName: controls
-  sourceDescription: A ControlAreaCompany controls a ControlArea.
-  targetCardinality: "1"
-  targetName: controlledBy
-  targetDescription: A ControlAreaCompany controls a ControlArea.
+  - source: ControlAreaOperator
+    target: TieLine
+    sourceCardinality: 0..*
+    sourceName: parentOfA
+    sourceDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
+    targetCardinality: 0..*
+    targetName: caChildOf
+    targetDescription: A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.
+  - source: ControlAreaOperator
+    target: HostControlArea
+    sourceCardinality: "1"
+    sourceName: controls
+    sourceDescription: A ControlAreaCompany controls a ControlArea.
+    targetCardinality: "1"
+    targetName: controlledBy
+    targetDescription: A ControlAreaCompany controls a ControlArea.

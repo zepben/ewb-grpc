@@ -1,32 +1,36 @@
 name: Clamp
-description: "A Clamp is a galvanic connection at a line segment where other equipment is connected. A Clamp does not cut\
-  \ the line segment. \nA Clamp is ConductingEquipment and has one Terminal with an associated ConnectivityNode. Any other\
-  \ ConductingEquipment can be connected to the Clamp ConnectivityNode."
+description: >-
+  A Clamp is a galvanic connection at a line segment where other equipment is connected. A Clamp does not cut the line
+  segment.
+
+  A Clamp is ConductingEquipment and has one Terminal with an associated ConnectivityNode. Any other ConductingEquipment
+  can be connected to the Clamp ConnectivityNode.
 attributes:
-- name: lengthFromTerminal1
-  type: Length
-  description: The length to the place where the clamp is located starting from side one of the line segment, i.e. the line
-    segment terminal with sequence number equal to 1.
+  - name: lengthFromTerminal1
+    type: Length
+    description: >-
+      The length to the place where the clamp is located starting from side one of the line segment, i.e. the line
+      segment terminal with sequence number equal to 1.
 ancestors:
-- ConductingEquipment
+  - ConductingEquipment
 associations:
-- source: Clamp
-  target: JumperAction
-  sourceCardinality: 0..1
-  sourceName: clamp
-  targetCardinality: 0..1
-  targetName: jumperAction
-- source: Clamp
-  target: ClampAction
-  sourceCardinality: 0..1
-  sourceName: clamp
-  targetCardinality: 0..1
-  targetName: clampAction
-- source: Clamp
-  target: ACLineSegment
-  sourceCardinality: 0..*
-  sourceName: clamp
-  sourceDescription: The clamps connected to the line segment.
-  targetCardinality: "1"
-  targetName: acLineSegment
-  targetDescription: The line segment to which the clamp is connected.
+  - source: Clamp
+    target: ACLineSegment
+    sourceCardinality: 0..*
+    sourceName: clamp
+    sourceDescription: The clamps connected to the line segment.
+    targetCardinality: "1"
+    targetName: acLineSegment
+    targetDescription: The line segment to which the clamp is connected.
+  - source: Clamp
+    target: ClampAction
+    sourceCardinality: 0..1
+    sourceName: clamp
+    targetCardinality: 0..1
+    targetName: clampAction
+  - source: Clamp
+    target: JumperAction
+    sourceCardinality: 0..1
+    sourceName: clamp
+    targetCardinality: 0..1
+    targetName: jumperAction

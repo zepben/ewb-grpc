@@ -1,15 +1,15 @@
 name: ClampAction
 description: Action on Clamp as a switching step
 attributes:
-- name: kind
-  type: TempEquipActionKind
-  description: Switching action to perform
+  - name: kind
+    type: TempEquipActionKind
+    description: Switching action to perform
 ancestors:
-- SwitchingAction
+  - SwitchingAction
 associations:
-- source: ClampAction
-  target: Clamp
-  sourceCardinality: 0..1
-  sourceName: clampAction
-  targetCardinality: 0..1
-  targetName: clamp
+  - source: ClampAction
+    target: Clamp
+    sourceCardinality: 0..1
+    sourceName: clampAction
+    targetCardinality: 0..1
+    targetName: clamp

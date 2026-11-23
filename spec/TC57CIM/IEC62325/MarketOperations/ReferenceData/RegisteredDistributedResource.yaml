@@ -1,23 +1,25 @@
 name: RegisteredDistributedResource
-description: A registered resource that represents a distributed energy resource, such as a micro-generator, fuel cell, photo-voltaic
-  energy source, etc.
+description: >-
+  A registered resource that represents a distributed energy resource, such as a micro-generator, fuel cell,
+  photo-voltaic energy source, etc.
 attributes:
-- name: distributedResourceType
-  type: String
-  description: 'The type of resource. Examples include: fuel cell, flywheel, photovoltaic, micro-turbine, CHP (combined heat
-    power), V2G (vehicle to grid), DES (distributed energy storage), and others.'
+  - name: distributedResourceType
+    type: String
+    description: >-
+      The type of resource. Examples include: fuel cell, flywheel, photovoltaic, micro-turbine, CHP (combined heat
+      power), V2G (vehicle to grid), DES (distributed energy storage), and others.
 ancestors:
-- RegisteredResource
+  - RegisteredResource
 associations:
-- source: RegisteredDistributedResource
-  target: ResponseMethod
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: responseMethods
-- source: RegisteredDistributedResource
-  target: ResourcePerformanceRating
-  sourceCardinality: "1"
-  sourceName: registeredResource
-  targetCardinality: 0..*
-  targetName: resourcePerformanceRatings
+  - source: RegisteredDistributedResource
+    target: ResourcePerformanceRating
+    sourceCardinality: "1"
+    sourceName: registeredResource
+    targetCardinality: 0..*
+    targetName: resourcePerformanceRatings
+  - source: RegisteredDistributedResource
+    target: ResponseMethod
+    sourceCardinality: "1"
+    sourceName: registeredResource
+    targetCardinality: 0..*
+    targetName: responseMethods

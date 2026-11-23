@@ -1,83 +1,84 @@
 name: WorkCostDetail
 description: A collection of all of the individual cost items collected from multiple sources.
 attributes:
-- name: amount
-  type: Money
-  description: 'Amount in designated currency for work, either a total or an individual element. As defined in the attribute
-    "type," multiple instances are applicable to each work for: planned cost, actual cost, authorized cost, budgeted cost,
-    forecasted cost, other.'
-- name: isDebit
-  type: Boolean
-  description: True if 'amount' is a debit, false if it is a credit.
-- name: transactionDateTime
-  type: DateTime
-  description: Date and time that 'amount' is posted to the work.
+  - name: amount
+    type: Money
+    description: >-
+      Amount in designated currency for work, either a total or an individual element. As defined in the attribute
+      "type," multiple instances are applicable to each work for: planned cost, actual cost, authorized cost, budgeted
+      cost, forecasted cost, other.
+  - name: isDebit
+    type: Boolean
+    description: True if 'amount' is a debit, false if it is a credit.
+  - name: transactionDateTime
+    type: DateTime
+    description: Date and time that 'amount' is posted to the work.
 ancestors:
-- WorkDocument
+  - WorkDocument
 associations:
-- source: WorkCostDetail
-  target: WorkCostSummary
-  sourceCardinality: 0..1
-  sourceName: workCostDetail
-  targetCardinality: 0..1
-  targetName: workCostSummary
-- source: WorkCostDetail
-  target: ErpProjectAccounting
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: "1"
-  targetName: erpProjectAccounting
-- source: WorkCostDetail
-  target: PropertyUnit
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..*
-  targetName: propertyUnits
-- source: WorkCostDetail
-  target: OldWorkTask
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..1
-  targetName: workTask
-- source: WorkCostDetail
-  target: ContractorItem
-  sourceCardinality: "1"
-  sourceName: workCostDetail
-  targetCardinality: 0..*
-  targetName: contractorItems
-- source: WorkCostDetail
-  target: Work
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..*
-  targetName: works
-- source: WorkCostDetail
-  target: OverheadCost
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..1
-  targetName: overheadCost
-- source: WorkCostDetail
-  target: MiscCostItem
-  sourceCardinality: 0..1
-  sourceName: workCostDetail
-  targetCardinality: 0..*
-  targetName: miscCostItems
-- source: WorkCostDetail
-  target: LaborItem
-  sourceCardinality: "1"
-  sourceName: workCostDetail
-  targetCardinality: 0..*
-  targetName: laborItems
-- source: WorkCostDetail
-  target: Design
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: 0..1
-  targetName: design
-- source: WorkCostDetail
-  target: CostType
-  sourceCardinality: 0..*
-  sourceName: workCostDetails
-  targetCardinality: "1"
-  targetName: costType
+  - source: WorkCostDetail
+    target: ContractorItem
+    sourceCardinality: "1"
+    sourceName: workCostDetail
+    targetCardinality: 0..*
+    targetName: contractorItems
+  - source: WorkCostDetail
+    target: CostType
+    sourceCardinality: 0..*
+    sourceName: workCostDetails
+    targetCardinality: "1"
+    targetName: costType
+  - source: WorkCostDetail
+    target: Design
+    sourceCardinality: 0..*
+    sourceName: workCostDetails
+    targetCardinality: 0..1
+    targetName: design
+  - source: WorkCostDetail
+    target: ErpProjectAccounting
+    sourceCardinality: 0..*
+    sourceName: workCostDetails
+    targetCardinality: "1"
+    targetName: erpProjectAccounting
+  - source: WorkCostDetail
+    target: LaborItem
+    sourceCardinality: "1"
+    sourceName: workCostDetail
+    targetCardinality: 0..*
+    targetName: laborItems
+  - source: WorkCostDetail
+    target: MiscCostItem
+    sourceCardinality: 0..1
+    sourceName: workCostDetail
+    targetCardinality: 0..*
+    targetName: miscCostItems
+  - source: WorkCostDetail
+    target: OverheadCost
+    sourceCardinality: 0..*
+    sourceName: workCostDetails
+    targetCardinality: 0..1
+    targetName: overheadCost
+  - source: WorkCostDetail
+    target: PropertyUnit
+    sourceCardinality: 0..*
+    sourceName: workCostDetails
+    targetCardinality: 0..*
+    targetName: propertyUnits
+  - source: WorkCostDetail
+    target: WorkCostSummary
+    sourceCardinality: 0..1
+    sourceName: workCostDetail
+    targetCardinality: 0..1
+    targetName: workCostSummary
+  - source: WorkCostDetail
+    target: Work
+    sourceCardinality: 0..*
+    sourceName: workCostDetails
+    targetCardinality: 0..*
+    targetName: works
+  - source: WorkCostDetail
+    target: OldWorkTask
+    sourceCardinality: 0..*
+    sourceName: workCostDetails
+    targetCardinality: 0..1
+    targetName: workTask

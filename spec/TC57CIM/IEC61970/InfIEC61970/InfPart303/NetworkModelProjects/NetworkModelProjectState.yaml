@@ -1,14 +1,15 @@
 name: NetworkModelProjectState
-description: A network model project version state.  States are agreed upon by the exchange community.  Examples are "approved",
+description: >-
+  A network model project version state.  States are agreed upon by the exchange community.  Examples are "approved",
   "proposed", "withdrawn", "committed" etc.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: NetworkModelProjectState
-  target: NetworkModelProjectChangeVersion
-  sourceCardinality: 0..1
-  sourceName: networkModelProjectState
-  sourceDescription: The state of this network model project version.
-  targetCardinality: 0..*
-  targetName: networkModelProjectChangeVersion
-  targetDescription: The change versions that are at this state.
+  - source: NetworkModelProjectState
+    target: NetworkModelProjectChangeVersion
+    sourceCardinality: 0..1
+    sourceName: networkModelProjectState
+    sourceDescription: The state of this network model project version.
+    targetCardinality: 0..*
+    targetName: networkModelProjectChangeVersion
+    targetDescription: The change versions that are at this state.

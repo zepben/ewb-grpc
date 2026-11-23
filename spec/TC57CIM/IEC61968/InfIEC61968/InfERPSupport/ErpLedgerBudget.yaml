@@ -1,12 +1,13 @@
 name: ErpLedgerBudget
-description: Information for utility Ledger Budgets. They support the transfer budget amounts between all possible source
+description: >-
+  Information for utility Ledger Budgets. They support the transfer budget amounts between all possible source
   applications throughout an enterprise and a general ledger or budget application.
 ancestors:
-- ErpDocument
+  - ErpDocument
 associations:
-- source: ErpLedgerBudget
-  target: ErpLedBudLineItem
-  sourceCardinality: "1"
-  sourceName: erpLedgerBudget
-  targetCardinality: 0..*
-  targetName: erpLedBudLineItems
+  - source: ErpLedgerBudget
+    target: ErpLedBudLineItem
+    sourceCardinality: "1"
+    sourceName: erpLedgerBudget
+    targetCardinality: 0..*
+    targetName: erpLedBudLineItems

@@ -1,35 +1,36 @@
 name: ServicePoint
-description: The defined termination points of a transmission path. Service points are defined from the viewpoint of the transmission
-  service. Each service point is contained within (or on the boundary of) an interchange area. A service point is source or
-  destination of a transaction.
+description: >-
+  The defined termination points of a transmission path. Service points are defined from the viewpoint of the
+  transmission service. Each service point is contained within (or on the boundary of) an interchange area. A service
+  point is source or destination of a transaction.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: ServicePoint
-  target: TransmissionPath
-  sourceCardinality: "1"
-  sourceName: pointOfReceipt
-  sourceDescription: A transmission path has a "point-of-receipt" service point
-  targetCardinality: 0..*
-  targetName: porTransmissionPath
-  targetDescription: A transmission path has a "point-of-receipt" service point
-- source: ServicePoint
-  target: TransmissionPath
-  sourceCardinality: "1"
-  sourceName: deliveryPoint
-  sourceDescription: A transmission path has a "point-of-delivery" service point
-  targetCardinality: 0..*
-  targetName: podTransmissionPath
-  targetDescription: A transmission path has a "point-of-delivery" service point
-- source: ServicePoint
-  target: TransmissionReservation
-  sourceCardinality: 0..1
-  sourceName: source
-  targetCardinality: 0..*
-  targetName: sourceReservation
-- source: ServicePoint
-  target: TransmissionReservation
-  sourceCardinality: 0..1
-  sourceName: sink
-  targetCardinality: 0..*
-  targetName: sinkReservation
+  - source: ServicePoint
+    target: TransmissionPath
+    sourceCardinality: "1"
+    sourceName: deliveryPoint
+    sourceDescription: A transmission path has a "point-of-delivery" service point
+    targetCardinality: 0..*
+    targetName: podTransmissionPath
+    targetDescription: A transmission path has a "point-of-delivery" service point
+  - source: ServicePoint
+    target: TransmissionPath
+    sourceCardinality: "1"
+    sourceName: pointOfReceipt
+    sourceDescription: A transmission path has a "point-of-receipt" service point
+    targetCardinality: 0..*
+    targetName: porTransmissionPath
+    targetDescription: A transmission path has a "point-of-receipt" service point
+  - source: ServicePoint
+    target: TransmissionReservation
+    sourceCardinality: 0..1
+    sourceName: sink
+    targetCardinality: 0..*
+    targetName: sinkReservation
+  - source: ServicePoint
+    target: TransmissionReservation
+    sourceCardinality: 0..1
+    sourceName: source
+    targetCardinality: 0..*
+    targetName: sourceReservation

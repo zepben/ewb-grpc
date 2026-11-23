@@ -1,34 +1,35 @@
 name: TransmissionReservation
-description: A transmission reservation is obtained from the OASIS system to reserve transmission for a specified time period,
+description: >-
+  A transmission reservation is obtained from the OASIS system to reserve transmission for a specified time period,
   transmission path and transmission product.
 associations:
-- source: TransmissionReservation
-  target: TransactionBid
-  sourceCardinality: 0..1
-  sourceName: transmissionReservation
-  targetCardinality: 0..1
-  targetName: transactionBid
-- source: TransmissionReservation
-  target: EnergyTransaction
-  sourceCardinality: 0..1
-  sourceName: transmissionReservation
-  targetCardinality: 0..1
-  targetName: energyTransaction
-- source: TransmissionReservation
-  target: TransmissionPath
-  sourceCardinality: 0..*
-  sourceName: transmissionReservation
-  targetCardinality: "1"
-  targetName: transmissionPath
-- source: TransmissionReservation
-  target: ServicePoint
-  sourceCardinality: 0..*
-  sourceName: sourceReservation
-  targetCardinality: 0..1
-  targetName: source
-- source: TransmissionReservation
-  target: ServicePoint
-  sourceCardinality: 0..*
-  sourceName: sinkReservation
-  targetCardinality: 0..1
-  targetName: sink
+  - source: TransmissionReservation
+    target: EnergyTransaction
+    sourceCardinality: 0..1
+    sourceName: transmissionReservation
+    targetCardinality: 0..1
+    targetName: energyTransaction
+  - source: TransmissionReservation
+    target: ServicePoint
+    sourceCardinality: 0..*
+    sourceName: sinkReservation
+    targetCardinality: 0..1
+    targetName: sink
+  - source: TransmissionReservation
+    target: ServicePoint
+    sourceCardinality: 0..*
+    sourceName: sourceReservation
+    targetCardinality: 0..1
+    targetName: source
+  - source: TransmissionReservation
+    target: TransactionBid
+    sourceCardinality: 0..1
+    sourceName: transmissionReservation
+    targetCardinality: 0..1
+    targetName: transactionBid
+  - source: TransmissionReservation
+    target: TransmissionPath
+    sourceCardinality: 0..*
+    sourceName: transmissionReservation
+    targetCardinality: "1"
+    targetName: transmissionPath

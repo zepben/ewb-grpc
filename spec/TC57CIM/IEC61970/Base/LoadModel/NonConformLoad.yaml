@@ -1,14 +1,15 @@
 name: NonConformLoad
-description: NonConformLoad represents loads that do not follow a daily load change pattern and whose changes are not correlated
+description: >-
+  NonConformLoad represents loads that do not follow a daily load change pattern and whose changes are not correlated
   with the daily load change pattern.
 ancestors:
-- EnergyConsumer
+  - EnergyConsumer
 associations:
-- source: NonConformLoad
-  target: NonConformLoadGroup
-  sourceCardinality: 0..*
-  sourceName: energyConsumers
-  sourceDescription: Conform loads assigned to this ConformLoadGroup.
-  targetCardinality: 0..1
-  targetName: loadGroup
-  targetDescription: Group of this ConformLoad.
+  - source: NonConformLoad
+    target: NonConformLoadGroup
+    sourceCardinality: 0..*
+    sourceName: energyConsumers
+    sourceDescription: Conform loads assigned to this ConformLoadGroup.
+    targetCardinality: 0..1
+    targetName: loadGroup
+    targetDescription: Group of this ConformLoad.

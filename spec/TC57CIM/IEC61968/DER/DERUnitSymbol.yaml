@@ -1,72 +1,113 @@
 name: DERUnitSymbol
+type: enum
 description: The units defined for usage in the CIM.
 attributes:
-- name: s
-  description: Time in seconds.
-- name: A
-  description: Current in Ampere.
-- name: deg
-  description: Plane angle in degrees.
-- name: degC
-  description: |-
-    Relative temperature in degrees Celsius.
-    In the SI unit system the symbol is ºC. Electric charge is measured in coulomb that has the unit symbol C. To distinguish degree Celsius form coulomb the symbol used in the UML is degC. Reason for not using ºC is the special character º is difficult to manage in software.
-- name: V
-  description: Electric potential in Volt (W/A).
-- name: ohm
-  description: Electric resistance in ohm (V/A).
-- name: Hz
-  description: Frequency in Hertz (1/s).
-- name: W
-  description: Real power in Watt (J/s). Electrical power may have real and reactive components. The real portion of electrical
-    power (I²R or VIcos(phi)), is expressed in Watts. (See also apparent power and reactive power.)
-- name: VA
-  description: Apparent power in Volt Ampere (See also real power and reactive power.)
-- name: VAr
-  description: |-
-    Reactive power in Volt Ampere reactive. The “reactive” or “imaginary” component of electrical power (VIsin(phi)). (See also real power and apparent power).
-    Note: Different meter designs use different methods to arrive at their results. Some meters may compute reactive power as an arithmetic value, while others compute the value vectorially. The data consumer should determine the method in use and the suitability of the measurement for the intended purpose.
-- name: Vs
-  description: Volt second (Ws/A).
-- name: As
-  description: Ampere seconds (A·s).
-- name: VAh
-  description: Apparent energy in Volt Ampere hours.
-- name: Wh
-  description: Real energy in Watt hours.
-- name: VArh
-  description: Reactive energy in Volt Ampere reactive hours.
-- name: WPers
-  description: Ramp rate in Watt per second.
-- name: h
-  description: Time, hour = 60 min = 3600 s.
-- name: min
-  description: Time, minute  = 60 s.
-- name: Q
-  description: Quantity power, Q.
-- name: Qh
-  description: Quantity energy, Qh.
-- name: ohmm
-  description: resistivity, Ohm metre, (rho).
-- name: Ah
-  description: Ampere-hours, Ampere-hours.
-- name: Btu
-  description: Energy, British Thermal Unit.
-- name: VPerVA
-  description: 'Power factor, PF, the ratio of the active power to the apparent power. Note: The sign convention used for
-    power factor will differ between IEC meters and EEI (ANSI) meters. It is assumed that the data consumers understand the
-    type of meter being used and agree on the sign convention in use at any given utility.'
-- name: therm
-  description: Energy, Therm.
-- name: Vh
-  description: Volt-hour, Volt hours.
-- name: WPerA
-  description: Active power per current flow, watt per Ampere.
-- name: onePerHz
-  description: Reciprocal of frequency (1/Hz).
-- name: VPerVAr
-  description: 'Power factor, PF, the ratio of the active power to the apparent power. Note: The sign convention used for
-    power factor will differ between IEC meters and EEI (ANSI) meters. It is assumed that the data consumers understand the
-    type of meter being used and agree on the sign convention in use at any given utility.'
-- name: ohmPerm
-  description: Electric resistance per length in ohm per metre ((V/A)/m).
+  - name: A
+    type: enum
+    description: Current in Ampere.
+  - name: Ah
+    type: enum
+    description: Ampere-hours, Ampere-hours.
+  - name: As
+    type: enum
+    description: Ampere seconds (A·s).
+  - name: Btu
+    type: enum
+    description: Energy, British Thermal Unit.
+  - name: deg
+    type: enum
+    description: Plane angle in degrees.
+  - name: degC
+    type: enum
+    description: >-
+      Relative temperature in degrees Celsius.
+
+      In the SI unit system the symbol is ºC. Electric charge is measured in coulomb that has the unit symbol C. To
+      distinguish degree Celsius form coulomb the symbol used in the UML is degC. Reason for not using ºC is the special
+      character º is difficult to manage in software.
+  - name: h
+    type: enum
+    description: Time, hour = 60 min = 3600 s.
+  - name: Hz
+    type: enum
+    description: Frequency in Hertz (1/s).
+  - name: min
+    type: enum
+    description: Time, minute  = 60 s.
+  - name: ohm
+    type: enum
+    description: Electric resistance in ohm (V/A).
+  - name: ohmm
+    type: enum
+    description: resistivity, Ohm metre, (rho).
+  - name: ohmPerm
+    type: enum
+    description: Electric resistance per length in ohm per metre ((V/A)/m).
+  - name: onePerHz
+    type: enum
+    description: Reciprocal of frequency (1/Hz).
+  - name: Q
+    type: enum
+    description: Quantity power, Q.
+  - name: Qh
+    type: enum
+    description: Quantity energy, Qh.
+  - name: s
+    type: enum
+    description: Time in seconds.
+  - name: therm
+    type: enum
+    description: Energy, Therm.
+  - name: V
+    type: enum
+    description: Electric potential in Volt (W/A).
+  - name: VA
+    type: enum
+    description: Apparent power in Volt Ampere (See also real power and reactive power.)
+  - name: VAh
+    type: enum
+    description: Apparent energy in Volt Ampere hours.
+  - name: VAr
+    type: enum
+    description: >-
+      Reactive power in Volt Ampere reactive. The “reactive” or “imaginary” component of electrical power (VIsin(phi)).
+      (See also real power and apparent power).
+
+      Note: Different meter designs use different methods to arrive at their results. Some meters may compute reactive
+      power as an arithmetic value, while others compute the value vectorially. The data consumer should determine the
+      method in use and the suitability of the measurement for the intended purpose.
+  - name: VArh
+    type: enum
+    description: Reactive energy in Volt Ampere reactive hours.
+  - name: Vh
+    type: enum
+    description: Volt-hour, Volt hours.
+  - name: VPerVA
+    type: enum
+    description: >-
+      Power factor, PF, the ratio of the active power to the apparent power. Note: The sign convention used for power
+      factor will differ between IEC meters and EEI (ANSI) meters. It is assumed that the data consumers understand the
+      type of meter being used and agree on the sign convention in use at any given utility.
+  - name: VPerVAr
+    type: enum
+    description: >-
+      Power factor, PF, the ratio of the active power to the apparent power. Note: The sign convention used for power
+      factor will differ between IEC meters and EEI (ANSI) meters. It is assumed that the data consumers understand the
+      type of meter being used and agree on the sign convention in use at any given utility.
+  - name: Vs
+    type: enum
+    description: Volt second (Ws/A).
+  - name: W
+    type: enum
+    description: >-
+      Real power in Watt (J/s). Electrical power may have real and reactive components. The real portion of electrical
+      power (I²R or VIcos(phi)), is expressed in Watts. (See also apparent power and reactive power.)
+  - name: Wh
+    type: enum
+    description: Real energy in Watt hours.
+  - name: WPerA
+    type: enum
+    description: Active power per current flow, watt per Ampere.
+  - name: WPers
+    type: enum
+    description: Ramp rate in Watt per second.

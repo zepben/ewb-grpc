@@ -1,29 +1,30 @@
 name: UnderexcitationLimiterDynamics
-description: Underexcitation limiter function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
-  by definition of a user-defined model.</font>
+description: >-
+  Underexcitation limiter function block whose behaviour is described by reference to a standard model <font
+  color="#0f0f0f">or by definition of a user-defined model.</font>
 ancestors:
-- DynamicsFunctionBlock
+  - DynamicsFunctionBlock
 descendants:
-- UnderexcitationLimiterUserDefined
-- UnderexcLimX2
-- UnderexcLimX1
-- UnderexcLim2Simplified
-- UnderexcLimIEEE2
-- UnderexcLimIEEE1
+  - UnderexcLim2Simplified
+  - UnderexcLimIEEE1
+  - UnderexcLimIEEE2
+  - UnderexcLimX1
+  - UnderexcLimX2
+  - UnderexcitationLimiterUserDefined
 associations:
-- source: UnderexcitationLimiterDynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  sourceName: underexcitationLimiterDynamics
-  sourceDescription: Undrexcitation limiter model associated with this excitation system model.
-  targetCardinality: "1"
-  targetName: excitationSystemDynamics
-  targetDescription: Excitation system model with which this underexcitation limiter model is associated.
-- source: UnderexcitationLimiterDynamics
-  target: RemoteInputSignal
-  sourceCardinality: 0..1
-  sourceName: underexcitationLimiterDynamics
-  sourceDescription: Underexcitation limiter model using this remote input signal.
-  targetCardinality: 0..1
-  targetName: remoteInputSignal
-  targetDescription: Remote input signal used by this underexcitation limiter model.
+  - source: UnderexcitationLimiterDynamics
+    target: ExcitationSystemDynamics
+    sourceCardinality: 0..1
+    sourceName: underexcitationLimiterDynamics
+    sourceDescription: Undrexcitation limiter model associated with this excitation system model.
+    targetCardinality: "1"
+    targetName: excitationSystemDynamics
+    targetDescription: Excitation system model with which this underexcitation limiter model is associated.
+  - source: UnderexcitationLimiterDynamics
+    target: RemoteInputSignal
+    sourceCardinality: 0..1
+    sourceName: underexcitationLimiterDynamics
+    sourceDescription: Underexcitation limiter model using this remote input signal.
+    targetCardinality: 0..1
+    targetName: remoteInputSignal
+    targetDescription: Remote input signal used by this underexcitation limiter model.

@@ -1,18 +1,23 @@
 name: EnvironmentalEvent
-description: "An environmental event to which one or more forecasts or observations may be tied and which may relate to or\
-  \ affect one or more assets.\nThis class is intended to be used as a means of grouping forecasts and/or observations and\
-  \ could be used for a variety of purposes, including:\n<ul>\n\t<li>to define a 'named' event like Hurricane Katrina and\
-  \ allow the historic (or forecast) values for phenomena and measurements (precipitation, temperature) across time to be\
-  \  associated with it</li>\n\t<li>to identify assets that were (or are forecast to be) affected by a phenomenon or set of\
-  \ measurements</li>\n</ul>"
+description: >-
+  An environmental event to which one or more forecasts or observations may be tied and which may relate to or affect
+  one or more assets.
+
+  This class is intended to be used as a means of grouping forecasts and/or observations and could be used for a variety
+  of purposes, including:
+
+  <ul>
+  	<li>to define a 'named' event like Hurricane Katrina and allow the historic (or forecast) values for phenomena and measurements (precipitation, temperature) across time to be  associated with it</li>
+  	<li>to identify assets that were (or are forecast to be) affected by a phenomenon or set of measurements</li>
+  </ul>
 ancestors:
-- ActivityRecord
+  - ActivityRecord
 associations:
-- source: EnvironmentalEvent
-  target: EnvironmentalInformation
-  sourceCardinality: 0..*
-  sourceName: environmentalEvent
-  sourceDescription: Environmental event to which this forecast or observation relates.
-  targetCardinality: 0..*
-  targetName: environmentalInformation
-  targetDescription: Forecast or observation related to this environmental event.
+  - source: EnvironmentalEvent
+    target: EnvironmentalInformation
+    sourceCardinality: 0..*
+    sourceName: environmentalEvent
+    sourceDescription: Environmental event to which this forecast or observation relates.
+    targetCardinality: 0..*
+    targetName: environmentalInformation
+    targetDescription: Forecast or observation related to this environmental event.

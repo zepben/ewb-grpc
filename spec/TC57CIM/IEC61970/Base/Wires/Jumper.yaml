@@ -1,14 +1,15 @@
 name: Jumper
-description: A short section of conductor with negligible impedance which can be manually removed and replaced if the circuit
-  is de-energized. Note that zero-impedance branches can potentially be modelled by other equipment types.
+description: >-
+  A short section of conductor with negligible impedance which can be manually removed and replaced if the circuit is
+  de-energized. Note that zero-impedance branches can potentially be modelled by other equipment types.
 ancestors:
-- Switch
+  - Switch
 associations:
-- source: Jumper
-  target: JumperAction
-  sourceCardinality: 0..1
-  sourceName: jumper
-  sourceDescription: Jumper on which this action is taken.
-  targetCardinality: 0..1
-  targetName: jumperAction
-  targetDescription: Action taken with this jumper.
+  - source: Jumper
+    target: JumperAction
+    sourceCardinality: 0..1
+    sourceName: jumper
+    sourceDescription: Jumper on which this action is taken.
+    targetCardinality: 0..1
+    targetName: jumperAction
+    targetDescription: Action taken with this jumper.

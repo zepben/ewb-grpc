@@ -1,14 +1,15 @@
 name: PhaseTapChangerTabular
-description: Describes a tap changer with a table defining the relation between the tap step and the phase angle difference
-  across the transformer.
+description: >-
+  Describes a tap changer with a table defining the relation between the tap step and the phase angle difference across
+  the transformer.
 ancestors:
-- PhaseTapChanger
+  - PhaseTapChanger
 associations:
-- source: PhaseTapChangerTabular
-  target: PhaseTapChangerTable
-  sourceCardinality: 0..*
-  sourceName: phaseTapChangerTabular
-  sourceDescription: The phase tap changers to which this phase tap table applies.
-  targetCardinality: 0..1
-  targetName: phaseTapChangerTable
-  targetDescription: The phase tap changer table for this phase tap changer.
+  - source: PhaseTapChangerTabular
+    target: PhaseTapChangerTable
+    sourceCardinality: 0..*
+    sourceName: phaseTapChangerTabular
+    sourceDescription: The phase tap changers to which this phase tap table applies.
+    targetCardinality: 0..1
+    targetName: phaseTapChangerTable
+    targetDescription: The phase tap changer table for this phase tap changer.

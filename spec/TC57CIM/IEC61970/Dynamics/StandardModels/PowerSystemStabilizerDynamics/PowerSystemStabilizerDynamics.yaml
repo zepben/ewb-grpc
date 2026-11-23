@@ -1,42 +1,43 @@
 name: PowerSystemStabilizerDynamics
-description: Power system stabilizer function block whose behaviour is described by reference to a standard model <font color="#0f0f0f">or
-  by definition of a user-defined model.</font>
+description: >-
+  Power system stabilizer function block whose behaviour is described by reference to a standard model <font
+  color="#0f0f0f">or by definition of a user-defined model.</font>
 ancestors:
-- DynamicsFunctionBlock
+  - DynamicsFunctionBlock
 descendants:
-- PowerSystemStabilizerUserDefined
-- PssWECC
-- PssSTAB2A
-- PssSK
-- PssSH
-- PssSB4
-- PssRQB
-- PssPTIST3
-- PssPTIST1
-- PssELIN2
-- Pss5
-- Pss2ST
-- Pss2B
-- Pss1A
-- Pss1
-- PssIEEE4B
-- PssIEEE3B
-- PssIEEE2B
-- PssIEEE1A
+  - PowerSystemStabilizerUserDefined
+  - Pss1
+  - Pss1A
+  - Pss2B
+  - Pss2ST
+  - Pss5
+  - PssELIN2
+  - PssIEEE1A
+  - PssIEEE2B
+  - PssIEEE3B
+  - PssIEEE4B
+  - PssPTIST1
+  - PssPTIST3
+  - PssRQB
+  - PssSB4
+  - PssSH
+  - PssSK
+  - PssSTAB2A
+  - PssWECC
 associations:
-- source: PowerSystemStabilizerDynamics
-  target: ExcitationSystemDynamics
-  sourceCardinality: 0..1
-  sourceName: powerSystemStabilizerDynamics
-  sourceDescription: Power system stabilizer model associated with this excitation system model.
-  targetCardinality: "1"
-  targetName: excitationSystemDynamics
-  targetDescription: Excitation system model with which this power system stabilizer model is associated.
-- source: PowerSystemStabilizerDynamics
-  target: RemoteInputSignal
-  sourceCardinality: 0..1
-  sourceName: powerSystemStabilizerDynamics
-  sourceDescription: Power system stabilizer model using this remote input signal.
-  targetCardinality: 0..*
-  targetName: remoteInputSignal
-  targetDescription: Remote input signal used by this power system stabilizer model.
+  - source: PowerSystemStabilizerDynamics
+    target: ExcitationSystemDynamics
+    sourceCardinality: 0..1
+    sourceName: powerSystemStabilizerDynamics
+    sourceDescription: Power system stabilizer model associated with this excitation system model.
+    targetCardinality: "1"
+    targetName: excitationSystemDynamics
+    targetDescription: Excitation system model with which this power system stabilizer model is associated.
+  - source: PowerSystemStabilizerDynamics
+    target: RemoteInputSignal
+    sourceCardinality: 0..1
+    sourceName: powerSystemStabilizerDynamics
+    sourceDescription: Power system stabilizer model using this remote input signal.
+    targetCardinality: 0..*
+    targetName: remoteInputSignal
+    targetDescription: Remote input signal used by this power system stabilizer model.

@@ -1,35 +1,35 @@
 name: CULaborItem
 description: Compatible unit labor item.
 attributes:
-- name: activityCode
-  type: String
-  description: ' Activity code identifies a specific and distinguishable unit of work.'
-- name: laborDuration
-  type: Hours
-  description: Estimated time to perform work.
-- name: laborRate
-  type: CostRate
-  description: ' The labor rate applied for work.'
-- name: status
-  type: Status
+  - name: activityCode
+    type: String
+    description: Activity code identifies a specific and distinguishable unit of work.
+  - name: laborDuration
+    type: Hours
+    description: Estimated time to perform work.
+  - name: laborRate
+    type: CostRate
+    description: The labor rate applied for work.
+  - name: status
+    type: Status
 ancestors:
-- WorkIdentifiedObject
+  - WorkIdentifiedObject
 associations:
-- source: CULaborItem
-  target: QualificationRequirement
-  sourceCardinality: 0..*
-  sourceName: cuLaborItems
-  targetCardinality: 0..*
-  targetName: qualificationRequirements
-- source: CULaborItem
-  target: CompatibleUnit
-  sourceCardinality: 0..*
-  sourceName: cuLaborItems
-  targetCardinality: 0..*
-  targetName: compatibleUnits
-- source: CULaborItem
-  target: CULaborCode
-  sourceCardinality: 0..*
-  sourceName: cuLaborItems
-  targetCardinality: 0..1
-  targetName: cuLaborCode
+  - source: CULaborItem
+    target: CompatibleUnit
+    sourceCardinality: 0..*
+    sourceName: cuLaborItems
+    targetCardinality: 0..*
+    targetName: compatibleUnits
+  - source: CULaborItem
+    target: CULaborCode
+    sourceCardinality: 0..*
+    sourceName: cuLaborItems
+    targetCardinality: 0..1
+    targetName: cuLaborCode
+  - source: CULaborItem
+    target: QualificationRequirement
+    sourceCardinality: 0..*
+    sourceName: cuLaborItems
+    targetCardinality: 0..*
+    targetName: qualificationRequirements

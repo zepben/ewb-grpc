@@ -1,14 +1,14 @@
 name: CUAllowableAction
-description: 'Allowed actions: Install, Remove, Transfer, Abandon, etc.'
+description: "Allowed actions: Install, Remove, Transfer, Abandon, etc."
 attributes:
-- name: status
-  type: Status
+  - name: status
+    type: Status
 ancestors:
-- WorkIdentifiedObject
+  - WorkIdentifiedObject
 associations:
-- source: CUAllowableAction
-  target: CompatibleUnit
-  sourceCardinality: 0..1
-  sourceName: cuAllowableAction
-  targetCardinality: 0..*
-  targetName: compatibleUnits
+  - source: CUAllowableAction
+    target: CompatibleUnit
+    sourceCardinality: 0..1
+    sourceName: cuAllowableAction
+    targetCardinality: 0..*
+    targetName: compatibleUnits

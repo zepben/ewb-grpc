@@ -1,28 +1,28 @@
 name: CAESPlant
 description: Compressed air energy storage plant.
 attributes:
-- name: energyStorageCapacity
-  type: RealEnergy
-  description: The rated energy storage capacity. The attribute shall be a positive value.
-- name: ratedCapacityP
-  type: ActivePower
-  description: The CAES plant's gross rated generating capacity. The attribute shall be a positive value.
+  - name: energyStorageCapacity
+    type: RealEnergy
+    description: The rated energy storage capacity. The attribute shall be a positive value.
+  - name: ratedCapacityP
+    type: ActivePower
+    description: The CAES plant's gross rated generating capacity. The attribute shall be a positive value.
 ancestors:
-- PowerSystemResource
+  - PowerSystemResource
 associations:
-- source: CAESPlant
-  target: ThermalGeneratingUnit
-  sourceCardinality: 0..1
-  sourceName: caesPlant
-  sourceDescription: A thermal generating unit may be a member of a compressed air energy storage plant.
-  targetCardinality: 0..1
-  targetName: thermalGeneratingUnit
-  targetDescription: A thermal generating unit may be a member of a compressed air energy storage plant.
-- source: CAESPlant
-  target: AirCompressor
-  sourceCardinality: "1"
-  sourceName: caesPlant
-  sourceDescription: An air compressor may be a member of a compressed air energy storage plant.
-  targetCardinality: "1"
-  targetName: airCompressor
-  targetDescription: An air compressor may be a member of a compressed air energy storage plant.
+  - source: CAESPlant
+    target: AirCompressor
+    sourceCardinality: "1"
+    sourceName: caesPlant
+    sourceDescription: An air compressor may be a member of a compressed air energy storage plant.
+    targetCardinality: "1"
+    targetName: airCompressor
+    targetDescription: An air compressor may be a member of a compressed air energy storage plant.
+  - source: CAESPlant
+    target: ThermalGeneratingUnit
+    sourceCardinality: 0..1
+    sourceName: caesPlant
+    sourceDescription: A thermal generating unit may be a member of a compressed air energy storage plant.
+    targetCardinality: 0..1
+    targetName: thermalGeneratingUnit
+    targetDescription: A thermal generating unit may be a member of a compressed air energy storage plant.

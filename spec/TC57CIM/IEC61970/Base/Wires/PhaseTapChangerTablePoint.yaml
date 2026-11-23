@@ -1,18 +1,19 @@
 name: PhaseTapChangerTablePoint
 description: Describes each tap step in the phase tap changer tabular curve.
 attributes:
-- name: angle
-  type: AngleDegrees
-  description: The angle difference in degrees. A positive value indicates a positive angle variation from the Terminal at
-    the  PowerTransformerEnd,  where the TapChanger is located, into the transformer.
+  - name: angle
+    type: AngleDegrees
+    description: >-
+      The angle difference in degrees. A positive value indicates a positive angle variation from the Terminal at
+      the  PowerTransformerEnd,  where the TapChanger is located, into the transformer.
 ancestors:
-- TapChangerTablePoint
+  - TapChangerTablePoint
 associations:
-- source: PhaseTapChangerTablePoint
-  target: PhaseTapChangerTable
-  sourceCardinality: 1..*
-  sourceName: phaseTapChangerTablePoint
-  sourceDescription: The points of this table.
-  targetCardinality: "1"
-  targetName: phaseTapChangerTable
-  targetDescription: The table of this point.
+  - source: PhaseTapChangerTablePoint
+    target: PhaseTapChangerTable
+    sourceCardinality: 1..*
+    sourceName: phaseTapChangerTablePoint
+    sourceDescription: The points of this table.
+    targetCardinality: "1"
+    targetName: phaseTapChangerTable
+    targetDescription: The table of this point.

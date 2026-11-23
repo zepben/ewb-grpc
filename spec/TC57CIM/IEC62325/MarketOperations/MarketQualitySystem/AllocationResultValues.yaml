@@ -1,32 +1,44 @@
 name: AllocationResultValues
 description: Models Market clearing results in terms of price and MW values.
 attributes:
-- name: aggregateType
-  type: String
-  description: |-
-    "1" --  "Detail",
-    "2" --  "Aggregate by Market service type", in which case, the "AllocationEnergyType" field will not be filled;
-    "3" --  "Aggregate by "AllocationEnergyType", in which case "MarketServiceType" will not be filled.
-- name: allocationMwHour
-  type: Float
-- name: allocationPrice
-  type: Float
-- name: energyTypeCode
-  type: String
-- name: marketServiceType
-  type: String
-  description: "Choices are: \nME - Market Energy Capacity; \nSR - Spinning Reserve Capacity; \nNR - Non-Spinning Reserve\
-    \ Capacity; \nDAC - Day Ahead Capacity; \nDEC - Derate Capacity"
+  - name: aggregateType
+    type: String
+    description: >-
+      "1" --  "Detail",
+
+      "2" --  "Aggregate by Market service type", in which case, the "AllocationEnergyType" field will not be filled;
+
+      "3" --  "Aggregate by "AllocationEnergyType", in which case "MarketServiceType" will not be filled.
+  - name: allocationMwHour
+    type: Float
+  - name: allocationPrice
+    type: Float
+  - name: energyTypeCode
+    type: String
+  - name: marketServiceType
+    type: String
+    description: >-
+      Choices are:
+
+      ME - Market Energy Capacity;
+
+      SR - Spinning Reserve Capacity;
+
+      NR - Non-Spinning Reserve Capacity;
+
+      DAC - Day Ahead Capacity;
+
+      DEC - Derate Capacity
 associations:
-- source: AllocationResultValues
-  target: AllocationResult
-  sourceCardinality: 1..*
-  sourceName: allocationResultValues
-  targetCardinality: "1"
-  targetName: allocationResult
-- source: AllocationResultValues
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: allocationResultValues
-  targetCardinality: 0..1
-  targetName: registeredResource
+  - source: AllocationResultValues
+    target: AllocationResult
+    sourceCardinality: 1..*
+    sourceName: allocationResultValues
+    targetCardinality: "1"
+    targetName: allocationResult
+  - source: AllocationResultValues
+    target: RegisteredResource
+    sourceCardinality: 0..*
+    sourceName: allocationResultValues
+    targetCardinality: 0..1
+    targetName: registeredResource

@@ -1,19 +1,20 @@
 name: PointOfSale
-description: 'Logical point where transactions take place with operational interaction between cashier and the payment system;
-  in certain cases the point of sale interacts directly with the end customer, in which case the cashier might not be a real
-  person: for example a self-service kiosk or over the internet.'
+description: >-
+  Logical point where transactions take place with operational interaction between cashier and the payment system; in
+  certain cases the point of sale interacts directly with the end customer, in which case the cashier might not be a
+  real person: for example a self-service kiosk or over the internet.
 attributes:
-- name: location
-  type: String
-  description: Local description for where this point of sale is physically located.
+  - name: location
+    type: String
+    description: Local description for where this point of sale is physically located.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: PointOfSale
-  target: CashierShift
-  sourceCardinality: 0..1
-  sourceName: pointOfSale
-  sourceDescription: Point of sale that is in operation during this shift.
-  targetCardinality: 0..*
-  targetName: cashierShifts
-  targetDescription: All shifts this point of sale operated in.
+  - source: PointOfSale
+    target: CashierShift
+    sourceCardinality: 0..1
+    sourceName: pointOfSale
+    sourceDescription: Point of sale that is in operation during this shift.
+    targetCardinality: 0..*
+    targetName: cashierShifts
+    targetDescription: All shifts this point of sale operated in.

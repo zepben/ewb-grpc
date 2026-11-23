@@ -1,23 +1,23 @@
 name: BilateralExchangeAgreement
 description: This is the representation of the information exchange agreement between peers.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- TASE2BilateralTable
+  - TASE2BilateralTable
 associations:
-- source: BilateralExchangeAgreement
-  target: BilateralExchangeActor
-  sourceCardinality: 0..*
-  sourceName: consumerBilateralExchange
-  sourceDescription: Agreement to information subscriber.
-  targetCardinality: 0..1
-  targetName: consumer
-  targetDescription: Subscriber of information from a remote peer.
-- source: BilateralExchangeAgreement
-  target: BilateralExchangeActor
-  sourceCardinality: 0..*
-  sourceName: providerBilateralExchange
-  sourceDescription: Agreement to information provider.
-  targetCardinality: "1"
-  targetName: provider
-  targetDescription: Provider of information to a remote peer.
+  - source: BilateralExchangeAgreement
+    target: BilateralExchangeActor
+    sourceCardinality: 0..*
+    sourceName: consumerBilateralExchange
+    sourceDescription: Agreement to information subscriber.
+    targetCardinality: 0..1
+    targetName: consumer
+    targetDescription: Subscriber of information from a remote peer.
+  - source: BilateralExchangeAgreement
+    target: BilateralExchangeActor
+    sourceCardinality: 0..*
+    sourceName: providerBilateralExchange
+    sourceDescription: Agreement to information provider.
+    targetCardinality: "1"
+    targetName: provider
+    targetDescription: Provider of information to a remote peer.

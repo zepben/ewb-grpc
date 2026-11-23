@@ -1,21 +1,22 @@
 name: NetworkModelProjectRelationship
-description: A relationship that assists humans and software building cases by assembling project changes in the correct sequence.  This
-  class may be specialized to create specific types of relationships.
+description: >-
+  A relationship that assists humans and software building cases by assembling project changes in the correct
+  sequence.  This class may be specialized to create specific types of relationships.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- ProjectAlternative
-- ProjectDependency
+  - ProjectAlternative
+  - ProjectDependency
 associations:
-- source: NetworkModelProjectRelationship
-  target: NetworkModelProjectComponent
-  sourceCardinality: 0..*
-  sourceName: projectARelationships
-  targetCardinality: "1"
-  targetName: projectA
-- source: NetworkModelProjectRelationship
-  target: NetworkModelProjectComponent
-  sourceCardinality: 0..*
-  sourceName: projectBRelationships
-  targetCardinality: "1"
-  targetName: projectB
+  - source: NetworkModelProjectRelationship
+    target: NetworkModelProjectComponent
+    sourceCardinality: 0..*
+    sourceName: projectARelationships
+    targetCardinality: "1"
+    targetName: projectA
+  - source: NetworkModelProjectRelationship
+    target: NetworkModelProjectComponent
+    sourceCardinality: 0..*
+    sourceName: projectBRelationships
+    targetCardinality: "1"
+    targetName: projectB

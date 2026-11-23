@@ -1,39 +1,40 @@
 name: ReactiveCapabilityCurve
-description: Reactive power rating envelope versus the synchronous machine's active power, in both the generating and motoring
-  modes. For each active power value there is a corresponding high and low reactive power limit  value. Typically there will
-  be a separate curve for each coolant condition, such as hydrogen pressure.  The Y1 axis values represent reactive minimum
-  and the Y2 axis values represent reactive maximum.
+description: >-
+  Reactive power rating envelope versus the synchronous machine's active power, in both the generating and motoring
+  modes. For each active power value there is a corresponding high and low reactive power limit  value. Typically there
+  will be a separate curve for each coolant condition, such as hydrogen pressure.  The Y1 axis values represent reactive
+  minimum and the Y2 axis values represent reactive maximum.
 attributes:
-- name: coolantTemperature
-  type: Temperature
-  description: The machine's coolant temperature (e.g., ambient air or stator circulating water).
-- name: hydrogenPressure
-  type: Pressure
-  description: The hydrogen coolant pressure.
+  - name: coolantTemperature
+    type: Temperature
+    description: The machine's coolant temperature (e.g., ambient air or stator circulating water).
+  - name: hydrogenPressure
+    type: Pressure
+    description: The hydrogen coolant pressure.
 ancestors:
-- Curve
+  - Curve
 associations:
-- source: ReactiveCapabilityCurve
-  target: EquivalentInjection
-  sourceCardinality: 0..1
-  sourceName: reactiveCapabilityCurve
-  sourceDescription: The reactive capability curve used by this equivalent injection.
-  targetCardinality: 0..*
-  targetName: equivalentInjection
-  targetDescription: The equivalent injection using this reactive capability curve.
-- source: ReactiveCapabilityCurve
-  target: SynchronousMachine
-  sourceCardinality: 0..1
-  sourceName: initialReactiveCapabilityCurve
-  sourceDescription: The default reactive capability curve for use by a synchronous machine.
-  targetCardinality: 1..*
-  targetName: initiallyUsedBySynchronousMachines
-  targetDescription: Synchronous machines using this curve as default.
-- source: ReactiveCapabilityCurve
-  target: SynchronousMachine
-  sourceCardinality: 0..*
-  sourceName: reactiveCapabilityCurves
-  sourceDescription: All available reactive capability curves for this synchronous machine.
-  targetCardinality: 1..*
-  targetName: synchronousMachines
-  targetDescription: Synchronous machines using this curve.
+  - source: ReactiveCapabilityCurve
+    target: EquivalentInjection
+    sourceCardinality: 0..1
+    sourceName: reactiveCapabilityCurve
+    sourceDescription: The reactive capability curve used by this equivalent injection.
+    targetCardinality: 0..*
+    targetName: equivalentInjection
+    targetDescription: The equivalent injection using this reactive capability curve.
+  - source: ReactiveCapabilityCurve
+    target: SynchronousMachine
+    sourceCardinality: 0..1
+    sourceName: initialReactiveCapabilityCurve
+    sourceDescription: The default reactive capability curve for use by a synchronous machine.
+    targetCardinality: 1..*
+    targetName: initiallyUsedBySynchronousMachines
+    targetDescription: Synchronous machines using this curve as default.
+  - source: ReactiveCapabilityCurve
+    target: SynchronousMachine
+    sourceCardinality: 0..*
+    sourceName: reactiveCapabilityCurves
+    sourceDescription: All available reactive capability curves for this synchronous machine.
+    targetCardinality: 1..*
+    targetName: synchronousMachines
+    targetDescription: Synchronous machines using this curve.

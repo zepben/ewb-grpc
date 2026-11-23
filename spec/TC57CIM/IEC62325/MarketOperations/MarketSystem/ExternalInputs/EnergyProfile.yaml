@@ -1,19 +1,19 @@
 name: EnergyProfile
 description: Specifies the start time, stop time, level for an EnergyTransaction.
 ancestors:
-- Profile
+  - Profile
 associations:
-- source: EnergyProfile
-  target: TransactionBid
-  sourceCardinality: 1..*
-  sourceName: energyProfiles
-  targetCardinality: "1"
-  targetName: transactionBid
-- source: EnergyProfile
-  target: EnergyTransaction
-  sourceCardinality: 1..*
-  sourceName: energyProfiles
-  sourceDescription: An EnergyTransaction shall have at least one EnergyProfile.
-  targetCardinality: "1"
-  targetName: energyTransaction
-  targetDescription: An EnergyTransaction shall have at least one EnergyProfile.
+  - source: EnergyProfile
+    target: EnergyTransaction
+    sourceCardinality: 1..*
+    sourceName: energyProfiles
+    sourceDescription: An EnergyTransaction shall have at least one EnergyProfile.
+    targetCardinality: "1"
+    targetName: energyTransaction
+    targetDescription: An EnergyTransaction shall have at least one EnergyProfile.
+  - source: EnergyProfile
+    target: TransactionBid
+    sourceCardinality: 1..*
+    sourceName: energyProfiles
+    targetCardinality: "1"
+    targetName: transactionBid

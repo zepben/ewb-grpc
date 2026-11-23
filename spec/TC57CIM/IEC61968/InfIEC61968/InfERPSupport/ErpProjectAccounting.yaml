@@ -1,31 +1,33 @@
 name: ErpProjectAccounting
-description: 'Utility Project Accounting information, used by ERP applications to enable all relevant sub-systems that submit
-  single sided transactions to transfer information with a Project Accounting Application. This would include, but not necessarily
-  be limited to: Accounts Payable, Accounts Receivable, Budget, Order Management, Purchasing, Time and Labor, Travel and Expense.'
+description: >-
+  Utility Project Accounting information, used by ERP applications to enable all relevant sub-systems that submit single
+  sided transactions to transfer information with a Project Accounting Application. This would include, but not
+  necessarily be limited to: Accounts Payable, Accounts Receivable, Budget, Order Management, Purchasing, Time and
+  Labor, Travel and Expense.
 ancestors:
-- ErpDocument
+  - ErpDocument
 associations:
-- source: ErpProjectAccounting
-  target: Project
-  sourceCardinality: "1"
-  sourceName: erpProjectAccounting
-  targetCardinality: 0..*
-  targetName: projects
-- source: ErpProjectAccounting
-  target: ErpTimeEntry
-  sourceCardinality: 0..1
-  sourceName: erpProjectAccounting
-  targetCardinality: 0..*
-  targetName: erpTimeEntries
-- source: ErpProjectAccounting
-  target: WorkCostDetail
-  sourceCardinality: "1"
-  sourceName: erpProjectAccounting
-  targetCardinality: 0..*
-  targetName: workCostDetails
-- source: ErpProjectAccounting
-  target: Work
-  sourceCardinality: 0..1
-  sourceName: erpProjectAccounting
-  targetCardinality: 0..*
-  targetName: works
+  - source: ErpProjectAccounting
+    target: ErpTimeEntry
+    sourceCardinality: 0..1
+    sourceName: erpProjectAccounting
+    targetCardinality: 0..*
+    targetName: erpTimeEntries
+  - source: ErpProjectAccounting
+    target: Project
+    sourceCardinality: "1"
+    sourceName: erpProjectAccounting
+    targetCardinality: 0..*
+    targetName: projects
+  - source: ErpProjectAccounting
+    target: WorkCostDetail
+    sourceCardinality: "1"
+    sourceName: erpProjectAccounting
+    targetCardinality: 0..*
+    targetName: workCostDetails
+  - source: ErpProjectAccounting
+    target: Work
+    sourceCardinality: 0..1
+    sourceName: erpProjectAccounting
+    targetCardinality: 0..*
+    targetName: works

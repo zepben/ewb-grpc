@@ -1,58 +1,59 @@
 name: Point
 description: An identification of a set of values beeing adressed within a specific interval of time.
 attributes:
-- name: position
-  type: Integer
-  description: A sequential value representing the relative position within a given time interval.
-- name: quality
-  type: String
-  description: The quality of the information being provided. This quality may be estimated, not available, as provided, etc.
-- name: quantity
-  type: Decimal
-  description: Principal quantity identified for a point.
-- name: secondaryQuantity
-  type: Decimal
-  description: Secondary quantity identified for a point.
+  - name: position
+    type: Integer
+    description: A sequential value representing the relative position within a given time interval.
+  - name: quality
+    type: String
+    description: >-
+      The quality of the information being provided. This quality may be estimated, not available, as provided, etc.
+  - name: quantity
+    type: Decimal
+    description: Principal quantity identified for a point.
+  - name: secondaryQuantity
+    type: Decimal
+    description: Secondary quantity identified for a point.
 associations:
-- source: Point
-  target: AceTariffType
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: aceTariffType
-- source: Point
-  target: Period
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: "1"
-  targetName: period
-- source: Point
-  target: TimeSeries
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: timeSeries
-- source: Point
-  target: FlowDirection
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: flowDirection
-- source: Point
-  target: Price
-  sourceCardinality: 0..1
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: price
-- source: Point
-  target: Quantity
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: quantity
-- source: Point
-  target: Reason
-  sourceCardinality: 0..*
-  sourceName: point
-  targetCardinality: 0..*
-  targetName: reason
+  - source: Point
+    target: AceTariffType
+    sourceCardinality: 0..*
+    sourceName: point
+    targetCardinality: 0..*
+    targetName: aceTariffType
+  - source: Point
+    target: FlowDirection
+    sourceCardinality: 0..*
+    sourceName: point
+    targetCardinality: 0..*
+    targetName: flowDirection
+  - source: Point
+    target: Period
+    sourceCardinality: 0..*
+    sourceName: point
+    targetCardinality: "1"
+    targetName: period
+  - source: Point
+    target: Price
+    sourceCardinality: 0..1
+    sourceName: point
+    targetCardinality: 0..*
+    targetName: price
+  - source: Point
+    target: Quantity
+    sourceCardinality: 0..*
+    sourceName: point
+    targetCardinality: 0..*
+    targetName: quantity
+  - source: Point
+    target: Reason
+    sourceCardinality: 0..*
+    sourceName: point
+    targetCardinality: 0..*
+    targetName: reason
+  - source: Point
+    target: TimeSeries
+    sourceCardinality: 0..*
+    sourceName: point
+    targetCardinality: 0..*
+    targetName: timeSeries

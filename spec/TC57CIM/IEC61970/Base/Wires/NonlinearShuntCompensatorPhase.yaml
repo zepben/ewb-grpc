@@ -1,15 +1,17 @@
 name: NonlinearShuntCompensatorPhase
-description: A per phase non linear shunt compensator has bank or section admittance values that differ. The attributes g
-  and b of the associated NonlinearShuntCompensatorPhasePoint describe the total conductance and admittance of a NonlinearShuntCompensatorPhasePoint
-  at a section number specified by NonlinearShuntCompensatorPhasePoint.sectionNumber.
+description: >-
+  A per phase non linear shunt compensator has bank or section admittance values that differ. The attributes g and b of
+  the associated NonlinearShuntCompensatorPhasePoint describe the total conductance and admittance of a
+  NonlinearShuntCompensatorPhasePoint at a section number specified by
+  NonlinearShuntCompensatorPhasePoint.sectionNumber.
 ancestors:
-- ShuntCompensatorPhase
+  - ShuntCompensatorPhase
 associations:
-- source: NonlinearShuntCompensatorPhase
-  target: NonlinearShuntCompensatorPhasePoint
-  sourceCardinality: "1"
-  sourceName: nonlinearShuntCompensatorPhase
-  sourceDescription: Non-linear shunt compensator phase owning this point.
-  targetCardinality: 1..*
-  targetName: nonlinearShuntCompensatorPhasePoints
-  targetDescription: All points of the non-linear shunt compensator phase.
+  - source: NonlinearShuntCompensatorPhase
+    target: NonlinearShuntCompensatorPhasePoint
+    sourceCardinality: "1"
+    sourceName: nonlinearShuntCompensatorPhase
+    sourceDescription: Non-linear shunt compensator phase owning this point.
+    targetCardinality: 1..*
+    targetName: nonlinearShuntCompensatorPhasePoints
+    targetDescription: All points of the non-linear shunt compensator phase.

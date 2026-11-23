@@ -1,28 +1,30 @@
 name: ComFunction
 description: Communication function of communication equipment or a device such as a meter.
 attributes:
-- name: amrAddress
-  type: String
-  description: Communication ID number (e.g. serial number, IP address, telephone number, etc.) of the AMR module which serves
-    this meter.
-- name: amrRouter
-  type: String
-  description: Communication ID number (e.g. port number, serial number, data collector ID, etc.) of the parent device associated
-    to this AMR module.
-- name: direction
-  type: ComDirectionKind
-  description: Kind of communication direction.
-- name: technology
-  type: ComTechnologyKind
-  description: Kind of communication technology.
+  - name: amrAddress
+    type: String
+    description: >-
+      Communication ID number (e.g. serial number, IP address, telephone number, etc.) of the AMR module which serves
+      this meter.
+  - name: amrRouter
+    type: String
+    description: >-
+      Communication ID number (e.g. port number, serial number, data collector ID, etc.) of the parent device associated
+      to this AMR module.
+  - name: direction
+    type: ComDirectionKind
+    description: Kind of communication direction.
+  - name: technology
+    type: ComTechnologyKind
+    description: Kind of communication technology.
 ancestors:
-- EndDeviceFunction
+  - EndDeviceFunction
 associations:
-- source: ComFunction
-  target: ComModule
-  sourceCardinality: 0..*
-  sourceName: comFunctions
-  sourceDescription: All functions this communication module performs.
-  targetCardinality: 0..1
-  targetName: comModule
-  targetDescription: Module performing this communication function.
+  - source: ComFunction
+    target: ComModule
+    sourceCardinality: 0..*
+    sourceName: comFunctions
+    sourceDescription: All functions this communication module performs.
+    targetCardinality: 0..1
+    targetName: comModule
+    targetDescription: Module performing this communication function.

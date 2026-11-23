@@ -1,76 +1,77 @@
 name: Bid
-description: Represents both bids to purchase and offers to sell energy or ancillary services in an RTO-sponsored market.
+description: >-
+  Represents both bids to purchase and offers to sell energy or ancillary services in an RTO-sponsored market.
 attributes:
-- name: marketType
-  type: MarketType
-  description: The market type, DAM or RTM.
-- name: startTime
-  type: DateTime
-  description: Start time and date for which bid applies.
-- name: stopTime
-  type: DateTime
-  description: Stop time and date for which bid is applicable.
+  - name: marketType
+    type: MarketType
+    description: The market type, DAM or RTM.
+  - name: startTime
+    type: DateTime
+    description: Start time and date for which bid applies.
+  - name: stopTime
+    type: DateTime
+    description: Stop time and date for which bid is applicable.
 ancestors:
-- Document
+  - Document
 descendants:
-- AreaLoadBid
-- ResourceBid
-- TransactionBid
-- DefaultBid
+  - AreaLoadBid
+  - DefaultBid
+  - ResourceBid
+  - TransactionBid
 associations:
-- source: Bid
-  target: ChargeProfile
-  sourceCardinality: 0..1
-  sourceName: bid
-  targetCardinality: 0..*
-  targetName: chargeProfiles
-- source: Bid
-  target: MitigatedBidSegment
-  sourceCardinality: "1"
-  sourceName: bid
-  targetCardinality: 0..*
-  targetName: mitigatedBidSegment
-- source: Bid
-  target: EnergyMarket
-  sourceCardinality: 0..*
-  sourceName: bids
-  targetCardinality: "1"
-  targetName: energyMarket
-- source: Bid
-  target: MarketParticipant
-  sourceCardinality: 0..*
-  sourceName: bid
-  targetCardinality: 0..1
-  targetName: marketParticipant
-- source: Bid
-  target: MitigatedBid
-  sourceCardinality: 0..1
-  sourceName: bid
-  targetCardinality: 0..*
-  targetName: mitigatedBid
-- source: Bid
-  target: ActionRequest
-  sourceCardinality: 0..*
-  sourceName: bid
-  targetCardinality: "1"
-  targetName: actionRequest
-- source: Bid
-  target: BidHourlySchedule
-  sourceCardinality: "1"
-  sourceName: bid
-  targetCardinality: 0..*
-  targetName: bidHourlySchedule
-- source: Bid
-  target: ProductBid
-  sourceCardinality: "1"
-  sourceName: bid
-  sourceDescription: A bid comprises one or more product bids of market products
-  targetCardinality: 1..*
-  targetName: productBids
-  targetDescription: A bid comprises one or more product bids of market products
-- source: Bid
-  target: RMRDetermination
-  sourceCardinality: 0..1
-  sourceName: bid
-  targetCardinality: 0..*
-  targetName: rmrDetermination
+  - source: Bid
+    target: ActionRequest
+    sourceCardinality: 0..*
+    sourceName: bid
+    targetCardinality: "1"
+    targetName: actionRequest
+  - source: Bid
+    target: BidHourlySchedule
+    sourceCardinality: "1"
+    sourceName: bid
+    targetCardinality: 0..*
+    targetName: bidHourlySchedule
+  - source: Bid
+    target: ChargeProfile
+    sourceCardinality: 0..1
+    sourceName: bid
+    targetCardinality: 0..*
+    targetName: chargeProfiles
+  - source: Bid
+    target: EnergyMarket
+    sourceCardinality: 0..*
+    sourceName: bids
+    targetCardinality: "1"
+    targetName: energyMarket
+  - source: Bid
+    target: MarketParticipant
+    sourceCardinality: 0..*
+    sourceName: bid
+    targetCardinality: 0..1
+    targetName: marketParticipant
+  - source: Bid
+    target: MitigatedBid
+    sourceCardinality: 0..1
+    sourceName: bid
+    targetCardinality: 0..*
+    targetName: mitigatedBid
+  - source: Bid
+    target: MitigatedBidSegment
+    sourceCardinality: "1"
+    sourceName: bid
+    targetCardinality: 0..*
+    targetName: mitigatedBidSegment
+  - source: Bid
+    target: ProductBid
+    sourceCardinality: "1"
+    sourceName: bid
+    sourceDescription: A bid comprises one or more product bids of market products
+    targetCardinality: 1..*
+    targetName: productBids
+    targetDescription: A bid comprises one or more product bids of market products
+  - source: Bid
+    target: RMRDetermination
+    sourceCardinality: 0..1
+    sourceName: bid
+    targetCardinality: 0..*
+    targetName: rmrDetermination

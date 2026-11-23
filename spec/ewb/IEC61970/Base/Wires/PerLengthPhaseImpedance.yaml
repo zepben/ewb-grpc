@@ -1,13 +1,13 @@
 name: PerLengthPhaseImpedance
 description: Impedance and admittance parameters per unit length for n-wire unbalanced lines, in matrix form.
 ancestors:
-- PerLengthImpedance
+  - PerLengthImpedance
 associations:
-- source: PerLengthPhaseImpedance
-  target: PhaseImpedanceData
-  sourceCardinality: 0..1
-  sourceName: phaseImpedance
-  sourceDescription: Conductor phase impedance to which this data belongs.
-  targetCardinality: 0..*
-  targetName: phaseImpedanceData
-  targetDescription: All data that belong to this conductor phase impedance.
+  - source: PerLengthPhaseImpedance
+    target: PhaseImpedanceData
+    sourceCardinality: 0..1
+    sourceName: phaseImpedance
+    sourceDescription: Conductor phase impedance to which this data belongs.
+    targetCardinality: 0..*
+    targetName: phaseImpedanceData
+    targetDescription: All data that belong to this conductor phase impedance.

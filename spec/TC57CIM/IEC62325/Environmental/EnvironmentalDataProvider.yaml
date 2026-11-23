@@ -1,22 +1,23 @@
 name: EnvironmentalDataProvider
-description: Entity providing environmental data.  Could be an observed weather data provider, an entity providing forecasts,
-  an authority providing alerts, etc.
+description: >-
+  Entity providing environmental data.  Could be an observed weather data provider, an entity providing forecasts, an
+  authority providing alerts, etc.
 ancestors:
-- OrganisationRole
+  - OrganisationRole
 associations:
-- source: EnvironmentalDataProvider
-  target: EnvironmentalAlert
-  sourceCardinality: 0..1
-  sourceName: environmentalDataProvider
-  sourceDescription: Environmental data provider for this alert.
-  targetCardinality: 0..*
-  targetName: environmentalAlert
-  targetDescription: Alert issued by this environmental data provider.
-- source: EnvironmentalDataProvider
-  target: EnvironmentalInformation
-  sourceCardinality: 0..1
-  sourceName: environmentalDataProvider
-  sourceDescription: Environmental data provider supplying this environmental information.
-  targetCardinality: 0..*
-  targetName: environmentalInformation
-  targetDescription: Environmental information provided by this environmental data provider.
+  - source: EnvironmentalDataProvider
+    target: EnvironmentalAlert
+    sourceCardinality: 0..1
+    sourceName: environmentalDataProvider
+    sourceDescription: Environmental data provider for this alert.
+    targetCardinality: 0..*
+    targetName: environmentalAlert
+    targetDescription: Alert issued by this environmental data provider.
+  - source: EnvironmentalDataProvider
+    target: EnvironmentalInformation
+    sourceCardinality: 0..1
+    sourceName: environmentalDataProvider
+    sourceDescription: Environmental data provider supplying this environmental information.
+    targetCardinality: 0..*
+    targetName: environmentalInformation
+    targetDescription: Environmental information provided by this environmental data provider.

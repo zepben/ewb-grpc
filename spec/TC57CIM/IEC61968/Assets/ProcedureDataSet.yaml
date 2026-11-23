@@ -1,60 +1,62 @@
 name: ProcedureDataSet
-description: A data set recorded each time a procedure is executed. Observed results are captured in associated measurement
-  values and/or values for properties relevant to the type of procedure performed.
+description: >-
+  A data set recorded each time a procedure is executed. Observed results are captured in associated measurement values
+  and/or values for properties relevant to the type of procedure performed.
 attributes:
-- name: completedDateTime
-  type: DateTime
-  description: Date and time procedure was completed.
+  - name: completedDateTime
+    type: DateTime
+    description: Date and time procedure was completed.
 ancestors:
-- Document
+  - Document
 descendants:
-- LabTestDataSet
-- DiagnosisDataSet
-- TestDataSet
-- MaintenanceDataSet
-- InspectionDataSet
+  - DiagnosisDataSet
+  - InspectionDataSet
+  - LabTestDataSet
+  - MaintenanceDataSet
+  - TestDataSet
 associations:
-- source: ProcedureDataSet
-  target: MeasurementValue
-  sourceCardinality: 0..*
-  sourceName: procedureDataSet
-  targetCardinality: 0..*
-  targetName: measurementValue
-- source: ProcedureDataSet
-  target: TransformerObservation
-  sourceCardinality: 0..*
-  sourceName: procedureDataSets
-  targetCardinality: 0..*
-  targetName: transformerObservations
-- source: ProcedureDataSet
-  target: WorkTask
-  sourceCardinality: 0..*
-  sourceName: procedureDataSet
-  sourceDescription: Procedure data set associated with this work task.
-  targetCardinality: 0..1
-  targetName: workTask
-  targetDescription: Work task that created this procedure data set.
-- source: ProcedureDataSet
-  target: Asset
-  sourceCardinality: 0..*
-  sourceName: procedureDataSet
-  sourceDescription: Procedure data set that applies to this asset.
-  targetCardinality: 0..1
-  targetName: asset
-  targetDescription: Asset to which this procedure data set applies.
-- source: ProcedureDataSet
-  target: Procedure
-  sourceCardinality: 0..*
-  sourceName: procedureDataSets
-  sourceDescription: All data sets captured by this procedure.
-  targetCardinality: 0..1
-  targetName: procedure
-  targetDescription: Procedure capturing this data set.
-- source: ProcedureDataSet
-  target: UserAttribute
-  sourceCardinality: 0..*
-  sourceName: procedureDataSets
-  targetCardinality: 0..*
-  targetName: properties
-  targetDescription: UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what
-    kind of property it is, and 'value.value' attribute for the actual value.
+  - source: ProcedureDataSet
+    target: Asset
+    sourceCardinality: 0..*
+    sourceName: procedureDataSet
+    sourceDescription: Procedure data set that applies to this asset.
+    targetCardinality: 0..1
+    targetName: asset
+    targetDescription: Asset to which this procedure data set applies.
+  - source: ProcedureDataSet
+    target: MeasurementValue
+    sourceCardinality: 0..*
+    sourceName: procedureDataSet
+    targetCardinality: 0..*
+    targetName: measurementValue
+  - source: ProcedureDataSet
+    target: Procedure
+    sourceCardinality: 0..*
+    sourceName: procedureDataSets
+    sourceDescription: All data sets captured by this procedure.
+    targetCardinality: 0..1
+    targetName: procedure
+    targetDescription: Procedure capturing this data set.
+  - source: ProcedureDataSet
+    target: UserAttribute
+    sourceCardinality: 0..*
+    sourceName: procedureDataSets
+    targetCardinality: 0..*
+    targetName: properties
+    targetDescription: >-
+      UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what kind of
+      property it is, and 'value.value' attribute for the actual value.
+  - source: ProcedureDataSet
+    target: TransformerObservation
+    sourceCardinality: 0..*
+    sourceName: procedureDataSets
+    targetCardinality: 0..*
+    targetName: transformerObservations
+  - source: ProcedureDataSet
+    target: WorkTask
+    sourceCardinality: 0..*
+    sourceName: procedureDataSet
+    sourceDescription: Procedure data set associated with this work task.
+    targetCardinality: 0..1
+    targetName: workTask
+    targetDescription: Work task that created this procedure data set.

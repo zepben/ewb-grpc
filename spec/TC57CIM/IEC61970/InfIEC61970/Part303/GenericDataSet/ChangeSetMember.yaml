@@ -1,33 +1,34 @@
 name: ChangeSetMember
 description: A CRUD-style data object.
 descendants:
-- ObjectDeletion
-- ObjectModification
-- ObjectCreation
-- ObjectReverseModification
+  - ObjectCreation
+  - ObjectDeletion
+  - ObjectModification
+  - ObjectReverseModification
 associations:
-- source: ChangeSetMember
-  target: ChangeSet
-  sourceCardinality: 0..*
-  sourceName: changeSetMember
-  sourceDescription: Data objects contained in the dataset.
-  targetCardinality: 0..1
-  targetName: changeset
-  targetDescription: Dataset containing the data objects.
-- source: ChangeSetMember
-  target: IdentifiedObject
-  sourceCardinality: 0..1
-  sourceName: propertiesCIMDataObject
-  sourceDescription: The single CIM data object in the appropriate dataset context.
-  targetCardinality: 0..1
-  targetName: propertiesObject
-  targetDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
-    and only the reference to the registered object is required.
-- source: ChangeSetMember
-  target: IdentifiedObject
-  sourceCardinality: 0..*
-  sourceName: targetingCIMDataObject
-  sourceDescription: Data objects registered.
-  targetCardinality: "1"
-  targetName: targetObject
-  targetDescription: The registered CIM object.
+  - source: ChangeSetMember
+    target: ChangeSet
+    sourceCardinality: 0..*
+    sourceName: changeSetMember
+    sourceDescription: Data objects contained in the dataset.
+    targetCardinality: 0..1
+    targetName: changeset
+    targetDescription: Dataset containing the data objects.
+  - source: ChangeSetMember
+    target: IdentifiedObject
+    sourceCardinality: 0..1
+    sourceName: propertiesCIMDataObject
+    sourceDescription: The single CIM data object in the appropriate dataset context.
+    targetCardinality: 0..1
+    targetName: propertiesObject
+    targetDescription: >-
+      The CIM object holding the properties of this dataset context.   Sometimes properties are not required and only
+      the reference to the registered object is required.
+  - source: ChangeSetMember
+    target: IdentifiedObject
+    sourceCardinality: 0..*
+    sourceName: targetingCIMDataObject
+    sourceDescription: Data objects registered.
+    targetCardinality: "1"
+    targetName: targetObject
+    targetDescription: The registered CIM object.

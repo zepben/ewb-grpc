@@ -1,37 +1,39 @@
 name: CnodeDistributionFactor
-description: Participation factors per Cnode.  Used to calculate "participation" of Cnode in an AggregateNode. Each Cnode
-  associated to an AggregateNode would be assigned a participation factor for its participation within the AggregateNode.
+description: >-
+  Participation factors per Cnode.  Used to calculate "participation" of Cnode in an AggregateNode. Each Cnode
+  associated to an AggregateNode would be assigned a participation factor for its participation within the
+  AggregateNode.
 attributes:
-- name: factor
-  type: Float
-  description: Used to calculate "participation" of Cnode in an AggregateNode
-- name: podLossFactor
-  type: Float
-  description: Point of delivery loss factor
+  - name: factor
+    type: Float
+    description: Used to calculate "participation" of Cnode in an AggregateNode
+  - name: podLossFactor
+    type: Float
+    description: Point of delivery loss factor
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: CnodeDistributionFactor
-  target: SubControlArea
-  sourceCardinality: 0..*
-  sourceName: cnodeDistributionFactor
-  targetCardinality: 0..1
-  targetName: subControlArea
-- source: CnodeDistributionFactor
-  target: MktConnectivityNode
-  sourceCardinality: 0..*
-  sourceName: cnodeDistributionFactor
-  targetCardinality: "1"
-  targetName: mktConnectivityNode
-- source: CnodeDistributionFactor
-  target: HostControlArea
-  sourceCardinality: 0..*
-  sourceName: cnodeDistributionFactor
-  targetCardinality: 0..1
-  targetName: hostControlArea
-- source: CnodeDistributionFactor
-  target: AggregateNode
-  sourceCardinality: 0..*
-  sourceName: cnodeDistributionFactor
-  targetCardinality: 0..1
-  targetName: aggregateNode
+  - source: CnodeDistributionFactor
+    target: AggregateNode
+    sourceCardinality: 0..*
+    sourceName: cnodeDistributionFactor
+    targetCardinality: 0..1
+    targetName: aggregateNode
+  - source: CnodeDistributionFactor
+    target: HostControlArea
+    sourceCardinality: 0..*
+    sourceName: cnodeDistributionFactor
+    targetCardinality: 0..1
+    targetName: hostControlArea
+  - source: CnodeDistributionFactor
+    target: MktConnectivityNode
+    sourceCardinality: 0..*
+    sourceName: cnodeDistributionFactor
+    targetCardinality: "1"
+    targetName: mktConnectivityNode
+  - source: CnodeDistributionFactor
+    target: SubControlArea
+    sourceCardinality: 0..*
+    sourceName: cnodeDistributionFactor
+    targetCardinality: 0..1
+    targetName: subControlArea

@@ -1,29 +1,29 @@
 name: EndDeviceFunction
 description: Function performed by an end device such as a meter, communication equipment, controllers, etc.
 attributes:
-- name: enabled
-  type: Boolean
-  description: True if the function is enabled.
+  - name: enabled
+    type: Boolean
+    description: True if the function is enabled.
 ancestors:
-- AssetFunction
+  - AssetFunction
 descendants:
-- ConnectDisconnectFunction
-- SimpleEndDeviceFunction
-- ComFunction
+  - ComFunction
+  - ConnectDisconnectFunction
+  - SimpleEndDeviceFunction
 associations:
-- source: EndDeviceFunction
-  target: Register
-  sourceCardinality: 0..1
-  sourceName: endDeviceFunction
-  sourceDescription: End device function metering quantities displayed by this register.
-  targetCardinality: 0..*
-  targetName: registers
-  targetDescription: All registers for quantities metered by this end device function.
-- source: EndDeviceFunction
-  target: EndDevice
-  sourceCardinality: 0..*
-  sourceName: endDeviceFunctions
-  sourceDescription: All end device functions this end device performs.
-  targetCardinality: 0..1
-  targetName: endDevice
-  targetDescription: End device that performs this function.
+  - source: EndDeviceFunction
+    target: EndDevice
+    sourceCardinality: 0..*
+    sourceName: endDeviceFunctions
+    sourceDescription: All end device functions this end device performs.
+    targetCardinality: 0..1
+    targetName: endDevice
+    targetDescription: End device that performs this function.
+  - source: EndDeviceFunction
+    target: Register
+    sourceCardinality: 0..1
+    sourceName: endDeviceFunction
+    sourceDescription: End device function metering quantities displayed by this register.
+    targetCardinality: 0..*
+    targetName: registers
+    targetDescription: All registers for quantities metered by this end device function.

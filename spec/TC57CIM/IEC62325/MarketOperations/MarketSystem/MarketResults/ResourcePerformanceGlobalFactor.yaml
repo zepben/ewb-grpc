@@ -1,19 +1,20 @@
 name: ResourcePerformanceGlobalFactor
-description: Global factors are property/value pairs that are used to adjust resource performance values. Example include
-  scale factors (e.g. scale a baseline up or down), adders (positive or negative), etc.
+description: >-
+  Global factors are property/value pairs that are used to adjust resource performance values. Example include scale
+  factors (e.g. scale a baseline up or down), adders (positive or negative), etc.
 attributes:
-- name: factorDescription
-  type: String
-  description: Description (name) of the property (factor).
-- name: factorValue
-  type: String
-  description: Value of the property (factor).
+  - name: factorDescription
+    type: String
+    description: Description (name) of the property (factor).
+  - name: factorValue
+    type: String
+    description: Value of the property (factor).
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: ResourcePerformanceGlobalFactor
-  target: ResourcePerformanceEvaluation
-  sourceCardinality: 0..*
-  sourceName: resorcePerformanceGlobalFactor
-  targetCardinality: 0..*
-  targetName: resourcePerformanceEvaluation
+  - source: ResourcePerformanceGlobalFactor
+    target: ResourcePerformanceEvaluation
+    sourceCardinality: 0..*
+    sourceName: resorcePerformanceGlobalFactor
+    targetCardinality: 0..*
+    targetName: resourcePerformanceEvaluation

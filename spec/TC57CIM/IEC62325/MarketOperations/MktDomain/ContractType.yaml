@@ -1,21 +1,45 @@
 name: ContractType
-description: "Transmission Contract Type, For example:\nO - Other \nTE - Transmission Export \nTI - Transmission Import \n\
-  ETC - Existing Transmission Contract \nRMT - RMT Contract \nTOR - Transmission Ownership Right  \nRMR - Reliability Must\
-  \ Run Contract \nCVR - Converted contract"
+type: enum
+description: >-
+  Transmission Contract Type, For example:
+
+  O - Other
+
+  TE - Transmission Export
+
+  TI - Transmission Import
+
+  ETC - Existing Transmission Contract
+
+  RMT - RMT Contract
+
+  TOR - Transmission Ownership Right
+
+  RMR - Reliability Must Run Contract
+
+  CVR - Converted contract
 attributes:
-- name: TI
-  description: TI - Transmission Import
-- name: CVR
-  description: CVR - Converted contract.
-- name: ETC
-  description: ETC - Existing Transmission Contract
-- name: TOR
-  description: TOR - Transmission Ownership Right
-- name: RMR
-  description: RMR - Reliability Must Run Contract
-- name: RMT
-  description: RMT - RMT Contract
-- name: O
-  description: O - Other
-- name: TE
-  description: TE - Transmission Export
+  - name: CVR
+    type: enum
+    description: CVR - Converted contract.
+  - name: ETC
+    type: enum
+    description: ETC - Existing Transmission Contract
+  - name: O
+    type: enum
+    description: O - Other
+  - name: RMR
+    type: enum
+    description: RMR - Reliability Must Run Contract
+  - name: RMT
+    type: enum
+    description: RMT - RMT Contract
+  - name: TE
+    type: enum
+    description: TE - Transmission Export
+  - name: TI
+    type: enum
+    description: TI - Transmission Import
+  - name: TOR
+    type: enum
+    description: TOR - Transmission Ownership Right

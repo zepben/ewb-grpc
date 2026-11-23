@@ -1,18 +1,19 @@
 name: StartIgnFuelCurve
-description: The quantity of ignition fuel (Y-axis) used to restart and repay the auxiliary power consumed versus the number
-  of hours (X-axis) the unit was off line.
+description: >-
+  The quantity of ignition fuel (Y-axis) used to restart and repay the auxiliary power consumed versus the number of
+  hours (X-axis) the unit was off line.
 attributes:
-- name: ignitionFuelType
-  type: FuelType
-  description: Type of ignition fuel.
+  - name: ignitionFuelType
+    type: FuelType
+    description: Type of ignition fuel.
 ancestors:
-- Curve
+  - Curve
 associations:
-- source: StartIgnFuelCurve
-  target: StartupModel
-  sourceCardinality: 0..1
-  sourceName: startIgnFuelCurve
-  sourceDescription: The unit's startup model may have a startup ignition fuel curve.
-  targetCardinality: "1"
-  targetName: startupModel
-  targetDescription: The unit's startup model may have a startup ignition fuel curve.
+  - source: StartIgnFuelCurve
+    target: StartupModel
+    sourceCardinality: 0..1
+    sourceName: startIgnFuelCurve
+    sourceDescription: The unit's startup model may have a startup ignition fuel curve.
+    targetCardinality: "1"
+    targetName: startupModel
+    targetDescription: The unit's startup model may have a startup ignition fuel curve.

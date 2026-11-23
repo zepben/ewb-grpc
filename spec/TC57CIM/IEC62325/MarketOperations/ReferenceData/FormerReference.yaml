@@ -1,11 +1,12 @@
 name: FormerReference
-description: Used to indicate former references to the same piece of equipment. The ID, name, and effectivity dates are utilized.
+description: >-
+  Used to indicate former references to the same piece of equipment. The ID, name, and effectivity dates are utilized.
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 associations:
-- source: FormerReference
-  target: RegisteredResource
-  sourceCardinality: 0..*
-  sourceName: formerReference
-  targetCardinality: "1"
-  targetName: registeredResource
+  - source: FormerReference
+    target: RegisteredResource
+    sourceCardinality: 0..*
+    sourceName: formerReference
+    targetCardinality: "1"
+    targetName: registeredResource

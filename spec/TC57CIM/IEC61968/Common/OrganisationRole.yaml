@@ -1,37 +1,38 @@
 name: OrganisationRole
-description: Identifies a way in which an organisation may participate in the utility enterprise (e.g., customer, manufacturer,
+description: >-
+  Identifies a way in which an organisation may participate in the utility enterprise (e.g., customer, manufacturer,
   etc).
 ancestors:
-- IdentifiedObject
+  - IdentifiedObject
 descendants:
-- PropertyOrganisationRole
-- PersonOrganisationRole
-- OrgOrgRole
-- DocumentOrganisationRole
-- BusinessRole
-- Bank
-- ServiceSupplier
-- Customer
-- Manufacturer
-- AssetOrganisationRole
-- EnvironmentalDataAuthority
-- EnvironmentalDataProvider
-- CRROrgRole
-- MarketRole
+  - AssetOrganisationRole
+  - Bank
+  - BusinessRole
+  - CRROrgRole
+  - Customer
+  - DocumentOrganisationRole
+  - EnvironmentalDataAuthority
+  - EnvironmentalDataProvider
+  - Manufacturer
+  - MarketRole
+  - OrgOrgRole
+  - PersonOrganisationRole
+  - PropertyOrganisationRole
+  - ServiceSupplier
 associations:
-- source: OrganisationRole
-  target: ConfigurationEvent
-  sourceCardinality: 0..1
-  sourceName: changedOrganisationRole
-  sourceDescription: Organisation role whose change resulted in this configuration event.
-  targetCardinality: 0..*
-  targetName: configurationEvents
-  targetDescription: All configuration events created for this organisation role.
-- source: OrganisationRole
-  target: Organisation
-  sourceCardinality: 0..*
-  sourceName: roles
-  sourceDescription: All roles of this organisation.
-  targetCardinality: 0..1
-  targetName: organisation
-  targetDescription: Organisation having this role.
+  - source: OrganisationRole
+    target: ConfigurationEvent
+    sourceCardinality: 0..1
+    sourceName: changedOrganisationRole
+    sourceDescription: Organisation role whose change resulted in this configuration event.
+    targetCardinality: 0..*
+    targetName: configurationEvents
+    targetDescription: All configuration events created for this organisation role.
+  - source: OrganisationRole
+    target: Organisation
+    sourceCardinality: 0..*
+    sourceName: roles
+    sourceDescription: All roles of this organisation.
+    targetCardinality: 0..1
+    targetName: organisation
+    targetDescription: Organisation having this role.

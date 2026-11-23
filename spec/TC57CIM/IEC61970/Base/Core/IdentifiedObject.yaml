@@ -1,353 +1,363 @@
 name: IdentifiedObject
-description: This is a root class to provide common identification for all classes needing identification and naming attributes.
+description: >-
+  This is a root class to provide common identification for all classes needing identification and naming attributes.
 attributes:
-- name: aliasName
-  type: String
-  description: |-
-    The aliasName is free text human readable name of the object alternative to IdentifiedObject.name. It may be non unique and may not correlate to a naming hierarchy.
-    The attribute aliasName is retained because of backwards compatibility between CIM relases. It is however recommended to replace aliasName with the Name class as aliasName is planned for retirement at a future time.
-- name: mRID
-  type: String
-  description: |-
-    Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
-    For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.
-- name: name
-  type: String
-  description: The name is any free human readable and possibly non unique text naming the object.
-- name: description
-  type: String
-  description: The description is a free human readable text describing or naming the object. It may be non unique and may
-    not correlate to a naming hierarchy.
+  - name: aliasName
+    type: String
+    description: >-
+      The aliasName is free text human readable name of the object alternative to IdentifiedObject.name. It may be non
+      unique and may not correlate to a naming hierarchy.
+
+      The attribute aliasName is retained because of backwards compatibility between CIM relases. It is however
+      recommended to replace aliasName with the Name class as aliasName is planned for retirement at a future time.
+  - name: description
+    type: String
+    description: >-
+      The description is a free human readable text describing or naming the object. It may be non unique and may not
+      correlate to a naming hierarchy.
+  - name: mRID
+    type: String
+    description: >-
+      Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global
+      uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly
+      recommended.
+
+      For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about
+      attributes that identify CIM object elements.
+  - name: name
+    type: String
+    description: The name is any free human readable and possibly non unique text naming the object.
 descendants:
-- BusNameMarker
-- TransformerMeshImpedance
-- Limit
-- Diagram
-- BaseVoltage
-- LimitSet
-- TransformerCoreAdmittance
-- TransformerStarImpedance
-- OperationalLimitSet
-- BasePower
-- LoadGroup
-- RecloseSequence
-- SubGeographicalRegion
-- MutualCoupling
-- ValueToAlias
-- Measurement
-- OperationalLimit
-- ConnectivityNode
-- ValueAliasSet
-- DiagramObjectStyle
-- EnergyArea
-- MeasurementValueSource
-- PSRType
-- Curve
-- GeographicalRegion
-- DiagramObject
-- TransformerEnd
-- BranchGroup
-- RatioTapChangerTable
-- Contingency
-- BasicIntervalSchedule
-- ReportingGroup
-- FossilFuel
-- VisibilityLayer
-- TopologicalIsland
-- OperationalLimitType
-- LoadResponseCharacteristic
-- RemotePoint
-- PhaseTapChangerTable
-- DayType
-- ContingencyElement
-- ReportingSuperGroup
-- StartupModel
-- OperatingParticipant
-- PowerSystemResource
-- DCNode
-- ACDCTerminal
-- Fault
-- FaultCauseType
-- Season
-- ControlAreaGeneratingUnit
-- PerLengthLineParameter
-- DCTopologicalIsland
-- TopologicalNode
-- DCTopologicalNode
-- DiagramStyle
-- BaseFrequency
-- TieFlow
-- AltTieMeas
-- AltGeneratingUnitMeas
-- ScheduledLimitValue
-- LimitDependency
-- EquipmentLimitSeriesComponent
-- TriggerCondition
-- StageTrigger
-- Stage
-- ProtectiveActionCollection
-- ProtectiveAction
-- MeasurementCalculatorInput
-- MeasurementCalculator
-- GateInputPin
-- Gate
-- EnergySchedulingType
-- Profile
-- LoadMotor
-- LoadStatic
-- LoadDynamics
-- WindDynamicsLookupTable
-- WindPlantFreqPcontrolIEC
-- WindPlantReactiveControlIEC
-- AssetModelCatalogue
-- ModelOperationDescription
-- ModelOperationArgDescription
-- ModelOperation
-- ModelOperationArg
-- ModelOperationSequence
-- NetworkModelProjectComponent2
-- CurrentState
-- AnnotatedProjectDependency
-- ModelFrameType
-- AssemblyManifest
-- ModelPartSpecification
-- AssemblyDescription
-- AlternateModel
-- AlternateModelGroup
-- IOPoint
-- BilateralExchangeAgreement
-- BilateralExchangeActor
-- ICCPInformationMessage
-- ProvidedBilateralPoint
-- EnergyTypeReference
-- EnergyComponent
-- BlockDispatchInstruction
-- BlockDispatchOrder
-- ModelAuthority
-- ModelAuthoritySet
-- ModelToBeDeleted
-- AvailablityPlan
-- UnavailablitySchedule
-- EquipmentUnavailabilitySchedule
-- UnavailabilitySwitchAction
-- UnavailabilityScheduleDependency
-- NetworkModelProjectComponent
-- NetworkModelProjectRelationship
-- NetworkModelProjectState
-- NetworkModelProjectChangeVersion
-- WindProtectionIEC
-- WindContPitchAngleIEC
-- WindContQPQULimIEC
-- WindContQLimIEC
-- WindContCurrLimIEC
-- WindContQIEC
-- WindContPType4bIEC
-- WindContPType4aIEC
-- WindContPType3IEC
-- WindContRotorRIEC
-- WindPitchContPowerIEC
-- WindMechIEC
-- WindAeroTwoDimIEC
-- WindAeroOneDimIEC
-- WindAeroConstIEC
-- WindRefFrameRotIEC
-- WindGenType4IEC
-- WindGenType3IEC
-- GenICompensationForGenJ
-- DynamicsFunctionBlock
-- RemoteInputSignal
-- ErpIdentifiedObject
-- WorkIdentifiedObject
-- TypeAssetCatalogue
-- ReliabilityInfo
-- Reconditioning
-- DimensionsInfo
-- BushingInsulationPF
-- TransformerObservation
-- CoolingPowerRating
-- WindingInsulation
-- Route
-- RedLine
-- LandProperty
-- Role
-- Craft
-- Vendor
-- Transactor
-- Transaction
-- Tender
-- Shift
-- Receipt
-- PointOfSale
-- Charge
-- Cashier
-- UsagePointGroup
-- UsagePoint
-- ServiceMultiplier
-- Register
-- ReadingType
-- ReadingQualityType
-- MetrologyRequirement
-- MeterReading
-- MeterMultiplier
-- EndDeviceGroup
-- EndDeviceEventType
-- EndDeviceControlType
-- EndDeviceControl
-- DemandResponseProgram
-- Channel
-- ServiceCategory
-- Appointment
-- ActivityRecord
-- FieldDispatchHistory
-- DERGroupForecast
-- DERGroupDispatch
-- StatisticalCalculation
-- MaterialItem
-- WirePosition
-- TransformerTest
-- TestStandard
-- SwitchOperationSummary
-- Specimen
-- Medium
-- Seal
-- ProductAssetModel
-- CatalogAssetType
-- FinancialInfo
-- AssetInfo
-- AssetDeployment
-- AssetFunction
-- Asset
-- AnalyticScore
-- SwitchingAction
-- TimePoint
-- ScheduledEvent
-- PersonRole
-- Person
-- Ownership
-- OrganisationRole
-- Organisation
-- Location
-- Hazard
-- Document
-- CrewType
-- Crew
-- CoordinateSystem
-- CalculationMethodHierarchy
-- FormerReference
-- FuelRegion
-- LocalReliabilityArea
-- MeteredSubSystem
-- OrgPnodeAllocation
-- OrgResOwnership
-- MPMTestCategory
-- MSSAggregation
-- MarketPerson
-- MarketQualificationRequirement
-- TransactionBidResults
-- MarketStatementLineItem
-- MitigatedBid
-- TiePoint
-- TransmissionProduct
-- TieLine
-- CurrentEmergencyScheduledInterchange
-- InternalControlArea
-- Participation
-- ResourceGroupReq
-- ResourceGroup
-- EnvironmentalInformation
-- AlertTypeList
-- ClassificationCondition
-- PhenomenonClassification
-- AdjacentCASet
-- AggregateNode
-- CnodeDistributionFactor
-- CombinedCycleConfigurationMember
-- CombinedCycleLogicalConfiguration
-- ContractRight
-- FlowgatePartner
-- ForbiddenRegion
-- Pnode
-- RegulatingLimit
-- ResponseMethod
-- SchedulingPoint
-- TACArea
-- TransmissionRightChain
-- WheelingCounterParty
-- BidError
-- BidSet
-- ChargeComponent
-- ChargeGroup
-- DispatchInstReply
-- MajorChargeGroup
-- MarketScheduledEvent
-- ProductBid
-- Trade
-- TradeError
-- ConstraintResults
-- ResourcePerformanceEvaluation
-- ResourcePerformanceGlobalFactor
-- ResourcePerformanceRating
-- ConstraintTerm
-- EnergyPriceIndex
-- GenericConstraints
-- Profile
-- CRRSegment
-- SecurityConstraints
-- ServicePoint
-- TransferInterface
-- TransmissionPath
-- UnitInitialConditions
-- PlannedMarketEvent
-- MarketRun
-- MarketProduct
-- MarketPlan
-- MarketActualEvent
-- Market
-- CommodityDefinition
-- Auction
-- Domain
-- Process
-- TimeSeries
-- EnvironmentalMonitoringStation
+  - ACDCTerminal
+  - ActivityRecord
+  - AdjacentCASet
+  - AggregateNode
+  - AlertTypeList
+  - AltGeneratingUnitMeas
+  - AltTieMeas
+  - AlternateModel
+  - AlternateModelGroup
+  - AnalyticScore
+  - AnnotatedProjectDependency
+  - Appointment
+  - AssemblyDescription
+  - AssemblyManifest
+  - Asset
+  - AssetDeployment
+  - AssetFunction
+  - AssetInfo
+  - AssetModelCatalogue
+  - Auction
+  - AvailablityPlan
+  - BaseFrequency
+  - BasePower
+  - BaseVoltage
+  - BasicIntervalSchedule
+  - BidError
+  - BidSet
+  - BilateralExchangeActor
+  - BilateralExchangeAgreement
+  - BlockDispatchInstruction
+  - BlockDispatchOrder
+  - BranchGroup
+  - BusNameMarker
+  - BushingInsulationPF
+  - CRRSegment
+  - CalculationMethodHierarchy
+  - Cashier
+  - CatalogAssetType
+  - Channel
+  - Charge
+  - ChargeComponent
+  - ChargeGroup
+  - ClassificationCondition
+  - CnodeDistributionFactor
+  - CombinedCycleConfigurationMember
+  - CombinedCycleLogicalConfiguration
+  - CommodityDefinition
+  - ConnectivityNode
+  - ConstraintResults
+  - ConstraintTerm
+  - Contingency
+  - ContingencyElement
+  - ContractRight
+  - ControlAreaGeneratingUnit
+  - CoolingPowerRating
+  - CoordinateSystem
+  - Craft
+  - Crew
+  - CrewType
+  - CurrentEmergencyScheduledInterchange
+  - CurrentState
+  - Curve
+  - DCNode
+  - DCTopologicalIsland
+  - DCTopologicalNode
+  - DERGroupDispatch
+  - DERGroupForecast
+  - DayType
+  - DemandResponseProgram
+  - Diagram
+  - DiagramObject
+  - DiagramObjectStyle
+  - DiagramStyle
+  - DimensionsInfo
+  - DispatchInstReply
+  - Document
+  - Domain
+  - DynamicsFunctionBlock
+  - EndDeviceControl
+  - EndDeviceControlType
+  - EndDeviceEventType
+  - EndDeviceGroup
+  - EnergyArea
+  - EnergyComponent
+  - EnergyPriceIndex
+  - EnergySchedulingType
+  - EnergyTypeReference
+  - EnvironmentalInformation
+  - EnvironmentalMonitoringStation
+  - EquipmentLimitSeriesComponent
+  - EquipmentUnavailabilitySchedule
+  - ErpIdentifiedObject
+  - Fault
+  - FaultCauseType
+  - FieldDispatchHistory
+  - FinancialInfo
+  - FlowgatePartner
+  - ForbiddenRegion
+  - FormerReference
+  - FossilFuel
+  - FuelRegion
+  - Gate
+  - GateInputPin
+  - GenICompensationForGenJ
+  - GenericConstraints
+  - GeographicalRegion
+  - Hazard
+  - ICCPInformationMessage
+  - IOPoint
+  - InternalControlArea
+  - LandProperty
+  - Limit
+  - LimitDependency
+  - LimitSet
+  - LoadDynamics
+  - LoadGroup
+  - LoadMotor
+  - LoadResponseCharacteristic
+  - LoadStatic
+  - LocalReliabilityArea
+  - Location
+  - MPMTestCategory
+  - MSSAggregation
+  - MajorChargeGroup
+  - Market
+  - MarketActualEvent
+  - MarketPerson
+  - MarketPlan
+  - MarketProduct
+  - MarketQualificationRequirement
+  - MarketRun
+  - MarketScheduledEvent
+  - MarketStatementLineItem
+  - MaterialItem
+  - Measurement
+  - MeasurementCalculator
+  - MeasurementCalculatorInput
+  - MeasurementValueSource
+  - Medium
+  - MeterMultiplier
+  - MeterReading
+  - MeteredSubSystem
+  - MetrologyRequirement
+  - MitigatedBid
+  - ModelAuthority
+  - ModelAuthoritySet
+  - ModelFrameType
+  - ModelOperation
+  - ModelOperationArg
+  - ModelOperationArgDescription
+  - ModelOperationDescription
+  - ModelOperationSequence
+  - ModelPartSpecification
+  - ModelToBeDeleted
+  - MutualCoupling
+  - NetworkModelProjectChangeVersion
+  - NetworkModelProjectComponent
+  - NetworkModelProjectComponent2
+  - NetworkModelProjectRelationship
+  - NetworkModelProjectState
+  - OperatingParticipant
+  - OperationalLimit
+  - OperationalLimitSet
+  - OperationalLimitType
+  - OrgPnodeAllocation
+  - OrgResOwnership
+  - Organisation
+  - OrganisationRole
+  - Ownership
+  - PSRType
+  - Participation
+  - PerLengthLineParameter
+  - Person
+  - PersonRole
+  - PhaseTapChangerTable
+  - PhenomenonClassification
+  - PlannedMarketEvent
+  - Pnode
+  - PointOfSale
+  - PowerSystemResource
+  - Process
+  - ProductAssetModel
+  - ProductBid
+  - Profile
+  - Profile
+  - ProtectiveAction
+  - ProtectiveActionCollection
+  - ProvidedBilateralPoint
+  - RatioTapChangerTable
+  - ReadingQualityType
+  - ReadingType
+  - Receipt
+  - RecloseSequence
+  - Reconditioning
+  - RedLine
+  - Register
+  - RegulatingLimit
+  - ReliabilityInfo
+  - RemoteInputSignal
+  - RemotePoint
+  - ReportingGroup
+  - ReportingSuperGroup
+  - ResourceGroup
+  - ResourceGroupReq
+  - ResourcePerformanceEvaluation
+  - ResourcePerformanceGlobalFactor
+  - ResourcePerformanceRating
+  - ResponseMethod
+  - Role
+  - Route
+  - ScheduledEvent
+  - ScheduledLimitValue
+  - SchedulingPoint
+  - Seal
+  - Season
+  - SecurityConstraints
+  - ServiceCategory
+  - ServiceMultiplier
+  - ServicePoint
+  - Shift
+  - Specimen
+  - Stage
+  - StageTrigger
+  - StartupModel
+  - StatisticalCalculation
+  - SubGeographicalRegion
+  - SwitchOperationSummary
+  - SwitchingAction
+  - TACArea
+  - Tender
+  - TestStandard
+  - TieFlow
+  - TieLine
+  - TiePoint
+  - TimePoint
+  - TimeSeries
+  - TopologicalIsland
+  - TopologicalNode
+  - Trade
+  - TradeError
+  - Transaction
+  - TransactionBidResults
+  - Transactor
+  - TransferInterface
+  - TransformerCoreAdmittance
+  - TransformerEnd
+  - TransformerMeshImpedance
+  - TransformerObservation
+  - TransformerStarImpedance
+  - TransformerTest
+  - TransmissionPath
+  - TransmissionProduct
+  - TransmissionRightChain
+  - TriggerCondition
+  - TypeAssetCatalogue
+  - UnavailabilityScheduleDependency
+  - UnavailabilitySwitchAction
+  - UnavailablitySchedule
+  - UnitInitialConditions
+  - UsagePoint
+  - UsagePointGroup
+  - ValueAliasSet
+  - ValueToAlias
+  - Vendor
+  - VisibilityLayer
+  - WheelingCounterParty
+  - WindAeroConstIEC
+  - WindAeroOneDimIEC
+  - WindAeroTwoDimIEC
+  - WindContCurrLimIEC
+  - WindContPType3IEC
+  - WindContPType4aIEC
+  - WindContPType4bIEC
+  - WindContPitchAngleIEC
+  - WindContQIEC
+  - WindContQLimIEC
+  - WindContQPQULimIEC
+  - WindContRotorRIEC
+  - WindDynamicsLookupTable
+  - WindGenType3IEC
+  - WindGenType4IEC
+  - WindMechIEC
+  - WindPitchContPowerIEC
+  - WindPlantFreqPcontrolIEC
+  - WindPlantReactiveControlIEC
+  - WindProtectionIEC
+  - WindRefFrameRotIEC
+  - WindingInsulation
+  - WirePosition
+  - WorkIdentifiedObject
 associations:
-- source: IdentifiedObject
-  target: DiagramObject
-  sourceCardinality: 0..1
-  sourceName: identifiedObject
-  sourceDescription: The domain object to which this diagram object is associated.
-  targetCardinality: 0..*
-  targetName: diagramObjects
-  targetDescription: The diagram objects that are associated with the domain object.
-- source: IdentifiedObject
-  target: InstanceSet
-  sourceCardinality: 0..*
-  sourceName: instanceSetMember
-  sourceDescription: Data objects contained in the dataset.
-  targetCardinality: "1"
-  targetName: instanceSet
-  targetDescription: Dataset containing the data objects.
-- source: IdentifiedObject
-  target: Name
-  sourceCardinality: "1"
-  sourceName: identifiedObject
-  sourceDescription: Identified object that this name designates.
-  targetCardinality: 0..*
-  targetName: names
-  targetDescription: All names of this identified object.
-- source: IdentifiedObject
-  target: ChangeSetMember
-  sourceCardinality: 0..1
-  sourceName: propertiesObject
-  sourceDescription: The CIM object holding the properties of this dataset context.   Sometimes properties are not required
-    and only the reference to the registered object is required.
-  targetCardinality: 0..1
-  targetName: propertiesCIMDataObject
-  targetDescription: The single CIM data object in the appropriate dataset context.
-- source: IdentifiedObject
-  target: ChangeSetMember
-  sourceCardinality: "1"
-  sourceName: targetObject
-  sourceDescription: The registered CIM object.
-  targetCardinality: 0..*
-  targetName: targetingCIMDataObject
-  targetDescription: Data objects registered.
+  - source: IdentifiedObject
+    target: DiagramObject
+    sourceCardinality: 0..1
+    sourceName: identifiedObject
+    sourceDescription: The domain object to which this diagram object is associated.
+    targetCardinality: 0..*
+    targetName: diagramObjects
+    targetDescription: The diagram objects that are associated with the domain object.
+  - source: IdentifiedObject
+    target: InstanceSet
+    sourceCardinality: 0..*
+    sourceName: instanceSetMember
+    sourceDescription: Data objects contained in the dataset.
+    targetCardinality: "1"
+    targetName: instanceSet
+    targetDescription: Dataset containing the data objects.
+  - source: IdentifiedObject
+    target: Name
+    sourceCardinality: "1"
+    sourceName: identifiedObject
+    sourceDescription: Identified object that this name designates.
+    targetCardinality: 0..*
+    targetName: names
+    targetDescription: All names of this identified object.
+  - source: IdentifiedObject
+    target: ChangeSetMember
+    sourceCardinality: 0..1
+    sourceName: propertiesObject
+    sourceDescription: >-
+      The CIM object holding the properties of this dataset context.   Sometimes properties are not required and only
+      the reference to the registered object is required.
+    targetCardinality: 0..1
+    targetName: propertiesCIMDataObject
+    targetDescription: The single CIM data object in the appropriate dataset context.
+  - source: IdentifiedObject
+    target: ChangeSetMember
+    sourceCardinality: "1"
+    sourceName: targetObject
+    sourceDescription: The registered CIM object.
+    targetCardinality: 0..*
+    targetName: targetingCIMDataObject
+    targetDescription: Data objects registered.

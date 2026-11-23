@@ -1,12 +1,20 @@
 name: SupplierKind
+type: enum
 description: Kind of supplier.
 attributes:
-- name: utility
-  description: Entity that delivers the service to the customer.
-- name: retailer
-  description: Entity that sells the service, but does not deliver to the customer; applies to the deregulated markets.
-- name: lse
-- name: mdma
-- name: msp
-- name: other
-  description: Other kind of supplier.
+  - name: lse
+    type: enum
+  - name: mdma
+    type: enum
+  - name: msp
+    type: enum
+  - name: other
+    type: enum
+    description: Other kind of supplier.
+  - name: retailer
+    type: enum
+    description: >-
+      Entity that sells the service, but does not deliver to the customer; applies to the deregulated markets.
+  - name: utility
+    type: enum
+    description: Entity that delivers the service to the customer.

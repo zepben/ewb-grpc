@@ -1,21 +1,21 @@
 name: OutageOrder
 description: Transmits an outage plan to a crew in order for the planned outage to be executed.
 attributes:
-- name: comment
-  type: String
-  description: Free-form comment associated with the outage order
+  - name: comment
+    type: String
+    description: Free-form comment associated with the outage order
 ancestors:
-- Document
+  - Document
 associations:
-- source: OutageOrder
-  target: Location
-  sourceCardinality: 0..1
-  sourceName: outageOrder
-  targetCardinality: 0..*
-  targetName: location
-- source: OutageOrder
-  target: OutagePlan
-  sourceCardinality: 0..1
-  sourceName: outageOrder
-  targetCardinality: 0..1
-  targetName: outagePlan
+  - source: OutageOrder
+    target: Location
+    sourceCardinality: 0..1
+    sourceName: outageOrder
+    targetCardinality: 0..*
+    targetName: location
+  - source: OutageOrder
+    target: OutagePlan
+    sourceCardinality: 0..1
+    sourceName: outageOrder
+    targetCardinality: 0..1
+    targetName: outagePlan

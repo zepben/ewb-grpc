@@ -1,36 +1,37 @@
 name: PnodeDistributionFactor
 description: This class allows SC to input different distribution factors for pricing node.
 attributes:
-- name: factor
-  type: Float
-  description: Used to calculate "participation" of Pnode in an AggregatePnode. For example, for regulation region this factor
-    is 1 and total sum of all factors for a specific regulation region does not have to be 1. For pricing zone the total sum
-    of all factors has to be 1.
-- name: offPeak
-  type: YesNo
-  description: Indication that this distribution factor is to apply during off peak.
-- name: onPeak
-  type: YesNo
-  description: Indication that this factor is to apply during Peak periods.
-- name: podLossFactor
-  type: Float
-  description: Point of delivery loss factor
+  - name: factor
+    type: Float
+    description: >-
+      Used to calculate "participation" of Pnode in an AggregatePnode. For example, for regulation region this factor is
+      1 and total sum of all factors for a specific regulation region does not have to be 1. For pricing zone the total
+      sum of all factors has to be 1.
+  - name: offPeak
+    type: YesNo
+    description: Indication that this distribution factor is to apply during off peak.
+  - name: onPeak
+    type: YesNo
+    description: Indication that this factor is to apply during Peak periods.
+  - name: podLossFactor
+    type: Float
+    description: Point of delivery loss factor
 associations:
-- source: PnodeDistributionFactor
-  target: AggregatedPnode
-  sourceCardinality: 1..*
-  sourceName: pnodeDistributionFactor
-  targetCardinality: "1"
-  targetName: aggregatedPnode
-- source: PnodeDistributionFactor
-  target: IndividualPnode
-  sourceCardinality: 0..*
-  sourceName: pnodeDistributionFactor
-  targetCardinality: "1"
-  targetName: individualPnode
-- source: PnodeDistributionFactor
-  target: BidDistributionFactor
-  sourceCardinality: 0..*
-  sourceName: pnodeDistributionFactor
-  targetCardinality: 0..1
-  targetName: bidDistributionFactor
+  - source: PnodeDistributionFactor
+    target: AggregatedPnode
+    sourceCardinality: 1..*
+    sourceName: pnodeDistributionFactor
+    targetCardinality: "1"
+    targetName: aggregatedPnode
+  - source: PnodeDistributionFactor
+    target: BidDistributionFactor
+    sourceCardinality: 0..*
+    sourceName: pnodeDistributionFactor
+    targetCardinality: 0..1
+    targetName: bidDistributionFactor
+  - source: PnodeDistributionFactor
+    target: IndividualPnode
+    sourceCardinality: 0..*
+    sourceName: pnodeDistributionFactor
+    targetCardinality: "1"
+    targetName: individualPnode

@@ -1,23 +1,23 @@
 name: ErpBomItemData
 description: An individual item on a bill of materials.
 ancestors:
-- ErpIdentifiedObject
+  - ErpIdentifiedObject
 associations:
-- source: ErpBomItemData
-  target: ErpBOM
-  sourceCardinality: 0..*
-  sourceName: erpBomItemDatas
-  targetCardinality: "1"
-  targetName: erpBOM
-- source: ErpBomItemData
-  target: DesignLocation
-  sourceCardinality: 0..*
-  sourceName: erpBomItemDatas
-  targetCardinality: 0..1
-  targetName: designLocation
-- source: ErpBomItemData
-  target: CatalogAssetType
-  sourceCardinality: 0..*
-  sourceName: erpBomItemDatas
-  targetCardinality: 0..1
-  targetName: typeAsset
+  - source: ErpBomItemData
+    target: DesignLocation
+    sourceCardinality: 0..*
+    sourceName: erpBomItemDatas
+    targetCardinality: 0..1
+    targetName: designLocation
+  - source: ErpBomItemData
+    target: ErpBOM
+    sourceCardinality: 0..*
+    sourceName: erpBomItemDatas
+    targetCardinality: "1"
+    targetName: erpBOM
+  - source: ErpBomItemData
+    target: CatalogAssetType
+    sourceCardinality: 0..*
+    sourceName: erpBomItemDatas
+    targetCardinality: 0..1
+    targetName: typeAsset

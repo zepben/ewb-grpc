@@ -1,13 +1,13 @@
 name: OperatingMechanism
 description: Breaker mechanism.
 ancestors:
-- Asset
+  - Asset
 associations:
-- source: OperatingMechanism
-  target: InterrupterUnit
-  sourceCardinality: 0..1
-  sourceName: operatingMechanism
-  sourceDescription: Breaker mechanism controlling this interrupter.
-  targetCardinality: 0..*
-  targetName: interrupterUnit
-  targetDescription: Interrupter controlled by this mechanism.
+  - source: OperatingMechanism
+    target: InterrupterUnit
+    sourceCardinality: 0..1
+    sourceName: operatingMechanism
+    sourceDescription: Breaker mechanism controlling this interrupter.
+    targetCardinality: 0..*
+    targetName: interrupterUnit
+    targetDescription: Interrupter controlled by this mechanism.
