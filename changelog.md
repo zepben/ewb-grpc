@@ -1,4 +1,20 @@
 # Zepben Protobuf and GRPC definitions
+## [1.11.0] - UNRELEASED
+### Breaking Changes
+* None.
+
+### New Features
+* None.
+
+### Enhancements
+* None.
+
+### Fixes
+* None.
+
+### Notes
+* None.
+
 ## [1.10.0] - 2026-11-23
 ### Breaking Changes
 * The profile manager now uses `CIM` as the default import package instead of `ewb`. This aligns with the latest name from the EA databases distributed by the CIM user group.
