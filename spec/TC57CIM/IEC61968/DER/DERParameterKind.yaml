@@ -1,27 +1,42 @@
 name: DERParameterKind
 type: enum
+description: Specifies the DER parameters related to the unit of power, ramp rate and regulation flows.
 attributes:
   - name: activePower
     type: enum
+    description: The amount of power being used, measured in Watts.
   - name: apparentPower
     type: enum
+    description: >-
+      The combination of reactive power and active power, and is the product of voltage and current without reference to
+      the phase angle.
   - name: decreasingRampRate
     type: enum
+    description: An indication of whether the ramp rate associated with a curve is negative.
   - name: highFilterBiDirectionalRegulation
     type: enum
+    description: AC voltage regulation of high frequency
   - name: highFilterDownRegulation
     type: enum
+    description: High Pass Frequency Regulation downwards.
   - name: highFilterUpRegulation
     type: enum
+    description: High Pass Frequency Regulation upwards.
   - name: increasingRampRate
     type: enum
+    description: An indication of whether the ramp rate associated with a curve is positive.
   - name: lowFilterBiDirectionalRegulation
     type: enum
+    description: Used to filter out the sinusoidal disturbances to the grid.
   - name: lowFilterDownRegulation
     type: enum
+    description: Low Pass Frequency Regulation downwards.
   - name: lowFilterUpRegulation
     type: enum
+    description: Low Pass Frequency Regulation upwards.
   - name: reactivePower
     type: enum
+    description: The measure of reactance, measured in Vars.
   - name: voltage
     type: enum
+    description: The measure of difference in potential between two points, measured in Volts.

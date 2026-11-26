@@ -40,7 +40,7 @@ associations:
     target: OutagePlan
     sourceCardinality: 0..1
     sourceName: switchingPlan
-    sourceDescription: The swiching plan that is associated with the outage plan.
+    sourceDescription: The switching plan that is associated with the outage plan.
     targetCardinality: 0..1
     targetName: outagePlan
     targetDescription: The outage plan for which the switching plan is defined.
@@ -48,8 +48,10 @@ associations:
     target: PlannedOutageNotification
     sourceCardinality: 0..1
     sourceName: switchingPlan
+    sourceDescription: The switching plan that contains the planned outage notification.
     targetCardinality: 0..1
     targetName: plannedOutageNotification
+    targetDescription: The planned outage notification that is associated to the switching plan.
   - source: SwitchingPlan
     target: SafetyDocument
     sourceCardinality: 0..1
@@ -57,25 +59,31 @@ associations:
     sourceDescription: Switching plan to which this safety document applies.
     targetCardinality: 0..*
     targetName: safetyDocuments
-    targetDescription: All safety documents applicable to this swtiching plan.
+    targetDescription: All safety documents applicable to this switching plan.
   - source: SwitchingPlan
     target: SwitchingAction
     sourceCardinality: 0..1
     sourceName: switchingPlan
+    sourceDescription: The switching plan that is associated with the switching actions.
     targetCardinality: 0..*
     targetName: switchingAction
+    targetDescription: The switching actions that are associated with the switching plan.
   - source: SwitchingPlan
     target: SwitchingOrder
     sourceCardinality: 0..1
     sourceName: switchingPlan
+    sourceDescription: The switching plan that is defined in the switching order.
     targetCardinality: 0..1
     targetName: switchingOrder
+    targetDescription: The switching order that specified the switching plan to be implemented.
   - source: SwitchingPlan
     target: SwitchingPlanRequest
     sourceCardinality: 0..*
     sourceName: switchingPlan
+    sourceDescription: The switching plan for the request.
     targetCardinality: 0..1
     targetName: switchingPlanRequest
+    targetDescription: The request for the specified switching plan.
   - source: SwitchingPlan
     target: SwitchingStepGroup
     sourceCardinality: 0..1

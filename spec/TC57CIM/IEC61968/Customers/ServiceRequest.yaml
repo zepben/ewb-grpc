@@ -1,0 +1,40 @@
+name: ServiceRequest
+attributes:
+  - name: appointmentRequested
+    type: Boolean
+  - name: kind
+    type: ServiceRequestKind
+  - name: serviceKind
+    type: ServiceKind
+  - name: serviceSize
+    type: String
+    description: >-
+      The size or quantity requested by the customer; for example, 200 AMPS for electrical service, 50 MBits per second
+      for internet service, etc.
+ancestors:
+  - WorkRequest
+associations:
+  - source: ServiceRequest
+    target: Customer
+    sourceCardinality: 0..*
+    sourceName: serviceRequest
+    sourceDescription: All service requests for the customer
+    targetCardinality: 0..1
+    targetName: customer
+    targetDescription: The customer making the service request
+  - source: ServiceRequest
+    target: ServiceLocation
+    sourceCardinality: 0..*
+    sourceName: serviceRequest
+    sourceDescription: All service requests for the service location
+    targetCardinality: 0..1
+    targetName: serviceLocation
+    targetDescription: The service location for the serivce request
+  - source: ServiceRequest
+    target: WorkTimeSchedule
+    sourceCardinality: 0..1
+    sourceName: serviceRequest
+    sourceDescription: The service request for which the work time schedule exists
+    targetCardinality: 0..*
+    targetName: workTimeSchedule
+    targetDescription: All work time schedules associated with a service request

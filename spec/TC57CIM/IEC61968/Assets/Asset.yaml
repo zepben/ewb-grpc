@@ -8,23 +8,23 @@ attributes:
   - name: acceptanceTest
     type: AcceptanceTest
     description: Information on acceptance test.
-  - name: baselineCondition
-    type: String
-    description: >-
-      Condition of asset at last baseline. Examples include new, rebuilt, overhaul required, other. Refer to inspection
-      data for information on the most current condition of the asset.
-  - name: baselineLossOfLife
-    type: PerCent
-    description: >-
-      Percentage of initial life expectancy that has been lost as of the last life expectancy baseline. Represents
-
-      (initial life expectancy - current life expectancy) / initial life expectancy.
   - name: critical
     type: Boolean
     description: True if asset is considered critical for some reason (for example, a pole with critical attachments).
   - name: electronicAddress
     type: ElectronicAddress
     description: Electronic address.
+  - name: initialCondition
+    type: String
+    description: >-
+      Condition of asset at last baseline. Examples include new, rebuilt, overhaul required, other. Refer to inspection
+      data for information on the most current condition of the asset.
+  - name: initialLossOfLife
+    type: PerCent
+    description: >-
+      Percentage of initial life expectancy that has been lost as of the last life expectancy baseline. Represents
+
+      (initial life expectancy - current life expectancy) / initial life expectancy.
   - name: inUseDate
     type: InUseDate
     description: In use dates for this asset.
@@ -130,8 +130,10 @@ associations:
     target: AssetFunction
     sourceCardinality: 0..1
     sourceName: asset
+    sourceDescription: Asset on which this function can be performed.
     targetCardinality: 0..*
     targetName: assetFunction
+    targetDescription: Function performed by this asset.
   - source: Asset
     target: AssetGroup
     sourceCardinality: 0..*
@@ -197,6 +199,12 @@ associations:
     targetName: financialInfo
     targetDescription: Financial information related to this asset.
   - source: Asset
+    target: Incident
+    sourceCardinality: 0..*
+    sourceName: asset
+    targetCardinality: 0..*
+    targetName: incident
+  - source: Asset
     target: Location
     sourceCardinality: 0..*
     sourceName: assets
@@ -208,6 +216,7 @@ associations:
     target: Measurement
     sourceCardinality: 0..1
     sourceName: asset
+    sourceDescription: Asset that has a measurement
     targetCardinality: 0..*
     targetName: measurements
     targetDescription: Measurement related to this asset.
@@ -303,9 +312,18 @@ associations:
     target: ScheduledEvent
     sourceCardinality: 0..*
     sourceName: assets
+    sourceDescription: Assets associated with the scheduled event.
     targetCardinality: 0..*
     targetName: scheduledEvents
     targetDescription: Scheduled event related to this asset.
+  - source: Asset
+    target: ServiceLocation
+    sourceCardinality: 0..*
+    sourceName: asset
+    sourceDescription: All assets that exist at the service location
+    targetCardinality: 0..1
+    targetName: serviceLocation
+    targetDescription: The service location at which the assets exist
   - source: Asset
     target: WorkTask
     sourceCardinality: 0..*

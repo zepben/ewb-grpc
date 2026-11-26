@@ -14,29 +14,39 @@ associations:
     target: Incident
     sourceCardinality: 0..1
     sourceName: troubleOrder
+    sourceDescription: The trouble order that is associated to the incident
     targetCardinality: 0..1
     targetName: incident
+    targetDescription: The incident that may be associated with the trouble order.
   - source: TroubleOrder
     target: Location
     sourceCardinality: 0..1
     sourceName: troubleOrder
+    sourceDescription: The trouble order at this location
     targetCardinality: 0..1
     targetName: location
+    targetDescription: The location of this trouble order
   - source: TroubleOrder
     target: TroubleTicket
     sourceCardinality: 0..1
     sourceName: troubleOrder
+    sourceDescription: The order to which one or more trouble tickets are associated.
     targetCardinality: 0..*
     targetName: troubleTicket
+    targetDescription: The ticket called in by the customer that describes the trouble
   - source: TroubleOrder
     target: UnplannedOutage
     sourceCardinality: 0..*
     sourceName: troubleOrder
+    sourceDescription: The trouble order that is associated to the unplanned outage.
     targetCardinality: 0..1
     targetName: unplannedOutage
+    targetDescription: The unplanned outage that is associated to the Trouble Order.
   - source: TroubleOrder
     target: WorkTask
     sourceCardinality: 0..1
     sourceName: troubleOrder
+    sourceDescription: The trouble order that contains the work tasks.
     targetCardinality: 0..*
     targetName: workTask
+    targetDescription: The work tasks that are associated with this trouble order.

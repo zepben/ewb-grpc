@@ -10,6 +10,12 @@ ancestors:
   - Document
 associations:
   - source: Incident
+    target: Asset
+    sourceCardinality: 0..*
+    sourceName: incident
+    targetCardinality: 0..*
+    targetName: asset
+  - source: Incident
     target: CustomerNotification
     sourceCardinality: 0..1
     sourceName: incident
@@ -17,6 +23,12 @@ associations:
     targetCardinality: 0..*
     targetName: customerNotifications
     targetDescription: All notifications for a customer related to the status change of this incident.
+  - source: Incident
+    target: Hazard
+    sourceCardinality: 0..1
+    sourceName: incident
+    targetCardinality: 0..*
+    targetName: hazard
   - source: Incident
     target: IncidentHazard
     sourceCardinality: 0..1
@@ -53,8 +65,10 @@ associations:
     target: TroubleOrder
     sourceCardinality: 0..1
     sourceName: incident
+    sourceDescription: The incident that may be associated with the trouble order.
     targetCardinality: 0..1
     targetName: troubleOrder
+    targetDescription: The trouble order that is associated to the incident
   - source: Incident
     target: TroubleTicket
     sourceCardinality: 0..1
@@ -67,8 +81,10 @@ associations:
     target: UnplannedOutage
     sourceCardinality: 0..*
     sourceName: incident
+    sourceDescription: The incidents that are associated with the unplanned outage
     targetCardinality: 0..1
     targetName: unplannedOutage
+    targetDescription: The unplanned outage that may be associated with the incidents.
   - source: Incident
     target: Work
     sourceCardinality: 0..*

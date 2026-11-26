@@ -27,11 +27,10 @@ attributes:
       The cause of this outage.  This is the cause that is used to present to external entities.  That is, the cause is
       weather, equipment failure, etc.
 
-
-      Note: At present, this is a free text; could be replaced with a separate associated class in case we have multiple
-      causes (e.g. OutageCauseType, inheriting from IdentifiedObject).
+      Note: At present, this is a free string text; it could be replaced with an enumeration in the future.
   - name: causeKind
     type: OutageCauseKind
+    description: The possible cause that could be associated with this unplanned outage.
   - name: reportedStartTime
     type: DateTime
     description: The earliest start time of the Outage - as reported by some system or individual
@@ -42,23 +41,31 @@ associations:
     target: FieldDispatchHistory
     sourceCardinality: 0..1
     sourceName: unplannedOutage
+    sourceDescription: The unplanned outage that has the field dispatch history.
     targetCardinality: 0..1
     targetName: fieldDispatchHistory
+    targetDescription: The dispatch history associated with the unplanned outage
   - source: UnplannedOutage
     target: Incident
     sourceCardinality: 0..1
     sourceName: unplannedOutage
+    sourceDescription: The unplanned outage that may be associated with the incidents.
     targetCardinality: 0..*
     targetName: incident
+    targetDescription: The incidents that are associated with the unplanned outage
   - source: UnplannedOutage
     target: TroubleOrder
     sourceCardinality: 0..1
     sourceName: unplannedOutage
+    sourceDescription: The unplanned outage that is associated to the Trouble Order.
     targetCardinality: 0..*
     targetName: troubleOrder
+    targetDescription: The trouble order that is associated to the unplanned outage.
   - source: UnplannedOutage
     target: TroubleTicket
     sourceCardinality: 0..1
     sourceName: unplannedOutage
+    sourceDescription: The unplanned outage to which one or more trouble tickets are associated.
     targetCardinality: 0..*
     targetName: troubleTicket
+    targetDescription: The ticket called in by the customer that describes the trouble

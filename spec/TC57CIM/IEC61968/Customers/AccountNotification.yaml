@@ -3,16 +3,23 @@ description: Notifications for move-in, move-out, delinquencies, etc.
 attributes:
   - name: customerNotificationType
     type: String
+    description: >-
+      Notifications for move-in, move-out, delinquencies, planned outage, demand response programs, time of use, etc.
   - name: methodType
     type: String
+    description: method of notification such as phone call, email, letter, door hanger, text message, etc.
   - name: note
     type: String
+    description: Free form text characterizing the notification.
   - name: time
     type: DateTime
+    description: Time of notification - this is the time the notification was sent.
 associations:
   - source: AccountNotification
     target: CustomerAccount
     sourceCardinality: 0..*
     sourceName: accountNotification
+    sourceDescription: The notification for the customer account.
     targetCardinality: "1"
     targetName: customerAccount
+    targetDescription: The customer account for which a notification is made

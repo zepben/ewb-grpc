@@ -11,11 +11,15 @@ associations:
     target: Location
     sourceCardinality: 0..1
     sourceName: outageOrder
+    sourceDescription: The outage order at this location.
     targetCardinality: 0..*
     targetName: location
+    targetDescription: Location of this outage order.
   - source: OutageOrder
     target: OutagePlan
     sourceCardinality: 0..1
     sourceName: outageOrder
+    sourceDescription: The outage order that will address the outage plan.
     targetCardinality: 0..1
     targetName: outagePlan
+    targetDescription: The outage plan that is defined to address the outage order.

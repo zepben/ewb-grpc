@@ -19,14 +19,24 @@ attributes:
     description: Supports compound switching steps that are made up of several sub steps.
 associations:
   - source: SwitchingStep
-    target: SwitchingAction
+    target: RevisionHistory
     sourceCardinality: 0..1
     sourceName: switchingStep
     targetCardinality: "1"
+    targetName: revisionHistory
+  - source: SwitchingStep
+    target: SwitchingAction
+    sourceCardinality: 0..1
+    sourceName: switchingStep
+    sourceDescription: The switching step that is associated to the switching action.
+    targetCardinality: "1"
     targetName: switchingAction
+    targetDescription: The switching action that is associated to the switching step.
   - source: SwitchingStep
     target: SwitchingStepGroup
     sourceCardinality: 0..*
     sourceName: switchingStep
+    sourceDescription: The switching steps that are part of the switching step group.
     targetCardinality: 0..1
     targetName: switchingStepGroup
+    targetDescription: The switching step group that contains the switching steps.

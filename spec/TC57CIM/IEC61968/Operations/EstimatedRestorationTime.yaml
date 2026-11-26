@@ -1,5 +1,5 @@
 name: EstimatedRestorationTime
-description: The Estimated Restoration Time for a single outage
+description: The Estimated Restoration Time (ERT) for a single outage
 attributes:
   - name: confidenceKind
     type: ERTConfidenceKind
@@ -16,5 +16,7 @@ associations:
     target: Outage
     sourceCardinality: 0..1
     sourceName: estimatedRestorationTime
+    sourceDescription: The estimated time that the power will be restored after an outage
     targetCardinality: 0..*
     targetName: outage
+    targetDescription: The outage associated with the estimated time the power will be restored.

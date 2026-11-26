@@ -72,8 +72,10 @@ associations:
     target: ConfigurationEvent
     sourceCardinality: 0..1
     sourceName: powerSystemResource
+    sourceDescription: Power system resource whose change resulted in this configuration event.
     targetCardinality: 0..*
     targetName: configurationEvent
+    targetDescription: All configuration events created for this Power System resource.
   - source: PowerSystemResource
     target: Control
     sourceCardinality: 0..1
@@ -88,8 +90,10 @@ associations:
     target: GenericAction
     sourceCardinality: 0..1
     sourceName: powerSystemResource
+    sourceDescription: The power system resource that the generic action is performed on
     targetCardinality: 0..*
     targetName: genericAction
+    targetDescription: The generic action that is performed on the power system resource
   - source: PowerSystemResource
     target: Location
     sourceCardinality: 0..*
@@ -150,5 +154,7 @@ associations:
     target: VerificationAction
     sourceCardinality: 0..1
     sourceName: powerSystemResource
+    sourceDescription: The power system resource that the verification action is performed on
     targetCardinality: 0..*
     targetName: verificationAction
+    targetDescription: The verification action that is performed on the power system resource

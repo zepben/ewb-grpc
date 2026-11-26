@@ -7,8 +7,10 @@ associations:
     target: ConfigurationEvent
     sourceCardinality: "1"
     sourceName: faultCauseType
+    sourceDescription: Fault cause type whose change resulted in this configuration event.
     targetCardinality: 0..*
     targetName: configurationEvent
+    targetDescription: All configuration events created for this fault cause type.
   - source: FaultCauseType
     target: Fault
     sourceCardinality: 0..*

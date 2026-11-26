@@ -1,0 +1,68 @@
+name: MeterReadSchedule
+ancestors:
+  - Document
+associations:
+  - source: MeterReadSchedule
+    target: CustomerAccount
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule that applies to the customer account
+    targetCardinality: 0..*
+    targetName: customerAccount
+    targetDescription: All customer accounts for the meter read schedule.
+  - source: MeterReadSchedule
+    target: CustomerAgreement
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule that applies to the customer agreement
+    targetCardinality: 0..*
+    targetName: customerAgreement
+    targetDescription: All customer agreements for the meter read schedule.
+  - source: MeterReadSchedule
+    target: EndDevice
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule that applies to the end device
+    targetCardinality: 0..*
+    targetName: endDevice
+    targetDescription: All end devices for the meter read schedule.
+  - source: MeterReadSchedule
+    target: EndDeviceGroup
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule that applies to the end device group
+    targetCardinality: 0..*
+    targetName: endDeviceGroup
+    targetDescription: All end device groups for the meter read schedule.
+  - source: MeterReadSchedule
+    target: ReadingType
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule for which the reading type applies
+    targetCardinality: 0..*
+    targetName: readingType
+    targetDescription: All reading types for the meter read schedule.
+  - source: MeterReadSchedule
+    target: TimeSchedule
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule for which the time schedule applies
+    targetCardinality: 0..*
+    targetName: timeSchedule
+    targetDescription: All time schedules for the meter read schedule.
+  - source: MeterReadSchedule
+    target: UsagePoint
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule that applies to the usage point
+    targetCardinality: 0..*
+    targetName: usagePoint
+    targetDescription: All usage points for the meter read schedule.
+  - source: MeterReadSchedule
+    target: UsagePointGroup
+    sourceCardinality: 0..1
+    sourceName: meterReadSchedule
+    sourceDescription: Meter read schedule that applies to the usage point group
+    targetCardinality: 0..*
+    targetName: usagePointGroup
+    targetDescription: All usage point groups for the meter read schedule.

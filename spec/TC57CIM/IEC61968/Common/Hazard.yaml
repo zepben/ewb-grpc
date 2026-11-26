@@ -12,3 +12,16 @@ ancestors:
 descendants:
   - AssetLocationHazard
   - IncidentHazard
+associations:
+  - source: Hazard
+    target: Incident
+    sourceCardinality: 0..*
+    sourceName: hazard
+    targetCardinality: 0..1
+    targetName: incident
+  - source: Hazard
+    target: TroubleTicket
+    sourceCardinality: 0..*
+    sourceName: hazard
+    targetCardinality: 0..1
+    targetName: troubleTicket

@@ -29,26 +29,34 @@ associations:
     target: FieldDispatchHistory
     sourceCardinality: 0..1
     sourceName: crew
+    sourceDescription: The crew that has this field dispatch history.
     targetCardinality: 0..*
     targetName: fieldDispatchHistory
+    targetDescription: The dispatch history associated with the crew.
   - source: Crew
     target: Location
     sourceCardinality: 0..*
     sourceName: crew
+    sourceDescription: The crew that is assigned to this location.
     targetCardinality: 0..1
     targetName: location
+    targetDescription: The location this crew is assigned to.
   - source: Crew
     target: Outage
     sourceCardinality: 0..*
     sourceName: crew
+    sourceDescription: The crew that is assigned to the outage.
     targetCardinality: 0..*
     targetName: outage
+    targetDescription: The outage that is assigned to the crew.
   - source: Crew
     target: SwitchingAction
     sourceCardinality: 0..*
     sourceName: crew
+    sourceDescription: The crew that is assigned to the switching action.
     targetCardinality: "1"
     targetName: switchingAction
+    targetDescription: The switching action that is assigned to this crew.
   - source: Crew
     target: WorkAsset
     sourceCardinality: 0..1

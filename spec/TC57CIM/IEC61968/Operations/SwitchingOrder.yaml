@@ -14,11 +14,15 @@ associations:
     target: Location
     sourceCardinality: 0..1
     sourceName: switchingOrder
+    sourceDescription: The switching order at this location.
     targetCardinality: 0..*
     targetName: location
+    targetDescription: Location of this switching order.
   - source: SwitchingOrder
     target: SwitchingPlan
     sourceCardinality: 0..1
     sourceName: switchingOrder
+    sourceDescription: The switching order that specified the switching plan to be implemented.
     targetCardinality: 0..1
     targetName: switchingPlan
+    targetDescription: The switching plan that is defined in the switching order.

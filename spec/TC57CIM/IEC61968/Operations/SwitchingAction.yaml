@@ -37,8 +37,10 @@ associations:
     target: Crew
     sourceCardinality: "1"
     sourceName: switchingAction
+    sourceDescription: The switching action that is assigned to this crew.
     targetCardinality: 0..*
     targetName: crew
+    targetDescription: The crew that is assigned to the switching action.
   - source: SwitchingAction
     target: Operator
     sourceCardinality: 0..*
@@ -51,17 +53,23 @@ associations:
     target: SwitchingEvent
     sourceCardinality: "1"
     sourceName: switchingAction
+    sourceDescription: The switching action that is performed on the switching event
     targetCardinality: 0..1
     targetName: switchingEvent
+    targetDescription: The switching event that the switching action is performed on
   - source: SwitchingAction
     target: SwitchingPlan
     sourceCardinality: 0..*
     sourceName: switchingAction
+    sourceDescription: The switching actions that are associated with the switching plan.
     targetCardinality: 0..1
     targetName: switchingPlan
+    targetDescription: The switching plan that is associated with the switching actions.
   - source: SwitchingAction
     target: SwitchingStep
     sourceCardinality: "1"
     sourceName: switchingAction
+    sourceDescription: The switching action that is associated to the switching step.
     targetCardinality: 0..1
     targetName: switchingStep
+    targetDescription: The switching step that is associated to the switching action.

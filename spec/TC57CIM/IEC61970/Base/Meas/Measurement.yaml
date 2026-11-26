@@ -60,6 +60,7 @@ associations:
     sourceDescription: Measurement related to this asset.
     targetCardinality: 0..1
     targetName: asset
+    targetDescription: Asset that has a measurement
   - source: Measurement
     target: CalculationMethodHierarchy
     sourceCardinality: 0..*
@@ -72,14 +73,18 @@ associations:
     target: Location
     sourceCardinality: 0..*
     sourceName: measurements
+    sourceDescription: All measurements at this location.
     targetCardinality: 0..*
     targetName: locations
+    targetDescription: Location of this measurement.
   - source: Measurement
     target: MeasurementAction
     sourceCardinality: 0..1
     sourceName: measurement
+    sourceDescription: The measurement that the measurement action is performed on
     targetCardinality: 0..1
     targetName: measurementAction
+    targetDescription: The measurement action that is performed on the measurement
   - source: Measurement
     target: MeasurementCalculatorInput
     sourceCardinality: "1"

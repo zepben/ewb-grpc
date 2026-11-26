@@ -1,25 +1,38 @@
 name: DERCurveData
+description: >-
+  The DER curve data class provides the nominal, maximum and minimum values for a DER Monitorable parameter for a series
+  of time intervals defined by the DER DispatchSchedule.
 attributes:
   - name: intervalNumber
     type: Integer
+    description: The sequence number of a time interval defined by the DispatchSchedule.
   - name: maxYValue
     type: Float
+    description: The maximum value of the DERMonitorableParameter during the time interval.
   - name: minYValue
     type: Float
+    description: The minimum value of the DERMonitorableParameter during the time interval.
   - name: nominalYValue
     type: Float
+    description: The nominal value of the DERMonitorableParameter during the time interval.
   - name: timeStamp
     type: DateTime
+    description: The start time of the interval
 associations:
   - source: DERCurveData
     target: DERMonitorableParameter
     sourceCardinality: 0..1
     sourceName: derCurveData
+    sourceDescription: Specifies the time dependent curve for a DER monitorable parameter
     targetCardinality: "1"
     targetName: derMonitorableParameter
+    targetDescription: The DER monitorable parameter for which a time dependent curve has been created.
   - source: DERCurveData
     target: DispatchSchedule
     sourceCardinality: 0..*
     sourceName: derCurveData
+    sourceDescription: Specifies the time dependent curve for a DER monitorable parameter in the DER dispatch schedule.
     targetCardinality: 0..1
     targetName: dispatchSchedule
+    targetDescription: >-
+      The schedule used for dispatching or forecasting the values of DER monitorable parameters over time.

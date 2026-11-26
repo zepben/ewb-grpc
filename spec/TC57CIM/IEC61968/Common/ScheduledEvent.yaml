@@ -8,6 +8,7 @@ attributes:
     description: Duration of the scheduled event, for example, the time to ramp between values.
   - name: status
     type: Status
+    description: Current status information relevant to a scheduled event
   - name: type
     type: String
     description: Type of scheduled event.
@@ -21,6 +22,7 @@ associations:
     sourceDescription: Scheduled event related to this asset.
     targetCardinality: 0..*
     targetName: assets
+    targetDescription: Assets associated with the scheduled event.
   - source: ScheduledEvent
     target: ScheduledEventData
     sourceCardinality: 0..*

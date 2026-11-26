@@ -27,6 +27,14 @@ associations:
     targetName: endDeviceControls
     targetDescription: All end device controls sending commands to this usage point group.
   - source: UsagePointGroup
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: usagePointGroup
+    sourceDescription: All usage point groups for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule that applies to the usage point group
+  - source: UsagePointGroup
     target: UsagePoint
     sourceCardinality: 0..*
     sourceName: usagePointGroups

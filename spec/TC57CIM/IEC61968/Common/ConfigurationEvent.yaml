@@ -73,11 +73,15 @@ associations:
     target: FaultCauseType
     sourceCardinality: 0..*
     sourceName: configurationEvent
+    sourceDescription: All configuration events created for this fault cause type.
     targetCardinality: "1"
     targetName: faultCauseType
+    targetDescription: Fault cause type whose change resulted in this configuration event.
   - source: ConfigurationEvent
     target: PowerSystemResource
     sourceCardinality: 0..*
     sourceName: configurationEvent
+    sourceDescription: All configuration events created for this Power System resource.
     targetCardinality: 0..1
     targetName: powerSystemResource
+    targetDescription: Power system resource whose change resulted in this configuration event.

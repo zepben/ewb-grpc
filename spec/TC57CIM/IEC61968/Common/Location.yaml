@@ -73,8 +73,10 @@ associations:
     target: Crew
     sourceCardinality: 0..1
     sourceName: location
+    sourceDescription: The location this crew is assigned to.
     targetCardinality: 0..*
     targetName: crew
+    targetDescription: The crew that is assigned to this location.
   - source: Location
     target: OldCrew
     sourceCardinality: 0..*
@@ -101,8 +103,10 @@ associations:
     target: Fault
     sourceCardinality: 0..1
     sourceName: location
+    sourceDescription: Location of this fault.
     targetCardinality: 0..*
     targetName: fault
+    targetDescription: All faults at this location.
   - source: Location
     target: AssetLocationHazard
     sourceCardinality: 0..*
@@ -130,14 +134,18 @@ associations:
     target: Measurement
     sourceCardinality: 0..*
     sourceName: locations
+    sourceDescription: Location of this measurement.
     targetCardinality: 0..*
     targetName: measurements
+    targetDescription: All measurements at this location.
   - source: Location
     target: OutageOrder
     sourceCardinality: 0..*
     sourceName: location
+    sourceDescription: Location of this outage order.
     targetCardinality: 0..1
     targetName: outageOrder
+    targetDescription: The outage order at this location.
   - source: Location
     target: PositionPoint
     sourceCardinality: "1"
@@ -165,11 +173,21 @@ associations:
     target: SwitchingOrder
     sourceCardinality: 0..*
     sourceName: location
+    sourceDescription: Location of this switching order.
     targetCardinality: 0..1
     targetName: switchingOrder
+    targetDescription: The switching order at this location.
   - source: Location
     target: TroubleOrder
     sourceCardinality: 0..1
     sourceName: location
+    sourceDescription: The location of this trouble order
     targetCardinality: 0..1
     targetName: troubleOrder
+    targetDescription: The trouble order at this location
+  - source: Location
+    target: TroubleTicket
+    sourceCardinality: 0..1
+    sourceName: location
+    targetCardinality: 0..1
+    targetName: troubleTicket

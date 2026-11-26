@@ -51,3 +51,11 @@ associations:
     targetCardinality: 0..1
     targetName: author
     targetDescription: Author of this activity record.
+  - source: ActivityRecord
+    target: Document
+    sourceCardinality: 0..*
+    sourceName: activityRecord
+    sourceDescription: The activity record for a document
+    targetCardinality: 0..1
+    targetName: document
+    targetDescription: The document having associated activity records

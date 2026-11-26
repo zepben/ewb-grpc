@@ -34,6 +34,14 @@ descendants:
   - OldPerson
 associations:
   - source: Person
+    target: Customer
+    sourceCardinality: 0..*
+    sourceName: person
+    sourceDescription: The person representing the customer
+    targetCardinality: 0..*
+    targetName: customer
+    targetDescription: The customer represented by the person
+  - source: Person
     target: PersonRole
     sourceCardinality: 0..1
     sourceName: person

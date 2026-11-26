@@ -1,0 +1,22 @@
+name: RevisionHistory
+description: History of changes made to a switching plan step after the switching plan has been approved.
+attributes:
+  - name: kind
+    type: RevisionKind
+    description: Kind of change, either void or added.
+  - name: revisionAuthor
+    type: String
+    description: Person who made the change
+  - name: revisionDateTime
+    type: DateTime
+    description: Date and time of the change
+  - name: revisionReason
+    type: String
+    description: Reason for making the change
+associations:
+  - source: RevisionHistory
+    target: SwitchingStep
+    sourceCardinality: "1"
+    sourceName: revisionHistory
+    targetCardinality: 0..1
+    targetName: switchingStep

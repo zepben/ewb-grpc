@@ -22,8 +22,10 @@ associations:
     target: AccountNotification
     sourceCardinality: "1"
     sourceName: customerAccount
+    sourceDescription: The customer account for which a notification is made
     targetCardinality: 0..*
     targetName: accountNotification
+    targetDescription: The notification for the customer account.
   - source: CustomerAccount
     target: Customer
     sourceCardinality: 0..*
@@ -52,6 +54,14 @@ associations:
     sourceName: customerAccount
     targetCardinality: 0..*
     targetName: erpInvoicees
+  - source: CustomerAccount
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: customerAccount
+    sourceDescription: All customer accounts for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule that applies to the customer account
   - source: CustomerAccount
     target: Transaction
     sourceCardinality: 0..1

@@ -1,27 +1,46 @@
 name: DERFunction
+description: Specifies the list of functions that are supported.
 attributes:
   - name: connectDisconnect
     type: Boolean
+    description: If set to TRUE, the connect/disconnect function is supported.
   - name: frequencyWattCurveFunction
     type: Boolean
   - name: maxRealPowerLimiting
     type: Boolean
+    description: If set to TRUE, the maxRealPowerLimiting function is supported.
   - name: rampRateControl
     type: Boolean
+    description: If set to TRUE, the rampRateControl function is supported.
   - name: reactivePowerDispatch
     type: Boolean
+    description: If set to TRUE, the reactivePowerDispatch function is supported.
   - name: realPowerDispatch
     type: Boolean
+    description: If set to TRUE, the realPowerDispatch function is supported.
   - name: voltageRegulation
     type: Boolean
+    description: If set to TRUE, the voltageRegulation function is supported.
   - name: voltVarCurveFunction
     type: Boolean
+    description: If set to TRUE, the voltVARCurveFunction is supported.
   - name: voltWattCurveFunction
     type: Boolean
+    description: If set to TRUE, the voltWattCurveFunction is supported.
 associations:
   - source: DERFunction
     target: EndDeviceGroup
     sourceCardinality: 0..1
     sourceName: derFunction
+    sourceDescription: Functions supported by the DER Group
     targetCardinality: 0..*
     targetName: endDeviceGroup
+    targetDescription: The DER Group supporting the DER functions.
+  - source: DERFunction
+    target: EndDeviceGroup
+    sourceCardinality: 0..*
+    sourceName: derFunction
+    sourceDescription: The DER functions that are applied to the DER Group.
+    targetCardinality: 0..1
+    targetName: endDeviceGroup
+    targetDescription: The DER Group supporting the DER functions.

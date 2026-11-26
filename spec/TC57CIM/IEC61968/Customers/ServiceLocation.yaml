@@ -20,6 +20,14 @@ ancestors:
   - WorkLocation
 associations:
   - source: ServiceLocation
+    target: Asset
+    sourceCardinality: 0..1
+    sourceName: serviceLocation
+    sourceDescription: The service location at which the assets exist
+    targetCardinality: 0..*
+    targetName: asset
+    targetDescription: All assets that exist at the service location
+  - source: ServiceLocation
     target: CustomerAgreement
     sourceCardinality: 0..*
     sourceName: serviceLocations
@@ -36,11 +44,21 @@ associations:
     targetName: endDevices
     targetDescription: All end devices that measure the service delivered to this service location.
   - source: ServiceLocation
+    target: ServiceRequest
+    sourceCardinality: 0..1
+    sourceName: serviceLocation
+    sourceDescription: The service location for the serivce request
+    targetCardinality: 0..*
+    targetName: serviceRequest
+    targetDescription: All service requests for the service location
+  - source: ServiceLocation
     target: TroubleTicket
     sourceCardinality: "1"
     sourceName: serviceLocation
+    sourceDescription: The service location to which one or more trouble tickets are associated.
     targetCardinality: 0..*
     targetName: troubleTicket
+    targetDescription: The ticket called in by the customer that describes the trouble
   - source: ServiceLocation
     target: UsagePoint
     sourceCardinality: 0..1

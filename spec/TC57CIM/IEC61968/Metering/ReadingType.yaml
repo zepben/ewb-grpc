@@ -37,7 +37,7 @@ attributes:
       one price, after which the next block of energy is purchased at another price, and so on, all throughout a defined
       period. At the start of the defined period, consumption is initially zero, and any usage is measured against the
       first consumption tier ('consumptionTier'=1). If this block of energy is consumed before the end of the period,
-      energy consumption moves to be reconed against the second consumption tier ('consumptionTier'=2), and so on. At
+      energy consumption moves to be reckoned against the second consumption tier ('consumptionTier'=2), and so on. At
       the end of the defined period, the consumption accumulator is reset, and usage within the 'consumptionTier'=1
       restarts.
   - name: cpp
@@ -123,6 +123,14 @@ associations:
     targetCardinality: 0..*
     targetName: intervalBlocks
     targetDescription: All blocks containing interval reading values with this type information.
+  - source: ReadingType
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: readingType
+    sourceDescription: All reading types for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule for which the reading type applies
   - source: ReadingType
     target: MetrologyRequirement
     sourceCardinality: 1..*

@@ -4,23 +4,31 @@ description: Kind of read / measured value.
 attributes:
   - name: alarm
     type: enum
+    description: A measurement related to an alarm
   - name: apparentPowerFactor
     type: enum
+    description: The ratio of real energy (usually net Wh) to apparent energy (kVAh)
   - name: applicationContext
     type: enum
+    description: Information that describes the logical context in which a request, measurement, or command is made.
   - name: apTitle
     type: enum
+    description: An application name which is making or has made a request
   - name: assetNumber
     type: enum
+    description: An asset identifier
   - name: audibleVolume
     type: enum
     description: Sound
   - name: bandwidth
     type: enum
+    description: A measurement of dataflow
   - name: batteryCarryover
     type: enum
+    description: An estimate of the battery ride through capacity
   - name: batteryVoltage
     type: enum
+    description: Battery voltage
   - name: billCarryover
     type: enum
     description: Customer’s bill for the (Currency)
@@ -32,6 +40,7 @@ attributes:
     description: Customer’s bill, as known thus far within the present billing period (Currency)
   - name: broadcastAddress
     type: enum
+    description: A message target address implying all endpoint units within range of a particular sender
   - name: connectionFee
     type: enum
     description: Monthly fee for connection to commodity.
@@ -40,229 +49,367 @@ attributes:
     description: funds
   - name: current
     type: enum
+    description: The flow of electrons
   - name: currentAngle
     type: enum
+    description: A phase current zero-cross timing measurement relative to a reference voltage zero-cross
   - name: currentImbalance
     type: enum
+    description: A measurement of the departure of a phase current relative to the average current of all phases
   - name: dataOverflowAlarm
     type: enum
+    description: An indication of or measurement of a loss of data
   - name: date
     type: enum
+    description: >-
+      A measurement of the date and/or time in a clock, or a time stamp indicating when data was captured, when a
+      maximum or minimum occurred, or to commemorate some other important aspect of a measurement
   - name: demand
     type: enum
+    description: >-
+      The measurement of maximum power flow which is computed as energy usage over time, the dimensions of which are
+      defined by a tariff
   - name: demandLimit
     type: enum
+    description: >-
+      A threshold setting that determines the trip point that if exceeded would trigger a demand limiting action or
+      alarm
   - name: demandReset
     type: enum
-    description: Usually expressed as a count as part of a billing cycle
+    description: A count of the number of times demand has been reset (remotely, locally, and/or automatically.)
   - name: deviceAddressType1
     type: enum
+    description: Endpoint target address Type1
   - name: deviceAddressType2
     type: enum
+    description: Endpoint target address Type2
   - name: deviceAddressType3
     type: enum
+    description: Endpoint target address Type3
   - name: deviceAddressType4
     type: enum
+    description: Endpoint target address Type4
   - name: deviceClass
     type: enum
+    description: A unique identifier for the Endpoint’s configuration
   - name: diagnostic
     type: enum
+    description: A measurement related to equipment diagnostics
   - name: distance
     type: enum
+    description: A linear distance or range radius
   - name: distortionPowerFactor
     type: enum
+    description: The ratio of the distortion VAh to the apparent VAh
   - name: distortionVoltAmp
     type: enum
+    description: >-
+      A measurement in which a V<sup>2</sup> I<sup>2</sup> term has both real and reactive components removed leaving
+      only distortion. For example, distortion VAh = Sqrt( (V<sup>2</sup>h)(I<sup>2</sup>h) – (Wh)<sup>2</sup> –
+      (VArh)<sup>2</sup>)
   - name: electronicSerialNumber
     type: enum
+    description: A device serial number
   - name: emergencyLimit
     type: enum
+    description: A setting that indicates an emergency limit
   - name: encoderTamper
     type: enum
+    description: An indication of tampering with a meter encoder
   - name: endDeviceID
     type: enum
+    description: >-
+      A unique identifier of the endDevice – the device providing measurements or under control of the network
   - name: energization
     type: enum
+    description: Pertaining to the presence of voltage
   - name: energizationLoadSide
     type: enum
+    description: Measuring the presence or absence of voltage on the load side of an electricity meter
   - name: energy
     type: enum
+    description: >-
+      Scalar quantity which may be increased or decreased in a system when it receives or produces work, respectively
   - name: fan
     type: enum
+    description: A forced air moving device
   - name: frequency
     type: enum
+    description: Reciprocal of the period
   - name: frequencyExcursion
     type: enum
-    description: Usually expressed as a “count”
+    description: A measurement of the departure of the frequency from the nominal frequency
   - name: fund
     type: enum
-    description: Dup with “currency”
+    description: Duplicate with “currency”
   - name: groupAddressType1
     type: enum
+    description: Group target address Type1
   - name: groupAddressType2
     type: enum
+    description: Group target address Type2
   - name: groupAddressType3
     type: enum
+    description: Group target address Type3
   - name: groupAddressType4
     type: enum
+    description: Group target address Type4
   - name: ieee1366ASAI
     type: enum
+    description: A measurement of IEEE-1366 Average Service Availability Index
   - name: ieee1366ASIDI
     type: enum
+    description: A measurement of the IEEE-1366 Average Service Interruption Duration Index
   - name: ieee1366ASIFI
     type: enum
+    description: A measurement of the IEEE-1366 Average Service Interruption Frequency Index
   - name: ieee1366CAIDI
     type: enum
+    description: A measurement of the IEEE-1366 Customer average interruption duration index
   - name: ieee1366CAIFI
     type: enum
+    description: A measurement of the IEEE-1366 Customer average interruption frequency index
   - name: ieee1366CEMIn
     type: enum
+    description: A measurement of the IEEE-1366 Customers Experiencing Multiple Interruptions
   - name: ieee1366CEMSMIn
     type: enum
+    description: A measurement of the IEEE-1366 Customers Experiencing Multiple Sustained and Momentary Interruptions
   - name: ieee1366CTAIDI
     type: enum
+    description: A measurement of the IEEE-1366 Customer Total Average Interruption Duration Index
   - name: ieee1366MAIFI
     type: enum
+    description: A measurement of the IEEE-1366 Momentary Average Interruption Frequency Index
   - name: ieee1366MAIFIe
     type: enum
+    description: A measurement of the IEEE-1366 Momentary Average event Interruption Frequency Index
   - name: ieee1366MomentaryInterruption
     type: enum
+    description: IEEE-1366 Momentary Interruption count
   - name: ieee1366MomentaryInterruptionEvent
     type: enum
+    description: IEEE-1366 Momentary Interruption event count
   - name: ieee1366SAIDI
     type: enum
+    description: IEEE-1366 System Average Interruption Duration Index
   - name: ieee1366SAIFI
     type: enum
+    description: IEEE-1366 System Average Interruption Frequency Index
   - name: ieee1366SustainedInterruption
     type: enum
+    description: IEEE-1366 Sustained Interruption duration
   - name: interruptionBehaviour
     type: enum
+    description: "A measurement related to power interruptions (Note: often an interruption count or duration.)"
   - name: inversionTamper
     type: enum
+    description: "A measurement related to inversion tamper (Note: typically a count of inversions)"
   - name: ipAddress
     type: enum
+    description: An IP address for the endpoint
   - name: lineLoss
     type: enum
+    description: An energy, power, voltage, or current loss attributed to transmission or distribution line impedance
   - name: loadInterrupt
     type: enum
+    description: >-
+      A measurement related to load interruption (Note: typically a load interruption count or measurement of duration)
   - name: loadShed
     type: enum
+    description: "A measurement related to load shed (Note: typically a load shed count or load shed duration)"
   - name: loss
     type: enum
+    description: >-
+      A quantity lost due to “technical” reasons (such as line loss) or “non-technical” reasons (such as theft.)
   - name: macAddress
     type: enum
+    description: A MAC address for the endpoint
   - name: maintenance
     type: enum
+    description: A measurement related to the pending maintenance of equipment
   - name: mfgAssignedConfigurationID
     type: enum
+    description: The configuration given to a device at time of manufacture
   - name: mfgAssignedPhysicalSerialNumber
     type: enum
+    description: The serial number assigned to a device at time of manufacture
   - name: mfgAssignedProductNumber
     type: enum
+    description: The product number assigned to a device at time of manufacture
   - name: mfgAssignedUniqueCommunicationAddress
     type: enum
+    description: A communication address assigned to a device at time of manufacture
   - name: multiCastAddress
     type: enum
+    description: A message target address implying a large group of endpoint units within range of a particular sender
   - name: negativeSequence
     type: enum
+    description: A quantity that has a rotation sequence which is opposite to that of the power system
   - name: none
     type: enum
     description: Not Applicable
   - name: oneWayAddress
     type: enum
+    description: A communication address of a network endpoint used in one-way communication
   - name: phasorPowerFactor
     type: enum
+    description: The ratio of real energy (usually net Wh) to phasor apparent energy (kVAh)
   - name: phasorReactivePower
     type: enum
+    description: The ratio of real energy (usually net Wh) to phasor reactive energy (kVAh)
   - name: physicalTamper
     type: enum
+    description: "A measurement related to physical tampering (Note: typically a tamper count)"
   - name: positiveSequence
     type: enum
+    description: A quantity that has a rotation sequence in agreement with that of the power system
   - name: power
     type: enum
+    description: The derivative of energy with respect to time, where the energy is being transferred or transformed.
   - name: powerFactor
     type: enum
+    description: The ratio of real energy (usually net Wh) to apparent energy (kVAh)
   - name: powerLossTamper
     type: enum
+    description: Tamper indicated while power was out
   - name: powerOutage
     type: enum
+    description: "A measurement related to power outages (Note: typically a status)"
   - name: powerQuality
     type: enum
+    description: A measurement related to power quality
   - name: powerRestoration
     type: enum
+    description: "A measurement related to power restoration (Note: typically a status)"
   - name: programmed
     type: enum
+    description: "A measurement related to device programming (Note: typically a status measurement)"
   - name: pushbutton
     type: enum
+    description: "A measurement related to pushbutton (Note: typically a status or count)"
   - name: quantityPower
     type: enum
+    description: >-
+      A power measurement of Qh, where Qh is defined to be half of the sum of the Wh measurements on each phase plus the
+      square root of 3 over two times the sum of the VArh measurements on each phase.
   - name: relayActivation
     type: enum
+    description: A measurement related to relay activations
   - name: relayCycle
     type: enum
-    description: Usually expressed as a count
+    description: >-
+      A measurement related to relay cycling (Note1: one open and one closure together is one cycle, Note2: Usually
+      expressed as a count)
   - name: removalTamper
     type: enum
+    description: An indication of equipment tampering that shows equipment was moved or opened
   - name: reprogrammingTamper
     type: enum
+    description: An indication of equipment tampering that shows equipment has been reprogrammed
   - name: reverseRotationTamper
     type: enum
+    description: An indication of tampering as evidenced by reverse power flow
   - name: sag
     type: enum
-    description: or Voltage Dip
+    description: A temporary dip in the supply voltage below the nominal value
   - name: signalStrength
     type: enum
+    description: A measurement of RF signal strength
   - name: signaltoNoiseRatio
     type: enum
-    description: "Moved here from Attribute #9 UOM"
+    description: A measurement of received (RF) signal strength divided by the (RF) noise floor
   - name: swell
     type: enum
+    description: A temporary rise of the supply voltage over the nominal value
   - name: switchArmed
     type: enum
+    description: A measurement of the switch arm condition
   - name: switchDisabled
     type: enum
+    description: A measurement of the switch enablement status
   - name: switchPosition
     type: enum
+    description: >-
+      A physical or logical switch position status which includes “opened” and “closed”, but for some products may also
+      include “armed,” or other states that indicate a temporary state due to some condition.
   - name: tamper
     type: enum
+    description: An indication of equipment tampering
   - name: tapPosition
     type: enum
+    description: Tap changer position
   - name: tariffRate
     type: enum
+    description: >-
+      An energy price defined in a contract. The rate might be a price for energy, for power (usually expressed as a
+      demand value), or some other measurement. The rate might be currency based, or as a code, or as a component of a
+      larger tariff description.
   - name: temperature
     type: enum
+    description: A quantity proportional to the energy of a system
   - name: totalHarmonicDistortion
     type: enum
+    description: >-
+      The ratio of the sum of the harmonics to the fundamental. (THD may measure either voltage or current, and may
+      isolated to a given phase)
   - name: transformerLoss
     type: enum
+    description: A measurement of the energy or power loss in a transformer due to inefficiency
   - name: twoWayAddress
     type: enum
+    description: A communication address used for bidirectional communication
   - name: unipedeVoltageDip10to15
     type: enum
+    description: >-
+      A voltage dip classification per EN50160 or a similar national standard measuring the number of dips in the 10-15%
+      range
   - name: unipedeVoltageDip15to30
     type: enum
+    description: >-
+      A voltage dip classification per EN50160 or a similar national standard measuring the number of dips in the 15-30%
+      range
   - name: unipedeVoltageDip30to60
     type: enum
+    description: >-
+      A voltage dip classification per EN50160 or a similar national standard measuring the number of dips in the 30-60%
+      range
   - name: unipedeVoltageDip60to90
     type: enum
+    description: >-
+      A voltage dip classification per EN50160 or a similar national standard measuring the number of dips in the 60-90%
+      rangeA voltage dip classification per EN50160 or a similar national standard measuring the number of dips in the
+      60-90% range
   - name: unipedeVoltageDip90to100
     type: enum
+    description: >-
+      A voltage dip classification per EN50160 or a similar national standard measuring the number of dips in the
+      90-100% range
   - name: voltage
     type: enum
+    description: The difference in electric potential between two points
   - name: voltageAngle
     type: enum
+    description: A phase voltage zero-cross timing measurement relative to a reference voltage zero-cross
   - name: voltageExcursion
     type: enum
+    description: A measurement of the departure of the voltage from the nominal voltage
   - name: voltageImbalance
     type: enum
+    description: A measurement of the departure of a phase voltage relative to the average voltage of all phases.
   - name: volume
     type: enum
-    description: Clarified  from Ed. 1. to indicate fluid volume
+    description: fluid volume
   - name: volumetricFlow
     type: enum
+    description: A fluid flow rate
   - name: watchdogTimeout
     type: enum
+    description: A reset triggered by a hardware “watchdog” circuit
   - name: zeroFlowDuration
     type: enum
+    description: >-
+      The amount of time that current flow drops to a zero level or level below the ability of the sensor to sense
   - name: zeroSequence
     type: enum
+    description: The zero sequence current is the vector sum of the phase currents

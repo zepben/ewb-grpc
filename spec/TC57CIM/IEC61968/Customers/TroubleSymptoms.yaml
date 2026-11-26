@@ -1,0 +1,48 @@
+name: TroubleSymptoms
+description: >-
+  Trouble symptoms reported by person reporting the trouble.  The symptoms provide clues to utility personnel analyzing
+  the ticket to help identify the root cause of the problem.
+attributes:
+  - name: troubleSymptomsExtent
+    type: TroubleSymptomsExtentKind
+    description: The extent of the problem being reported.
+  - name: troubleSymptomsExtentOther
+    type: String
+    description: The extent of the problem being reported that does not fit any of the enumeration values.
+  - name: troubleSymptomsLight
+    type: TroubleSymptomsLightKind
+    description: The problem with lights being reported.
+  - name: troubleSymptomsLightOther
+    type: String
+    description: The problem with lights being reported that does not fit any of the enumeration values
+  - name: troubleSymptomsPole
+    type: TroubleSymptomsPoleKind
+    description: The problem with pole being reported.
+  - name: troubleSymptomsPoleOther
+    type: String
+    description: The problem with pole being reported that does not fit any of the enumeration values
+  - name: troubleSymptomsTransformer
+    type: TroubleSymptomsTransformerKind
+    description: The problem with transformer being reported.
+  - name: troubleSymptomsTransformerOther
+    type: String
+    description: The problem with transformer being reported that does not fit any of the enumeration values
+  - name: troubleSymptomsTree
+    type: TroubleSymptomsTree Kind
+    description: The problem with tree being reported.
+  - name: troubleSymptomsTreeOther
+    type: String
+    description: The problem with tree being reported that does not fit any of the enumeration values
+  - name: troubleSymptomsWire
+    type: TroubleSymptomsWireKind
+    description: The problem with wire being reported.
+  - name: troubleSymptomsWireOther
+    type: String
+    description: The problem with wire being reported that does not fit any of the enumeration values
+associations:
+  - source: TroubleSymptoms
+    target: TroubleTicket
+    sourceCardinality: 0..1
+    sourceName: troubleSymptoms
+    targetCardinality: 0..1
+    targetName: troubleTicket

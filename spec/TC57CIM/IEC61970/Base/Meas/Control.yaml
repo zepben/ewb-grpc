@@ -6,8 +6,8 @@ attributes:
   - name: controlType
     type: String
     description: >-
-      Specifies the type of Control, e.g. BreakerOn/Off, GeneratorVoltageSetPoint, TieLineFlow etc. The ControlType.name
-      shall be unique among all specified types and describe the type.
+      Specifies the type of Control. For example, this specifies if the Control represents BreakerOpen, BreakerClose,
+      GeneratorVoltageSetPoint, GeneratorRaise, GeneratorLower, etc.
   - name: operationInProgress
     type: Boolean
     description: Indicates that a client is currently sending control commands that has not completed.
@@ -31,8 +31,10 @@ associations:
     target: ControlAction
     sourceCardinality: 0..1
     sourceName: control
+    sourceDescription: The control that the control action is performed on.
     targetCardinality: 0..1
     targetName: controlAction
+    targetDescription: The control action that is performed on the control
   - source: Control
     target: PowerSystemResource
     sourceCardinality: 0..*

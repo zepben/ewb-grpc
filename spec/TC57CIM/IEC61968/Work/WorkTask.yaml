@@ -66,8 +66,10 @@ associations:
     target: MaterialItem
     sourceCardinality: 0..1
     sourceName: workTask
+    sourceDescription: The work task that uses the material items
     targetCardinality: 0..*
     targetName: materialItems
+    targetDescription: The material items that are required to perform the work task.
   - source: WorkTask
     target: Asset
     sourceCardinality: 0..*
@@ -96,8 +98,10 @@ associations:
     target: TroubleOrder
     sourceCardinality: 0..*
     sourceName: workTask
+    sourceDescription: The work tasks that are associated with this trouble order.
     targetCardinality: 0..1
     targetName: troubleOrder
+    targetDescription: The trouble order that contains the work tasks.
   - source: WorkTask
     target: Work
     sourceCardinality: 0..*
