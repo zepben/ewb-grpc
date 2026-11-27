@@ -26,6 +26,7 @@ diagrams:
       - WireInsulationKind
       - WireMaterialKind
       - WirePosition
+      - WireSpacingInfo
       - WireUsageKind
 
   - path: IEC61968/AssetInfo/AssetInfoInheritance2
@@ -48,6 +49,7 @@ diagrams:
       - TransformerTest
       - WireInfo
       - WirePosition
+      - WireSpacingInfo
 
   - path: IEC61968/AssetInfo/AssetInfoInheritance3
     classes:
@@ -69,6 +71,8 @@ diagrams:
 
   - path: IEC61968/AssetInfo/AssetWireInfo
     classes:
+      - ACLineSegment
+      - ACLineSegmentPhase
       - AssetInfo
       - CableInfo
       - OverheadWireInfo
@@ -78,6 +82,7 @@ diagrams:
       - WireInfo
       - WirePhaseInfo
       - WirePosition
+      - WireSpacingInfo
 
   - path: IEC61968/AssetInfo/DCIMTransformerInfo
     classes:
@@ -104,6 +109,7 @@ diagrams:
       - WireInsulationKind
       - WireMaterialKind
       - WirePosition
+      - WireSpacingInfo
       - WireUsageKind
 
   - path: IEC61968/AssetMeas/AssetHealthMeasurement
@@ -187,13 +193,6 @@ diagrams:
       - StatisticalCalculation
       - ValueAliasSet
       - ValueToAlias
-
-  - path: IEC61968/AssetMeas/CalculationMethodHierarchy_2
-    name: CalculationMethodHierarchy
-    classes:
-      - CalculationMethodHierarchy
-      - Measurement
-      - MeasurementValue
 
   - path: IEC61968/Assets/AssetAnalog
     classes:
@@ -431,6 +430,7 @@ diagrams:
       - AssetOwner
       - AssetUser
       - ComMedia
+      - Incident
       - Maintainer
       - Manufacturer
       - Procedure
@@ -539,6 +539,7 @@ diagrams:
       - OutageCauseKind
       - PersonRole
       - PlannedOutage
+      - TroubleReporter
       - UnplannedOutage
 
   - path: IEC61968/Common/DetailedDiagrams/issue1126UserAttributeEtcAsCompound
@@ -565,10 +566,12 @@ diagrams:
       - CustomerAgreement
       - CustomerKind
       - Document
-      - Hazard
+      - name: Hazard
+        show: both
       - IdentifiedObject
       - IncidentHazard
-      - Location
+      - name: Location
+        show: both
       - NotificationTriggerKind
       - OrganisationRole
       - PricingStructure
@@ -576,24 +579,51 @@ diagrams:
       - ServiceCategory
       - ServiceKind
       - ServiceLocation
+      - name: ServiceRequest
+        show: both
       - Tariff
       - TroubleCallKind
       - TroubleReportingKind
       - TroubleTicket
       - WorkLocation
+      - WorkRequest
 
   - path: IEC61968/Customers/CustomersOverview
     classes:
       - AccountNotification
+      - Asset
       - Customer
       - CustomerAccount
       - CustomerAgreement
       - CustomerNotification
       - IncidentHazard
+      - Person
       - PricingStructure
       - ServiceCategory
+      - ServiceKind
       - ServiceLocation
+      - ServiceRequest
+      - ServiceRequestKind
       - Tariff
+      - TroubleTicket
+      - UsagePoint
+      - UsagePointLocation
+      - WorkTimeSchedule
+
+  - path: IEC61968/Customers/TroubleTicketsOverview
+    classes:
+      - Hazard
+      - Incident
+      - Location
+      - TroubleReporter
+      - TroubleReportingKind
+      - TroubleSymptoms
+      - TroubleSymptomsExtentKind
+      - TroubleSymptomsLightKind
+      - TroubleSymptomsPoleKind
+      - TroubleSymptomsTransformerKind
+      - TroubleSymptomsTree Kind
+      - TroubleSymptomsWireKind
       - TroubleTicket
 
   - path: IEC61968/DER/DER-EndDeviceOverview
@@ -697,7 +727,8 @@ diagrams:
         show: both
       - Asset
       - AssetInfo
-      - Document
+      - name: Document
+        show: both
       - EndDeviceControl
       - EndDeviceEvent
       - IdentifiedObject
@@ -730,6 +761,7 @@ diagrams:
       - PowerSystemResource
       - Terminal
       - WireInfo
+      - WireSpacingInfo
 
   - path: IEC61968/DocIEC61968/DCIMLoadModel
     classes:
@@ -753,18 +785,6 @@ diagrams:
       - PowerSystemResource
       - ServiceLocation
       - WorkLocation
-
-  - path: IEC61968/DocIEC61968/DCIMMeterServiceWork
-    classes:
-      - Asset
-      - AssetContainer
-      - Customer
-      - CustomerAgreement
-      - Meter
-      - MeterWorkTask
-      - ServiceSupplier
-      - Work
-      - WorkTask
 
   - path: IEC61968/DocIEC61968/DCIMOrganisations
     classes:
@@ -864,11 +884,24 @@ diagrams:
       - SwitchingPlan
       - UnplannedOutage
 
+  - path: IEC61968/DocIEC61968/DCIMServiceRequest
+    classes:
+      - Asset
+      - AssetContainer
+      - Customer
+      - CustomerAgreement
+      - Meter
+      - MeterWorkTask
+      - ServiceSupplier
+      - Work
+      - WorkTask
+
   - path: IEC61968/DocIEC61968/DCIMSwitchingActionsModel
     classes:
       - ACLineSegment
       - Asset
       - Clamp
+      - ClampAction
       - ClearanceAction
       - ClearanceActionKind
       - ClearanceDocument
@@ -876,6 +909,8 @@ diagrams:
       - Conductor
       - Cut
       - CutAction
+      - EnergyConsumer
+      - EnergyConsumerAction
       - EnergySource
       - EnergySourceAction
       - Ground
@@ -886,6 +921,8 @@ diagrams:
       - OperationalTag
       - PowerSystemResource
       - SafetyDocument
+      - ShuntCompensator
+      - ShuntCompensatorAction
       - Switch
       - SwitchAction
       - SwitchActionKind
@@ -998,11 +1035,11 @@ diagrams:
       - Priority
       - RepairWorkTask
       - RetiredReasonKind
+      - ServiceRequestKind
       - TransformerMaintenanceKind
       - Work
       - WorkActivityRecord
       - WorkAsset
-      - WorkKind
       - WorkLocation
       - WorkStatusKind
       - WorkTask
@@ -1203,7 +1240,8 @@ diagrams:
       - CoolingPowerRating
       - Curve
       - DimensionsInfo
-      - Document
+      - name: Document
+        show: both
       - DuctBank
       - FACTSDevice
       - Facility
@@ -1270,6 +1308,7 @@ diagrams:
       - UndergroundStructure
       - WireInfo
       - WirePosition
+      - WireSpacingInfo
 
   - path: IEC61968/InfIEC61968/InfAssets/InfProcedures
     classes:
@@ -1772,6 +1811,24 @@ diagrams:
       - UsagePoint
       - Work
 
+  - path: IEC61968/Metering/DetailedDiagrams/Part9EndDeviceControl-DERUseCase
+    name: Part 9EndDeviceControl-DERUseCase
+    classes:
+      - EndDevice
+      - EndDeviceControl
+      - EndDeviceControlType
+      - EndDeviceGroup
+      - UsagePoint
+      - UsagePointGroup
+
+  - path: IEC61968/Metering/DetailedDiagrams/Part9EndDeviceEvent-DERUseCase
+    name: Part 9EndDeviceEvent-DERUseCase
+    classes:
+      - EndDevice
+      - EndDeviceEvent
+      - EndDeviceEventType
+      - UsagePoint
+
   - path: IEC61968/Metering/DetailedDiagrams/issue082UsagePointDetailed
     classes:
       - CustomerAgreement
@@ -2003,7 +2060,8 @@ diagrams:
       - ComFunction
       - ComModule
       - DemandResponseProgram
-      - Document
+      - name: Document
+        show: both
       - EndDevice
       - EndDeviceAction
       - EndDeviceControl
@@ -2021,6 +2079,8 @@ diagrams:
       - MeasurementValue
       - Meter
       - MeterMultiplier
+      - name: MeterReadSchedule
+        show: both
       - MeterReading
       - MeterWorkTask
       - MetrologyRequirement
@@ -2035,10 +2095,12 @@ diagrams:
       - ReadingType
       - Register
       - ServiceMultiplier
+      - ServiceRequest
       - SimpleEndDeviceFunction
       - UsagePoint
       - UsagePointGroup
       - UsagePointLocation
+      - WorkRequest
       - WorkTask
 
   - path: IEC61968/Metering/MeteringMeterReadings
@@ -2141,6 +2203,20 @@ diagrams:
       - UsagePointGroup
       - UsagePointLocation
 
+  - path: IEC61968/Metering/ReadingSchedules
+    classes:
+      - CustomerAccount
+      - CustomerAgreement
+      - EndDevice
+      - EndDeviceGroup
+      - MeasurementKind
+      - MeasurementKind-Old
+      - MeterReadSchedule
+      - ReadingType
+      - TimeSchedule
+      - UsagePoint
+      - UsagePointGroup
+
   - path: IEC61968/Metering/ReadingTypeEnumerations
     classes:
       - AccumulationKind
@@ -2148,7 +2224,6 @@ diagrams:
       - CommodityKind
       - FlowDirectionKind
       - MacroPeriodKind
-      - MeasurementKind
       - MeasuringPeriodKind
 
   - path: IEC61968/Operations/DetailedDiagrams/FaultModel
@@ -2193,13 +2268,16 @@ diagrams:
   - path: IEC61968/Operations/OperationsInheritance
     show: inheritance
     classes:
-      - ActivityRecord
+      - name: ActivityRecord
+        show: both
+      - ClampAction
       - ClearanceAction
       - ClearanceActionKind
       - ClearanceDocument
       - CrewMember
       - CutAction
-      - Document
+      - name: Document
+        show: both
       - EnergySourceAction
       - FieldSafetySupervisor
       - GenericAction
@@ -2247,7 +2325,13 @@ diagrams:
       - Incident
       - OutageOrder
       - OutagePlan
+      - RevisionHistory
+      - RevisionKind
+      - SwitchingStep
       - TroubleOrder
+      - TroubleTicket
+      - UnplannedOutage
+      - WorkTask
 
   - path: IEC61968/Operations/OutageModel
     classes:
@@ -2264,6 +2348,7 @@ diagrams:
   - path: IEC61968/Operations/OutageOverview
     classes:
       - AreaKind
+      - ConductingEquipment
       - CrewStatusKind
       - ERTConfidenceKind
       - EstimatedRestorationTime
@@ -2277,12 +2362,14 @@ diagrams:
 
   - path: IEC61968/Operations/PlannedOutageModel
     classes:
+      - ClampAction
       - ClearanceAction
       - ClearanceDocument
       - Control
       - ControlAction
       - Crew
       - CutAction
+      - EnergyConsumerAction
       - EnergySourceAction
       - GenericAction
       - GroundAction
@@ -2293,6 +2380,7 @@ diagrams:
       - Organisation
       - PowerSystemResource
       - SafetyDocument
+      - ShuntCompensatorAction
       - SwitchAction
       - SwitchingAction
       - SwitchingEvent
@@ -2307,12 +2395,18 @@ diagrams:
     classes:
       - ClearanceDocument
       - Customer
+      - Document
       - OperationalRestriction
-      - OperationalTag
+      - name: OperationalTag
+        show: relationships
       - OperationalUpdatedRating
-      - OutagePlan
+      - name: OutagePlan
+        show: relationships
       - PlannedOutage
+      - PlannedOutageNotification
       - PowerSystemResource
+      - SwitchingPlan
+      - UsagePoint
 
   - path: IEC61968/PaymentMetering/AuxiliaryAgreement_2
     name: AuxiliaryAgreement
@@ -2619,10 +2713,10 @@ diagrams:
       - Priority
       - RepairItem
       - RepairWorkTask
+      - ServiceRequestKind
       - TransformerMaintenanceKind
       - TransformerRepairItemKind
       - Work
-      - WorkKind
       - WorkStatusKind
       - WorkTask
       - WorkTaskKind
@@ -2657,12 +2751,16 @@ diagrams:
         show: both
       - Asset
       - BaseWork
-      - Document
+      - name: Document
+        show: both
       - IdentifiedObject
       - InternalLocation
       - Location
       - MaintenanceLocation
+      - MaintenanceOrder
       - MaterialItem
+      - ServiceOrder
+      - ServiceRequestKind
       - TimeSchedule
       - Tool
       - Vehicle
@@ -2670,8 +2768,9 @@ diagrams:
       - Work
       - WorkActivityRecord
       - WorkAsset
-      - WorkKind
       - WorkLocation
+      - WorkOrder
+      - WorkRequest
       - WorkStatusKind
       - WorkTask
       - WorkTaskKind
@@ -4876,7 +4975,6 @@ diagrams:
       - AtmosphericAnalogKind
       - CloudKind
       - CoverageCodeKind
-      - EnvironmentalDiscreteKind
       - FScale
       - GeosphericAnalogKind
       - HydrosphericAnalogKind
@@ -5572,7 +5670,67 @@ diagrams:
 
   - path: IEC62325/InfIEC62325/InfDomain/InfDomain
     classes:
+      - ADSInstructionTypeCommitment
+      - ADSInstructionTypeOOS
+      - AdderType
+      - AlarmDisplayType
+      - AllocationEnergyTypeCode
+      - AncillaryCommodityType
+      - BidPriceCapType
       - CRRRoleType
+      - CleanTradeProductType
+      - CurrentStatusSC
+      - DAMMarketType
+      - DispatchAcceptStatus
+      - DispatchTransactionType
+      - EnergyTypeCode
+      - JobFlagType
+      - JobScheduleType
+      - JobStartEndType
+      - LFCResourceType
+      - LoadFollowingCapacityType
+      - MQSDELType
+      - MarketProductTypeAsReq
+      - MarketScheduleServices
+      - MarketStatementDescription
+      - MarketStatementDocStatus
+      - MarketStatementDocType
+      - MarketStatementLineItemAliasName
+      - MeasurementTypeEMS
+      - MktSubClassType
+      - OASISBidReportType
+      - OASISDataItems
+      - OASISErrCode
+      - OASISErrDescription
+      - OASISIntervalType
+      - OASISMarketType
+      - OASISMasterType
+      - OASISMeasType
+      - OASISReportType
+      - OASISStatusType
+      - OrganisationCode
+      - OrganisationType
+      - PriceSetFlag
+      - RequestorRmrTest
+      - ResourceCertificationCategory
+      - ResourceCertificationType
+      - SchedClassType
+      - SegmentCurveType
+      - SelfSchedTypeCleanBid
+      - SelfSchedTypeRawBid
+      - SelfScheduleType
+      - SelfScheduleTypeMB
+      - SourceSinkFlag
+      - SourceSinkType
+      - SpinningEventNameType
+      - SpinningEventType
+      - SystemType
+      - TimeZoneType
+      - TradeProductType
+      - UOMType
+      - UnitTypeEMS
+      - ZoneType
+      - runTypeCAISO
 
   - path: IEC62325/InfIEC62325/InfEnergyScheduling/Main
     classes:
@@ -6746,32 +6904,6 @@ diagrams:
     classes:
       - MQSCHGType
 
-  - path: IEC62325/MarketOperations/MktDomain/DetailedDiagrams/MktDomainMain
-    classes:
-      - AnalogLimitType
-      - AnodeType
-      - AreaControlMode
-      - CRRRoleType
-      - DispatchResponseType
-      - EnergyTransactionType
-      - EquipmentStatusType
-      - ExecutionType
-      - FlowDirectionType
-      - LoadForecastType
-      - MarketEventStatusKind
-      - MarketProductSelfSchedType
-      - MktAccountKind
-      - MktBillMediaKind
-      - MktInvoiceLineItemKind
-      - PriceTypeKind
-      - ReserveRequirementType
-      - ResourceCertificationKind
-      - ResourceRegistrationStatus
-      - ResultsConstraintType
-      - SwitchStatusType
-      - TimeOfUse
-      - UnitRegulationKind
-
   - path: IEC62325/MarketOperations/MktDomain/DetailedDiagrams/ParticipantInterfaces
     classes:
       - ActionType
@@ -6916,6 +7048,7 @@ diagrams:
       - Trade
       - TradeError
       - TradeProduct
+      - TradeProductType
 
   - path: IEC62325/MarketOperations/ParticipantInterfaces/DetailedDiagrams/TransactionBidDetail
     name: TransactionBid Detail

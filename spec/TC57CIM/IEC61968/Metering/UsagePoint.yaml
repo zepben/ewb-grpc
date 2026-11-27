@@ -60,12 +60,6 @@ attributes:
       Phase code. Number of wires and specific nominal phases can be deduced from enumeration literal values. For
       example, ABCN is three-phase, four-wire, s12n (splitSecondary12N) is single-phase, three-wire, and s1n and s2n are
       single-phase, two-wire.
-  - name: phaseCode
-    type: PhaseCode
-    description: >-
-      Phase code. Number of wires and specific nominal phases can be deduced from enumeration literal values. For
-      example, ABCN is three-phase, four-wire, s12n (splitSecondary12N) is single-phase, three-wire, and s1n and s2n are
-      single-phase, two-wire.
   - name: phaseCount
     type: Integer
     description: Number of potential phases the Usage Point supports, typically 0, 1 or 3.
@@ -164,6 +158,14 @@ associations:
     targetName: meterReadings
     targetDescription: All meter readings obtained from this usage point.
   - source: UsagePoint
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: usagePoint
+    sourceDescription: All usage points for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule that applies to the usage point
+  - source: UsagePoint
     target: MeterWorkTask
     sourceCardinality: 0..1
     sourceName: usagePoint
@@ -183,9 +185,10 @@ associations:
     target: Outage
     sourceCardinality: 0..*
     sourceName: deEnergizedUsagePoint
-    sourceDescription: all deenergized useage points associated with the outage.
+    sourceDescription: all de-energized usage points associated with the outage.
     targetCardinality: 0..*
     targetName: outage
+    targetDescription: All outages at this Usage Point
   - source: UsagePoint
     target: Outage
     sourceCardinality: 0..*
@@ -194,6 +197,14 @@ associations:
     targetCardinality: 0..*
     targetName: outage
     targetDescription: All outages at this usage point.
+  - source: UsagePoint
+    target: PlannedOutageNotification
+    sourceCardinality: 0..*
+    sourceName: usagePoint
+    sourceDescription: The Usage Point that is specified in the planned outage notification.
+    targetCardinality: 0..*
+    targetName: plannedOutageNotification
+    targetDescription: The planned outage notification for the specified Usage Point.
   - source: UsagePoint
     target: PricingStructure
     sourceCardinality: 0..*
@@ -210,8 +221,10 @@ associations:
     target: Register
     sourceCardinality: 0..1
     sourceName: usagePoint
+    sourceDescription: Usage Point, when metered, has these registers.
     targetCardinality: 0..*
     targetName: register
+    targetDescription: All registers for quantities metered at this Usage Point.
   - source: UsagePoint
     target: ServiceCategory
     sourceCardinality: 0..*

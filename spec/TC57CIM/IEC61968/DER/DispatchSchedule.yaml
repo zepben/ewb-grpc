@@ -1,7 +1,11 @@
 name: DispatchSchedule
+description: Specifies the characteristics of the time schedule over which DERMonitorableParameters are dispatched.
 attributes:
   - name: confidence
     type: PerCent
+    description: >-
+      A value set by the system, function, algorithm or person creating a prediction as to how accurate the prediction
+      is.
   - name: curveStyleKind
     type: CurveStyle
     description: >-
@@ -24,11 +28,17 @@ associations:
     target: DERCurveData
     sourceCardinality: 0..1
     sourceName: dispatchSchedule
+    sourceDescription: >-
+      The schedule used for dispatching or forecasting the values of DER monitorable parameters over time.
     targetCardinality: 0..*
     targetName: derCurveData
+    targetDescription: Specifies the time dependent curve for a DER monitorable parameter in the DER dispatch schedule.
   - source: DispatchSchedule
     target: DERMonitorableParameter
     sourceCardinality: 0..*
     sourceName: dispatchSchedule
+    sourceDescription: >-
+      The schedule used for dispatching or forecasting the values of DER monitorable parameters over time.
     targetCardinality: "1"
     targetName: derMonitorableParameter
+    targetDescription: The DER monitorable parameter included in the DER dispatch schedule.

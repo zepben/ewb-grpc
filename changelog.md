@@ -13,7 +13,10 @@
 * None.
 
 ### Notes
-* None.
+* Updated `cim100` yaml spec from:
+  * IEC61970 CIM17 v40
+  * IEC61968 CIM13 v13b
+  * IEC62325 CIM03 v17b
 
 ## [1.10.0] - 2026-11-23
 ### Breaking Changes

@@ -1,0 +1,15 @@
+name: TroubleReporter
+description: Type of Person reporting the Trouble - Customer, First Responder, Passer-by, etc.
+attributes:
+  - name: troubleReporterType
+    type: String
+    description: The type of person reporting the trouble
+ancestors:
+  - OperationPersonRole
+associations:
+  - source: TroubleReporter
+    target: TroubleTicket
+    sourceCardinality: 0..1
+    sourceName: troubleReporter
+    targetCardinality: 0..*
+    targetName: troubleTicket

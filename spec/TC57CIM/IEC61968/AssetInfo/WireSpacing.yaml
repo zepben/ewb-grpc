@@ -1,0 +1,40 @@
+name: WireSpacing
+description: >-
+  Wire spacing data that associates multiple wire positions with the line segment, and allows to calculate line segment
+  impedances. Number of phases can be derived from the number of associated wire positions whose phase is not neutral.
+attributes:
+  - name: isCable
+    type: Boolean
+    description: If true, this spacing data describes a cable.
+  - name: phaseWireCount
+    type: Integer
+    description: Number of wire sub-conductors in the symmetrical bundle (typically between 1 and 4).
+  - name: phaseWireSpacing
+    type: Length
+    description: Distance between wire sub-conductors in a symmetrical bundle.
+  - name: usage
+    type: WireUsageKind
+    description: Usage of the associated wires.
+ancestors:
+  - IdentifiedObject
+associations:
+  - source: WireSpacing
+    target: DuctBank
+    sourceCardinality: 0..*
+    sourceName: wireSpacingInfos
+    targetCardinality: 0..1
+    targetName: ductBank
+  - source: WireSpacing
+    target: Structure
+    sourceCardinality: 0..*
+    sourceName: wireSpacingInfos
+    targetCardinality: 0..*
+    targetName: structures
+  - source: WireSpacing
+    target: WirePosition
+    sourceCardinality: 0..1
+    sourceName: wireSpacingInfo
+    sourceDescription: Wire spacing data this wire position belongs to.
+    targetCardinality: 1..*
+    targetName: wirePositions
+    targetDescription: All positions of single wires (phase or neutral) making the conductor.

@@ -71,6 +71,7 @@ descendants:
   - MarketSkill
   - MarketStatement
   - MerchantAccount
+  - MeterReadSchedule
   - OperationalRestriction
   - OperationalTag
   - Outage
@@ -98,7 +99,17 @@ descendants:
   - TroubleTicket
   - WorkBillingInfo
   - WorkDocument
+  - WorkOrder
+  - WorkRequest
 associations:
+  - source: Document
+    target: ActivityRecord
+    sourceCardinality: 0..1
+    sourceName: document
+    sourceDescription: The document having associated activity records
+    targetCardinality: 0..*
+    targetName: activityRecord
+    targetDescription: The activity record for a document
   - source: Document
     target: Approver
     sourceCardinality: 0..*

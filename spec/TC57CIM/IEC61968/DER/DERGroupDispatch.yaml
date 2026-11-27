@@ -1,4 +1,7 @@
 name: DERGroupDispatch
+description: >-
+  Specifies the capabilities of the DER Group that are to be dispatched according to a schedule.  Each dispatch
+  identifies a DER Group and the specific monitorable parameter to be dispatched over a specific time interval.
 ancestors:
   - IdentifiedObject
 associations:
@@ -6,8 +9,7 @@ associations:
     target: EndDeviceGroup
     sourceCardinality: 0..*
     sourceName: derGroupDispatch
+    sourceDescription: An individual dispatch for a DER Group.
     targetCardinality: 0..*
     targetName: endDeviceGroup
-    targetDescription: >-
-      From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
-      EndDevices with a single command
+    targetDescription: The DER Group for which dispatches are made.

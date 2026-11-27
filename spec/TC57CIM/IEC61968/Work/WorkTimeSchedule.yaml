@@ -15,3 +15,11 @@ associations:
     targetCardinality: 0..1
     targetName: baseWork
     targetDescription: Time schedule for this work or work task.
+  - source: WorkTimeSchedule
+    target: ServiceRequest
+    sourceCardinality: 0..*
+    sourceName: workTimeSchedule
+    sourceDescription: All work time schedules associated with a service request
+    targetCardinality: 0..1
+    targetName: serviceRequest
+    targetDescription: The service request for which the work time schedule exists

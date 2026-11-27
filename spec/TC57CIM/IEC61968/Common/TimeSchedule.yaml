@@ -32,6 +32,14 @@ descendants:
   - WorkTimeSchedule
 associations:
   - source: TimeSchedule
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: timeSchedule
+    sourceDescription: All time schedules for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule for which the time schedule applies
+  - source: TimeSchedule
     target: TimePoint
     sourceCardinality: "1"
     sourceName: timeSchedule

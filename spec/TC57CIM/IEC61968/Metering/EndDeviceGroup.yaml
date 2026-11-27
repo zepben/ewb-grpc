@@ -6,11 +6,13 @@ description: >-
 attributes:
   - name: status
     type: Status
+    description: Current status information relevant to a group.
   - name: type
     type: String
     description: Type of this group.
   - name: version
     type: Version
+    description: version of this group
 ancestors:
   - IdentifiedObject
 associations:
@@ -24,41 +26,44 @@ associations:
     targetDescription: All demand response programs this group of end devices is enrolled in.
   - source: EndDeviceGroup
     target: DERFunction
+    sourceCardinality: 0..1
+    sourceName: endDeviceGroup
+    sourceDescription: The DER Group supporting the DER functions.
+    targetCardinality: 0..*
+    targetName: derFunction
+    targetDescription: The DER functions that are applied to the DER Group.
+  - source: EndDeviceGroup
+    target: DERFunction
     sourceCardinality: 0..*
     sourceName: endDeviceGroup
+    sourceDescription: The DER Group supporting the DER functions.
     targetCardinality: 0..1
     targetName: derFunction
+    targetDescription: Functions supported by the DER Group
   - source: EndDeviceGroup
     target: DERGroupDispatch
     sourceCardinality: 0..*
     sourceName: endDeviceGroup
-    sourceDescription: >-
-      From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
-      EndDevices with a single command
+    sourceDescription: The DER Group for which dispatches are made.
     targetCardinality: 0..*
     targetName: derGroupDispatch
+    targetDescription: An individual dispatch for a DER Group.
   - source: EndDeviceGroup
     target: DERGroupForecast
     sourceCardinality: 1..*
     sourceName: endDeviceGroup
-    sourceDescription: >-
-      From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
-      EndDevices with a single command
+    sourceDescription: The DER Group for which forecasts are made.
     targetCardinality: 1..*
     targetName: derGroupForecast
+    targetDescription: An individual forecast for a DER Group.
   - source: EndDeviceGroup
     target: DERMonitorableParameter
     sourceCardinality: 0..*
     sourceName: endDeviceGroup
+    sourceDescription: The DER Group having DER monitorable parameters.
     targetCardinality: 0..*
     targetName: derMonitorableParameter
-  - source: EndDeviceGroup
-    target: DispatchablePowerCapability
-    sourceCardinality: 0..1
-    sourceName: endDeviceGroup
-    sourceDescription: EndDeviceGroup is used in metering to group end devices, this same class is used to group DER
-    targetCardinality: 0..1
-    targetName: dispatchablePowerCapability
+    targetDescription: The DER monitorable parameters associated with a DER Group.
   - source: EndDeviceGroup
     target: EndDeviceControl
     sourceCardinality: 0..*
@@ -75,3 +80,11 @@ associations:
     targetCardinality: 0..*
     targetName: endDevices
     targetDescription: All end devices this end device group refers to.
+  - source: EndDeviceGroup
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: endDeviceGroup
+    sourceDescription: All end device groups for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule that applies to the end device group

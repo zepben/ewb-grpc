@@ -1,8 +1,10 @@
 name: DERGroupForecast
+description: >-
+  Specifies the forecasted values of the DERMonitorableParameters for a DER Group over a specific time interval.
 attributes:
   - name: predictionCreationDate
     type: DateTime
-    description: The timestamp for when a prediction was created
+    description: The timestamp for when the DER Group forecast was created
 ancestors:
   - IdentifiedObject
 associations:
@@ -10,8 +12,7 @@ associations:
     target: EndDeviceGroup
     sourceCardinality: 1..*
     sourceName: derGroupForecast
+    sourceDescription: An individual forecast for a DER Group.
     targetCardinality: 1..*
     targetName: endDeviceGroup
-    targetDescription: >-
-      From the metering package, this is a grouping mechanism that allows actions to be performed upon multiple
-      EndDevices with a single command
+    targetDescription: The DER Group for which forecasts are made.

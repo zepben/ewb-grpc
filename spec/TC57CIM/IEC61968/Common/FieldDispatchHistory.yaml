@@ -7,23 +7,31 @@ associations:
     target: Crew
     sourceCardinality: 0..*
     sourceName: fieldDispatchHistory
+    sourceDescription: The dispatch history associated with the crew.
     targetCardinality: 0..1
     targetName: crew
+    targetDescription: The crew that has this field dispatch history.
   - source: FieldDispatchHistory
     target: FieldDispatchStep
     sourceCardinality: "1"
     sourceName: fieldDispatchHistory
+    sourceDescription: The dispatch history associated with the field dispatch step
     targetCardinality: 0..*
     targetName: fieldDispatchStep
+    targetDescription: The field dispatch step that has the field dispatch history.
   - source: FieldDispatchHistory
     target: PlannedOutage
     sourceCardinality: 0..1
     sourceName: fieldDispatchHistory
+    sourceDescription: The dispatch history associated with the planned outage
     targetCardinality: 0..1
     targetName: plannedOutage
+    targetDescription: The planned outage that has the field dispatch history.
   - source: FieldDispatchHistory
     target: UnplannedOutage
     sourceCardinality: 0..1
     sourceName: fieldDispatchHistory
+    sourceDescription: The dispatch history associated with the unplanned outage
     targetCardinality: 0..1
     targetName: unplannedOutage
+    targetDescription: The unplanned outage that has the field dispatch history.

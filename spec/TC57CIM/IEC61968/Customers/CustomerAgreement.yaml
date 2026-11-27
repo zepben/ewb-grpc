@@ -57,6 +57,14 @@ associations:
     targetName: meterReadings
     targetDescription: (could be deprecated in the future) All meter readings for this customer agreement.
   - source: CustomerAgreement
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: customerAgreement
+    sourceDescription: All customer agreements for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule that applies to the customer agreement
+  - source: CustomerAgreement
     target: PricingStructure
     sourceCardinality: 0..*
     sourceName: customerAgreements

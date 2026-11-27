@@ -75,15 +75,18 @@ associations:
     target: Crew
     sourceCardinality: 0..*
     sourceName: outage
+    sourceDescription: The outage that is assigned to the crew.
     targetCardinality: 0..*
     targetName: crew
+    targetDescription: The crew that is assigned to the outage.
   - source: Outage
     target: UsagePoint
     sourceCardinality: 0..*
     sourceName: outage
+    sourceDescription: All outages at this Usage Point
     targetCardinality: 0..*
     targetName: deEnergizedUsagePoint
-    targetDescription: all deenergized useage points associated with the outage.
+    targetDescription: all de-energized usage points associated with the outage.
   - source: Outage
     target: UsagePoint
     sourceCardinality: 0..*
@@ -104,8 +107,10 @@ associations:
     target: EstimatedRestorationTime
     sourceCardinality: 0..*
     sourceName: outage
+    sourceDescription: The outage associated with the estimated time the power will be restored.
     targetCardinality: 0..1
     targetName: estimatedRestorationTime
+    targetDescription: The estimated time that the power will be restored after an outage
   - source: Outage
     target: Fault
     sourceCardinality: 0..1
@@ -126,14 +131,18 @@ associations:
     target: OutageArea
     sourceCardinality: 0..*
     sourceName: outage
+    sourceDescription: The outage associated with the outage area.
     targetCardinality: 0..*
     targetName: outageArea
+    targetDescription: The outage area where the outage occurred.
   - source: Outage
     target: ConductingEquipment
     sourceCardinality: 0..1
     sourceName: outage
+    sourceDescription: The outage that is isolated by the outage isolation equipment.
     targetCardinality: 0..*
     targetName: outageIsolationEquipment
+    targetDescription: The equipment that isolates this outage
   - source: Outage
     target: SwitchAction
     sourceCardinality: 0..1

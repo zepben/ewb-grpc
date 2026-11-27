@@ -35,6 +35,12 @@ associations:
     targetName: customer
     targetDescription: Customer for whom this trouble ticket is relevant.
   - source: TroubleTicket
+    target: Hazard
+    sourceCardinality: 0..1
+    sourceName: troubleTicket
+    targetCardinality: 0..*
+    targetName: hazard
+  - source: TroubleTicket
     target: Incident
     sourceCardinality: 0..*
     sourceName: troubleTickets
@@ -51,6 +57,12 @@ associations:
     targetName: incidentHazard
     targetDescription: All hazards reported with this trouble ticket.
   - source: TroubleTicket
+    target: Location
+    sourceCardinality: 0..1
+    sourceName: troubleTicket
+    targetCardinality: 0..1
+    targetName: location
+  - source: TroubleTicket
     target: CustomerNotification
     sourceCardinality: 0..*
     sourceName: troubleTickets
@@ -62,17 +74,35 @@ associations:
     target: ServiceLocation
     sourceCardinality: 0..*
     sourceName: troubleTicket
+    sourceDescription: The ticket called in by the customer that describes the trouble
     targetCardinality: "1"
     targetName: serviceLocation
+    targetDescription: The service location to which one or more trouble tickets are associated.
   - source: TroubleTicket
     target: TroubleOrder
     sourceCardinality: 0..*
     sourceName: troubleTicket
+    sourceDescription: The ticket called in by the customer that describes the trouble
     targetCardinality: 0..1
     targetName: troubleOrder
+    targetDescription: The order to which one or more trouble tickets are associated.
+  - source: TroubleTicket
+    target: TroubleReporter
+    sourceCardinality: 0..*
+    sourceName: troubleTicket
+    targetCardinality: 0..1
+    targetName: troubleReporter
+  - source: TroubleTicket
+    target: TroubleSymptoms
+    sourceCardinality: 0..1
+    sourceName: troubleTicket
+    targetCardinality: 0..1
+    targetName: troubleSymptoms
   - source: TroubleTicket
     target: UnplannedOutage
     sourceCardinality: 0..*
     sourceName: troubleTicket
+    sourceDescription: The ticket called in by the customer that describes the trouble
     targetCardinality: 0..1
     targetName: unplannedOutage
+    targetDescription: The unplanned outage to which one or more trouble tickets are associated.

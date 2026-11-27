@@ -8,11 +8,23 @@ associations:
     target: Customer
     sourceCardinality: 0..*
     sourceName: plannedOutageNotification
+    sourceDescription: The notification of the planned outage
     targetCardinality: 0..*
     targetName: customer
+    targetDescription: The customer that receives the notification
   - source: PlannedOutageNotification
     target: SwitchingPlan
     sourceCardinality: 0..1
     sourceName: plannedOutageNotification
+    sourceDescription: The planned outage notification that is associated to the switching plan.
     targetCardinality: 0..1
     targetName: switchingPlan
+    targetDescription: The switching plan that contains the planned outage notification.
+  - source: PlannedOutageNotification
+    target: UsagePoint
+    sourceCardinality: 0..*
+    sourceName: plannedOutageNotification
+    sourceDescription: The planned outage notification for the specified Usage Point.
+    targetCardinality: 0..*
+    targetName: usagePoint
+    targetDescription: The Usage Point that is specified in the planned outage notification.

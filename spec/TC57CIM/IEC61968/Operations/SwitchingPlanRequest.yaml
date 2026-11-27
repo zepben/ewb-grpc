@@ -9,6 +9,7 @@ attributes:
     description: free-form list of the equipment to be isolated by the switching
   - name: forwardSwitchingDateTimeInterval
     type: DateTimeInterval
+    description: The date when the switching to isolate equipment is performed.
   - name: groundingPoints
     type: String
     description: >-
@@ -28,10 +29,13 @@ attributes:
       The window of time during which one or more customers will be de-energized during execution of the switching plan.
   - name: purpose
     type: String
+    description: The purpose of this switching plan request.
   - name: reverseSwitchingDateTimeInterval
     type: DateTimeInterval
+    description: The date when the switching to energize equipment is performed.
   - name: switchingRequestDetails
     type: String
+    description: The details of this switching plan request.
 ancestors:
   - Document
 associations:
@@ -39,11 +43,15 @@ associations:
     target: Organisation
     sourceCardinality: 0..*
     sourceName: switchingPlanRequest
+    sourceDescription: The switching plan requested by the requesting organization
     targetCardinality: 0..1
     targetName: requestingOrganization
+    targetDescription: The organization that requested the switching plan.
   - source: SwitchingPlanRequest
     target: SwitchingPlan
     sourceCardinality: 0..1
     sourceName: switchingPlanRequest
+    sourceDescription: The request for the specified switching plan.
     targetCardinality: 0..*
     targetName: switchingPlan
+    targetDescription: The switching plan for the request.

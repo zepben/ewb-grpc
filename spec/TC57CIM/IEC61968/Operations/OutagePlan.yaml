@@ -32,8 +32,10 @@ associations:
     target: OutageOrder
     sourceCardinality: 0..1
     sourceName: outagePlan
+    sourceDescription: The outage plan that is defined to address the outage order.
     targetCardinality: 0..1
     targetName: outageOrder
+    targetDescription: The outage order that will address the outage plan.
   - source: OutagePlan
     target: PlannedOutage
     sourceCardinality: 0..1
@@ -49,4 +51,4 @@ associations:
     sourceDescription: The outage plan for which the switching plan is defined.
     targetCardinality: 0..1
     targetName: switchingPlan
-    targetDescription: The swiching plan that is associated with the outage plan.
+    targetDescription: The switching plan that is associated with the outage plan.

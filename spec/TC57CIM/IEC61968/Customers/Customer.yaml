@@ -29,9 +29,14 @@ ancestors:
 associations:
   - source: Customer
     target: Customer
+    sourceCardinality: 0..1
     sourceName: customer
+    sourceDescription: The primary customer that manages the account(s).
     targetCardinality: 0..*
     targetName: customer
+    targetDescription: >-
+      All customers related to the primary customer.  This may support customer hierarchies. (this can be used to
+      support some form of customer containment)
   - source: Customer
     target: CustomerAccount
     sourceCardinality: "1"
@@ -79,11 +84,29 @@ associations:
     targetName: outagePlan
     targetDescription: The outage plan that identifies the customers that are affected.
   - source: Customer
+    target: Person
+    sourceCardinality: 0..*
+    sourceName: customer
+    sourceDescription: The customer represented by the person
+    targetCardinality: 0..*
+    targetName: person
+    targetDescription: The person representing the customer
+  - source: Customer
     target: PlannedOutageNotification
     sourceCardinality: 0..*
     sourceName: customer
+    sourceDescription: The customer that receives the notification
     targetCardinality: 0..*
     targetName: plannedOutageNotification
+    targetDescription: The notification of the planned outage
+  - source: Customer
+    target: ServiceRequest
+    sourceCardinality: 0..1
+    sourceName: customer
+    sourceDescription: The customer making the service request
+    targetCardinality: 0..*
+    targetName: serviceRequest
+    targetDescription: All service requests for the customer
   - source: Customer
     target: TroubleTicket
     sourceCardinality: 0..1

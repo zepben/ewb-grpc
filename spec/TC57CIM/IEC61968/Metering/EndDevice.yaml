@@ -23,6 +23,7 @@ attributes:
     description: If true, this is a premises area network (PAN) device.
   - name: isSmartInverter
     type: Boolean
+    description: If true, there is a communicating inverter present.
   - name: isVirtual
     type: Boolean
     description: >-
@@ -44,13 +45,6 @@ associations:
     targetCardinality: 0..1
     targetName: customer
     targetDescription: Customer owning this end device.
-  - source: EndDevice
-    target: DispatchablePowerCapability
-    sourceCardinality: 0..1
-    sourceName: endDevice
-    sourceDescription: The generic class to support all field end devices such as meters or smart inverters
-    targetCardinality: 0..*
-    targetName: dispatchablePowerCapability
   - source: EndDevice
     target: EndDeviceControl
     sourceCardinality: 0..*
@@ -91,6 +85,14 @@ associations:
     targetCardinality: 0..1
     targetName: endDeviceInfo
     targetDescription: End device data.
+  - source: EndDevice
+    target: MeterReadSchedule
+    sourceCardinality: 0..*
+    sourceName: endDevice
+    sourceDescription: All end devices for the meter read schedule.
+    targetCardinality: 0..1
+    targetName: meterReadSchedule
+    targetDescription: Meter read schedule that applies to the end device
   - source: EndDevice
     target: ServiceLocation
     sourceCardinality: 0..*
