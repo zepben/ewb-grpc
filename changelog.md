@@ -7,7 +7,7 @@
 * None.
 
 ### Enhancements
-* None.
+* The profile manager will now make minor spelling and formatting fixes on an imported CIM model.
 
 ### Fixes
 * None.

@@ -129,12 +129,12 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
         while (assocs.next()) {
             val startId = assocs.getInt("Start_Object_ID")
             val endId = assocs.getInt("End_Object_ID")
-            val sourceCardinality = assocs.getString("SourceCard")
-            val endCardinality = assocs.getString("DestCard")
-            val sourceRole = assocs.getString("SourceRole")
-            val endRole = assocs.getString("DestRole")
-            val sourceDescription = assocs.getString("SourceRoleNote")?.fixWindowsNewLines()
-            val endDescription = assocs.getString("DestRoleNote")?.fixWindowsNewLines()
+            val sourceCardinality = assocs.getString("SourceCard")?.trim()
+            val endCardinality = assocs.getString("DestCard")?.trim()
+            val sourceRole = assocs.getString("SourceRole")?.trim()
+            val endRole = assocs.getString("DestRole")?.trim()
+            val sourceDescription = assocs.getString("SourceRoleNote")?.fixWindowsNewLines()?.trim()
+            val endDescription = assocs.getString("DestRoleNote")?.fixWindowsNewLines()?.trim()
 
             val startNode = root.getClass(startId)
             val endNode = root.getClass(endId)
@@ -147,10 +147,10 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
                 startNode.name,
                 endNode.name,
                 sourceCardinality,
-                sourceRole?.toRoleName(),
+                sourceRole,
                 sourceDescription,
                 endCardinality,
-                endRole?.toRoleName(),
+                endRole,
                 endDescription
             )
 
@@ -162,12 +162,12 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
         val attrs = db.getAttributesByObjectId(item.id)
 
         while (attrs.next()) {
-            val name = attrs.getString("Name")
-            val type = attrs.getString("Type") ?: "enum".also {
+            val name = attrs.getString("Name").trim()
+            val type = attrs.getString("Type")?.trim() ?: "enum".also {
                 if (attrs.getString("Stereotype") != "enum")
                     warn("attribute '${item.name}.$name' has no type, treating it as an enum literal.")
             }
-            val notes = attrs.getString("Notes")?.fixWindowsNewLines()
+            val notes = attrs.getString("Notes")?.fixWindowsNewLines()?.trim()
 
             val attr = Attribute(name, type, description = notes)
             item.addAttribute(attr)
@@ -186,7 +186,7 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
                 val c = Class(
                     id = classes.getInt("Object_ID"),
                     name = classes.getString("Name").trim(),
-                    description = classes.getString("Note")?.fixWindowsNewLines()
+                    description = classes.getString("Note")?.fixWindowsNewLines()?.trim()
                 )
                 item.addChild(c)
             }
@@ -211,8 +211,8 @@ class EnterpriseArchitectDatabase(inputSource: File, private val warn: (String) 
 
             val obj = db.getPackageById(childId).read()
             val element: Element = Package(
-                obj.getString("Name"),
-                obj.getString("Notes")?.fixWindowsNewLines(),
+                obj.getString("Name").trim(),
+                obj.getString("Notes")?.fixWindowsNewLines()?.trim(),
                 childId
             )
 
@@ -268,42 +268,4 @@ private fun ResultSet.read(): ResultSet {
  */
 private fun String.fixWindowsNewLines(): String {
     return trim().replace("\r\n", "\n").replace(Regex("""[ \t]+\n"""), "\n")
-}
-
-/**
- * Role names in the EA model with irregular casing that the generic acronym rule in [toRoleName] can't resolve.
- */
-private val roleNameOverrides = mapOf(
-    "DCvoltageControl" to "dcVoltageControl",
-    "HVDClookUpTable" to "hvdcLookUpTable",
-    "VSCtype1" to "vscType1",
-    "PFmode" to "pfMode",
-    "PFmodel" to "pfModel",
-    "WIndContQIEC" to "windContQIEC",
-    "PFVArControllerType1Dynamics" to "pfVArControllerType1Dynamics",
-    "PFVArControllerType1UserDefined" to "pfVArControllerType1UserDefined",
-    "PFVArControllerType2Dynamics" to "pfVArControllerType2Dynamics",
-    "PFVArControllerType2UserDefined" to "pfVArControllerType2UserDefined",
-)
-
-private val pluralAcronymSuffix = Regex("^s($|[A-Z_0-9])")
-
-/**
- * Convert a PascalCase EA role name to camelCase, treating a leading acronym as a single word,
- * e.g. `Terminals` -> `terminals`, `ACLineSegment` -> `acLineSegment`, `RTOs` -> `rtos`, `TASE2Table` -> `tase2Table`.
- */
-private fun String.toRoleName(): String {
-    roleNameOverrides[this]?.let { return it }
-
-    val runLength = takeWhile { it.isUpperCase() }.length
-    if (runLength <= 1)
-        return replaceFirstChar { it.lowercase() }
-
-    val run = substring(0, runLength)
-    val rest = substring(runLength)
-    return when {
-        rest.isEmpty() || pluralAcronymSuffix.containsMatchIn(rest) -> run.lowercase() + rest
-        rest[0].isLowerCase() -> run.dropLast(1).lowercase() + run.last() + rest
-        else -> run.lowercase() + rest
-    }
 }

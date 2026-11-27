@@ -2,6 +2,7 @@ package com.zepben.profilemanager.exporters
 
 import com.charleskorn.kaml.*
 import com.zepben.profilemanager.exporters.diagrams.model.DiagramFile
+import com.zepben.profilemanager.fixers.Fixer.Companion.fix
 import com.zepben.profilemanager.models.Class
 import com.zepben.profilemanager.models.Element
 import com.zepben.profilemanager.models.Root
@@ -60,14 +61,16 @@ class YamlFileSystem(exportLocation: File) : Exporter(exportLocation) {
     private val diagramStart = Regex("\n(?= *- path: )")
 
     private fun writeClass(node: Class, exportLocation: File) {
-        val file = exportLocation.fileInFolder(node.name, ".yaml")
-        val result = yamlEncoder.encodeToString(node.sorted())
+        val fixedNode = fix(node)
+        val file = exportLocation.fileInFolder(fixedNode.name, ".yaml")
+        val result = yamlEncoder.encodeToString(fixedNode.sorted())
         file.writeText(finishYaml(result))
     }
 
     private fun writeMetadata(node: Package, newLocation: File) {
+        val fixedNode = fix(node)
         val file = newLocation.fileInFolder("__metadata", ".yaml")
-        val result = yamlEncoder.encodeToString(node)
+        val result = yamlEncoder.encodeToString(fixedNode)
         file.writeText(finishYaml(result))
     }
 }
